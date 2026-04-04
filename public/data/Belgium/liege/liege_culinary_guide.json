@@ -1,0 +1,448 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Le Carré",
+                "cuisine_type": "Contemporary French with Belgian influences",
+                "signature_dishes": [
+                    "Liege-style game with seasonal accompaniments",
+                    "Ardennes beef with local herbs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and refined in a historic building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3 months in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "City Center",
+                "local_tips": "One of Liege's most prestigious restaurants; exceptional wine cellar specializing in Belgian and French wines; intimate dining rooms with exquisite service"
+            },
+            {
+                "name": "L'Ecailler du Palais",
+                "cuisine_type": "French/Belgian Seafood",
+                "signature_dishes": [
+                    "North Sea lobster",
+                    "Meuse River pike-perch"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated and intimate",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 3-4 weeks in advance, closed Sundays and Mondays",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Outremeuse",
+                "local_tips": "Perfect for special occasions; try the seafood tasting menu with wine pairing; excellent service with knowledgeable staff"
+            },
+            {
+                "name": "Chez Philippe",
+                "cuisine_type": "Modern Wallonian",
+                "signature_dishes": [
+                    "Ardennes ham with local cheeses",
+                    "Liege-style meatballs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Warm and welcoming with contemporary flair",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, request window table for views of the Meuse",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Guillemins",
+                "local_tips": "Showcases the best of Wallonian cuisine; exceptional use of local, seasonal ingredients; beautiful views of the Meuse River"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Aux Gaufres de Liège",
+                "cuisine_type": "Belgian specialties",
+                "signature_dishes": [
+                    "Authentic Liege waffles with pearl sugar",
+                    "Savory buckwheat waffles with local toppings"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming and traditional",
+                "best_time": "Breakfast or Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, but expect a wait during peak hours",
+                "dress_code": "Casual",
+                "location": "Historical Center",
+                "local_tips": "The definitive place to try authentic Liege waffles; family-owned for generations; watch as they make fresh waffles throughout the day"
+            },
+            {
+                "name": "Les Boulets Liégeois",
+                "cuisine_type": "Traditional Liegois",
+                "signature_dishes": [
+                    "Boulets à la Liégeoise (meatballs in sweet-sour sauce)",
+                    "Carbonade à la Liégeoise"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic and cozy",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, but arrives early for dinner rush",
+                "dress_code": "Casual",
+                "location": "Le Carré district",
+                "local_tips": "Most authentic boulets in the city; generous portions; excellent selection of local beers to accompany the meal"
+            },
+            {
+                "name": "Chez Léon",
+                "cuisine_type": "Traditional Wallonian",
+                "signature_dishes": [
+                    "Lapin à la Liégeoise (rabbit with prunes)",
+                    "Salade Liégeoise (warm potato salad with bacon)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Homey and authentic",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for dinner service",
+                "dress_code": "Casual",
+                "location": "Historic Center",
+                "local_tips": "Great place for sampling authentic Liege comfort food; generous portions; family recipes passed down generations"
+            },
+            {
+                "name": "La Maison du Peket",
+                "cuisine_type": "Belgian Pub Food",
+                "signature_dishes": [
+                    "Cheese and charcuterie boards",
+                    "Peket-infused dishes",
+                    "Traditional Liege specialties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively traditional tavern",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Walk-ins welcome but arrive early on weekends",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "Over 50 varieties of peket (local juniper gin); ask staff for peket tasting recommendations; historic building with traditional Wallonian decor"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Friterie Saint-Paul",
+                "specialties": [
+                    "Belgian fries with beef fat",
+                    "Liege-style burger",
+                    "Fricadelle"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 2:00 AM (later on weekends)",
+                "location": "Saint-Paul district",
+                "seating": "Limited",
+                "local_tips": "Best frites in Liege; try with the local 'sauce Liégeoise'; double-fried to perfection"
+            },
+            {
+                "name": "Le Petit Marcheur",
+                "specialties": [
+                    "Gaufres de Liège (Liege waffles)",
+                    "Lacquemant waffles (during fairs)",
+                    "Hot chocolate"
+                ],
+                "price_range": "€-€€",
+                "hours": "9:00 AM - 6:00 PM",
+                "location": "Sunday Market",
+                "seating": "Some outdoor seating",
+                "local_tips": "Authentic street waffles made to order; seasonal specials during holidays; perfect sweet treat while exploring the city"
+            },
+            {
+                "name": "La Cabane Verte",
+                "specialties": [
+                    "Vegetarian wraps",
+                    "Local organic salads",
+                    "Fresh juices"
+                ],
+                "price_range": "€€",
+                "hours": "10:00 AM - 5:00 PM (Mon-Fri)",
+                "location": "Guillemins area",
+                "seating": "Limited indoor seating",
+                "local_tips": "Ideal for vegetarians and vegans; using locally-sourced organic produce; excellent lunch option near the train station"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Madame Bonheur",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Single Origin Espresso",
+                    "Homemade pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, vintage-inspired café",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast and light meals",
+                "local_tips": "Liege's first specialty coffee shop; excellent locally-roasted beans; friendly staff with great recommendations"
+            },
+            {
+                "name": "Le Coffee Shop",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Filter coffee flight",
+                    "Belgian chocolate pairing"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern minimalist with warm touches",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries and small bites",
+                "local_tips": "Award-winning baristas; coffee beans available to purchase; perfect place to work or study"
+            },
+            {
+                "name": "Café Lequet",
+                "specialty": "Traditional Liege Coffee Culture",
+                "must_try": [
+                    "Café Liégeois (coffee with ice cream)",
+                    "Liege waffles"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic café with historical ambiance",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Traditional Liege pastries",
+                "local_tips": "Historic café dating back to 1900; traditional Wallonian interiors; no laptops culture encourages conversation"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Le Pot au Lait",
+                "type": "Beer Bar",
+                "specialty": "Local and Belgian Craft Beers",
+                "signature_drinks": [
+                    "Curtius (local Liege beer)",
+                    "Seasonal craft selections",
+                    "Belgian Trappist ales"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Eclectic and vibrant student favorite",
+                "best_time": "Evening",
+                "food_options": "Bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Institution for Liege's student population; regular live music; hidden garden terrace in summer"
+            },
+            {
+                "name": "Curtius Brewery",
+                "type": "Brewery",
+                "specialty": "Liege's Local Beer",
+                "signature_drinks": [
+                    "Curtius Blonde",
+                    "Curtius Triple",
+                    "Seasonal specialties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern brewery with historic influences",
+                "best_time": "Afternoon",
+                "food_options": "Cheese and charcuterie plates",
+                "reservation_needed": false,
+                "local_tips": "Liege's premier craft brewery; excellent guided tours; tasting flights available; beautiful setting in historic building"
+            },
+            {
+                "name": "Le Comptoir du Peket",
+                "type": "Traditional Spirits Bar",
+                "specialty": "Peket (local juniper gin)",
+                "signature_drinks": [
+                    "Traditional Peket",
+                    "Fruit-infused Peket varieties",
+                    "Peket cocktails"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional Wallonian tavern",
+                "best_time": "Evening",
+                "food_options": "Local cheese and meat platters",
+                "reservation_needed": false,
+                "local_tips": "Best place to sample Liege's traditional spirit; over 60 varieties of peket; knowledgeable staff offering guided tastings"
+            },
+            {
+                "name": "La Maison du Cocktail",
+                "type": "Cocktail Bar",
+                "specialty": "Craft Cocktails",
+                "signature_drinks": [
+                    "Peket-based craft cocktails",
+                    "Belgian gin creations",
+                    "Classic cocktails with local twists"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated speakeasy with intimate setting",
+                "best_time": "Evening",
+                "food_options": "Gourmet bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Liege's premier cocktail destination; expert mixologists; hidden entrance in historic building; reservations essential on weekends"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Taste of Liege Tour",
+                "focus": "Traditional Liege Specialties",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Authentic Liege waffles",
+                    "Peket tasting",
+                    "Boulets à la Liégeoise"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "French",
+                    "Dutch",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance; wear comfortable walking shoes"
+            },
+            {
+                "name": "Sweet Liege Journey",
+                "focus": "Liege Pastries and Waffles",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to artisanal waffle makers",
+                    "Chocolate tasting",
+                    "Traditional Liege sweet specialties"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "French",
+                    "Dutch"
+                ],
+                "booking_tips": "Book 1 week ahead; tours run daily except Mondays"
+            },
+            {
+                "name": "Breweries of Liege Tour",
+                "focus": "Local Beer Tradition",
+                "duration": "4 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Curtius Brewery visit",
+                    "Multiple beer tastings",
+                    "Beer-focused cuisine"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Book 1-2 weeks ahead; includes substantial beer tastings; eat before the tour"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Liege Culinary Workshop",
+                "cuisine_focus": "Traditional Liege Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Authentic Liege waffle preparation",
+                    "Boulets à la Liégeoise (meatballs in sweet-sour sauce)",
+                    "Sirop de Liège production"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "French",
+                    "Dutch"
+                ],
+                "includes": [
+                    "All ingredients, recipes, full meal with beer or wine pairing"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; classes held three times weekly"
+            },
+            {
+                "name": "Waffle Masterclass",
+                "cuisine_focus": "Liege Waffle Artistry",
+                "duration": "2.5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Authentic Liege waffle dough preparation",
+                    "Pearl sugar incorporation techniques",
+                    "Traditional and modern toppings"
+                ],
+                "group_size": "Max 6 participants",
+                "languages": [
+                    "English",
+                    "French",
+                    "Dutch"
+                ],
+                "includes": [
+                    "Premium ingredients, take-home waffle iron, recipe booklet"
+                ],
+                "booking_tips": "Book 2 weeks ahead; suitable for beginners and intermediate skill levels"
+            }
+        ],
+        "markets": [
+            {
+                "name": "La Batte Market",
+                "type": "Weekly Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local cheeses",
+                    "Ardennes specialties",
+                    "Artisanal products"
+                ],
+                "hours": "Every Sunday, 8 AM - 2 PM",
+                "best_time": "Morning",
+                "location": "Along the Meuse River",
+                "local_tips": "One of the oldest and largest markets in Belgium; arrive early for the best selection; extends along the Meuse River; excellent for local specialties"
+            },
+            {
+                "name": "Marché du Cadran",
+                "type": "Covered Market",
+                "highlights": [
+                    "Gourmet food stalls",
+                    "Local delicacies",
+                    "Fresh seafood",
+                    "Prepared foods"
+                ],
+                "hours": "Tuesday to Saturday, 8 AM - 6 PM",
+                "best_time": "Late morning",
+                "location": "City Center",
+                "local_tips": "Excellent covered market with high-quality vendors; great for lunch at one of several small eateries; specialty Wallonian products"
+            },
+            {
+                "name": "Marché Bio de Liège",
+                "type": "Organic Market",
+                "highlights": [
+                    "Organic produce",
+                    "Sustainable products",
+                    "Artisanal breads",
+                    "Local organic meats"
+                ],
+                "hours": "Every Friday, 12 PM - 7 PM",
+                "best_time": "Afternoon",
+                "location": "Place Xavier Neujean",
+                "local_tips": "Best organic and sustainable products in Liege; emphasis on local producers; many vendors offer samples; friendly atmosphere"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White asparagus with Liege-style sauce",
+            "Fresh trout from the Ardennes with spring herbs",
+            "Rhubarb tart with local produce"
+        ],
+        "summer": [
+            "Salade Liégeoise (warm potato salad with green beans and bacon)",
+            "Fresh river fish with seasonal vegetables",
+            "Summer berries with Liege waffle"
+        ],
+        "autumn": [
+            "Game dishes with Sirop de Liège (local pear syrup)",
+            "Pumpkin soup with Herve cheese (local specialty)",
+            "Liege waffles with spiced pear compote"
+        ],
+        "winter": [
+            "Boulets à la Liégeoise (meatballs in sweet-sour sauce)",
+            "Lapin à la Liégeoise (rabbit with prunes and beer)",
+            "Gaufres de Noël (Christmas waffles with seasonal spices)"
+        ]
+    }
+}

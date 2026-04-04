@@ -1,0 +1,449 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Chambre Séparée",
+                "cuisine_type": "Contemporary European with local influences",
+                "signature_dishes": [
+                    "Seasonal multi-course experience",
+                    "Open-fire cooking"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Intimate open kitchen with counter seating focused on wood-fired cooking",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 months in advance, especially for weekend dining",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Patershol",
+                "local_tips": "Chef Kobe Desramaults' unique dining experience with just 16 counter seats; focuses on local ingredients and pure flavors; evening progresses through multiple courses; known for its innovative approach"
+            },
+            {
+                "name": "Vrijmoed",
+                "cuisine_type": "Modern Belgian",
+                "signature_dishes": [
+                    "Vegetable-forward tasting menu",
+                    "North Sea fish creations"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and refined with minimalist décor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 4-6 weeks in advance, closed Sundays and Mondays",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "City Center",
+                "local_tips": "Chef Michael Vrijmoed previously worked at In de Wulf; known for vegetable-focused cuisine with exceptional flavor combinations; offers both regular and vegetarian tasting menus; excellent wine pairings"
+            },
+            {
+                "name": "OAK",
+                "cuisine_type": "Contemporary fusion",
+                "signature_dishes": [
+                    "Seasonal tasting menu",
+                    "Local seafood compositions"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated with warm wooden elements",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, closed Sundays and Mondays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Arts Quarter",
+                "local_tips": "Stylish restaurant with excellent service; focuses on high-quality ingredients with creative presentations; offers 5 or 7-course tasting menus; beautiful interior design with natural elements"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Otomat",
+                "cuisine_type": "Craft beer pizzeria",
+                "signature_dishes": [
+                    "Sourdough pizzas with Belgian beer in the dough",
+                    "Seasonal special pizzas"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern and vibrant",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Reservations recommended for weekends, walk-ins usually accommodated",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "Innovative concept using Belgian beer in the pizza dough; great beer pairings with each pizza; family-friendly atmosphere with good vegetarian options"
+            },
+            {
+                "name": "Lokaal",
+                "cuisine_type": "Farm-to-table Belgian",
+                "signature_dishes": [
+                    "Seasonal stews",
+                    "Local cheese plates",
+                    "Flemish classics with modern twist"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic-chic with communal tables",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, but arrives early for lunch rush",
+                "dress_code": "Casual",
+                "location": "Patershol",
+                "local_tips": "All ingredients sourced within 150km of Ghent; menu changes frequently based on seasonal availability; excellent local beers and natural wines; committed to sustainable practices"
+            },
+            {
+                "name": "Publiek",
+                "cuisine_type": "Modern Belgian",
+                "signature_dishes": [
+                    "Beef tartare with seasonal accompaniments",
+                    "Fresh fish with local vegetables"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Contemporary bistro style",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations needed especially for weekends",
+                "dress_code": "Smart casual",
+                "location": "Arts Quarter",
+                "local_tips": "Excellent value lunch menu; relaxed atmosphere with serious food; former Michelin-starred chef cooking more accessible dishes; beautiful plating and presentation"
+            },
+            {
+                "name": "Brasserie Ha'",
+                "cuisine_type": "Belgian-French",
+                "signature_dishes": [
+                    "Flemish stew with beer",
+                    "Seasonal fish specialties",
+                    "Classic Belgian brasserie fare"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional brasserie with contemporary touches",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for dinner service",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "Consistent quality and service; popular with locals; excellent beer selection; traditional dishes executed perfectly; good place to try authentic Flemish cuisine"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "De Frietketel",
+                "specialties": [
+                    "Organic Belgian fries",
+                    "Vegetarian snacks",
+                    "Huge variety of sauces"
+                ],
+                "price_range": "€",
+                "hours": "11:30 AM - 7:00 PM (closed Sundays)",
+                "location": "Student District",
+                "seating": "Limited outdoor seating",
+                "local_tips": "Popular with students and locals alike; offers many vegetarian and vegan options; try the samurai sauce or curry ketchup; authentic twice-fried Belgian fries"
+            },
+            {
+                "name": "Julie's House",
+                "specialties": [
+                    "Artisanal cakes",
+                    "Quiches",
+                    "Pastries"
+                ],
+                "price_range": "€€",
+                "hours": "10:00 AM - 6:00 PM (closed Mondays and Tuesdays)",
+                "location": "Historic Center",
+                "seating": "Limited indoor seating",
+                "local_tips": "Perfect for afternoon treats; beautiful homemade cakes; try the seasonal specials; lovely interior design; takeaway available for picnics along the canals"
+            },
+            {
+                "name": "Holy Food Market",
+                "specialties": [
+                    "Multiple food stalls",
+                    "International cuisine",
+                    "Craft cocktails"
+                ],
+                "price_range": "€€",
+                "hours": "11:00 AM - 10:00 PM (later on weekends)",
+                "location": "City Center",
+                "seating": "Communal tables in converted chapel",
+                "local_tips": "Located in a former chapel with stunning architecture; great for groups who want different food options; lively atmosphere especially on weekends; try the dim sum and local craft beers"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Mokabon",
+                "specialty": "Traditional Coffee",
+                "must_try": [
+                    "House blend coffee",
+                    "Homemade pastries"
+                ],
+                "price_range": "€",
+                "atmosphere": "Classic Belgian coffee house with vintage charm",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Pastries and light snacks",
+                "local_tips": "Ghent's oldest coffee house in operation since 1937; coffee beans roasted in-house; authentic old-world atmosphere; no laptops policy encourages conversation"
+            },
+            {
+                "name": "Barista",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Single-origin pour-over",
+                    "Artisanal pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist and bright with Scandinavian influences",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light lunches and baked goods",
+                "local_tips": "Award-winning baristas; excellent brew methods; friendly staff happy to explain different coffee origins; good spot for digital nomads"
+            },
+            {
+                "name": "OR Coffee Bar",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Espresso tonic",
+                    "Homemade granola"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial chic with plants and natural light",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast and light lunch options",
+                "local_tips": "Coffee roasted in small batches; excellent brunch options; knowledgeable staff; beans available for purchase; popular with locals and tourists alike"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Het Waterhuis aan de Bierkant",
+                "type": "Traditional Beer Café",
+                "specialty": "Belgian Ales and Lambics",
+                "signature_drinks": [
+                    "Gandavum Dry Hopping",
+                    "Local Trappist beers",
+                    "House gueuze blend"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic brown café with canalside terrace",
+                "best_time": "Evening",
+                "food_options": "Cheese plates and traditional bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Beautiful location alongside the canal; over 170 Belgian beers; very knowledgeable staff; great outdoor seating in summer; try their house beer 'Gandavum'"
+            },
+            {
+                "name": "Gruut Stadsbrouwerij",
+                "type": "Brewery",
+                "specialty": "Herb-based beers (gruit)",
+                "signature_drinks": [
+                    "Gruut White",
+                    "Gruut Amber",
+                    "Gruut Brown"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern brewery with industrial touches",
+                "best_time": "Afternoon",
+                "food_options": "Brewery snacks and sharing plates",
+                "reservation_needed": false,
+                "local_tips": "Ghent's local brewery using herbs instead of hops in traditional medieval style; brewery tours available; tasting flights recommended; good for understanding Belgian beer diversity"
+            },
+            {
+                "name": "Jigger's",
+                "type": "Cocktail Bar",
+                "specialty": "Craft Cocktails",
+                "signature_drinks": [
+                    "Seasonal cocktail menu",
+                    "Classic cocktails with Belgian twists",
+                    "House infusions"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Speakeasy style with intimate lighting",
+                "best_time": "Evening",
+                "food_options": "Small plates",
+                "reservation_needed": true,
+                "local_tips": "Hidden entrance adds to the speakeasy atmosphere; extremely knowledgeable bartenders; each cocktail prepared with precision; reservations strongly recommended for weekends"
+            },
+            {
+                "name": "Hot Club de Gand",
+                "type": "Jazz Bar",
+                "specialty": "Belgian beers and cocktails with live jazz",
+                "signature_drinks": [
+                    "Classic cocktails",
+                    "Local craft beers",
+                    "Whiskey selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy vintage jazz club with live music",
+                "best_time": "Late evening",
+                "food_options": "Limited bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Authentic jazz club atmosphere; regular live performances by local and international musicians; historic venue in operation since 1981; intimate setting perfect for music lovers"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Ghent Veggie Tour",
+                "focus": "Vegetarian and Vegan Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Plant-based local specialties",
+                    "Vegetarian history of Ghent",
+                    "Sustainable food practices"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Dutch",
+                    "French"
+                ],
+                "booking_tips": "Book at least a week in advance; showcases why Ghent is Europe's vegetarian capital; includes tastings at multiple locations"
+            },
+            {
+                "name": "Beer & Chocolate Experience",
+                "focus": "Belgian Beer and Chocolate",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Artisanal chocolate tasting",
+                    "Craft beer sampling",
+                    "History of Belgian brewing traditions"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Dutch",
+                    "French",
+                    "German"
+                ],
+                "booking_tips": "Book 1 week ahead; includes 6 beer tastings and visits to chocolate artisans; comfortable shoes recommended"
+            },
+            {
+                "name": "Ghent Gourmet Walking Tour",
+                "focus": "Traditional Flemish Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Local delicacies",
+                    "Historical food traditions",
+                    "Hidden foodie spots"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "booking_tips": "Book 1-2 weeks ahead; come hungry as it includes multiple tastings; covers historical center and less touristy neighborhoods"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Flemish Classics Workshop",
+                "cuisine_focus": "Traditional Ghent Specialties",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Waterzooi (Ghent fish stew)",
+                    "Stoverij (Flemish beef stew with beer)",
+                    "Gentse mokken (traditional cookies)"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Dutch",
+                    "French"
+                ],
+                "includes": [
+                    "All ingredients, recipes, full meal with beer pairing"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; classes held twice weekly; includes history of Ghent's culinary traditions"
+            },
+            {
+                "name": "Vegetarian Mastery",
+                "cuisine_focus": "Plant-based Flemish Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Plant-based Ghent specialties",
+                    "Creative vegetable preparations",
+                    "Meat substitutes in traditional dishes"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Dutch",
+                    "French"
+                ],
+                "includes": [
+                    "Organic ingredients, take-home recipes, full vegetarian meal with drink pairings"
+                ],
+                "booking_tips": "Book 2 weeks ahead; highlights Ghent's reputation as Europe's vegetarian capital; suitable for all skill levels"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Vrijdagmarkt",
+                "type": "Weekly Market",
+                "highlights": [
+                    "Fresh local produce",
+                    "Flemish cheeses",
+                    "Regional specialties",
+                    "Flowers and plants"
+                ],
+                "hours": "Every Friday and Saturday, 7 AM - 1 PM",
+                "best_time": "Morning",
+                "location": "Vrijdagmarkt Square",
+                "local_tips": "Ghent's oldest and most famous market; excellent place for people-watching; surrounding cafés perfect for breakfast before shopping; best prices in the last hour"
+            },
+            {
+                "name": "Groentenmarkt",
+                "type": "Daily Food Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local cheeses",
+                    "Traditional mustard shop",
+                    "Specialty food stores"
+                ],
+                "hours": "Monday to Saturday, 7 AM - 6 PM",
+                "best_time": "Mid-morning",
+                "location": "Groentenmarkt Square",
+                "local_tips": "Don't miss the historic Tierenteyn-Verlent mustard shop in operation since 1790; great place to assemble picnic supplies; smaller but more authentic than larger markets"
+            },
+            {
+                "name": "Bij Sint-Jacobs",
+                "type": "Flea Market and Food Stalls",
+                "highlights": [
+                    "Antiques and vintage items",
+                    "Local street food",
+                    "Artisanal products",
+                    "Organic produce"
+                ],
+                "hours": "Every Sunday, 8 AM - 1 PM",
+                "best_time": "Early morning",
+                "location": "Sint-Jacobs Square",
+                "local_tips": "Popular weekend activity for locals; great mix of food and non-food items; lively atmosphere with street performers; surrounding cafés perfect for Sunday brunch after shopping"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White asparagus in Flemish style with clarified butter",
+            "Seasonal rhubarb desserts",
+            "Fresh herb salads with local goat cheese"
+        ],
+        "summer": [
+            "Ghent Festivities (Gentse Feesten) street food in July",
+            "Waterzooi made with fresh summer vegetables",
+            "Seasonal berries with Belgian waffles"
+        ],
+        "autumn": [
+            "Gentse zoute bollekes (traditional salt cookies)",
+            "Wild game with local mushrooms",
+            "Pumpkin and beer soup"
+        ],
+        "winter": [
+            "Carbonnades flamandes (beef stew with Gruut beer)",
+            "Speculoos desserts and pastries",
+            "Hutsepot (winter vegetable and meat stew)"
+        ]
+    }
+}

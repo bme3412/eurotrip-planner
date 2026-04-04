@@ -1,0 +1,489 @@
+{
+    "destinations": [
+        {
+            "city": "Graz",
+            "country": "Austria",
+            "whyGo": "Austria's second-largest city offers a vibrant cultural scene and beautiful historic architecture.",
+            "directWithinCountryTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "2 hours 30 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Salzburg",
+            "country": "Austria",
+            "whyGo": "Famous for its baroque architecture and as the birthplace of Mozart.",
+            "directWithinCountryTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "2 hours 25 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Linz",
+            "country": "Austria",
+            "whyGo": "A dynamic city blending contemporary art with a rich history.",
+            "directWithinCountryTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "1 hour 15 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Innsbruck",
+            "country": "Austria",
+            "whyGo": "A picturesque city surrounded by the Alps, perfect for winter sports and hiking.",
+            "directWithinCountryTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "4 hours 15 minutes",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "St. Pölten",
+            "country": "Austria",
+            "whyGo": "A charming city with a rich architectural heritage and vibrant cultural life.",
+            "directWithinCountryTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "30 minutes",
+                "frequency": "Half-hourly"
+            }
+        },
+        {
+            "city": "Bratislava",
+            "country": "Slovakia",
+            "whyGo": "The capital city, known for its medieval old town and lively cultural scene.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "1 hour",
+                "frequency": "Hourly"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "Not applicable (prefer train)"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Known for its stunning architecture and the scenic Danube River.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "2 hours 40 minutes",
+                "frequency": "Hourly"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "4 times daily"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "A vibrant city known for its beer gardens and rich Bavarian culture.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "4 hours",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "5 times daily"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "A city famed for its well-preserved medieval architecture and vibrant cultural life.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "4 hours 30 minutes",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "4 times daily"
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "A unique city built on water, known for its canals and stunning architecture.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "7 hours (with one transfer)",
+                "frequency": "4 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "3 times daily"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "A global financial hub with a picturesque old town and vibrant cultural life.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "7 hours (with one transfer)",
+                "frequency": "5 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "5 times daily"
+            }
+        },
+        {
+            "city": "Ljubljana",
+            "country": "Slovenia",
+            "whyGo": "Known for its green spaces and a lively cultural scene.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "6 hours (with one transfer)",
+                "frequency": "4 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "Zagreb",
+            "country": "Croatia",
+            "whyGo": "The capital city, known for its historic architecture and vibrant street life.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "6 hours (with one transfer)",
+                "frequency": "3 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Italy's fashion and design capital, known for its cultural attractions.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "10 hours (with one transfer)",
+                "frequency": "3 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "4 times daily"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "Known for its futuristic skyline and as a major financial center.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "6 hours 30 minutes (with one transfer)",
+                "frequency": "Hourly"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "5 times daily"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "A city with a rich history, vibrant cultural life, and impressive architecture.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "7 hours 30 minutes (with one transfer)",
+                "frequency": "3 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour 25 minutes",
+                "frequency": "4 times daily"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Germany's capital, known for its history, culture, and vibrant nightlife.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "8 hours (with one transfer)",
+                "frequency": "Hourly"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour 10 minutes",
+                "frequency": "6 times daily"
+            }
+        },
+        {
+            "city": "Brno",
+            "country": "Czech Republic",
+            "whyGo": "Known for its modernist architecture and vibrant university life.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "1 hour 30 minutes",
+                "frequency": "Hourly"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "Not applicable (prefer train)"
+            }
+        },
+        {
+            "city": "Dresden",
+            "country": "Germany",
+            "whyGo": "Famous for its reconstructed old town and art museums.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "6 hours (with one transfer)",
+                "frequency": "4 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "Not applicable (prefer train)"
+            }
+        },
+        {
+            "city": "Krakow",
+            "country": "Poland",
+            "whyGo": "Known for its well-preserved medieval core and Jewish quarter.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "7 hours 30 minutes (with one transfer)",
+                "frequency": "2 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour 10 minutes",
+                "frequency": "3 times daily"
+            }
+        },
+        {
+            "city": "Stuttgart",
+            "country": "Germany",
+            "whyGo": "Famous for its automotive industry and cultural offerings.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "6 hours 30 minutes (with one transfer)",
+                "frequency": "3 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "3 times daily"
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "A cosmopolitan city known for its Red Cross headquarters and UN office.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "11 hours (with one transfer)",
+                "frequency": "2 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "3 times daily"
+            }
+        },
+        {
+            "city": "Venlo",
+            "country": "Netherlands",
+            "whyGo": "A charming Dutch town with a rich history and beautiful natural surroundings.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "10 hours (with one transfer)",
+                "frequency": "2 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "Not applicable (prefer train)"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "The heart of the European Union, known for its cuisine and historic architecture.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "10 hours (with one transfer)",
+                "frequency": "2 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "3 times daily"
+            }
+        },
+        {
+            "city": "Graz",
+            "country": "Austria",
+            "whyGo": "Austria's second-largest city offers a vibrant cultural scene and beautiful historic architecture.",
+            "directWithinCountryTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "2 hours 30 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Florence",
+            "country": "Italy",
+            "whyGo": "A Renaissance city renowned for its art and architecture.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "14 hours (with one transfer)",
+                "frequency": "2 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour 40 minutes",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "Bucharest",
+            "country": "Romania",
+            "whyGo": "A city blending history and modernity, known for its Belle Époque buildings.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "19 hours (with one transfer)",
+                "frequency": "1 time daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour 40 minutes",
+                "frequency": "3 times daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Known for its artistic heritage, elaborate canal system, and narrow houses.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "10 hours (with one transfer)",
+                "frequency": "2 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "1 hour 50 minutes",
+                "frequency": "3 times daily"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "Norway's capital, known for its green spaces and museums.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "22 hours (with multiple transfers)",
+                "frequency": "1 time daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "2 hours 10 minutes",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "Helsinki",
+            "country": "Finland",
+            "whyGo": "Known for its design district and beautiful archipelago.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "36 hours (with multiple transfers)",
+                "frequency": "1 time daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "2 hours 30 minutes",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Portugal's hilly, coastal capital city known for its cafe culture and soulful Fado music.",
+            "intraEuropeTrain": {
+                "stationInVienna": "Wien Hauptbahnhof",
+                "journeyTime": "32 hours (with multiple transfers)",
+                "frequency": "1 time daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInVienna": [
+                    "Vienna International Airport"
+                ],
+                "approxFlightTime": "3 hours 15 minutes",
+                "frequency": "2 times daily"
+            }
+        }
+    ]
+}

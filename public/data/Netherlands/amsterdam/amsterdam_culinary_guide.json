@@ -1,0 +1,644 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "De Kas",
+                "cuisine_type": "Local",
+                "signature_dishes": [
+                    "Beetroot carpaccio",
+                    "Zucchini flowers stuffed with ricotta"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Chic and serene, with a greenhouse setting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least 2 weeks in advance, especially for weekends",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Watergraafsmeer",
+                "local_tips": "Request a seat near the garden for a more immersive experience"
+            },
+            {
+                "name": "Ciel Bleu",
+                "cuisine_type": "French",
+                "signature_dishes": [
+                    "Lobster with caviar",
+                    "Wagyu beef"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant with panoramic city views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve a month in advance for window seats",
+                "dress_code": "Formal",
+                "michelin_stars": 2,
+                "location": "Amsterdam Zuid",
+                "local_tips": "Try their wine pairing for a complete experience"
+            },
+            {
+                "name": "Restaurant Vinkeles",
+                "cuisine_type": "French",
+                "signature_dishes": [
+                    "Langoustine with miso",
+                    "Duck breast"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Historic and intimate, set in an 18th-century bakery",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3-4 weeks ahead, especially for weekends",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "The Nine Streets",
+                "local_tips": "Ask for the chef's special menu for a surprise"
+            },
+            {
+                "name": "Spectrum",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Foie gras with apple",
+                    "Sea bass with artichoke"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Contemporary and artistic",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 3 weeks in advance",
+                "dress_code": "Smart casual",
+                "michelin_stars": 2,
+                "location": "Central Amsterdam",
+                "local_tips": "Opt for their tasting menu to experience the chef's creativity"
+            },
+            {
+                "name": "Librije's Zusje",
+                "cuisine_type": "Dutch",
+                "signature_dishes": [
+                    "Veal tartare",
+                    "North Sea crab"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Luxurious with a relaxed vibe",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few weeks ahead, ask for a table by the window",
+                "dress_code": "Smart casual",
+                "michelin_stars": 2,
+                "location": "Waldorf Astoria, Amsterdam",
+                "local_tips": "Don't miss their unique dessert offerings"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Foodhallen",
+                "cuisine_type": "Various",
+                "signature_dishes": [
+                    "Bitterballen from De Ballenbar",
+                    "Vietnamese spring rolls"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vibrant indoor food market",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to secure seating",
+                "dress_code": "Casual",
+                "location": "Oud-West",
+                "local_tips": "Great place for groups, sample a bit from each stall"
+            },
+            {
+                "name": "Café de Klos",
+                "cuisine_type": "Dutch",
+                "signature_dishes": [
+                    "Spare ribs",
+                    "Grilled chicken"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic and cozy",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid long waits",
+                "dress_code": "Casual",
+                "location": "Central Amsterdam",
+                "local_tips": "Try their garlic sauce, it's a local favorite"
+            },
+            {
+                "name": "Moeders",
+                "cuisine_type": "Dutch",
+                "signature_dishes": [
+                    "Stamppot",
+                    "Hutspot"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Homely and nostalgic",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days ahead for weekends",
+                "dress_code": "Casual",
+                "location": "Jordaan",
+                "local_tips": "Bring a photo of your mother to add to their collection"
+            },
+            {
+                "name": "Brouwerij 't IJ",
+                "cuisine_type": "Dutch",
+                "signature_dishes": [
+                    "Cheese platter",
+                    "Dutch sausages"
+                ],
+                "price_range": "€",
+                "atmosphere": "Lively brewery with a windmill setting",
+                "best_time": "Afternoon",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, but arrive early for outdoor seating",
+                "dress_code": "Casual",
+                "location": "Oost",
+                "local_tips": "Try their seasonal beers, which change frequently"
+            },
+            {
+                "name": "The Avocado Show",
+                "cuisine_type": "Contemporary",
+                "signature_dishes": [
+                    "Avo Garden",
+                    "The Bun Burger"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Trendy and modern",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Walk in, but expect a wait during peak times",
+                "dress_code": "Casual",
+                "location": "De Pijp",
+                "local_tips": "Perfect for Instagram-worthy shots"
+            },
+            {
+                "name": "Bakers & Roasters",
+                "cuisine_type": "New Zealand/Brazilian",
+                "signature_dishes": [
+                    "Huevos Rancheros",
+                    "Banana Bread French Toast"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright and bustling",
+                "best_time": "Brunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid long brunch lines",
+                "dress_code": "Casual",
+                "location": "De Pijp",
+                "local_tips": "Perfect spot for a hearty breakfast or brunch"
+            },
+            {
+                "name": "Pompstation",
+                "cuisine_type": "Steakhouse",
+                "signature_dishes": [
+                    "Ribeye steak",
+                    "Beef tartare"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Industrial chic with live music",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve a week in advance for live music nights",
+                "dress_code": "Casual",
+                "location": "Zeeburg",
+                "local_tips": "Check their live music schedule before booking"
+            },
+            {
+                "name": "Café Loetje",
+                "cuisine_type": "Dutch",
+                "signature_dishes": [
+                    "Biefstuk Bali",
+                    "Dutch fries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Relaxed and traditional",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, but turnover is quick",
+                "dress_code": "Casual",
+                "location": "Multiple locations",
+                "local_tips": "Their steak is legendary, don't skip it"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "FEBO",
+                "specialties": [
+                    "Kroket",
+                    "Frikandel"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 2:00 AM",
+                "location": "Multiple locations",
+                "seating": false,
+                "local_tips": "Perfect for a quick, late-night snack; try the automats"
+            },
+            {
+                "name": "Vlaamse Frites",
+                "specialties": [
+                    "Thick-cut fries",
+                    "Mayonnaise"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 10:00 PM",
+                "location": "Voetboogstraat",
+                "seating": false,
+                "local_tips": "Go for the classic mayo topping, a Dutch favorite"
+            },
+            {
+                "name": "Original Stroopwafels",
+                "specialties": [
+                    "Fresh stroopwafels"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 5:00 PM",
+                "location": "Albert Cuyp Market",
+                "seating": false,
+                "local_tips": "Best enjoyed warm; watch them being made fresh"
+            },
+            {
+                "name": "Haringhandel Jonk",
+                "specialties": [
+                    "Haring",
+                    "Kibbeling"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 6:00 PM",
+                "location": "Central Station",
+                "seating": false,
+                "local_tips": "Try the herring with onions and pickles for an authentic taste"
+            },
+            {
+                "name": "Poffertjes Albert Cuyp",
+                "specialties": [
+                    "Poffertjes"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 5:00 PM",
+                "location": "Albert Cuyp Market",
+                "seating": true,
+                "local_tips": "Best enjoyed with powdered sugar and butter"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café 't Smalle",
+                "specialty": "Traditional Dutch coffee",
+                "must_try": [
+                    "Apple pie",
+                    "Cappuccino"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming and historic canal-side",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Light snacks and pastries",
+                "local_tips": "Sit outside by the canal for a scenic view"
+            },
+            {
+                "name": "Dignita Hoftuin",
+                "specialty": "Brunch and coffee",
+                "must_try": [
+                    "Eggs Benedict",
+                    "Flat white"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Tranquil garden setting",
+                "best_time": "Brunch",
+                "wifi_friendly": true,
+                "food_options": "Extensive brunch menu with vegetarian options",
+                "local_tips": "Perfect for a peaceful start to your day"
+            },
+            {
+                "name": "Back to Black",
+                "specialty": "Locally roasted coffee",
+                "must_try": [
+                    "Espresso",
+                    "Banana bread"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and artistic",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Homemade cakes and pastries",
+                "local_tips": "Ideal for working or reading, with great coffee"
+            },
+            {
+                "name": "Scandinavian Embassy",
+                "specialty": "Nordic coffee and pastries",
+                "must_try": [
+                    "Cinnamon bun",
+                    "Filter coffee"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist and stylish",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Scandinavian pastries and light meals",
+                "local_tips": "Perfect spot for coffee enthusiasts"
+            },
+            {
+                "name": "De Koffieschenkerij",
+                "specialty": "Artisanal coffee",
+                "must_try": [
+                    "Latte",
+                    "Carrot cake"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic and cozy, located in an old church",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Homemade cakes and light snacks",
+                "local_tips": "Explore the church's history while sipping your coffee"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Wynand Fockink",
+                "type": "Traditional Dutch",
+                "specialty": "Jenever and liqueurs",
+                "signature_drinks": [
+                    "Jenever",
+                    "Fruit liqueurs"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic and intimate",
+                "best_time": "Evening",
+                "food_options": "No food options",
+                "reservation_needed": false,
+                "local_tips": "Join a tasting session to discover different jenevers"
+            },
+            {
+                "name": "Hiding in Plain Sight",
+                "type": "Cocktail bar",
+                "specialty": "Craft cocktails",
+                "signature_drinks": [
+                    "Old Fashioned",
+                    "Espresso Martini"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Speakeasy and stylish",
+                "best_time": "Night",
+                "food_options": "Limited bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Book a table in advance; the entrance is discreet"
+            },
+            {
+                "name": "Brouwerij Troost",
+                "type": "Brewery pub",
+                "specialty": "Craft beers",
+                "signature_drinks": [
+                    "Blonde Ale",
+                    "IPA"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively and casual",
+                "best_time": "Evening",
+                "food_options": "Burgers and pub fare",
+                "reservation_needed": false,
+                "local_tips": "Check out their seasonal beer selections"
+            },
+            {
+                "name": "Tales & Spirits",
+                "type": "Cocktail bar",
+                "specialty": "Innovative cocktails",
+                "signature_drinks": [
+                    "Penicillin",
+                    "Smoked Negroni"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Chic and eclectic",
+                "best_time": "Night",
+                "food_options": "Small plates and snacks",
+                "reservation_needed": true,
+                "local_tips": "Ask the bartender for recommendations based on your taste"
+            },
+            {
+                "name": "Proeflokaal Arendsnest",
+                "type": "Beer bar",
+                "specialty": "Dutch beers",
+                "signature_drinks": [
+                    "Local craft beers",
+                    "Beer flights"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm and inviting",
+                "best_time": "Evening",
+                "food_options": "Dutch cheese and sausage platters",
+                "reservation_needed": false,
+                "local_tips": "Try a beer tasting to sample a variety of local brews"
+            },
+            {
+                "name": "Vesper Bar",
+                "type": "Cocktail bar",
+                "specialty": "Classic cocktails",
+                "signature_drinks": [
+                    "Vesper Martini",
+                    "Moscow Mule"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated and intimate",
+                "best_time": "Night",
+                "food_options": "N/A",
+                "reservation_needed": true,
+                "local_tips": "Ideal for a quiet evening with expertly crafted cocktails"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Amsterdam Food Tours",
+                "focus": "Local Dutch cuisine",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Cheese tasting",
+                    "Poffertjes sampling",
+                    "Herring experience"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "booking_tips": "Book online a week in advance to secure your spot"
+            },
+            {
+                "name": "Hungry Birds Food Tour",
+                "focus": "Street food and hidden gems",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Local markets",
+                    "Street food stalls",
+                    "Traditional snacks"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Check their calendar for availability and book early"
+            },
+            {
+                "name": "Secret Food Tours Amsterdam",
+                "focus": "Cultural and culinary history",
+                "duration": "3.5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Dutch pancakes",
+                    "Craft beer tasting",
+                    "Local desserts"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Ideal to book 2 weeks in advance, as spaces fill quickly"
+            },
+            {
+                "name": "Eating Europe Food Tours",
+                "focus": "Jordaan neighborhood",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Artisanal cheese",
+                    "Local herring",
+                    "Authentic coffee houses"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Book ahead to ensure availability for your preferred date"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Cooking Workshop Amsterdam",
+                "cuisine_focus": "Dutch cuisine",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Stamppot",
+                    "Appeltaart",
+                    "Dutch pancake"
+                ],
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "Dutch"
+                ],
+                "includes": [
+                    "Ingredients, recipes, and meal"
+                ],
+                "booking_tips": "Reserve a spot online, especially for weekends"
+            },
+            {
+                "name": "Culinary Workshop by La Cuisine Française",
+                "cuisine_focus": "French cuisine with a Dutch twist",
+                "duration": "3.5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Coq au vin",
+                    "Soufflé",
+                    "Tarte Tatin"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "includes": [
+                    "All ingredients, printed recipes, and meal"
+                ],
+                "booking_tips": "Book a few weeks in advance, as classes fill up fast"
+            },
+            {
+                "name": "Vegan Cooking Class Amsterdam",
+                "cuisine_focus": "Plant-based cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Vegan cheese",
+                    "Plant-based desserts",
+                    "Seasonal dishes"
+                ],
+                "group_size": "12",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Ingredients, recipes, and meal"
+                ],
+                "booking_tips": "Perfect for vegans and non-vegans looking to explore plant-based cooking"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Albert Cuyp Market",
+                "type": "Outdoor street market",
+                "highlights": [
+                    "Fresh stroopwafels",
+                    "Herring stalls",
+                    "Cheese vendors"
+                ],
+                "hours": "9:00 AM - 5:00 PM",
+                "best_time": "Morning",
+                "location": "De Pijp",
+                "local_tips": "Visit early to avoid crowds and enjoy fresh produce"
+            },
+            {
+                "name": "Noordermarkt",
+                "type": "Farmers market",
+                "highlights": [
+                    "Organic vegetables",
+                    "Artisanal breads",
+                    "Local cheeses"
+                ],
+                "hours": "9:00 AM - 3:00 PM, Saturdays",
+                "best_time": "Morning",
+                "location": "Jordaan",
+                "local_tips": "Combine your visit with a stroll through the Jordaan district"
+            },
+            {
+                "name": "Dappermarkt",
+                "type": "Multicultural market",
+                "highlights": [
+                    "Surinamese snacks",
+                    "Turkish pastries",
+                    "Fresh produce"
+                ],
+                "hours": "9:00 AM - 5:00 PM, Monday to Saturday",
+                "best_time": "Afternoon",
+                "location": "Oost",
+                "local_tips": "Great place to discover international foods and local bargains"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Asparagus with hollandaise",
+            "Rhubarb tart",
+            "Spring pea soup"
+        ],
+        "summer": [
+            "Haring with onions",
+            "Strawberry tompouce",
+            "Chilled gazpacho"
+        ],
+        "autumn": [
+            "Pumpkin soup",
+            "Wild mushroom risotto",
+            "Chestnut cake"
+        ],
+        "winter": [
+            "Oliebollen",
+            "Erwtensoep (pea soup)",
+            "Glühwein"
+        ]
+    }
+}

@@ -1,0 +1,315 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Falco",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Duck Breast with Local Mushrooms",
+                    "Saxony Venison with Red Cabbage"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Contemporary dining room with panoramic city views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Westin Leipzig",
+                "local_tips": "One of Leipzig's most prestigious restaurants; excellent wine list featuring local Saxon wines; beautiful terrace for summer dining"
+            },
+            {
+                "name": "Stadtpfeiffer",
+                "cuisine_type": "Modern German",
+                "signature_dishes": [
+                    "Saxony Lamb with Spring Vegetables",
+                    "Local Pike with Herbs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant dining room in historic Gewandhaus",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 2 weeks in advance",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Gewandhaus",
+                "local_tips": "Historic location; excellent service; perfect for special occasions"
+            },
+            {
+                "name": "Villa Keller",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Beef Wellington with Local Mushrooms",
+                    "Sea Bass with Seasonal Vegetables"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic villa with modern interior",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, closed Mondays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Gohlis",
+                "local_tips": "Beautiful historic setting; excellent wine selection; romantic atmosphere"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Auerbachs Keller",
+                "cuisine_type": "Traditional Saxon",
+                "signature_dishes": [
+                    "Leipziger Allerlei",
+                    "Sächsischer Sauerbraten",
+                    "Quarkkeulchen"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic restaurant with traditional wooden interior",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended, especially for dinner",
+                "dress_code": "Casual",
+                "location": "Mädler Passage",
+                "local_tips": "Historic restaurant mentioned in Goethe's Faust; excellent local wine selection; traditional atmosphere"
+            },
+            {
+                "name": "Zum Arabischen Coffe Baum",
+                "cuisine_type": "Traditional Saxon",
+                "signature_dishes": [
+                    "Leipziger Lerchen",
+                    "Sächsische Kartoffelsuppe",
+                    "Bierschinken"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic coffee house with traditional charm",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for dinner",
+                "dress_code": "Casual",
+                "location": "Kleine Fleischergasse",
+                "local_tips": "One of Europe's oldest coffee houses; traditional Saxon dishes; historic atmosphere"
+            },
+            {
+                "name": "Bayerischer Bahnhof",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Sausage Platter",
+                    "Schnitzel",
+                    "Pretzels"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic railway station turned brewery",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations essential for dinner",
+                "dress_code": "Casual",
+                "location": "Bayerischer Bahnhof",
+                "local_tips": "Historic location; house-brewed beer; lively atmosphere"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Leipziger Markt",
+                "specialties": [
+                    "Local Specialties",
+                    "Fresh Produce",
+                    "Regional Delicacies"
+                ],
+                "price_range": "€-€€",
+                "hours": "7:00 AM - 6:00 PM (Monday-Saturday)",
+                "location": "Marktplatz",
+                "seating": "Limited",
+                "local_tips": "Historic market square; great variety of fresh food and local specialties"
+            },
+            {
+                "name": "Döner Kebab am Markt",
+                "specialties": [
+                    "Döner Kebab",
+                    "Falafel",
+                    "Turkish Specialties"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 8:00 PM",
+                "location": "Marktplatz",
+                "seating": "Limited",
+                "local_tips": "Popular local street food spot; great for quick bites"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Riquet",
+                "specialty": "Traditional Coffee House",
+                "must_try": [
+                    "House-made Cakes",
+                    "Traditional Coffee"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic café with Art Nouveau interior",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Breakfast, cakes, and light meals",
+                "local_tips": "Historic café in beautiful location; excellent pastries"
+            },
+            {
+                "name": "Café Luise",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Single Origin Coffee",
+                    "Artisanal Pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist café",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast and light meals",
+                "local_tips": "Best specialty coffee in Leipzig; great for working"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Weinstube Lehmann",
+                "type": "Traditional Wine Bar",
+                "specialty": "Local Wines",
+                "signature_drinks": [
+                    "Saxon Wines",
+                    "Regional Specialties",
+                    "Local Spirits"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic wine tavern",
+                "best_time": "Evening",
+                "food_options": "Traditional Saxon snacks",
+                "reservation_needed": true,
+                "local_tips": "Excellent selection of local wines; authentic atmosphere"
+            },
+            {
+                "name": "Gosenschenke Ohne Bedenken",
+                "type": "Traditional Beer Hall",
+                "specialty": "Gose Beer",
+                "signature_drinks": [
+                    "Traditional Gose",
+                    "Seasonal Specialties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic beer hall",
+                "best_time": "Evening",
+                "food_options": "Traditional German cuisine",
+                "reservation_needed": false,
+                "local_tips": "Historic Gose brewery; traditional atmosphere; local favorite"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Leipzig Beer Tour",
+                "focus": "Local Beer Culture and Breweries",
+                "duration": "4 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to historic breweries",
+                    "Beer tastings",
+                    "Local food pairings"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance; comfortable walking shoes required"
+            },
+            {
+                "name": "Saxon Cuisine Tour",
+                "focus": "Traditional Local Dishes",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to historic restaurants",
+                    "Traditional tastings",
+                    "Local food history"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book 1 week ahead; tours run daily except Sundays"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Saxon Cooking Workshop",
+                "cuisine_focus": "Traditional Saxon Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Leipziger Allerlei preparation",
+                    "Traditional sauces",
+                    "Local specialties"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "All ingredients, recipes, full meal with wine"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; classes held weekly"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Leipziger Markt",
+                "type": "Daily Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local specialties",
+                    "Regional delicacies"
+                ],
+                "hours": "7:00 AM - 6:00 PM (Monday-Saturday)",
+                "best_time": "Morning",
+                "location": "Marktplatz",
+                "local_tips": "Historic market square; excellent selection of local products"
+            },
+            {
+                "name": "Bauernmarkt",
+                "type": "Weekly Market",
+                "highlights": [
+                    "Local produce",
+                    "Regional specialties",
+                    "Fresh flowers"
+                ],
+                "hours": "7:00 AM - 1:00 PM (Saturdays)",
+                "best_time": "Early morning",
+                "location": "Augustusplatz",
+                "local_tips": "Traditional weekly market; great for fresh local produce"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White Asparagus with Hollandaise",
+            "Fresh Herbs and Wild Garlic",
+            "Spring Lamb with Local Vegetables"
+        ],
+        "summer": [
+            "Fresh Berries from Local Gardens",
+            "Grilled Local Fish",
+            "Beer Garden Specialties"
+        ],
+        "autumn": [
+            "Wild Game from Local Forests",
+            "Zwiebelkuchen with Federweisser",
+            "Fresh Mushrooms"
+        ],
+        "winter": [
+            "Christmas Market Specialties",
+            "Glühwein and Punch",
+            "Traditional Saxon Winter Dishes"
+        ]
+    }
+} 

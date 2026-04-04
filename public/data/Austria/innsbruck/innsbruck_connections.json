@@ -1,0 +1,79 @@
+{
+    "destinations": [
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Historical architecture and cultural events",
+            "directWithinCountryTrain": {
+                "originPointName": "Innsbruck Central Station",
+                "journeyTime": "4 hours",
+                "frequency": "Multiple times daily"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Bavarian culture and Oktoberfest",
+            "intraEuropeTrain": {
+                "originPointName": "Innsbruck Central Station",
+                "journeyTime": "1.5 hours",
+                "frequency": "Multiple times daily"
+            },
+            "intraEuropeBus": {
+                 "originPointName": "Innsbruck Bus Terminal",
+                 "journeyTime": "2 hours",
+                 "frequency": "Multiple times daily"
+             }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Scenic beauty and financial hub",
+            "intraEuropeTrain": {
+                "originPointName": "Innsbruck Central Station",
+                "journeyTime": "3.5 hours",
+                "frequency": "Multiple times daily"
+            }
+        },
+        {
+            "city": "Salzburg",
+            "country": "Austria",
+            "whyGo": "Birthplace of Mozart and stunning alpine scenery",
+            "directWithinCountryTrain": {
+                "originPointName": "Innsbruck Central Station",
+                "journeyTime": "1.5 hours",
+                "frequency": "Multiple times daily"
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "Romantic canals and historic architecture",
+            "intraEuropeTrain": {
+                "originPointName": "Innsbruck Central Station",
+                "journeyTime": "4 hours",
+                "frequency": "Multiple times daily"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Fashion capital and historic landmarks",
+            "intraEuropeTrain": {
+                "originPointName": "Innsbruck Central Station",
+                "journeyTime": "4 hours",
+                "frequency": "Multiple times daily"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "Financial hub and cultural attractions",
+            "intraEuropeFlight": {
+                "originAirports": ["Innsbruck Airport"],
+                "approxFlightTime": "1.5 hours",
+                "frequency": "Multiple flights daily"
+            }
+        }
+    ]
+}

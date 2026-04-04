@@ -1,0 +1,437 @@
+{
+    "destinations": [
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Spain's vibrant capital, known for its rich culture and history.",
+            "directWithinCountryTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "2h 30m",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Valencia",
+            "country": "Spain",
+            "whyGo": "A vibrant city known for its futuristic structures and sandy beaches.",
+            "directWithinCountryTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "3h 15m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Zaragoza",
+            "country": "Spain",
+            "whyGo": "Famous for its stunning Basilica and historic architecture.",
+            "directWithinCountryTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "1h 30m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Girona",
+            "country": "Spain",
+            "whyGo": "A charming city with medieval architecture and vibrant culture.",
+            "directWithinCountryTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "38m",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Tarragona",
+            "country": "Spain",
+            "whyGo": "Known for its Roman ruins and stunning Mediterranean coastline.",
+            "directWithinCountryTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "1h 15m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Lleida",
+            "country": "Spain",
+            "whyGo": "Offers a blend of modern and historical attractions.",
+            "directWithinCountryTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "1h 5m",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Figueres",
+            "country": "Spain",
+            "whyGo": "Home to the Dalí Theatre-Museum, a must-visit for art lovers.",
+            "directWithinCountryTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "55m",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Perpignan",
+            "country": "France",
+            "whyGo": "A French city with a Catalan twist, rich in history and culture.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "1h 20m",
+                "frequency": "4 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "N/A",
+                "frequency": "N/A"
+            }
+        },
+        {
+            "city": "Lyon",
+            "country": "France",
+            "whyGo": "A gastronomic capital with beautiful Renaissance architecture.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "5h",
+                "frequency": "2 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "1h 25m",
+                "frequency": "4-5 times daily"
+            }
+        },
+        {
+            "city": "Marseille",
+            "country": "France",
+            "whyGo": "A port city known for its maritime history and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "4h 40m",
+                "frequency": "2 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "1h 10m",
+                "frequency": "3 times daily"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The romantic capital, famous for its art, fashion, and monuments.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "6h 15m",
+                "frequency": "2 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "1h 55m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Toulouse",
+            "country": "France",
+            "whyGo": "Known as 'La Ville Rose' for its pink terracotta buildings.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "3h 10m",
+                "frequency": "2 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "1h 10m",
+                "frequency": "3-4 times daily"
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "A global city known for its Red Cross headquarters and UN offices.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "6h 5m",
+                "frequency": "1 time daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "1h 35m",
+                "frequency": "4-5 times daily"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Italy’s fashion and design capital, rich in art and culture.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "7h 30m",
+                "frequency": "N/A"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "1h 45m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City, known for its ancient ruins and vibrant culture.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "12h",
+                "frequency": "N/A"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "1h 55m",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "A coastal city known for its hilly, picturesque streets and vibrant culture.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "12h 30m",
+                "frequency": "N/A"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "1h 55m",
+                "frequency": "4-5 times daily"
+            }
+        },
+        {
+            "city": "Porto",
+            "country": "Portugal",
+            "whyGo": "Famed for its port wine production and stunning Douro River views.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "14h 30m",
+                "frequency": "N/A"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "1h 50m",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Known for its beautiful architecture and annual Oktoberfest.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "13h",
+                "frequency": "N/A"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "2h 5m",
+                "frequency": "3 times daily"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Germany's vibrant capital, known for its art scene and modern landmarks.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "20h",
+                "frequency": "N/A"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "2h 45m",
+                "frequency": "3 times daily"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "The heart of European politics, renowned for its historic architecture.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "8h 30m",
+                "frequency": "N/A"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "2h 10m",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Known for its artistic heritage and elaborate canal system.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "12h",
+                "frequency": "N/A"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "2h 20m",
+                "frequency": "3-4 times daily"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "A global center for banking and finance, known for its picturesque lakeside setting.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "10h",
+                "frequency": "N/A"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "1h 50m",
+                "frequency": "3-4 times daily"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Austria's capital, known for its artistic and intellectual legacy.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "20h",
+                "frequency": "N/A"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "2h 20m",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Known for its Old Town Square and colorful baroque buildings.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "21h",
+                "frequency": "N/A"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "2h 30m",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A global city famous for its history, culture, and iconic landmarks.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "12h",
+                "frequency": "N/A"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "2h 15m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Nice",
+            "country": "France",
+            "whyGo": "A glamorous city on the French Riviera, known for its stunning coastline.",
+            "intraEuropeTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "5h 30m",
+                "frequency": "1 time daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInBarcelona": [
+                    "Barcelona El Prat Airport"
+                ],
+                "approxFlightTime": "1h 15m",
+                "frequency": "1-2 times daily"
+            }
+        },
+        {
+            "city": "Bilbao",
+            "country": "Spain",
+            "whyGo": "Known for the striking architecture of the Guggenheim Museum.",
+            "directWithinCountryTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "6h 30m",
+                "frequency": "1 time daily"
+            }
+        },
+        {
+            "city": "Seville",
+            "country": "Spain",
+            "whyGo": "Famous for its flamenco dancing and stunning Gothic cathedral.",
+            "directWithinCountryTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "5h 30m",
+                "frequency": "3 times daily"
+            }
+        },
+        {
+            "city": "Alicante",
+            "country": "Spain",
+            "whyGo": "A picturesque coastal city known for its beaches and vibrant nightlife.",
+            "directWithinCountryTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "4h 30m",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "Malaga",
+            "country": "Spain",
+            "whyGo": "A vibrant city on the Costa del Sol, known for its beaches and museums.",
+            "directWithinCountryTrain": {
+                "stationInBarcelona": "Barcelona Sants",
+                "journeyTime": "5h 50m",
+                "frequency": "2 times daily"
+            }
+        }
+    ]
+}

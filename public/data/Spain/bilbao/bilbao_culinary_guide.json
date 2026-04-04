@@ -1,0 +1,636 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Azurmendi",
+                "cuisine_type": "Contemporary Basque",
+                "signature_dishes": [
+                    "Truffled Egg Yolk with Carbonated Herb Consommé",
+                    "Roasted Lobster with Wild Herb Infusion"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Stunning eco-sustainable glass pavilion surrounded by countryside with gardens and greenhouse",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 months in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 3,
+                "location": "Larrabetzu (outside Bilbao)",
+                "local_tips": "Chef Eneko Atxa's dining experience begins with a tour through different spaces; request the kitchen tour option"
+            },
+            {
+                "name": "Nerua",
+                "cuisine_type": "Avant-garde Basque",
+                "signature_dishes": [
+                    "Garden of Vegetables with Local Herbs",
+                    "Red Mullet with Liver Sauce"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Minimalist, elegant dining room within the Guggenheim Museum with views of the Nervión River",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 1 month in advance, closed Monday and Sunday evening",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Guggenheim Museum",
+                "local_tips": "Chef Josean Alija focuses on purity of flavors; their seasonally changing tasting menu offers the best experience"
+            },
+            {
+                "name": "Etxanobe Atelier",
+                "cuisine_type": "Creative Basque",
+                "signature_dishes": [
+                    "Sea Urchin with Cauliflower and Truffle",
+                    "Kokotxas (Hake Throat) with Clams"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated dining space with contemporary art and open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3-4 weeks in advance, closed Sunday and Monday",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Ensanche",
+                "local_tips": "Chef Fernando Canales combines traditional Basque ingredients with modern techniques; their cheese selection is outstanding"
+            },
+            {
+                "name": "Mina",
+                "cuisine_type": "Modern Basque",
+                "signature_dishes": [
+                    "Oyster with Cucumber and Gin",
+                    "Aged Beef with Smoked Eggplant"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate, converted warehouse with industrial elements and open kitchen counter seating",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 3-4 weeks ahead, request counter seats for kitchen views",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Casco Viejo",
+                "local_tips": "Chefs Álvaro Garrido and Lara Martín offer creative tasting menus that change constantly; wine pairings showcase small Spanish producers"
+            },
+            {
+                "name": "Zortziko",
+                "cuisine_type": "Classic Basque-French",
+                "signature_dishes": [
+                    "Foie Gras with Caramelized Apples",
+                    "Hake with Kokotxas in Green Sauce"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant belle époque dining room in a historic building with classical décor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2 weeks ahead, closed Sunday evening and Monday",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Indautxu",
+                "local_tips": "Chef Daniel García is a master of traditional Basque haute cuisine; excellent for business dinners with the menu ejecutivo"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "La Viña del Ensanche",
+                "cuisine_type": "Traditional Basque",
+                "signature_dishes": [
+                    "Jamón Ibérico de Bellota",
+                    "Anchovies in Olive Oil"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic Basque tavern with marble bar, hanging hams, and lively ambiance",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book for sit-down meals; bar area accepts walk-ins for pintxos",
+                "dress_code": "Casual",
+                "location": "Ensanche",
+                "local_tips": "Over 100 years old; famous for their hand-carved jamón and extensive Spanish wine selection"
+            },
+            {
+                "name": "Gure Toki",
+                "cuisine_type": "Modern Pintxos",
+                "signature_dishes": [
+                    "Foie with Apple and Pedro Ximénez Reduction",
+                    "Cod Brandade with Pepper Confit"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary tavern in historic square with outdoor seating",
+                "best_time": "Evening",
+                "reservation_needed": false,
+                "booking_tips": "No reservations for bar; arrive early evenings to avoid crowds",
+                "dress_code": "Casual",
+                "location": "Plaza Nueva, Casco Viejo",
+                "local_tips": "Award-winning creative pintxos; order hot pintxos from the menu rather than just selecting from the bar"
+            },
+            {
+                "name": "Bascook",
+                "cuisine_type": "Basque-International Fusion",
+                "signature_dishes": [
+                    "Steak Tartare with Chimichurri",
+                    "Octopus with Sweet Potato and Kimchi"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic restaurant in former warehouse with contemporary design",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, especially for weekends",
+                "dress_code": "Casual",
+                "location": "Abandoibarra",
+                "local_tips": "Chef Aitor Elizegi creates globally-influenced Basque cuisine; daily menú del día offers excellent value for high-quality cooking"
+            },
+            {
+                "name": "El Perro Chico",
+                "cuisine_type": "Updated Basque",
+                "signature_dishes": [
+                    "Slow-cooked Egg with Mushrooms and Truffle",
+                    "Bacalao al Pilpil (Cod in Garlic-Olive Oil Emulsion)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy tavern with rustic-modern décor in historic building",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book for lunch; dinner usually accommodates walk-ins",
+                "dress_code": "Casual",
+                "location": "Casco Viejo",
+                "local_tips": "Named after the historic narrow street it's located on; good mix of traditional and modern Basque cuisine"
+            },
+            {
+                "name": "Momatxo",
+                "cuisine_type": "Market-Driven Basque",
+                "signature_dishes": [
+                    "Daily Changing Market Fish",
+                    "Seasonal Vegetable Plates"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, modern bistro with open kitchen and minimalist design",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; weekends get busy",
+                "dress_code": "Casual",
+                "location": "Deusto",
+                "local_tips": "Off the tourist path with fantastic daily market menu based on what was fresh that morning"
+            },
+            {
+                "name": "Zarate",
+                "cuisine_type": "Seafood-Focused Basque",
+                "signature_dishes": [
+                    "Grilled Turbot with Refrito",
+                    "Spider Crab Ravioli"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern, understated dining room with focus on the food",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for weekend lunches at least a week ahead",
+                "dress_code": "Smart casual",
+                "location": "Indautxu",
+                "local_tips": "Chef Sergio Ortiz de Zarate is a master with seafood; fish is cooked in front of diners on a wood-fired grill"
+            },
+            {
+                "name": "Bistró Guggenheim",
+                "cuisine_type": "Modern European-Basque",
+                "signature_dishes": [
+                    "Risotto with Idiazabal Cheese",
+                    "Duck Confit with Caramelized Fruits"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Sleek, design-forward space within the iconic museum",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for lunch after museum visit; special entry package available",
+                "dress_code": "Smart casual",
+                "location": "Guggenheim Museum",
+                "local_tips": "More casual alternative to Nerua in the same building; perfect for lunch after visiting the museum"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Mercado de la Ribera Pintxo Bars",
+                "specialties": [
+                    "Gilda (Olive, Pepper, Anchovy Skewer)",
+                    "Tortilla de Bacalao (Cod Omelette)"
+                ],
+                "price_range": "€",
+                "hours": "9:00 AM - 9:00 PM",
+                "location": "Mercado de la Ribera",
+                "seating": "Limited",
+                "local_tips": "Europe's largest covered market houses several pintxo bars; try traditional Gildas, named after Rita Hayworth's character"
+            },
+            {
+                "name": "Casco Viejo Pintxo Crawl",
+                "specialties": [
+                    "Wide variety of pintxos (Basque tapas)",
+                    "Regional wines and cider"
+                ],
+                "price_range": "€",
+                "hours": "12:00 PM - 3:00 PM, 7:00 PM - 11:00 PM",
+                "location": "Casco Viejo",
+                "seating": "Varies by bar",
+                "local_tips": "Thursday evening is 'pintxo-pote' night when many bars offer a pintxo and drink at reduced prices"
+            },
+            {
+                "name": "El Globo",
+                "specialties": [
+                    "Churros with Chocolate",
+                    "Artisanal Ice Cream"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - 9:00 PM",
+                "location": "Plaza Nueva",
+                "seating": "Limited",
+                "local_tips": "Historic churro establishment; locals come after dinner for late-night churros con chocolate"
+            },
+            {
+                "name": "Café Iruña",
+                "specialties": [
+                    "Classic Pintxos",
+                    "Basque Sandwiches"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - 11:00 PM",
+                "location": "Jardines de Albia",
+                "seating": true,
+                "local_tips": "Historic café with Moorish-influenced décor; their bocadillo de tortilla (Spanish omelette sandwich) is perfect for a quick lunch"
+            },
+            {
+                "name": "La Campa de los Ingleses Market",
+                "specialties": [
+                    "Food Trucks with International Cuisine",
+                    "Craft Beer and Local Wines"
+                ],
+                "price_range": "€€",
+                "hours": "Weekends 12:00 PM - 10:00 PM (seasonal)",
+                "location": "Abandoibarra",
+                "seating": "Outdoor",
+                "local_tips": "Rotating weekend food market with varied international options; great riverside setting next to the Guggenheim"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "La Marzocco Café",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Single Origin Espresso",
+                    "Flat White"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary, minimalist café with focus on coffee quality",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Artisanal pastries and light breakfast items",
+                "local_tips": "The pioneer of specialty coffee in Bilbao; baristas compete internationally"
+            },
+            {
+                "name": "Bihotz Café",
+                "specialty": "Coffee & Craft Beer",
+                "must_try": [
+                    "Nitro Cold Brew",
+                    "Pour-Over Coffee"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic-industrial space with vintage elements and local art",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Homemade cakes and savory toasts",
+                "local_tips": "Transforms from café to craft beer bar in the evening; hosts coffee cupping sessions monthly"
+            },
+            {
+                "name": "Mami Lou",
+                "specialty": "French-Basque Café",
+                "must_try": [
+                    "Basque-Style Hot Chocolate",
+                    "Croissants and Pain au Chocolat"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, French-inspired café with vintage furnishings",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Full breakfast menu and French pastries",
+                "local_tips": "All pastries made in-house; great for traditional European breakfast"
+            },
+            {
+                "name": "El Cafetín",
+                "specialty": "Traditional Spanish Café",
+                "must_try": [
+                    "Café con Leche",
+                    "Tortilla de Patatas"
+                ],
+                "price_range": "€",
+                "atmosphere": "Classic Spanish café with traditional décor and local clientele",
+                "best_time": "Any time",
+                "wifi_friendly": false,
+                "food_options": "Traditional Spanish breakfast and pintxos",
+                "local_tips": "Where locals start their day; excellent traditional breakfast with tomato toast and olive oil"
+            },
+            {
+                "name": "Cafetería Sainz",
+                "specialty": "Pastries & Coffee",
+                "must_try": [
+                    "Carolinas (Meringue-Topped Pastry)",
+                    "Cortado"
+                ],
+                "price_range": "€",
+                "atmosphere": "Traditional Bilbao café with marble tables and classic ambiance",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Full selection of traditional Basque pastries",
+                "local_tips": "Family-owned since 1962; famous for traditional Bilbao pastries like Carolinas and Rusos"
+            }
+        ],
+        "bars": [
+            {
+                "name": "El Txikito",
+                "type": "Traditional Basque Bar",
+                "specialty": "Txakoli Wine and Cider",
+                "signature_drinks": [
+                    "Txakoli (slightly sparkling white wine)",
+                    "Sagardoa (Basque cider)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic Basque tavern with long bar filled with pintxos and lively ambiance",
+                "best_time": "Evening",
+                "food_options": "Traditional pintxos",
+                "reservation_needed": false,
+                "local_tips": "Watch the theatrical pouring of txakoli wine from height to create aeration; pair with anchovies"
+            },
+            {
+                "name": "La Viña del Ensanche",
+                "type": "Wine Bar",
+                "specialty": "Spanish Wines",
+                "signature_drinks": [
+                    "Rioja Reserva",
+                    "Ribera del Duero"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic tavern with walls lined with bottles and hanging hams",
+                "best_time": "Night",
+                "food_options": "Premium ibérico ham and aged cheeses",
+                "reservation_needed": false,
+                "local_tips": "Over 200 Spanish wines available; the house vermouth on tap is exceptional"
+            },
+            {
+                "name": "Singular",
+                "type": "Cocktail Bar",
+                "specialty": "Craft Cocktails",
+                "signature_drinks": [
+                    "Bilbao Sour (Patxaran-based twist on whiskey sour)",
+                    "Barrel-Aged Negroni"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated cocktail bar with art deco elements and intimate lighting",
+                "best_time": "Late Night",
+                "food_options": "Gourmet bar snacks",
+                "reservation_needed": true,
+                "local_tips": "The mixologists create Basque-inspired cocktails using local ingredients like patxaran (sloe liqueur)"
+            },
+            {
+                "name": "Residence",
+                "type": "Rooftop Bar",
+                "specialty": "Gin & Tonics",
+                "signature_drinks": [
+                    "Premium G&T Selection",
+                    "Basque Craft Beers"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern rooftop terrace with panoramic city views",
+                "best_time": "Sunset",
+                "food_options": "Small plates menu",
+                "reservation_needed": true,
+                "local_tips": "The best sunset views in Bilbao; each gin & tonic is served with specific botanicals and premium tonics"
+            },
+            {
+                "name": "Pub Lamiak",
+                "type": "Craft Beer Bar",
+                "specialty": "Local and International Craft Beer",
+                "signature_drinks": [
+                    "Basque Craft Beers",
+                    "Curated International Beer Selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Laid-back beer bar with rustic elements and friendly ambiance",
+                "best_time": "Evening",
+                "food_options": "Beer snacks and pintxos",
+                "reservation_needed": false,
+                "local_tips": "Named after mythological Basque creatures; offers the best selection of local craft beers in Bilbao"
+            },
+            {
+                "name": "Café Iruña",
+                "type": "Historic Café-Bar",
+                "specialty": "Classic Cocktails and Vermouth",
+                "signature_drinks": [
+                    "House Vermouth on Tap",
+                    "Classic Gin Fizz"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Stunning Moorish-inspired historic café with ornate tiles and vintage charm",
+                "best_time": "Afternoon",
+                "food_options": "Traditional pintxos and sandwiches",
+                "reservation_needed": false,
+                "local_tips": "Operating since 1903 with largely unchanged décor; the afternoon vermouth hour is a Bilbao tradition"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Pintxos Crawl in Casco Viejo",
+                "focus": "Traditional Basque Pintxos",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Guided tour of Old Town's best pintxo bars",
+                    "Tasting of 8-10 signature pintxos",
+                    "Introduction to txakoli wine and cider pouring"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Spanish",
+                    "French"
+                ],
+                "booking_tips": "Book at least a week in advance; tours explain the culture and etiquette of pintxo dining"
+            },
+            {
+                "name": "Mercado de la Ribera Gastro Tour",
+                "focus": "Local Market and Products",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Guided tour of Europe's largest covered market",
+                    "Meet local vendors and producers",
+                    "Tasting of Basque cheeses, charcuterie, and wines"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Morning tours recommended when market is most active; comfortable shoes suggested"
+            },
+            {
+                "name": "Rioja Alavesa Wine Region Day Trip",
+                "focus": "Basque Wine Country",
+                "duration": "8 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visits to traditional and modern wineries",
+                    "Vineyard tours and cellar tastings",
+                    "Traditional Riojan lunch at a bodega"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Book 10-14 days ahead; includes transportation from Bilbao to nearby wine region"
+            },
+            {
+                "name": "Basque Cider House Experience",
+                "focus": "Traditional Cider Culture",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit to traditional sagardotegi (cider house)",
+                    "Learn about cider production process",
+                    "Traditional cider house menu with cider poured from large barrels"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Seasonal (January-April is traditional cider season); includes transportation to nearby cider region"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Basque Pintxos Workshop",
+                "cuisine_focus": "Traditional and Modern Pintxos",
+                "duration": "3.5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "5-6 Different Pintxo Preparations",
+                    "Gilda (Traditional Anchovy, Olive, Pepper Pintxo)",
+                    "Modern Interpretations of Classic Recipes"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "includes": [
+                    "All ingredients, recipes, pintxo lunch with wine"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; takes place in a professional teaching kitchen"
+            },
+            {
+                "name": "Bacalao al Pil Pil Masterclass",
+                "cuisine_focus": "Traditional Basque Seafood",
+                "duration": "4 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Traditional Salt Cod Preparation",
+                    "Creating the Perfect Pil Pil Sauce Emulsion",
+                    "Classic Basque Seafood Techniques"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "includes": [
+                    "All ingredients, recipe booklet, full meal with wine pairings"
+                ],
+                "booking_tips": "Book at least 10 days in advance; focuses on the iconic Basque cod preparation"
+            },
+            {
+                "name": "Basque Desserts & Pastries Class",
+                "cuisine_focus": "Traditional Sweets",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Pantxineta (Almond Cream Pastry)",
+                    "Goxua (Layered Cream Dessert)",
+                    "Txigorki (Basque Butter Cookies)"
+                ],
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Spanish",
+                    "French"
+                ],
+                "includes": [
+                    "All materials, recipes, dessert sampling with coffee and digestifs"
+                ],
+                "booking_tips": "Book 1 week ahead; suitable for all skill levels"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercado de la Ribera",
+                "type": "Indoor Food Market",
+                "highlights": [
+                    "Europe's largest covered market",
+                    "Fresh seafood, produce, meats, and cheeses",
+                    "Pintxo bars and restaurants on ground floor"
+                ],
+                "hours": "Monday to Friday 8:00 AM - 2:30 PM and 5:00 PM - 7:00 PM, Saturday 8:00 AM - 3:00 PM",
+                "best_time": "Weekday mornings",
+                "location": "Riverside, Casco Viejo",
+                "local_tips": "The fish section is particularly impressive; ground floor restaurants serve the same fresh products found upstairs"
+            },
+            {
+                "name": "Mercado del Ensanche",
+                "type": "Gourmet Food Hall",
+                "highlights": [
+                    "Upscale indoor market with premium products",
+                    "Gourmet delicatessen items",
+                    "Wine shop and pintxo bars"
+                ],
+                "hours": "Monday to Friday 9:00 AM - 8:00 PM, Saturday 9:00 AM - 3:00 PM",
+                "best_time": "Afternoon",
+                "location": "Ensanche District",
+                "local_tips": "More upscale than La Ribera with specialty and imported products; good place to find souvenirs like premium olive oils and wines"
+            },
+            {
+                "name": "Sunday Rastro Market",
+                "type": "Outdoor Market with Food Stalls",
+                "highlights": [
+                    "Traditional Basque street food",
+                    "Artisanal food producers",
+                    "Antiques and crafts"
+                ],
+                "hours": "Sunday 10:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Plaza Nueva",
+                "local_tips": "Beyond food, offers antiques and collectibles; surrounded by pintxo bars for post-shopping refreshment"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Fresh Anchovies in Vinegar (Boquerones)",
+            "White Asparagus from Navarra",
+            "Spring Lamb (Cordero lechal)"
+        ],
+        "summer": [
+            "Marmitako (Basque Tuna and Potato Stew)",
+            "Tomato Salad with Bonito Tuna",
+            "Txakoli Wine from Getaria"
+        ],
+        "autumn": [
+            "Wild Mushrooms (Especially Porcini and Chanterelles)",
+            "Alubias de Tolosa (Black Bean Stew)",
+            "New Season Idiazabal Cheese"
+        ],
+        "winter": [
+            "Bacalao al Pil Pil (Salt Cod with Garlic Sauce)",
+            "Txipirones en su Tinta (Squid in Ink Sauce)",
+            "Traditional Sagardotegi (Cider House) Menu"
+        ]
+    }
+}

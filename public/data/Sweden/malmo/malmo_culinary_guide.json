@@ -1,0 +1,422 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Vollmers",
+                "cuisine_type": "Modern Scandinavian/Skåne Regional",
+                "signature_dishes": [
+                    "Tasting menus (5 or 8 courses) focused on seasonal Skåne ingredients, local terroir and traditional techniques."
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Intimate, elegant with refined Nordic design",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance; specify dietary requirements when booking; wine pairings available",
+                "dress_code": "Smart Casual",
+                "michelin_stars": 2,
+                "location": "Near Stortorget",
+                "local_tips": "Known for its elegant interpretation of Skåne cuisine with the region's best ingredients. Run by the Vollmer brothers, this is Malmö's most acclaimed fine dining experience."
+            },
+            {
+                "name": "Bloom in the Park",
+                "cuisine_type": "Modern European/Nordic Fusion",
+                "signature_dishes": [
+                    "Surprise tasting menu featuring creative dishes based on seasonal availability",
+                    "No menu is provided – dining experience is based on trust and chef's creativity"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated yet relaxed, set in a beautiful park location",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book ahead, especially for weekends; share dietary preferences but prepare for surprises",
+                "dress_code": "Smart Casual",
+                "michelin_stars": 1,
+                "location": "Pildammsparken",
+                "local_tips": "Known for its 'no menu' concept where dishes are completely up to the chef's inspiration; exciting dining experience for the adventurous."
+            },
+            {
+                "name": "Ambiance à Vindåkra",
+                "cuisine_type": "French-Swedish Fusion",
+                "signature_dishes": [
+                    "Tasting menus focusing on local Skåne produce with French techniques",
+                    "Dishes often feature refined presentations of regional specialties"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Charming country setting in a restored farmhouse",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations essential; located outside the city (car needed)",
+                "dress_code": "Smart Casual",
+                "michelin_stars": 1,
+                "location": "Vindåkra (15km outside Malmö)",
+                "local_tips": "Set in the beautiful Skåne countryside; worth the trip for the combination of rural Swedish atmosphere and refined French-influenced cuisine."
+            },
+            {
+                "name": "Sture",
+                "cuisine_type": "Modern European/Nordic",
+                "signature_dishes": [
+                    "Seasonal tasting menu showcasing local ingredients and contemporary techniques"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated urban dining room with minimalist design",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance; offers an excellent wine program with rare vintages",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": "Bib Gourmand",
+                "location": "City Center",
+                "local_tips": "Offers a high-end dining experience with focus on quality ingredients and impeccable service; popular with both locals and visitors seeking a sophisticated experience."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Saltimporten Canteen",
+                "cuisine_type": "Modern Nordic/Lunch Only",
+                "signature_dishes": [
+                    "Daily changing lunch plate",
+                    "Focus on seasonal, high-quality ingredients",
+                    "Often includes fish, meat, and vegetable options"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial harbor setting, minimalist design, communal tables",
+                "best_time": "Lunch only (Mon-Fri)",
+                "reservation_needed": "No reservations, arrive early",
+                "booking_tips": "Only open weekday lunches; get there before 12:00 to avoid lines; unique harbor location.",
+                "dress_code": "Casual",
+                "location": "Malmö Harbor (Northern Harbor)",
+                "local_tips": "A Malmö institution famous for serving only one perfectly executed lunch dish each day; frequented by creative professionals and food lovers."
+            },
+            {
+                "name": "Bastard",
+                "cuisine_type": "Modern European/Nose-to-tail",
+                "signature_dishes": [
+                    "Charcuterie board",
+                    "Seasonal small plates",
+                    "Whole animal cooking",
+                    "Wood-fired dishes"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Lively, urban bistro with open kitchen and rustic-chic decor",
+                "best_time": "Dinner",
+                "reservation_needed": "Highly recommended",
+                "booking_tips": "Popular spot, booking advised; good for sharing multiple dishes.",
+                "dress_code": "Smart Casual",
+                "location": "City Centre (near Lilla Torg)",
+                "local_tips": "Known for its nose-to-tail cooking philosophy and bold flavors; has a devoted following for its unpretentious yet refined approach to food."
+            },
+            {
+                "name": "Lyran Matbar",
+                "cuisine_type": "Local/Seasonal Small Plates",
+                "signature_dishes": [
+                    "Constantly changing menu based on market availability",
+                    "Focus on vegetables and local producers",
+                    "Natural wines"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Cozy, intimate neighborhood spot with a casual vibe",
+                "best_time": "Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Small place with limited seating; excellent natural wine selection.",
+                "dress_code": "Casual",
+                "location": "Möllevången",
+                "local_tips": "Beloved by locals for its honest, produce-driven cooking and convivial atmosphere; focus on sustainability and organic ingredients."
+            },
+            {
+                "name": "Julie",
+                "cuisine_type": "Modern European/Swedish Bistro",
+                "signature_dishes": [
+                    "Seasonal dishes using local ingredients",
+                    "Well-executed classics with modern twists",
+                    "Strong seafood options"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Stylish yet comfortable bistro with warm service",
+                "best_time": "Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Great date spot; good for both casual and special occasions.",
+                "dress_code": "Smart Casual",
+                "location": "Near St. Petri Church",
+                "local_tips": "Strikes a perfect balance between casual and refined dining; known for consistent quality and welcoming atmosphere."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Malmö Falafel (Various Stands)",
+                "specialties": [
+                    "Falafel Wrap: Freshly fried falafel balls in pita with tahini, vegetables, pickles, and hot sauce.",
+                    "Falafel Plate: Served with hummus, salad, and bread."
+                ],
+                "price_range": "€",
+                "hours": "Lunch through Late Night",
+                "location": "Throughout the city, especially Möllevången district (e.g., Jalla Jalla, Möllans Falafel)",
+                "seating": "Usually limited or none",
+                "local_tips": "Malmö is famous for its falafel thanks to its large Middle Eastern community. The city's signature street food, affordable and delicious."
+            },
+            {
+                "name": "Malmö Saluhall",
+                "specialties": [
+                    "Various food stalls offering everything from Nordic tapas to Asian fusion",
+                    "Pink Head Noodle Bar (ramen and Asian dishes)",
+                    "Hedvigsdal (pizza)",
+                    "Holy Greens (salads)"
+                ],
+                "price_range": "€€",
+                "hours": "Generally 10:00-19:00 (varies by vendor)",
+                "location": "Gibraltargatan (Malmö's food hall in a converted warehouse)",
+                "seating": "Shared seating areas",
+                "local_tips": "Modern food hall with high-quality vendors in an attractive industrial setting. Good option for groups who want different types of food."
+            },
+            {
+                "name": "Malmö Street Food Market",
+                "specialties": [
+                    "Rotating selection of food trucks",
+                    "Global cuisine options",
+                    "Often includes local craft beers"
+                ],
+                "price_range": "€-€€",
+                "hours": "Varies by season (check social media for current times/location)",
+                "location": "Various locations depending on season (often at Folkets Park in summer)",
+                "seating": "Usually outdoor tables",
+                "local_tips": "Seasonal market bringing together diverse food trucks; good for sampling different cuisines in one place."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Solde Kaffebar",
+                "specialty": "Specialty Coffee & Pastries",
+                "must_try": [
+                    "Single-origin coffee (pour-over or espresso)",
+                    "Cardamom buns",
+                    "House-made pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, minimalist Scandinavian design with warm touches",
+                "best_time": "Morning or afternoon fika",
+                "wifi_friendly": true,
+                "food_options": "Pastries, light breakfast items, sandwiches",
+                "local_tips": "One of Malmö's best specialty coffee shops, focusing on quality beans and skilled preparation."
+            },
+            {
+                "name": "Lilla Kafferosteriet",
+                "specialty": "Coffee Roastery & Traditional Café",
+                "must_try": [
+                    "House-roasted coffee",
+                    "Traditional Swedish pastries",
+                    "Coffee beans to take home"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, traditional café with its own roastery",
+                "best_time": "Fika time",
+                "wifi_friendly": true,
+                "food_options": "Full range of pastries, sandwiches, light meals",
+                "local_tips": "One of Malmö's oldest and most beloved coffee shops. The connected roastery ensures freshness."
+            },
+            {
+                "name": "Jord",
+                "specialty": "Organic, Eco-friendly Café",
+                "must_try": [
+                    "Plant-based dishes",
+                    "Organic coffee",
+                    "Raw desserts"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, plant-filled space with sustainability focus",
+                "best_time": "Lunch or afternoon",
+                "wifi_friendly": true,
+                "food_options": "Extensive plant-based menu, salads, bowls, sandwiches",
+                "local_tips": "Popular with health-conscious locals. Great spot for vegetarians and vegans."
+            },
+            {
+                "name": "St. Jakobs Stenugnsbageri",
+                "specialty": "Artisanal Bakery & Café",
+                "must_try": [
+                    "Sourdough bread",
+                    "Cardamom buns",
+                    "Danish pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic bakery atmosphere with view of the baking process",
+                "best_time": "Morning for fresh bread, afternoon for fika",
+                "wifi_friendly": "Limited",
+                "food_options": "Bread, pastries, sandwiches, simple lunch options",
+                "local_tips": "One of the city's best bakeries with stone oven-baked bread. Worth visiting for the smells alone!"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Mineral",
+                "type": "Natural Wine Bar",
+                "specialty": "Natural Wines & Small Plates",
+                "signature_drinks": [
+                    "Rotating selection of natural, organic, and biodynamic wines",
+                    "Focus on small producers and unusual varieties"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Minimalist, stylish space with knowledgeable staff",
+                "best_time": "Evening",
+                "food_options": "Well-paired small plates featuring local ingredients",
+                "reservation_needed": "Recommended on weekends",
+                "local_tips": "Malmö's premier natural wine destination. Staff are happy to guide you through the often-challenging world of natural wines."
+            },
+            {
+                "name": "Malmö Brewing Co & Taproom",
+                "type": "Craft Brewery & Bar",
+                "specialty": "House-brewed Craft Beer",
+                "signature_drinks": [
+                    "Wide range of house beers from IPAs to stouts",
+                    "Rotating seasonal brews"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial taproom connected to working brewery",
+                "best_time": "Afternoon/Evening",
+                "food_options": "Beer-friendly food menu including burgers, wings",
+                "reservation_needed": "Not usually necessary",
+                "local_tips": "Malmö's largest craft brewery with excellent beers brewed on-site. Good for groups."
+            },
+            {
+                "name": "Belle Époque",
+                "type": "Cocktail Bar",
+                "specialty": "French-inspired Cocktails & Champagne",
+                "signature_drinks": [
+                    "Classic cocktails with French twists",
+                    "Extensive champagne selection",
+                    "Absinthe served traditionally"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant, 1920s-inspired decor with intimate seating",
+                "best_time": "Evening",
+                "food_options": "French-inspired small plates",
+                "reservation_needed": "Recommended for weekends",
+                "local_tips": "Sophisticated spot for expertly made cocktails in a beautiful setting. One of Malmö's most elegant bars."
+            },
+            {
+                "name": "Far i Hatten",
+                "type": "Park Beer Garden & Bar",
+                "specialty": "Outdoor Drinking in Historic Setting",
+                "signature_drinks": [
+                    "Local and international beers",
+                    "Simple cocktails",
+                    "Wine selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Relaxed beer garden in an historic wooden pavilion in Folkets Park",
+                "best_time": "Afternoon/Evening (especially summer)",
+                "food_options": "Wood-fired pizza, bar snacks",
+                "reservation_needed": "Not accepted (first come, first served)",
+                "local_tips": "Beautiful outdoor setting in warmer months. A Malmö institution for relaxed drinks and people-watching."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Malmö Food Walk",
+                "focus": "Malmö's Multicultural Food Scene",
+                "duration": "Approx. 3-4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Sampling Middle Eastern, Nordic, and fusion cuisines",
+                    "Visiting key food spots including Malmö Saluhall and Möllevången",
+                    "Learning about the city's diverse food culture",
+                    "Tasting local craft products"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [ "English", "Swedish" ],
+                "booking_tips": "Great introduction to Malmö's diverse food scene. Wear comfortable shoes."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Skåne Regional Cooking Class",
+                "cuisine_focus": "Traditional and Modern Skåne Cuisine",
+                "duration": "Approx. 4 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Techniques for classic Skåne dishes",
+                    "Working with regional ingredients",
+                    "Both traditional recipes and modern interpretations"
+                ],
+                "group_size": "Small groups",
+                "languages": [ "English", "Swedish" ],
+                "includes": [ "Hands-on cooking, local ingredients, recipes, meal featuring the prepared dishes" ],
+                "booking_tips": "Excellent way to understand the regional specialties. Book through cooking schools or local chefs offering workshops."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Malmö Saluhall",
+                "type": "Modern Food Hall",
+                "highlights": [
+                    "Artisanal food vendors under one roof",
+                    "Mix of restaurants, cafés, and food shops",
+                    "High-quality local and international offerings",
+                    "Converted industrial building with stylish design"
+                ],
+                "hours": "Typically 10 AM - 7 PM (check specific vendor hours)",
+                "best_time": "Lunchtime or afternoon",
+                "location": "Near the Central Station (Gibraltargatan)",
+                "local_tips": "Malmö's premier food hall. Great for lunch with options for everyone or buying specialty products. Clean, modern space."
+            },
+            {
+                "name": "Möllevångstorget Market",
+                "type": "Outdoor Produce Market",
+                "highlights": [
+                    "Multicultural fruit and vegetable market",
+                    "Affordable produce from around the world",
+                    "Vibrant atmosphere, especially on weekends",
+                    "Surrounded by international food shops"
+                ],
+                "hours": "Typically morning until late afternoon",
+                "best_time": "Morning for best selection",
+                "location": "Möllevången district",
+                "local_tips": "Heart of Malmö's diverse food scene. Great prices and selection. Surrounding streets have excellent international grocery stores."
+            },
+            {
+                "name": "Street Food Market at Folkets Park",
+                "type": "Seasonal Outdoor Food Market",
+                "highlights": [
+                    "Rotating selection of food trucks and stalls",
+                    "International street food offerings",
+                    "Family-friendly park setting",
+                    "Often includes entertainment"
+                ],
+                "hours": "Seasonal (primarily summer), typically afternoons and evenings",
+                "best_time": "Early evening",
+                "location": "Folkets Park",
+                "local_tips": "Popular summer destination for casual dining. Check park website for current schedule and vendors."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Skåne Asparagus (Sparris)",
+            "Nässelsoppa (Nettle Soup)",
+            "Rhubarb (Rabarber) desserts",
+            "Fresh herbs and spring greens from local farms"
+        ],
+        "summer": [
+            "Skåne Strawberries (Jordgubbar) - known throughout Sweden for their quality",
+            "New Potatoes (Färskpotatis) with dill",
+            "Local Beach-caught Fish",
+            "Summer vegetables from the fertile Skåne region",
+            "Elderflower (Fläder) drinks and desserts"
+        ],
+        "autumn": [
+            "Apple dishes (Skåne is Sweden's apple region)",
+            "Wild Mushrooms - especially Chanterelles (Kantareller)",
+            "Game meats from local hunts",
+            "Pumpkin and squash varieties",
+            "Eel (Ål) - traditional Skåne specialty (seasonal restrictions apply)"
+        ],
+        "winter": [
+            "Julbord (Christmas Buffet) - with Skåne regional specialties",
+            "Gåsamiddag (Goose Dinner) - traditional in Skåne, especially around November 10th (Saint Martin's Day)",
+            "Spettekaka - unique Skåne pyramid-shaped dessert made with eggs and sugar",
+            "Hearty soups and stews",
+            "Semlor (cardamom buns filled with almond paste and whipped cream) before Lent"
+        ]
+    }
+}

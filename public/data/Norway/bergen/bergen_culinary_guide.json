@@ -1,0 +1,428 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Lysverket",
+                "cuisine_type": "Modern Nordic/Seafood Focus",
+                "signature_dishes": [
+                    "Seasonal tasting menu highlighting West Coast seafood",
+                    "Local scallops",
+                    "Dishes featuring sustainable Norwegian fish",
+                    "Creative desserts"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Stylish, located within KODE 4 art museum, views over Lille Lungegårdsvannet lake",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance; tasting menu focus; passionate chef-owner often interacts with guests",
+                "dress_code": "Smart Casual/Smart Elegant",
+                "michelin_stars": 1,
+                "location": "Sentrum (KODE 4, Rasmus Meyers Allé 9)",
+                "local_tips": "Bergen's renowned Michelin-starred restaurant focusing on exceptional local seafood. Chef Christopher Haatuft delivers a refined yet personable experience."
+            },
+            {
+                "name": "Moon",
+                "cuisine_type": "French Bistro",
+                "signature_dishes": [
+                    "Classic French dishes using local Norwegian produce",
+                    "Set menus (changes seasonally)",
+                    "Excellent desserts",
+                    "Well-curated wine pairings"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate, cozy French bistro ambiance",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Run by twin brothers (one chef, one sommelier/front of house); good value for the quality; located in Marken area",
+                "dress_code": "Smart Casual",
+                "michelin_stars": "Selected",
+                "location": "Marken (Marken 33)",
+                "local_tips": "A slice of France in Bergen, recognized by Michelin for its quality and value. Focuses on honest French cooking with local ingredients."
+            },
+            {
+                "name": "Bare Restaurant",
+                "cuisine_type": "New Nordic/Fine Dining",
+                "signature_dishes": [
+                    "Seasonal tasting menu emphasizing local, organic West Norwegian ingredients",
+                    "Creative presentations of seafood and game",
+                    "Dishes like scallops from Øygarden, deer from Fusa",
+                    "Bare branded caviar"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and historic setting within the Bergen Børs Hotel (former stock exchange)",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well ahead; located in the historic stock exchange building; impressive bar area",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 1,
+                "location": "Sentrum (Torgallmenningen 2, inside Bergen Børs Hotel)",
+                "local_tips": "Bergen's other Michelin-starred restaurant (alongside Lysverket). Offers a refined New Nordic experience in a stunning historical setting."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Bryggeloftet & Stuene",
+                "cuisine_type": "Traditional Norwegian",
+                "signature_dishes": [
+                    "Reindeer steak with game sauce",
+                    "Bergen fish soup (Fiskesuppe)",
+                    "Steak of beef with various sauces",
+                    "Traditional fish dishes (Cod, Halibut)",
+                    "Persetorsk (Pressed Cod - seasonal)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic, traditional, cozy; upstairs (Bryggeloftet) recommended for dinner, downstairs (Stuene) more casual",
+                "best_time": "Dinner (Bryggeloftet) or Lunch (Stuene)",
+                "reservation_needed": "Recommended, especially for dinner/weekends",
+                "booking_tips": "Bergen's oldest restaurant (since 1910), located on Bryggen wharf; ask for Inger if she's working (legendary server)",
+                "dress_code": "Casual/Smart Casual",
+                "location": "Bryggen (Bryggen 11)",
+                "local_tips": "A true Bergen institution. Perfect for experiencing classic Norwegian dishes and atmosphere. Known for consistency and excellent service."
+            },
+            {
+                "name": "Pingvinen",
+                "cuisine_type": "Traditional Norwegian Gastropub",
+                "signature_dishes": [
+                    "Plukkfisk (Traditional fish and potato mash)",
+                    "Raspeballer (Potato dumplings - typically served Thursdays)",
+                    "Lapskaus (Norwegian stew)",
+                    "Pan-fried cod",
+                    "Good selection of Norwegian beers"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Cozy, traditional 'brown pub' vibe, often busy",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Not usually accepted (walk-in)",
+                "booking_tips": "Popular with locals; expect a wait during peak times; authentic home-style cooking",
+                "dress_code": "Casual",
+                "location": "Sentrum (Vaskerelven 14)",
+                "local_tips": "Authentic Norwegian comfort food in a relaxed pub setting. A favorite spot for traditional dishes like raspeballer and plukkfisk."
+            },
+            {
+                "name": "Wesselstuen",
+                "cuisine_type": "Traditional Norwegian",
+                "signature_dishes": [
+                    "Bergen fish soup",
+                    "Persetorsk (Pressed Cod - seasonal Bergen specialty)",
+                    "Skrei (Seasonal Arctic Cod - Winter)",
+                    "Steaks and game dishes"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Classic, historic restaurant near Den Nationale Scene",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Another Bergen institution (since 1957); traditional atmosphere; associated with De Bergenske group",
+                "dress_code": "Smart Casual",
+                "location": "Sentrum (Øvre Ole Bulls plass 6)",
+                "local_tips": "Offers a genuine taste of Bergen's culinary traditions in a historic setting near the theatre."
+            },
+            {
+                "name": "Enhjørningen Fiskerestaurant",
+                "cuisine_type": "Seafood",
+                "signature_dishes": [
+                    "Fresh seasonal seafood platters",
+                    "Baked cod",
+                    "Halibut",
+                    "Whale carpaccio (seasonal/controversial)",
+                    "Lutefisk (seasonal - winter)"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Rustic, classic maritime decor inside a historic Bryggen building",
+                "best_time": "Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Located directly on the Bryggen wharf; focuses purely on high-quality seafood",
+                "dress_code": "Smart Casual",
+                "location": "Bryggen (Enhjørningsgården 29)",
+                "local_tips": "One of Bergen's premier seafood restaurants, offering a traditional experience in a UNESCO World Heritage setting."
+            },
+            {
+                "name": "Bien Snackbar",
+                "cuisine_type": "Burgers/American Diner",
+                "signature_dishes": [
+                    "Award-winning burgers (various styles, including blue cheese)",
+                    "Truffle fries",
+                    "Milkshakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Informal, small corner diner vibe",
+                "best_time": "Lunch or Casual Dinner",
+                "reservation_needed": "No (walk-in)",
+                "booking_tips": "Consistently rated among Bergen's best burgers; located near Danmarks Plass light rail stop",
+                "dress_code": "Casual",
+                "location": "Danmarks Plass (Fjøsangerveien 30)",
+                "local_tips": "Worth the short light rail ride from the center for burger enthusiasts. Simple, delicious, and satisfying."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Fisketorget (Bergen Fish Market)",
+                "specialties": [
+                    "Fresh seafood to buy (salmon, cod, crab, shrimp)",
+                    "Ready-to-eat: Fish soup, fish cakes (fiskekaker), shrimp sandwiches, seafood platters, grilled fish, oysters, caviar",
+                    "Smoked salmon",
+                    "King crab legs"
+                ],
+                "price_range": "€€-€€€ (Can be expensive)",
+                "hours": "Varies seasonally; Indoor Mathallen open year-round, outdoor stalls mainly May-Sept",
+                "location": "Sentrum (Torget, by the harbor)",
+                "seating": "Limited outdoor seating, plus indoor seating at Mathallen vendors (e.g., Fish Me, Fjellskål)",
+                "local_tips": "Iconic Bergen experience. Very tourist-focused, so prices can be high, but great for sampling fresh seafood and soaking in the atmosphere. Check out the indoor Mathallen section too."
+            },
+            {
+                "name": "Trekroneren",
+                "specialties": [
+                    "Pølse (Norwegian Hot Dogs) with various toppings",
+                    "Specialty sausages including reindeer, chili, cheese-filled",
+                    "Served in bun or traditional Lompe (potato flatbread)"
+                ],
+                "price_range": "€",
+                "hours": "Long hours, often late into the night",
+                "location": "Sentrum (Kong Oscars gate 1)",
+                "seating": "None (Street food kiosk)",
+                "local_tips": "A Bergen institution since 1946. Must-try classic street food. Try the reindeer sausage in a lompe for a unique local experience."
+            },
+            {
+                "name": "Søstrene Hagelin",
+                "specialties": [
+                    "Traditional Bergen Fish Soup (Fiskesuppe)",
+                    "Fish cakes (Fiskekaker)",
+                    "Fish pudding",
+                    "Fish wraps"
+                ],
+                "price_range": "€-€€",
+                "hours": "Daytime hours (check specific times)",
+                "location": "Sentrum (Strandgaten 3)",
+                "seating": "Limited/Takeaway focus",
+                "local_tips": "Famous for authentic, traditional Bergen fish soup and fish cakes based on a 1929 recipe. Very casual, great for a quick, local bite."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Kaffemisjonen",
+                "specialty": "High-Quality Specialty Coffee",
+                "must_try": [
+                    "Single-origin pour-over coffee",
+                    "Espresso drinks prepared by skilled baristas",
+                    "Coffee from various Norwegian and international guest roasters"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Focused, quality-driven coffee bar, often busy",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries, cakes (incl. renowned carrot cake), toasts",
+                "local_tips": "One of Bergen's top specialty coffee spots. Independent and locally owned. Serious about coffee quality. Has a sister cafe 'Blom' near the university."
+            },
+            {
+                "name": "Det Lille Kaffe Kompaniet (DLK)",
+                "specialty": "Cozy Atmosphere & Quality Coffee",
+                "must_try": [
+                    "Cappuccino or Latte",
+                    "Hot chocolate",
+                    "Local pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Tiny, charming, rustic, very cozy ambiance",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": "Limited due to size",
+                "food_options": "Pastries, cakes",
+                "local_tips": "A beloved local favorite located in a small alley near the Fløibanen funicular. Known for its incredibly cozy atmosphere. Can get crowded."
+            },
+            {
+                "name": "Bergen Kaffebrenneri",
+                "specialty": "Local Coffee Roaster & Cafe",
+                "must_try": [
+                    "Freshly roasted filter coffee",
+                    "Espresso drinks made with their own beans",
+                    "Coffee beans to take home"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Relaxed neighborhood cafe vibe, focused on their roasting process",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries and light snacks",
+                "local_tips": "Visit their cafe in Møhlenpris to taste coffee roasted right in Bergen. Good spot to buy local beans as souvenirs."
+            },
+            {
+                "name": "Godt Brød",
+                "specialty": "Organic Bakery & Cafe Chain",
+                "must_try": [
+                    "Skillingsbolle (Bergen cinnamon bun)",
+                    "Organic sourdough bread sandwiches",
+                    "Filter coffee"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Varies by location; generally casual, welcoming bakery cafe feel",
+                "best_time": "Breakfast/Lunch/Fika",
+                "wifi_friendly": true,
+                "food_options": "Wide range of pastries, breads, sandwiches, some salads/soups",
+                "local_tips": "Reliable local chain for organic baked goods. Multiple locations. Perfect place to try the iconic Skillingsbolle."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Apollon Platebar",
+                "type": "Record Store & Craft Beer Bar",
+                "specialty": "Huge selection of craft beer and vinyl records",
+                "signature_drinks": [
+                    "Local Norwegian craft beers on tap",
+                    "International craft beers (bottles/cans)",
+                    "Constantly rotating tap list"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Unique, casual vibe surrounded by vinyl records; knowledgeable staff",
+                "best_time": "Afternoon/Evening",
+                "food_options": "Limited/Snacks",
+                "reservation_needed": "No",
+                "local_tips": "A Bergen institution combining a love for music and beer. Browse records while sipping on excellent craft brews. Often has events and new beer launches."
+            },
+            {
+                "name": "No Stress",
+                "type": "Cocktail Bar",
+                "specialty": "Creative & High-Quality Cocktails",
+                "signature_drinks": [
+                    "Inventive signature cocktails",
+                    "Classic cocktails made well",
+                    "Seasonal drink menu"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Relaxed, trendy, dimly lit cocktail lounge vibe",
+                "best_time": "Evening/Night",
+                "food_options": "Limited/None",
+                "reservation_needed": "Recommended for groups/weekends",
+                "local_tips": "Consistently rated as one of Bergen's best cocktail bars. Focuses on quality ingredients and skilled bartending in a laid-back setting."
+            },
+            {
+                "name": "Henrik Øl og Vinstove",
+                "type": "Beer & Wine Pub",
+                "specialty": "Extensive beer selection (especially Belgian & Norwegian), cozy pub feel",
+                "signature_drinks": [
+                    "Wide range of bottled and tap beers",
+                    "Good selection of whiskies and spirits",
+                    "Decent wine selection"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Classic pub atmosphere, wood paneling, often busy and sociable",
+                "best_time": "Evening",
+                "food_options": "Limited/Snacks",
+                "reservation_needed": "No",
+                "local_tips": "A proper pub with a huge beer list catering to enthusiasts. Knowledgeable staff can guide you through the options. Great for beer lovers."
+            },
+            {
+                "name": "Ujevnt",
+                "type": "Natural Wine Bar",
+                "specialty": "Natural, biodynamic, and organic wines",
+                "signature_drinks": [
+                    "Rotating selection of unique natural wines by the glass or bottle",
+                    "Knowledgeable sommeliers to guide choices"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Minimalist, modern, intimate wine bar setting",
+                "best_time": "Evening",
+                "food_options": "Small plates, charcuterie, cheese designed to pair with wine",
+                "reservation_needed": "Recommended, especially weekends",
+                "local_tips": "Bergen's top spot for natural wine enthusiasts. Offers a curated selection of interesting wines in a relaxed environment. Good small plates too."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Food and Culture Guided Walk (Bergen Base Camp)",
+                "focus": "Bergen History & Local Food Tastings",
+                "duration": "Approx. 3 hours",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Walking tour through historic Bergen (incl. Bryggen)",
+                    "5 tasting stops featuring local specialties",
+                    "Visit to the Fish Market",
+                    "Stories about local food traditions",
+                    "Small beer tasting included"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": ["English"],
+                "booking_tips": "Starts near Tourist Information/Fish Market. Good way to combine sightseeing and food tasting. Check availability and book in advance."
+            },
+            {
+                "name": "Seafood Experience at Cornelius",
+                "focus": "Ultra-Fresh Seafood Dining Experience",
+                "duration": "Approx. 4-5 hours (incl. boat trip)",
+                "price_range": "€€€€€",
+                "highlights": [
+                    "Scenic boat trip from Bergen to a private island restaurant",
+                    "'Meteorological Menu' based on the day's weather and catch",
+                    "Focus on sustainable, high-quality local seafood (shellfish, fish)",
+                    "Unique dining location surrounded by the sea"
+                ],
+                "booking_required": true,
+                "group_size": "Varies (Restaurant setting)",
+                "languages": ["English", "Norwegian"],
+                "booking_tips": "Book well in advance, especially for dinner. Departs from Dreggensallmenningen near Bryggen. Offers both lunch and dinner options."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Bergen Cooking Classes",
+                "cuisine_focus": "Norwegian / Seafood",
+                "duration": "Varies",
+                "price_range": "Varies",
+                "what_you_learn": [
+                    "Potentially preparing traditional Norwegian dishes",
+                    "Focus on local seafood likely",
+                    "Hands-on cooking experience"
+                ],
+                "group_size": "Varies",
+                "languages": ["Likely English/Norwegian"],
+                "includes": ["Varies"],
+                "booking_tips": "Dedicated cooking schools seem less common in Bergen compared to Oslo. Search for specific workshops offered by restaurants, community centers, or private chefs for available options during your visit."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Bergen Fish Market (Fisketorget)",
+                "type": "Iconic Seafood Market (Indoor & Outdoor)",
+                "highlights": [
+                    "Wide variety of fresh fish and shellfish",
+                    "Ready-to-eat seafood stalls (soups, sandwiches, platters)",
+                    "Indoor Mathallen section with restaurants and shops (e.g., Fish Me)",
+                    "Historic location at the heart of Bergen harbor"
+                ],
+                "hours": "Varies seasonally; indoor year-round, outdoor mainly May-Sept",
+                "best_time": "Late morning/Lunchtime for atmosphere; early morning for freshest purchase",
+                "location": "Sentrum (Torget)",
+                "local_tips": "A must-visit Bergen landmark. Be aware of tourist prices but enjoy the vibrant atmosphere and fresh samples. Combine with a visit to Bryggen."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Fresh fjord trout and salmon",
+            "Early local vegetables like asparagus",
+            "Rhubarb desserts",
+            "Return of lighter seafood dishes after winter"
+        ],
+        "summer": [
+            "Ferske reker (fresh shrimp) - peel-and-eat style, often on boats or docks",
+            "Makrell (mackerel) - often grilled",
+            "Local berries: strawberries (jordbær), raspberries (bringebær), blueberries (blåbær)",
+            "Krabbe (crab) season begins"
+        ],
+        "autumn": [
+            "Fårikål (lamb and cabbage stew) - Norway's national dish, especially in September/October",
+            "Wild mushrooms from surrounding forests",
+            "Game meats (deer, moose - less common in Bergen center but available regionally)",
+            "Apples from Hardangerfjord region (used in cider and desserts)",
+            "Root vegetables become prominent"
+        ],
+        "winter": [
+            "Persetorsk (Pressed Cod) - A unique Bergen specialty, traditionally served before Christmas",
+            "Lutefisk - Lye-treated cod, a traditional Christmas dish (love it or hate it!)",
+            "Pinnekjøtt - Dried, salted, and steamed lamb/mutton ribs (West Coast Christmas staple)",
+            "Skrei (Migrating Arctic Cod) - Available Jan-Apr, considered a delicacy",
+            "Hearty stews and soups",
+            "Skillingsboller (Cinnamon buns) - enjoyed year-round but especially cozy in winter"
+        ]
+    }
+}

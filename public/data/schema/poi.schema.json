@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "poi.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "cityId", "title", "category", "summary"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^poi:[a-z0-9-]+:[a-z0-9-]+$" },
+    "cityId": { "type": "string" },
+    "title": { "type": "string" },
+    "category": {
+      "type": "string",
+      "enum": [
+        "museum",
+        "landmark",
+        "park",
+        "market",
+        "viewpoint",
+        "church",
+        "theater",
+        "gallery",
+        "neighborhood-poi",
+        "food",
+        "other"
+      ]
+    },
+    "summary": { "type": "string", "minLength": 10 },
+    "highlights": { "type": "array", "items": { "type": "string" } },
+    "typicalDurationMin": { "type": "integer", "minimum": 15, "maximum": 600 },
+    "priceTier": { "type": "string", "enum": ["$", "$$", "$$$", "free"] },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "coordinates": {
+      "type": "object",
+      "properties": {
+        "lat": { "type": "number", "minimum": -90, "maximum": 90 },
+        "lng": { "type": "number", "minimum": -180, "maximum": 180 }
+      },
+      "additionalProperties": false
+    },
+    "bestMonths": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "january",
+          "february",
+          "march",
+          "april",
+          "may",
+          "june",
+          "july",
+          "august",
+          "september",
+          "october",
+          "november",
+          "december"
+        ]
+      }
+    },
+    "indoor": { "type": "boolean" },
+    "kidFriendly": { "type": "boolean" },
+    "wheelchairAccessible": { "type": "boolean" },
+    "bookingUrl": { "type": "string", "format": "uri" },
+    "neighborhoodId": { "type": "string" }
+  }
+}
+
+

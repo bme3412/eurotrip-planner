@@ -1,0 +1,370 @@
+{
+    "destinations": [
+        {
+            "city": "Tirana",
+            "country": "Albania",
+            "whyGo": "Albania's vibrant capital with colorful buildings, excellent museums, bustling nightlife, and rich communist-era history now transformed into a modern European city.",
+            "domesticTrain": {
+                "stationInDurres": "Durres Railway Station",
+                "journeyTime": "1h15m",
+                "frequency": "4-6 daily",
+                "trainType": "Albanian Railways",
+                "priceRange": "150-300 ALL"
+            },
+            "domesticBus": {
+                "stationInDurres": "Durres Bus Terminal",
+                "journeyTime": "45m",
+                "frequency": "Every 30 minutes",
+                "busType": "Regular service",
+                "priceRange": "200-400 ALL"
+            }
+        },
+        {
+            "city": "Bari",
+            "country": "Italy",
+            "whyGo": "Historic Apulian port city with beautiful old town, stunning basilicas, excellent seafood, and gateway to southern Italy.",
+            "ferry": {
+                "portInDurres": "Durres Ferry Terminal",
+                "journeyTime": "8-9h",
+                "frequency": "Daily",
+                "ferryOperator": "Adria Ferries, European Seaways",
+                "priceRange": "€35-120"
+            },
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "1h30m",
+                "frequency": "2-3 weekly",
+                "priceRange": "€80-250"
+            }
+        },
+        {
+            "city": "Ancona",
+            "country": "Italy",
+            "whyGo": "Central Italian port city with rich maritime history, beautiful Renaissance architecture, and access to the Marche region.",
+            "ferry": {
+                "portInDurres": "Durres Ferry Terminal",
+                "journeyTime": "14-16h",
+                "frequency": "Daily",
+                "ferryOperator": "Adria Ferries",
+                "priceRange": "€45-150"
+            }
+        },
+        {
+            "city": "Trieste",
+            "country": "Italy",
+            "whyGo": "Elegant Habsburg port city with stunning architecture, coffee culture, and unique blend of Italian, Austrian, and Slovenian influences.",
+            "ferry": {
+                "portInDurres": "Durres Ferry Terminal",
+                "journeyTime": "22-24h",
+                "frequency": "2-3 weekly",
+                "ferryOperator": "European Seaways",
+                "priceRange": "€55-180"
+            }
+        },
+        {
+            "city": "Belgrade",
+            "country": "Serbia",
+            "whyGo": "Dynamic Balkan capital with vibrant nightlife, rich history, confluence of Danube and Sava rivers, and excellent cultural scene.",
+            "internationalBus": {
+                "stationInDurres": "Durres Bus Terminal",
+                "journeyTime": "8-10h",
+                "frequency": "Daily",
+                "busOperator": "Various operators",
+                "priceRange": "€25-45"
+            },
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€60-200"
+            }
+        },
+        {
+            "city": "Skopje",
+            "country": "North Macedonia",
+            "whyGo": "Historic crossroads city with Ottoman bazaar, impressive fortress, eclectic architecture, and gateway to North Macedonia's natural beauty.",
+            "internationalBus": {
+                "stationInDurres": "Durres Bus Terminal",
+                "journeyTime": "6-7h",
+                "frequency": "Daily",
+                "busOperator": "Various operators",
+                "priceRange": "€20-35"
+            },
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "1h15m",
+                "frequency": "2-3 weekly",
+                "priceRange": "€70-180"
+            }
+        },
+        {
+            "city": "Pristina",
+            "country": "Kosovo",
+            "whyGo": "Young and vibrant capital with energetic café culture, growing arts scene, and important modern history as Europe's newest nation.",
+            "internationalBus": {
+                "stationInDurres": "Durres Bus Terminal",
+                "journeyTime": "5-6h",
+                "frequency": "Daily",
+                "busOperator": "Various operators",
+                "priceRange": "€18-30"
+            }
+        },
+        {
+            "city": "Podgorica",
+            "country": "Montenegro",
+            "whyGo": "Modern capital nestled between mountains and rivers, gateway to Montenegro's dramatic landscapes, national parks, and Adriatic coast.",
+            "internationalBus": {
+                "stationInDurres": "Durres Bus Terminal",
+                "journeyTime": "4-5h",
+                "frequency": "Daily",
+                "busOperator": "Various operators",
+                "priceRange": "€15-25"
+            }
+        },
+        {
+            "city": "Thessaloniki",
+            "country": "Greece",
+            "whyGo": "Greece's cultural capital with Byzantine walls, vibrant waterfront, excellent museums, and rich culinary traditions.",
+            "internationalBus": {
+                "stationInDurres": "Durres Bus Terminal",
+                "journeyTime": "8-9h",
+                "frequency": "Daily",
+                "busOperator": "Various operators",
+                "priceRange": "€25-40"
+            },
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "1h30m",
+                "frequency": "2-3 weekly",
+                "priceRange": "€80-220"
+            }
+        },
+        {
+            "city": "Athens",
+            "country": "Greece",
+            "whyGo": "Ancient capital with Acropolis, world-class museums, vibrant neighborhoods, and gateway to Greek islands.",
+            "internationalBus": {
+                "stationInDurres": "Durres Bus Terminal",
+                "journeyTime": "12-14h",
+                "frequency": "Daily",
+                "busOperator": "Various operators",
+                "priceRange": "€35-55"
+            },
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€90-280"
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Where Europe meets Asia with stunning mosques, Grand Bazaar, Bosphorus views, and incredible culinary scene.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "2h30m",
+                "frequency": "Daily",
+                "priceRange": "€120-350"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with ancient ruins, Vatican City, Renaissance art, and incredible Roman cuisine.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€80-300"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Italy's fashion and design capital with stunning Gothic cathedral, world-class shopping, and excellent Northern Italian cuisine.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€70-280"
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "The unique city of canals, gondolas, St. Mark's Square, and stunning Venetian architecture.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "1h25m",
+                "frequency": "2-3 weekly",
+                "priceRange": "€85-320"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Imperial capital with stunning palaces, world-class classical music, elegant coffee houses, and Habsburg heritage.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "1h50m",
+                "frequency": "Daily",
+                "priceRange": "€90-350"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "Major financial hub with futuristic skyline, excellent museums, and gateway to exploring Germany.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "2h15m",
+                "frequency": "Daily",
+                "priceRange": "€100-380"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Bavarian capital known for Oktoberfest, beer gardens, excellent museums, and alpine proximity.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "2h",
+                "frequency": "2-3 weekly",
+                "priceRange": "€95-360"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Beautiful lake setting, well-preserved old town, excellent museums, and gateway to Swiss Alps.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "2h10m",
+                "frequency": "2-3 weekly",
+                "priceRange": "€120-450"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Global capital with iconic landmarks, world-class museums, royal heritage, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "3h",
+                "frequency": "Daily",
+                "priceRange": "€80-320"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The City of Light with iconic landmarks, world-class museums, romantic atmosphere, and unparalleled culinary scene.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "2h45m",
+                "frequency": "Daily",
+                "priceRange": "€85-340"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for Gaudí's architecture, vibrant cultural scene, Mediterranean beaches, and excellent Catalan cuisine.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "2h30m",
+                "frequency": "2-3 weekly",
+                "priceRange": "€90-350"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Spanish capital with world-class art museums, vibrant cultural scene, excellent tapas, and royal heritage.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "2h45m",
+                "frequency": "2-3 weekly",
+                "priceRange": "€95-370"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its canals, world-class museums, liberal culture, and beautiful historic architecture.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "2h30m",
+                "frequency": "2-3 weekly",
+                "priceRange": "€100-380"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "European Union capital with stunning Grand Place, Art Nouveau architecture, excellent chocolate and beer culture.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "2h20m",
+                "frequency": "2-3 weekly",
+                "priceRange": "€95-360"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Fairy-tale medieval city with stunning castle complex, beautiful old town, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "1h45m",
+                "frequency": "2-3 weekly",
+                "priceRange": "€80-300"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Stunning Danube setting, thermal baths, magnificent parliament building, and vibrant nightlife.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "1h30m",
+                "frequency": "2-3 weekly",
+                "priceRange": "€75-280"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Rebuilt historic center, excellent museums, vibrant cultural scene, and important World War II history.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "2h",
+                "frequency": "2-3 weekly",
+                "priceRange": "€85-320"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Beautiful archipelago setting, excellent museums, Nobel Prize heritage, and Scandinavian design culture.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "2h45m",
+                "frequency": "2-3 weekly",
+                "priceRange": "€120-450"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Scandinavian charm with excellent design, beautiful waterfront, hygge culture, and sustainable living.",
+            "intraEuropeFlight": {
+                "airportInTirana": "Tirana International Airport",
+                "approxFlightTime": "2h30m",
+                "frequency": "2-3 weekly",
+                "priceRange": "€110-420"
+            }
+        }
+    ]
+}

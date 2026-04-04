@@ -1,0 +1,82 @@
+{
+    "destinations": [
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Czech capital with stunning medieval architecture, historic castle complex, and vibrant cultural scene.",
+            "directWithinCountryTrain": {
+                "stationInBrno": "Brno hlavní nádraží",
+                "journeyTime": "2 hours 30 minutes",
+                "frequency": "Hourly",
+                "operator": "České dráhy"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Imperial capital with magnificent palaces, world-class museums, and coffee culture. Very close to Brno.",
+            "directInternationalTrain": {
+                "stationInBrno": "Brno hlavní nádraží",
+                "journeyTime": "1 hour 30 minutes",
+                "frequency": "Every 2 hours",
+                "operator": "ÖBB/České dráhy"
+            }
+        },
+        {
+            "city": "Bratislava",
+            "country": "Slovakia",
+            "whyGo": "Charming Slovak capital on the Danube with compact old town and castle overlooking the river.",
+            "directInternationalTrain": {
+                "stationInBrno": "Brno hlavní nádraží", 
+                "journeyTime": "1 hour 45 minutes",
+                "frequency": "Several daily",
+                "operator": "ŽSSK/České dráhy"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Magnificent Hungarian capital split by the Danube, famous for thermal baths and stunning architecture.",
+            "directInternationalTrain": {
+                "stationInBrno": "Brno hlavní nádraží",
+                "journeyTime": "4 hours 30 minutes",
+                "frequency": "3-4 daily",
+                "operator": "MÁV/České dráhy"
+            }
+        },
+        {
+            "city": "Olomouc",
+            "country": "Czech Republic",
+            "whyGo": "Historic Moravian city with UNESCO-listed Holy Trinity Column and beautiful old town.",
+            "directWithinCountryTrain": {
+                "stationInBrno": "Brno hlavní nádraží",
+                "journeyTime": "1 hour 30 minutes",
+                "frequency": "Hourly",
+                "operator": "České dráhy"
+            }
+        },
+        {
+            "city": "Ostrava",
+            "country": "Czech Republic", 
+            "whyGo": "Industrial city transformed into cultural hub, known for unique post-industrial architecture and mining heritage.",
+            "directWithinCountryTrain": {
+                "stationInBrno": "Brno hlavní nádraží",
+                "journeyTime": "2 hours 15 minutes",
+                "frequency": "Every 2 hours",
+                "operator": "České dráhy"
+            }
+        },
+        {
+            "city": "Český Krumlov",
+            "country": "Czech Republic",
+            "whyGo": "Medieval fairy-tale town with stunning castle and UNESCO World Heritage old town.",
+            "indirectConnection": {
+                "stationInBrno": "Brno hlavní nádraží",
+                "journeyTime": "3 hours 30 minutes",
+                "frequency": "Several daily",
+                "connection": "Via České Budějovice",
+                "operator": "České dráhy"
+            }
+        }
+    ]
+}

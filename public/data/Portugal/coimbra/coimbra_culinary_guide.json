@@ -1,0 +1,437 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Arcadas at Quinta das Lágrimas",
+                "cuisine_type": "Contemporary Portuguese",
+                "signature_dishes": [
+                    "Seasonal Tasting Menu",
+                    "Bacalhau Confit with Chickpeas"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant dining in an 18th-century palace with garden views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Request a table with garden views; book at least a week in advance, especially on weekends",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 0,
+                "location": "Quinta das Lágrimas Hotel",
+                "local_tips": "One of Portugal's most prestigious restaurants, considered among the top 500 in the world; try their signature wine 'Pedro & Inês'; part of their ingredients come from their own organic garden."
+            },
+            {
+                "name": "Refeitro da Baixa",
+                "cuisine_type": "Modern Portuguese",
+                "signature_dishes": [
+                    "Tuna Ceviche",
+                    "Confit Bacalhau with Chickpeas"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Contemporary dining in a renovated ceramics factory with glass walls showing the workshop",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book via TheFork app; ask for a table near the glass walls to watch ceramic artisans at work",
+                "dress_code": "Smart Casual",
+                "michelin_stars": 0,
+                "location": "City Center (Baixa)",
+                "local_tips": "Housed in a restored ceramics factory from 1824; excellent for trying modern interpretations of traditional Portuguese dishes; pairs well with wines from the nearby Bairrada region."
+            },
+            {
+                "name": "Loggia",
+                "cuisine_type": "Contemporary Portuguese",
+                "signature_dishes": [
+                    "Seasonal Menu",
+                    "Regional Meat and Fish Specialties"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated dining with panoramic city views from Machado de Castro Museum",
+                "best_time": "Sunset Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve a terrace table for the best views over Coimbra, especially at sunset",
+                "dress_code": "Smart Casual",
+                "michelin_stars": 0,
+                "location": "Machado de Castro National Museum",
+                "local_tips": "One of the best views in the city; located in the former Bishop's Palace; combines cultural visit with fine dining as you can explore the museum before your meal."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Zé Manel dos Ossos",
+                "cuisine_type": "Traditional Portuguese",
+                "signature_dishes": [
+                    "Quim dos Ossos (Spine Bones in Peppery Broth)",
+                    "Feijoada de Javali (Wild Boar Bean Stew)",
+                    "Cabrito Assado (Roasted Kid Goat)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Tiny, rustic tavern with walls covered in handwritten notes from patrons",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations accepted; arrive early (before opening) or be prepared to wait; cash only",
+                "dress_code": "Casual",
+                "location": "Historic Center",
+                "local_tips": "Coimbra's most famous restaurant; walls decorated with poems, student capes, and mementos; tiny space with only 6 tables; authentic regional cooking without pretense; frequented by locals and visitors alike."
+            },
+            {
+                "name": "Tapas nas Costas",
+                "cuisine_type": "Portuguese Petiscos (Tapas)",
+                "signature_dishes": [
+                    "Selection of Portuguese Cheeses and Charcuterie",
+                    "Octopus Salad",
+                    "Codfish Cakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy tavern in the historic Quebra-Costas area",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Small venue; arrive early for dinner service",
+                "dress_code": "Casual",
+                "location": "Historic Center (Quebra-Costas)",
+                "local_tips": "Located in one of Coimbra's most charming historic streets; excellent for sharing multiple small plates; good selection of Portuguese wines by the glass; perfect for sampling variety of Portuguese flavors."
+            },
+            {
+                "name": "A Taberna",
+                "cuisine_type": "Traditional Portuguese",
+                "signature_dishes": [
+                    "Vitela (Veal)",
+                    "Bacalhau (Salt Cod Preparations)",
+                    "House-made Bread with Requeijão (Ricotta)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, intimate dining room with simple decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Popular with locals for celebrations; book in advance",
+                "dress_code": "Casual",
+                "location": "City Center",
+                "local_tips": "Known for bringing a selection of six side dishes to choose from with main courses; generous portions; consistently high quality traditional food; homestyle Portuguese cooking at its best."
+            },
+            {
+                "name": "Dux Taberna Urbana",
+                "cuisine_type": "Portuguese Petiscos & Wine Bar",
+                "signature_dishes": [
+                    "Seasonal Petiscos Menu",
+                    "Regional Cheeses and Charcuterie"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern tavern with traditional flavors",
+                "best_time": "Evening",
+                "reservation_needed": false,
+                "booking_tips": "Can get busy on weekends; counter seating available for solo diners",
+                "dress_code": "Casual",
+                "location": "Downtown Coimbra",
+                "local_tips": "Excellent wine selection focusing on Portuguese varieties; perfect for trying multiple small dishes; popular with local wine enthusiasts; good option for informal dining with quality ingredients."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Fangas Veg",
+                "specialties": [
+                    "Vegetarian and Vegan Portuguese Cuisine",
+                    "Tapas-sized portions of plant-based dishes"
+                ],
+                "price_range": "€€",
+                "hours": "Lunch & Dinner (closed Sundays)",
+                "location": "City Center",
+                "seating": "Limited indoor seating",
+                "local_tips": "Former grocery store turned vegetarian restaurant; excellent for vegetarians looking for traditional Portuguese flavors; mix and match small plates to create your ideal meal; reservation recommended as seating is limited."
+            },
+            {
+                "name": "O Afonso",
+                "specialties": [
+                    "Freshly Baked Pastries",
+                    "Traditional Coimbra Sweets"
+                ],
+                "price_range": "€",
+                "hours": "Morning & Afternoon",
+                "location": "City Center",
+                "seating": "Café seating available",
+                "local_tips": "Great place for traditional pastries and coffee; try the regional specialties like Arrufadas de Coimbra (sweet bread); popular with locals for breakfast or afternoon snack."
+            },
+            {
+                "name": "Sete Restaurant",
+                "specialties": [
+                    "Portuguese Comfort Food",
+                    "Affordable Set Lunches"
+                ],
+                "price_range": "€€",
+                "hours": "Lunch & Dinner",
+                "location": "Near Praça 8 de Maio",
+                "seating": "Indoor and outdoor seating",
+                "local_tips": "Honest, flavorful food at reasonable prices; popular with students and locals; set lunch menus offer excellent value; outdoor tables great for people-watching in summer months."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Santa Cruz",
+                "specialty": "Historic Café in Former Chapel",
+                "must_try": [
+                    "Traditional Portuguese Coffee",
+                    "Pastel de Santa Clara",
+                    "House Special Hot Chocolate"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Majestic historic café with vaulted ceilings and stained glass windows",
+                "best_time": "Morning or Late Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries, light meals, sandwiches",
+                "local_tips": "Housed in a former 16th-century chapel with spectacular Manueline architecture; live music some evenings; iconic Coimbra institution since 1923; perfect spot to experience the city's café culture."
+            },
+            {
+                "name": "Doppo Coffee",
+                "specialty": "Specialty Coffee & Artisanal Gelato",
+                "must_try": [
+                    "Single-origin Espresso",
+                    "Pour-over Coffee",
+                    "Homemade Italian Gelato"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist café with bright interiors",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light snacks, pastries",
+                "local_tips": "Best specialty coffee in Coimbra; double threat with excellent Italian gelato; popular with students and coffee enthusiasts; good workspace for digital nomads."
+            },
+            {
+                "name": "Pastelaria Briosa",
+                "specialty": "Traditional Portuguese Pastries",
+                "must_try": [
+                    "Pastel de Santa Clara",
+                    "Queijada de Coimbra",
+                    "Pastel de Tentúgal"
+                ],
+                "price_range": "€",
+                "atmosphere": "Classic Portuguese pastelaria serving customers since 1955",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Full range of Portuguese pastries and breads",
+                "local_tips": "Iconic bakery serving authentic regional pastries; award-winning sweet treats; best place to sample Coimbra's traditional convent sweets; centrally located near Largo da Portagem."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Passaporte Lounge Bar",
+                "type": "Rooftop Bar",
+                "specialty": "Sunset Views",
+                "signature_drinks": [
+                    "Craft cocktails",
+                    "Portuguese wines",
+                    "Specialty gin and tonics"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated rooftop lounge with panoramic city views",
+                "best_time": "Sunset",
+                "food_options": "Tapas and light meals",
+                "reservation_needed": "Recommended for sunset hours",
+                "local_tips": "One of the best viewpoints in Coimbra; sunset drinks can turn into dinner; stylish setting in a historic manor; popular with both visitors and locals for special occasions."
+            },
+            {
+                "name": "Fado ao Centro",
+                "type": "Fado House/Cultural Center",
+                "specialty": "Traditional Coimbra Fado",
+                "signature_drinks": [
+                    "Portuguese wine selection",
+                    "Port wine",
+                    "Regional liqueurs"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic fado venue with daily performances",
+                "best_time": "Evening",
+                "food_options": "Limited to snacks",
+                "reservation_needed": "Yes",
+                "local_tips": "Cultural center dedicated to preserving Coimbra's unique male-sung fado tradition; informative presentations about the history and significance of this UNESCO-recognized music style; intimate performances by skilled musicians."
+            },
+            {
+                "name": "Aqui Base Tango",
+                "type": "Student Bar",
+                "specialty": "Lively University Atmosphere",
+                "signature_drinks": [
+                    "Academic cocktails",
+                    "Beer",
+                    "Budget-friendly drinks"
+                ],
+                "price_range": "€",
+                "atmosphere": "Energetic student bar with academic traditions",
+                "best_time": "Night",
+                "food_options": "Snacks",
+                "reservation_needed": false,
+                "local_tips": "Authentic student bar experience; popular with university students; occasional live music; good place to experience Coimbra's famous academic atmosphere; often packed during term time."
+            },
+            {
+                "name": "Trovador Bar",
+                "type": "Wine Bar",
+                "specialty": "Portuguese Wines",
+                "signature_drinks": [
+                    "Local wines from Bairrada and Dão regions",
+                    "Port wine selection",
+                    "Wine tasting flights"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy wine bar with rustic Portuguese decor",
+                "best_time": "Evening",
+                "food_options": "Cheese and charcuterie boards",
+                "reservation_needed": false,
+                "local_tips": "Excellent for discovering Portuguese wines, especially from nearby regions; knowledgeable staff can guide your selections; relaxed atmosphere perfect for conversation; occasional fado nights."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Coimbra Gastronomy Walk",
+                "focus": "Traditional University City Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Historic cafés and pastry shops",
+                    "Regional specialties like Chanfana and Leitão à Bairrada",
+                    "Coimbra's unique convent sweets"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups (max 8)",
+                "languages": [
+                    "English", "Portuguese"
+                ],
+                "booking_tips": "Book at least a few days in advance; comfortable walking shoes recommended; includes stops at historic eateries in the university district."
+            },
+            {
+                "name": "Bairrada Wine Region Tour",
+                "focus": "Wine & Suckling Pig",
+                "duration": "Full day (6-7 hours)",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Visit to Bairrada wineries",
+                    "Traditional Leitão à Bairrada (suckling pig) lunch",
+                    "Sparkling wine production tour"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups (max 8)",
+                "languages": [
+                    "English", "Portuguese"
+                ],
+                "booking_tips": "Departs from Coimbra; includes transportation to nearby Bairrada region (20-30 minutes); focuses on the region's famous sparkling wines and roast suckling pig specialty; advance booking essential."
+            },
+            {
+                "name": "Sweet Coimbra Tour",
+                "focus": "Traditional Convent Sweets & Pastries",
+                "duration": "2-3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to historic pastry shops",
+                    "Sampling of regional sweets including Pastéis de Santa Clara and Pastéis de Tentúgal",
+                    "History of Portuguese convent confectionery"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups (max 10)",
+                "languages": [
+                    "English", "Portuguese", "Spanish"
+                ],
+                "booking_tips": "Sweet-focused tour perfect for those with a sweet tooth; includes coffee pairings; explores the fascinating history of Portugal's convent-based pastry traditions."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Traditional Coimbra Cooking Workshop",
+                "cuisine_focus": "Central Portugal Specialties",
+                "duration": "3-4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Preparing Chanfana (goat stew)",
+                    "Traditional side dishes",
+                    "Regional desserts like Pastéis de Santa Clara"
+                ],
+                "group_size": "Small groups (max 8)",
+                "languages": [
+                    "English", "Portuguese"
+                ],
+                "includes": [
+                    "Market visit, all ingredients, recipe booklet, full meal with regional wines"
+                ],
+                "booking_tips": "Hands-on class focusing on Coimbra's iconic dishes; includes visit to the local market; vegetarian options available with advance notice; book at least a week ahead."
+            },
+            {
+                "name": "Portuguese Pastry Masterclass",
+                "cuisine_focus": "Traditional Convent Sweets",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Techniques for making Pastéis de Santa Clara",
+                    "Egg-based confectionery traditions",
+                    "Pastéis de Tentúgal preparation"
+                ],
+                "group_size": "Very small groups (max 6)",
+                "languages": [
+                    "English", "Portuguese"
+                ],
+                "includes": [
+                    "All ingredients, sweet wine pairing, take-home box of pastries you make"
+                ],
+                "booking_tips": "Focused on the sweet side of Portuguese cuisine; learn about the fascinating history of convent-based pastry traditions; perfect for baking enthusiasts; suitable for all skill levels."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercado Municipal D. Pedro V",
+                "type": "City Market",
+                "highlights": [
+                    "Fresh local produce",
+                    "Regional cheeses and charcuterie",
+                    "Seasonal ingredients"
+                ],
+                "hours": "7 AM - 3 PM (Monday-Saturday), Closed Sunday",
+                "best_time": "Morning",
+                "location": "City Center",
+                "local_tips": "The best place to see local food culture in action; visit early morning for the freshest selection and to see locals shopping; ground floor contains produce vendors while upper floor has small restaurants serving market-fresh ingredients."
+            },
+            {
+                "name": "Praça do Comércio Market",
+                "type": "Traditional Square with Artisanal Shops",
+                "highlights": [
+                    "Artisanal food products",
+                    "Local crafts",
+                    "Regional specialties"
+                ],
+                "hours": "Shops typically open 9 AM - 7 PM, Restaurant hours vary",
+                "best_time": "Afternoon",
+                "location": "Historic Center",
+                "local_tips": "Historic commercial square with specialty food shops; hosts flea market on the fourth Saturday of each month; surrounded by traditional restaurants serving regional cuisine; perfect for souvenir shopping and experiencing local commerce."
+            },
+            {
+                "name": "Quebra Costas Food Shops",
+                "type": "Traditional Food Specialty Stores",
+                "highlights": [
+                    "Artisanal Portuguese products",
+                    "Local wines and spirits",
+                    "Regional cheeses and preserves"
+                ],
+                "hours": "Varies by shop, typically 10 AM - 7 PM",
+                "best_time": "Afternoon",
+                "location": "Historic Quebra Costas Street",
+                "local_tips": "Collection of small specialty food shops along one of Coimbra's most picturesque streets; great for assembling picnic supplies or food souvenirs; many shops offer tastings; combine food shopping with exploring the historic upper town."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Fresh Cheese with Local Honey",
+            "Lamb Dishes for Easter Season",
+            "Spring Vegetables with Egg Dishes"
+        ],
+        "summer": [
+            "Leitão à Bairrada (Roast Suckling Pig from nearby Bairrada region)",
+            "Fresh Fish and Seafood Dishes",
+            "Seasonal Fruit Desserts featuring Cherries and Berries"
+        ],
+        "autumn": [
+            "Chanfana (Goat Stew in Red Wine)",
+            "Javali (Wild Boar Stew with local mushrooms)",
+            "Chestnut-based Desserts and Roasted Chestnuts"
+        ],
+        "winter": [
+            "Caldo Verde (Kale Soup with Chouriço)",
+            "Regional Bean Stews and Hearty Meat Dishes",
+            "Traditional Convent Sweets like Pastéis de Santa Clara and Pastéis de Tentúgal"
+        ]
+    }
+}

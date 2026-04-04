@@ -1,0 +1,435 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Pedro Lemos",
+                "cuisine_type": "Contemporary Portuguese",
+                "signature_dishes": [
+                    "Roasted Squab with Mushroom Risotto",
+                    "Sea Bass with Shellfish and Coastal Greens"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and intimate in a renovated stone house",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several weeks in advance; Porto's premier fine dining experience",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Foz",
+                "local_tips": "Chef Pedro Lemos creates sophisticated dishes focused on local ingredients; beautiful terrace in summer; tasting menu recommended for the full experience."
+            },
+            {
+                "name": "Antiqvvm",
+                "cuisine_type": "Modern Portuguese",
+                "signature_dishes": [
+                    "Octopus with Smoked Potato Purée",
+                    "Lamb with Eggplant and Yogurt"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Refined dining with gardens and river views",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 2-3 weeks ahead; request a table with river views",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Palácio de Cristal Gardens",
+                "local_tips": "Located in the historic Casa de Almeida Garrett with stunning views; chef Vitor Matos blends traditional Portuguese flavors with innovative techniques; excellent wine pairings."
+            },
+            {
+                "name": "The Yeatman Gastronomic Restaurant",
+                "cuisine_type": "Contemporary Portuguese with French techniques",
+                "signature_dishes": [
+                    "Suckling Pig with Langoustine",
+                    "Skate Wing with Smoked Butter and Caviar"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Luxurious with panoramic Porto views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 months in advance; specify any dietary requirements early",
+                "dress_code": "Smart elegant (jackets recommended for men)",
+                "michelin_stars": 2,
+                "location": "Vila Nova de Gaia",
+                "local_tips": "Chef Ricardo Costa's flagship restaurant inside The Yeatman Hotel; exceptional wine service focusing on Portuguese varieties; one of the best views across Porto; request a window table."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Cervejaria Brasão",
+                "cuisine_type": "Traditional Portuguese",
+                "signature_dishes": [
+                    "Francesinha (Porto's iconic sandwich)",
+                    "Grilled Octopus",
+                    "Pica-Pau (beef with pickles)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively brasserie with beautiful vintage decor",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; expect to wait during peak hours",
+                "dress_code": "Casual",
+                "location": "Multiple locations (Aliados, Baixa, Gaia)",
+                "local_tips": "Considered by many to serve the best Francesinha in Porto; good craft beer selection; multiple locations but Aliados venue in historic building is most impressive."
+            },
+            {
+                "name": "Casa Guedes",
+                "cuisine_type": "Portuguese Sandwiches",
+                "signature_dishes": [
+                    "Pernil (Roast Pork Sandwich with Serra Cheese)",
+                    "Bifana (Pork Steak Sandwich)"
+                ],
+                "price_range": "€",
+                "atmosphere": "No-frills, authentic sandwich counter",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; counter service; be prepared to wait during peak hours",
+                "dress_code": "Casual",
+                "location": "Batalha",
+                "local_tips": "Simple sandwich shop with cult following; the pork with Serra cheese sandwich is legendary; fast service but tiny venue; consider takeaway if busy."
+            },
+            {
+                "name": "Cantinho do Avillez Porto",
+                "cuisine_type": "Contemporary Portuguese",
+                "signature_dishes": [
+                    "Exploding Olives",
+                    "Flaked Cod with Bread Crumbs, LDV Olive Oil and Egg",
+                    "Steak with Portuguese Sauce"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Casual yet sophisticated bistro",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended, especially for dinner; book a few days ahead",
+                "dress_code": "Smart Casual",
+                "location": "Mouzinho da Silveira",
+                "local_tips": "Porto outpost of celebrated chef José Avillez; more casual than his fine dining venues; good value tasting menu available; excellent Portuguese wine selection."
+            },
+            {
+                "name": "Tapabento",
+                "cuisine_type": "Portuguese with Spanish influences",
+                "signature_dishes": [
+                    "Codfish Carpaccio",
+                    "Octopus with Sweet Potato Purée",
+                    "House Rice with Duck"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Cozy restaurant in former storage room of São Bento station",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations essential; book at least a week ahead; small space fills quickly",
+                "dress_code": "Smart Casual",
+                "location": "Next to São Bento Station",
+                "local_tips": "Innovative Portuguese cuisine with tapas-style service; intimate setting; excellent wine list; portions are generous despite the tapas concept."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Café Santiago",
+                "specialties": [
+                    "Francesinha (iconic Porto sandwich with meat, cheese, spicy sauce)"
+                ],
+                "price_range": "€€",
+                "hours": "11:30 AM - 11:00 PM (closed Sundays)",
+                "location": "Rua Passos Manuel",
+                "seating": "Traditional café seating",
+                "local_tips": "One of the most famous places for Porto's signature Francesinha sandwich; often has queues; order with a cold Super Bock beer as locals do."
+            },
+            {
+                "name": "Manteigaria",
+                "specialties": [
+                    "Pastel de Nata (Portuguese custard tart)"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - Midnight",
+                "location": "Rua dos Clérigos",
+                "seating": "Standing counter/takeaway",
+                "local_tips": "Originally from Lisbon but now in Porto; watch them being made; bell rings when fresh batch comes out of the oven; best enjoyed warm with cinnamon."
+            },
+            {
+                "name": "Gazela",
+                "specialties": [
+                    "Cachorrinhos (thin hot dog with spicy sauce and cheese)"
+                ],
+                "price_range": "€",
+                "hours": "12:00 PM - 2:00 AM",
+                "location": "Batalha",
+                "seating": "Counter seating and small tables",
+                "local_tips": "Anthony Bourdain-approved hot dog joint; simple but delicious; pair with cold beer; often crowded with locals late at night."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Majestic Café",
+                "specialty": "Historic Belle Époque Café",
+                "must_try": [
+                    "Traditional Coffee",
+                    "Rabanadas (Portuguese French toast)",
+                    "Hot Chocolate"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Ornate Art Nouveau interior with wood, mirrors and chandeliers",
+                "best_time": "Morning / Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Pastries, light meals, traditional Portuguese snacks",
+                "local_tips": "Historic café opened in 1921; allegedly where J.K. Rowling started writing Harry Potter; touristy but worth a visit for the stunning interior; come early to avoid lines."
+            },
+            {
+                "name": "Café Candelabro",
+                "specialty": "Bookstore Café",
+                "must_try": [
+                    "Espresso",
+                    "Local craft beer selection",
+                    "Wine by the glass"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Literary, cozy, intellectual vibe",
+                "best_time": "Afternoon / Evening",
+                "wifi_friendly": true,
+                "food_options": "Simple snacks, cheese and charcuterie boards",
+                "local_tips": "Half bookstore, half café-bar; popular with local writers and artists; good selection of art books; transitions from café to bar in the evening; great place to meet locals."
+            },
+            {
+                "name": "Combi Coffee",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Pour Over",
+                    "Flat White",
+                    "House Roasted Beans to Take Home"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist, contemporary coffee lab",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Pastries, light breakfast items",
+                "local_tips": "Serious coffee enthusiasts' destination; baristas roast their own beans; educational about coffee origins and brewing methods; try their coffee tasting flights."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Vinologia",
+                "type": "Wine Bar",
+                "specialty": "Port Wine Tastings",
+                "signature_drinks": [
+                    "Port wine flights",
+                    "Rare vintage ports",
+                    "White port and tonic"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Intimate, rustic wine cellar feel",
+                "best_time": "Evening",
+                "food_options": "Cheese and charcuterie boards",
+                "reservation_needed": "Recommended for tastings",
+                "local_tips": "Extensive port selection from small producers not commonly found elsewhere; knowledgeable staff offer excellent education about port styles; good value tasting flights."
+            },
+            {
+                "name": "Capela Incomum",
+                "type": "Wine Bar in Former Chapel",
+                "specialty": "Portuguese Wines",
+                "signature_drinks": [
+                    "Douro red wines",
+                    "Green wines (Vinho Verde)",
+                    "Port"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Converted chapel with stained glass and religious elements",
+                "best_time": "Evening",
+                "food_options": "Cheese, charcuterie, tapas-style dishes",
+                "reservation_needed": "Recommended for weekends",
+                "local_tips": "Unique setting in a deconsecrated chapel; focus on wines from northern Portugal; intimate atmosphere with seating at old church pews; great for date night."
+            },
+            {
+                "name": "The Gin House",
+                "type": "Gin Specialist Bar",
+                "specialty": "Artisanal Gin & Tonics",
+                "signature_drinks": [
+                    "Custom G&Ts with over 150 gin varieties",
+                    "Gin-based cocktails",
+                    "Port and wine also available"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Sophisticated speak-easy with vintage touches",
+                "best_time": "Late Evening",
+                "food_options": "Light snacks only",
+                "reservation_needed": "Recommended for weekends",
+                "local_tips": "Portugal's first bar dedicated to gin; each G&T served in balloon glasses with specific botanicals to complement the gin; bartenders very knowledgeable about different gin styles."
+            },
+            {
+                "name": "Candelabro",
+                "type": "Bar & Bookshop",
+                "specialty": "Relaxed Cultural Hub",
+                "signature_drinks": [
+                    "Craft beers",
+                    "Wine selection",
+                    "Classic cocktails"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bohemian, literary, laid-back",
+                "best_time": "Evening",
+                "food_options": "Simple snacks",
+                "reservation_needed": false,
+                "local_tips": "Popular with local creatives and intellectuals; browse books while enjoying drinks; transforms from quiet afternoon café to buzzing bar in evenings; good place to meet locals."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Taste Porto Food Tours",
+                "focus": "Traditional Porto Cuisine & History",
+                "duration": "3-4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Iconic Porto dishes (Francesinha, Bacalhau, etc.)",
+                    "Local pastries and port wine",
+                    "Visit to Bolhão Market and traditional tascas"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups (max 10)",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Book well in advance; Downtown Food Tour is their most popular option; wear comfortable shoes."
+            },
+            {
+                "name": "Porto Walkers Food Tour",
+                "focus": "Authentic Local Eateries",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "6+ food tastings at local spots",
+                    "Portuguese wine and beer pairings",
+                    "Cultural and historical context"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Focuses on family-run establishments; combines food with city highlights; advance booking essential."
+            },
+            {
+                "name": "The Douro Valley Food & Wine Tour",
+                "focus": "Regional Cuisine & Wine Production",
+                "duration": "Full Day (8-9 hours)",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Visit to wineries with tastings",
+                    "Traditional Douro lunch",
+                    "Olive oil and honey tastings",
+                    "River views and terraced vineyards"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [
+                    "English", "Portuguese", "Spanish"
+                ],
+                "booking_tips": "Full-day excursion from Porto; includes transportation; brings you to the source of port wine production; book at least a week ahead."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Cooking Porto",
+                "cuisine_focus": "Traditional Northern Portuguese Cuisine",
+                "duration": "3-4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Classic Porto dishes like Tripas à Moda do Porto",
+                    "Bacalhau (codfish) preparation techniques",
+                    "Portuguese desserts"
+                ],
+                "group_size": "Small groups (max 10)",
+                "languages": [
+                    "English", "Portuguese"
+                ],
+                "includes": [
+                    "Market visit option, all ingredients, recipe booklet, full meal with wines"
+                ],
+                "booking_tips": "Hands-on classes in English; market visit recommended for full cultural experience; vegetarian options available on request."
+            },
+            {
+                "name": "Porto Cooking Class at Mercado Bom Sucesso",
+                "cuisine_focus": "Market-to-Table Portuguese Cooking",
+                "duration": "4 hours",
+                "price_range": "€€€-€€€€",
+                "what_you_learn": [
+                    "Seasonal Portuguese recipes",
+                    "Ingredient selection at the market",
+                    "Wine pairing basics"
+                ],
+                "group_size": "Very small groups (max 6)",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Market shopping experience, cooking instruction, meal with wine pairings"
+                ],
+                "booking_tips": "Located in a working market; focuses on seasonal ingredients; intimate experience with local chef; book at least a week ahead."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercado do Bolhão",
+                "type": "Historic Food Market (Recently Renovated)",
+                "highlights": [
+                    "Fresh produce, meat, fish, flowers",
+                    "Traditional food vendors",
+                    "Authentic local shopping experience"
+                ],
+                "hours": "8 AM - 8 PM (Monday-Friday), 8 AM - 6 PM (Saturday), Closed Sunday",
+                "best_time": "Morning",
+                "location": "City Center",
+                "local_tips": "Historic market operating since 1839; recently renovated while preserving traditional character; best in mornings when all vendors are open; look for the iconic verbal 'advertising' from vendors."
+            },
+            {
+                "name": "Mercado Bom Sucesso",
+                "type": "Modern Food Hall & Market",
+                "highlights": [
+                    "Gourmet food stalls",
+                    "Fresh produce section",
+                    "Restaurants and bars"
+                ],
+                "hours": "10 AM - Midnight (later on weekends)",
+                "best_time": "Lunch or Dinner",
+                "location": "Boavista",
+                "local_tips": "Modern take on market concept; good place for casual meals with many options; popular with locals for after-work drinks and dinner; more contemporary than traditional."
+            },
+            {
+                "name": "Feira da Vandoma",
+                "type": "Flea Market with Food Stalls",
+                "highlights": [
+                    "Antiques and second-hand items",
+                    "Street food vendors",
+                    "Local atmosphere"
+                ],
+                "hours": "Saturdays 8 AM - 1 PM",
+                "best_time": "Morning",
+                "location": "Fontainhas (near Campanhã)",
+                "local_tips": "Porto's traditional flea market; some food vendors offer local specialties; great place to hunt for unique souvenirs while sampling local snacks."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Lampreia (Lamprey fish - seasonal delicacy)",
+            "Fresh sardines (beginning of the season)",
+            "Peas with poached eggs and chouriço"
+        ],
+        "summer": [
+            "Sardinhas assadas (Grilled sardines - peak season)",
+            "Tripas à moda do Porto (Tripe with white beans - traditional dish that gave Porto citizens their nickname 'Tripeiros')",
+            "Sopa de Pedra (Stone Soup with beans and various meats)"
+        ],
+        "autumn": [
+            "Castanhas assadas (Roasted chestnuts from street vendors)",
+            "Caldo Verde (Kale soup with chouriço)",
+            "Toucinho do céu (Almond and egg yolk dessert popular around All Saints' Day)"
+        ],
+        "winter": [
+            "Francesinhas (Perfect comfort food for cold weather)",
+            "Rojões à Minhota (Fried pork with potatoes)",
+            "Rabanadas (Porto-style French toast soaked in wine or port, traditional Christmas dessert)"
+        ]
+    }
+}

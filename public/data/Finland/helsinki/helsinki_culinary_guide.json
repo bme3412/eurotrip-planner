@@ -1,0 +1,611 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Palace",
+                "cuisine_type": "Modern Nordic/European",
+                "signature_dishes": [
+                    "Seasonal tasting menu with premium Nordic ingredients",
+                    "Kagoshima wagyu with spring onion pancakes",
+                    "Yellowtail with gooseberry-ponzu and kombu",
+                    "Hand-dived scallops"
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Elegant, luxurious, stunning harbour views from the 10th floor; modernist 1950s design",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance. Finland's only two-star Michelin restaurant (as of early 2025). Lounge bar available for walk-ins.",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 2,
+                "location": "Eteläranta 10 (Near Market Square)",
+                "local_tips": "Led by Chef Eero Vottonen. Offers a blend of modern Nordic, classic French, and Japanese influences. The view is a significant part of the experience."
+            },
+            {
+                "name": "Olo",
+                "cuisine_type": "Modern Nordic",
+                "signature_dishes": [
+                    "Extensive tasting menu focusing on Nordic ingredients",
+                    "Finnish whitefish roe with Icelandic shrimp",
+                    "Flame-grilled turbot with fermented asparagus and truffle",
+                    "Pan-seared scallops with sunflower seed miso"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Minimalist, stylish, intimate dining rooms; elegant yet relaxed",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Long-standing Michelin star holder. Book ahead. Offers an à la carte menu as well.",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 1,
+                "location": "Pohjoisesplanadi 5 (Near Presidential Palace)",
+                "local_tips": "Led by Pekka Terävä, known for championing pure Nordic flavors. Summer courtyard dining available. Awarded a Green Star for sustainability."
+            },
+            {
+                "name": "Grön",
+                "cuisine_type": "Creative/Plant-Focused Nordic",
+                "signature_dishes": [
+                    "Tasting menu emphasizing vegetables, wild herbs, and local, sustainable ingredients",
+                    "Norwegian king crab and scallops (seasonal)",
+                    "Creative use of fermentation and pickling",
+                    "Vegan tasting menu option"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Intimate, cozy, nature-inspired; atmospheric and unhurried",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance. Known for its strong focus on vegetables and sustainability (Michelin Green Star).",
+                "dress_code": "Smart Casual/Smart Elegant",
+                "michelin_stars": 1,
+                "location": "Albertinkatu 36 (Punavuori/Design District)",
+                "local_tips": "Chefs Toni Kostian and Johan Kurkela forage many ingredients themselves. Excellent for vegetarians/vegans seeking a high-end experience."
+            },
+            {
+                "name": "Demo",
+                "cuisine_type": "Modern Cuisine/French Influence",
+                "signature_dishes": [
+                    "Seasonal tasting menu",
+                    "Venison tartare with dark onion broth",
+                    "Halibut with yuzu koshō and trout roe",
+                    "Lamb's lettuce salad with porcini broth"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Modern, high-rise location (moved in 2024) with spectacular sea views; refined yet playful",
+                "best_time": "Lunch/Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book ahead. Offers high-level lunch, which is rarer for Helsinki Michelin restaurants. Long-standing star holder.",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 1,
+                "location": "Itämerenkatu 25 (Ruoholahti)",
+                "local_tips": "Chef Tommi Tuominen blends French techniques with seasonal Nordic ingredients and global influences. Offers a more relaxed fine dining vibe."
+            },
+            {
+                "name": "Finnjävel Salonki",
+                "cuisine_type": "Contemporary Finnish/Traditional Reimagined",
+                "signature_dishes": [
+                    "Tasting menu based on elevated traditional Finnish dishes",
+                    "Modern interpretations of classics like 'läskisoosi', 'klimppisoppa', 'kalakukko'",
+                    "Focus on Finnish heritage and ingredients"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Stylish, dark-toned dining room in Kunsthalle Helsinki; Finnish design elements",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Unique concept offering refined versions of home-style Finnish food. Book in advance.",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 1,
+                "location": "Ainonkatu 3 (Kunsthalle Helsinki, Töölö)",
+                "local_tips": "Collaboration between chefs Tommi Tuominen and Henri Alén. Known for excellent, relaxed service (Michelin Service Award winner)."
+            },
+            {
+                "name": "The ROOM by Kozeen Shiwan",
+                "cuisine_type": "Creative/Modern Middle Eastern/Nordic Fusion",
+                "signature_dishes": [
+                    "Tasting menu telling the chef's life story",
+                    "Golden potatoes with mango amba sauce and smoked pike roe",
+                    "Gravlax with cardamom oil",
+                    "Smoked oyster mushroom 'kebab'"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Theatrical, atmospheric, dark, performer-centric; features gold, glitter, smoke",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance. Experience is a performance by the chef. Vegan menu available. Not ideal for quiet conversation.",
+                "dress_code": "Smart Elegant/Fashionable",
+                "michelin_stars": 1,
+                "location": "City Center (Specific address may vary - check current)",
+                "local_tips": "A highly performative dining experience from Iraqi-Kurdish chef Kozeen Shiwan, blending culinary traditions. Received its star quickly after opening."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Nolla",
+                "cuisine_type": "Modern European/Sustainable",
+                "signature_dishes": [
+                    "Seasonal tasting menu focused on zero-waste philosophy",
+                    "Dishes using often-overlooked parts of ingredients",
+                    "Creative vegetable preparations",
+                    "In-house brewed beer"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Relaxed, modern, bright; focus on sustainability visible",
+                "best_time": "Dinner/Lunch",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Michelin Bib Gourmand and Green Star recipient. Focus is on sustainability and minimizing waste.",
+                "dress_code": "Casual/Smart Casual",
+                "location": "Fredrikinkatu 22 (Punavuori/Design District)",
+                "local_tips": "Founders previously worked at Chez Dominique. They have their own composter and brewery. Offers a thoughtful and delicious dining experience."
+            },
+            {
+                "name": "Bona Fide",
+                "cuisine_type": "Modern European/Bistro",
+                "signature_dishes": [
+                    "Seasonal dishes with a focus on quality ingredients",
+                    "Tartare",
+                    "Fish dishes",
+                    "Well-executed bistro classics"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Cozy, intimate, neighborhood bistro feel",
+                "best_time": "Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Michelin Bib Gourmand recipient, known for good value.",
+                "dress_code": "Casual/Smart Casual",
+                "location": "Iso Roobertinkatu (Punavuori)",
+                "local_tips": "Offers a warm atmosphere and consistently good food. Popular among locals."
+            },
+            {
+                "name": "Kuurna",
+                "cuisine_type": "Modern European/Finnish Bistro",
+                "signature_dishes": [
+                    "Menu changes every two weeks based on seasonality",
+                    "Focus on high-quality, fresh ingredients",
+                    "Creative bistro fare",
+                    "Excellent wine pairings"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Small, intimate, candlelit, cozy, slightly hidden gem",
+                "best_time": "Dinner",
+                "reservation_needed": "Essential, book well in advance",
+                "booking_tips": "Very popular among locals. Known for its quality, atmosphere, and knowledgeable staff regarding wine.",
+                "dress_code": "Smart Casual",
+                "location": "Meritullinkatu 6 (Kruununhaka)",
+                "local_tips": "Considered one of Helsinki's best bistros for a long time. Perfect for a date night or special casual meal."
+            },
+            {
+                "name": "Savotta",
+                "cuisine_type": "Traditional Finnish",
+                "signature_dishes": [
+                    "Karjalanpaisti (Karelian Hot Pot)",
+                    "Sautéed Reindeer",
+                    "Salmon Soup",
+                    "Leipäjuusto (Finnish Squeaky Cheese) with cloudberries",
+                    "'Taste of Finland' platter (Bear salami, Reindeer sausage)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Rustic, nostalgic Finnish logging camp theme; lots of wood and old artifacts",
+                "best_time": "Dinner/Lunch",
+                "reservation_needed": "Recommended, especially evenings",
+                "booking_tips": "Located directly opposite Helsinki Cathedral on Senate Square. Tourist-friendly but offers authentic dishes.",
+                "dress_code": "Casual/Smart Casual",
+                "location": "Aleksanterinkatu 22 (Senate Square)",
+                "local_tips": "Great place to try classic Finnish dishes in a thematic setting with prime views. Also offers vegan options."
+            },
+            {
+                "name": "Kolme Kruunua",
+                "cuisine_type": "Traditional Finnish/Home Cooking",
+                "signature_dishes": [
+                    "Meatballs ('Lihapullat') - often cited as the best in Helsinki",
+                    "Fried Baltic Herrings ('Paistetut muikut')",
+                    "Pyttipannu (Finnish hash)",
+                    "Salmon Soup"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Classic, old-school Helsinki restaurant established in 1952; unchanged retro charm, wood paneling",
+                "best_time": "Dinner",
+                "reservation_needed": "Highly Recommended",
+                "booking_tips": "Very popular local institution. Book ahead. Offers a taste of authentic, unpretentious Finnish home cooking.",
+                "dress_code": "Casual",
+                "location": "Liisankatu 5 (Kruununhaka)",
+                "local_tips": "A true Helsinki classic. Go for the meatballs or fried herrings for an iconic experience. Service is traditional and efficient."
+            },
+            {
+                "name": "Via Tribunali",
+                "cuisine_type": "Neapolitan Pizza",
+                "signature_dishes": [
+                    "Authentic Neapolitan-style pizzas (Margherita, Diavola etc.)",
+                    "Wood-fired oven pizzas",
+                    "Antipasti"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively, bustling, often crowded; traditional Italian pizzeria feel",
+                "best_time": "Lunch/Dinner",
+                "reservation_needed": "No reservations taken, expect queues",
+                "booking_tips": "First Vera Pizza Napoletana certified pizzeria in Helsinki. Popular location near Senate Square.",
+                "dress_code": "Casual",
+                "location": "Sofiankatu 4 (Near Senate Square)",
+                "local_tips": "Considered by many to serve the best Neapolitan pizza in Helsinki. Be prepared to wait, especially during peak hours."
+            },
+            {
+                "name": "YesYesYes",
+                "cuisine_type": "Vegetarian/Vegan",
+                "signature_dishes": [
+                    "Halloumi fries with pomegranate",
+                    "Cauliflower with tahini yogurt",
+                    "Tofu skewers",
+                    "Creative cocktails"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Trendy, vibrant, pink decor; lively bar atmosphere, good for sharing",
+                "best_time": "Dinner/Drinks",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Focuses on flavorful vegetarian and vegan small plates ideal for sharing. Great cocktails.",
+                "dress_code": "Casual/Smart Casual",
+                "location": "Iso Roobertinkatu 1 (Punavuori)",
+                "local_tips": "A fun and stylish spot for plant-based dining and drinks, popular with a younger crowd."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Street Gastro",
+                "specialties": [
+                    "Premium sandwiches/baguettes with slow-cooked meats (Pork, Beef, Lamb) or veggie options",
+                    "Creative fillings and sauces (e.g., horseradish mayo, tzatziki)",
+                    "Focus on fresh ingredients and house-made bread"
+                ],
+                "price_range": "€€",
+                "hours": "Lunch until late evening (check specific location)",
+                "location": "Multiple locations (e.g., Vaasankatu 13, Albertinkatu 36)",
+                "seating": "Limited indoor/Takeaway focus",
+                "local_tips": "Started as a food truck, now has permanent spots. High-quality ingredients elevate the sandwich concept. Founded by chefs with fine dining backgrounds."
+            },
+            {
+                "name": "Fafa's",
+                "specialties": [
+                    "Pita breads filled with falafel, halloumi, sabich, chicken, or beef",
+                    "Mezze plates",
+                    "Vegan options available",
+                    "Sweet potato fries"
+                ],
+                "price_range": "€€",
+                "hours": "Lunch until late evening",
+                "location": "Multiple locations across Helsinki",
+                "seating": "Casual indoor seating/Takeaway",
+                "local_tips": "Popular local chain for quick, tasty, and relatively affordable Middle Eastern-inspired street food. Consistent quality."
+            },
+            {
+                "name": "Naughty BRGR",
+                "specialties": [
+                    "Gourmet burgers with creative toppings",
+                    "High-quality beef patties",
+                    "Truffle burger, seasonal specials",
+                    "Dirty fries"
+                ],
+                "price_range": "€€-€€€",
+                "hours": "Lunch until late",
+                "location": "Multiple locations (e.g., Lönnrotinkatu, Sturenkatu)",
+                "seating": "Casual indoor seating",
+                "local_tips": "Founded by Top Chef Finland winner Akseli Herlevi. Known for bold flavors and high-quality ingredients in their burgers."
+            },
+            {
+                "name": "Traditional Grill Kiosks ('Grilli')",
+                "specialties": [
+                    "Makkaraperunat (sausage and fries)",
+                    "Lihapiirakka (meat pie, often with fillings like sausage, egg, pickles)",
+                    "Finnish-style 'hamburgers' (often different from American style)",
+                    "Porilainen (sausage sandwich)"
+                ],
+                "price_range": "€-€€",
+                "hours": "Often late night, especially weekends",
+                "location": "Scattered around the city (e.g., Jaskan Grilli)",
+                "seating": "Typically takeaway only, standing counters",
+                "local_tips": "A quintessential Finnish late-night food experience. Quality varies greatly. Expect basic, hearty, and often greasy fare. Perfect after a night out."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Kaffa Roastery",
+                "specialty": "Specialty Coffee Roaster & Bar",
+                "must_try": [
+                    "Single-origin filter coffee (pour-over, Aeropress)",
+                    "Espresso-based drinks",
+                    "Freshly roasted beans to take home"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Industrial chic, passionate baristas, visible roastery",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries, some light snacks",
+                "local_tips": "One of Helsinki's most respected specialty coffee roasters. Great place to learn about coffee and buy high-quality beans."
+            },
+            {
+                "name": "Andante",
+                "specialty": "Specialty Coffee & Tea, Vegan snacks",
+                "must_try": [
+                    "Coffee from rotating guest roasters (e.g., Samples, La Cabra)",
+                    "Specialty teas",
+                    "Vegan pastries"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Minimalist, calm, Design District aesthetic, wooden bench table",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Vegan pastries and snacks",
+                "local_tips": "Focuses on high-quality coffee and tea in a serene environment. Popular spot in the Design District. Note the lack of WiFi."
+            },
+            {
+                "name": "Johan & Nyström",
+                "specialty": "Swedish Specialty Coffee Roaster",
+                "must_try": [
+                    "Their own roasted filter coffees and espresso",
+                    "Concept Store with coffee gear"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Spacious, stylish, waterfront location in Katajanokka; exposed brick",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries, light lunch options",
+                "local_tips": "Popular Swedish coffee brand with a large, comfortable café space. Great views of the harbour."
+            },
+            {
+                "name": "Way Bakery and Wine Bar",
+                "specialty": "Artisan Bakery, Specialty Coffee & Natural Wine Bar",
+                "must_try": [
+                    "Sourdough bread",
+                    "Pastries (Cardamom buns, croissants)",
+                    "Coffee (often Good Life Coffee)",
+                    "Natural wines (evening)",
+                    "Breakfast/Brunch dishes"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Hip, bustling, popular Kallio spot; transitions from bakery/cafe to wine bar",
+                "best_time": "Morning (bakery), Lunch/Brunch, Evening (wine bar)",
+                "wifi_friendly": "Check availability (can be busy)",
+                "food_options": "Excellent bread, pastries, breakfast, lunch, evening snacks",
+                "local_tips": "Founded by chefs from Michelin-starred Grön. High-quality baked goods and food. Transforms into a popular natural wine bar in the evening."
+            },
+            {
+                "name": "Ekberg 1852",
+                "specialty": "Finland's Oldest Patisserie & Cafe",
+                "must_try": [
+                    "Classic Finnish pastries (Runeberg Torte - seasonal, Napoleon)",
+                    "Champagne Corks (pastry)",
+                    "Breakfast/Brunch buffet",
+                    "Lunch menu"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Historic, elegant, traditional European café ambiance",
+                "best_time": "Breakfast/Lunch/Afternoon Coffee & Cake",
+                "wifi_friendly": true,
+                "food_options": "Extensive pastries, cakes, breakfast buffet, lunch dishes",
+                "local_tips": "An institution in Helsinki. Great place for traditional cakes and pastries or their popular weekend brunch buffet. Bakery shop attached."
+            },
+            {
+                "name": "Café Regatta",
+                "specialty": "Iconic Seaside Cafe",
+                "must_try": [
+                    "Cinnamon bun ('Korvapuusti')",
+                    "Blueberry pie ('Mustikkapiirakka')",
+                    "Filter coffee (with free refill)",
+                    "Sausages to grill over the outdoor fire pit"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Extremely quirky, cozy, rustic red wooden cottage filled with curiosities; charming seaside location",
+                "best_time": "Anytime (especially sunny days for outdoor seating)",
+                "wifi_friendly": false,
+                "food_options": "Pastries, sausages",
+                "local_tips": "A beloved Helsinki landmark near the Sibelius Monument. Expect queues, especially on weekends. Cash preferred but card often accepted. Unique atmosphere."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Trillby & Chadwick",
+                "type": "Speakeasy Cocktail Bar",
+                "specialty": "Classic & Bespoke Cocktails",
+                "signature_drinks": [
+                    "Well-crafted classic cocktails (Martinis, Old Fashioneds)",
+                    "Bartender's choice based on preferences"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Hidden entrance, dimly lit, intimate, sophisticated, 1920s detective agency theme",
+                "best_time": "Evening/Night",
+                "food_options": "Limited/None",
+                "reservation_needed": "Recommended (often via text message)",
+                "local_tips": "Helsinki's best-known speakeasy. Finding the entrance is part of the fun (look for the doorbell). Excellent service and high-quality drinks."
+            },
+            {
+                "name": "Runar",
+                "type": "Hotel Bar / Cocktail Bar",
+                "specialty": "Creative & Classic Cocktails, Gin & Tonics",
+                "signature_drinks": [
+                    "Seasonal signature cocktails",
+                    "Extensive Gin & Tonic selection",
+                    "Well-executed classics"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Stylish, modern, Scandinavian design; located in Hotel F6",
+                "best_time": "Evening",
+                "food_options": "Bar snacks",
+                "reservation_needed": "Recommended for groups",
+                "local_tips": "Consistently ranked among Helsinki's best bars. Known for skilled bartenders and high-quality ingredients."
+            },
+            {
+                "name": "Liberty or Death",
+                "type": "Cocktail Bar",
+                "specialty": "Craft Cocktails",
+                "signature_drinks": [
+                    "Inventive cocktails with unique ingredients",
+                    "Seasonal menus",
+                    "Focus on storytelling through drinks"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate, dark, cozy, vintage-inspired",
+                "best_time": "Evening/Night",
+                "food_options": "Limited/None",
+                "reservation_needed": "Recommended on weekends",
+                "local_tips": "Another top contender for Helsinki's best cocktail bar. Known for creative drinks and knowledgeable staff."
+            },
+            {
+                "name": "BasBas Kulma",
+                "type": "Natural Wine Bar",
+                "specialty": "Natural, Organic, Biodynamic Wines",
+                "signature_drinks": [
+                    "Wide selection of natural wines by the glass/bottle",
+                    "Knowledgeable staff recommendations"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Casual, lively, often crowded; simple decor, focus on wine",
+                "best_time": "Evening",
+                "food_options": "Excellent small plates/tapas-style food from the kitchen",
+                "reservation_needed": "No reservations for the bar (part of Baskeri & Basso Bistro)",
+                "local_tips": "Sister venue to the highly popular BasBas restaurant. Great place to explore natural wines and enjoy delicious food. Can get very busy."
+            },
+            {
+                "name": "BrewDog Helsinki",
+                "type": "Craft Beer Bar",
+                "specialty": "Craft Beer (BrewDog & Guests)",
+                "signature_drinks": [
+                    "BrewDog core range and specials",
+                    "Rotating taps of Finnish and international craft beers",
+                    "Cider and other options"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Industrial, spacious, relaxed pub vibe; board games available",
+                "best_time": "Afternoon/Evening",
+                "food_options": "Burgers, wings, pub fare",
+                "reservation_needed": "No",
+                "local_tips": "Part of the international BrewDog chain, offering a wide selection of craft beers in a central location."
+            },
+            {
+                "name": "Pien",
+                "type": "Craft Beer Shop & Bar",
+                "specialty": "Finnish & International Craft Beer",
+                "signature_drinks": [
+                    "Extensive selection of bottled/canned craft beers (Finnish focus)",
+                    "Rotating taps for on-site consumption"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Small, cozy shop atmosphere with limited bar seating",
+                "best_time": "Afternoon/Early Evening",
+                "food_options": "Snacks",
+                "reservation_needed": "No",
+                "local_tips": "Primarily a beer shop but with a small bar area. Excellent selection of hard-to-find Finnish craft beers to drink in or take away."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Helsinki Food Tours (General)",
+                "focus": "Finnish Cuisine, Local Delicacies, Market Visits",
+                "duration": "Approx. 3-4 hours",
+                "price_range": "€€€-€€€€",
+                "highlights": [
+                    "Guided walking tours exploring Helsinki's food scene",
+                    "Tastings of Finnish specialties (e.g., rye bread, salmon soup, Karelian pies, local cheese, berries)",
+                    "Visits to Market Square, Old Market Hall, or Hakaniemi Market Hall",
+                    "Insights into Finnish food culture and history"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups typically",
+                "languages": ["English", "Finnish"],
+                "booking_tips": "Several companies offer tours (e.g., Heather's Helsinki, Fork In Hand). Themes might include general Finnish food, design district culinary stops, or specific market tours. Book in advance. Wear comfortable shoes."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Finnish Cooking Classes (General)",
+                "cuisine_focus": "Traditional Finnish Dishes, Baking (Rye Bread, Karelian Pies), Seasonal Cooking",
+                "duration": "Varies (typically 3-5 hours)",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Preparation of classic Finnish recipes (e.g., salmon soup, meatballs, cinnamon buns)",
+                    "Techniques for baking Finnish bread or pastries",
+                    "Utilizing seasonal Nordic ingredients",
+                    "Understanding Finnish food traditions"
+                ],
+                "group_size": "Varies, often small groups",
+                "languages": ["Finnish", "English (check availability)"],
+                "includes": ["Ingredients", "Instruction", "Shared Meal", "Often recipes"],
+                "booking_tips": "Check providers like Helsinki Culinary Institute (Helsingin Kulinaarinen Instituutti) for professional courses, or look for workshops offered by community centers, private chefs, or cultural organizations. Availability might vary seasonally. Booking is essential."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Old Market Hall (Vanha Kauppahalli)",
+                "type": "Historic Indoor Market Hall",
+                "highlights": [
+                    "Finland's oldest market hall (opened 1889)",
+                    "Specialty food vendors: cheese, charcuterie, fish, caviar, bread, pastries, chocolates",
+                    "Cafes and small eateries (e.g., Story, Soppakeittiö for soup)",
+                    "Beautiful historic architecture"
+                ],
+                "hours": "Mon-Sat, typically 10:00 - 18:00 (some stalls may vary)",
+                "best_time": "Late morning/Lunchtime",
+                "location": "Eteläranta (Near Market Square)",
+                "local_tips": "Great place to sample high-quality Finnish delicacies or have a quality lunch. Can get busy. More focused on specialty goods than raw produce."
+            },
+            {
+                "name": "Hakaniemi Market Hall (Hakaniemen Kauppahalli)",
+                "type": "Traditional Indoor Market Hall",
+                "highlights": [
+                    "Two floors of vendors: downstairs food (meat, fish, cheese, bread, pastries), upstairs crafts and non-food items",
+                    "More traditional, local atmosphere than the Old Market Hall",
+                    "Several cafes and lunch spots (e.g., Soppakeittiö)"
+                ],
+                "hours": "Mon-Sat, typically 08:00 - 18:00 (individual stalls vary)",
+                "best_time": "Morning/Lunchtime",
+                "location": "Hakaniemi Square",
+                "local_tips": "Authentic Helsinki market experience. Great place for traditional Finnish baked goods and food products. Currently undergoing renovation (check status), temporary hall nearby."
+            },
+            {
+                "name": "Market Square (Kauppatori)",
+                "type": "Outdoor Market Square",
+                "highlights": [
+                    "Seasonal produce (berries, vegetables, mushrooms in summer/autumn)",
+                    "Souvenirs and handicrafts",
+                    "Food stalls selling fried vendace ('muikku'), salmon soup, coffee, pastries",
+                    "Departure point for Suomenlinna ferry and sightseeing boats"
+                ],
+                "hours": "Daily, but hours vary seasonally (busiest in summer, limited in winter)",
+                "best_time": "Summer mornings/lunchtime",
+                "location": "South Harbour",
+                "local_tips": "Iconic Helsinki location. Best experienced in summer for fresh berries and bustling atmosphere. Try the fried vendace ('paistetut muikut') from a stall for a classic experience."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Mämmi (Traditional Easter rye malt pudding)",
+            "Pasha (Sweet Easter quark dessert)",
+            "Asparagus (often served with hollandaise and new potatoes)",
+            "Rhubarb pies and desserts",
+            "Nettle soup",
+            "Vappu treats (May 1st): Tippaleipä (funnel cake), Munkki (doughnuts), Sima (mead)"
+        ],
+        "summer": [
+            "New potatoes ('uudet perunat') with herring ('silli') or dill butter",
+            "Fresh berries: Strawberries ('mansikat'), Blueberries/Bilberries ('mustikat'), Raspberries ('vadelmat')",
+            "Chanterelle mushrooms ('kantarelli')",
+            "Grilled sausages ('grillimakkara')",
+            "Smoked fish (salmon, whitefish)",
+            "Crayfish parties ('rapujuhlat') - late summer (July/August)"
+        ],
+        "autumn": [
+            "Wild mushrooms (various types)",
+            "Root vegetables (turnips, swedes, carrots)",
+            "Lingonberries ('puolukka')",
+            "Game meats (Moose - 'hirvi', Reindeer - 'poro')",
+            "Cabbage rolls ('kaalikääryleet')",
+            "Apple harvest dishes"
+        ],
+        "winter": [
+            "Christmas Buffet ('Joulupöytä') dishes: Christmas Ham ('Joulukinkku'), various Casseroles (carrot, swede, potato), Rosolli salad (beetroot salad), Herring dishes",
+            "Lutefisk (Lye-treated cod)",
+            "Pea soup ('Hernekeitto') - traditionally on Thursdays",
+            "Blinis with roe, sour cream, and onion (often Jan-Feb)",
+            "Runeberg Torte ('Runebergintorttu') - January/February 5th",
+            "Shrove Tuesday buns ('Laskiaispulla') - cream/jam filled buns"
+        ]
+    }
+} 

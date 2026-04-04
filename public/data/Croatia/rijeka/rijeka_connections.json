@@ -1,0 +1,468 @@
+{
+    "destinations": [
+        {
+            "city": "Zagreb",
+            "country": "Croatia",
+            "whyGo": "Croatia's capital with historic Upper Town, excellent museums, vibrant cultural scene, and gateway to Central Europe.",
+            "directWithinCountryTrain": {
+                "stationInRijeka": "Rijeka Main Station",
+                "journeyTime": "2h30m",
+                "frequency": "Every 2 hours",
+                "trainType": "InterCity",
+                "priceRange": "€15-25"
+            },
+            "directWithinCountryBus": {
+                "stationInRijeka": "Rijeka Bus Station",
+                "journeyTime": "2h",
+                "frequency": "Multiple daily",
+                "priceRange": "€10-20"
+            },
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "45m",
+                "frequency": "Daily",
+                "priceRange": "€60-120"
+            }
+        },
+        {
+            "city": "Split",
+            "country": "Croatia",
+            "whyGo": "Croatia's second-largest city with Roman Diocletian's Palace, beautiful beaches, and gateway to the Dalmatian islands.",
+            "directWithinCountryBus": {
+                "stationInRijeka": "Rijeka Bus Station",
+                "journeyTime": "6h",
+                "frequency": "2 times daily",
+                "priceRange": "€25-40"
+            },
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "3 times weekly",
+                "priceRange": "€80-150"
+            }
+        },
+        {
+            "city": "Zadar",
+            "country": "Croatia",
+            "whyGo": "Historic coastal city with Roman ruins, unique Sea Organ, beautiful old town, and excellent seafood cuisine.",
+            "directWithinCountryBus": {
+                "stationInRijeka": "Rijeka Bus Station",
+                "journeyTime": "4h",
+                "frequency": "Daily",
+                "priceRange": "€20-35"
+            },
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "45m",
+                "frequency": "Weekly",
+                "priceRange": "€70-130"
+            }
+        },
+        {
+            "city": "Dubrovnik",
+            "country": "Croatia",
+            "whyGo": "UNESCO-listed medieval city with iconic walls, stunning Adriatic views, and rich cultural heritage.",
+            "directWithinCountryBus": {
+                "stationInRijeka": "Rijeka Bus Station",
+                "journeyTime": "8h",
+                "frequency": "Daily",
+                "priceRange": "€30-50"
+            },
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "2 times weekly",
+                "priceRange": "€90-180"
+            }
+        },
+        {
+            "city": "Pula",
+            "country": "Croatia",
+            "whyGo": "Historic city with Roman amphitheater, beautiful Istrian peninsula, and excellent wine and olive oil.",
+            "directWithinCountryBus": {
+                "stationInRijeka": "Rijeka Bus Station",
+                "journeyTime": "1h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€8-15"
+            },
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "30m",
+                "frequency": "Weekly",
+                "priceRange": "€50-100"
+            }
+        },
+        {
+            "city": "Ljubljana",
+            "country": "Slovenia",
+            "whyGo": "Charming capital with beautiful architecture, vibrant cultural scene, and excellent food and wine culture.",
+            "intraEuropeBus": {
+                "stationInRijeka": "Rijeka Bus Station",
+                "journeyTime": "2h",
+                "frequency": "Multiple daily",
+                "priceRange": "€15-25"
+            },
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "45m",
+                "frequency": "Weekly",
+                "priceRange": "€80-150"
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "The unique city of canals, gondolas, St. Mark's Square, and historic palaces across the Adriatic.",
+            "intraEuropeBus": {
+                "stationInRijeka": "Rijeka Bus Station",
+                "journeyTime": "4h",
+                "frequency": "Daily",
+                "priceRange": "€25-40"
+            },
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "2 times weekly",
+                "priceRange": "€100-200"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Italy's fashion and design capital with stunning Gothic cathedral, world-class shopping, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Weekly",
+                "priceRange": "€120-250"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with ancient ruins, Vatican City, Renaissance art, and vibrant street life.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Weekly",
+                "priceRange": "€140-280"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Imperial capital with stunning palaces, world-class classical music, and elegant coffee house culture.",
+            "intraEuropeBus": {
+                "stationInRijeka": "Rijeka Bus Station",
+                "journeyTime": "6h",
+                "frequency": "Daily",
+                "priceRange": "€35-55"
+            },
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Weekly",
+                "priceRange": "€150-300"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Stunning architecture, thermal baths, vibrant nightlife, and rich cultural heritage.",
+            "intraEuropeBus": {
+                "stationInRijeka": "Rijeka Bus Station",
+                "journeyTime": "7h",
+                "frequency": "Daily",
+                "priceRange": "€40-60"
+            },
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Weekly",
+                "priceRange": "€160-320"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Beautiful medieval old town, stunning castle complex, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Weekly",
+                "priceRange": "€170-350"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Dynamic capital with rich history, excellent museums, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Weekly",
+                "priceRange": "€180-380"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Germany's vibrant capital with rich history, world-class museums, dynamic arts scene, and compelling mix of historic and modern architecture.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Weekly",
+                "priceRange": "€190-400"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Known for its annual Oktoberfest celebration, beer halls, excellent museums, and beautiful architecture blending tradition and modernity.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Weekly",
+                "priceRange": "€180-380"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "A major financial hub with a futuristic skyline, excellent museums, historic old town, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Weekly",
+                "priceRange": "€190-400"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its artistic heritage, elaborate canal system, narrow houses, world-class museums, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Weekly",
+                "priceRange": "€200-420"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Vibrant capital of Belgium and the European Union, known for its historic Grand Place, Art Nouveau architecture, and excellent beer culture.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "Weekly",
+                "priceRange": "€190-400"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A leading global city with strengths in the arts, commerce, finance, and culture, featuring iconic landmarks and diverse neighborhoods.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "2h45m",
+                "frequency": "Weekly",
+                "priceRange": "€220-450"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The City of Light with its iconic landmarks, world-class museums, romantic atmosphere, and renowned cuisine.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Weekly",
+                "priceRange": "€210-420"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for its art and architecture, especially Gaudí's masterpieces, vibrant cultural scene, and Mediterranean beaches.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "Weekly",
+                "priceRange": "€200-400"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "The Spanish capital known for its rich repositories of European art, vibrant cultural scene, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "2h45m",
+                "frequency": "Weekly",
+                "priceRange": "€220-450"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Charming coastal capital with historic trams, beautiful viewpoints, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "3h",
+                "frequency": "Weekly",
+                "priceRange": "€240-480"
+            }
+        },
+        {
+            "city": "Porto",
+            "country": "Portugal",
+            "whyGo": "Historic port city with beautiful riverfront, excellent wine culture, and charming old town.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "3h15m",
+                "frequency": "Weekly",
+                "priceRange": "€250-500"
+            }
+        },
+        {
+            "city": "Athens",
+            "country": "Greece",
+            "whyGo": "Ancient capital with Acropolis, rich history, excellent museums, and gateway to Greek islands.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Weekly",
+                "priceRange": "€180-350"
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Where East meets West with stunning mosques, Grand Bazaar, and rich cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Weekly",
+                "priceRange": "€200-400"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Scandinavian charm with excellent design, beautiful waterfront, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "2h45m",
+                "frequency": "Weekly",
+                "priceRange": "€240-480"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Beautiful archipelago setting, excellent museums, and Scandinavian design culture.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "3h",
+                "frequency": "Weekly",
+                "priceRange": "€260-520"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "Scenic fjord setting, excellent museums, and gateway to Norwegian nature.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "3h15m",
+                "frequency": "Weekly",
+                "priceRange": "€280-550"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Vibrant capital with rich literary heritage, excellent pubs, and friendly atmosphere.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "3h",
+                "frequency": "Weekly",
+                "priceRange": "€240-480"
+            }
+        },
+        {
+            "city": "Edinburgh",
+            "country": "United Kingdom",
+            "whyGo": "Historic Scottish capital with stunning castle, medieval old town, and vibrant festivals.",
+            "intraEuropeFlight": {
+                "airportsInRijeka": [
+                    "Rijeka Airport (RJK)"
+                ],
+                "approxFlightTime": "3h15m",
+                "frequency": "Weekly",
+                "priceRange": "€260-520"
+            }
+        }
+    ]
+}

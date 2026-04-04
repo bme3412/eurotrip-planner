@@ -1,0 +1,675 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Piazza",
+                "cuisine_type": "Modern Albanian",
+                "signature_dishes": [
+                    "Grilled sea bass with Mediterranean herbs",
+                    "Lamb kleftiko with mountain cheese"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant seaside dining with panoramic Adriatic views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for sunset dinner with sea views, especially in summer",
+                "dress_code": "Smart casual",
+                "location": "Durres Waterfront",
+                "local_tips": "Try the daily fresh fish selection and local Kallmet wine"
+            },
+            {
+                "name": "Restaurant Vila",
+                "cuisine_type": "Mediterranean Albanian",
+                "signature_dishes": [
+                    "Slow-cooked lamb with yogurt sauce",
+                    "Fresh adriatic seafood platter"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated villa setting with garden terrace and sea views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book terrace seating in advance, especially weekends",
+                "dress_code": "Smart casual",
+                "location": "Durres Beach Area",
+                "local_tips": "Don't miss their homemade raki and traditional Albanian desserts"
+            },
+            {
+                "name": "Restorant Aragosta",
+                "cuisine_type": "Seafood Speciality",
+                "signature_dishes": [
+                    "Lobster with garlic and herbs",
+                    "Grilled octopus with olive oil"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Upscale seafood restaurant with nautical décor and marina views",
+                "best_time": "Lunch or dinner",
+                "reservation_needed": true,
+                "booking_tips": "Call ahead for fresh catch availability and waterfront seating",
+                "dress_code": "Smart casual",
+                "location": "Durres Port Area",
+                "local_tips": "Ask about the daily catch and pair with local white wine"
+            },
+            {
+                "name": "Taverna Tradicionale Iliria",
+                "cuisine_type": "Traditional Albanian",
+                "signature_dishes": [
+                    "Tavë kosi (baked lamb with yogurt)",
+                    "Byrek with spinach and cheese"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Authentic traditional setting with folk music and cultural décor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book for weekend traditional music nights",
+                "dress_code": "Casual",
+                "location": "Old Town Durres",
+                "local_tips": "Try the complete traditional meal with multiple small dishes"
+            },
+            {
+                "name": "Gusto di Mare",
+                "cuisine_type": "Italian-Albanian Fusion",
+                "signature_dishes": [
+                    "Risotto with Adriatic seafood",
+                    "Albanian-style pasta with local cheese"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern coastal restaurant with Italian influences and sea breeze",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve early for beachfront tables during summer months",
+                "dress_code": "Smart casual",
+                "location": "Durres Beach Promenade",
+                "local_tips": "Excellent wine selection featuring both Italian and Albanian wines"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Taverna Durresake",
+                "cuisine_type": "Traditional Albanian",
+                "signature_dishes": [
+                    "Qofte (Albanian meatballs)",
+                    "Grilled fish with lemon",
+                    "Baklava with honey"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Friendly family taverna with outdoor seating and local atmosphere",
+                "best_time": "Lunch or dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, but arrive early for best seating",
+                "dress_code": "Casual",
+                "location": "Central Durres",
+                "local_tips": "Perfect for authentic Albanian experience at reasonable prices"
+            },
+            {
+                "name": "Fisherman's Tavern",
+                "cuisine_type": "Fresh Seafood",
+                "signature_dishes": [
+                    "Daily fresh fish",
+                    "Fried calamari",
+                    "Seafood risotto"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Casual beachside taverna with fishermen's nets and nautical theme",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Check daily specials based on morning catch",
+                "dress_code": "Casual",
+                "location": "Durres Beach",
+                "local_tips": "Watch fishermen bring in the catch in early morning"
+            },
+            {
+                "name": "Kulla e Sahatit",
+                "cuisine_type": "Albanian Traditional",
+                "signature_dishes": [
+                    "Tavë dheu (clay pot casserole)",
+                    "Speca të mbushur (stuffed peppers)",
+                    "Qumësht të egra (wild milk dessert)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic building restaurant with traditional Albanian architecture",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Visit during lunch for quieter atmosphere",
+                "dress_code": "Casual",
+                "location": "Near Venetian Tower",
+                "local_tips": "Try the traditional cooking methods in clay pots"
+            },
+            {
+                "name": "Pizzeria Adriatiku",
+                "cuisine_type": "Albanian-Italian Pizza",
+                "signature_dishes": [
+                    "Pizza with local cheese and herbs",
+                    "Seafood pizza",
+                    "Traditional byrek pizza"
+                ],
+                "price_range": "€",
+                "atmosphere": "Casual family pizzeria with outdoor terrace and sea views",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, expect busy evenings in summer",
+                "dress_code": "Casual",
+                "location": "Durres Promenade",
+                "local_tips": "Try unique Albanian toppings on traditional Italian base"
+            },
+            {
+                "name": "Gurra e Perrise",
+                "cuisine_type": "Mountain Albanian",
+                "signature_dishes": [
+                    "Roasted lamb with herbs",
+                    "Mountain cheese platter",
+                    "Traditional cornbread"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic mountain-style taverna with traditional music and décor",
+                "best_time": "Lunch or dinner",
+                "reservation_needed": false,
+                "booking_tips": "Call ahead for large groups or special occasions",
+                "dress_code": "Casual",
+                "location": "Old Town Durres",
+                "local_tips": "Experience highland Albanian cuisine by the coast"
+            },
+            {
+                "name": "Bar Restorant Vollga",
+                "cuisine_type": "Albanian Coastal",
+                "signature_dishes": [
+                    "Grilled whole fish",
+                    "Albanian salad with white cheese",
+                    "Seafood pasta"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Relaxed beachfront restaurant with simple, fresh approach",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Best visited for lunch with sea views",
+                "dress_code": "Beach casual",
+                "location": "Durres Beach",
+                "local_tips": "Perfect for simple, high-quality seafood with your feet in the sand"
+            },
+            {
+                "name": "Restorant Kastrati",
+                "cuisine_type": "Albanian Family Style",
+                "signature_dishes": [
+                    "Mixed grill platter",
+                    "Traditional soup",
+                    "Homemade yogurt"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm family restaurant with home-style cooking and friendly service",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Perfect for families, children welcome",
+                "dress_code": "Casual",
+                "location": "Central Durres",
+                "local_tips": "Like eating at an Albanian family's home"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Durres Central Market",
+                "specialties": [
+                    "Fresh byrek (Albanian pastry)",
+                    "Grilled meat skewers",
+                    "Local cheese and olives",
+                    "Seasonal fruit"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 6am-2pm",
+                "location": "Central Durres",
+                "seating": false,
+                "local_tips": "Best in early morning for freshest byrek and coffee"
+            },
+            {
+                "name": "Beachfront Food Stalls",
+                "specialties": [
+                    "Grilled corn on the cob",
+                    "Fresh fruit juices",
+                    "Ice cream and gelato",
+                    "Grilled fish sandwiches"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 9am-11pm (summer)",
+                "location": "Durres Beach Promenade",
+                "seating": true,
+                "local_tips": "Perfect for beach snacks and refreshments while sunbathing"
+            },
+            {
+                "name": "Port Area Food Vendors",
+                "specialties": [
+                    "Fresh seafood",
+                    "Traditional Albanian breakfast",
+                    "Turkish coffee",
+                    "Local pastries"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 5am-10am",
+                "location": "Durres Port",
+                "seating": false,
+                "local_tips": "Early morning spot for fishermen's breakfast and fresh catch"
+            },
+            {
+                "name": "Archaeological Site Vendors",
+                "specialties": [
+                    "Bottled water and drinks",
+                    "Local snacks",
+                    "Souvenirs",
+                    "Fresh lemonade"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 8am-6pm",
+                "location": "Near Amphitheatre",
+                "seating": false,
+                "local_tips": "Convenient for refreshments while exploring historical sites"
+            },
+            {
+                "name": "Evening Promenade Stalls",
+                "specialties": [
+                    "Roasted nuts",
+                    "Seasonal fruit",
+                    "Local sweets",
+                    "Cold drinks"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 6pm-11pm",
+                "location": "Durres Waterfront",
+                "seating": true,
+                "local_tips": "Perfect for evening stroll snacks with sunset views"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Cafe Central",
+                "specialty": "Turkish and Albanian coffee",
+                "must_try": [
+                    "Traditional Turkish coffee",
+                    "Albanian mountain coffee",
+                    "Macchiato"
+                ],
+                "price_range": "€",
+                "atmosphere": "Traditional Albanian coffeehouse with outdoor seating and local atmosphere",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Traditional pastries and light breakfast",
+                "local_tips": "Perfect for morning coffee and people watching"
+            },
+            {
+                "name": "Cafe Durres",
+                "specialty": "European-style coffee",
+                "must_try": [
+                    "Cappuccino",
+                    "Espresso",
+                    "Iced coffee"
+                ],
+                "price_range": "€",
+                "atmosphere": "Modern café with sea views and contemporary design",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Sandwiches, salads, and desserts",
+                "local_tips": "Great for working with reliable WiFi and comfortable seating"
+            },
+            {
+                "name": "Bar Kafe Shqiponja",
+                "specialty": "Traditional Albanian coffee experience",
+                "must_try": [
+                    "Albanian coffee",
+                    "Herbal mountain teas",
+                    "Traditional sweets"
+                ],
+                "price_range": "€",
+                "atmosphere": "Authentic local café with traditional Albanian décor",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Traditional Albanian pastries and honey treats",
+                "local_tips": "Experience genuine Albanian coffee culture"
+            },
+            {
+                "name": "Seaside Café",
+                "specialty": "Beachfront coffee and refreshments",
+                "must_try": [
+                    "Iced coffee",
+                    "Fresh fruit smoothies",
+                    "Cold brew"
+                ],
+                "price_range": "€",
+                "atmosphere": "Relaxed beachfront café with sand floors and sea breeze",
+                "best_time": "All day",
+                "wifi_friendly": true,
+                "food_options": "Light beach snacks and fresh fruit",
+                "local_tips": "Perfect for coffee breaks between beach activities"
+            },
+            {
+                "name": "Historic Quarter Café",
+                "specialty": "Coffee in historic setting",
+                "must_try": [
+                    "Albanian coffee",
+                    "European espresso drinks",
+                    "Traditional teas"
+                ],
+                "price_range": "€",
+                "atmosphere": "Charming café in historic building with cultural atmosphere",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Local pastries and light meals",
+                "local_tips": "Combine with historical site visits"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Hemingway Bar",
+                "type": "Cocktail Bar",
+                "specialty": "Classic cocktails and sea views",
+                "signature_drinks": [
+                    "Mojito with Albanian herbs",
+                    "Adriatic Sunset",
+                    "Local raki cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated cocktail bar with panoramic sea views",
+                "best_time": "Sunset",
+                "food_options": "Premium bar snacks and tapas",
+                "reservation_needed": false,
+                "local_tips": "Best sunset views in Durres with creative cocktails"
+            },
+            {
+                "name": "Pirates Bar",
+                "type": "Beach Bar",
+                "specialty": "Beach cocktails and casual atmosphere",
+                "signature_drinks": [
+                    "Tropical cocktails",
+                    "Local beer",
+                    "Frozen drinks"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Fun beach bar with nautical theme and live music",
+                "best_time": "Evening",
+                "food_options": "Beach snacks and light meals",
+                "reservation_needed": false,
+                "local_tips": "Popular with young crowd, especially during summer weekends"
+            },
+            {
+                "name": "Castello Wine Bar",
+                "type": "Wine Bar",
+                "specialty": "Albanian and Balkan wines",
+                "signature_drinks": [
+                    "Albanian red wines",
+                    "Kallmet white wine",
+                    "Regional wine flights"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy wine bar with stone walls and intimate lighting",
+                "best_time": "Evening",
+                "food_options": "Cheese and charcuterie plates",
+                "reservation_needed": false,
+                "local_tips": "Excellent introduction to Albanian wine varieties"
+            },
+            {
+                "name": "Taverna Bar Tradita",
+                "type": "Traditional Bar",
+                "specialty": "Albanian raki and traditional atmosphere",
+                "signature_drinks": [
+                    "Traditional raki varieties",
+                    "Local beer",
+                    "Traditional herbal liqueurs"
+                ],
+                "price_range": "€",
+                "atmosphere": "Authentic Albanian bar with traditional music and local clientele",
+                "best_time": "Evening",
+                "food_options": "Traditional Albanian mezze",
+                "reservation_needed": false,
+                "local_tips": "Best place to experience traditional Albanian drinking culture"
+            },
+            {
+                "name": "Sky Lounge Durres",
+                "type": "Rooftop Bar",
+                "specialty": "Panoramic views and cocktails",
+                "signature_drinks": [
+                    "Signature cocktails",
+                    "Premium spirits",
+                    "Champagne selection"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Upscale rooftop with 360-degree views of city and sea",
+                "best_time": "Sunset",
+                "food_options": "Upscale appetizers and canapés",
+                "reservation_needed": true,
+                "local_tips": "Make reservations for sunset hours and special occasions"
+            },
+            {
+                "name": "Marina Bar",
+                "type": "Waterfront Bar",
+                "specialty": "Harbor views and maritime atmosphere",
+                "signature_drinks": [
+                    "Sailor's cocktails",
+                    "Local spirits",
+                    "International beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Nautical-themed bar overlooking the marina and fishing boats",
+                "best_time": "After work",
+                "food_options": "Seafood tapas and light bites",
+                "reservation_needed": false,
+                "local_tips": "Watch fishing boats return with the day's catch"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Durres Traditional Food Walking Tour",
+                "focus": "Traditional Albanian cuisine and local culture",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Traditional taverna visits",
+                    "Local market exploration",
+                    "Albanian cooking demonstrations",
+                    "Raki tasting"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "Albanian",
+                    "Italian"
+                ],
+                "booking_tips": "Book through local hotels or tour agencies in advance"
+            },
+            {
+                "name": "Coastal Seafood Experience",
+                "focus": "Fresh Adriatic seafood and fishing culture",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Fish market visit",
+                    "Fishing boat experience",
+                    "Seafood preparation",
+                    "Beachfront dining"
+                ],
+                "booking_required": true,
+                "group_size": "6",
+                "languages": [
+                    "English",
+                    "Albanian"
+                ],
+                "booking_tips": "Early morning start to see fishing boats return"
+            },
+            {
+                "name": "Albanian Wine and Food Pairing",
+                "focus": "Local Albanian wines with traditional dishes",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Albanian wine varieties",
+                    "Traditional food pairings",
+                    "Local vineyard stories",
+                    "Cheese and olive tastings"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "Albanian"
+                ],
+                "booking_tips": "Available year-round, best during harvest season"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Traditional Albanian Home Cooking",
+                "cuisine_focus": "Authentic Albanian family recipes",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Byrek making techniques",
+                    "Traditional meat dishes",
+                    "Albanian spice usage",
+                    "Family-style serving"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "Albanian"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Recipe cards",
+                    "Full meal",
+                    "Welcome raki"
+                ],
+                "booking_tips": "Often held in local family homes for authentic experience"
+            },
+            {
+                "name": "Adriatic Seafood Cooking Workshop",
+                "cuisine_focus": "Fresh seafood preparation",
+                "duration": "2.5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Fish cleaning and preparation",
+                    "Mediterranean seasoning",
+                    "Grilling techniques",
+                    "Traditional Albanian seafood dishes"
+                ],
+                "group_size": "6",
+                "languages": [
+                    "English",
+                    "Albanian"
+                ],
+                "includes": [
+                    "Fresh seafood",
+                    "Cooking equipment",
+                    "Lunch with wine",
+                    "Recipe collection"
+                ],
+                "booking_tips": "Best combined with morning fish market visit"
+            },
+            {
+                "name": "Albanian Pastry and Dessert Making",
+                "cuisine_focus": "Traditional Albanian sweets",
+                "duration": "2 hours",
+                "price_range": "€",
+                "what_you_learn": [
+                    "Baklava preparation",
+                    "Traditional phyllo techniques",
+                    "Honey and nut combinations",
+                    "Albanian coffee service"
+                ],
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "Albanian"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Take-home pastries",
+                    "Coffee and tea",
+                    "Recipe booklet"
+                ],
+                "booking_tips": "Perfect afternoon activity, suitable for all skill levels"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Durres Central Market",
+                "type": "Traditional covered market",
+                "highlights": [
+                    "Fresh local produce",
+                    "Traditional Albanian products",
+                    "Handmade cheeses",
+                    "Local honey and preserves",
+                    "Traditional bread and pastries"
+                ],
+                "hours": "Daily: 6am-2pm",
+                "best_time": "Early morning for freshest products",
+                "location": "Central Durres",
+                "local_tips": "Bring cash, practice basic Albanian phrases, sample before buying"
+            },
+            {
+                "name": "Fish Market",
+                "type": "Daily fresh seafood market",
+                "highlights": [
+                    "Fresh daily catch",
+                    "Adriatic seafood varieties",
+                    "Fishing community interaction",
+                    "Seasonal fish availability"
+                ],
+                "hours": "Daily: 5am-10am",
+                "best_time": "Early morning when boats return",
+                "location": "Durres Port",
+                "local_tips": "Watch fishermen unload catch, ask about preparation methods"
+            },
+            {
+                "name": "Weekend Farmers Market",
+                "type": "Local produce and crafts market",
+                "highlights": [
+                    "Organic mountain produce",
+                    "Homemade preserves",
+                    "Local crafts",
+                    "Traditional Albanian products"
+                ],
+                "hours": "Saturday-Sunday: 8am-2pm",
+                "best_time": "Saturday morning",
+                "location": "Main Square",
+                "local_tips": "Seasonal availability, great for authentic Albanian products"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Fresh mountain herbs and greens",
+            "Young lamb with wild herbs",
+            "Artichokes and asparagus",
+            "Fresh cheese with herbs",
+            "Early season fish",
+            "Wild strawberries"
+        ],
+        "summer": [
+            "Fresh Adriatic seafood",
+            "Grilled vegetables",
+            "Mediterranean salads",
+            "Fresh tomatoes and cucumbers",
+            "Summer fruits and melons",
+            "Beachside grilled fish",
+            "Cold yogurt drinks"
+        ],
+        "autumn": [
+            "Grape harvest celebrations",
+            "Fresh wine and raki",
+            "Roasted chestnuts",
+            "Preserved vegetables",
+            "Mountain mushrooms",
+            "Apple and pear dishes",
+            "Hearty stews and casseroles"
+        ],
+        "winter": [
+            "Preserved meats and fish",
+            "Bean and lentil stews",
+            "Traditional comfort foods",
+            "Hot herbal teas",
+            "Dried fruit and nut desserts",
+            "Hearty soups",
+            "Traditional holiday sweets",
+            "Warm raki varieties"
+        ]
+    }
+}

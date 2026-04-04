@@ -1,0 +1,687 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1], 
+          "score": 1, 
+          "special": true, 
+          "event": "New Year's Day", 
+          "notes": "Major holiday - most attractions closed, very cold weather (-5 to 0°C), post-celebration cleanup, limited transport", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Free", 
+          "crowdLevel": "Very Low",
+                      "travelerTypes": {
+              "families": 1,
+              "couples": 2,
+              "solo": 1,
+              "business": 1,
+              "budget": 2,
+              "luxury": 1
+            },
+          "attractions": {
+            "dolniVitkovice": "Closed",
+            "ostravaZoo": "Closed", 
+            "cityHallTower": "Closed",
+            "stodolniStreet": "Limited venues open",
+            "museums": "Closed"
+          },
+          "considerations": ["Most attractions closed", "Limited restaurant options", "Excellent for photography with snow", "Many venues closed"]
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          "score": 2, 
+          "notes": "Post-holiday recovery, gradual reopening, winter sales begin, very cold (-3 to 2°C)", 
+          "location": "Shopping districts", 
+          "time": "All day", 
+          "price": "Lower prices", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 1,
+            "budget": 4,
+            "luxury": 2
+          },
+          "attractions": {
+            "dolniVitkovice": "Open, minimal queues",
+            "ostravaZoo": "Open, indoor exhibits only",
+            "cityHallTower": "Open, clear views", 
+            "shopping": "Sales up to 70% off",
+            "museums": "Perfect conditions"
+          },
+          "considerations": ["Excellent for industrial heritage photography", "Perfect museum conditions", "Bring warm clothing", "Limited daylight 8:00am-4:30pm"]
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 2, 
+          "notes": "Coldest period (-5 to 0°C), possible snow, ideal for indoor activities, very low tourism", 
+          "location": "Museums and indoor attractions", 
+          "time": "Daytime 9am-5pm", 
+          "price": "Standard", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          },
+          "attractions": {
+            "dolniVitkovice": "Excellent - no crowds",
+            "ostravaMuseum": "Perfect conditions",
+            "michalMine": "Indoor tours recommended",
+            "cafes": "Cozy atmosphere", 
+            "shopping": "Continued sales"
+          },
+          "considerations": ["Pack thermal layers", "Perfect for industrial heritage tours", "Cafés are sanctuaries", "Early sunset around 4:30pm"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 2,
+        "lowC": -5,
+        "avgC": -1.5,
+        "realFeelC": -8,
+        "rainfallMm": 40,
+        "rainDays": 8,
+        "snowDays": 12,
+        "sunshineHours": 2,
+        "daylightHours": 8,
+        "sunrise": "08:00",
+        "sunset": "16:30",
+        "humidity": 85,
+        "windKmh": 12
+      },
+      "tourismLevel": 2,
+      "priceLevel": "Low",
+      "crowdLevel": "Low",
+      "schoolHolidays": {
+        "christmas": {"dates": [1, 2], "impact": "Moderate"},
+        "winter": {"starts": "mid-February", "impact": "None in January"}
+      }
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          "score": 2, 
+          "notes": "Winter continues, cold (-3 to 2°C), fewer crowds, excellent museum time", 
+          "location": "Museums and indoor attractions", 
+          "time": "Daytime 9am-5pm", 
+          "price": "Standard", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], 
+          "score": 2, 
+          "notes": "Pre-Valentine's period, gradual warming (-1 to 4°C), winter sales ending", 
+          "location": "Shopping areas, cultural venues", 
+          "time": "All day", 
+          "price": "End of sales", 
+          "crowdLevel": "Low",
+          "schoolHolidays": {
+            "winter": {"active": true, "impact": "Moderate", "dates": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]},
+            "description": "Winter school holidays - increased family tourism"
+          },
+          "considerations": ["Museum queues increase slightly", "Family-friendly activities busier", "Book family restaurants ahead"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 4,
+        "lowC": -3,
+        "avgC": 0.5,
+        "realFeelC": -3,
+        "rainfallMm": 35,
+        "rainDays": 7,
+        "snowDays": 8,
+        "sunshineHours": 3,
+        "daylightHours": 9.5,
+        "sunrise": "07:30",
+        "sunset": "17:00",
+        "humidity": 80,
+        "windKmh": 11
+      },
+      "tourismLevel": 3,
+      "priceLevel": "Low-Medium",
+      "crowdLevel": "Low-Medium"
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          "score": 3, 
+          "notes": "Early spring transition, variable weather (2-8°C), increasing daylight", 
+          "location": "Citywide", 
+          "time": "Extended daylight 7:00am-6:30pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 3
+          },
+          "weatherVariability": "High - pack layers, umbrella essential",
+          "considerations": ["Unpredictable weather", "Perfect for indoor/outdoor combination", "Early spring flowers appearing"]
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 
+          "score": 4, 
+          "notes": "Spring awakening, pleasant temperatures (4-10°C), perfect for walking", 
+          "location": "Parks and outdoor attractions", 
+          "time": "Full day exploration", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "springActivities": ["Industrial heritage tours", "Outdoor café culture returns", "Walking tours ideal", "Photography perfect light"],
+          "considerations": ["Weather can change quickly", "Perfect time for industrial photography", "Outdoor dining returns"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 4, 
+          "special": true, 
+          "event": "Spring Equinox & Industrial Heritage Season Begins", 
+          "notes": "Spring officially arrives, excellent conditions (6-12°C), industrial sites more accessible", 
+          "location": "Dolní Vítkovice, industrial heritage sites", 
+          "time": "Optimal 9am-6pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "industrialHeritageLocations": {
+            "dolniVitkovice": "UNESCO site, guided tours available",
+            "michalMine": "Indoor tours, mining history",
+            "landekPark": "Outdoor mining museum",
+            "ostravaMuseum": "Industrial heritage exhibits"
+          },
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          },
+          "considerations": ["Industrial heritage tours popular", "Weekend crowds for major sites", "Perfect for photography", "Outdoor dining fully returns"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 10,
+        "lowC": 2,
+        "avgC": 6,
+        "realFeelC": 5,
+        "rainfallMm": 45,
+        "rainDays": 10,
+        "snowDays": 3,
+        "sunshineHours": 4.5,
+        "daylightHours": 11.5,
+        "sunrise": "07:00",
+        "sunset": "18:30",
+        "humidity": 75,
+        "windKmh": 10
+      },
+      "tourismLevel": 5,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium",
+      "schoolHolidays": {
+        "spring": {"dates": [25, 26, 27, 28, 29, 30, 31], "impact": "Moderate-High", "zones": "All zones"}
+      }
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1], 
+          "score": 3, 
+          "special": true, 
+          "event": "April Fool's Day", 
+          "notes": "Fun cultural atmosphere, spring weather, industrial heritage tours", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Free cultural fun", 
+          "crowdLevel": "Moderate",
+          "culturalTradition": "Czech April Fool's traditions, playful atmosphere throughout the city"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 
+          "score": 5, 
+          "special": true, 
+          "event": "Spring Industrial Heritage Peak Season", 
+          "notes": "Perfect weather for industrial heritage exploration, ideal conditions (8-15°C), photography paradise", 
+          "location": "All industrial heritage sites citywide", 
+          "time": "Golden hour 7am-9am, 5pm-7pm", 
+          "price": "Standard", 
+          "crowdLevel": "High at popular sites",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 5,
+            "luxury": 4
+          },
+          "industrialSitesSchedule": {
+            "dolniVitkovice": "Full tours available",
+            "michalMine": "Indoor and outdoor tours",
+            "landekPark": "Outdoor mining museum",
+            "ostravaZoo": "Spring animal activity"
+          },
+          "photographyTips": ["Golden hour lighting", "Arrive early for fewer crowds", "Bring wide-angle lens", "Weather-dependent - check daily"],
+          "considerations": ["Industrial heritage tours book quickly", "Weather dependent timing", "Weekends extremely crowded", "Book photography tours in advance"]
+        },
+        {
+          "days": [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 4, 
+          "notes": "Perfect spring conditions (10-16°C), comfortable temperatures, ideal sightseeing", 
+          "location": "Citywide", 
+          "time": "Extended daylight 6:00am-7:30pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "schoolHolidays": {
+            "spring": {"active": true, "impact": "High", "dates": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]},
+            "easter": {"dates": "Variable - typically mid-April", "impact": "Very High"}
+          },
+          "optimalActivities": ["Industrial heritage tours", "Outdoor dining", "Park visits", "City center exploration", "Photography tours"],
+          "considerations": ["Spring rain showers possible", "Perfect temperature for long walks", "Outdoor dining fully active", "Book popular restaurants ahead"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 14,
+        "lowC": 5,
+        "avgC": 9.5,
+        "realFeelC": 10,
+        "rainfallMm": 45,
+        "rainDays": 9,
+        "sunshineHours": 6,
+        "daylightHours": 13,
+        "sunrise": "06:30",
+        "sunset": "19:30",
+        "humidity": 70,
+        "windKmh": 9,
+        "uvIndex": 4
+      },
+      "tourismLevel": 7,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium-High",
+      "specialConsiderations": {
+        "easter": "Major Christian holiday affects opening hours and creates family tourism spike",
+        "schoolHolidays": "Two weeks of increased family tourism from all regions",
+        "weather": "Most stable spring weather but sudden showers possible"
+      }
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "Labor Day", "notes": "Many closures but special events, industrial heritage celebrations", "location": "Citywide", "time": "All day", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [2, 3, 4, 5, 6, 7], "score": 4, "notes": "Spring flowers, pleasant temperatures (10-17°C), outdoor dining", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [8], "score": 3, "special": true, "event": "Victory in Europe Day", "notes": "Some closures, commemorations, historical significance", "location": "City center, memorial sites", "time": "Morning", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [9, 10, 11, 12, 13, 14, 15, 16, 17], "score": 4, "notes": "Excellent weather, not peak tourism yet, perfect for sightseeing", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [18], "score": 5, "special": true, "event": "International Museum Day", "notes": "Museums Night, special cultural events, free museum access", "location": "Museums citywide", "time": "Evening", "price": "Free", "crowdLevel": "High"},
+        {"days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 4, "notes": "Warm weather (12-19°C), outdoor café culture thriving, long days", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 19,
+      "weatherLowC": 9,
+      "weatherAvgC": 14,
+      "rainfallMm": 70,
+      "sunshineHours": 7,
+      "tourismLevel": 8,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium-High"
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "notes": "Excellent weather (13-22°C), long daylight, pre-peak season", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [15, 16, 17, 18, 19, 20], "score": 4, "notes": "Warming up, tourism increasing, still manageable crowds", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [21], "score": 5, "special": true, "event": "Fête de la Musique", "notes": "Music festival, summer solstice, free concerts everywhere", "location": "Stodolní Street, venues citywide", "time": "Evening", "price": "Free", "crowdLevel": "Very High"},
+        {"days": [22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 4, "notes": "Summer begins, increasing tourism, warm weather (15-23°C)", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "High"}
+      ],
+      "weatherHighC": 22,
+      "weatherLowC": 12,
+      "weatherAvgC": 17,
+      "rainfallMm": 60,
+      "sunshineHours": 8,
+      "tourismLevel": 9,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "score": 3, "notes": "Peak tourism season, warm weather (15-24°C), crowded attractions", "location": "Citywide", "time": "All day", "price": "Expensive", "crowdLevel": "Very High"},
+        {"days": [14], "score": 4, "special": true, "event": "Bastille Day", "notes": "French cultural celebrations, fireworks, celebrations", "location": "City center, cultural venues", "time": "All day", "price": "Free", "crowdLevel": "Very High"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "special": true, "event": "Summer Festival Season", "notes": "Outdoor events, hot weather (16-25°C), peak tourism, crowded", "location": "Dolní Vítkovice, city parks", "time": "All day", "price": "Free", "crowdLevel": "Very High"}
+      ],
+      "weatherHighC": 24,
+      "weatherLowC": 14,
+      "weatherAvgC": 19,
+      "rainfallMm": 55,
+      "sunshineHours": 8.5,
+      "tourismLevel": 10,
+      "priceLevel": "High",
+      "crowdLevel": "Very High"
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "score": 2, "special": true, "event": "Summer Festival Season & Assumption Day", "notes": "Hot weather (16-25°C), outdoor events, many locals on vacation, some closures", "location": "Dolní Vítkovice, city parks", "time": "All day", "price": "Free", "crowdLevel": "High"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 3, "notes": "Still warm, crowds decreasing as European vacations end, more manageable", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 24,
+      "weatherLowC": 14,
+      "weatherAvgC": 19,
+      "rainfallMm": 50,
+      "sunshineHours": 8,
+      "tourismLevel": 9,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 5, "notes": "Excellent post-peak season, warm weather continues (12-20°C), fewer crowds", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 5, "special": true, "event": "Industrial Heritage Festival", "notes": "Pleasant temperatures, reduced crowds, cultural events, industrial heritage celebrations", "location": "Dolní Vítkovice, various venues citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 20,
+      "weatherLowC": 11,
+      "weatherAvgC": 15.5,
+      "rainfallMm": 50,
+      "sunshineHours": 6.5,
+      "tourismLevel": 7,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium"
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {"days": [5], "score": 4, "special": true, "event": "Nuit Blanche", "notes": "All-night arts festival, fall colors beginning, cultural events", "location": "Various venues citywide", "time": "All night", "price": "Free", "crowdLevel": "High"},
+        {"days": [6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 4, "notes": "Comfortable temperatures (8-15°C), beautiful autumn atmosphere, golden light", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [19, 20], "score": 4, "special": true, "event": "Moravian Wine Harvest Festival", "notes": "Fall colors, harvest activities, wine tasting, autumn charm", "location": "Wine regions near Ostrava", "time": "Daytime", "price": "Free", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 15,
+      "weatherLowC": 7,
+      "weatherAvgC": 11,
+      "rainfallMm": 60,
+      "sunshineHours": 5,
+      "tourismLevel": 6,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "All Saints' Day", "notes": "Holiday, some closures but special cemetery visits, chrysanthemums", "location": "Cemeteries citywide", "time": "Daytime", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10], "score": 3, "notes": "Fall colors continue, cooling temperatures (3-10°C), indoor activities", "location": "Museums and galleries", "time": "Daytime", "price": "Standard", "crowdLevel": "Low"},
+        {"days": [11], "score": 3, "special": true, "event": "Armistice Day", "notes": "Commemorations, some closures, historical significance", "location": "City center", "time": "Morning", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 3, "special": true, "event": "Christmas Markets Begin", "notes": "Festive atmosphere begins, cooler weather, holiday preparations", "location": "Various locations", "time": "All day", "price": "Free", "crowdLevel": "Moderate"}
+      ],
+      "weatherHighC": 10,
+      "weatherLowC": 3,
+      "weatherAvgC": 6.5,
+      "rainfallMm": 55,
+      "sunshineHours": 3,
+      "tourismLevel": 4,
+      "priceLevel": "Medium",
+      "crowdLevel": "Low-Medium"
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 3, "special": true, "event": "Christmas Markets", "notes": "Festive atmosphere, holiday decorations, mulled wine, seasonal treats", "location": "Various locations", "time": "All day", "price": "Free", "crowdLevel": "High"},
+        {"days": [15, 16, 17, 18, 19, 20, 21, 22, 23], "score": 3, "notes": "Holiday events, Christmas shopping crowds, festive lights", "location": "Shopping districts", "time": "All day", "price": "Standard", "crowdLevel": "High"},
+        {"days": [24, 25], "score": 2, "special": true, "event": "Christmas", "notes": "Many closures but special atmosphere, family celebrations", "location": "Citywide", "time": "All day", "price": "Free", "crowdLevel": "Low"},
+        {"days": [26, 27, 28, 29, 30], "score": 3, "notes": "Between Christmas and New Year's - busy tourist period, sales begin", "location": "Shopping districts", "time": "All day", "price": "Sales", "crowdLevel": "High"},
+        {"days": [31], "score": 3, "special": true, "event": "New Year's Eve", "notes": "Special events but very crowded, champagne celebrations", "location": "Stodolní Street, city center", "time": "Evening", "price": "Expensive", "crowdLevel": "Very High"}
+      ],
+      "weatherHighC": 6,
+      "weatherLowC": 0,
+      "weatherAvgC": 3,
+      "rainfallMm": 60,
+      "sunshineHours": 2,
+      "tourismLevel": 7,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "Industrial Heritage Tours",
+      "Parks & Gardens",
+      "Museums & Galleries",
+      "Cultural Events",
+      "Outdoor Dining",
+      "Walking Tours",
+      "Photography Tours",
+      "Markets & Shopping",
+      "Zoo Visits",
+      "Wine Tasting"
+    ],
+    "summer": [
+      "Dolní Vítkovice Events",
+      "Outdoor Festivals",
+      "Stodolní Street Nightlife",
+      "Zoo Visits",
+      "Music Festivals",
+      "Industrial Heritage Tours",
+      "Outdoor Dining",
+      "Picnics in Parks",
+      "City Hall Tower Views",
+      "Beer Garden Visits"
+    ],
+    "autumn": [
+      "Museum Visits",
+      "Cultural Events",
+      "Wine Tasting",
+      "Industrial Heritage Photography",
+      "Fall Foliage Walks",
+      "Harvest Festivals",
+      "Indoor Attractions",
+      "Cooking Classes",
+      "Art Exhibitions",
+      "Historical Tours"
+    ],
+    "winter": [
+      "Indoor Industrial Tours",
+      "Christmas Markets",
+      "Classical Concerts",
+      "Museum Visits",
+      "Cozy Cafés",
+      "Historical Sites",
+      "Theater Shows",
+      "Indoor Attractions",
+      "Shopping Centers",
+      "Wine Cellar Tours"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds, best value",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds, good value",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism, fair value",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds, limited value",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities, poor value"
+  },
+  "travelerTypes": {
+    "families": {
+      "bestMonths": ["April", "May", "September", "December"],
+      "considerations": ["School holidays", "Weather suitability", "Activity availability", "Crowd tolerance"],
+      "challenges": {
+        "summer": "Very crowded, expensive, hot",
+        "winter": "Cold weather, shorter days"
+      }
+    },
+    "couples": {
+      "bestMonths": ["May", "June", "September", "October"],
+      "romantic": ["February 14th", "June 21st", "December Christmas markets"],
+      "considerations": ["Weather", "Crowds", "Dining availability", "Romantic atmosphere"]
+    },
+    "solo": {
+      "bestMonths": ["September", "October", "November", "January"],
+      "advantages": ["Cultural immersion", "Photography opportunities", "Flexibility"],
+      "considerations": ["Safety", "Social opportunities", "Language", "Solo dining comfort"]
+    },
+    "business": {
+      "bestMonths": ["March", "April", "May", "September", "October", "November"],
+      "avoid": ["August", "December", "July"],
+      "considerations": ["Conference seasons", "Hotel availability", "Transportation", "Restaurant bookings"]
+    },
+    "budget": {
+      "bestMonths": ["January", "February", "March", "November"],
+      "strategies": ["Off-season travel", "Free activities", "Market meals", "Museum passes"],
+      "considerations": ["Accommodation deals", "Restaurant lunch menus", "Free events"]
+    },
+    "luxury": {
+      "bestMonths": ["May", "June", "September", "October", "December"],
+      "experiences": ["Fine dining", "Cultural events", "Private tours", "Luxury shopping"],
+      "considerations": ["Advance bookings", "Seasonal menus", "Exclusive events", "Premium experiences"]
+    }
+  },
+  "activityCategories": {
+    "outdoor": {
+      "optimal": ["April", "May", "June", "September", "October"],
+      "activities": ["Industrial heritage tours", "Zoo visits", "Park walks", "Photography", "Outdoor dining", "City exploration"],
+      "weatherDependent": true
+    },
+    "cultural": {
+      "yearRound": true,
+      "peak": ["September", "October", "November", "December", "January"],
+      "activities": ["Museums", "Galleries", "Theater", "Concerts", "Exhibitions"],
+      "seasonalHighlights": {
+        "autumn": "Industrial heritage exhibitions",
+        "winter": "Classical concert season",
+        "spring": "Cultural festival season"
+      }
+    },
+    "shopping": {
+      "sales": {
+        "winter": "January-February",
+        "summer": "July-August"
+      },
+      "luxury": "Year-round but avoid August",
+      "markets": {
+        "christmas": "December",
+        "local": "Year-round weekends"
+      }
+    },
+    "dining": {
+      "outdoor": ["April", "May", "June", "July", "August", "September", "October"],
+      "seasonal": {
+        "spring": "Fresh local produce",
+        "summer": "Outdoor dining, beer gardens",
+        "autumn": "Game dishes, wine harvest",
+        "winter": "Comfort food, holiday specialties"
+      }
+    },
+    "festivals": {
+      "music": {
+        "feteMusique": "June 21st",
+        "classicalSeason": "September-May"
+      },
+      "cultural": {
+        "nuitBlanche": "October",
+        "industrialHeritage": "September",
+        "culturalEvents": "Year-round"
+      },
+      "seasonal": {
+        "wineHarvest": "October",
+        "christmasMarkets": "December"
+      }
+    }
+  },
+  "practicalConsiderations": {
+    "daylight": {
+      "longest": "June 21st - 16 hours",
+      "shortest": "December 21st - 8 hours",
+      "optimal": "May-August for extended sightseeing"
+    },
+    "transportation": {
+      "public": {
+        "airConditioning": "Limited - challenging in summer",
+        "crowds": "Peak July-August",
+        "strikes": "Possible any time, more common autumn/winter"
+      },
+      "walking": {
+        "best": "April-June, September-October",
+        "challenging": "December-February (cold), July-August (heat)"
+      },
+      "cycling": {
+        "available": "Year-round",
+        "optimal": "April-October",
+        "winter": "Possible but cold and slippery"
+      }
+    },
+    "accommodation": {
+      "peakPricing": {
+        "months": ["June", "July", "August", "December"],
+        "events": ["Industrial Heritage Festival", "Major holidays", "Music festivals", "New Year's"]
+      },
+      "valuePricing": {
+        "months": ["January", "February", "March", "November"],
+        "strategy": "Book 2-3 months ahead for best rates"
+      },
+      "airConditioning": "Essential July-August, many historic hotels lack AC"
+    },
+    "dining": {
+      "reservations": {
+        "essential": ["February 14th", "December 24th", "December 31st"],
+        "recommended": "High season (June-August)",
+        "timeline": "2-4 weeks ahead for popular restaurants"
+      },
+      "closures": {
+        "august": "Many local restaurants close for owner vacations",
+        "holidays": "Christmas Day, New Year's Day, May 1st",
+        "sunday": "Many traditional restaurants closed Sunday evening"
+      }
+    }
+  },
+  "monthlyHighlights": {
+    "january": "Winter sales, cozy museums, authentic local experience",
+    "february": "Valentine's romance, fewer crowds, cultural immersion",
+    "march": "Spring awakening, industrial heritage tours, perfect temperatures",
+    "april": "Industrial heritage peak, ideal weather, spring activities",
+    "may": "Perfect conditions, Museums Night, optimal sightseeing",
+    "june": "Longest days, Music Festival, pre-peak crowds",
+    "july": "Peak summer, cultural events, outdoor activities",
+    "august": "Hot weather, summer festivals, many locals away",
+    "september": "Post-peak perfection, Industrial Heritage Festival, ideal conditions",
+    "october": "Autumn beauty, Nuit Blanche, comfortable temperatures",
+    "november": "Cozy atmosphere, cultural season, indoor activities",
+    "december": "Christmas magic, holiday markets, festive atmosphere"
+  },
+  "additionalInfo": {
+    "peakSeasons": {
+      "high": ["June", "July", "August"],
+      "medium": ["April", "May", "September", "October", "December"],
+      "low": ["January", "February", "March", "November"]
+    },
+    "weatherNotes": {
+      "spring": "Variable weather, layers recommended, occasional rain",
+      "summer": "Warm to hot, occasional heatwaves, evening thunderstorms possible",
+      "autumn": "Gradually cooling, beautiful colors, comfortable for walking",
+      "winter": "Cold but rarely extreme, occasional snow, indoor activities recommended"
+    },
+    "transportation": {
+      "public": "Efficient year-round, limited air-conditioning in summer",
+      "walking": "Best in spring and autumn, challenging in extreme weather",
+      "cycling": "Excellent in spring and autumn, bike lanes available",
+      "taxis": "Available year-round, more expensive in peak season"
+    },
+    "accommodation": {
+      "peakPricing": ["June", "July", "August", "December"],
+      "valuePricing": ["January", "February", "March", "November"],
+      "advanceBooking": "Recommended 3-6 months ahead for peak season"
+    }
+  }
+}

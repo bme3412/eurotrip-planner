@@ -1,0 +1,493 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "La Palme d'Or",
+                "cuisine_type": "French Haute Cuisine",
+                "signature_dishes": [
+                    "Mediterranean sea bass with olive tapenade",
+                    "Lamb from Sisteron with Provençal herbs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Michelin-starred elegance with stunning sea views from Hotel Martinez",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book months in advance, especially during Film Festival",
+                "dress_code": "Formal",
+                "michelin_recognition": "2 Michelin Stars",
+                "location": "Hotel Martinez, La Croisette",
+                "local_tips": "Request a terrace table for views of the Bay of Cannes and Lérins Islands"
+            },
+            {
+                "name": "Park 45",
+                "cuisine_type": "Modern French",
+                "signature_dishes": [
+                    "Red mullet with ratatouille Niçoise",
+                    "Veal tenderloin with black truffle"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated dining in the Grand Hyatt with garden terrace",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Popular with celebrities during festival season",
+                "dress_code": "Smart casual to formal",
+                "michelin_recognition": "1 Michelin Star",
+                "location": "Grand Hyatt Cannes Hôtel Martinez",
+                "local_tips": "The chef's tasting menu showcases the best of French Riviera cuisine"
+            },
+            {
+                "name": "Le Mesclun",
+                "cuisine_type": "Contemporary Provençal",
+                "signature_dishes": [
+                    "Bouillabaisse Cannoise",
+                    "John Dory with vegetables and olive oil"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate bistro with modern Provençal decor",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Lunch menu offers excellent value for high-quality cuisine",
+                "dress_code": "Smart casual",
+                "location": "Le Suquet old town",
+                "local_tips": "Their bouillabaisse is considered one of the best on the Côte d'Azur"
+            },
+            {
+                "name": "Mantel",
+                "cuisine_type": "Modern Mediterranean",
+                "signature_dishes": [
+                    "Pan-fried foie gras with figs",
+                    "Sea bream with Mediterranean vegetables"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Chic restaurant with contemporary art and refined ambiance",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Popular with film industry professionals",
+                "dress_code": "Smart casual",
+                "location": "Near Palais des Festivals",
+                "local_tips": "The wine list features excellent selections from local Provence vineyards"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Astoux et Brun",
+                "cuisine_type": "Seafood Brasserie",
+                "signature_dishes": [
+                    "Plateau de fruits de mer",
+                    "Grilled whole fish with herbs"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively seafood institution with maritime decor",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early for lunch to avoid queues",
+                "dress_code": "Casual",
+                "location": "La Croisette",
+                "local_tips": "Famous for fresh oysters and their signature seafood platters"
+            },
+            {
+                "name": "Chez Vincent",
+                "cuisine_type": "Traditional Provençal",
+                "signature_dishes": [
+                    "Ratatouille Niçoise",
+                    "Daube Provençale (beef stew)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic family bistro with checkered tablecloths",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Perfect for authentic local atmosphere",
+                "dress_code": "Casual",
+                "location": "Le Suquet",
+                "local_tips": "Try their pissaladière - a traditional onion and anchovy tart"
+            },
+            {
+                "name": "La Pizza",
+                "cuisine_type": "Italian/Mediterranean",
+                "signature_dishes": [
+                    "Pizza Regina with local herbs",
+                    "Fresh pasta with seafood"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bustling pizzeria popular with locals and tourists",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Popular with locals, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Rue Félix Faure",
+                "local_tips": "Wood-fired pizzas with fresh local ingredients"
+            },
+            {
+                "name": "Le Comptoir des Vins",
+                "cuisine_type": "Wine Bar & Bistro",
+                "signature_dishes": [
+                    "Charcuterie and cheese platters",
+                    "Grilled octopus with olive tapenade"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy wine bar with extensive French wine selection",
+                "best_time": "Evening",
+                "reservation_needed": false,
+                "booking_tips": "Great for wine tasting and light dinner",
+                "dress_code": "Casual",
+                "location": "Rue d'Antibes",
+                "local_tips": "Excellent selection of Provence rosé wines"
+            },
+            {
+                "name": "Côté Jardin",
+                "cuisine_type": "Garden Bistro",
+                "signature_dishes": [
+                    "Salade Niçoise with fresh tuna",
+                    "Grilled vegetables with herb oil"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming garden terrace with Mediterranean plants",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Perfect for a peaceful lunch away from crowds",
+                "dress_code": "Casual",
+                "location": "Near Marché Forville",
+                "local_tips": "Uses fresh ingredients from the nearby market daily"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Marché Forville Food Stalls",
+                "specialties": [
+                    "Socca (chickpea pancake)",
+                    "Pan bagnat (Niçois sandwich)"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sun: 7:00am-1:00pm",
+                "location": "Marché Forville",
+                "seating": false,
+                "local_tips": "Try fresh socca from the market vendors - a Nice specialty popular in Cannes"
+            },
+            {
+                "name": "La Croisette Food Trucks",
+                "specialties": [
+                    "Crêpes and galettes",
+                    "Fresh fruit smoothies"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 10:00am-10:00pm (seasonal)",
+                "location": "Along La Croisette",
+                "seating": false,
+                "local_tips": "Perfect for a quick snack while walking the famous promenade"
+            },
+            {
+                "name": "Glacier Azzurra",
+                "specialties": [
+                    "Artisanal gelato and sorbets",
+                    "Lavender and honey flavors"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 9:00am-11:00pm",
+                "location": "Rue d'Antibes",
+                "seating": false,
+                "local_tips": "Famous for unique Provence-inspired flavors"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café de Paris",
+                "specialty": "Traditional French café culture",
+                "must_try": [
+                    "Café au lait with croissants",
+                    "Pain au chocolat"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic French café with terrace people-watching",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "French pastries and light breakfast",
+                "local_tips": "Prime location for observing Cannes' glamorous street life"
+            },
+            {
+                "name": "Maison Vérot",
+                "specialty": "Artisanal coffee and pastries",
+                "must_try": [
+                    "Single-origin espresso",
+                    "French macarons"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern coffee shop with artisanal focus",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Gourmet pastries and light lunches",
+                "local_tips": "Known for exceptional coffee quality and beautiful pastries"
+            },
+            {
+                "name": "Le Miramar Café",
+                "specialty": "Seaside café with views",
+                "must_try": [
+                    "Cappuccino",
+                    "Fresh fruit tarts"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Beachside café with Mediterranean views",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Light breakfast and snacks",
+                "local_tips": "Perfect spot for coffee with a view of the Mediterranean"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Rooftop Radisson Blu",
+                "type": "Rooftop Bar",
+                "specialty": "Panoramic views and cocktails",
+                "signature_drinks": [
+                    "French Riviera Martini",
+                    "Lavender Gin & Tonic"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated rooftop with 360-degree views of Cannes",
+                "best_time": "Sunset",
+                "food_options": "Gourmet tapas",
+                "reservation_needed": true,
+                "local_tips": "Book ahead for sunset cocktails with stunning views"
+            },
+            {
+                "name": "B Bar",
+                "type": "Beach Club Bar",
+                "specialty": "Beachfront cocktails",
+                "signature_drinks": [
+                    "Aperol Spritz",
+                    "Rosé sangria"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Chic beach club with Mediterranean luxury",
+                "best_time": "Afternoon",
+                "food_options": "Mediterranean cuisine",
+                "reservation_needed": true,
+                "local_tips": "Famous for its exclusive atmosphere during Film Festival"
+            },
+            {
+                "name": "Le Baôli",
+                "type": "Nightclub/Lounge",
+                "specialty": "Celebrity hotspot",
+                "signature_drinks": [
+                    "Champagne cocktails",
+                    "Premium spirits"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Glamorous nightclub with exotic decor",
+                "best_time": "Night",
+                "food_options": "Asian fusion cuisine",
+                "reservation_needed": true,
+                "local_tips": "VIP tables recommended; dress code strictly enforced"
+            },
+            {
+                "name": "Morrison's Café",
+                "type": "Irish Pub",
+                "specialty": "International crowd and live music",
+                "signature_drinks": [
+                    "Guinness",
+                    "Irish whiskey selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively pub atmosphere with live music",
+                "best_time": "Evening",
+                "food_options": "Pub food and bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Popular with international visitors and expats"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Cannes Culinary Walking Tour",
+                "focus": "French Riviera specialties",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Marché Forville market visit",
+                    "Local specialties tasting",
+                    "Wine and cheese pairing"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "booking_tips": "Book online at least 2 days in advance"
+            },
+            {
+                "name": "Provence Wine and Food Tour",
+                "focus": "Regional wine and cuisine",
+                "duration": "6 hours",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Vineyard visits",
+                    "Wine tastings",
+                    "Traditional Provençal lunch"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "booking_tips": "Includes transportation to local wineries"
+            },
+            {
+                "name": "French Riviera Cooking Experience",
+                "focus": "Mediterranean cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Market shopping",
+                    "Hands-on cooking",
+                    "Three-course meal"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "booking_tips": "Classes available morning and afternoon"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Provençal Cooking Workshop",
+                "cuisine_focus": "Traditional Provence cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Making bouillabaisse",
+                    "Preparing ratatouille",
+                    "Tarte Tropézienne dessert"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Recipe cards",
+                    "Full meal with wine"
+                ],
+                "booking_tips": "Learn authentic techniques from local chefs"
+            },
+            {
+                "name": "French Pastry Masterclass",
+                "cuisine_focus": "French patisserie",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Classic croissant technique",
+                    "French macarons",
+                    "Tarte aux fruits"
+                ],
+                "group_size": "6",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "includes": [
+                    "Professional equipment use",
+                    "Take-home pastries",
+                    "Recipe collection"
+                ],
+                "booking_tips": "Perfect for aspiring bakers and pastry enthusiasts"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Marché Forville",
+                "type": "Daily food market",
+                "highlights": [
+                    "Fresh Mediterranean produce",
+                    "Local Provence specialties",
+                    "Seasonal flowers"
+                ],
+                "hours": "Tue-Sun: 7:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Rue du Marché Forville",
+                "local_tips": "Best selection early morning; many vendors offer tastings"
+            },
+            {
+                "name": "Marché Gambetta",
+                "type": "Neighborhood market",
+                "highlights": [
+                    "Local produce",
+                    "Artisanal products",
+                    "Regional specialties"
+                ],
+                "hours": "Saturdays: 8:00am-1:00pm",
+                "best_time": "Mid-morning",
+                "location": "Place Gambetta",
+                "local_tips": "More intimate than Forville, popular with locals"
+            },
+            {
+                "name": "Port de Cannes Fish Market",
+                "type": "Fresh seafood market",
+                "highlights": [
+                    "Daily Mediterranean catch",
+                    "Local fishermen",
+                    "Seasonal specialties"
+                ],
+                "hours": "Daily: 6:00am-11:00am",
+                "best_time": "Early morning",
+                "location": "Vieux Port de Cannes",
+                "local_tips": "Freshest fish early morning; prices negotiable"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Artichokes from nearby Provence farms",
+            "Fresh asparagus with olive oil",
+            "Young vegetables in Mediterranean salads"
+        ],
+        "summer": [
+            "Grilled fish with herbs de Provence",
+            "Ratatouille with summer vegetables",
+            "Fresh fruit tarts and sorbets"
+        ],
+        "autumn": [
+            "Truffle season dishes",
+            "Grape harvest celebrations",
+            "Wild mushroom specialties"
+        ],
+        "winter": [
+            "Hearty Provençal stews",
+            "Citrus fruits from local groves",
+            "Traditional holiday pastries"
+        ]
+    },
+    "local_specialties": {
+        "signature_dishes": [
+            "Bouillabaisse Cannoise - local fish soup",
+            "Pan bagnat - Niçois sandwich",
+            "Pissaladière - onion and anchovy tart",
+            "Socca - chickpea pancake from Nice"
+        ],
+        "local_products": [
+            "Olive oil from nearby mills",
+            "Herbs de Provence",
+            "Local honey varieties",
+            "Mediterranean sea salt"
+        ],
+        "beverages": [
+            "Provence rosé wines",
+            "Pastis (anise-flavored aperitif)",
+            "Local craft beers",
+            "Citrus-infused waters"
+        ],
+        "sweets": [
+            "Tarte Tropézienne",
+            "Calissons d'Aix (almond sweets)",
+            "Navettes (orange blossom cookies)",
+            "Fresh fruit tarts"
+        ]
+    }
+}

@@ -1,0 +1,148 @@
+{
+    "getting_around": {
+        "main_train_station": {
+            "name": "Groningen Station",
+            "location": "South edge of the city center (Binnenstad)",
+            "connections": [
+                "National rail services (NS/Arriva) to major Dutch cities (Amsterdam, Utrecht, Zwolle, Leeuwarden)",
+                "Connections to Germany (Leer/Bremen)",
+                "International connections via Utrecht/Schiphol/Zwolle"
+            ]
+        },
+        "local_transport": [
+            {
+                "type": "Bus",
+                "provider": "Qbuzz",
+                "details": "Extensive city and regional bus network serving the city center, outer neighborhoods, Zernike Campus, and surrounding towns/villages.",
+                "payment": "OV-chipkaart or contactless debit/credit card."
+            },
+            {
+                "type": "Bicycle",
+                "provider": "Numerous rental shops (near station, city center, Zernike)",
+                "details": "The primary mode of transport in Groningen. Excellent, extensive cycling infrastructure. City is extremely bike-friendly. OV-fiets rental available at the station.",
+                "payment": "Rental fees (daily/hourly). OV-fiets requires personal OV-chipkaart."
+            },
+            {
+                "type": "Walking",
+                "provider": "N/A",
+                "details": "The historic city center (Binnenstad) is compact and very walkable. Be highly aware of cyclists everywhere.",
+                "payment": "Free"
+            }
+        ],
+        "nearby_airports": [
+            {
+                "name": "Groningen Airport Eelde (GRQ)",
+                "distance_km": 15,
+                "connection": "Bus (Qbuzz line 9) to Groningen Station/city center, or Taxi/Uber.",
+                "approx_time": "20-30 minutes"
+            },
+            {
+                "name": "Amsterdam Airport Schiphol (AMS)",
+                "distance_km": 200,
+                "connection": "Direct train from Schiphol Plaza to Groningen Station (approx. 2 hours journey time).",
+                "approx_time": "2 hours 15 minutes (total travel)"
+            },
+             {
+                "name": "Bremen Airport (BRE) - Germany",
+                "distance_km": 180,
+                "connection": "Train (requires changes, e.g., at Leer) or Flixbus.",
+                "approx_time": "2.5 - 3 hours (depending on connection)"
+            }
+        ],
+        "car_travel": {
+            "parking": "Very limited and expensive within the Diepenring (canal ring). Use designated parking garages (e.g., Boterdiep, Ossenmarkt, Westerhaven, Damsterdiep) or Park & Ride (P+R) facilities on the city outskirts (e.g., P+R Hoogkerk, Haren, Kardinge) with bus connections.",
+            "accessibility": "Many central streets are pedestrianized or have restricted vehicle access. The city actively promotes cycling and public transport over car use in the center."
+        }
+    },
+    "safety_and_health": {
+        "general_safety": "Groningen is considered a very safe city, typical for the Netherlands. Standard precautions against petty theft (esp. bike theft - use good locks!) and pickpocketing in crowded areas (markets, nightlife streets) apply.",
+        "emergency_number": "112 (for police, fire brigade, and ambulance)",
+        "police_non_emergency": "0900-8844",
+        "pharmacies": {
+            "availability": "Numerous pharmacies ('Apotheek') available throughout the city. Check for 'dienstapotheek' (duty pharmacy) for out-of-hours service.",
+            "notes": "Standard prescription and over-the-counter medications."
+        },
+        "hospitals": [
+            {
+                "name": "University Medical Center Groningen (UMCG)",
+                "location": "Hanzeplein 1, 9713 GZ Groningen",
+                "notes": "Major university hospital, one of the largest in the Netherlands. Includes emergency department ('Spoedeisende Hulp')."
+            },
+            {
+                "name": "Martini Hospital",
+                "location": "Van Swietenplein 1, 9728 NT Groningen",
+                "notes": "Large general hospital located in the south of the city."
+            }
+        ],
+        "tap_water": "Safe to drink and of excellent quality."
+    },
+    "money_and_communication": {
+        "currency": {
+            "name": "Euro",
+            "symbol": "€",
+            "code": "EUR"
+        },
+        "atms": "Widely available ('geldautomaat'), mainly as Geldmaat branded machines in shopping areas, near supermarkets, and stations.",
+        "credit_cards": "Visa and Mastercard widely accepted. Contactless payments (debit/credit card, phone) are the norm in most places. American Express is less common.",
+        "tipping": {
+            "restaurants_cafes": "Service included. Tipping not mandatory but appreciated for good service (round up or 5-10%).",
+            "taxis": "Rounding up the fare is common practice.",
+            "hotels": "Optional (€1-2 for specific services like luggage help)."
+        },
+        "language": {
+            "official": "Dutch (Gronings dialect sometimes heard)",
+            "english_proficiency": "Extremely high, particularly due to the large international student population. English is widely spoken in shops, restaurants, and services.",
+            "basic_phrases": [
+                {"Dutch": "Hallo / Hoi", "English": "Hello / Hi (informal)"}, 
+                {"Dutch": "Moi", "English": "Hello/Goodbye (Gronings greeting)"}, 
+                {"Dutch": "Dank u wel / Dank je wel", "English": "Thank you (formal/informal)"},
+                {"Dutch": "Alsjeblieft / Alstublieft", "English": "Please / Here you go (informal/formal)"},
+                {"Dutch": "Ja / Nee", "English": "Yes / No"},
+                {"Dutch": "Spreekt u Engels?", "English": "Do you speak English?"},
+                {"Dutch": "Sorry", "English": "Sorry/Excuse me"},
+                {"Dutch": "Proost!", "English": "Cheers!"}
+            ]
+        },
+        "connectivity": {
+            "wifi": "Widely available in cafes, bars, hotels, Forum Groningen, university buildings (Eduroam).",
+            "mobile_data": "Excellent 4G/5G coverage throughout the city. Local SIM cards or eSIMs are good options for longer stays."
+        },
+        "postal_services": "PostNL points located within supermarkets and some larger shops for postal services."
+    },
+    "general_information": {
+        "tourist_information": {
+            "name": "VVV Groningen (Tourist Information)",
+            "location": "Inside Forum Groningen, Nieuwe Markt 1",
+            "services": "City information, maps, tours, event tickets, souvenirs."
+        },
+        "opening_hours": {
+            "shops": "Similar to national standard: Mon often starts later (11:00/13:00), Tue-Fri ~10:00-18:00, Sat ~10:00-17:00. Many city center shops open Sundays (12:00-17:00). Supermarkets have longer hours, including Sundays.",
+            "museums": "Typically Tue-Sun 10:00-17:00. Check specific museum websites as hours/days can vary (especially Mondays)."
+        },
+        "public_holidays": [
+            "New Year's Day (Jan 1)",
+            "Good Friday (Varies)",
+            "Easter Sunday & Monday (Varies)",
+            "King's Day (April 27)",
+            "Liberation Day (May 5 - public holiday varies)",
+            "Ascension Day (Varies)",
+            "Whit Sunday & Monday (Pentecost, Varies)",
+            "Christmas Day (Dec 25)",
+            "Boxing Day (Dec 26)"
+        ],
+        "electrical_plugs": {
+            "type": "Type F (Schuko)",
+            "voltage": "230V",
+            "frequency": "50Hz"
+        },
+        "useful_apps": [
+            "NS (Dutch Railways - train schedules & tickets)",
+            "Arriva (Regional train/bus operator)",
+            "Qbuzz (Local/Regional bus planner/tickets)",
+            "9292 (National public transport planner)",
+            "Buienradar / Weeronline (Weather forecast, esp. rain)",
+            "Google Maps / Citymapper (Navigation)",
+            "Thuisbezorgd.nl / Uber Eats (Food delivery)"
+        ]
+    }
+} 

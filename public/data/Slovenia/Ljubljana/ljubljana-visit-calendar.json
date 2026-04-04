@@ -1,0 +1,712 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1], 
+          "score": 2, 
+          "special": true, 
+          "event": "New Year's Day", 
+          "notes": "Major holiday - most attractions closed, cold weather (-2 to 4°C), post-celebration cleanup, limited transport", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Free", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 1,
+            "couples": 2,
+            "solo": 1,
+            "business": 1,
+            "budget": 2,
+            "luxury": 1
+          },
+          "attractions": {
+            "ljubljanaCastle": "Closed",
+            "nationalGallery": "Closed", 
+            "centralMarket": "Closed",
+            "triplebridge": "Open for walking",
+            "tivoli": "Open but cold"
+          },
+          "considerations": ["Most museums closed", "Limited restaurant options", "Excellent for photography with fewer crowds", "Many shops closed"]
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7], 
+          "score": 3, 
+          "notes": "Post-holiday recovery, gradual reopening, winter sales begin, cold (-1 to 5°C)", 
+          "location": "Shopping districts", 
+          "time": "All day", 
+          "price": "Lower prices", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 4,
+            "luxury": 2
+          },
+          "attractions": {
+            "ljubljanaCastle": "Open, minimal queues",
+            "nationalGallery": "Open, excellent for art lovers",
+            "centralMarket": "Open, local produce", 
+            "shopping": "Sales up to 50% off",
+            "museums": "Perfect conditions"
+          },
+          "considerations": ["Excellent for shopping sales", "Perfect museum conditions", "Bring warm clothing", "Limited daylight 8:00am-4:30pm"]
+        },
+        {
+          "days": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 
+          "score": 3, 
+          "notes": "Coldest period (-3 to 3°C), possible snow, ideal for indoor activities, very low tourism", 
+          "location": "Museums and cafés", 
+          "time": "Daytime 9am-5pm", 
+          "price": "Standard", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          },
+          "attractions": {
+            "nationalGallery": "Excellent - no crowds",
+            "nationalMuseum": "Perfect conditions",
+            "plecnikHouse": "Indoor tours recommended",
+            "cafes": "Cozy atmosphere", 
+            "shopping": "Continued sales"
+          },
+          "considerations": ["Pack thermal layers", "Perfect for museum visits", "Cafés are warm refuges", "Early sunset around 4:30pm"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 3, 
+          "notes": "Gradual warming (0 to 6°C), excellent museum conditions, days beginning to lengthen", 
+          "location": "Cultural venues, indoor markets", 
+          "time": "All day", 
+          "price": "Lower prices continue", 
+          "crowdLevel": "Low",
+          "winterActivities": ["Museum visits", "Traditional cuisine", "Thermal spas nearby"],
+          "considerations": ["Book indoor restaurants", "Warm clothing still essential", "Good cultural immersion", "Days beginning to lengthen"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 4,
+        "lowC": -2,
+        "avgC": 1,
+        "realFeelC": -3,
+        "rainfallMm": 65,
+        "rainDays": 12,
+        "snowDays": 8,
+        "sunshineHours": 2,
+        "daylightHours": 8.5,
+        "sunrise": "08:00",
+        "sunset": "16:30",
+        "humidity": 85,
+        "windKmh": 12
+      },
+      "tourismLevel": 2,
+      "priceLevel": "Low",
+      "crowdLevel": "Very Low",
+      "schoolHolidays": {
+        "christmas": {"dates": [1, 2], "impact": "Moderate"},
+        "winter": {"starts": "mid-February", "impact": "None in January"}
+      }
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7], 
+          "score": 3, 
+          "notes": "Winter continues, cold (0 to 7°C), fewer crowds, excellent museum time", 
+          "location": "Museums and indoor venues", 
+          "time": "Daytime 9am-6pm", 
+          "price": "Standard", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
+        },
+        {
+          "days": [8], 
+          "score": 3, 
+          "special": true, 
+          "event": "Prešeren Day (National Culture Day)", 
+          "notes": "Slovenia's cultural holiday honoring poet France Prešeren, cultural events throughout the city", 
+          "location": "Cultural venues citywide", 
+          "time": "All day", 
+          "price": "Many free events", 
+          "crowdLevel": "Moderate",
+          "culturalSignificance": "Important Slovenian holiday celebrating culture and poetry",
+          "considerations": ["Free museum entries", "Poetry readings", "Cultural performances", "Some venues may be crowded"]
+        },
+        {
+          "days": [9, 10, 11, 12, 13], 
+          "score": 3, 
+          "notes": "Post-culture day, gradual warming (2 to 8°C), winter activities continue", 
+          "location": "Cultural venues, thermal spas", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Low",
+          "considerations": ["Days getting longer", "Good time for thermal spa visits", "Traditional winter cuisine"]
+        },
+        {
+          "days": [14], 
+          "score": 4, 
+          "special": true, 
+          "event": "Valentine's Day", 
+          "notes": "Romantic atmosphere, special dining events, cozy venues, book 2-3 weeks ahead", 
+          "location": "Restaurants along Ljubljanica River", 
+          "time": "Evening 7pm-11pm", 
+          "price": "Premium (dinner 50-100€/person)", 
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 5,
+            "solo": 2,
+            "business": 1,
+            "budget": 2,
+            "luxury": 5
+          },
+          "romanticVenues": {
+            "restaurants": ["Castle Restaurant", "Riverside dining", "Old Town venues"],
+            "activities": ["Castle sunset", "River walk", "Tivoli Park stroll"],
+            "hotels": ["Special packages available", "Book 4 weeks ahead", "Expect 30-50% markup"]
+          },
+          "considerations": ["Reserve restaurants early", "Castle views recommended", "River walks romantic despite cold"]
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], 
+          "score": 3, 
+          "notes": "Post-Valentine's, gradually warming (3 to 9°C), spring hints, carnival season", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Low",
+          "carnivalSeason": "Traditional Slovenian carnival customs in some areas",
+          "considerations": ["Days noticeably longer", "Early spring preparations", "Good time for cultural activities"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 7,
+        "lowC": 0,
+        "avgC": 3.5,
+        "realFeelC": 1,
+        "rainfallMm": 55,
+        "rainDays": 10,
+        "snowDays": 5,
+        "sunshineHours": 3.5,
+        "daylightHours": 10,
+        "sunrise": "07:30",
+        "sunset": "17:30",
+        "humidity": 80,
+        "windKmh": 13
+      },
+      "tourismLevel": 3,
+      "priceLevel": "Low-Medium",
+      "crowdLevel": "Low"
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          "score": 4, 
+          "notes": "Early spring transition, variable weather (5 to 12°C), increasing daylight", 
+          "location": "Citywide", 
+          "time": "Extended daylight 7am-6pm", 
+          "price": "Standard", 
+          "crowdLevel": "Low-Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 3
+          },
+          "weatherVariability": "High - pack layers, umbrella essential",
+          "considerations": ["Unpredictable weather", "Perfect for indoor/outdoor combination", "Early spring flowers appearing"]
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 
+          "score": 4, 
+          "notes": "Spring awakening, pleasant temperatures (7 to 14°C), perfect for walking", 
+          "location": "Tivoli Park, Old Town", 
+          "time": "Full day exploration", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "springActivities": ["Park walks", "Outdoor café culture returns", "Castle visits ideal", "Photography perfect light"],
+          "considerations": ["Weather can change quickly", "Perfect time for river walks", "Outdoor dining returns"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 4, 
+          "special": true, 
+          "event": "Spring Equinox & First Outdoor Events", 
+          "notes": "Spring officially arrives, excellent conditions (8 to 15°C), outdoor season begins", 
+          "location": "Tivoli Park, Castle grounds, Old Town", 
+          "time": "Optimal 10am-6pm", 
+          "price": "Free for parks", 
+          "crowdLevel": "Moderate",
+          "springLocations": {
+            "tivoliPark": "First spring flowers, perfect for walks",
+            "castleGrounds": "Great views, spring awakening",
+            "ljubljanicaRiver": "Pleasant riverside walks",
+            "centralMarket": "Fresh spring produce",
+            "oldTown": "Perfect walking weather"
+          },
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          },
+          "considerations": ["Variable spring weather", "Perfect for photography", "Outdoor dining fully returns", "Day trips to nature become appealing"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 12,
+        "lowC": 3,
+        "avgC": 7.5,
+        "realFeelC": 6,
+        "rainfallMm": 70,
+        "rainDays": 12,
+        "snowDays": 2,
+        "sunshineHours": 4.5,
+        "daylightHours": 12,
+        "sunrise": "06:45",
+        "sunset": "18:45",
+        "humidity": 75,
+        "windKmh": 14
+      },
+      "tourismLevel": 4,
+      "priceLevel": "Medium",
+      "crowdLevel": "Low-Medium"
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          "score": 5, 
+          "notes": "Perfect spring weather (10 to 17°C), blooming trees, ideal for all activities", 
+          "location": "Citywide, parks, surrounding areas", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 5,
+            "luxury": 4
+          },
+          "springActivities": ["Park visits", "Outdoor dining", "Walking tours", "Day trips to Lake Bled"],
+          "considerations": ["Perfect weather for sightseeing", "Flowers in bloom", "Outdoor activities ideal"]
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 
+          "score": 5, 
+          "notes": "Excellent conditions continue (12 to 18°C), perfect for all outdoor activities", 
+          "location": "Citywide, day trips", 
+          "time": "Extended daylight 6am-7:30pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "optimalActivities": ["Castle visits", "Bike tours", "River cruises", "Hiking nearby", "Lake Bled day trips"],
+          "considerations": ["Best weather of the year", "Perfect for day trips", "Outdoor dining thriving"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 4, 
+          "special": true, 
+          "event": "Easter Period & Spring Festivals", 
+          "notes": "Easter celebrations, spring festivals, warm weather (13 to 19°C)", 
+          "location": "Churches, Old Town, surrounding areas", 
+          "time": "All day", 
+          "price": "Free cultural events", 
+          "crowdLevel": "Moderate-High",
+          "easterTraditions": {
+            "palmSunday": "Traditional blessing of palms",
+            "easterSunday": "Religious celebrations",
+            "easterMonday": "Traditional picnics and outdoor activities"
+          },
+          "considerations": ["Religious holiday period", "Some closures on Easter", "Perfect for family activities", "Spring festivals begin"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 17,
+        "lowC": 6,
+        "avgC": 11.5,
+        "realFeelC": 12,
+        "rainfallMm": 80,
+        "rainDays": 13,
+        "snowDays": 0,
+        "sunshineHours": 5.5,
+        "daylightHours": 13.5,
+        "sunrise": "06:15",
+        "sunset": "19:45",
+        "humidity": 70,
+        "windKmh": 12,
+        "uvIndex": 4
+      },
+      "tourismLevel": 6,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium",
+      "specialConsiderations": {
+        "easter": "Major holiday period affects some opening hours",
+        "weather": "Most stable spring weather, occasional showers"
+      }
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "Labor Day (Praznik dela)", "notes": "National holiday - many closures but outdoor events, May Day traditions", "location": "Citywide", "time": "All day", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "score": 5, "notes": "Perfect spring weather (14 to 21°C), ideal for all activities, outdoor dining thriving", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 5, "special": true, "event": "Museum Night & Cultural Events", "notes": "Museums Night (third Saturday), warm weather, perfect conditions", "location": "Museums citywide", "time": "Evening", "price": "Free museum access", "crowdLevel": "High for museums"}
+      ],
+      "weatherDetails": {
+        "highC": 21,
+        "lowC": 10,
+        "avgC": 15.5,
+        "realFeelC": 16,
+        "rainfallMm": 90,
+        "rainDays": 14,
+        "snowDays": 0,
+        "sunshineHours": 6.5,
+        "daylightHours": 15,
+        "sunrise": "05:45",
+        "sunset": "20:15",
+        "humidity": 70,
+        "windKmh": 11
+      },
+      "tourismLevel": 7,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium-High"
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "score": 5, "notes": "Excellent weather (16 to 24°C), long daylight, pre-peak season", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24], "score": 5, "notes": "Perfect summer weather, tourism increasing but manageable", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate-High"},
+        {"days": [25], "score": 4, "special": true, "event": "Statehood Day", "notes": "National holiday celebrating independence, some closures but festive atmosphere", "location": "Citywide", "time": "All day", "price": "Free events", "crowdLevel": "High"},
+        {"days": [26, 27, 28, 29, 30], "score": 5, "notes": "Summer begins, excellent conditions (17 to 25°C)", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate-High"}
+      ],
+      "weatherDetails": {
+        "highC": 24,
+        "lowC": 13,
+        "avgC": 18.5,
+        "realFeelC": 19,
+        "rainfallMm": 95,
+        "rainDays": 14,
+        "snowDays": 0,
+        "sunshineHours": 7.5,
+        "daylightHours": 16,
+        "sunrise": "05:20",
+        "sunset": "20:50",
+        "humidity": 70,
+        "windKmh": 10
+      },
+      "tourismLevel": 8,
+      "priceLevel": "High",
+      "crowdLevel": "Medium-High"
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "score": 4, "notes": "Peak summer season, warm weather (18 to 26°C), busy attractions", "location": "Citywide", "time": "All day", "price": "Higher", "crowdLevel": "High"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 4, "special": true, "event": "Ljubljana Festival & Summer Events", "notes": "Cultural festival season, outdoor concerts, warm evenings perfect for events", "location": "Various venues citywide", "time": "Evenings", "price": "Varies", "crowdLevel": "High"}
+      ],
+      "weatherDetails": {
+        "highC": 26,
+        "lowC": 15,
+        "avgC": 20.5,
+        "realFeelC": 21,
+        "rainfallMm": 85,
+        "rainDays": 12,
+        "snowDays": 0,
+        "sunshineHours": 8,
+        "daylightHours": 15.5,
+        "sunrise": "05:35",
+        "sunset": "20:35",
+        "humidity": 70,
+        "windKmh": 9
+      },
+      "tourismLevel": 9,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "score": 4, "notes": "Continued warm weather (18 to 26°C), peak tourist season", "location": "Citywide", "time": "All day", "price": "High", "crowdLevel": "High"},
+        {"days": [15], "score": 3, "special": true, "event": "Assumption Day", "notes": "Religious holiday, some closures but beautiful summer weather", "location": "Churches, traditional sites", "time": "All day", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], "score": 4, "notes": "Warm weather continues, crowds beginning to decrease", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate-High"}
+      ],
+      "weatherDetails": {
+        "highC": 26,
+        "lowC": 15,
+        "avgC": 20.5,
+        "realFeelC": 21,
+        "rainfallMm": 100,
+        "rainDays": 12,
+        "snowDays": 0,
+        "sunshineHours": 7.5,
+        "daylightHours": 14,
+        "sunrise": "06:00",
+        "sunset": "20:00",
+        "humidity": 72,
+        "windKmh": 9
+      },
+      "tourismLevel": 8,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "score": 5, "notes": "Excellent post-peak season, warm weather continues (15 to 23°C), fewer crowds", "location": "Citywide", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 5, "special": true, "event": "Wine Harvest & Cultural Season", "notes": "Pleasant temperatures, harvest season in wine regions, cultural events resume", "location": "Wine regions, cultural venues", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"}
+      ],
+      "weatherDetails": {
+        "highC": 22,
+        "lowC": 11,
+        "avgC": 16.5,
+        "realFeelC": 17,
+        "rainfallMm": 85,
+        "rainDays": 11,
+        "snowDays": 0,
+        "sunshineHours": 6,
+        "daylightHours": 12.5,
+        "sunrise": "06:45",
+        "sunset": "19:15",
+        "humidity": 75,
+        "windKmh": 10
+      },
+      "tourismLevel": 6,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium"
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "score": 4, "notes": "Comfortable autumn temperatures (10 to 18°C), beautiful colors, wine harvest", "location": "Citywide, wine regions", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 4, "notes": "Autumn colors peak, comfortable for walking, cultural season in full swing", "location": "Parks, cultural venues", "time": "All day", "price": "Standard", "crowdLevel": "Moderate"},
+        {"days": [31], "score": 3, "special": true, "event": "Reformation Day", "notes": "National holiday, some closures but autumn atmosphere", "location": "Citywide", "time": "All day", "price": "Free", "crowdLevel": "Low"}
+      ],
+      "weatherDetails": {
+        "highC": 16,
+        "lowC": 6,
+        "avgC": 11,
+        "realFeelC": 10,
+        "rainfallMm": 90,
+        "rainDays": 12,
+        "snowDays": 0,
+        "sunshineHours": 4.5,
+        "daylightHours": 10.5,
+        "sunrise": "07:30",
+        "sunset": "18:00",
+        "humidity": 80,
+        "windKmh": 11
+      },
+      "tourismLevel": 5,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {"days": [1], "score": 3, "special": true, "event": "All Saints' Day", "notes": "Holiday, cemetery visits, autumn atmosphere, cooler weather", "location": "Cemeteries, churches", "time": "Daytime", "price": "Free", "crowdLevel": "Moderate"},
+        {"days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "score": 3, "notes": "Autumn weather continues, cooling temperatures (5 to 12°C), indoor activities recommended", "location": "Museums, cafés", "time": "Daytime", "price": "Standard", "crowdLevel": "Low"},
+        {"days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], "score": 3, "special": true, "event": "Pre-Christmas Season", "notes": "Festive preparations begin, cooler weather, cozy indoor atmosphere", "location": "Shopping areas, cultural venues", "time": "All day", "price": "Standard", "crowdLevel": "Low-Moderate"}
+      ],
+      "weatherDetails": {
+        "highC": 10,
+        "lowC": 2,
+        "avgC": 6,
+        "realFeelC": 4,
+        "rainfallMm": 95,
+        "rainDays": 14,
+        "snowDays": 2,
+        "sunshineHours": 2.5,
+        "daylightHours": 9,
+        "sunrise": "07:15",
+        "sunset": "16:15",
+        "humidity": 85,
+        "windKmh": 12
+      },
+      "tourismLevel": 3,
+      "priceLevel": "Medium",
+      "crowdLevel": "Low"
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {"days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], "score": 4, "special": true, "event": "Christmas Markets & Festive Season", "notes": "Christmas markets, festive decorations, cozy atmosphere, mulled wine", "location": "Prešeren Square, Old Town", "time": "All day", "price": "Free markets", "crowdLevel": "Moderate-High"},
+        {"days": [24, 25], "score": 2, "special": true, "event": "Christmas", "notes": "Major holiday - most attractions closed but special family atmosphere", "location": "Citywide", "time": "All day", "price": "Free", "crowdLevel": "Very Low"},
+        {"days": [26], "score": 3, "special": true, "event": "Independence and Unity Day", "notes": "National holiday, some closures but festive continuation", "location": "Citywide", "time": "All day", "price": "Free", "crowdLevel": "Low"},
+        {"days": [27, 28, 29, 30], "score": 3, "notes": "Between holidays period, winter sales begin, cozy atmosphere", "location": "Shopping areas", "time": "All day", "price": "Sales begin", "crowdLevel": "Moderate"},
+        {"days": [31], "score": 4, "special": true, "event": "New Year's Eve", "notes": "Special celebrations, outdoor events despite cold, fireworks", "location": "Prešeren Square, city center", "time": "Evening", "price": "Free outdoor events", "crowdLevel": "High"}
+      ],
+      "weatherDetails": {
+        "highC": 5,
+        "lowC": -1,
+        "avgC": 2,
+        "realFeelC": -2,
+        "rainfallMm": 85,
+        "rainDays": 13,
+        "snowDays": 6,
+        "sunshineHours": 1.5,
+        "daylightHours": 8,
+        "sunrise": "08:00",
+        "sunset": "16:00",
+        "humidity": 88,
+        "windKmh": 13
+      },
+      "tourismLevel": 6,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium-High"
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "Castle visits",
+      "Tivoli Park walks",
+      "River boat tours",
+      "Old Town exploration",
+      "Day trips to Lake Bled",
+      "Cycling tours",
+      "Outdoor dining",
+      "Photography tours",
+      "Wine tasting",
+      "Hiking nearby hills"
+    ],
+    "summer": [
+      "Ljubljana Festival events",
+      "Outdoor concerts",
+      "River cruises",
+      "Cycling adventures",
+      "Day trips to Alps",
+      "Outdoor dining",
+      "Street festivals",
+      "Hiking excursions",
+      "Swimming in nearby lakes",
+      "Evening river walks"
+    ],
+    "autumn": [
+      "Wine harvest tours",
+      "Museum visits",
+      "Cultural events",
+      "Autumn foliage walks",
+      "Traditional cuisine",
+      "Art galleries",
+      "Cooking classes",
+      "Historical tours",
+      "Cozy café culture",
+      "Indoor concerts"
+    ],
+    "winter": [
+      "Christmas markets",
+      "Museum exploration",
+      "Traditional cuisine",
+      "Thermal spa visits",
+      "Classical concerts",
+      "Cozy cafés",
+      "Indoor cultural sites",
+      "Winter photography",
+      "Shopping",
+      "Skiing day trips"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, ideal weather, special events, manageable crowds, best value",
+    "4": "Good: Very favorable conditions, pleasant weather, reasonable crowds, good value", 
+    "3": "Average: Standard conditions, typical weather, moderate tourism, fair value",
+    "2": "Below Average: Less ideal conditions, challenging weather or high crowds, limited value",
+    "1": "Poor: Unfavorable conditions, extreme weather, very limited activities, poor value"
+  },
+  "travelerTypes": {
+    "families": {
+      "bestMonths": ["April", "May", "June", "September", "December"],
+      "considerations": ["School holidays", "Weather suitability", "Activity availability", "Safety"],
+      "challenges": {
+        "summer": "Can be crowded and warm",
+        "winter": "Cold weather, shorter days"
+      }
+    },
+    "couples": {
+      "bestMonths": ["May", "June", "September", "October", "December"],
+      "romantic": ["February 14th", "December Christmas season", "September wine harvest"],
+      "considerations": ["Weather", "Crowds", "Romantic venues", "Cultural events"]
+    },
+    "solo": {
+      "bestMonths": ["April", "May", "September", "October", "November"],
+      "advantages": ["Cultural immersion", "Easy navigation", "Café culture", "Safe environment"],
+      "considerations": ["Safety", "Social opportunities", "Solo dining comfort", "Language"]
+    },
+    "business": {
+      "bestMonths": ["March", "April", "May", "September", "October", "November"],
+      "avoid": ["August", "December", "July"],
+      "considerations": ["Conference seasons", "Hotel availability", "Transportation", "Business facilities"]
+    },
+    "budget": {
+      "bestMonths": ["January", "February", "March", "November"],
+      "strategies": ["Off-season travel", "Free activities", "Market meals", "Student discounts"],
+      "considerations": ["Accommodation deals", "Free museums", "Walking tours"]
+    },
+    "luxury": {
+      "bestMonths": ["May", "June", "September", "October", "December"],
+      "experiences": ["Castle dining", "Wine tours", "Spa treatments", "Cultural events"],
+      "considerations": ["Advance bookings", "Seasonal experiences", "Premium venues"]
+    }
+  },
+  "monthlyHighlights": {
+    "january": "Quiet winter charm, authentic local experience, cozy indoor culture",
+    "february": "Prešeren Cultural Day, winter activities, romantic atmosphere",
+    "march": "Spring awakening, perfect walking weather, outdoor season begins",
+    "april": "Easter celebrations, perfect conditions, spring blooms peak",
+    "may": "Ideal weather, Museums Night, optimal sightseeing conditions",
+    "june": "Summer begins, Statehood Day, long days and warm evenings",
+    "july": "Ljubljana Festival, peak summer activities, outdoor concerts",
+    "august": "Warm summer continues, perfect for day trips to nature",
+    "september": "Post-peak perfection, wine harvest season, cultural revival",
+    "october": "Autumn colors, comfortable temperatures, wine country tours",
+    "november": "Cozy autumn atmosphere, indoor cultural season, fewer crowds",
+    "december": "Christmas markets, festive atmosphere, New Year celebrations"
+  },
+  "additionalInfo": {
+    "peakSeasons": {
+      "high": ["June", "July", "August"],
+      "medium": ["April", "May", "September", "October", "December"],
+      "low": ["January", "February", "March", "November"]
+    },
+    "weatherNotes": {
+      "spring": "Variable weather, layers recommended, occasional rain",
+      "summer": "Warm and pleasant, occasional thunderstorms, perfect for outdoor activities",
+      "autumn": "Gradually cooling, beautiful colors, comfortable for walking",
+      "winter": "Cold with occasional snow, indoor activities recommended, Christmas charm"
+    },
+    "transportation": {
+      "buses": "Efficient year-round, connects all areas",
+      "walking": "Best in spring through autumn, Old Town is car-free",
+      "cycling": "Excellent with BicikeLJ system, best April-October",
+      "boats": "Scenic river tours in warmer months"
+    },
+    "accommodation": {
+      "peakPricing": ["June", "July", "August", "December"],
+      "valuePricing": ["January", "February", "March", "November"],
+      "advanceBooking": "Recommended 2-4 months ahead for peak season"
+    }
+  }
+}

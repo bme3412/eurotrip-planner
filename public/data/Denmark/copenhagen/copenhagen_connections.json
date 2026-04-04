@@ -1,0 +1,352 @@
+{
+    "destinations": [
+        {
+            "city": "Aarhus",
+            "country": "Denmark",
+            "whyGo": "Denmark's lively cultural hub with a vibrant arts scene and historic architecture.",
+            "directWithinCountryTrain": {
+                "stationInCopenhagen": "København H",
+                "journeyTime": "3h 15m",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Odense",
+            "country": "Denmark",
+            "whyGo": "Birthplace of Hans Christian Andersen, known for its charming old town and museums.",
+            "directWithinCountryTrain": {
+                "stationInCopenhagen": "København H",
+                "journeyTime": "1h 45m",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Aalborg",
+            "country": "Denmark",
+            "whyGo": "A lively port city with a vibrant cultural scene and modern architecture.",
+            "directWithinCountryTrain": {
+                "stationInCopenhagen": "København H",
+                "journeyTime": "4h 35m",
+                "frequency": "Every 1-2 hours"
+            }
+        },
+        {
+            "city": "Hamburg",
+            "country": "Germany",
+            "whyGo": "Germany's second-largest city, known for its beautiful harbor and vibrant nightlife.",
+            "intraEuropeTrain": {
+                "stationInCopenhagen": "København H",
+                "journeyTime": "4h 40m",
+                "frequency": "Every 2-3 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "1h 5m",
+                "frequency": "5-6 times daily"
+            }
+        },
+        {
+            "city": "Gothenburg",
+            "country": "Sweden",
+            "whyGo": "A charming city known for its Dutch-style canals and leafy boulevards.",
+            "intraEuropeTrain": {
+                "stationInCopenhagen": "København H",
+                "journeyTime": "3h 55m",
+                "frequency": "Every 4 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "50m",
+                "frequency": "3-4 times daily"
+            }
+        },
+        {
+            "city": "Malmo",
+            "country": "Sweden",
+            "whyGo": "A multicultural city with a mix of modern and historic architecture, connected by the Øresund Bridge.",
+            "intraEuropeTrain": {
+                "stationInCopenhagen": "København H",
+                "journeyTime": "35m",
+                "frequency": "Every 20 minutes"
+            }
+        },
+        {
+            "city": "Lund",
+            "country": "Sweden",
+            "whyGo": "Known for its prestigious university and well-preserved medieval city center.",
+            "intraEuropeTrain": {
+                "stationInCopenhagen": "København H",
+                "journeyTime": "1h 15m",
+                "frequency": "Every 30-60 minutes"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Sweden's stunning capital city, spread across 14 islands.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "1h 15m",
+                "frequency": "8-10 times daily"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "Norway's capital, known for its green spaces and museums.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "1h 10m",
+                "frequency": "5-6 times daily"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Germany's capital, rich in history and contemporary arts.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "1h 20m",
+                "frequency": "6-7 times daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Known for its artistic heritage, elaborate canal system and narrow houses.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "1h 30m",
+                "frequency": "5 times daily"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "The heart of the European Union, known for its chocolates and waffles.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "1h 40m",
+                "frequency": "4 times daily"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The romantic capital of France, known for its art, fashion, and culture.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "2h 0m",
+                "frequency": "6-7 times daily"
+            }
+        },
+        {
+            "city": "Helsinki",
+            "country": "Finland",
+            "whyGo": "Finland's capital, known for its design and seaside location.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "1h 40m",
+                "frequency": "4-5 times daily"
+            }
+        },
+        {
+            "city": "Reykjavik",
+            "country": "Iceland",
+            "whyGo": "The northernmost capital of a sovereign state, known for its vibrant culture and stunning landscapes.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "3h 0m",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Vilnius",
+            "country": "Lithuania",
+            "whyGo": "Known for its baroque architecture and vibrant arts scene.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "1h 30m",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "Riga",
+            "country": "Latvia",
+            "whyGo": "Known for its wooden buildings, art nouveau architecture, and medieval Old Town.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "1h 40m",
+                "frequency": "3 times daily"
+            }
+        },
+        {
+            "city": "Tallinn",
+            "country": "Estonia",
+            "whyGo": "Famed for its medieval old town, a UNESCO World Heritage site.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "1h 50m",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Poland's capital, known for its modern skyline and historic Old Town.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "1h 30m",
+                "frequency": "4 times daily"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "The city of a hundred spires, known for its Old Town Square and Gothic churches.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "1h 20m",
+                "frequency": "3-4 times daily"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Austria's capital, known for its artistic and intellectual legacy.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "1h 50m",
+                "frequency": "3 times daily"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Known for its picturesque lakeside setting and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "2h 0m",
+                "frequency": "3 times daily"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Italy's fashion capital, known for its high-end dining and shopping.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "2h 0m",
+                "frequency": "3 times daily"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City, known for its nearly 3,000 years of globally influential art and architecture.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "2h 30m",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Known for its art and architecture, vibrant culture, and Mediterranean beaches.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "2h 45m",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Spain's central capital, known for its rich repositories of European art.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "3h 0m",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Ireland's vibrant capital, known for its friendly locals and rich history.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "2h 15m",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "The UK's capital, known for its rich history, culture, and iconic landmarks.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "1h 45m",
+                "frequency": "6-7 times daily"
+            }
+        },
+        {
+            "city": "Edinburgh",
+            "country": "United Kingdom",
+            "whyGo": "Scotland's hilly capital, known for its historic and architectural attractions.",
+            "intraEuropeFlight": {
+                "airportsInCopenhagen": [
+                    "Copenhagen Airport (CPH)"
+                ],
+                "approxFlightTime": "2h 0m",
+                "frequency": "2 times daily"
+            }
+        }
+    ]
+}

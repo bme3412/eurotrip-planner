@@ -1,0 +1,478 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Geranium",
+                "cuisine_type": "Nordic",
+                "signature_dishes": [
+                    "Smoked Lumpfish Roe",
+                    "Braised Leg of Duck"
+                ],
+                "price_range": "€€€€ (Luxury)",
+                "atmosphere": "Elegant and modern with panoramic views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least 3 months in advance via their website",
+                "dress_code": "Smart casual",
+                "michelin_stars": 3,
+                "location": "Østerbro",
+                "local_tips": "Ask for the wine pairing menu for an enhanced experience"
+            },
+            {
+                "name": "Noma",
+                "cuisine_type": "Contemporary Nordic",
+                "signature_dishes": [
+                    "Fermented Wild Garlic",
+                    "Reindeer Moss"
+                ],
+                "price_range": "€€€€ (Luxury)",
+                "atmosphere": "Innovative and minimalist with a rustic charm",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations open quarterly, book immediately when available",
+                "dress_code": "Smart casual",
+                "michelin_stars": 2,
+                "location": "Christiania",
+                "local_tips": "Opt for the juice pairing for a unique non-alcoholic experience"
+            },
+            {
+                "name": "Kadeau",
+                "cuisine_type": "Nordic",
+                "signature_dishes": [
+                    "Grilled Danish Squid",
+                    "Rhubarb Sorbet"
+                ],
+                "price_range": "€€€€ (Luxury)",
+                "atmosphere": "Cozy and intimate with an emphasis on local ingredients",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 2 months in advance",
+                "dress_code": "Smart casual",
+                "michelin_stars": 2,
+                "location": "Christianshavn",
+                "local_tips": "Try the chef's tasting menu for a complete experience"
+            },
+            {
+                "name": "Amass",
+                "cuisine_type": "Innovative Nordic",
+                "signature_dishes": [
+                    "Burnt Leek",
+                    "Charred Cabbage"
+                ],
+                "price_range": "€€€ (Expensive)",
+                "atmosphere": "Industrial chic with a sustainable focus",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book one month ahead, especially for weekends",
+                "dress_code": "Casual",
+                "michelin_stars": null,
+                "location": "Refshaleøen",
+                "local_tips": "Explore their urban garden before your meal"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Aamanns 1921",
+                "cuisine_type": "Traditional Danish",
+                "signature_dishes": [
+                    "Smørrebrød",
+                    "Herring Platter"
+                ],
+                "price_range": "€€ (Moderate)",
+                "atmosphere": "Casual and contemporary with a focus on Danish classics",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Weekends are popular, book a week in advance",
+                "dress_code": "Casual",
+                "location": "Indre By",
+                "local_tips": "Great for trying a variety of open-faced sandwiches"
+            },
+            {
+                "name": "Mikkeller Bar",
+                "cuisine_type": "Craft Beer and Pub Fare",
+                "signature_dishes": [
+                    "Beer Braised Pork",
+                    "Artisan Pretzels"
+                ],
+                "price_range": "€€ (Moderate)",
+                "atmosphere": "Lively and bustling with a focus on craft beers",
+                "best_time": "Evening",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to secure a table",
+                "dress_code": "Casual",
+                "location": "Vesterbro",
+                "local_tips": "Try a flight of Mikkeller's unique beer creations"
+            },
+            {
+                "name": "Grød",
+                "cuisine_type": "Porridge Specialty",
+                "signature_dishes": [
+                    "Oat Porridge with Apple and Caramel",
+                    "Risotto"
+                ],
+                "price_range": "€ (Budget)",
+                "atmosphere": "Cozy and casual with a minimalist design",
+                "best_time": "Breakfast",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, but can get busy on weekends",
+                "dress_code": "Casual",
+                "location": "Nørrebro",
+                "local_tips": "Perfect for a hearty breakfast; try their seasonal specials"
+            },
+            {
+                "name": "Madklubben Steak",
+                "cuisine_type": "Steakhouse",
+                "signature_dishes": [
+                    "Ribeye Steak",
+                    "Truffle Fries"
+                ],
+                "price_range": "€€ (Moderate)",
+                "atmosphere": "Casual yet stylish with a focus on quality meats",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days in advance for dinner",
+                "dress_code": "Smart casual",
+                "location": "Vesterbro",
+                "local_tips": "Check for daily specials and set menus"
+            },
+            {
+                "name": "Warpigs Brewpub",
+                "cuisine_type": "American BBQ and Craft Beer",
+                "signature_dishes": [
+                    "Brisket",
+                    "Pulled Pork"
+                ],
+                "price_range": "€€ (Moderate)",
+                "atmosphere": "Rustic and vibrant with communal seating",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Go on weekdays to avoid crowds",
+                "dress_code": "Casual",
+                "location": "Meatpacking District",
+                "local_tips": "Pair your meal with their in-house brewed beers"
+            },
+            {
+                "name": "Bæst",
+                "cuisine_type": "Italian",
+                "signature_dishes": [
+                    "Wood-Fired Sourdough Pizza",
+                    "Homemade Burrata"
+                ],
+                "price_range": "€€ (Moderate)",
+                "atmosphere": "Warm and inviting with an open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Nørrebro",
+                "local_tips": "Their charcuterie and cheese are made in-house"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Reffen - Copenhagen Street Food",
+                "specialties": [
+                    "Duck Fat Fries",
+                    "Vegan Tacos"
+                ],
+                "price_range": "€ (Budget)",
+                "hours": "11:00 - 22:00",
+                "location": "Refshaleøen",
+                "seating": true,
+                "local_tips": "Visit in the early evening for the best selection and sunset views"
+            },
+            {
+                "name": "Torvehallerne",
+                "specialties": [
+                    "Danish Smørrebrød",
+                    "Artisan Chocolates"
+                ],
+                "price_range": "€€ (Moderate)",
+                "hours": "10:00 - 19:00",
+                "location": "Indre By",
+                "seating": true,
+                "local_tips": "Try Hallernes Smørrebrød for traditional open-faced sandwiches"
+            },
+            {
+                "name": "Hotdog Corner",
+                "specialties": [
+                    "Danish Hotdog",
+                    "Ristet Hotdog"
+                ],
+                "price_range": "€ (Budget)",
+                "hours": "10:00 - 20:00",
+                "location": "Various locations city-wide",
+                "seating": false,
+                "local_tips": "A must-try local street food; add crispy onions and pickles"
+            },
+            {
+                "name": "Broens Gadekøkken",
+                "specialties": [
+                    "Korean Fried Chicken",
+                    "Fish Tacos"
+                ],
+                "price_range": "€€ (Moderate)",
+                "hours": "11:30 - 21:00",
+                "location": "Christianshavn",
+                "seating": true,
+                "local_tips": "Great for groups; enjoy the waterfront setting"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "The Coffee Collective",
+                "specialty": "Sustainable Single-Origin Coffee",
+                "must_try": [
+                    "Aeropress Brew",
+                    "Espresso with Milk"
+                ],
+                "price_range": "€€ (Moderate)",
+                "atmosphere": "Modern and minimalist with a focus on quality",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Pastries and light snacks",
+                "local_tips": "Visit their roastery location for a behind-the-scenes look"
+            },
+            {
+                "name": "Prolog Coffee Bar",
+                "specialty": "Craft Coffee and Seasonal Blends",
+                "must_try": [
+                    "Cappuccino",
+                    "Filter Coffee"
+                ],
+                "price_range": "€€ (Moderate)",
+                "atmosphere": "Cozy and intimate with knowledgeable baristas",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Limited pastries",
+                "local_tips": "Chat with the baristas for recommendations"
+            },
+            {
+                "name": "Kaffesalonen",
+                "specialty": "Lakeside Coffee Experience",
+                "must_try": [
+                    "Latte",
+                    "Iced Coffee"
+                ],
+                "price_range": "€ (Budget)",
+                "atmosphere": "Relaxed and picturesque by the lakeside",
+                "best_time": "Late afternoon",
+                "wifi_friendly": false,
+                "food_options": "Sandwiches and pastries",
+                "local_tips": "Rent a paddle boat after your coffee"
+            },
+            {
+                "name": "Paludan Bog & Café",
+                "specialty": "Books and Coffee",
+                "must_try": [
+                    "Chai Latte",
+                    "Brownie"
+                ],
+                "price_range": "€ (Budget)",
+                "atmosphere": "Literary and cozy with shelves of books",
+                "best_time": "Evening",
+                "wifi_friendly": true,
+                "food_options": "Full menu available",
+                "local_tips": "Ideal for book lovers; spend a relaxing evening"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Ruby",
+                "type": "Cocktail Bar",
+                "specialty": "Classic and Signature Cocktails",
+                "signature_drinks": [
+                    "Old Fashioned",
+                    "Ruby Sour"
+                ],
+                "price_range": "€€€ (Expensive)",
+                "atmosphere": "Sophisticated with a vintage charm",
+                "best_time": "Evening",
+                "food_options": "Light bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Reservations recommended for weekends"
+            },
+            {
+                "name": "Ved Stranden 10",
+                "type": "Wine Bar",
+                "specialty": "Natural Wines",
+                "signature_drinks": [
+                    "Danish White Wine",
+                    "Organic Red"
+                ],
+                "price_range": "€€€ (Expensive)",
+                "atmosphere": "Chic and relaxed by the canal",
+                "best_time": "Afternoon",
+                "food_options": "Cheese and charcuterie boards",
+                "reservation_needed": false,
+                "local_tips": "Visit on a warm day to enjoy their outdoor seating"
+            },
+            {
+                "name": "Mikkeller Bar",
+                "type": "Beer Bar",
+                "specialty": "Craft Beers from Around the World",
+                "signature_drinks": [
+                    "Mikkeller IPA",
+                    "Spontanseries"
+                ],
+                "price_range": "€€ (Moderate)",
+                "atmosphere": "Lively with a focus on beer enthusiasts",
+                "best_time": "Evening",
+                "food_options": "Limited bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Try a sampler flight to explore different flavors"
+            },
+            {
+                "name": "The Jane",
+                "type": "Cocktail Bar",
+                "specialty": "Innovative Cocktails",
+                "signature_drinks": [
+                    "Strawberry Basil Smash",
+                    "Mojito"
+                ],
+                "price_range": "€€€ (Expensive)",
+                "atmosphere": "Trendy with a bustling atmosphere",
+                "best_time": "Night",
+                "food_options": "N/A",
+                "reservation_needed": true,
+                "local_tips": "Arrive early for happy hour specials"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Copenhagen Culinary Tour",
+                "focus": "Local Danish Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€ (Expensive)",
+                "highlights": [
+                    "Traditional Smørrebrød",
+                    "Craft Beer Tasting",
+                    "Local Market Visit"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English",
+                    "Danish"
+                ],
+                "booking_tips": "Book two weeks in advance, especially in summer"
+            },
+            {
+                "name": "Nordic Food Walk",
+                "focus": "Nordic Gastronomy",
+                "duration": "3 hours",
+                "price_range": "€€ (Moderate)",
+                "highlights": [
+                    "Nordic Cheese Tasting",
+                    "Street Food Samples",
+                    "Organic Bakeries"
+                ],
+                "booking_required": true,
+                "group_size": "15",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Check for weather conditions; the tour is mostly outdoors"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Danish Baking Class",
+                "cuisine_focus": "Traditional Danish Pastries",
+                "duration": "3 hours",
+                "price_range": "€€ (Moderate)",
+                "what_you_learn": [
+                    "Danish Rye Bread",
+                    "Cinnamon Rolls",
+                    "Butter Cookies"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "Danish"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipes",
+                    "Snacks"
+                ],
+                "booking_tips": "Classes fill up quickly, book a month in advance"
+            },
+            {
+                "name": "Nordic Cooking Experience",
+                "cuisine_focus": "Nordic Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€ (Expensive)",
+                "what_you_learn": [
+                    "Curing Fish",
+                    "Foraging Techniques",
+                    "Seasonal Dishes"
+                ],
+                "group_size": "10",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipes",
+                    "Dinner"
+                ],
+                "booking_tips": "Ideal for food enthusiasts; book early for weekends"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Torvehallerne",
+                "type": "Food Market",
+                "highlights": [
+                    "Fresh Seafood",
+                    "Smørrebrød",
+                    "Specialty Coffee"
+                ],
+                "hours": "10:00 - 19:00",
+                "best_time": "Morning",
+                "location": "Frederiksborggade 21",
+                "local_tips": "Visit early to avoid crowds and get the freshest produce"
+            },
+            {
+                "name": "Copenhagen Flea Market",
+                "type": "Flea Market",
+                "highlights": [
+                    "Antiques",
+                    "Vintage Clothing",
+                    "Local Art"
+                ],
+                "hours": "09:00 - 15:00 (Saturday only)",
+                "best_time": "Early morning",
+                "location": "Halmtorvet",
+                "local_tips": "Bring cash for easier transactions; bargaining is common"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Asparagus with Hollandaise",
+            "New Potatoes with Dill",
+            "Rhubarb Compote"
+        ],
+        "summer": [
+            "Cold Buttermilk Soup",
+            "Fresh Strawberries with Cream",
+            "Grilled Mackerel"
+        ],
+        "autumn": [
+            "Roast Pork with Crackling",
+            "Apple Cake",
+            "Pumpkin Soup"
+        ],
+        "winter": [
+            "Christmas Gløgg",
+            "Risalamande",
+            "Roast Duck with Prunes"
+        ]
+    }
+}

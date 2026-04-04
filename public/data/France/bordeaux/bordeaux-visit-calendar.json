@@ -1,0 +1,1117 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 1,
+          "special": true,
+          "event": "New Year's Day (Jour de l'An)",
+          "notes": "National holiday with most businesses closed. Limited dining options, but some wine bars open. Cold weather (2-6°C) with potential frost. Many locals away on vacation.",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Free",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 1,
+            "couples": 2,
+            "solo": 1,
+            "business": 1,
+            "budget": 2,
+            "luxury": 1
+          },
+          "attractions": {
+            "grandTheatre": "Closed",
+            "museeBeauxArts": "Closed",
+            "placeBourse": "Limited access",
+            "cathedraleSaintAndre": "Limited access",
+            "jardinPublic": "Open but cold"
+          },
+          "considerations": ["Most museums closed", "Limited restaurant options", "Excellent for photography with fewer crowds", "Many shops closed"]
+        },
+        {
+          "days": [2, 3, 4, 5],
+          "score": 2,
+          "notes": "Post-holiday lull with cold weather (1-7°C). Many locals still on vacation. Reduced public transport frequency. Good for budget travelers.",
+          "location": "Shopping districts, museums",
+          "time": "All day",
+          "price": "Lower prices",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 1,
+            "budget": 4,
+            "luxury": 2
+          },
+          "attractions": {
+            "grandTheatre": "Open, minimal queues",
+            "museeBeauxArts": "Open, excellent for art lovers",
+            "placeBourse": "Open, clear views",
+            "shopping": "Sales up to 70% off",
+            "museums": "Perfect conditions"
+          },
+          "considerations": ["Excellent for luxury shopping sales", "Perfect museum conditions", "Bring warm clothing", "Limited daylight 8:45am-5:30pm"]
+        },
+        {
+          "days": [6],
+          "score": 3,
+          "special": true,
+          "event": "Epiphany (Épiphanie)",
+          "notes": "Traditional celebration with galette des rois cakes in bakeries. Winter sales officially begin. Cultural events at churches. Temperature 3-8°C.",
+          "location": "Bakeries citywide",
+          "time": "All day",
+          "price": "Galette 15-30€",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 2,
+            "budget": 3,
+            "luxury": 4
+          },
+          "culturalSignificance": "Important French tradition - try galette des rois at local patisseries",
+          "considerations": ["Book restaurant tables in advance", "Try traditional galette with frangipane", "Perfect photography opportunity"]
+        },
+        {
+          "days": [7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 2,
+          "notes": "Chilly temperatures (2-7°C) with occasional frost. Regular business hours resume. Good for indoor activities and wine tourism.",
+          "location": "Museums and galleries",
+          "time": "Daytime 9am-6pm",
+          "price": "Standard",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          },
+          "attractions": {
+            "museeBeauxArts": "Excellent - no crowds",
+            "capcMuseum": "Perfect conditions",
+            "museeDuVin": "Indoor exhibits recommended",
+            "cafes": "Cozy atmosphere",
+            "shopping": "Continued sales"
+          },
+          "considerations": ["Pack thermal layers", "Perfect for museum marathons", "Cafés are sanctuaries", "Early sunset around 5:30pm"]
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 2,
+          "notes": "Low season with minimal crowds. Cold weather (1-8°C) but good for budget travel. Many wine châteaux offer winter tastings.",
+          "location": "Wine châteaux, museums",
+          "time": "All day",
+          "price": "Lower prices continue",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          },
+          "activities": ["Wine château visits", "Indoor museums", "Thermal spas", "Budget shopping"],
+          "price_advantages": "Lowest hotel rates, discounted wine tours",
+          "weather_notes": "Coldest period, frequent rain, occasional snow flurries"
+        }
+      ],
+      "weatherDetails": {
+        "highC": 8,
+        "lowC": 3,
+        "avgC": 5.5,
+        "realFeelC": 1,
+        "rainfallMm": 120,
+        "rainDays": 15,
+        "snowDays": 2,
+        "sunshineHours": 3,
+        "daylightHours": 8.5,
+        "sunrise": "08:45",
+        "sunset": "17:30",
+        "humidity": 85,
+        "windKmh": 15
+      },
+      "tourismLevel": 3,
+      "priceLevel": "Low",
+      "crowdLevel": "Low",
+      "schoolHolidays": {
+        "christmas": {"dates": [1, 2], "impact": "Moderate"},
+        "winter": {"starts": "mid-February", "impact": "None in January"}
+      }
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "score": 2,
+          "notes": "Winter weather persists with cold temperatures (2-8°C). Cool and damp conditions. School holidays may bring some families. Good for indoor activities.",
+          "location": "Museums and covered passages",
+          "time": "Daytime 9am-6pm",
+          "price": "Standard",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          },
+          "activities": ["Indoor museums", "Wine tastings", "Shopping", "Café culture"],
+          "weather_notes": "Frequent rain, foggy mornings, limited sunshine",
+          "school_holidays": "Some regions have winter breaks",
+          "indoor_recommendations": ["Musée d'Aquitaine", "CAPC Museum", "Wine bars"]
+        },
+        {
+          "days": [14],
+          "score": 4,
+          "special": true,
+          "event": "Valentine's Day (Saint-Valentin)",
+          "notes": "Romantic dining events and special menus at restaurants. Wine bars offer couple packages. Temperature 3-9°C. Book restaurants well in advance.",
+          "location": "Restaurants citywide, wine bars",
+          "time": "Evening 7pm-11pm",
+          "price": "Premium (dinner 80-200€/person)",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 5,
+            "solo": 2,
+            "business": 1,
+            "budget": 2,
+            "luxury": 5
+          },
+          "romanticVenues": {
+            "restaurants": ["La Grande Maison", "Le Chapon Fin", "Le Saint-James"],
+            "activities": ["Wine tasting tours", "Garonne sunset cruise", "Historic center walks"],
+            "hotels": ["Special packages available", "Book 6 weeks ahead", "Expect 40-60% markup"]
+          },
+          "considerations": ["Reserve restaurants by late January", "Wine bars in Saint-Pierre district", "Book wine tours in advance"]
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+          "score": 2,
+          "notes": "Cold conditions (2-9°C) with occasional school breaks. Some winter sales continue. Good for budget travel and wine tourism.",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Low-Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          },
+          "activities": ["Wine château visits", "Indoor attractions", "Shopping sales", "Thermal spas"],
+          "weather_notes": "Coldest month, frequent rain, occasional sunny spells",
+          "price_advantages": "Continued sales, lower hotel rates",
+          "school_holidays": "Some regions have winter breaks this period"
+        }
+      ],
+      "weatherDetails": {
+        "highC": 9,
+        "lowC": 3,
+        "avgC": 6,
+        "realFeelC": 3,
+        "rainfallMm": 110,
+        "rainDays": 13,
+        "snowDays": 1,
+        "sunshineHours": 4,
+        "daylightHours": 10,
+        "sunrise": "08:15",
+        "sunset": "18:15",
+        "humidity": 80,
+        "windKmh": 14
+      },
+      "tourismLevel": 4,
+      "priceLevel": "Low-Medium",
+      "crowdLevel": "Low-Medium"
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "score": 3,
+          "notes": "Early spring transition, variable weather (5-12°C), increasing daylight",
+          "location": "Citywide",
+          "time": "Extended daylight 7:30am-7pm",
+          "price": "Standard",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 3
+          },
+          "weatherVariability": "High - pack layers, umbrella essential",
+          "considerations": ["Unpredictable weather", "Perfect for indoor/outdoor combination", "Early spring flowers appearing"]
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+          "score": 4,
+          "notes": "Spring awakening, pleasant temperatures (7-14°C), perfect for walking",
+          "location": "Parks and gardens",
+          "time": "Full day exploration",
+          "price": "Standard",
+          "crowdLevel": "Moderate",
+          "springActivities": ["Garden visits", "Outdoor café culture returns", "Walking tours ideal", "Photography perfect light"],
+          "considerations": ["Weather can change quickly", "Perfect time for Garonne walks", "Outdoor dining returns"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "special": true,
+          "event": "Spring Equinox & Wine Festival Season Begins",
+          "notes": "Spring officially arrives, excellent conditions (8-15°C), wine events begin",
+          "location": "Jardin Public, Place de la Bourse, wine venues",
+          "time": "Optimal 10am-6pm",
+          "price": "Free for parks, wine events vary",
+          "crowdLevel": "Moderate-High",
+          "springLocations": {
+            "jardinPublic": "First to bloom, central location",
+            "placeBourse": "Beautiful spring light, outdoor cafés",
+            "alleesDeTourny": "Less crowded, beautiful setting",
+            "quaisDeGaronne": "Perfect for spring walks"
+          },
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          },
+          "considerations": ["Spring bloom varies by weather", "Weekend crowds for gardens", "Perfect for photography", "Outdoor dining fully returns"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 13,
+        "lowC": 6,
+        "avgC": 9.5,
+        "realFeelC": 8,
+        "rainfallMm": 50,
+        "rainDays": 11,
+        "snowDays": 1,
+        "sunshineHours": 5,
+        "daylightHours": 12,
+        "sunrise": "07:30",
+        "sunset": "19:30",
+        "humidity": 75,
+        "windKmh": 13
+      },
+      "tourismLevel": 5,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium",
+      "schoolHolidays": {
+        "spring": {"dates": [25, 26, 27, 28, 29, 30, 31], "impact": "Moderate-High", "zones": "All zones"}
+      }
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 3,
+          "special": true,
+          "event": "April Fool's Day (Poisson d'Avril)",
+          "notes": "Fun cultural atmosphere, spring flowers peak, perfect spring weather",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Free cultural fun",
+          "crowdLevel": "Moderate",
+          "culturalTradition": "Paper fish pranks, playful atmosphere throughout the city"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "score": 5,
+          "special": true,
+          "event": "Spring Bloom Peak Season",
+          "notes": "Spring flowers in full spectacular bloom, ideal weather (10-17°C), photography paradise",
+          "location": "All garden locations citywide",
+          "time": "Golden hour 7am-9am, 5pm-7pm",
+          "price": "Free for viewing",
+          "crowdLevel": "High at popular spots",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 5,
+            "luxury": 4
+          },
+          "peakBloomSchedule": {
+            "early": ["Jardin Public", "Place de la Bourse"],
+            "mid": ["Allées de Tourny", "Quais de Garonne"],
+            "late": ["Parc Bordelais", "Jardin Botanique"]
+          },
+          "photographyTips": ["Golden hour lighting", "Arrive early for fewer crowds", "Bring macro lens", "Weather-dependent - check daily"],
+          "considerations": ["Peak bloom lasts only 7-10 days", "Weather dependent timing", "Weekends extremely crowded", "Book photography tours in advance"]
+        },
+        {
+          "days": [14],
+          "score": 4,
+          "special": true,
+          "event": "Bordeaux Wine Festival",
+          "notes": "Major wine event, special tastings, festive atmosphere, spring flowers as backdrop",
+          "location": "Various venues citywide",
+          "time": "All day",
+          "price": "Varies by event",
+          "crowdLevel": "Very High",
+          "wineEvents": {
+            "tastings": "Grand Théâtre area",
+            "duration": "All day",
+            "alternativeTransport": "Tram recommended, some stations busy"
+          },
+          "viewingSpots": ["Place de la Bourse", "Grand Théâtre", "Place du Parlement", "Wine bars"],
+          "considerations": ["Book wine tastings early", "Use tram for cross-city travel", "Festive atmosphere throughout city", "Hotels may be busy"]
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 4,
+          "notes": "Perfect spring conditions (12-18°C), comfortable temperatures, ideal sightseeing",
+          "location": "Citywide",
+          "time": "Extended daylight 6:30am-8pm",
+          "price": "Standard",
+          "crowdLevel": "Moderate",
+          "schoolHolidays": {
+            "spring": {"active": true, "impact": "High", "dates": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]},
+            "easter": {"dates": "Variable - typically mid-April", "impact": "Very High"}
+          },
+          "optimalActivities": ["Walking tours", "Outdoor dining", "Park picnics", "River cruises", "Cycling tours"],
+          "considerations": ["Spring rain showers possible", "Perfect temperature for long walks", "Outdoor dining fully active", "Book popular restaurants ahead"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 16,
+        "lowC": 8,
+        "avgC": 12,
+        "realFeelC": 13,
+        "rainfallMm": 50,
+        "rainDays": 10,
+        "sunshineHours": 6.5,
+        "daylightHours": 13.5,
+        "sunrise": "07:00",
+        "sunset": "20:00",
+        "humidity": 70,
+        "windKmh": 12,
+        "uvIndex": 5
+      },
+      "tourismLevel": 7,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium-High",
+      "specialConsiderations": {
+        "easter": "Major Christian holiday affects opening hours and creates family tourism spike",
+        "schoolHolidays": "Two weeks of increased family tourism from all regions",
+        "weather": "Most stable spring weather but sudden showers possible"
+      }
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 3,
+          "special": true,
+          "event": "Labor Day (Fête du Travail)",
+          "notes": "Many closures but special events, lily of the valley sales",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Free",
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7],
+          "score": 4,
+          "notes": "Spring flowers, pleasant temperatures (11-18°C), outdoor dining",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [8],
+          "score": 3,
+          "special": true,
+          "event": "Victory in Europe Day",
+          "notes": "Some closures, commemorations, historical significance",
+          "location": "Place des Quinconces, military sites",
+          "time": "Morning",
+          "price": "Free",
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17],
+          "score": 4,
+          "notes": "Excellent weather, not peak tourism yet, perfect for sightseeing",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [18],
+          "score": 5,
+          "special": true,
+          "event": "Nuit des Musées",
+          "notes": "Museums Night, special cultural events, free museum access",
+          "location": "Museums citywide",
+          "time": "Evening",
+          "price": "Free",
+          "crowdLevel": "High"
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "notes": "Warm weather (13-20°C), outdoor café culture thriving, long days",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Moderate"
+        }
+      ],
+      "weatherDetails": {
+        "highC": 20,
+        "lowC": 11,
+        "avgC": 15.5,
+        "realFeelC": 18,
+        "rainfallMm": 75,
+        "rainDays": 12,
+        "sunshineHours": 7.5,
+        "daylightHours": 14.5,
+        "sunrise": "06:30",
+        "sunset": "21:00",
+        "humidity": 70,
+        "windKmh": 12
+      },
+      "tourismLevel": 8,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium-High"
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 5,
+          "notes": "Excellent weather (14-23°C), long daylight, pre-peak season",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20],
+          "score": 4,
+          "notes": "Warming up, tourism increasing, still manageable crowds",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [21],
+          "score": 5,
+          "special": true,
+          "event": "Fête le Vin",
+          "notes": "A celebration of Bordeaux's wine culture on the summer solstice",
+          "location": "Quais de Garonne, Place de la Bourse",
+          "time": "All day and evening",
+          "price": "Free to watch, tastings vary",
+          "crowdLevel": "Very High"
+        },
+        {
+          "days": [22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 4,
+          "notes": "Summer sets in with increasing cultural and outdoor events",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "High"
+        }
+      ],
+      "weatherDetails": {
+        "highC": 23,
+        "lowC": 14,
+        "avgC": 18.5,
+        "realFeelC": 22,
+        "rainfallMm": 65,
+        "rainDays": 10,
+        "sunshineHours": 8.5,
+        "daylightHours": 15.5,
+        "sunrise": "06:15",
+        "sunset": "21:45",
+        "humidity": 65,
+        "windKmh": 11
+      },
+      "tourismLevel": 9,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+          "score": 3,
+          "notes": "Peak tourism season, warm weather (16-25°C), crowded attractions",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Expensive",
+          "crowdLevel": "Very High"
+        },
+        {
+          "days": [14],
+          "score": 4,
+          "special": true,
+          "event": "Bastille Day",
+          "notes": "National holiday, fireworks at Place de la Bourse, military parade, celebrations",
+          "location": "Place de la Bourse, Place des Quinconces",
+          "time": "All day",
+          "price": "Free",
+          "crowdLevel": "Very High"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 3,
+          "special": true,
+          "event": "Bordeaux Plages",
+          "notes": "Urban riverfront transformation with a relaxed beach vibe",
+          "location": "Quais de Garonne",
+          "time": "All day",
+          "price": "Free",
+          "crowdLevel": "Very High"
+        }
+      ],
+      "weatherDetails": {
+        "highC": 25,
+        "lowC": 16,
+        "avgC": 20.5,
+        "realFeelC": 28,
+        "rainfallMm": 60,
+        "rainDays": 8,
+        "sunshineHours": 9,
+        "daylightHours": 15,
+        "sunrise": "06:30",
+        "sunset": "21:30",
+        "humidity": 60,
+        "windKmh": 10
+      },
+      "tourismLevel": 10,
+      "priceLevel": "High",
+      "crowdLevel": "Very High"
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+          "score": 2,
+          "special": true,
+          "event": "Bordeaux Plages & Assumption Day",
+          "notes": "Hot weather (17-26°C), riverfront events, many locals on vacation",
+          "location": "Quais de Garonne",
+          "time": "All day",
+          "price": "Free",
+          "crowdLevel": "High"
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 3,
+          "notes": "Continued warmth as crowds gradually thin with the end of vacations",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Moderate"
+        }
+      ],
+      "weatherDetails": {
+        "highC": 25,
+        "lowC": 16,
+        "avgC": 20.5,
+        "realFeelC": 28,
+        "rainfallMm": 55,
+        "rainDays": 7,
+        "sunshineHours": 8.5,
+        "daylightHours": 14,
+        "sunrise": "07:00",
+        "sunset": "21:00",
+        "humidity": 65,
+        "windKmh": 10
+      },
+      "tourismLevel": 9,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 5,
+          "notes": "Excellent post-peak season with lingering summer warmth",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 5,
+          "special": true,
+          "event": "Bordeaux Cultural Week",
+          "notes": "Pleasant temperatures, reduced crowds, and rich local cultural events",
+          "location": "Various venues citywide",
+          "time": "All day",
+          "price": "Varies by event",
+          "crowdLevel": "Moderate"
+        }
+      ],
+      "weatherDetails": {
+        "highC": 21,
+        "lowC": 13,
+        "avgC": 17,
+        "realFeelC": 19,
+        "rainfallMm": 55,
+        "rainDays": 9,
+        "sunshineHours": 7,
+        "daylightHours": 12.5,
+        "sunrise": "07:30",
+        "sunset": "20:00",
+        "humidity": 70,
+        "windKmh": 11
+      },
+      "tourismLevel": 7,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium"
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {
+          "days": [5],
+          "score": 4,
+          "special": true,
+          "event": "Bordeaux Nuit Blanche",
+          "notes": "All-night arts festival with early fall colors",
+          "location": "Various venues citywide",
+          "time": "All night",
+          "price": "Free",
+          "crowdLevel": "High"
+        },
+        {
+          "days": [6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 4,
+          "notes": "Mild temperatures and a picturesque autumn ambiance",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+          "score": 4,
+          "special": true,
+          "event": "Bordeaux Grape Harvest Festival",
+          "notes": "Celebration of local vineyards with vibrant harvest activities",
+          "location": "Wine regions around Bordeaux",
+          "time": "All day",
+          "price": "Varies by event",
+          "crowdLevel": "Moderate"
+        }
+      ],
+      "weatherDetails": {
+        "highC": 16,
+        "lowC": 10,
+        "avgC": 13,
+        "realFeelC": 14,
+        "rainfallMm": 65,
+        "rainDays": 12,
+        "sunshineHours": 5.5,
+        "daylightHours": 11,
+        "sunrise": "08:00",
+        "sunset": "19:00",
+        "humidity": 75,
+        "windKmh": 12
+      },
+      "tourismLevel": 6,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {
+          "days": [1],
+          "score": 3,
+          "special": true,
+          "event": "All Saints' Day",
+          "notes": "Holiday period with some closures; opportunities for reflective visits",
+          "location": "Cemeteries citywide",
+          "time": "Daytime",
+          "price": "Free",
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10],
+          "score": 3,
+          "notes": "Cooler weather and lingering autumn colors",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "Low"
+        },
+        {
+          "days": [11],
+          "score": 3,
+          "special": true,
+          "event": "Armistice Day",
+          "notes": "Commemorative events, some public services paused",
+          "location": "Place des Quinconces",
+          "time": "Morning",
+          "price": "Free",
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          "score": 3,
+          "special": true,
+          "event": "Bordeaux Christmas Markets Begin",
+          "notes": "Festive atmosphere emerges as cooler weather sets in",
+          "location": "Various locations",
+          "time": "All day",
+          "price": "Free",
+          "crowdLevel": "Moderate"
+        }
+      ],
+      "weatherDetails": {
+        "highC": 11,
+        "lowC": 6,
+        "avgC": 8.5,
+        "realFeelC": 6,
+        "rainfallMm": 60,
+        "rainDays": 14,
+        "sunshineHours": 3.5,
+        "daylightHours": 9.5,
+        "sunrise": "08:00",
+        "sunset": "17:30",
+        "humidity": 80,
+        "windKmh": 13
+      },
+      "tourismLevel": 4,
+      "priceLevel": "Medium",
+      "crowdLevel": "Low-Medium"
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+          "score": 3,
+          "special": true,
+          "event": "Bordeaux Christmas Markets",
+          "notes": "Festive atmosphere, holiday decorations, mulled wine, seasonal treats",
+          "location": "Various locations",
+          "time": "All day",
+          "price": "Free",
+          "crowdLevel": "High"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23],
+          "score": 3,
+          "notes": "Holiday events, Christmas shopping crowds, festive lights",
+          "location": "Shopping districts",
+          "time": "All day",
+          "price": "Standard",
+          "crowdLevel": "High"
+        },
+        {
+          "days": [24, 25],
+          "score": 2,
+          "special": true,
+          "event": "Christmas",
+          "notes": "Many closures but special atmosphere, family celebrations",
+          "location": "Citywide",
+          "time": "All day",
+          "price": "Free",
+          "crowdLevel": "Low"
+        },
+        {
+          "days": [26, 27, 28, 29, 30],
+          "score": 3,
+          "notes": "Between Christmas and New Year's - busy tourist period, sales begin",
+          "location": "Shopping districts",
+          "time": "All day",
+          "price": "Sales",
+          "crowdLevel": "High"
+        },
+        {
+          "days": [31],
+          "score": 3,
+          "special": true,
+          "event": "New Year's Eve",
+          "notes": "Special events but very crowded, champagne celebrations",
+          "location": "Place de la Bourse, Place des Quinconces",
+          "time": "Evening",
+          "price": "Expensive",
+          "crowdLevel": "Very High"
+        }
+      ],
+      "weatherDetails": {
+        "highC": 8,
+        "lowC": 3,
+        "avgC": 5.5,
+        "realFeelC": 2,
+        "rainfallMm": 65,
+        "rainDays": 15,
+        "sunshineHours": 2,
+        "daylightHours": 8.5,
+        "sunrise": "08:30",
+        "sunset": "17:00",
+        "humidity": 85,
+        "windKmh": 14
+      },
+      "tourismLevel": 7,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "Wine Tasting",
+      "Parks & Gardens",
+      "Museums & Galleries",
+      "Cultural Events",
+      "Outdoor Dining",
+      "Walking Tours",
+      "Boat Tours on Garonne",
+      "Markets & Shopping",
+      "Photography Tours",
+      "Vineyard Visits"
+    ],
+    "summer": [
+      "Bordeaux Plages (Urban Beaches)",
+      "Outdoor Festivals",
+      "Open-Air Cinema",
+      "Garden Parties",
+      "Music Festivals",
+      "Cycling Tours",
+      "Rooftop Dining",
+      "Picnics in Parks",
+      "Evening River Cruises",
+      "Outdoor Concerts"
+    ],
+    "autumn": [
+      "Museum Visits",
+      "Cultural Events",
+      "Wine Tasting",
+      "Theater Performances",
+      "Fall Foliage Walks",
+      "Harvest Festivals",
+      "Covered Passages",
+      "Cooking Classes",
+      "Art Exhibitions",
+      "Historical Tours"
+    ],
+    "winter": [
+      "Ice Skating",
+      "Christmas Markets",
+      "Classical Concerts",
+      "Museum Visits",
+      "Cozy Cafés",
+      "Historical Sites",
+      "Theater Shows",
+      "Indoor Boat Tours",
+      "Shopping in Covered Passages",
+      "Wine Cellar Tours"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds, best value",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds, good value",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism, fair value",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds, limited value",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities, poor value"
+  },
+  "travelerTypes": {
+    "families": {
+      "bestMonths": ["April", "May", "September", "December"],
+      "considerations": ["School holidays", "Weather suitability", "Activity availability", "Crowd tolerance"],
+      "challenges": {
+        "summer": "Very crowded, expensive, hot",
+        "winter": "Cold weather, shorter days"
+      }
+    },
+    "couples": {
+      "bestMonths": ["May", "June", "September", "October"],
+      "romantic": ["February 14th", "June 21st", "December Christmas markets"],
+      "considerations": ["Weather", "Crowds", "Dining availability", "Romantic atmosphere"]
+    },
+    "solo": {
+      "bestMonths": ["September", "October", "November", "January"],
+      "advantages": ["Cultural immersion", "Photography opportunities", "Flexibility"],
+      "considerations": ["Safety", "Social opportunities", "Language", "Solo dining comfort"]
+    },
+    "business": {
+      "bestMonths": ["March", "April", "May", "September", "October", "November"],
+      "avoid": ["August", "December", "July"],
+      "considerations": ["Conference seasons", "Hotel availability", "Transportation", "Restaurant bookings"]
+    },
+    "budget": {
+      "bestMonths": ["January", "February", "March", "November"],
+      "strategies": ["Off-season travel", "Free activities", "Market meals", "Museum passes"],
+      "considerations": ["Accommodation deals", "Restaurant lunch menus", "Free events"]
+    },
+    "luxury": {
+      "bestMonths": ["May", "June", "September", "October", "December"],
+      "experiences": ["Michelin dining", "Wine tastings", "Private tours", "Luxury shopping"],
+      "considerations": ["Advance bookings", "Seasonal menus", "Exclusive events", "Premium experiences"]
+    }
+  },
+  "activityCategories": {
+    "outdoor": {
+      "optimal": ["April", "May", "June", "September", "October"],
+      "activities": ["Walking tours", "Garonne cruises", "Garden visits", "Cycling", "Outdoor dining", "Photography"],
+      "weatherDependent": true
+    },
+    "cultural": {
+      "yearRound": true,
+      "peak": ["September", "October", "November", "December", "January"],
+      "activities": ["Museums", "Galleries", "Theater", "Concerts", "Exhibitions"],
+      "seasonalHighlights": {
+        "autumn": "New exhibition seasons",
+        "winter": "Classical concert season",
+        "spring": "Art fair season"
+      }
+    },
+    "shopping": {
+      "sales": {
+        "winter": "January-February",
+        "summer": "July-August"
+      },
+      "luxury": "Year-round but avoid August",
+      "markets": {
+        "christmas": "December",
+        "flea": "Year-round weekends"
+      }
+    },
+    "dining": {
+      "outdoor": ["April", "May", "June", "July", "August", "September", "October"],
+      "seasonal": {
+        "spring": "Asparagus, strawberries",
+        "summer": "Tomatoes, stone fruits",
+        "autumn": "Mushrooms, game, wine harvest",
+        "winter": "Oysters, comfort food, holiday specialties"
+      }
+    },
+    "festivals": {
+      "wine": {
+        "feteLeVin": "June 21st",
+        "harvestFestival": "October"
+      },
+      "cultural": {
+        "nuitBlanche": "October",
+        "nuitMusees": "May",
+        "culturalWeek": "September"
+      },
+      "seasonal": {
+        "springWine": "April",
+        "wineHarvest": "October"
+      }
+    }
+  },
+  "practicalConsiderations": {
+    "daylight": {
+      "longest": "June 21st - 15.5 hours",
+      "shortest": "December 21st - 8.5 hours",
+      "optimal": "May-August for extended sightseeing"
+    },
+    "transportation": {
+      "tram": {
+        "airConditioning": "Limited - challenging in summer",
+        "crowds": "Peak July-August",
+        "strikes": "Possible any time, more common autumn/winter"
+      },
+      "walking": {
+        "best": "April-June, September-October",
+        "challenging": "December-February (cold), July-August (heat)"
+      },
+      "cycling": {
+        "velo": "Available year-round",
+        "optimal": "April-October",
+        "winter": "Possible but cold and slippery"
+      }
+    },
+    "accommodation": {
+      "peakPricing": {
+        "months": ["June", "July", "August", "December"],
+        "events": ["Wine festivals", "Major holidays", "Bastille Day", "New Year's"]
+      },
+      "valuePricing": {
+        "months": ["January", "February", "March", "November"],
+        "strategy": "Book 2-3 months ahead for best rates"
+      },
+      "airConditioning": "Essential July-August, many historic hotels lack AC"
+    },
+    "dining": {
+      "reservations": {
+        "essential": ["February 14th", "July 14th", "December 24th", "December 31st"],
+        "recommended": "High season (June-August)",
+        "timeline": "2-4 weeks ahead for popular restaurants"
+      },
+      "closures": {
+        "august": "Many local restaurants close for owner vacations",
+        "holidays": "Christmas Day, New Year's Day, May 1st",
+        "sunday": "Many traditional bistros closed Sunday evening"
+      }
+    }
+  },
+  "monthlyHighlights": {
+    "january": "Winter sales, cozy museums, authentic local experience",
+    "february": "Valentine's romance, fewer crowds, cultural immersion",
+    "march": "Spring awakening, wine events begin, perfect temperatures",
+    "april": "Spring bloom peak, ideal weather, Bordeaux Wine Festival",
+    "may": "Perfect conditions, Museums Night, optimal sightseeing",
+    "june": "Longest days, Fête le Vin, pre-peak crowds",
+    "july": "Peak summer, Bastille Day, Bordeaux Plages",
+    "august": "Hot weather, Bordeaux Plages, many locals away",
+    "september": "Post-peak perfection, Cultural Week, ideal conditions",
+    "october": "Autumn beauty, Nuit Blanche, comfortable temperatures",
+    "november": "Cozy atmosphere, Christmas markets begin, cultural season",
+    "december": "Christmas magic, holiday markets, festive atmosphere"
+  },
+  "additionalInfo": {
+    "peakSeasons": {
+      "high": ["June", "July", "August"],
+      "medium": ["April", "May", "September", "October", "December"],
+      "low": ["January", "February", "March", "November"]
+    },
+    "weatherNotes": {
+      "spring": "Variable weather, layers recommended, occasional rain",
+      "summer": "Warm to hot, occasional heatwaves, evening thunderstorms possible",
+      "autumn": "Gradually cooling, beautiful colors, comfortable for walking",
+      "winter": "Cold but rarely extreme, occasional snow, indoor activities recommended"
+    },
+    "transportation": {
+      "tram": "Efficient year-round, air-conditioned in summer",
+      "walking": "Best in spring and autumn, challenging in extreme weather",
+      "cycling": "Excellent in spring and autumn, bike lanes available",
+      "boats": "Scenic year-round, heated in winter"
+    },
+    "accommodation": {
+      "peakPricing": ["June", "July", "August", "December"],
+      "valuePricing": ["January", "February", "March", "November"],
+      "advanceBooking": "Recommended 3-6 months ahead for peak season"
+    }
+  }
+}

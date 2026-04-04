@@ -1,0 +1,654 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Restaurant Tim Raue",
+                "cuisine_type": "Asian Fusion",
+                "signature_dishes": [
+                    "Peking Duck Interpretation",
+                    "Wasabi Langoustine"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Chic, modern with an artistic touch",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least 1 month in advance via their official website or by phone",
+                "dress_code": "Smart casual",
+                "michelin_stars": 2,
+                "location": "Kreuzberg",
+                "local_tips": "Ask for a seat with a view of the open kitchen to watch the chefs at work."
+            },
+            {
+                "name": "Facil",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Black Truffle Risotto",
+                    "Lobster with Peas and Mint"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and serene with plenty of natural light",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 2-3 weeks ahead, especially for dinner",
+                "dress_code": "Business casual",
+                "michelin_stars": 2,
+                "location": "Mitte",
+                "local_tips": "Try their lunch menu for a more affordable Michelin-star experience."
+            },
+            {
+                "name": "Rutz",
+                "cuisine_type": "German Contemporary",
+                "signature_dishes": [
+                    "Ox Cheeks with Red Cabbage",
+                    "Berlin-Style Pork Knuckle"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Warm and inviting with a rustic touch",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least 2 weeks in advance, especially for weekends",
+                "dress_code": "Smart casual",
+                "michelin_stars": 3,
+                "location": "Mitte",
+                "local_tips": "Don't miss their extensive wine list, featuring rare German wines."
+            },
+            {
+                "name": "Hugos",
+                "cuisine_type": "French with German Influences",
+                "signature_dishes": [
+                    "Foie Gras with Rhubarb",
+                    "Saddle of Venison"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Luxurious and sophisticated with panoramic views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Ideal to book 3 weeks in advance for window seats",
+                "dress_code": "Formal",
+                "michelin_stars": 1,
+                "location": "Tiergarten",
+                "local_tips": "Request a table by the window for stunning views of Berlin's skyline."
+            },
+            {
+                "name": "Lorenz Adlon Esszimmer",
+                "cuisine_type": "European",
+                "signature_dishes": [
+                    "Veal Sweetbreads",
+                    "King Crab with Avocado"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Opulent and classic with a royal touch",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Secure your table 1 month in advance for a special occasion",
+                "dress_code": "Formal",
+                "michelin_stars": 2,
+                "location": "Mitte",
+                "local_tips": "Perfect for a romantic dinner; enjoy a walk by the Brandenburg Gate afterward."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Café am Neuen See",
+                "cuisine_type": "Bavarian",
+                "signature_dishes": [
+                    "Pork Schnitzel",
+                    "Bavarian Pretzels"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Relaxed beer garden setting by the lake",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early on sunny days to secure a good spot outdoors",
+                "dress_code": "Casual",
+                "location": "Tiergarten",
+                "local_tips": "Ideal for a leisurely lunch with a beer by the lake."
+            },
+            {
+                "name": "Burgermeister",
+                "cuisine_type": "American",
+                "signature_dishes": [
+                    "Cheeseburger",
+                    "Chili Cheese Fries"
+                ],
+                "price_range": "€",
+                "atmosphere": "Lively and bustling, set in a former public toilet",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, so visit during off-peak hours to avoid long lines",
+                "dress_code": "Casual",
+                "location": "Kreuzberg",
+                "local_tips": "Grab a beer from a nearby Späti to enjoy with your burger."
+            },
+            {
+                "name": "Markthalle Neun",
+                "cuisine_type": "Various",
+                "signature_dishes": [
+                    "Street Food Thursday Specials",
+                    "Artisan Desserts"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vibrant market hall with diverse food stalls",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early on Thursdays for the best choices",
+                "dress_code": "Casual",
+                "location": "Kreuzberg",
+                "local_tips": "Explore the stalls to sample a variety of international cuisines."
+            },
+            {
+                "name": "Zur Letzten Instanz",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Eisbein (Pork Knuckle)",
+                    "Sauerbraten"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic and cozy, with a rustic charm",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days in advance for dinner, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Mitte",
+                "local_tips": "Claimed to be Berlin's oldest restaurant; enjoy a piece of history with your meal."
+            },
+            {
+                "name": "Prater Garten",
+                "cuisine_type": "German Beer Garden",
+                "signature_dishes": [
+                    "Grilled Sausages",
+                    "Potato Salad"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional beer garden with lively crowds",
+                "best_time": "Evening",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to secure a table under the chestnut trees",
+                "dress_code": "Casual",
+                "location": "Prenzlauer Berg",
+                "local_tips": "Check their calendar for live music events."
+            },
+            {
+                "name": "Café Einstein Stammhaus",
+                "cuisine_type": "Austrian",
+                "signature_dishes": [
+                    "Wiener Schnitzel",
+                    "Apfelstrudel"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic Viennese coffee house elegance",
+                "best_time": "Brunch",
+                "reservation_needed": true,
+                "booking_tips": "Book a table for brunch on weekends",
+                "dress_code": "Casual",
+                "location": "Tiergarten",
+                "local_tips": "Perfect for a leisurely breakfast or brunch with a classic Viennese coffee."
+            },
+            {
+                "name": "Marjellchen",
+                "cuisine_type": "German",
+                "signature_dishes": [
+                    "Königsberger Klopse",
+                    "Roast Goose"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional and homely, with a nostalgic feel",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve a table for dinner, especially during the holiday season",
+                "dress_code": "Casual",
+                "location": "Charlottenburg",
+                "local_tips": "Try the seasonal specials for an authentic taste of Berlin."
+            },
+            {
+                "name": "Cocolo Ramen",
+                "cuisine_type": "Japanese",
+                "signature_dishes": [
+                    "Tonkotsu Ramen",
+                    "Shoyu Ramen"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Casual and cozy with a bustling vibe",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid waiting in line, especially in colder months",
+                "dress_code": "Casual",
+                "location": "Mitte",
+                "local_tips": "Pair your ramen with a Japanese craft beer for the full experience."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Mustafa's Gemüse Kebap",
+                "specialties": [
+                    "Gemüse Kebap",
+                    "Chicken Döner"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 2:00 AM",
+                "location": "Kreuzberg",
+                "seating": false,
+                "local_tips": "Try visiting late at night or during off-peak hours to avoid long lines."
+            },
+            {
+                "name": "Curry 36",
+                "specialties": [
+                    "Currywurst",
+                    "Classic German Sausages"
+                ],
+                "price_range": "€",
+                "hours": "9:00 AM - 5:00 AM",
+                "location": "Kreuzberg",
+                "seating": true,
+                "local_tips": "Best enjoyed with a side of fries and a beer from a nearby kiosk."
+            },
+            {
+                "name": "Vöner",
+                "specialties": [
+                    "Vegan Döner",
+                    "Vegan Currywurst"
+                ],
+                "price_range": "€",
+                "hours": "12:00 PM - 10:00 PM",
+                "location": "Friedrichshain",
+                "seating": true,
+                "local_tips": "A must-visit for vegans and vegetarians; their homemade sauces are excellent."
+            },
+            {
+                "name": "Konnopke's Imbiss",
+                "specialties": [
+                    "Currywurst",
+                    "Bratwurst"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 8:00 PM",
+                "location": "Prenzlauer Berg",
+                "seating": false,
+                "local_tips": "Established since 1930, it's an iconic spot for authentic Berlin street food."
+            },
+            {
+                "name": "Hühnerhaus 36",
+                "specialties": [
+                    "Grilled Chicken",
+                    "Chicken Döner"
+                ],
+                "price_range": "€€",
+                "hours": "12:00 PM - 12:00 AM",
+                "location": "Kreuzberg",
+                "seating": true,
+                "local_tips": "Order the half chicken with fries for a filling meal."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "The Barn",
+                "specialty": "Third-wave coffee",
+                "must_try": [
+                    "Single Origin Espresso",
+                    "Pour Over Coffee"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalistic and modern with a focus on quality",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Artisan pastries and light snacks",
+                "local_tips": "Visit early to avoid the crowds and savor a quiet coffee moment."
+            },
+            {
+                "name": "Bonanza Coffee Roasters",
+                "specialty": "In-house roasted coffee",
+                "must_try": [
+                    "Flat White",
+                    "Cold Brew"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Trendy and industrial, popular with locals",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light snacks and desserts",
+                "local_tips": "Great spot for working remotely; try a seat near the window."
+            },
+            {
+                "name": "Five Elephant",
+                "specialty": "Coffee and Cheesecake",
+                "must_try": [
+                    "New York Cheesecake",
+                    "Latte"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and welcoming with a neighborhood feel",
+                "best_time": "Brunch",
+                "wifi_friendly": true,
+                "food_options": "Homemade cakes and pastries",
+                "local_tips": "Their cheesecake is legendary; arrive early to snag a slice."
+            },
+            {
+                "name": "Silo Coffee",
+                "specialty": "Brunch and Specialty Coffee",
+                "must_try": [
+                    "Avocado Toast",
+                    "Flat White"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright and bustling with a creative vibe",
+                "best_time": "Brunch",
+                "wifi_friendly": false,
+                "food_options": "Extensive brunch menu with vegan options",
+                "local_tips": "Popular brunch spot; consider weekday visits to avoid long waits."
+            },
+            {
+                "name": "Roamers",
+                "specialty": "Rustic cafe with a focus on hearty meals",
+                "must_try": [
+                    "Shakshuka",
+                    "Housemade Lemonade"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic and bohemian with a relaxed setting",
+                "best_time": "Lunch",
+                "wifi_friendly": false,
+                "food_options": "Hearty breakfast and lunch options with fresh ingredients",
+                "local_tips": "Arrive early to grab a table; the ambiance is perfect for Instagram photos."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Prater Biergarten",
+                "type": "Beer Garden",
+                "specialty": "German beers",
+                "signature_drinks": [
+                    "Berliner Pilsner",
+                    "Weissbier"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional and lively with outdoor seating",
+                "best_time": "Evening",
+                "food_options": "Classic German snacks like pretzels and sausages",
+                "reservation_needed": false,
+                "local_tips": "Perfect for summer evenings; enjoy live music sessions."
+            },
+            {
+                "name": "Green Door",
+                "type": "Cocktail Bar",
+                "specialty": "Craft Cocktails",
+                "signature_drinks": [
+                    "Whiskey Sour",
+                    "Gin Basil Smash"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Speakeasy vibe with retro decor",
+                "best_time": "Late night",
+                "food_options": "Limited bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Ring the doorbell for entry; best visited with a small group."
+            },
+            {
+                "name": "Bar Tausend",
+                "type": "Cocktail Bar",
+                "specialty": "Creative cocktails",
+                "signature_drinks": [
+                    "Moscow Mule",
+                    "Negroni"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Chic and trendy with a hidden entrance",
+                "best_time": "Late night",
+                "food_options": "Asian-inspired tapas",
+                "reservation_needed": true,
+                "local_tips": "Look for the metal door under the S-Bahn tracks; a local favorite for late nights."
+            },
+            {
+                "name": "Weinerei",
+                "type": "Wine Bar",
+                "specialty": "Pay-what-you-want wine tastings",
+                "signature_drinks": [
+                    "German Rieslings",
+                    "Pinot Noir"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Casual and cozy with communal tables",
+                "best_time": "Evening",
+                "food_options": "Cheese and charcuterie boards",
+                "reservation_needed": false,
+                "local_tips": "Pay a small fee for a glass and taste as many wines as you like; pay what you feel it's worth."
+            },
+            {
+                "name": "Brauhaus Lemke",
+                "type": "Brewery",
+                "specialty": "Craft Beer",
+                "signature_drinks": [
+                    "Pilsner",
+                    "Weizenbier"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic brewery with a warm ambiance",
+                "best_time": "Evening",
+                "food_options": "Hearty German dishes",
+                "reservation_needed": false,
+                "local_tips": "Explore their seasonal beer offerings for unique flavors."
+            },
+            {
+                "name": "Monkey Bar",
+                "type": "Rooftop Bar",
+                "specialty": "Creative cocktails with a view",
+                "signature_drinks": [
+                    "Aperol Spritz",
+                    "Espresso Martini"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Trendy and upscale with panoramic views of the city",
+                "best_time": "Sunset",
+                "food_options": "Light bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Arrive just before sunset for the best views over the city zoo and beyond."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Berlin Food Tour",
+                "focus": "Local Street Food and Hidden Gems",
+                "duration": "4 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Tasting Currywurst",
+                    "Exploring local markets",
+                    "Traditional German bakeries"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book online 1 week in advance, especially during peak tourist seasons."
+            },
+            {
+                "name": "Berlin Craft Beer Tour",
+                "focus": "Craft Beer and Breweries",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to local breweries",
+                    "Tasting craft beers",
+                    "Meet the brewers"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Ideal to book 2 weeks ahead, especially for weekends."
+            },
+            {
+                "name": "Berlin Vegan Tour",
+                "focus": "Vegan Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Vegan street food",
+                    "Plant-based restaurants",
+                    "Vegan sweets"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Recommended to book in advance due to limited spots."
+            },
+            {
+                "name": "Berlin Wine Tour",
+                "focus": "German Wines",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Wine tasting",
+                    "Visit to a wine shop",
+                    "Understanding German wine culture"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Perfect for wine enthusiasts; book early for special promotions."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "German Cooking Class",
+                "cuisine_focus": "Traditional German",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Schnitzel-making",
+                    "Potato salad",
+                    "Apfelstrudel"
+                ],
+                "group_size": "Max 8",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipe booklet",
+                    "Meals"
+                ],
+                "booking_tips": "Perfect for families; book in advance during holiday seasons."
+            },
+            {
+                "name": "Vegan Cooking Class",
+                "cuisine_focus": "Vegan Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Vegan curry",
+                    "Plant-based desserts",
+                    "Smoothie bowls"
+                ],
+                "group_size": "Max 10",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Meals",
+                    "Recipe booklet"
+                ],
+                "booking_tips": "Great for vegans and vegetarians; early booking recommended."
+            },
+            {
+                "name": "Pastry and Baking Workshop",
+                "cuisine_focus": "European Pastries",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Croissants",
+                    "Macarons",
+                    "Tarts"
+                ],
+                "group_size": "Max 6",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Apron",
+                    "Recipe booklet"
+                ],
+                "booking_tips": "Ideal for baking enthusiasts; book in advance for special dates."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Markthalle Neun",
+                "type": "Food Market",
+                "highlights": [
+                    "Street Food Thursday",
+                    "Artisan Cheese",
+                    "Organic Produce"
+                ],
+                "hours": "10:00 AM - 8:00 PM",
+                "best_time": "Thursday evening",
+                "location": "Kreuzberg",
+                "local_tips": "Arrive early on Thursdays for the best selection of street food."
+            },
+            {
+                "name": "Winterfeldtplatz Market",
+                "type": "Farmer's Market",
+                "highlights": [
+                    "Fresh Produce",
+                    "Local Artisans",
+                    "Baked Goods"
+                ],
+                "hours": "8:00 AM - 2:00 PM",
+                "best_time": "Saturday morning",
+                "location": "Schöneberg",
+                "local_tips": "Bring cash and a tote bag for your purchases; perfect for morning strolls."
+            },
+            {
+                "name": "Flohmarkt am Mauerpark",
+                "type": "Flea Market",
+                "highlights": [
+                    "Vintage Finds",
+                    "Handmade Crafts",
+                    "Street Food"
+                ],
+                "hours": "9:00 AM - 6:00 PM",
+                "best_time": "Sunday afternoon",
+                "location": "Prenzlauer Berg",
+                "local_tips": "Explore both the market and the adjacent park for a full day experience."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Spargel (white asparagus)",
+            "Rhubarb Desserts",
+            "Maibowle (May punch)"
+        ],
+        "summer": [
+            "Berliner Weiße (beer)",
+            "Eisbein (ice cream)",
+            "Fruit Tarts"
+        ],
+        "autumn": [
+            "Pumpkin Soup",
+            "Roasted Chestnuts",
+            "Federweißer (young wine)"
+        ],
+        "winter": [
+            "Glühwein (mulled wine)",
+            "Lebkuchen (gingerbread)",
+            "Stollen (fruit bread)"
+        ]
+    }
+}

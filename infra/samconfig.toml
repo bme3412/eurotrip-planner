@@ -1,0 +1,13 @@
+# SAM CLI deploy configuration
+# Usage: cd infra && sam deploy
+
+version = 0.1
+
+[default.deploy.parameters]
+stack_name = "eurotrip-planner"
+resolve_s3 = true
+s3_prefix = "eurotrip-planner"
+region = "us-east-1"
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "Stage=dev"
+confirm_changeset = true

@@ -1,0 +1,636 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "The Table",
+                "cuisine_type": "Contemporary European",
+                "signature_dishes": [
+                    "Nordic-inspired Tasting Menu",
+                    "Local Seafood with Seaweed"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Modern, minimalist dining room with open kitchen and harbor views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 months in advance, especially for weekend dinners",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "HafenCity",
+                "local_tips": "The 10-course tasting menu showcases the best of northern German ingredients; wine pairings are exceptional"
+            },
+            {
+                "name": "Haerlin",
+                "cuisine_type": "Classic French",
+                "signature_dishes": [
+                    "Lobster with Vanilla and Caviar",
+                    "Pigeon with Black Truffle"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant dining room in the historic Hotel Vier Jahreszeiten with crystal chandeliers",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 2 months in advance, closed Sunday and Monday",
+                "dress_code": "Formal",
+                "michelin_stars": 2,
+                "location": "Neustadt",
+                "local_tips": "The restaurant's historic wine cellar is one of the finest in Germany"
+            },
+            {
+                "name": "Le Canard Nouveau",
+                "cuisine_type": "Modern French",
+                "signature_dishes": [
+                    "Duck Breast with Seasonal Vegetables",
+                    "Scallops with Black Pudding"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate, sophisticated dining room with contemporary art",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3-4 weeks in advance, closed Sunday and Monday",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Eimsbüttel",
+                "local_tips": "Their duck dishes are legendary; the wine list features excellent German selections"
+            },
+            {
+                "name": "Landhaus Scherrer",
+                "cuisine_type": "Modern German",
+                "signature_dishes": [
+                    "North Sea Crab with Apple and Celery",
+                    "Venison with Red Cabbage"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic villa with elegant dining rooms and garden terrace",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 3-4 weeks ahead, request garden seating in summer",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Othmarschen",
+                "local_tips": "The restaurant's history dates back to 1895; their seasonal menus are exceptional"
+            },
+            {
+                "name": "Fischereihafen Restaurant",
+                "cuisine_type": "Seafood",
+                "signature_dishes": [
+                    "North Sea Lobster",
+                    "Fresh Oysters with Champagne"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Classic maritime restaurant with harbor views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2 weeks ahead, request window seating for harbor views",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Altona",
+                "local_tips": "One of Hamburg's most famous seafood restaurants; their lobster bisque is legendary"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Alt Hamburger Aalspeicher",
+                "cuisine_type": "Traditional German",
+                "signature_dishes": [
+                    "Smoked Eel with Green Sauce",
+                    "Matjes Herring with Potatoes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic warehouse building with maritime decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for dinner, especially on weekends; lunch usually has space for walk-ins",
+                "dress_code": "Casual",
+                "location": "Deichstraße",
+                "local_tips": "Traditional eel restaurant since 1710; their smoked eel is prepared in-house"
+            },
+            {
+                "name": "Peter Pane",
+                "cuisine_type": "Modern German",
+                "signature_dishes": [
+                    "Grilled Fish with Seasonal Vegetables",
+                    "Hamburger Labskaus"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary bistro with open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, especially for weekends",
+                "dress_code": "Casual",
+                "location": "Sternschanze",
+                "local_tips": "Their Labskaus (a traditional sailor's dish) is considered one of the best in Hamburg"
+            },
+            {
+                "name": "Bullerei",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Grilled Steaks",
+                    "Fresh Pasta"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Former slaughterhouse converted into trendy restaurant",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book for dinner; lunch usually accommodates walk-ins",
+                "dress_code": "Casual",
+                "location": "Sternschanze",
+                "local_tips": "The restaurant's history as a slaughterhouse is reflected in its decor; their steaks are exceptional"
+            },
+            {
+                "name": "Fischmarkt Restaurant",
+                "cuisine_type": "Seafood",
+                "signature_dishes": [
+                    "Fresh Fish of the Day",
+                    "Fish Soup"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional fish restaurant near the historic fish market",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; opens early for breakfast with fish",
+                "dress_code": "Casual",
+                "location": "St. Pauli",
+                "local_tips": "Popular with locals and tourists; their fish soup is a local favorite"
+            },
+            {
+                "name": "Pizza Bande",
+                "cuisine_type": "Neapolitan Pizza",
+                "signature_dishes": [
+                    "Margherita DOP",
+                    "Pizza with Local Seafood"
+                ],
+                "price_range": "€",
+                "atmosphere": "Modern, casual pizzeria with wood-fired oven",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; be prepared to wait during peak hours",
+                "dress_code": "Casual",
+                "location": "Karolinenviertel",
+                "local_tips": "Some of the best authentic Neapolitan pizza in Hamburg; they also have great vegan options"
+            },
+            {
+                "name": "Café Paris",
+                "cuisine_type": "French Bistro",
+                "signature_dishes": [
+                    "Steak Frites",
+                    "Croque Monsieur"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic French bistro with zinc bar and tiled floor",
+                "best_time": "Lunch/Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book for dinner; lunch usually has availability",
+                "dress_code": "Casual",
+                "location": "Altstadt",
+                "local_tips": "Historic cafe since 1882; their breakfast is excellent"
+            },
+            {
+                "name": "Café Knuth",
+                "cuisine_type": "German Cafe",
+                "signature_dishes": [
+                    "Fischbrötchen",
+                    "Traditional Breakfast"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic cafe with traditional decor",
+                "best_time": "Breakfast/Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for weekend brunch; weekdays usually have space",
+                "dress_code": "Casual",
+                "location": "Eppendorf",
+                "local_tips": "One of Hamburg's oldest cafes; their Fischbrötchen are legendary"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Fischmarkt Brötchen",
+                "specialties": [
+                    "Fischbrötchen (Fish Sandwich)",
+                    "Krabbenbrötchen (Shrimp Sandwich)"
+                ],
+                "price_range": "€",
+                "hours": "5:00 AM - 10:00 AM",
+                "location": "Fischmarkt",
+                "seating": "Limited",
+                "local_tips": "Best time to visit is early Sunday morning; the market atmosphere is unique"
+            },
+            {
+                "name": "Fleetschlösschen",
+                "specialties": [
+                    "Currywurst",
+                    "Bratwurst"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 8:00 PM",
+                "location": "Deichstraße",
+                "seating": "Limited",
+                "local_tips": "Historic kiosk in the heart of the old town; their curry sauce is homemade"
+            },
+            {
+                "name": "Sternschanze Food Market",
+                "specialties": [
+                    "International Street Food",
+                    "Local Specialties"
+                ],
+                "price_range": "€",
+                "hours": "Thursday 4:00 PM - 10:00 PM",
+                "location": "Sternschanze",
+                "seating": true,
+                "local_tips": "Popular weekly food market with diverse offerings; great atmosphere"
+            },
+            {
+                "name": "Isemarkt",
+                "specialties": [
+                    "Fresh Produce",
+                    "Local Snacks"
+                ],
+                "price_range": "€",
+                "hours": "Tuesday to Friday 8:30 AM - 2:00 PM",
+                "location": "Eimsbüttel",
+                "seating": "Limited",
+                "local_tips": "Europe's longest open-air market; great for fresh local produce and snacks"
+            },
+            {
+                "name": "Hamburger Dom Food Stalls",
+                "specialties": [
+                    "Traditional Fair Food",
+                    "International Snacks"
+                ],
+                "price_range": "€",
+                "hours": "Varies by season",
+                "location": "Heiligengeistfeld",
+                "seating": true,
+                "local_tips": "Hamburg's largest funfair with extensive food offerings; check seasonal dates"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Elbgold",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Single Origin Filter Coffee",
+                    "Flat White"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist cafe with focus on craft coffee",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Pastries and small snacks",
+                "local_tips": "One of Hamburg's first specialty coffee roasters; buy a bag of beans to take home"
+            },
+            {
+                "name": "Café May",
+                "specialty": "Traditional Cafe",
+                "must_try": [
+                    "Traditional Breakfast",
+                    "Homemade Cakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic cafe with traditional decor",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Full breakfast and lunch menu",
+                "local_tips": "Historic cafe since 1896; their breakfast is excellent"
+            },
+            {
+                "name": "Kaffeeklappe",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Espresso",
+                    "Homemade Cakes"
+                ],
+                "price_range": "€",
+                "atmosphere": "Tiny, cozy cafe with vintage decor",
+                "best_time": "Any time",
+                "wifi_friendly": false,
+                "food_options": "Homemade cakes and small snacks",
+                "local_tips": "A hidden gem in the Karolinenviertel; their cakes are homemade daily"
+            },
+            {
+                "name": "Café Koppel",
+                "specialty": "Cafe and Breakfast",
+                "must_try": [
+                    "Weekend Brunch",
+                    "Coffee and Cake"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, modern cafe with garden",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast, lunch, and cakes",
+                "local_tips": "Their weekend brunch is among the best in the city; great for families"
+            },
+            {
+                "name": "Café Paris",
+                "specialty": "French Cafe",
+                "must_try": [
+                    "Croissant",
+                    "Café au Lait"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic French bistro style",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Full breakfast and lunch menu",
+                "local_tips": "Historic cafe since 1882; their pastries are baked fresh daily"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Le Lion",
+                "type": "Cocktail Bar",
+                "specialty": "Classic Cocktails",
+                "signature_drinks": [
+                    "Hamburg Sour",
+                    "Seasonal Cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated speakeasy-style bar with leather armchairs",
+                "best_time": "Evening",
+                "food_options": "Small plates menu",
+                "reservation_needed": true,
+                "local_tips": "One of the world's best bars; their bartenders are true professionals"
+            },
+            {
+                "name": "20up",
+                "type": "Rooftop Bar",
+                "specialty": "Cocktails with a View",
+                "signature_drinks": [
+                    "Signature Cocktails",
+                    "Champagne"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern rooftop bar with harbor views",
+                "best_time": "Evening",
+                "food_options": "Bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Best views of the harbor; perfect for sunset drinks"
+            },
+            {
+                "name": "Zum Silbersack",
+                "type": "Traditional Bar",
+                "specialty": "Local Beer",
+                "signature_drinks": [
+                    "Local Craft Beer",
+                    "Traditional Schnapps"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic bar with traditional decor",
+                "best_time": "Evening",
+                "food_options": "Traditional snacks",
+                "reservation_needed": false,
+                "local_tips": "One of Hamburg's oldest bars; great for experiencing local drinking culture"
+            },
+            {
+                "name": "Bar Möwe",
+                "type": "Craft Cocktail Bar",
+                "specialty": "Innovative Cocktails",
+                "signature_drinks": [
+                    "Signature Cocktails",
+                    "Local Spirits"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Intimate, modern bar",
+                "best_time": "Evening",
+                "food_options": "Snacks only",
+                "reservation_needed": false,
+                "local_tips": "Creative cocktails using local ingredients; friendly atmosphere"
+            },
+            {
+                "name": "Skyline Bar 20up",
+                "type": "Hotel Bar",
+                "specialty": "Cocktails with Harbor Views",
+                "signature_drinks": [
+                    "Signature Cocktails",
+                    "Wine Selection"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Luxury hotel bar with panoramic views",
+                "best_time": "Evening",
+                "food_options": "Bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Best views of the harbor and city; perfect for special occasions"
+            },
+            {
+                "name": "Goldfisch",
+                "type": "Traditional Beer Bar",
+                "specialty": "Local Beer",
+                "signature_drinks": [
+                    "Local Craft Beer",
+                    "Traditional Schnapps"
+                ],
+                "price_range": "€",
+                "atmosphere": "Cozy neighborhood pub",
+                "best_time": "Evening",
+                "food_options": "Traditional snacks",
+                "reservation_needed": false,
+                "local_tips": "Popular with locals; great for experiencing authentic Hamburg nightlife"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Hamburg Fish Market Tour",
+                "focus": "Seafood and Local Culture",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Historic fish market exploration",
+                    "Traditional Fischbrötchen tasting",
+                    "Local seafood specialties"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance; early morning tours offer the most authentic experience"
+            },
+            {
+                "name": "Hamburg Beer and Food Tour",
+                "focus": "Local Beer Culture",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit to traditional bars",
+                    "Local beer tastings",
+                    "Traditional pub food"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "German",
+                    "Spanish"
+                ],
+                "booking_tips": "Reserve 7-10 days ahead; tours fill quickly during weekends"
+            },
+            {
+                "name": "Sternschanze Food Walk",
+                "focus": "Contemporary Hamburg Cuisine",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Trendy district exploration",
+                    "Modern cuisine tastings",
+                    "Local food scene insights"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book early in high season (May-October); comfortable walking shoes recommended"
+            },
+            {
+                "name": "Hamburg Harbor Food Experience",
+                "focus": "Maritime Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Harbor area exploration",
+                    "Seafood tastings",
+                    "Traditional maritime dishes"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book 2 weeks ahead; includes harbor boat tour"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Hamburg Seafood Workshop",
+                "cuisine_focus": "Local Seafood",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Fish preparation techniques",
+                    "Traditional seafood dishes",
+                    "Local cooking methods"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "Ingredients, recipes, full meal with wine pairings"
+                ],
+                "booking_tips": "Reserve 2 weeks ahead; vegetarian options available upon request"
+            },
+            {
+                "name": "Traditional German Cooking",
+                "cuisine_focus": "German Classics",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Traditional German recipes",
+                    "Local cooking techniques",
+                    "Beer pairing basics"
+                ],
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "All ingredients, beer tasting, recipes to take home"
+                ],
+                "booking_tips": "Popular with families and groups; book at least 10 days in advance"
+            },
+            {
+                "name": "Nordic Cuisine Masterclass",
+                "cuisine_focus": "Nordic-German Fusion",
+                "duration": "5 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Nordic cooking techniques",
+                    "Local ingredient usage",
+                    "Modern plating methods"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German",
+                    "Danish"
+                ],
+                "includes": [
+                    "Premium ingredients, wine pairings, professional kitchen environment"
+                ],
+                "booking_tips": "More advanced cooking experience; reserve 3 weeks ahead"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Fischmarkt",
+                "type": "Fish Market",
+                "highlights": [
+                    "Fresh seafood vendors",
+                    "Traditional Fischbrötchen stands",
+                    "Local specialties"
+                ],
+                "hours": "Sunday 5:00 AM - 10:00 AM",
+                "best_time": "Early Morning",
+                "location": "St. Pauli",
+                "local_tips": "Visit early for the most authentic experience; the market atmosphere is unique"
+            },
+            {
+                "name": "Isemarkt",
+                "type": "Food Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local food vendors",
+                    "International specialties"
+                ],
+                "hours": "Tuesday to Friday 8:30 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Eimsbüttel",
+                "local_tips": "Europe's longest open-air market; great for fresh local produce and snacks"
+            },
+            {
+                "name": "Sternschanze Food Market",
+                "type": "Weekly Food Market",
+                "highlights": [
+                    "International street food",
+                    "Local specialties",
+                    "Artisanal products"
+                ],
+                "hours": "Thursday 4:00 PM - 10:00 PM",
+                "best_time": "Evening",
+                "location": "Sternschanze",
+                "local_tips": "Popular weekly food market with diverse offerings; great atmosphere"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Spargelzeit dishes (White Asparagus with Hollandaise)",
+            "Fresh Herring with Green Sauce",
+            "Spring Lamb with Local Herbs"
+        ],
+        "summer": [
+            "Grilled Fish with Seasonal Vegetables",
+            "Nordic Shrimp with Dill",
+            "Strawberry Cake with Local Berries"
+        ],
+        "autumn": [
+            "Wild Game Dishes",
+            "Mushroom Specialties",
+            "Fresh Oysters with Champagne"
+        ],
+        "winter": [
+            "Traditional Labskaus",
+            "Christmas Goose with Red Cabbage",
+            "Glühwein at Christmas Markets"
+        ]
+    }
+} 

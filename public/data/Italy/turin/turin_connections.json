@@ -1,0 +1,164 @@
+{
+    "destinations": [
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Experience Italy's fashion and business capital, see the Duomo and Da Vinci's Last Supper.",
+            "directWithinCountryTrain": {
+                "stationInTurin": "Turin Porta Nuova / Porta Susa",
+                "journeyTime": "Approx. 1 hour (High-Speed)",
+                "frequency": "Very Frequent"
+            },
+            "bus": {
+                "stationInTurin": "Turin Bus Terminal (Corso Vittorio Emanuele II)",
+                "journeyTime": "Approx. 1.5 - 2 hours",
+                "frequency": "Frequent"
+            }
+        },
+        {
+            "city": "Genoa",
+            "country": "Italy",
+            "whyGo": "Visit the historic port city, birthplace of Columbus, and explore the Ligurian coast.",
+            "directWithinCountryTrain": {
+                "stationInTurin": "Turin Porta Nuova",
+                "journeyTime": "Approx. 1 hour 45 minutes - 2 hours",
+                "frequency": "Frequent"
+            },
+             "bus": {
+                "stationInTurin": "Turin Bus Terminal (Corso Vittorio Emanuele II)",
+                "journeyTime": "Approx. 2 - 2.5 hours",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Florence",
+            "country": "Italy",
+            "whyGo": "Immerse yourself in Renaissance art and architecture in the heart of Tuscany.",
+            "directWithinCountryTrain": {
+                "stationInTurin": "Turin Porta Nuova / Porta Susa",
+                "journeyTime": "Approx. 3 hours (High-Speed)",
+                "frequency": "Several times daily"
+            },
+             "bus": {
+                "stationInTurin": "Turin Bus Terminal (Corso Vittorio Emanuele II)",
+                "journeyTime": "Approx. 5 - 6 hours",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "Explore the Eternal City's ancient ruins, Vatican City, and vibrant neighborhoods.",
+            "directWithinCountryTrain": {
+                "stationInTurin": "Turin Porta Nuova / Porta Susa",
+                "journeyTime": "Approx. 4 hours 20 minutes (High-Speed)",
+                "frequency": "Frequent"
+            },
+            "intraEuropeFlight": {
+                "airportsInTurin": ["Turin Caselle Airport (TRN)"],
+                "approxFlightTime": "Approx. 1 hour 10 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+         {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "Discover the unique city of canals, gondolas, St. Mark's Square, and historic palaces.",
+            "directWithinCountryTrain": {
+                "stationInTurin": "Turin Porta Nuova / Porta Susa",
+                "journeyTime": "Approx. 3 hours (High-Speed)",
+                "frequency": "Several times daily"
+            },
+             "bus": {
+                "stationInTurin": "Turin Bus Terminal (Corso Vittorio Emanuele II)",
+                "journeyTime": "Approx. 5 - 6 hours",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Visit the City of Lights for iconic landmarks, world-class museums, and romantic ambiance.",
+            "internationalTrain": {
+                "stationInTurin": "Turin Porta Susa",
+                "journeyTime": "Approx. 5.5 - 6 hours (TGV)",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInTurin": ["Turin Caselle Airport (TRN)"],
+                "approxFlightTime": "Approx. 1 hour 30 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Lyon",
+            "country": "France",
+            "whyGo": "Explore France's gastronomic capital with its historic old town and Roman ruins.",
+            "internationalTrain": {
+                "stationInTurin": "Turin Porta Susa",
+                "journeyTime": "Approx. 3.5 - 4 hours",
+                "frequency": "Several times daily"
+            },
+             "bus": {
+                "stationInTurin": "Turin Bus Terminal (Corso Vittorio Emanuele II)",
+                "journeyTime": "Approx. 4 - 5 hours",
+                "frequency": "Several times daily"
+            }
+        },
+         {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "Visit the international city on Lake Geneva, known for diplomacy, watchmaking, and scenic beauty.",
+             "bus": {
+                "stationInTurin": "Turin Bus Terminal (Corso Vittorio Emanuele II)",
+                "journeyTime": "Approx. 3.5 - 4.5 hours",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Aosta",
+            "country": "Italy",
+            "whyGo": "Explore the Roman ruins and enjoy the stunning Alpine scenery in the Aosta Valley.",
+            "directWithinCountryTrain": {
+                "stationInTurin": "Turin Porta Nuova / Porta Susa",
+                "journeyTime": "Approx. 1 hour 50 minutes - 2 hours (Regional)",
+                "frequency": "Frequent"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Fly to the diverse and historic capital of the UK.",
+            "intraEuropeFlight": {
+                "airportsInTurin": ["Turin Caselle Airport (TRN)"],
+                "approxFlightTime": "Approx. 2 hours",
+                "frequency": "Daily / Several times daily"
+            }
+        },
+         {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Fly to experience Gaudí's architecture, vibrant culture, and Catalan cuisine.",
+             "intraEuropeFlight": {
+                "airportsInTurin": ["Turin Caselle Airport (TRN)"],
+                "approxFlightTime": "Approx. 1 hour 30 minutes",
+                "frequency": "Daily or several times weekly"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "Connect via a major European flight hub or explore Germany's financial center.",
+            "intraEuropeFlight": {
+                "airportsInTurin": ["Turin Caselle Airport (TRN)"],
+                "approxFlightTime": "Approx. 1 hour 20 minutes",
+                "frequency": "Daily / Several times daily"
+            },
+             "bus": {
+                "stationInTurin": "Turin Bus Terminal (Corso Vittorio Emanuele II)",
+                "journeyTime": "Approx. 10 - 12 hours",
+                "frequency": "Daily"
+            }
+        }
+    ]
+} 

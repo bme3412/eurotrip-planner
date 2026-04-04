@@ -1,0 +1,525 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Restaurant Vue (at Hotel Bellevue Palace)",
+                "cuisine_type": "Modern Swiss/French",
+                "signature_dishes": [
+                    "Seasonal tasting menus highlighting Swiss ingredients with French techniques, offering exceptional views of the Alps and Aare river."
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Elegant, refined dining room in one of Bern's most prestigious hotels with stunning terrace views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve well in advance; request window or terrace seating; formal attire recommended",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 1,
+                "location": "Hotel Bellevue Palace (Near Federal Palace)",
+                "local_tips": "One of Bern's most prestigious dining experiences. The view alone is worth the visit, but the sophisticated cuisine and impeccable service complete the experience."
+            },
+            {
+                "name": "Meridiano (at Kursaal Bern)",
+                "cuisine_type": "Modern European/Mediterranean",
+                "signature_dishes": [
+                    "Creative seasonal tasting menus by chef Fabian Raffeiner, featuring modern interpretations of classic dishes with Mediterranean influences."
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Contemporary, elegant setting with panoramic views of the Old Town and Alps",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance; specify any dietary requirements; request a window table for the view",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 1,
+                "location": "Kursaal Bern (Schänzlistrasse)",
+                "local_tips": "Known for its beautiful presentation and panoramic views. The tasting menu with wine pairing offers an exceptional dining experience."
+            },
+            {
+                "name": "Restaurant Schöngrün",
+                "cuisine_type": "Modern Swiss/French",
+                "signature_dishes": [
+                    "Refined seasonal tasting menus featuring locally-sourced ingredients",
+                    "Game specialties in autumn"
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Elegant, intimate dining room in a historical villa set in the Paul Klee Center gardens",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 2-3 weeks in advance; combine with a visit to the Paul Klee Center",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 1,
+                "location": "Near Paul Klee Center (slightly outside city center)",
+                "local_tips": "Exceptional dining in a tranquil setting. The relationship with the Paul Klee Center gives the restaurant a unique artistic connection."
+            },
+            {
+                "name": "Restaurant Kornhauskeller",
+                "cuisine_type": "Swiss/French",
+                "signature_dishes": [
+                    "Classic Swiss and French dishes with modern touches",
+                    "Specialties include beef tartare, Bernese platter, and seasonal game dishes"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Spectacular vaulted baroque cellar from 1718, ornate paintings, imposing pillars, romantic lighting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve in advance; request seating in the main vaulted area for the full experience",
+                "dress_code": "Smart Casual to Smart Elegant",
+                "michelin_stars": 0,
+                "location": "Old Town (Kornhausplatz)",
+                "local_tips": "While not Michelin-starred, this is one of Bern's most impressive dining spaces. The historic baroque cellar setting is truly unique and worth experiencing."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Lötschberg",
+                "cuisine_type": "Traditional Swiss Cheese Specialties",
+                "signature_dishes": [
+                    "Cheese fondue (various types including truffle, champagne)",
+                    "Raclette (traditional or with specialty cheeses)",
+                    "Alpine macaroni with applesauce (Älplermagronen)",
+                    "Rösti dishes"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Cozy, rustic-modern Swiss chalet style, popular and lively",
+                "best_time": "Dinner (especially in colder months)",
+                "reservation_needed": "Highly recommended",
+                "booking_tips": "Book ahead, especially for dinner; specify fondue or raclette preference; outdoor seating available in warmer months.",
+                "dress_code": "Casual",
+                "location": "Old Town (near Zytglogge)",
+                "local_tips": "One of the best places in Bern for authentic Swiss cheese specialties. Known for both traditional recipes and creative variations using high-quality regional cheeses."
+            },
+            {
+                "name": "Restaurant Harmonie",
+                "cuisine_type": "Traditional Bernese/Swiss",
+                "signature_dishes": [
+                    "Berner Platte (traditional assortment of meats and sauerkraut)",
+                    "Bernese-style pork cordon bleu",
+                    "Rösti variations",
+                    "Calf's liver with rösti"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Traditional Swiss restaurant, wooden interiors, cozy and authentic",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended, especially for dinner",
+                "booking_tips": "Popular with locals for traditional dishes; hearty portions.",
+                "dress_code": "Casual",
+                "location": "Near Bärenplatz (City Center)",
+                "local_tips": "A genuine local favorite for authentic Bernese cuisine. The Berner Platte is enormous and ideal for sharing or very hearty appetites."
+            },
+            {
+                "name": "Altes Tramdepot",
+                "cuisine_type": "Swiss/International Brewpub",
+                "signature_dishes": [
+                    "House-brewed beers (brewed on-site)",
+                    "Pork knuckle with sauerkraut",
+                    "Seasonal specials",
+                    "Beef tartare"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Lively brewpub with terrace offering stunning views of the Old Town and Aare river",
+                "best_time": "Lunch, Dinner, or afternoon drinks",
+                "reservation_needed": "Recommended, especially for terrace seating",
+                "booking_tips": "Request terrace seating in good weather for the views; brewery tours sometimes available.",
+                "dress_code": "Casual",
+                "location": "Next to Bear Park (east end of Old Town)",
+                "local_tips": "Popular for its house-brewed beers and spectacular views. Try the beer sampler to taste their different brews."
+            },
+            {
+                "name": "Tibits",
+                "cuisine_type": "Vegetarian/Vegan Buffet",
+                "signature_dishes": [
+                    "Self-service buffet with over 40 vegetarian and vegan dishes",
+                    "Pay by weight concept",
+                    "Seasonal specialties and daily changing menu"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Modern, bright, casual self-service restaurant with both indoor and outdoor seating",
+                "best_time": "Lunch, Dinner, or afternoon snack",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed; can be busy at peak lunch hours; food paid by weight.",
+                "dress_code": "Casual",
+                "location": "Near the main train station (Gurtengasse)",
+                "local_tips": "Excellent option for vegetarians and vegans. Quality is consistently high and the selection varied. Good for a quick, healthy meal."
+            },
+            {
+                "name": "Pizzeria Da Bucolo",
+                "cuisine_type": "Authentic Italian/Sicilian",
+                "signature_dishes": [
+                    "Wood-fired Neapolitan-style pizzas",
+                    "Homemade pasta",
+                    "Sicilian specialties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, authentic Italian trattoria, often bustling and lively",
+                "best_time": "Dinner",
+                "reservation_needed": "Recommended, especially weekends",
+                "booking_tips": "Small restaurant that fills quickly; known for authentic Italian cuisine at reasonable prices.",
+                "dress_code": "Casual",
+                "location": "Lower Old Town (Matte district)",
+                "local_tips": "Hidden gem serving some of Bern's best authentic Italian food. Family-run with recipes from Sicily. The seafood pasta is excellent when available."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Bern Wochenmarkt (Tuesday & Saturday mornings)",
+                "specialties": [
+                    "Fresh regional produce",
+                    "Local cheeses and dairy products",
+                    "Baked goods and breads",
+                    "Dried meats and sausages",
+                    "Seasonal fruits and vegetables",
+                    "Street food snacks and sandwiches"
+                ],
+                "price_range": "€-€€",
+                "hours": "Tuesdays & Saturdays, approx. 7 AM - 1 PM",
+                "location": "Bundesplatz and surrounding streets (Old Town)",
+                "seating": "Limited public benches nearby",
+                "local_tips": "Bern's main market and a wonderful place to experience local food culture. Tuesday markets are smaller; Saturday markets are larger and livelier."
+            },
+            {
+                "name": "Streat Food Market (Warmbächli)",
+                "specialties": [
+                    "International street food from various vendors and food trucks",
+                    "Changing selection of cuisines (Asian, Middle Eastern, American, etc.)",
+                    "Craft beers and local drinks"
+                ],
+                "price_range": "€€",
+                "hours": "Typically Friday evenings, check schedule for exact dates",
+                "location": "Warmbächli area (outside city center)",
+                "seating": "Communal tables and seating areas",
+                "local_tips": "Popular monthly food market with a hipster vibe. Check their social media for dates and participating vendors."
+            },
+            {
+                "name": "Food Stands at Bundesplatz",
+                "specialties": [
+                    "Seasonal specialties (e.g., chestnuts in winter, ice cream in summer)",
+                    "Pretzels and bakery items",
+                    "Quick sandwiches and small snacks"
+                ],
+                "price_range": "€-€€",
+                "hours": "Variable, typically daytime hours",
+                "location": "Bundesplatz (Federal Square)",
+                "seating": "Public benches and steps nearby",
+                "local_tips": "The selection varies by season and during special events. During Christmas markets, the options expand significantly."
+            },
+            {
+                "name": "Gelateria di Berna",
+                "specialties": [
+                    "Artisanal gelato in creative flavors",
+                    "Seasonal specialties using local fruits",
+                    "Vegan options available"
+                ],
+                "price_range": "€-€€",
+                "hours": "Typically 12 PM - 10 PM (seasonal, longer hours in summer)",
+                "location": "Multiple locations including Marzili and Breitenrain",
+                "seating": "Limited seating, primarily takeaway",
+                "local_tips": "Extremely popular local gelato chain with unique, high-quality flavors. Expect queues in summer months, but worth the wait."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Einstein Kaffee & Raritäten",
+                "specialty": "Historic Coffee House with Famous Einstein Connection",
+                "must_try": [
+                    "House blend coffee",
+                    "Einstein Rösti (breakfast)",
+                    "Cakes and pastries"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Historic, traditional café in the building where Einstein lived when developing his Theory of Relativity",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": "Yes",
+                "food_options": "Full breakfast and lunch menu, pastries, cakes",
+                "local_tips": "Historic café on the first floor of the Einstein Museum. Great spot to soak in the atmosphere where Einstein once lived and worked."
+            },
+            {
+                "name": "Adrianos Bar & Café",
+                "specialty": "Specialty Coffee & Roastery",
+                "must_try": [
+                    "Single-origin espresso or filter coffee",
+                    "House-roasted coffee beans (also available to purchase)",
+                    "Pastries and light breakfast items"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Modern, stylish café with knowledgeable baristas and coffee focus",
+                "best_time": "Morning coffee break",
+                "wifi_friendly": true,
+                "food_options": "Pastries, sandwiches, light breakfast items",
+                "local_tips": "Bern's premier specialty coffee destination. Own roastery and highly skilled baristas make this a must-visit for coffee enthusiasts."
+            },
+            {
+                "name": "Café Fédéral",
+                "specialty": "Political Hub & Swiss Café",
+                "must_try": [
+                    "Swiss coffee preparations",
+                    "House cakes and desserts",
+                    "Breakfast menu"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Traditional café with political significance due to its location opposite the Federal Palace, often frequented by politicians and journalists",
+                "best_time": "Morning, Lunch",
+                "wifi_friendly": "Yes, but often busy",
+                "food_options": "Full breakfast and lunch menu, traditional Swiss pastries",
+                "local_tips": "The place to spot Swiss politicians and journalists. During parliament sessions, you might overhear interesting political discussions."
+            },
+            {
+                "name": "Café Montag",
+                "specialty": "Third-Wave Coffee & Contemporary Café",
+                "must_try": [
+                    "Specialty coffee (various brewing methods)",
+                    "Homemade cakes and cookies",
+                    "Brunch menu (weekends)"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Bright, minimalist, modern café popular with younger crowd and remote workers",
+                "best_time": "Anytime, Weekend brunch",
+                "wifi_friendly": true,
+                "food_options": "Light breakfast, sandwiches, cakes, weekend brunch",
+                "local_tips": "Popular with digital nomads and the creative crowd. Good workspace during weekdays and excellent weekend brunch."
+            },
+            {
+                "name": "Lehrerzimmer",
+                "specialty": "Cozy Neighborhood Café",
+                "must_try": [
+                    "Homemade cakes and tarts",
+                    "Creative coffee specialties",
+                    "Seasonal lunch specials"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Quirky, homey café with mismatched furniture and a living-room feel",
+                "best_time": "Afternoon coffee and cake",
+                "wifi_friendly": true,
+                "food_options": "Light meals, soups, sandwiches, excellent cakes",
+                "local_tips": "Charming café outside the main tourist area. The name means 'Teacher's Room' and it has a casual, community feel with excellent homemade cakes."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Sky Terrace (at Hotel Schweizerhof)",
+                "type": "Rooftop Bar",
+                "specialty": "Panoramic Views & Cocktails",
+                "signature_drinks": [
+                    "Signature cocktails featuring Swiss ingredients",
+                    "Champagne and wine selection",
+                    "Alpine-inspired drinks (seasonal)"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant rooftop terrace with stunning views of Bern's Old Town and the Alps",
+                "best_time": "Evening/Sunset",
+                "food_options": "Upscale bar snacks",
+                "reservation_needed": "Recommended, especially weekends",
+                "local_tips": "One of the best views in Bern. Open seasonally (summer months). Weather dependent."
+            },
+            {
+                "name": "Abflugbar",
+                "type": "Cocktail Bar",
+                "specialty": "Creative & Classic Cocktails",
+                "signature_drinks": [
+                    "Extensive cocktail menu with creative house specialties",
+                    "Well-executed classics",
+                    "Seasonal drinks menu"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Stylish, intimate cocktail bar with aviation theme, knowledgeable bartenders",
+                "best_time": "Evening",
+                "food_options": "Small bar snacks",
+                "reservation_needed": "Recommended for weekends",
+                "local_tips": "One of Bern's best cocktail bars with a flight/travel theme ('Abflug' means 'departure'). Known for quality and creativity."
+            },
+            {
+                "name": "Kornhauskeller Bar",
+                "type": "Historic Vaulted Cellar Bar",
+                "specialty": "Wine, Cocktails & Atmosphere",
+                "signature_drinks": [
+                    "Extensive wine list featuring Swiss and international selections",
+                    "Classic cocktails",
+                    "Whiskeys and spirits"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Spectacular baroque vaulted cellar with ornate paintings and impressive architecture",
+                "best_time": "Evening",
+                "food_options": "Bar menu available, full restaurant adjacent",
+                "reservation_needed": "Not essential for bar seating but recommended",
+                "local_tips": "Even if you don't dine at the restaurant, the bar area is worth visiting for the stunning historical architecture and ambiance."
+            },
+            {
+                "name": "Turnhalle",
+                "type": "Cultural Bar & Creative Space",
+                "specialty": "Craft Beer & Cultural Events",
+                "signature_drinks": [
+                    "Local craft beers",
+                    "Natural wines",
+                    "Simple mixed drinks"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Former gymnasium converted into a cultural space and bar, casual, alternative vibe",
+                "best_time": "Evening/Night",
+                "food_options": "Simple snacks, sometimes food trucks/pop-ups",
+                "reservation_needed": false,
+                "local_tips": "Multi-purpose space hosting concerts, exhibitions, and events. Check their program online. Popular with Bern's creative community."
+            },
+            {
+                "name": "Marzilibrücke Bar (Summer only)",
+                "type": "Seasonal Outdoor Riverside Bar",
+                "specialty": "Summer Drinks by the Aare River",
+                "signature_drinks": [
+                    "Beer, Hugo, Aperol Spritz",
+                    "Simple cocktails and local wines"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Relaxed, outdoor summer bar with views of swimmers in the Aare river",
+                "best_time": "Summer afternoons/evenings",
+                "food_options": "Simple snacks, BBQ sometimes available",
+                "reservation_needed": false,
+                "local_tips": "Seasonal bar that captures Bern's summer riverside culture. Perfect after a swim in the Aare or for watching the sunset."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Bern Food Discovery Tour",
+                "focus": "Traditional Bernese & Swiss Specialties",
+                "duration": "Approx. 3 hours",
+                "price_range": "€€€-€€€€",
+                "highlights": [
+                    "Tasting local Bernese specialties",
+                    "Sampling Swiss cheeses and chocolate",
+                    "Learning about Bernese food traditions and culture",
+                    "Visiting the local market and specialty stores"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [ "English", "German", "French" ],
+                "booking_tips": "Book through Bern Tourism or specialized food tour companies. Wear comfortable shoes and come hungry."
+            },
+            {
+                "name": "Aare River & Old Town Culinary Walk",
+                "focus": "Scenic Tour with Food Stops",
+                "duration": "Approx. 4 hours",
+                "price_range": "€€€-€€€€",
+                "highlights": [
+                    "Combining sightseeing with food tastings",
+                    "Sampling local specialties at various stops",
+                    "Learning about Bern's history and food culture",
+                    "Walking along the scenic Aare river and through the UNESCO-listed Old Town"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [ "English", "German", "French" ],
+                "booking_tips": "Tours run primarily in warmer months. Combines historical information with culinary stops."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Swiss Fondue & Raclette Workshop",
+                "cuisine_focus": "Traditional Swiss Cheese Dishes",
+                "duration": "Approx. 2-3 hours",
+                "price_range": "€€€-€€€€",
+                "what_you_learn": [
+                    "Selecting the right cheese combinations for fondue",
+                    "Proper preparation techniques and ideal consistency",
+                    "Traditional and modern variations",
+                    "Wine pairing suggestions"
+                ],
+                "group_size": "Small groups",
+                "languages": [ "English", "German", "French" ],
+                "includes": [ "Hands-on cooking, ingredients, recipes, enjoying the prepared meal together" ],
+                "booking_tips": "Ideal winter activity. Check with cooking schools and culinary event providers in Bern for current offerings."
+            },
+            {
+                "name": "Bernese Pastry & Cookie Making",
+                "cuisine_focus": "Traditional Swiss Pastries & Cookies",
+                "duration": "Approx. 3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Traditional recipes for Swiss cookies like Brunsli, Mailänderli, Spitzbuebe",
+                    "Techniques for working with Swiss pastry",
+                    "Cultural significance of Swiss baking traditions"
+                ],
+                "group_size": "Small groups",
+                "languages": [ "English", "German" ],
+                "includes": [ "Ingredients, recipes, baked goods to take home" ],
+                "booking_tips": "Especially popular during holiday seasons. Book well in advance for Christmas cookie workshops."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Bern Wochenmarkt (Weekly Market)",
+                "type": "Traditional Farmers Market",
+                "highlights": [
+                    "Fresh local and seasonal produce",
+                    "Regional cheeses, meats, and dairy products",
+                    "Flowers, plants, and herbs",
+                    "Artisanal breads and baked goods",
+                    "Local specialty products"
+                ],
+                "hours": "Tuesday & Saturday, approx. 7 AM - 1 PM",
+                "best_time": "Saturday morning for full market experience",
+                "location": "Bundesplatz and surrounding streets (Old Town)",
+                "local_tips": "Bern's main market has been operating for centuries. Saturday markets are larger and more diverse than Tuesday markets."
+            },
+            {
+                "name": "Alpines Museum Market",
+                "type": "Seasonal Alpine Products Market",
+                "highlights": [
+                    "Mountain cheese varieties from different Alpine regions",
+                    "Dried meats and sausages from mountain areas",
+                    "Alpine herbs, teas, and specialty foods",
+                    "Craft products from mountain regions"
+                ],
+                "hours": "Seasonal (typically autumn), check dates",
+                "best_time": "Morning",
+                "location": "Outside the Alpine Museum",
+                "local_tips": "Specialized market focusing on authentic Alpine products. Great for cheese lovers. Only happens a few times a year."
+            },
+            {
+                "name": "Onion Market (Zibelemärit)",
+                "type": "Traditional Annual Market",
+                "highlights": [
+                    "Artistic onion braids and arrangements",
+                    "Traditional onion tarts (Zibelechueche)",
+                    "Mulled wine (Glühwein)",
+                    "Seasonal crafts and souvenirs"
+                ],
+                "hours": "Fourth Monday in November, 5 AM - 6 PM",
+                "best_time": "Early morning for traditional experience, daytime for general atmosphere",
+                "location": "Throughout the Old Town",
+                "local_tips": "One of Bern's most famous traditional events. Locals start at 5 AM with confetti battles and mulled wine. Over 50 tons of onions are sold in decorative braids."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Bärlauch (Wild Garlic) - In soups, pesto, butter",
+            "White Asparagus (Spargel) - Served with ham, potatoes, hollandaise",
+            "Spring Lamb (Frühlingslamm)",
+            "Rhubarb (Rhabarber) - In tarts, compotes"
+        ],
+        "summer": [
+            "Fresh berries (particularly raspberries and strawberries from the Emmental region)",
+            "Outdoor dining along the Aare river",
+            "Bundnerfleisch (air-dried beef) with melon",
+            "Apricots from Valais region (nearby)",
+            "Cold soup specialties (cucumber, fruit soups)",
+            "Marzili district outdoor grilling and picnics"
+        ],
+        "autumn": [
+            "Wild Game (Hirsch - venison, Reh - roe deer)",
+            "Chestnuts (Heisse Marroni) from street vendors",
+            "Pumpkin dishes (soups, risotto)",
+            "Wild Mushrooms from surrounding forests",
+            "Berner Platte (hearty mixed meat platter, traditional autumn dish)",
+            "Zibelechueche (Onion tart during the Onion Market festival)"
+        ],
+        "winter": [
+            "Cheese Fondue (especially moitié-moitié with Gruyère and Vacherin)",
+            "Raclette (melted cheese with potatoes and pickles)",
+            "Berner Rösti (crispy grated potatoes, Bernese style)",
+            "Glühwein (mulled wine) at Christmas markets",
+            "Grittibänz (bread figure for St. Nicholas Day)",
+            "Traditional Christmas cookies (Lebkuchen, Zimtsterne, Mailänderli)"
+        ]
+    }
+}

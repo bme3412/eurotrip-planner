@@ -1,0 +1,635 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Cracco",
+                "cuisine_type": "Modern Italian",
+                "signature_dishes": [
+                    "Risotto alla Milanese",
+                    "Saffron Risotto with Bone Marrow"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant, contemporary setting with a blend of modern and classic decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least 2 months in advance, especially for weekend dinners",
+                "dress_code": "Smart casual to formal",
+                "michelin_stars": 2,
+                "location": "Galleria Vittorio Emanuele II",
+                "local_tips": "Opt for the tasting menu for a comprehensive experience of Chef Cracco's culinary artistry"
+            },
+            {
+                "name": "Il Luogo di Aimo e Nadia",
+                "cuisine_type": "Tuscan-Italian",
+                "signature_dishes": [
+                    "Pici Cacio e Pepe",
+                    "Fiorentina Steak"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Warm and inviting with a family-run feel, featuring modern art",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations should be made at least one month in advance",
+                "dress_code": "Elegant",
+                "michelin_stars": 2,
+                "location": "Via Privata Raimondo Montecuccoli",
+                "local_tips": "Pair your meal with their excellent wine selection from Tuscany"
+            },
+            {
+                "name": "Enrico Bartolini at MUDEC",
+                "cuisine_type": "Contemporary Italian",
+                "signature_dishes": [
+                    "Pigeon with Raspberry and Balsamic",
+                    "Lobster with Coral Sauce"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Modern and artistic, located within the Museum of Cultures",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 3-4 weeks in advance, particularly for weekends",
+                "dress_code": "Formal",
+                "michelin_stars": 3,
+                "location": "MUDEC, Via Tortona",
+                "local_tips": "Visit the museum exhibitions before your dining experience for a full cultural evening"
+            },
+            {
+                "name": "Joia",
+                "cuisine_type": "Vegetarian Gourmet",
+                "signature_dishes": [
+                    "Zenith: Risotto with Asian Herbs",
+                    "Psychedelic Spin Painted by Nature"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Bright and minimalist with a focus on natural elements",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Secure a table 2-3 weeks ahead, especially for weekends",
+                "dress_code": "Casual elegant",
+                "michelin_stars": 1,
+                "location": "Via Panfilo Castaldi",
+                "local_tips": "Perfect for vegetarians and those looking to explore innovative plant-based cuisine"
+            },
+            {
+                "name": "Seta",
+                "cuisine_type": "Italian Fusion",
+                "signature_dishes": [
+                    "Black Cod with Miso",
+                    "Lobster with Burrata"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated and refined, located within the Mandarin Oriental",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 months in advance, especially for special occasions",
+                "dress_code": "Formal",
+                "michelin_stars": 2,
+                "location": "Via Andegari",
+                "local_tips": "Enjoy a pre-dinner cocktail at the Mandarin Bar for a full luxury experience"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Trattoria Trippa",
+                "cuisine_type": "Traditional Milanese",
+                "signature_dishes": [
+                    "Ossobuco",
+                    "Veal Milanese"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively and bustling, with a rustic and authentic feel",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended a week in advance",
+                "dress_code": "Casual",
+                "location": "Porta Romana",
+                "local_tips": "Try the daily specials for seasonal dishes"
+            },
+            {
+                "name": "Nerino Dieci Trattoria",
+                "cuisine_type": "Italian",
+                "signature_dishes": [
+                    "Spaghetti Carbonara",
+                    "Tiramisu"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and intimate with a friendly vibe",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days in advance, especially for dinner",
+                "dress_code": "Casual",
+                "location": "Via Nerino",
+                "local_tips": "The lunch menu is a great value for money"
+            },
+            {
+                "name": "Piz",
+                "cuisine_type": "Pizzeria",
+                "signature_dishes": [
+                    "Margherita Pizza",
+                    "Diavola Pizza"
+                ],
+                "price_range": "€",
+                "atmosphere": "Vibrant and energetic with a colorful setting",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid queues as they do not take reservations",
+                "dress_code": "Casual",
+                "location": "Via Torino",
+                "local_tips": "Enjoy the complimentary prosecco while you wait for your table"
+            },
+            {
+                "name": "Osteria del Binari",
+                "cuisine_type": "Lombard",
+                "signature_dishes": [
+                    "Risotto al Salto",
+                    "Cassoeula"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional and welcoming with a vintage railway theme",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3-5 days in advance",
+                "dress_code": "Casual",
+                "location": "Navigli",
+                "local_tips": "Sit in the garden area during warmer months for a charming experience"
+            },
+            {
+                "name": "Al Pont de Ferr",
+                "cuisine_type": "Innovative Italian",
+                "signature_dishes": [
+                    "Ravioli with Truffle",
+                    "Duck Breast with Orange Sauce"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Casual yet upscale, located along the canal",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations a week in advance are recommended",
+                "dress_code": "Casual elegant",
+                "location": "Navigli",
+                "local_tips": "Explore the surrounding area for vibrant nightlife post-dinner"
+            },
+            {
+                "name": "Ratanà",
+                "cuisine_type": "Milanese",
+                "signature_dishes": [
+                    "Risotto alla Milanese con Ossobuco",
+                    "Cotoletta alla Milanese"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Charming and relaxed with a contemporary twist",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Book a week ahead, especially for weekends",
+                "dress_code": "Casual",
+                "location": "Porta Nuova",
+                "local_tips": "Enjoy the garden seating in the summer"
+            },
+            {
+                "name": "Al Garghet",
+                "cuisine_type": "Traditional Italian",
+                "signature_dishes": [
+                    "Risotto with Asparagus",
+                    "Casoncelli Pasta"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic and charming with a countryside feel",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Make reservations at least a few days ahead",
+                "dress_code": "Casual",
+                "location": "Ripamonti",
+                "local_tips": "Ideal for a leisurely dinner away from the city bustle"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Luini Panzerotti",
+                "specialties": [
+                    "Panzerotti Pomodoro e Mozzarella",
+                    "Panzerotti Prosciutto e Formaggio"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 8:00 PM",
+                "location": "Near Duomo",
+                "seating": false,
+                "local_tips": "Visit during off-peak hours to avoid long lines"
+            },
+            {
+                "name": "Casa Ramen",
+                "specialties": [
+                    "Tonkotsu Ramen",
+                    "Miso Ramen"
+                ],
+                "price_range": "€€",
+                "hours": "12:30 PM - 3:00 PM, 7:00 PM - 11:00 PM",
+                "location": "Isola",
+                "seating": true,
+                "local_tips": "Try their daily specials for unique flavors"
+            },
+            {
+                "name": "Il Kiosko di Piazza Sant’Eustorgio",
+                "specialties": [
+                    "Gelato",
+                    "Crepes"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 1:00 AM",
+                "location": "Navigli",
+                "seating": false,
+                "local_tips": "Perfect for a late-night treat after exploring the canals"
+            },
+            {
+                "name": "C'era una Volta una Piada",
+                "specialties": [
+                    "Piadina with Prosciutto and Squacquerone",
+                    "Vegetarian Piadina"
+                ],
+                "price_range": "€",
+                "hours": "12:00 PM - 10:00 PM",
+                "location": "Brera",
+                "seating": true,
+                "local_tips": "Great for a quick snack while exploring the artistic district"
+            },
+            {
+                "name": "Trapizzino",
+                "specialties": [
+                    "Pollo alla Cacciatora Trapizzino",
+                    "Polpetta al Sugo Trapizzino"
+                ],
+                "price_range": "€",
+                "hours": "12:00 PM - 11:00 PM",
+                "location": "Porta Genova",
+                "seating": true,
+                "local_tips": "Ideal for a quick and satisfying meal before hitting the nearby nightlife"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Caffè Cova",
+                "specialty": "Traditional Italian Espresso",
+                "must_try": [
+                    "Espresso",
+                    "Panettone"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Elegant and historic, with a classic Milanese charm",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Pastries, sandwiches, and classic Milanese sweets",
+                "local_tips": "Perfect spot for a leisurely breakfast and people-watching"
+            },
+            {
+                "name": "Pavé",
+                "specialty": "Artisanal Pastries",
+                "must_try": [
+                    "Croissant",
+                    "Cheesecake"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Trendy and bustling with a laid-back vibe",
+                "best_time": "Brunch",
+                "wifi_friendly": true,
+                "food_options": "Breakfast and lunch menu with fresh, seasonal ingredients",
+                "local_tips": "Great for digital nomads looking to work while enjoying good coffee"
+            },
+            {
+                "name": "Marchesi 1824",
+                "specialty": "High-end Pastries and Chocolates",
+                "must_try": [
+                    "Tiramisu",
+                    "Gianduiotti Chocolate"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated and luxurious, with a historic ambiance",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Light lunch options with exquisite pastries",
+                "local_tips": "Visit the original shop for a truly authentic experience"
+            },
+            {
+                "name": "Princi",
+                "specialty": "Italian Breads and Pastries",
+                "must_try": [
+                    "Focaccia",
+                    "Ricotta Cheesecake"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary and lively with an open-kitchen concept",
+                "best_time": "Both",
+                "wifi_friendly": true,
+                "food_options": "Wide range of bakery items, pizzas, and salads",
+                "local_tips": "Ideal for a quick break or casual meeting"
+            },
+            {
+                "name": "Orsonero Coffee",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Flat White",
+                    "Filter Coffee"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist and cozy, popular with locals and expats",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Limited pastries and snacks",
+                "local_tips": "Perfect for coffee aficionados looking for expertly brewed drinks"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Nottingham Forest",
+                "type": "Cocktail Bar",
+                "specialty": "Experimental Cocktails",
+                "signature_drinks": [
+                    "Tiki Mug Cocktail",
+                    "Molecular Mixology Creations"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Quirky and innovative with a playful decor",
+                "best_time": "Evening",
+                "food_options": "Small bites and snacks",
+                "reservation_needed": false,
+                "local_tips": "Arrive early as the bar is small and doesn't take reservations"
+            },
+            {
+                "name": "Ceresio 7",
+                "type": "Rooftop Bar",
+                "specialty": "Classic and Contemporary Cocktails",
+                "signature_drinks": [
+                    "Negroni",
+                    "Signature Spritz"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Chic and stylish with stunning views of the city skyline",
+                "best_time": "Sunset",
+                "food_options": "Gourmet bar bites and Italian dishes",
+                "reservation_needed": true,
+                "local_tips": "Best to reserve a spot on the terrace for sunset views"
+            },
+            {
+                "name": "Bar Basso",
+                "type": "Historical Bar",
+                "specialty": "Negroni Sbagliato",
+                "signature_drinks": [
+                    "Negroni Sbagliato",
+                    "Americano"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic and vintage with a laid-back vibe",
+                "best_time": "Evening",
+                "food_options": "Simple Italian snacks",
+                "reservation_needed": false,
+                "local_tips": "A must-visit for cocktail enthusiasts; try their iconic Negroni Sbagliato"
+            },
+            {
+                "name": "Dry Milano",
+                "type": "Cocktail and Pizza Bar",
+                "specialty": "Craft Cocktails and Gourmet Pizza",
+                "signature_drinks": [
+                    "Signature Gin Tonic",
+                    "Seasonal Cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Trendy and modern with a minimalist design",
+                "best_time": "Dinner",
+                "food_options": "Gourmet pizzas and appetizers",
+                "reservation_needed": true,
+                "local_tips": "Pair your cocktail with one of their renowned pizzas"
+            },
+            {
+                "name": "Carlo e Camilla in Segheria",
+                "type": "Design Bar",
+                "specialty": "Innovative Cocktails",
+                "signature_drinks": [
+                    "Signature Campari Cocktail",
+                    "Seasonal Creations"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stylish and artistic with a unique industrial setting",
+                "best_time": "Evening",
+                "food_options": "Italian dishes and creative small plates",
+                "reservation_needed": true,
+                "local_tips": "Ideal for design lovers and cocktail connoisseurs"
+            },
+            {
+                "name": "Rita & Cocktails",
+                "type": "Cocktail Bar",
+                "specialty": "Seasonal Cocktails",
+                "signature_drinks": [
+                    "Gin Zen",
+                    "Moscow Mule"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Casual and lively with a neighborhood feel",
+                "best_time": "Night",
+                "food_options": "Small snacks and tapas-style bites",
+                "reservation_needed": false,
+                "local_tips": "A local favorite, great for a relaxed evening with friends"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Milan Wine Tasting Tour",
+                "focus": "Wine",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit to historic wine bars",
+                    "Tasting of local wines",
+                    "Cheese pairing"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Book at least a week in advance, especially during high season"
+            },
+            {
+                "name": "Milan Food Walking Tour",
+                "focus": "Local Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to local markets",
+                    "Tasting of traditional dishes",
+                    "Culinary history insights"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "Spanish"
+                ],
+                "booking_tips": "Book early as tours fill up quickly during weekends"
+            },
+            {
+                "name": "Navigli District Evening Food Tour",
+                "focus": "Tapas and Wine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Exploration of Navigli",
+                    "Tasting of Milanese tapas",
+                    "Wine pairing with local experts"
+                ],
+                "booking_required": true,
+                "group_size": "Max 15 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Ideal to book 2 weeks ahead for weekend slots"
+            },
+            {
+                "name": "Market Tour and Cooking Class",
+                "focus": "Market and Cooking",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit to local markets",
+                    "Hands-on cooking experience",
+                    "Enjoy a meal with the chef"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Reserve a spot at least a month in advance due to high demand"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Traditional Milanese Cooking Class",
+                "cuisine_focus": "Milanese",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Ossobuco",
+                    "Risotto alla Milanese",
+                    "Panettone"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "Ingredients, meal, and recipes to take home"
+                ],
+                "booking_tips": "Book 2-3 weeks in advance, particularly for weekends"
+            },
+            {
+                "name": "Pasta Making Class",
+                "cuisine_focus": "Italian",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Fresh pasta",
+                    "Ravioli",
+                    "Gnocchi"
+                ],
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "Ingredients, dinner, and a glass of wine"
+                ],
+                "booking_tips": "Ideal to book a week in advance"
+            },
+            {
+                "name": "Vegan Italian Cooking Class",
+                "cuisine_focus": "Vegan Italian",
+                "duration": "3.5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Vegan risotto",
+                    "Vegan lasagna",
+                    "Tiramisu"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "Ingredients, meal, and recipes"
+                ],
+                "booking_tips": "Book early, as spots fill up quickly"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercato di Via Fauche",
+                "type": "Food and Flea Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local cheeses",
+                    "Vintage clothes"
+                ],
+                "hours": "Tuesday and Saturday 8:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Via Fauche",
+                "local_tips": "Arrive early for the best selection of fresh produce"
+            },
+            {
+                "name": "Mercato del Duomo",
+                "type": "Gourmet Food Market",
+                "highlights": [
+                    "Artisanal chocolates",
+                    "Gourmet cheeses",
+                    "Local wines"
+                ],
+                "hours": "Daily 9:00 AM - 10:00 PM",
+                "best_time": "Afternoon",
+                "location": "Piazza del Duomo",
+                "local_tips": "Check out the rooftop terrace for a great view of the Duomo"
+            },
+            {
+                "name": "Eataly Smeraldo",
+                "type": "Italian Food Market",
+                "highlights": [
+                    "Fresh pasta",
+                    "Italian wines",
+                    "Olive oils"
+                ],
+                "hours": "Daily 10:00 AM - 11:00 PM",
+                "best_time": "Evening",
+                "location": "Piazza Venticinque Aprile",
+                "local_tips": "Join their cooking demonstrations for a deeper understanding of Italian cuisine"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Asparagus Risotto",
+            "Artichoke Ravioli",
+            "Fave e Pecorino"
+        ],
+        "summer": [
+            "Caprese Salad",
+            "Panzanella",
+            "Gelato al Limone"
+        ],
+        "autumn": [
+            "Porcini Mushroom Risotto",
+            "Pumpkin Tortelli",
+            "Castagnaccio"
+        ],
+        "winter": [
+            "Risotto alla Milanese",
+            "Cassoeula",
+            "Panettone"
+        ]
+    }
+}

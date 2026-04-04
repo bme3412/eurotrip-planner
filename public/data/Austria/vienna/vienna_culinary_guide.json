@@ -1,0 +1,511 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Steirereck",
+                "cuisine_type": "Modern Austrian",
+                "signature_dishes": [
+                    "Char with beeswax",
+                    "Lamb with pine and fennel"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and contemporary with a view of Stadtpark",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least 3 months in advance for dinner",
+                "dress_code": "Smart casual to formal",
+                "michelin_stars": 2,
+                "location": "Stadtpark",
+                "local_tips": "Request a table by the window for a park view"
+            },
+            {
+                "name": "Silvio Nickol Gourmet Restaurant",
+                "cuisine_type": "French and Austrian Fusion",
+                "signature_dishes": [
+                    "Foie gras with elderflower",
+                    "Wagyu beef with truffle"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Luxurious and sophisticated with modern art decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations open 2 months in advance, book early",
+                "dress_code": "Formal",
+                "michelin_stars": 2,
+                "location": "Palais Coburg",
+                "local_tips": "Opt for the wine pairing for an extraordinary experience"
+            },
+            {
+                "name": "Konstantin Filippou",
+                "cuisine_type": "Mediterranean and Austrian",
+                "signature_dishes": [
+                    "Octopus with paprika",
+                    "Venison with beetroot"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Minimalist and stylish with an open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1-2 months in advance",
+                "dress_code": "Smart casual",
+                "michelin_stars": 2,
+                "location": "Innere Stadt",
+                "local_tips": "Try the tasting menu for a full culinary journey"
+            },
+            {
+                "name": "Opus",
+                "cuisine_type": "Contemporary European",
+                "signature_dishes": [
+                    "Duck with red cabbage",
+                    "Lobster with cauliflower"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Grand and opulent in the Vienna State Opera",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1 month in advance, especially on weekends",
+                "dress_code": "Formal",
+                "michelin_stars": 1,
+                "location": "Innere Stadt",
+                "local_tips": "Perfect for a pre-opera dinner"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Gasthaus Pöschl",
+                "cuisine_type": "Traditional Austrian",
+                "signature_dishes": [
+                    "Wiener Schnitzel",
+                    "Tafelspitz"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and rustic with a local vibe",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve a week in advance for lunch",
+                "dress_code": "Casual",
+                "location": "Innere Stadt",
+                "local_tips": "Visit during the weekday for a quieter experience"
+            },
+            {
+                "name": "Café Landtmann",
+                "cuisine_type": "Viennese Café",
+                "signature_dishes": [
+                    "Apfelstrudel",
+                    "Kaiserschmarrn"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic and elegant with a classic Viennese charm",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early during weekends to avoid waiting",
+                "dress_code": "Casual",
+                "location": "Ringstraße",
+                "local_tips": "Perfect for a leisurely coffee and cake"
+            },
+            {
+                "name": "Figlmüller",
+                "cuisine_type": "Traditional Austrian",
+                "signature_dishes": [
+                    "Wiener Schnitzel",
+                    "Potato salad"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bustling and lively with long history",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days in advance, especially for dinner",
+                "dress_code": "Casual",
+                "location": "Innere Stadt",
+                "local_tips": "Share a schnitzel if you're not too hungry, they're huge!"
+            },
+            {
+                "name": "Plachutta Wollzeile",
+                "cuisine_type": "Traditional Austrian",
+                "signature_dishes": [
+                    "Tafelspitz",
+                    "Boiled beef"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Classic and authentic Austrian dining",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least a week in advance",
+                "dress_code": "Smart casual",
+                "location": "Innere Stadt",
+                "local_tips": "Ask for Tafelspitz with all the traditional condiments"
+            },
+            {
+                "name": "Naschmarkt Deli",
+                "cuisine_type": "International",
+                "signature_dishes": [
+                    "Falafel",
+                    "Shakshuka"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Trendy and vibrant in the heart of the market",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to secure a spot, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Naschmarkt",
+                "local_tips": "Pair your meal with a local drink like Almdudler"
+            },
+            {
+                "name": "Café Central",
+                "cuisine_type": "Viennese Café",
+                "signature_dishes": [
+                    "Sachertorte",
+                    "Beef goulash"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Elegant and historic with a grand interior",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Expect queues, especially in the afternoon",
+                "dress_code": "Casual",
+                "location": "Innere Stadt",
+                "local_tips": "Enjoy the live piano music while you dine"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Bitzinger Würstelstand",
+                "specialties": [
+                    "Käsekrainer",
+                    "Bratwurst"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 4:00 AM",
+                "location": "Albertinaplatz",
+                "seating": false,
+                "local_tips": "Best enjoyed late at night; pair your sausage with mustard and a Semmel (bread roll)"
+            },
+            {
+                "name": "Naschmarkt",
+                "specialties": [
+                    "Falafel",
+                    "Baklava"
+                ],
+                "price_range": "€",
+                "hours": "6:00 AM - 7:30 PM",
+                "location": "Naschmarkt",
+                "seating": true,
+                "local_tips": "Visit on weekdays to avoid crowds, and try a bit of everything"
+            },
+            {
+                "name": "Lange Gasse",
+                "specialties": [
+                    "Kebabs",
+                    "Samosas"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 11:00 PM",
+                "location": "Josefstadt",
+                "seating": false,
+                "local_tips": "Great for a quick lunch while exploring the neighborhood"
+            },
+            {
+                "name": "Der Wiener Deewan",
+                "specialties": [
+                    "Pakistani curry",
+                    "Naan"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 11:00 PM",
+                "location": "Universitätsstraße",
+                "seating": true,
+                "local_tips": "It's pay as you wish, so try a variety of curries"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Sperl",
+                "specialty": "Traditional Viennese coffeehouse experience",
+                "must_try": [
+                    "Melange",
+                    "Topfenstrudel"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Timeless and classic with Biedermeier-style furniture",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Classic Viennese pastries and light meals",
+                "local_tips": "Visit during the afternoon for a relaxed environment"
+            },
+            {
+                "name": "Café Prückel",
+                "specialty": "Viennese coffee and pastries",
+                "must_try": [
+                    "Einspänner",
+                    "Sachertorte"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Retro and artsy with a 1950s vibe",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Pastries, sandwiches, and daily specials",
+                "local_tips": "Enjoy live piano music in the evenings"
+            },
+            {
+                "name": "Café Phil",
+                "specialty": "Books and coffee",
+                "must_try": [
+                    "Flat white",
+                    "Vegan cake"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Eclectic and cozy with books lining the walls",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast, sandwiches, and cakes",
+                "local_tips": "Ideal for book lovers and those seeking a relaxed environment"
+            },
+            {
+                "name": "Kaffemik",
+                "specialty": "Third wave coffee",
+                "must_try": [
+                    "Filter coffee",
+                    "Espresso tonic"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist and modern with a focus on coffee",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Light snacks and pastries",
+                "local_tips": "Great spot for coffee enthusiasts; ask the barista for recommendations"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Loos American Bar",
+                "type": "Cocktail Bar",
+                "specialty": "Classic cocktails",
+                "signature_drinks": [
+                    "Old Fashioned",
+                    "Whiskey Sour"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate and historic with Art Nouveau design",
+                "best_time": "Evening",
+                "food_options": "Light bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Book a table due to limited space; enjoy the architecture"
+            },
+            {
+                "name": "1516 Brewing Company",
+                "type": "Brewpub",
+                "specialty": "Craft beers",
+                "signature_drinks": [
+                    "Pilsner",
+                    "Seasonal brews"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Casual and lively with a pub feel",
+                "best_time": "Evening",
+                "food_options": "Pub food including burgers and fries",
+                "reservation_needed": false,
+                "local_tips": "Great place to try local craft beers; ask for seasonal specials"
+            },
+            {
+                "name": "Das Loft Bar & Lounge",
+                "type": "Sky Bar",
+                "specialty": "Panoramic views with cocktails",
+                "signature_drinks": [
+                    "Signature Spritz",
+                    "Champagne cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Chic and modern with stunning city views",
+                "best_time": "Night",
+                "food_options": "Small plates and gourmet snacks",
+                "reservation_needed": true,
+                "local_tips": "Visit during sunset for breathtaking views"
+            },
+            {
+                "name": "Motto",
+                "type": "Cocktail Bar",
+                "specialty": "Innovative cocktails",
+                "signature_drinks": [
+                    "Motto Mule",
+                    "House Negroni"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Trendy and eclectic with vintage decor",
+                "best_time": "Late evening",
+                "food_options": "International dishes and sharing plates",
+                "reservation_needed": true,
+                "local_tips": "Known for its unique atmosphere and great music"
+            },
+            {
+                "name": "Heuer am Karlsplatz",
+                "type": "Garden Bar",
+                "specialty": "Natural wines and cocktails",
+                "signature_drinks": [
+                    "Aperol Spritz",
+                    "Gin-based cocktails"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Relaxed and open with a spacious terrace",
+                "best_time": "Afternoon",
+                "food_options": "Locally sourced dishes and snacks",
+                "reservation_needed": false,
+                "local_tips": "Ideal for sunny afternoons; enjoy the outdoor seating"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Vienna's Sweet Treats Tour",
+                "focus": "Desserts and Pastries",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to iconic cafés",
+                    "Tasting Sachertorte",
+                    "Sampling Apfelstrudel"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book at least 2 weeks in advance, especially for weekends"
+            },
+            {
+                "name": "Vienna Food Walk",
+                "focus": "Traditional Austrian Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Tasting local sausages",
+                    "Visit to Naschmarkt",
+                    "Sampling Schnitzel"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Ideal to book during weekdays to avoid crowds"
+            },
+            {
+                "name": "Vienna Wine Experience",
+                "focus": "Austrian Wines",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit to local wine bars",
+                    "Tasting Grüner Veltliner",
+                    "Exploring wine cellars"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Book a month in advance for the best availability"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Viennese Pastry Workshop",
+                "cuisine_focus": "Pastry and Baking",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Apple Strudel",
+                    "Sachertorte",
+                    "Linzer Torte"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipes to take home",
+                    "Refreshments"
+                ],
+                "booking_tips": "Book at least 1 week in advance"
+            },
+            {
+                "name": "Traditional Austrian Cooking Class",
+                "cuisine_focus": "Austrian Classics",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Wiener Schnitzel",
+                    "Tafelspitz",
+                    "Kaiserschmarrn"
+                ],
+                "group_size": "6",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Recipe booklet",
+                    "Lunch"
+                ],
+                "booking_tips": "Ideal for booking during weekdays"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Naschmarkt",
+                "type": "Food Market",
+                "highlights": [
+                    "Fresh produce",
+                    "Artisanal cheeses",
+                    "International foods"
+                ],
+                "hours": "6:00 AM - 7:30 PM",
+                "best_time": "Morning",
+                "location": "Linke Wienzeile",
+                "local_tips": "Arrive early for the freshest selection; explore side stalls for unique finds"
+            },
+            {
+                "name": "Brunnenmarkt",
+                "type": "Local Market",
+                "highlights": [
+                    "Fresh vegetables",
+                    "Turkish specialties",
+                    "Local meats"
+                ],
+                "hours": "6:00 AM - 6:30 PM",
+                "best_time": "Afternoon",
+                "location": "Brunnengasse",
+                "local_tips": "Perfect for authentic local experience; haggle for the best prices"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Bärlauch (wild garlic) dishes",
+            "Spargel (asparagus) specialties",
+            "Maibock (young beer)"
+        ],
+        "summer": [
+            "Eis (ice cream)",
+            "Marillenknödel (apricot dumplings)",
+            "Grüner Veltliner (white wine)"
+        ],
+        "autumn": [
+            "Kürbis (pumpkin) soup",
+            "Sturm (young wine)",
+            "Martinigansl (roast goose)"
+        ],
+        "winter": [
+            "Glühwein (mulled wine)",
+            "Lebkuchen (gingerbread)",
+            "Raclette"
+        ]
+    }
+}

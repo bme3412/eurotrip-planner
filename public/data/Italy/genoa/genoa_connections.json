@@ -1,0 +1,570 @@
+{
+    "destinations": [
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Experience the fashion capital of Italy with its stunning Duomo and world-class shopping.",
+            "directWithinCountryTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "1 hour 30 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Turin",
+            "country": "Italy",
+            "whyGo": "Discover the elegant capital of Piedmont with its royal palaces and rich culinary heritage.",
+            "directWithinCountryTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "1 hour 45 minutes",
+                "frequency": "Every hour"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "Visit the Eternal City with its ancient ruins, Vatican, and vibrant street life.",
+            "directWithinCountryTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "4 hours 30 minutes",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Florence",
+            "country": "Italy",
+            "whyGo": "Explore the cradle of the Renaissance with its world-famous art and architecture.",
+            "directWithinCountryTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "3 hours",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Pisa",
+            "country": "Italy",
+            "whyGo": "See the famous Leaning Tower and explore this historic Tuscan city.",
+            "directWithinCountryTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "2 hours 30 minutes",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "La Spezia",
+            "country": "Italy",
+            "whyGo": "Gateway to the stunning Cinque Terre and beautiful Ligurian coastline.",
+            "directWithinCountryTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "1 hour 15 minutes",
+                "frequency": "Every hour"
+            }
+        },
+        {
+            "city": "Ventimiglia",
+            "country": "Italy",
+            "whyGo": "Visit the border town and gateway to the French Riviera and Monaco.",
+            "directWithinCountryTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "2 hours",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Alessandria",
+            "country": "Italy",
+            "whyGo": "Explore this historic city known for its medieval architecture and strategic location.",
+            "directWithinCountryTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "1 hour",
+                "frequency": "Every hour"
+            }
+        },
+        {
+            "city": "Nice",
+            "country": "France",
+            "whyGo": "Relax on the beautiful beaches of the French Riviera and enjoy Mediterranean culture.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "3 hours 30 minutes",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Monaco",
+            "country": "Monaco",
+            "whyGo": "Experience the glamour and luxury of the world's second-smallest country.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "3 hours 15 minutes",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "1 hour 10 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Marseille",
+            "country": "France",
+            "whyGo": "Discover the vibrant port city with its rich history and Provençal culture.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "6 hours",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Enjoy the vibrant culture and stunning architecture of Barcelona.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "12 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Visit the city of lights, known for its art, fashion, and culture.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "8 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "2 hours",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Experience the vibrant capital with its rich history and diverse culture.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "Not applicable",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "2 hours 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Experience the canals and cultural diversity of Amsterdam.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "12 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "2 hours 15 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Enjoy the cosmopolitan atmosphere and famous chocolates of Brussels.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "11 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "2 hours 10 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "Explore the financial hub with its impressive skyline and cultural attractions.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "8 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Enjoy the Bavarian culture and the world-famous Oktoberfest.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "7 hours 30 minutes",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "1 hour 25 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Experience the imperial history and musical heritage of Vienna.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "8 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Explore the beautiful lakeside city of Zurich, known for banking and finance.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "5 hours 30 minutes",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "Discover the international city known for diplomacy and finance.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "6 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Athens",
+            "country": "Greece",
+            "whyGo": "Explore the ancient history and vibrant culture of Athens.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "Not applicable",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "2 hours 10 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Experience the unique blend of European and Asian cultures in this historic city.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "Not applicable",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "2 hours 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Explore the Danish capital known for its design and vibrant culture.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "18 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "2 hours 20 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Discover the striking architecture and innovative culture of Stockholm.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "22 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "2 hours 50 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Discover the rich history and cultural heritage of Warsaw.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "20 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "2 hours",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Discover the fairytale charm and rich history of Prague.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "12 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "1 hour 40 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Experience the stunning architecture and vibrant culture of Budapest.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "10 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "1 hour 35 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Experience the vibrant nightlife and cultural heritage of Madrid.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "14 hours",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "2 hours 15 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Enjoy the sun-soaked city with a rich history and vibrant culture.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "25 hours",
+                "frequency": "Once daily with multiple transfers"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "2 hours 50 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Enjoy the friendly atmosphere and rich literary history of Dublin.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "Not applicable",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "2 hours 45 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Explore the vibrant culture and history of Germany's capital.",
+            "intraEuropeTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "10 hours 30 minutes",
+                "frequency": "Once daily with transfer"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "2 hours",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Palermo",
+            "country": "Italy",
+            "whyGo": "Explore Sicily's vibrant capital with its unique Arabic-Norman architecture and amazing street food.",
+            "directWithinCountryTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "10 hours",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "1 hour 20 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Catania",
+            "country": "Italy",
+            "whyGo": "Visit the historic Sicilian city at the foot of Mount Etna.",
+            "directWithinCountryTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "8 hours 15 minutes",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Bari",
+            "country": "Italy",
+            "whyGo": "Experience the charm of Puglia with its unique trulli houses and beautiful coastline.",
+            "directWithinCountryTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "4 hours 15 minutes",
+                "frequency": "Every 4 hours"
+            }
+        },
+        {
+            "city": "Sassari",
+            "country": "Italy",
+            "whyGo": "Discover the historic Sardinian city with its rich cultural heritage and beautiful architecture.",
+            "directWithinCountryTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "Not applicable",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Cagliari",
+            "country": "Italy",
+            "whyGo": "Explore Sardinia's capital with its medieval quarter and beautiful beaches.",
+            "directWithinCountryTrain": {
+                "stationInGenoa": "Genova Piazza Principe",
+                "journeyTime": "Not applicable",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInGenoa": [
+                    "Genoa Airport (GOA)"
+                ],
+                "approxFlightTime": "1 hour 10 minutes",
+                "frequency": "Daily"
+            }
+        }
+    ]
+}

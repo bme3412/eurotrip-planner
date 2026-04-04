@@ -1,0 +1,469 @@
+{
+    "destinations": [
+        {
+            "city": "Utrecht",
+            "country": "Netherlands",
+            "whyGo": "A historical city known for its ancient university and picturesque canals.",
+            "directWithinCountryTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "26 minutes",
+                "frequency": "Every 10 minutes"
+            }
+        },
+        {
+            "city": "Rotterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its modern architecture and vibrant port.",
+            "directWithinCountryTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "41 minutes",
+                "frequency": "Every 15 minutes"
+            }
+        },
+        {
+            "city": "The Hague",
+            "country": "Netherlands",
+            "whyGo": "The seat of the Dutch government and home to the International Court of Justice.",
+            "directWithinCountryTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "50 minutes",
+                "frequency": "Every 15 minutes"
+            }
+        },
+        {
+            "city": "Eindhoven",
+            "country": "Netherlands",
+            "whyGo": "A technology and design hub, known for its innovation and creativity.",
+            "directWithinCountryTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "1 hour 20 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Antwerp",
+            "country": "Belgium",
+            "whyGo": "A vibrant city known for its diamond district and beautiful old town.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "1 hour 15 minutes",
+                "frequency": "Hourly"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "50 minutes",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "The capital of the European Union, known for its historic architecture and cuisine.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "2 hours",
+                "frequency": "Hourly"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The City of Light, famous for its art, fashion, and landmarks like the Eiffel Tower.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "3 hours 20 minutes",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Cologne",
+            "country": "Germany",
+            "whyGo": "Known for its impressive cathedral and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "2 hours 30 minutes",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Düsseldorf",
+            "country": "Germany",
+            "whyGo": "A bustling city known for its fashion industry and art scene.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "2 hours 12 minutes",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "2-4 times daily"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A global city known for its history, culture, and iconic landmarks.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "4 hours",
+                "frequency": "4-5 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour 5 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "A financial hub with a stunning skyline and rich cultural offerings.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "3 hours 55 minutes",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Hamburg",
+            "country": "Germany",
+            "whyGo": "A major port city known for its maritime heritage and modern architecture.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "5 hours 15 minutes",
+                "frequency": "4 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "3-4 times daily"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "A city steeped in history, known for its vibrant culture and dynamic arts scene.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "6 hours",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour 20 minutes",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Luxembourg City",
+            "country": "Luxembourg",
+            "whyGo": "A picturesque city known for its fortified medieval old town.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "5 hours 45 minutes",
+                "frequency": "Daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour 10 minutes",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Lille",
+            "country": "France",
+            "whyGo": "A charming city known for its beautiful architecture and vibrant cultural life.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "2 hours 40 minutes",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Bremen",
+            "country": "Germany",
+            "whyGo": "A historic city with a rich maritime tradition and beautiful old town.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "4 hours 30 minutes",
+                "frequency": "3 times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour 10 minutes",
+                "frequency": "2 times daily"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Known for its beer gardens, Oktoberfest, and stunning architecture.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "6 hours 30 minutes",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour 25 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Zürich",
+            "country": "Switzerland",
+            "whyGo": "A global center for banking and finance, known for its picturesque lakeside setting.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "8 hours",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "A fairy-tale city known for its beautiful old town and historic castles.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "11 hours",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "4-5 times daily"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "A city of imperial grandeur, famous for its classical music and rich history.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "12 hours",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour 40 minutes",
+                "frequency": "3-4 times daily"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Known for its design, architecture, and vibrant harbor life.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "11 hours",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour 20 minutes",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "A city that blends nature and modernity, known for its museums and green spaces.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "16 hours",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "A city built on 14 islands, known for its stunning scenery and cultural heritage.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "18 hours",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "2 hours",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "A city with a complex history, known for its resilient spirit and vibrant culture.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "13 hours",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "2 hours",
+                "frequency": "2-3 times daily"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "A global fashion capital known for its art, architecture, and cuisine.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "11 hours",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City, known for its rich history and iconic landmarks like the Colosseum.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "14 hours",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "2 hours 15 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Spain's vibrant capital, known for its rich cultural heritage and lively atmosphere.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "18 hours",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "2 hours 30 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for its art, architecture, and the works of Antoni Gaudí.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "14 hours",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "2 hours 15 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "A city of hills and scenic views, known for its rich maritime history.",
+            "intraEuropeTrain": {
+                "stationInAmsterdam": "Amsterdam Centraal",
+                "journeyTime": "24 hours",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInAmsterdam": [
+                    "Amsterdam Schiphol"
+                ],
+                "approxFlightTime": "2 hours 45 minutes",
+                "frequency": "3-4 times daily"
+            }
+        }
+    ]
+}

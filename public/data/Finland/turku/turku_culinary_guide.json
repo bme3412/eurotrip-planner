@@ -1,0 +1,422 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Kaskis",
+                "cuisine_type": "Modern Nordic/Finnish",
+                "signature_dishes": [
+                    "Seasonal surprise menu focused on local ingredients",
+                    "Creative use of Finnish produce (fish, game, vegetables)",
+                    "Often features innovative techniques"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Intimate, cozy, rustic-chic; located in a cellar",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book *very* far in advance. Turku's first Michelin-starred restaurant. Highly sought after.",
+                "dress_code": "Smart Casual/Smart Elegant",
+                "michelin_stars": 1,
+                "location": "Kaskenkatu 6 A",
+                "local_tips": "Led by chef Erik Mansikka. Known for its relaxed atmosphere despite the high quality. Emphasis on pure flavors and seasonal ingredients."
+            },
+            {
+                "name": "Smör",
+                "cuisine_type": "Modern Nordic/European",
+                "signature_dishes": [
+                    "Seasonal tasting menus (e.g., 'Journey')",
+                    "Emphasis on local fish and vegetables",
+                    "Well-executed classic techniques with modern twists"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Stylish, elegant cellar vaults by the Aura River",
+                "best_time": "Dinner/Lunch",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Offers both tasting menus and à la carte. Good option for a high-quality lunch.",
+                "dress_code": "Smart Casual/Smart Elegant",
+                "michelin_stars": 0,
+                "location": "Läntinen Rantakatu 3",
+                "local_tips": "Considered one of Turku's top fine dining establishments for years. Great location by the river."
+            },
+            {
+                "name": "Restaurant Mami",
+                "cuisine_type": "Modern European/Bistro",
+                "signature_dishes": [
+                    "Steak Frites",
+                    "Fresh fish dishes",
+                    "Seasonal menu with French/European influences",
+                    "Classic bistro fare done well"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Cozy, bustling, popular bistro feel; riverside location",
+                "best_time": "Lunch/Dinner",
+                "reservation_needed": "Highly Recommended",
+                "booking_tips": "Very popular, especially evenings and weekends. Book ahead.",
+                "dress_code": "Smart Casual",
+                "location": "Linnankatu 3",
+                "local_tips": "A reliable favorite among locals for quality food and a lively atmosphere. Good for both casual lunches and nicer dinners."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Kuori",
+                "cuisine_type": "Vegetarian/Vegan (Globally Inspired)",
+                "signature_dishes": [
+                    "Mezze platters",
+                    "Creative vegetable main courses",
+                    "Tasting menu available",
+                    "Vegan 'cheesecake'"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Cozy, bohemian, plant-filled",
+                "best_time": "Dinner/Lunch",
+                "reservation_needed": "Recommended, especially evenings",
+                "booking_tips": "Very popular vegetarian/vegan spot. Offers interesting flavors.",
+                "dress_code": "Casual/Smart Casual",
+                "location": "Piispankatu 15",
+                "local_tips": "Known for its flavorful and inventive plant-based dishes, appealing even to non-vegetarians."
+            },
+            {
+                "name": "Tintå",
+                "cuisine_type": "Mediterranean/European/Wine Bar",
+                "signature_dishes": [
+                    "Wood-fired pizzas",
+                    "Antipasti/Tapas",
+                    "Pasta dishes",
+                    "Good wine selection"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Lively, popular riverside spot; large terrace in summer",
+                "best_time": "Lunch/Dinner/Drinks",
+                "reservation_needed": "Recommended, especially for terrace/peak times",
+                "booking_tips": "Great location by the Aura River. Can be busy.",
+                "dress_code": "Casual/Smart Casual",
+                "location": "Läntinen Rantakatu 9",
+                "local_tips": "A versatile spot good for pizza, drinks, or a more substantial meal. The terrace is prime seating in summer."
+            },
+            {
+                "name": "Roster Turku",
+                "cuisine_type": "Modern European/Grill",
+                "signature_dishes": [
+                    "Grilled meats and fish",
+                    "Seasonal dishes",
+                    "Sharing plates",
+                    "Good cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Industrial chic, stylish, located in a former bank building",
+                "best_time": "Dinner/Drinks",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Part of the same group as Kaskis. Offers a more relaxed but still high-quality experience.",
+                "dress_code": "Smart Casual",
+                "location": "Tuomiokirkonkatu 6",
+                "local_tips": "Focuses on high-quality ingredients prepared simply, often over charcoal. Also has a popular bar area."
+            },
+            {
+                "name": "Sergio's",
+                "cuisine_type": "Italian (Authentic)",
+                "signature_dishes": [
+                    "Neapolitan-style pizzas",
+                    "Pasta dishes (e.g., Carbonara, Cacio e Pepe)",
+                    "Antipasti",
+                    "Tiramisu"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Authentic Italian trattoria feel, often busy and lively",
+                "best_time": "Lunch/Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Known for authentic Italian food, particularly pizza and pasta. Run by Italians.",
+                "dress_code": "Casual/Smart Casual",
+                "location": "Linnankatu 3",
+                "local_tips": "A go-to place for many locals seeking genuine Italian flavors in Turku."
+            },
+             {
+                "name": "Panini",
+                "cuisine_type": "Italian/Cafe",
+                "signature_dishes": [
+                    "Large selection of panini (Italian sandwiches)",
+                    "Pasta salads",
+                    "Soup of the day",
+                    "Italian pastries and coffee"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Casual, bustling cafe; popular lunch spot",
+                "best_time": "Lunch/Afternoon coffee",
+                "reservation_needed": "No (counter service)",
+                "booking_tips": "Very popular for lunch, can be crowded. Good for a quick, tasty, and affordable meal.",
+                "dress_code": "Casual",
+                "location": "Linnankatu 3",
+                "local_tips": "A Turku institution for decades, known for its wide variety of delicious panini."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Traditional Grill Kiosks ('Grilli')",
+                "specialties": [
+                    "Makkaraperunat (sausage and fries)",
+                    "Lihapiirakka (meat pie, often with fillings)",
+                    "Porilainen (sausage sandwich)",
+                    "Local specialties like 'Aurajuusto burger' (blue cheese burger) might be found"
+                ],
+                "price_range": "€-€€",
+                "hours": "Often late night, especially weekends",
+                "location": "Various locations, e.g., near the Market Square or bus station.",
+                "seating": "Typically takeaway only",
+                "local_tips": "A Finnish late-night staple. Look for popular spots like 'Mantun Grilli' near the Market Square for a classic experience."
+            },
+            {
+                "name": "Hesburger",
+                "specialties": [
+                    "Finnish fast-food burgers",
+                    "Kerrosateria (Layer Meal - their Big Mac equivalent)",
+                    "Majonnaise (distinctive cucumber mayonnaise)",
+                    "Soy Tofu Burger"
+                ],
+                "price_range": "€",
+                "hours": "Varies, often long hours",
+                "location": "Multiple locations (Founded in Turku!)",
+                "seating": "Fast food seating",
+                "local_tips": "The dominant Finnish burger chain, founded in Turku. Trying Hesburger is a local fast-food experience."
+            },
+            {
+                "name": "Kebab/Pizza Places",
+                "specialties": [
+                    "Kebab rolls ('Rullakebab')",
+                    "Kebab with rice/fries",
+                    "Pizzas (often with kebab toppings)",
+                    "Falafel options"
+                ],
+                "price_range": "€-€€",
+                "hours": "Often lunch until late night",
+                "location": "Numerous locations throughout the city",
+                "seating": "Casual seating/Takeaway",
+                "local_tips": "Very common street food option in Turku, as in most Finnish cities. Quality varies."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Frukt Coffee Roasters",
+                "specialty": "Specialty Coffee Roaster & Bar",
+                "must_try": [
+                    "Single-origin filter coffee",
+                    "Espresso drinks using their own roasts",
+                    "Beans to take home"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Minimalist, focused on coffee quality",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries",
+                "local_tips": "Turku's leading specialty coffee roastery. Passionate staff and high-quality coffee."
+            },
+            {
+                "name": "Café Art",
+                "specialty": "Riverside Cafe & Art Gallery",
+                "must_try": [
+                    "Coffee",
+                    "Cakes and pastries",
+                    "Enjoying the view by the Aura River"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Artistic, relaxed, beautiful location in an old building",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Cakes, pastries, light savories",
+                "local_tips": "Located in a beautiful old riverside building (Läntinen Rantakatu 5). Features rotating art exhibitions. Great place to relax."
+            },
+            {
+                "name": "Gaggui Kaffela",
+                "specialty": "Cakes and Coffee",
+                "must_try": [
+                    "Creative layer cakes (often visually stunning)",
+                    "Cupcakes",
+                    "Good coffee"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Stylish, modern, popular for its cakes",
+                "best_time": "Afternoon treat",
+                "wifi_friendly": true,
+                "food_options": "Focus on cakes, some savory options might be available",
+                "local_tips": "Famous in Turku for its beautiful and delicious cakes. Several locations."
+            },
+            {
+                "name": "MBakery - Piece of Cake",
+                "specialty": "Bakery & Cafe (Award-Winning)",
+                "must_try": [
+                    "Award-winning cakes and pastries",
+                    "Bread",
+                    "Lunch options (salads, soups)"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Modern bakery/cafe",
+                "best_time": "Breakfast/Lunch/Afternoon coffee",
+                "wifi_friendly": true,
+                "food_options": "Wide range of baked goods, cakes, lunch",
+                "local_tips": "Run by Mikko Hietala, known for winning Finland's Best Bakery TV show. Located in Turku Market Hall."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Uusi Apteekki",
+                "type": "Pub / Beer Bar",
+                "specialty": "Wide Beer Selection, Unique Atmosphere",
+                "signature_drinks": [
+                    "Large selection of Finnish and Belgian beers",
+                    "Whiskeys"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Located in a former pharmacy ('apteekki'), quirky decor, traditional pub feel",
+                "best_time": "Evening",
+                "food_options": "Snacks",
+                "reservation_needed": "No",
+                "local_tips": "A Turku institution. Famous for its vast beer selection and unique setting in an old pharmacy."
+            },
+            {
+                "name": "The Old Bank ('Vanha Pankki')",
+                "type": "Pub / Beer Bar",
+                "specialty": "British/Irish Pub Style, Beer Selection",
+                "signature_drinks": [
+                    "Good selection of beers on tap and bottled",
+                    "Ciders, Whiskeys"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Grand setting in a former bank building, high ceilings, classic pub decor",
+                "best_time": "Evening",
+                "food_options": "Pub snacks",
+                "reservation_needed": "No",
+                "local_tips": "Impressive interior makes it a popular spot. Good range of drinks."
+            },
+            {
+                "name": "Cosmic Comic Cafe",
+                "type": "Comic Book Themed Bar",
+                "specialty": "Craft Beer, Relaxed Atmosphere",
+                "signature_drinks": [
+                    "Good selection of rotating craft beers",
+                    "Basic drinks"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Relaxed, filled with comic book art and memorabilia; board games available",
+                "best_time": "Afternoon/Evening",
+                "food_options": "Snacks",
+                "reservation_needed": "No",
+                "local_tips": "A casual and fun place, especially for comic fans or those looking for a relaxed beer."
+            },
+            {
+                "name": "Walo Rooftop Bar",
+                "type": "Rooftop Bar",
+                "specialty": "Cocktails, Views",
+                "signature_drinks": [
+                    "Cocktails",
+                    "Wine, Beer"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Modern, stylish, panoramic views over Turku",
+                "best_time": "Evening (especially sunset)",
+                "food_options": "Bar snacks",
+                "reservation_needed": "Recommended, especially for window tables",
+                "local_tips": "Located on top of the Original Sokos Hotel Wiklund. Offers the best high-up views of the city center."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Turku Food Tours (Self-Guided/Potential)",
+                "focus": "Local Delicacies, Market Hall, Riverside Eateries",
+                "duration": "Flexible",
+                "price_range": "Variable (cost of purchases)",
+                "highlights": [
+                    "Exploring Turku Market Hall (Kauppahalli) for local cheeses, fish, meats, pastries",
+                    "Walking along the Aura River and stopping at cafes/restaurants like Tintå, Mami, Smör",
+                    "Visiting Market Square (Kauppatori) for seasonal produce or snacks",
+                    "Trying local specialties like 'Hesburger' or 'Aurajuusto' (blue cheese)"
+                ],
+                "booking_required": false,
+                "group_size": "N/A",
+                "languages": ["N/A"],
+                "booking_tips": "Formal guided food tours might be less common than in Helsinki. Consider the 'Food Walk' card (check availability/current status) which sometimes allows tasting portions at participating restaurants. Otherwise, create your own tour focusing on the Market Hall and riverfront."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Turku Cooking Classes (Limited Availability)",
+                "cuisine_focus": "Finnish Baking, Seasonal Dishes",
+                "duration": "Varies",
+                "price_range": "€€€-€€€€",
+                "what_you_learn": [
+                    "Might include baking traditional Finnish bread or pastries",
+                    "Seasonal cooking based on local ingredients"
+                ],
+                "group_size": "Varies",
+                "languages": ["Finnish", "English (check carefully)"],
+                "includes": ["Ingredients", "Instruction", "Meal"],
+                "booking_tips": "Check adult education centers ('Työväenopisto' / 'Arbis') or look for specific workshops by local chefs/restaurants, although dedicated tourist-oriented cooking classes are less common than in Helsinki. Booking essential if found."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Turku Market Hall (Turun Kauppahalli)",
+                "type": "Historic Indoor Market Hall",
+                "highlights": [
+                    "Opened in 1896, beautiful architecture",
+                    "Excellent selection of meat, fish (especially from the archipelago), cheese, bread, pastries",
+                    "Several cafes and lunch restaurants inside (e.g., MBakery, Herkkunuotta fish soup)",
+                    "Local specialties like smoked fish and archipelago bread"
+                ],
+                "hours": "Mon-Fri ~8:00-18:00, Sat ~8:00-16:00 (individual stalls vary)",
+                "best_time": "Late morning/Lunchtime",
+                "location": "Eerikinkatu 16",
+                "local_tips": "A must-visit in Turku for food lovers. Great place for lunch or to buy high-quality local products. Less tourist-focused than Helsinki's Old Market Hall."
+            },
+            {
+                "name": "Turku Market Square (Turun Kauppatori)",
+                "type": "Outdoor Market Square",
+                "highlights": [
+                    "Main open-air market",
+                    "Seasonal produce: berries, vegetables, mushrooms, flowers",
+                    "Food stalls (especially in summer) offering coffee, pastries, sometimes grilled sausages or other snacks",
+                    "Center of city life, surrounded by shops"
+                ],
+                "hours": "Mon-Sat year-round (mornings mainly), busiest during summer weekdays.",
+                "best_time": "Summer mornings",
+                "location": "City Center",
+                "local_tips": "Best in summer for fresh Finnish produce like strawberries and new potatoes. Also hosts events and Christmas markets."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Mämmi (Traditional Easter rye malt pudding)",
+            "Pasha (Sweet Easter quark dessert)",
+            "Fresh Asparagus, often local",
+            "Rhubarb pies and desserts",
+            "Nettle soup",
+            "Vappu treats (May 1st): Tippaleipä (funnel cake), Munkki (doughnuts), Sima (mead)"
+        ],
+        "summer": [
+            "New potatoes ('uudet perunat') from nearby regions (e.g., Naantali) with herring ('silli') or dill butter",
+            "Abundant fresh berries from Market Square: Strawberries ('mansikat'), Blueberries/Bilberries ('mustikat'), Raspberries ('vadelmat')",
+            "Chanterelle mushrooms ('kantarelli') from local forests",
+            "Grilled sausages ('grillimakkara')",
+            "Smoked fish from the archipelago",
+            "Crayfish parties ('rapujuhlat') - late summer (July/August), often available at restaurants"
+        ],
+        "autumn": [
+            "Wild mushrooms found in local markets",
+            "Root vegetables",
+            "Lingonberries ('puolukka')",
+            "Game meats (check availability in Market Hall)",
+            "Cabbage rolls ('kaalikääryleet')",
+            "Local apples"
+        ],
+        "winter": [
+            "Christmas Buffet ('Joulupöytä') offerings in restaurants: Christmas Ham ('Joulukinkku'), various Casseroles, Rosolli salad, Herring dishes",
+            "Lutefisk (Lye-treated cod)",
+            "Pea soup ('Hernekeitto') - traditionally on Thursdays",
+            "Blinis with roe, sour cream, and onion (restaurants often feature these Jan-Feb)",
+            "Runeberg Torte ('Runebergintorttu') - available in cafes Jan-Feb 5th",
+            "Shrove Tuesday buns ('Laskiaispulla') - cream/jam filled buns"
+        ]
+    }
+}

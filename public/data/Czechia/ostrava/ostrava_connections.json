@@ -1,0 +1,256 @@
+{
+    "destinations": [
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Czech Republic's capital with stunning medieval old town, Prague Castle, and vibrant cultural scene.",
+            "directWithinCountryTrain": {
+                "stationInOstrava": "Ostrava hlavní nádraží",
+                "journeyTime": "3h30m",
+                "frequency": "Every 2 hours",
+                "trainType": "EC/IC",
+                "priceRange": "€15-35"
+            },
+            "intraEuropeFlight": {
+                "airportsInOstrava": [
+                    "Leoš Janáček Airport Ostrava"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "priceRange": "€80-150"
+            }
+        },
+        {
+            "city": "Brno",
+            "country": "Czech Republic",
+            "whyGo": "Czech Republic's second largest city with modern architecture, vibrant cultural scene, and excellent museums.",
+            "directWithinCountryTrain": {
+                "stationInOstrava": "Ostrava hlavní nádraží",
+                "journeyTime": "2h",
+                "frequency": "Hourly",
+                "trainType": "EC/IC",
+                "priceRange": "€10-25"
+            },
+            "intraEuropeFlight": {
+                "airportsInOstrava": [
+                    "Leoš Janáček Airport Ostrava"
+                ],
+                "approxFlightTime": "45m",
+                "frequency": "Daily",
+                "priceRange": "€60-120"
+            }
+        },
+        {
+            "city": "Olomouc",
+            "country": "Czech Republic",
+            "whyGo": "Historic university city with UNESCO-listed Holy Trinity Column, beautiful squares, and rich cultural heritage.",
+            "directWithinCountryTrain": {
+                "stationInOstrava": "Ostrava hlavní nádraží",
+                "journeyTime": "1h",
+                "frequency": "Every 30 minutes",
+                "trainType": "Regional",
+                "priceRange": "€5-15"
+            }
+        },
+        {
+            "city": "Český Těšín",
+            "country": "Czech Republic",
+            "whyGo": "Border town with unique Polish-Czech culture, historic architecture, and gateway to Poland.",
+            "directWithinCountryTrain": {
+                "stationInOstrava": "Ostrava hlavní nádraží",
+                "journeyTime": "45m",
+                "frequency": "Hourly",
+                "trainType": "Regional",
+                "priceRange": "€3-10"
+            }
+        },
+        {
+            "city": "Kraków",
+            "country": "Poland",
+            "whyGo": "Historic Polish city with stunning medieval old town, Wawel Castle, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInOstrava": "Ostrava hlavní nádraží",
+                "journeyTime": "2h30m",
+                "frequency": "Every 2 hours",
+                "trainType": "EC",
+                "priceRange": "€15-30"
+            },
+            "intraEuropeFlight": {
+                "airportsInOstrava": [
+                    "Leoš Janáček Airport Ostrava"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "priceRange": "€70-140"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Dynamic Polish capital with rich history, excellent museums, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInOstrava": "Ostrava hlavní nádraží",
+                "journeyTime": "5h",
+                "frequency": "Daily",
+                "trainType": "EC",
+                "priceRange": "€25-50"
+            },
+            "intraEuropeFlight": {
+                "airportsInOstrava": [
+                    "Leoš Janáček Airport Ostrava"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€80-160"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Imperial capital with magnificent palaces, world-class museums, and elegant coffee house culture.",
+            "intraEuropeTrain": {
+                "stationInOstrava": "Ostrava hlavní nádraží",
+                "journeyTime": "4h",
+                "frequency": "Every 2 hours",
+                "trainType": "EC",
+                "priceRange": "€20-40"
+            },
+            "intraEuropeFlight": {
+                "airportsInOstrava": [
+                    "Leoš Janáček Airport Ostrava"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "priceRange": "€90-180"
+            }
+        },
+        {
+            "city": "Bratislava",
+            "country": "Slovakia",
+            "whyGo": "Charming Slovak capital with medieval old town, hilltop castle, and Danube River setting.",
+            "intraEuropeTrain": {
+                "stationInOstrava": "Ostrava hlavní nádraží",
+                "journeyTime": "3h",
+                "frequency": "Daily",
+                "trainType": "EC",
+                "priceRange": "€15-30"
+            },
+            "intraEuropeFlight": {
+                "airportsInOstrava": [
+                    "Leoš Janáček Airport Ostrava"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "priceRange": "€80-150"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Stunning architecture, thermal baths, vibrant nightlife, and rich cultural heritage.",
+            "intraEuropeTrain": {
+                "stationInOstrava": "Ostrava hlavní nádraží",
+                "journeyTime": "6h",
+                "frequency": "Daily",
+                "trainType": "EC",
+                "priceRange": "€30-60"
+            },
+            "intraEuropeFlight": {
+                "airportsInOstrava": [
+                    "Leoš Janáček Airport Ostrava"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€90-180"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Dynamic capital blending history and modernity with vibrant arts and nightlife scene.",
+            "intraEuropeTrain": {
+                "stationInOstrava": "Ostrava hlavní nádraží",
+                "journeyTime": "7h",
+                "frequency": "Daily",
+                "trainType": "EC",
+                "priceRange": "€40-80"
+            },
+            "intraEuropeFlight": {
+                "airportsInOstrava": [
+                    "Leoš Janáček Airport Ostrava"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€100-200"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Bavarian capital famous for Oktoberfest, beer gardens, and Alpine proximity.",
+            "intraEuropeTrain": {
+                "stationInOstrava": "Ostrava hlavní nádraží",
+                "journeyTime": "6h",
+                "frequency": "Daily",
+                "trainType": "EC",
+                "priceRange": "€35-70"
+            },
+            "intraEuropeFlight": {
+                "airportsInOstrava": [
+                    "Leoš Janáček Airport Ostrava"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€90-180"
+            }
+        },
+        {
+            "city": "Dresden",
+            "country": "Germany",
+            "whyGo": "Beautiful Baroque architecture, world-class museums, and rich cultural heritage.",
+            "intraEuropeTrain": {
+                "stationInOstrava": "Ostrava hlavní nádraží",
+                "journeyTime": "4h30m",
+                "frequency": "Daily",
+                "trainType": "EC",
+                "priceRange": "€25-50"
+            }
+        },
+        {
+            "city": "Wrocław",
+            "country": "Poland",
+            "whyGo": "Historic Polish city with beautiful market square, Gothic architecture, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInOstrava": "Ostrava hlavní nádraží",
+                "journeyTime": "3h",
+                "frequency": "Daily",
+                "trainType": "EC",
+                "priceRange": "€15-30"
+            }
+        },
+        {
+            "city": "Katowice",
+            "country": "Poland",
+            "whyGo": "Dynamic Polish city with industrial heritage, modern architecture, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInOstrava": "Ostrava hlavní nádraží",
+                "journeyTime": "1h30m",
+                "frequency": "Every 2 hours",
+                "trainType": "Regional",
+                "priceRange": "€8-20"
+            }
+        },
+        {
+            "city": "Žilina",
+            "country": "Slovakia",
+            "whyGo": "Charming Slovak city with medieval architecture, beautiful squares, and gateway to the Tatras.",
+            "intraEuropeTrain": {
+                "stationInOstrava": "Ostrava hlavní nádraží",
+                "journeyTime": "2h",
+                "frequency": "Daily",
+                "trainType": "Regional",
+                "priceRange": "€10-25"
+            }
+        }
+    ]
+}

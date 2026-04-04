@@ -1,0 +1,636 @@
+{
+    "restaurants": {
+      "fine_dining": [
+        {
+          "name": "Quadri",
+          "cuisine_type": "Contemporary Venetian",
+          "signature_dishes": [
+            "Cappuccino di Laguna (Lagoon Cappuccino)",
+            "Risotto al Nero di Seppia (Cuttlefish Ink Risotto)"
+          ],
+          "price_range": "€€€€",
+          "atmosphere": "Elegant historic setting with views of Piazza San Marco",
+          "best_time": "Dinner",
+          "reservation_needed": true,
+          "booking_tips": "Book 1-2 months in advance, request window seating for piazza views",
+          "dress_code": "Formal",
+          "michelin_stars": 1,
+          "location": "Piazza San Marco",
+          "local_tips": "The restaurant is housed in a historic 18th-century café; arrive early to enjoy a pre-dinner aperitivo in their downstairs café"
+        },
+        {
+          "name": "Glam",
+          "cuisine_type": "Modern Venetian",
+          "signature_dishes": [
+            "Spider Crab with Citrus and Pepper",
+            "Tagliolini with Scallops and Truffle"
+          ],
+          "price_range": "€€€€",
+          "atmosphere": "Sophisticated and intimate with refined modern decor",
+          "best_time": "Dinner",
+          "reservation_needed": true,
+          "booking_tips": "Reserve at least 3-4 weeks in advance",
+          "dress_code": "Smart elegant",
+          "michelin_stars": 2,
+          "location": "Palazzo Venart, Santa Croce",
+          "local_tips": "Chef Donato Ascani creates innovative dishes using Venetian ingredients; the tasting menu offers the best experience"
+        },
+        {
+          "name": "Oro Restaurant",
+          "cuisine_type": "Contemporary Italian",
+          "signature_dishes": [
+            "Squid Tagliatelle",
+            "Lamb Cooked Three Ways"
+          ],
+          "price_range": "€€€€",
+          "atmosphere": "Luxurious dining room with panoramic terrace overlooking the Grand Canal",
+          "best_time": "Dinner",
+          "reservation_needed": true,
+          "booking_tips": "Book 2-3 weeks in advance, request outdoor seating in summer",
+          "dress_code": "Formal",
+          "michelin_stars": 1,
+          "location": "Cipriani Hotel, Giudecca Island",
+          "local_tips": "Arrive by water taxi for the full experience; the sunset views are spectacular"
+        },
+        {
+          "name": "Met Restaurant",
+          "cuisine_type": "Creative Venetian",
+          "signature_dishes": [
+            "Carpaccio of Amberjack with Fennel and Bottarga",
+            "Homemade Tortelli with Duck Ragout"
+          ],
+          "price_range": "€€€€",
+          "atmosphere": "Refined elegance with canal views and artistic decor",
+          "best_time": "Dinner",
+          "reservation_needed": true,
+          "booking_tips": "Book 2-3 weeks in advance, mention any dietary restrictions",
+          "dress_code": "Smart elegant",
+          "michelin_stars": 1,
+          "location": "Metropole Hotel, Castello",
+          "local_tips": "Try their unique spice-inspired menu, reflecting Venice's history as a spice trading center"
+        },
+        {
+          "name": "Venissa",
+          "cuisine_type": "Farm-to-Table Venetian",
+          "signature_dishes": [
+            "Lagoon Fish with Native Plants",
+            "Mazzorbo Island Vegetables"
+          ],
+          "price_range": "€€€",
+          "atmosphere": "Serene vineyard estate on Mazzorbo Island with magical rural setting",
+          "best_time": "Lunch",
+          "reservation_needed": true,
+          "booking_tips": "Book 3-4 weeks ahead; make a day trip to experience the vineyard and gardens",
+          "dress_code": "Smart casual",
+          "michelin_stars": 1,
+          "location": "Mazzorbo Island (near Burano)",
+          "local_tips": "Arrive early to explore their walled vineyard producing the rare Dorona grape, nearly extinct until recently"
+        }
+      ],
+      "casual_dining": [
+        {
+          "name": "Osteria alle Testiere",
+          "cuisine_type": "Venetian Seafood",
+          "signature_dishes": [
+            "Scallops with Wild Fennel",
+            "Spider Crab with Ginger"
+          ],
+          "price_range": "€€€",
+          "atmosphere": "Intimate traditional osteria with only 22 seats",
+          "best_time": "Dinner",
+          "reservation_needed": true,
+          "booking_tips": "Book 2-3 weeks in advance; closed Sunday and Monday",
+          "dress_code": "Smart casual",
+          "location": "Castello",
+          "local_tips": "Daily menu depends on the Rialto Market finds; let the owner recommend wine pairings"
+        },
+        {
+          "name": "Antiche Carampane",
+          "cuisine_type": "Traditional Venetian",
+          "signature_dishes": [
+            "Moleche (Soft-Shell Crabs, seasonal)",
+            "Fritto Misto della Laguna"
+          ],
+          "price_range": "€€€",
+          "atmosphere": "Warm family-run trattoria with a hidden location",
+          "best_time": "Lunch",
+          "reservation_needed": true,
+          "booking_tips": "Reserve 1-2 weeks in advance; follow their handwritten signs to find it",
+          "dress_code": "Casual",
+          "location": "San Polo",
+          "local_tips": "Famous for their 'No Pizza, No Lasagna, No Tourist Menu' sign; serves authentic Venetian specialties only"
+        },
+        {
+          "name": "Al Covo",
+          "cuisine_type": "Traditional Venetian",
+          "signature_dishes": [
+            "Granceola alla Veneziana (Venetian-style Crab)",
+            "Mantis Shrimp Risotto"
+          ],
+          "price_range": "€€€",
+          "atmosphere": "Cozy and elegant with exposed beams and brick walls",
+          "best_time": "Dinner",
+          "reservation_needed": true,
+          "booking_tips": "Book at least a week ahead; closed Wednesdays and Thursdays",
+          "dress_code": "Smart casual",
+          "location": "Castello",
+          "local_tips": "Run by a Venetian-Texan couple; their desserts featuring American influences are exceptional"
+        },
+        {
+          "name": "Trattoria da Jonny",
+          "cuisine_type": "Classic Venetian",
+          "signature_dishes": [
+            "Baccalà Mantecato (Creamed Codfish)",
+            "Sarde in Saor (Sweet and Sour Sardines)"
+          ],
+          "price_range": "€€",
+          "atmosphere": "Authentic neighborhood trattoria with limited seating",
+          "best_time": "Lunch",
+          "reservation_needed": true,
+          "booking_tips": "Call at least 3-4 days ahead; popular with locals",
+          "dress_code": "Casual",
+          "location": "Giudecca Island",
+          "local_tips": "One of the few authentic places remaining on Giudecca; worth the vaporetto trip"
+        },
+        {
+          "name": "La Zucca",
+          "cuisine_type": "Vegetable-Focused Venetian",
+          "signature_dishes": [
+            "Pumpkin Flan",
+            "Pecorino and Pear Pasta"
+          ],
+          "price_range": "€€",
+          "atmosphere": "Small, rustic restaurant with canal-side tables",
+          "best_time": "Dinner",
+          "reservation_needed": true,
+          "booking_tips": "Book a week in advance; request canal-side seating",
+          "dress_code": "Casual",
+          "location": "Santa Croce",
+          "local_tips": "A rare find in Venice with excellent vegetarian options, though not exclusively vegetarian"
+        },
+        {
+          "name": "Osteria Al Squero",
+          "cuisine_type": "Cicchetti",
+          "signature_dishes": [
+            "Bacalà Mantecato on Polenta",
+            "Brie and Truffle Honey Crostini"
+          ],
+          "price_range": "€",
+          "atmosphere": "Standing-room wine bar across from a gondola workshop",
+          "best_time": "Lunch",
+          "reservation_needed": false,
+          "booking_tips": "No reservations; arrive early for better selection",
+          "dress_code": "Casual",
+          "location": "Dorsoduro",
+          "local_tips": "Order a spritz and cicchetti, then enjoy them canal-side watching gondolas being made"
+        },
+        {
+          "name": "Trattoria da Romano",
+          "cuisine_type": "Seafood & Venetian Classics",
+          "signature_dishes": [
+            "Risotto al Gò (Goby Fish Risotto)",
+            "Mixed Fried Seafood from the Lagoon"
+          ],
+          "price_range": "€€€",
+          "atmosphere": "Historic, family-run restaurant on colorful Burano island",
+          "best_time": "Lunch",
+          "reservation_needed": true,
+          "booking_tips": "Book 1-2 weeks ahead; make a day trip to Burano",
+          "dress_code": "Smart casual",
+          "location": "Burano Island",
+          "local_tips": "Their risotto is prepared the traditional way, with fish from the lagoon; worth the trip to Burano"
+        }
+      ],
+      "street_food": [
+        {
+          "name": "All'Arco",
+          "specialties": [
+            "Baccalà Mantecato Cicchetti",
+            "Mini Panini with Prosciutto"
+          ],
+          "price_range": "€",
+          "hours": "8:00 AM - 2:30 PM",
+          "location": "San Polo (near Rialto Market)",
+          "seating": false,
+          "local_tips": "The tiny bar is where locals stand for a quick bite during market hours"
+        },
+        {
+          "name": "Acqua e Mais",
+          "specialties": [
+            "Fritto Misto in Paper Cones",
+            "Polenta with Seafood"
+          ],
+          "price_range": "€",
+          "hours": "11:00 AM - 8:00 PM",
+          "location": "Dorsoduro",
+          "seating": false,
+          "local_tips": "Perfect for a quick, inexpensive seafood snack on the go"
+        },
+        {
+          "name": "Dal Moro's Fresh Pasta to Go",
+          "specialties": [
+            "Fresh Pasta with Various Sauces",
+            "Handmade Tagliatelle"
+          ],
+          "price_range": "€",
+          "hours": "12:00 PM - 9:00 PM",
+          "location": "Castello",
+          "seating": false,
+          "local_tips": "Watch pasta being made fresh; take your box to enjoy by a nearby canal"
+        },
+        {
+          "name": "SuSo Gelatoteca",
+          "specialties": [
+            "Manet (Salted Pistachio and Caramel)",
+            "Gianduiotto (Chocolate-Hazelnut)"
+          ],
+          "price_range": "€",
+          "hours": "11:00 AM - 11:00 PM",
+          "location": "San Marco",
+          "seating": false,
+          "local_tips": "Award-winning artisanal gelato with unique flavors; near the Rialto Bridge but worth the queue"
+        },
+        {
+          "name": "Bacareto da Lele",
+          "specialties": [
+            "Tramezzini (Tiny Sandwiches)",
+            "Ombra (Small Glass of Wine)"
+          ],
+          "price_range": "€",
+          "hours": "8:00 AM - 8:00 PM",
+          "location": "Santa Croce",
+          "seating": false,
+          "local_tips": "Authentic student hangout with the cheapest small sandwiches and wine in Venice"
+        }
+      ]
+    },
+    "bars_and_cafes": {
+      "coffee_shops": [
+        {
+          "name": "Caffè Florian",
+          "specialty": "Historic Italian Coffee Service",
+          "must_try": [
+            "Caffè Florian (Coffee with Liqueurs)",
+            "Hot Chocolate with Cream"
+          ],
+          "price_range": "€€€€",
+          "atmosphere": "Opulent historic café dating to 1720 with live orchestra and art nouveau interiors",
+          "best_time": "Morning",
+          "wifi_friendly": false,
+          "food_options": "Pastries and light meals",
+          "local_tips": "The orchestra charges an extra fee on your bill; visit in winter for lower prices and fewer crowds"
+        },
+        {
+          "name": "Torrefazione Cannaregio",
+          "specialty": "Fresh Roasted Coffee",
+          "must_try": [
+            "Single-Origin Espresso",
+            "Cold Brew Coffee"
+          ],
+          "price_range": "€",
+          "atmosphere": "Artisanal coffee shop with in-house roastery",
+          "best_time": "Morning",
+          "wifi_friendly": true,
+          "food_options": "Pastries",
+          "local_tips": "One of the few specialty coffee shops in Venice; buy beans to take home"
+        },
+        {
+          "name": "Caffè del Doge",
+          "specialty": "Traditional Venetian Coffee Blends",
+          "must_try": [
+            "Doge Rosso Blend Espresso",
+            "Crema del Doge (Coffee with Chocolate and Whipped Cream)"
+          ],
+          "price_range": "€€",
+          "atmosphere": "Authentic coffee house with roastery",
+          "best_time": "Morning",
+          "wifi_friendly": false,
+          "food_options": "Pastries and cookies",
+          "local_tips": "Located near Rialto; stand at the bar for local prices and a quicker experience"
+        },
+        {
+          "name": "Rosa Salva",
+          "specialty": "Traditional Venetian Pastries and Coffee",
+          "must_try": [
+            "Cappuccino",
+            "Venetian Baicoli Cookies"
+          ],
+          "price_range": "€€",
+          "atmosphere": "Elegant historic patisserie with café tables",
+          "best_time": "Afternoon",
+          "wifi_friendly": false,
+          "food_options": "Full pastry selection and light lunches",
+          "local_tips": "The Campo San Giovanni e Paolo location has a nice sitting area; try their seasonal fritters during Carnival"
+        },
+        {
+          "name": "Pasticceria Tonolo",
+          "specialty": "Artisanal Pastries with Coffee",
+          "must_try": [
+            "Espresso",
+            "Venetian Frittelle (seasonal)"
+          ],
+          "price_range": "€",
+          "atmosphere": "Traditional standing-room bakery with locals queuing for pastries",
+          "best_time": "Morning",
+          "wifi_friendly": false,
+          "food_options": "Wide selection of pastries and cakes",
+          "local_tips": "A true local institution since 1886; arrive early for the best selection"
+        }
+      ],
+      "bars": [
+        {
+          "name": "Harry's Bar",
+          "type": "Historic Bar",
+          "specialty": "Classic Cocktails",
+          "signature_drinks": [
+            "Bellini (Peach Purée and Prosecco)",
+            "Montgomery Martini"
+          ],
+          "price_range": "€€€€",
+          "atmosphere": "Elegant and understated with 1930s charm",
+          "best_time": "Evening",
+          "food_options": "Famous for carpaccio; full restaurant menu",
+          "reservation_needed": true,
+          "local_tips": "Birthplace of the Bellini and carpaccio; Ernest Hemingway's favorite Venice haunt"
+        },
+        {
+          "name": "Bar Longhi",
+          "type": "Luxury Hotel Bar",
+          "specialty": "Refined Cocktails",
+          "signature_drinks": [
+            "Longhi Martini",
+            "Venetian Spritz with Select"
+          ],
+          "price_range": "€€€€",
+          "atmosphere": "Opulent Venetian decor with Grand Canal terrace",
+          "best_time": "Sunset",
+          "food_options": "Gourmet bar snacks",
+          "reservation_needed": true,
+          "local_tips": "Located in The Gritti Palace; the terrace offers one of the best Grand Canal views in Venice"
+        },
+        {
+          "name": "Bacaro Jazz",
+          "type": "Wine Bar",
+          "specialty": "Wine and Cicchetti",
+          "signature_drinks": [
+            "House Red Wine",
+            "Prosecco"
+          ],
+          "price_range": "€€",
+          "atmosphere": "Lively and colorful with bras hanging from the ceiling (a tradition)",
+          "best_time": "Evening",
+          "food_options": "Cicchetti platters",
+          "reservation_needed": false,
+          "local_tips": "Live jazz on some evenings; more touristy than other bacari but fun atmosphere"
+        },
+        {
+          "name": "Il Mercante",
+          "type": "Cocktail Bar",
+          "specialty": "Inventive Cocktails",
+          "signature_drinks": [
+            "Marco Polo-inspired creations",
+            "Merchant's Route (spice-infused cocktails)"
+          ],
+          "price_range": "€€€",
+          "atmosphere": "Vintage explorer theme with hidden courtyard seating",
+          "best_time": "Evening",
+          "food_options": "Gourmet bar snacks",
+          "reservation_needed": true,
+          "local_tips": "Each cocktail tells a story related to merchant travels; ask the bartenders to explain"
+        },
+        {
+          "name": "Cantina Do Spade",
+          "type": "Traditional Bacaro",
+          "specialty": "Natural Wines",
+          "signature_drinks": [
+            "House wines by the glass",
+            "Select Spritz (more bitter than Aperol)"
+          ],
+          "price_range": "€€",
+          "atmosphere": "Historic bacaro dating to 1448 with rustic wooden interior",
+          "best_time": "Afternoon",
+          "food_options": "Traditional cicchetti",
+          "reservation_needed": false,
+          "local_tips": "Casanova allegedly brought his conquests here; one of Venice's oldest wine bars"
+        },
+        {
+          "name": "Skyline Rooftop Bar",
+          "type": "Rooftop Bar",
+          "specialty": "Panoramic Cocktails",
+          "signature_drinks": [
+            "Spritz variations",
+            "Venetian Sunset (Prosecco cocktail)"
+          ],
+          "price_range": "€€€",
+          "atmosphere": "Modern rooftop with panoramic lagoon views",
+          "best_time": "Sunset",
+          "food_options": "Aperitivo snacks",
+          "reservation_needed": true,
+          "local_tips": "Located at the Hilton Molino Stucky on Giudecca; best sunset views in Venice"
+        }
+      ]
+    },
+    "food_experiences": {
+      "food_tours": [
+        {
+          "name": "Rialto Market Tour & Cicchetti Crawl",
+          "focus": "Venetian Market and Wine Bars",
+          "duration": "3 hours",
+          "price_range": "€€€",
+          "highlights": [
+            "Morning Rialto Market visit",
+            "Cicchetti tasting at traditional bacari",
+            "Local wine pairings"
+          ],
+          "booking_required": true,
+          "group_size": "Max 8 participants",
+          "languages": [
+            "English",
+            "Italian"
+          ],
+          "booking_tips": "Book at least a week in advance; market is closed Sundays and Monday afternoons"
+        },
+        {
+          "name": "Cannaregio Food & Jewish Ghetto Tour",
+          "focus": "Off-the-beaten-path Venetian cuisine",
+          "duration": "4 hours",
+          "price_range": "€€",
+          "highlights": [
+            "Jewish Ghetto history and cuisine",
+            "Traditional bacari in Cannaregio",
+            "Authentic local eateries away from tourist areas"
+          ],
+          "booking_required": true,
+          "group_size": "Max 10 participants",
+          "languages": [
+            "English",
+            "Italian",
+            "French"
+          ],
+          "booking_tips": "Book 10-14 days ahead; Friday evening tours include Sabbath traditions"
+        },
+        {
+          "name": "Venetian Food & Wine Evening Tour",
+          "focus": "Evening Dining Culture",
+          "duration": "3.5 hours",
+          "price_range": "€€€",
+          "highlights": [
+            "Aperitivo tradition",
+            "Multiple cicchetti bars",
+            "Regional wine tasting"
+          ],
+          "booking_required": true,
+          "group_size": "Max 10 participants",
+          "languages": [
+            "English",
+            "Italian",
+            "Spanish"
+          ],
+          "booking_tips": "Reserve 1-2 weeks ahead; come hungry as you'll visit at least 5 food stops"
+        },
+        {
+          "name": "Lagoon Islands Food Experience",
+          "focus": "Burano and Mazzorbo Cuisine",
+          "duration": "6 hours",
+          "price_range": "€€€€",
+          "highlights": [
+            "Seafood lunch in Burano",
+            "Visit to Venissa vineyard",
+            "Artisanal food producers on the islands"
+          ],
+          "booking_required": true,
+          "group_size": "Max 8 participants",
+          "languages": [
+            "English",
+            "Italian"
+          ],
+          "booking_tips": "Book at least 2 weeks ahead; tour includes boat transportation from central Venice"
+        }
+      ],
+      "cooking_classes": [
+        {
+          "name": "Venetian Classics Cooking Class",
+          "cuisine_focus": "Traditional Venetian",
+          "duration": "3 hours",
+          "price_range": "€€€",
+          "what_you_learn": [
+            "Risotto al Nero di Seppia (Squid Ink Risotto)",
+            "Sarde in Saor (Sweet and Sour Sardines)",
+            "Baicoli Cookies"
+          ],
+          "group_size": "Max 8 participants",
+          "languages": [
+            "English",
+            "Italian"
+          ],
+          "includes": [
+            "Market visit, ingredients, meal with wine, recipes"
+          ],
+          "booking_tips": "Book 2 weeks ahead; morning classes include Rialto Market shopping"
+        },
+        {
+          "name": "Cicchetti & Risotto Workshop",
+          "cuisine_focus": "Venetian Small Plates",
+          "duration": "4 hours",
+          "price_range": "€€€",
+          "what_you_learn": [
+            "5 types of cicchetti",
+            "Proper risotto technique",
+            "Venetian wine pairing"
+          ],
+          "group_size": "Max 10 participants",
+          "languages": [
+            "English",
+            "Italian"
+          ],
+          "includes": [
+            "All ingredients, wine tasting, recipes to take home"
+          ],
+          "booking_tips": "Reserve 1-2 weeks in advance; great for groups"
+        },
+        {
+          "name": "Venetian Seafood Masterclass",
+          "cuisine_focus": "Lagoon Fish Specialties",
+          "duration": "4 hours",
+          "price_range": "€€€€",
+          "what_you_learn": [
+            "Selection and cleaning of local seafood",
+            "Traditional seafood antipasti",
+            "Whole fish preparation"
+          ],
+          "group_size": "Max 6 participants",
+          "languages": [
+            "English",
+            "Italian"
+          ],
+          "includes": [
+            "Rialto fish market tour, all ingredients, seafood feast with wine"
+          ],
+          "booking_tips": "Book 3 weeks ahead; not available Sundays and Mondays when the fish market is closed"
+        }
+      ],
+      "markets": [
+        {
+          "name": "Rialto Market",
+          "type": "Food Market",
+          "highlights": [
+            "Fresh seafood caught daily",
+            "Seasonal produce from Sant'Erasmo island",
+            "Local specialties"
+          ],
+          "hours": "Tuesday to Saturday 7:30 AM - 1:00 PM",
+          "best_time": "Early Morning",
+          "location": "San Polo (Rialto)",
+          "local_tips": "Visit early to see chefs from Venetian restaurants selecting their daily ingredients"
+        },
+        {
+          "name": "Mercato di Mestre",
+          "type": "Local Food Market",
+          "highlights": [
+            "Authentic market experience",
+            "Regional products",
+            "Lower prices than Venice proper"
+          ],
+          "hours": "Monday to Saturday 7:30 AM - 1:30 PM",
+          "best_time": "Morning",
+          "location": "Mestre (mainland)",
+          "local_tips": "Where actual Venetians shop; worth the short train ride for food enthusiasts seeking authenticity"
+        },
+        {
+          "name": "Mercatino Biologico Villapenta",
+          "type": "Organic Farmers Market",
+          "highlights": [
+            "Organic produce",
+            "Local cheese and honey",
+            "Artisanal bread"
+          ],
+          "hours": "Every third Sunday of the month, 9:00 AM - 2:00 PM",
+          "best_time": "Mid-morning",
+          "location": "Campo Santa Margherita",
+          "local_tips": "One of the few places to find organic produce in Venice; bring your own shopping bag"
+        }
+      ]
+    },
+    "seasonal_specialties": {
+      "spring": [
+        "Castraure (First Artichokes from Sant'Erasmo Island)",
+        "Moleche (Soft-Shell Crabs during molting season)",
+        "Risi e Bisi (Rice and Peas, traditionally served on St. Mark's Day)"
+      ],
+      "summer": [
+        "Peoci (Local Mussels)",
+        "Schie (Tiny Gray Shrimp from the Lagoon)",
+        "Seasonal Fruit Sorbets from Boutique Gelaterias"
+      ],
+      "autumn": [
+        "Moeche (Fall Season Soft-Shell Crabs)",
+        "Risotto with Porcini Mushrooms",
+        "Fegato alla Veneziana (Venetian-style Liver with Onions)"
+      ],
+      "winter": [
+        "Frittelle Veneziane (Venetian Carnival Fritters)",
+        "Galani (Sweet Fried Pastry during Carnival)",
+        "Castradina (Mutton and Cabbage Soup for the Feast of the Salute)"
+      ]
+    }
+  }

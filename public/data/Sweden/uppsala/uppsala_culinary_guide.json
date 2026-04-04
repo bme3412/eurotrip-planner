@@ -1,0 +1,393 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Villa Anna",
+                "cuisine_type": "Modern Swedish/Nordic",
+                "signature_dishes": [
+                    "Seasonal tasting menus focusing on local Uppland ingredients",
+                    "Gourmet à la carte options with refined presentations"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and intimate setting within a historic boutique hotel",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance, especially for weekends; mention dietary needs when booking; wine pairings recommended.",
+                "dress_code": "Smart Casual/Elegant",
+                "michelin_stars": "Recommended by Michelin Guide",
+                "location": "Near Uppsala Cathedral (Odinslund)",
+                "local_tips": "One of Uppsala's top fine dining experiences, known for high-quality ingredients and service in a beautiful historic building."
+            },
+            {
+                "name": "Dryck & Mat",
+                "cuisine_type": "Modern European with focus on beverage pairings",
+                "signature_dishes": [
+                    "Tasting menus designed around wine or beer pairings",
+                    "Creative dishes using seasonal ingredients"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated and modern, with a focus on the dining experience",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Ideal for wine/beer enthusiasts; specify if opting for tasting menu with pairing; book ahead.",
+                "dress_code": "Smart Casual",
+                "michelin_stars": "Recommended by Michelin Guide",
+                "location": "City Centre (near Fyrisån river)",
+                "local_tips": "Highly regarded for its beverage program and how the food complements it. Check out their adjacent bar 'Sju Flaskor'."
+            },
+            {
+                "name": "Hambergs Fisk",
+                "cuisine_type": "Seafood/Swedish",
+                "signature_dishes": [
+                    "Fresh fish and shellfish platters",
+                    "Classic Swedish seafood dishes (e.g., cured salmon, shrimp salad)",
+                    "Daily specials based on the catch"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Classic bistro feel connected to a fish market/deli",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended, especially evenings",
+                "booking_tips": "Offers both a restaurant and a deli counter; focuses solely on seafood.",
+                "dress_code": "Casual/Smart Casual",
+                "michelin_stars": "Recommended by Michelin Guide",
+                "location": "Fyristorg (main square)",
+                "local_tips": "An Uppsala institution, evolved from a fishmonger. Renowned for the quality and freshness of its seafood."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Stationen",
+                "cuisine_type": "French Brasserie/European Classics",
+                "signature_dishes": [
+                    "Steak Frites",
+                    "Moules Marinières",
+                    "French Onion Soup",
+                    "Plateau de Fruits de Mer"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Lively, grand brasserie atmosphere replicating Parisian, London, and Rome stations",
+                "best_time": "Lunch, Dinner, Weekend Brunch",
+                "reservation_needed": "Recommended, especially evenings/weekends",
+                "booking_tips": "Consists of different sections (Paris, London, Rome); specify preference if any.",
+                "dress_code": "Smart Casual",
+                "location": "Uppsala Central Station building",
+                "local_tips": "Popular and atmospheric spot located in the historic station house. Great for people-watching."
+            },
+            {
+                "name": "Jay Fu's",
+                "cuisine_type": "American-Asian Fusion Steakhouse",
+                "signature_dishes": [
+                    "Grilled steaks with Asian-inspired sauces/sides",
+                    "Creative fusion appetizers",
+                    "Signature cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stylish, modern restaurant with an 'Amasian' theme",
+                "best_time": "Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Located on the top floor of Uppsala Saluhall.",
+                "dress_code": "Smart Casual",
+                "location": "Uppsala Saluhall (St Eriks Torg)",
+                "local_tips": "Unique fusion concept in Uppsala, offering hearty meat dishes with Asian twists."
+            },
+            {
+                "name": "Peppar Peppar",
+                "cuisine_type": "Swedish/French Bistro",
+                "signature_dishes": [
+                    "Classic Swedish dishes with French influences",
+                    "Seasonal menu with local ingredients",
+                    "Good vegetarian options"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Cozy and rustic in a historic brick building",
+                "best_time": "Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Popular among locals, book ahead for weekends.",
+                "dress_code": "Casual/Smart Casual",
+                "location": "Near Central Station (Suttungs gränd)",
+                "local_tips": "Long-standing favorite known for its reliable food and charming setting."
+            },
+            {
+                "name": "Aaltos Grill & Garden",
+                "cuisine_type": "Italian Grill",
+                "signature_dishes": [
+                    "Charcoal-grilled meats and fish",
+                    "Pasta dishes",
+                    "Italian appetizers and desserts"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Stylish Italian-inspired setting with a focus on the grill, nice garden area",
+                "best_time": "Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Located in a building designed by Alvar Aalto. Good wine list.",
+                "dress_code": "Smart Casual",
+                "location": "Sysslomansgatan (near Ekonomikum)",
+                "local_tips": "Popular for its grilled dishes and pleasant ambiance, especially the outdoor seating in summer."
+            },
+            {
+                "name": "Domtrappkällaren",
+                "cuisine_type": "Traditional Swedish/European",
+                "signature_dishes": [
+                    "Classic Swedish lunch dishes ('Husmanskost')",
+                    "Seasonal evening menu with Swedish flavors",
+                    "Extensive wine list"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Historic cellar vaults near the Cathedral with medieval walls",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended for dinner",
+                "booking_tips": "Unique historical setting; check out the different dining rooms.",
+                "dress_code": "Casual/Smart Casual",
+                "location": "Near Uppsala Cathedral (S:t Eriks gränd)",
+                "local_tips": "Dine amidst history in parts of Uppsala's oldest buildings. Known for traditional Swedish fare and a vast wine cellar."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Uppsala Saluhall",
+                "specialties": [
+                    "Various food stalls (e.g., fish, cheese, meats)",
+                    "Cafes and casual eateries (e.g., Jay Fu's upstairs)",
+                    "Opportunities for lunch or buying local products"
+                ],
+                "price_range": "€-€€€",
+                "hours": "Generally Mon-Sat, daytime hours (check specific vendor times)",
+                "location": "St Eriks Torg",
+                "seating": "Available within eateries and some communal space",
+                "local_tips": "Uppsala's main indoor food market. Good spot for lunch or picking up local delicacies. More upscale than a typical street food market."
+            },
+            {
+                "name": "Kebab & Falafel Stands",
+                "specialties": [
+                    "Kebab wraps/plates",
+                    "Falafel wraps/plates"
+                ],
+                "price_range": "€",
+                "hours": "Often lunch through late night",
+                "location": "Various locations, often near student areas or transportation hubs",
+                "seating": "Usually limited or none",
+                "local_tips": "Standard quick and affordable option found throughout the city, popular with students."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Güntherska Hovkonditori & Schweizeri",
+                "specialty": "Historic Konditori (Pastry Shop & Café)",
+                "must_try": [
+                    "Classic Swedish pastries (Princess cake, cinnamon buns)",
+                    "Elaborate cakes",
+                    "Coffee/Tea in traditional setting"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Grand, traditional European café atmosphere, historic establishment",
+                "best_time": "Fika (afternoon coffee break)",
+                "wifi_friendly": true,
+                "food_options": "Extensive range of pastries, cakes, sandwiches, light lunches",
+                "local_tips": "An Uppsala institution since the 1880s. Experience a traditional Swedish 'fika' in a historic environment."
+            },
+            {
+                "name": "Kafferummet Storken",
+                "specialty": "Cozy Traditional Café",
+                "must_try": [
+                    "Coffee and tea selection",
+                    "Homemade cakes and pies",
+                    "Classic sandwiches"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Quaint, cozy, traditional café with vintage decor",
+                "best_time": "Fika, quiet afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries, sandwiches, light meals",
+                "local_tips": "A beloved local spot known for its charming, old-fashioned atmosphere and homemade treats."
+            },
+            {
+                "name": "Café Linné",
+                "specialty": "Student-friendly Café",
+                "must_try": [
+                    "'Linnébulle' (Large cinnamon bun)",
+                    "Coffee",
+                    "Affordable lunch options"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Casual, lively, popular with students",
+                "best_time": "Lunch or Fika",
+                "wifi_friendly": true,
+                "food_options": "Pastries, sandwiches, salads, simple hot meals",
+                "local_tips": "Famous for its giant cinnamon buns ('Linnébulle'). A classic student hangout near the university."
+            },
+            {
+                "name": "Uppsala Kafferosteri",
+                "specialty": "Specialty Coffee Roastery & Café",
+                "must_try": [
+                    "Locally roasted single-origin coffee (espresso or filter)",
+                    "Pastries from local bakeries",
+                    "Coffee beans to purchase"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist coffee bar focused on quality coffee",
+                "best_time": "Morning or afternoon coffee break",
+                "wifi_friendly": true,
+                "food_options": "Pastries, some light snacks",
+                "local_tips": "Focuses on high-quality, locally roasted beans. For serious coffee enthusiasts."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Terrassen Kök & Bar",
+                "type": "Rooftop Bar/Restaurant",
+                "specialty": "City Views & Cocktails",
+                "signature_drinks": [
+                    "Seasonal cocktails",
+                    "Wine and beer selection"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Stylish rooftop setting with panoramic views of Uppsala (seasonal)",
+                "best_time": "Summer evenings, sunset",
+                "food_options": "Full restaurant menu (often grill-focused in summer)",
+                "reservation_needed": "Recommended for dining",
+                "local_tips": "Offers some of the best views in Uppsala, particularly popular in warmer months. Located atop a hotel."
+            },
+            {
+                "name": "O'Connors Irish Pub",
+                "type": "Irish Pub",
+                "specialty": "Irish & International Beers, Pub Food",
+                "signature_drinks": [
+                    "Guinness",
+                    "Wide selection of beers on tap",
+                    "Whiskey selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively, traditional Irish pub atmosphere",
+                "best_time": "Evening, weekends, game nights",
+                "food_options": "Classic pub fare (burgers, fish & chips)",
+                "reservation_needed": "Not usually, can get crowded",
+                "local_tips": "Popular spot for watching sports and enjoying a casual pint in a classic pub environment."
+            },
+            {
+                "name": "Bryggeriet Ångkvarn",
+                "type": "Brewpub",
+                "specialty": "Locally Brewed Beer & Gastropub Food",
+                "signature_drinks": [
+                    "House-brewed beers",
+                    "Rotating guest taps"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Modern brewpub setting in a historic industrial building",
+                "best_time": "Afternoon/Evening",
+                "food_options": "Gastropub menu designed to pair with beer",
+                "reservation_needed": "Recommended for dining",
+                "local_tips": "Brew their own beer on-site. Offers brewery tours and tastings."
+            },
+            {
+                "name": "Churchill Arms",
+                "type": "English Pub",
+                "specialty": "British Ales & Pub Atmosphere",
+                "signature_drinks": [
+                    "Cask ales",
+                    "British and international beers",
+                    "Gin selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, traditional English pub decor",
+                "best_time": "Evening",
+                "food_options": "Pub grub (pies, fish & chips)",
+                "reservation_needed": "No",
+                "local_tips": "Authentic English pub feel, popular with locals and expats."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Self-Guided Fika Tour",
+                "focus": "Experiencing Swedish Fika Culture",
+                "duration": "Flexible",
+                "price_range": "€-€€",
+                "highlights": [
+                    "Visiting multiple traditional and modern cafes",
+                    "Sampling different types of coffee and pastries (kanelbullar, princess cake)",
+                    "Enjoying the relaxed atmosphere of Swedish coffee breaks"
+                ],
+                "booking_required": false,
+                "group_size": "Individual/Small group",
+                "languages": [ "N/A" ],
+                "booking_tips": "Create your own tour by visiting cafes like Güntherska, Café Linné, Storken, etc. Fika is about taking a break and socializing."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Swedish Baking Class (e.g., Cinnamon Buns)",
+                "cuisine_focus": "Classic Swedish Pastries",
+                "duration": "Approx. 3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Techniques for making classic Kanelbullar (cinnamon buns) or other pastries",
+                    "Working with yeasted doughs"
+                ],
+                "group_size": "Small groups",
+                "languages": [ "English often available", "Swedish" ],
+                "includes": [ "Ingredients, instruction, baked goods to take home" ],
+                "booking_tips": "Check local community centers ('studieförbund') or specialized food studios for occasional classes."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Uppsala Saluhall",
+                "type": "Indoor Food Hall",
+                "highlights": [
+                    "Vendors selling cheese, meat, fish, bread, and delicacies",
+                    "Several lunch restaurants and cafes inside",
+                    "Focus on quality ingredients"
+                ],
+                "hours": "Mon-Sat, daytime (check website for specifics)",
+                "best_time": "Lunchtime or for specialty grocery shopping",
+                "location": "St Eriks Torg",
+                "local_tips": "Uppsala's main food hall, a good place to sample local products or have a quality lunch."
+            },
+            {
+                "name": "Fyristorg Market (Outdoor)",
+                "type": "Outdoor Produce & Flower Market",
+                "highlights": [
+                    "Seasonal fruits, vegetables, and flowers",
+                    "Local producers often present",
+                    "Vibrant atmosphere on market days"
+                ],
+                "hours": "Varies, often Wednesdays and Saturdays (check locally)",
+                "best_time": "Morning on market days",
+                "location": "Fyristorg",
+                "local_tips": "Traditional town square market experience. Selection varies greatly by season."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Nettle soup (Nässelsoppa)",
+            "Asparagus (Sparris)",
+            "Rhubarb desserts (Rabarberpaj)",
+            "Spring lamb"
+        ],
+        "summer": [
+            "Fresh strawberries (Jordgubbar) with cream/ice cream",
+            "New potatoes (Färskpotatis) with dill and herring (Sill)",
+            "Crayfish parties (Kräftskiva) - August tradition",
+            "Grilled foods (meats, fish, vegetables)",
+            "Chanterelle mushrooms (Kantareller) start appearing late summer"
+        ],
+        "autumn": [
+            "Wild mushrooms (Chanterelles, Porcini - Karljohan)",
+            "Apples (Äpplen) - apple cakes, cider",
+            "Root vegetables (Potatoes, carrots, parsnips)",
+            "Game meats (Moose - Älg, Deer - Rådjur)",
+            "Lingonberries (Lingon)"
+        ],
+        "winter": [
+            "Julbord (Christmas Buffet) - Dec, featuring ham, herring, meatballs, Janssons Frestelse etc.",
+            "Saffron buns (Lussekatter) - Lucia/Christmas season",
+            "Pea soup and pancakes (Ärtsoppa och pannkakor) - traditionally on Thursdays",
+            "Semlor (Cardamom buns with almond paste and cream) - Jan/Feb before Lent",
+            "Hearty stews and root vegetable dishes"
+        ]
+    }
+}

@@ -1,0 +1,209 @@
+{
+    "destinations": [
+        {
+            "city": "Ghent",
+            "country": "Belgium",
+            "whyGo": "Explore this beautiful medieval city with impressive Gothic churches, stunning canals, and vibrant culture. Ghent offers similar charm to Bruges but with fewer tourists and a more authentic atmosphere.",
+            "directWithinCountryTrain": {
+                "stationInBruges": "Bruges Station",
+                "journeyTime": "30 minutes",
+                "frequency": "Multiple times per hour"
+            },
+            "directWithinCountryBus": {
+                "stationInBruges": "Bruges Coach Station",
+                "journeyTime": "45 minutes",
+                "frequency": "Every hour"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Visit Belgium's vibrant capital with its stunning Grand Place, Royal Palace, European Union institutions, excellent museums, and renowned chocolate shops, just a short train ride from Bruges.",
+            "directWithinCountryTrain": {
+                "stationInBruges": "Bruges Station",
+                "journeyTime": "1 hour",
+                "frequency": "Every 20-30 minutes"
+            },
+            "directWithinCountryBus": {
+                "stationInBruges": "Bruges Coach Station",
+                "journeyTime": "1 hour 30 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Antwerp",
+            "country": "Belgium",
+            "whyGo": "Discover Belgium's second-largest city known for its magnificent cathedral, historic center, world-famous diamond district, impressive fashion scene, and the stunning Central Station.",
+            "directWithinCountryTrain": {
+                "stationInBruges": "Bruges Station",
+                "journeyTime": "1 hour 30 minutes",
+                "frequency": "Hourly"
+            },
+            "directWithinCountryBus": {
+                "stationInBruges": "Bruges Coach Station",
+                "journeyTime": "2 hours",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Ypres (Ieper)",
+            "country": "Belgium",
+            "whyGo": "Visit this historically significant World War I site with its moving In Flanders Fields Museum, the Menin Gate Memorial, and numerous war cemeteries commemorating the soldiers who fought in the region.",
+            "directWithinCountryTrain": {
+                "stationInBruges": "Bruges Station",
+                "journeyTime": "1 hour 30 minutes",
+                "frequency": "Hourly"
+            },
+            "directWithinCountryBus": {
+                "stationInBruges": "Bruges Coach Station",
+                "journeyTime": "1 hour 45 minutes",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Coastal Resorts (Oostende, Knokke)",
+            "country": "Belgium",
+            "whyGo": "Enjoy Belgium's beautiful North Sea coastline with its sandy beaches, promenades, seafood restaurants, and water sports opportunities, perfect for a refreshing seaside escape.",
+            "directWithinCountryTrain": {
+                "stationInBruges": "Bruges Station",
+                "journeyTime": "15-20 minutes",
+                "frequency": "Multiple times per hour"
+            },
+            "directWithinCountryBus": {
+                "stationInBruges": "Bruges Coach Station",
+                "journeyTime": "30 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Lissewege",
+            "country": "Belgium",
+            "whyGo": "Discover this charming white-washed village often called 'the most beautiful village in Belgium' with its picturesque streets, historic buildings, and peaceful atmosphere.",
+            "directWithinCountryTrain": {
+                "stationInBruges": "Bruges Station",
+                "journeyTime": "10 minutes",
+                "frequency": "Hourly"
+            },
+            "directWithinCountryBus": {
+                "stationInBruges": "Bruges Coach Station",
+                "journeyTime": "20 minutes",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Damme",
+            "country": "Belgium",
+            "whyGo": "Visit this charming small town connected to Bruges by a scenic canal, known for its historic buildings, windmills, and excellent restaurants, perfect for a relaxed half-day trip.",
+            "directWithinCountryBus": {
+                "stationInBruges": "Bruges Coach Station",
+                "journeyTime": "20 minutes",
+                "frequency": "Hourly"
+            },
+            "biking": {
+                "distance": "6 km",
+                "time": "25-30 minutes",
+                "route": "Follow the canal path from Bruges to Damme"
+            }
+        },
+        {
+            "city": "Sluis",
+            "country": "Netherlands",
+            "whyGo": "Cross the border to this delightful Dutch town with its historic windmill, fortifications, and excellent shopping opportunities, easily reached from Bruges.",
+            "directWithinCountryBus": {
+                "stationInBruges": "Bruges Coach Station",
+                "journeyTime": "30 minutes",
+                "frequency": "Every 2 hours"
+            },
+            "biking": {
+                "distance": "15 km",
+                "time": "50-60 minutes",
+                "route": "Follow the canal path from Bruges via Damme to Sluis"
+            }
+        },
+        {
+            "city": "Lille",
+            "country": "France",
+            "whyGo": "Experience a taste of France in this beautiful northern city with its impressive Grand Place, excellent museums, delicious French cuisine, and vibrant cultural scene.",
+            "directWithinCountryTrain": {
+                "stationInBruges": "Bruges Station",
+                "journeyTime": "1 hour 15 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Visit the famous Dutch capital with its historic canals, world-class museums including the Rijksmuseum and Van Gogh Museum, vibrant atmosphere, and unique cycling culture.",
+            "directWithinCountryTrain": {
+                "stationInBruges": "Bruges Station",
+                "journeyTime": "2 hours 45 minutes",
+                "frequency": "Every 2 hours"
+            },
+            "directWithinCountryBus": {
+                "stationInBruges": "Bruges Coach Station",
+                "journeyTime": "3 hours 30 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Take a long day trip to the iconic City of Light with its world-famous landmarks including the Eiffel Tower, Louvre Museum, Notre-Dame Cathedral, and charming neighborhoods.",
+            "directWithinCountryTrain": {
+                "stationInBruges": "Bruges Station",
+                "journeyTime": "2 hours 30 minutes (via Brussels)",
+                "frequency": "Multiple times daily"
+            }
+        },
+        {
+            "city": "Dinant",
+            "country": "Belgium",
+            "whyGo": "Discover this picturesque town dramatically situated along the Meuse River, known for its impressive citadel, beautiful collegiate church, and as the birthplace of the saxophone.",
+            "directWithinCountryTrain": {
+                "stationInBruges": "Bruges Station",
+                "journeyTime": "2 hours (via Brussels)",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Leuven",
+            "country": "Belgium",
+            "whyGo": "Visit this historic university town with its magnificent town hall, bustling Oude Markt (Old Market Square), beautiful Beguinage, and vibrant student atmosphere.",
+            "directWithinCountryTrain": {
+                "stationInBruges": "Bruges Station",
+                "journeyTime": "1 hour 30 minutes (via Brussels)",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Torhout",
+            "country": "Belgium",
+            "whyGo": "Explore this charming town near Bruges with its fairytale-like atmosphere, historic castles including Wijnendale Castle, and beautiful surrounding forests perfect for hiking and cycling.",
+            "directWithinCountryTrain": {
+                "stationInBruges": "Bruges Station",
+                "journeyTime": "15 minutes",
+                "frequency": "Hourly"
+            },
+            "directWithinCountryBus": {
+                "stationInBruges": "Bruges Coach Station",
+                "journeyTime": "25 minutes",
+                "frequency": "Every hour"
+            }
+        },
+        {
+            "city": "De Haan",
+            "country": "Belgium",
+            "whyGo": "Visit this charming coastal town known for its well-preserved Belle Époque architecture, beautiful beach, and relaxed atmosphere, easily reached from Bruges.",
+            "directWithinCountryTrain": {
+                "stationInBruges": "Bruges Station to Blankenberge or Oostende",
+                "journeyTime": "15 minutes + coastal tram",
+                "frequency": "Multiple times per hour"
+            },
+            "coastalTram": {
+                "fromStation": "Blankenberge or Oostende",
+                "journeyTime": "15-20 minutes",
+                "frequency": "Every 10 minutes in summer, every 20 minutes in winter"
+            }
+        }
+    ]
+}

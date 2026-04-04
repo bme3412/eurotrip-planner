@@ -1,0 +1,464 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "RE-NAA",
+                "cuisine_type": "Creative/Modern Nordic",
+                "signature_dishes": [
+                    "Seafood-based tasting menus (approx. 20-22 courses)",
+                    "Emphasis on local, seasonal produce from Rogaland",
+                    "Innovative techniques and presentation"
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Intimate 21-seat studio setting within the Eilert Smith Hotel, focusing on the chef's 'playground'",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book months in advance. Holds two Michelin stars. Open Wednesday-Saturday evenings.",
+                "dress_code": "Smart Elegant",
+                "location": "City Center (Norbøgata 8, within Eilert Smith Hotel)",
+                "local_tips": "Stavanger's most acclaimed restaurant, led by chef Sven Erik Renaa. Focuses heavily on seafood and regional ingredients. Be aware they may not offer vegetarian options during certain seasons."
+            },
+            {
+                "name": "Sabi Omakase Stavanger",
+                "cuisine_type": "Japanese/Sushi",
+                "signature_dishes": [
+                    "Omakase menu (chef's choice)",
+                    "Edomae-style sushi",
+                    "Focus on high-quality seafood, some local"
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Exclusive and intimate, with only 10 seats per seating at a counter",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance due to limited seating. Holds one Michelin star. Located in Pedersgata.",
+                "dress_code": "Smart Casual to Smart Elegant",
+                "location": "Pedersgata",
+                "local_tips": "Norway's first sushi restaurant to receive a Michelin star. Offers a dedicated omakase experience led by sushi master Roger Asakil Joya."
+            },
+            {
+                "name": "K2",
+                "cuisine_type": "Modern Nordic",
+                "signature_dishes": [
+                    "Seasonal tasting menus",
+                    "Focus on sustainability and local ingredients",
+                    "Creative flavor combinations"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Modern and stylish, with an emphasis on sustainable practices",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Holds one Michelin star and a Green Star for sustainability. Located in Pedersgata.",
+                "dress_code": "Smart Casual to Smart Elegant",
+                "location": "Pedersgata",
+                "local_tips": "Known for its commitment to local produce and sustainable gastronomy."
+            },
+            {
+                "name": "Tango",
+                "cuisine_type": "Modern Nordic",
+                "signature_dishes": [
+                    "Seasonal set menus",
+                    "Dishes presented by chefs",
+                    "Well-regarded wine pairings",
+                    "Saturday lunch option (4 courses)"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Refined, intimate, minimalist fine dining with thoughtful service",
+                "best_time": "Dinner, Saturday Lunch",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Michelin Selected restaurant. Part of the 'byTango' group which also includes Fish & Cow and Polka.",
+                "dress_code": "Smart Elegant",
+                "location": "City Center (Near the harbor)",
+                "local_tips": "Offers a high-end gourmet experience in a sophisticated setting."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Fisketorget",
+                "cuisine_type": "Seafood/Norwegian",
+                "signature_dishes": [
+                    "Fiskesuppe (Fish soup)",
+                    "Catch of the day",
+                    "Fresh shellfish (prawns, crab, lobster in season)",
+                    "Seafood platters"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Waterfront setting with harbor views, combined restaurant and fish market",
+                "best_time": "Lunch/Dinner",
+                "reservation_needed": "Recommended, especially evenings/weekends",
+                "booking_tips": "Menu based on daily catch from local fishermen. Also sells fresh seafood to take away.",
+                "dress_code": "Casual to Smart Casual",
+                "location": "Harbor/Waterfront (Strandkaien 37)",
+                "local_tips": "A prime spot for fresh, local seafood with a great view. Their fish soup is a local classic."
+            },
+            {
+                "name": "Renaa Matbaren",
+                "cuisine_type": "Modern Nordic/Bistro",
+                "signature_dishes": [
+                    "Seasonal dishes with local ingredients",
+                    "Set lunch menu ('lunch box')",
+                    "Pizza (from their Xpress concept)",
+                    "Good wine list by the glass"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Stylish yet relaxed bistro, less formal than RE-NAA",
+                "best_time": "Lunch/Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "The more casual sibling to RE-NAA, located in the same building complex. Offers great value, especially for lunch.",
+                "dress_code": "Smart Casual",
+                "location": "City Center (within Eilert Smith Hotel complex)",
+                "local_tips": "Excellent food quality and service in a more accessible setting than the main restaurant."
+            },
+            {
+                "name": "Fish & Cow",
+                "cuisine_type": "Brasserie/Steakhouse/Seafood",
+                "signature_dishes": [
+                    "Steak cuts",
+                    "Fish dishes",
+                    "Traditional brasserie fare",
+                    "Good cocktails"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Cozy brasserie atmosphere with a fireplace and bar area",
+                "best_time": "Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Part of the 'byTango' group. Focuses on high-quality meat and fish in a traditional style.",
+                "dress_code": "Smart Casual",
+                "location": "City Center (Near the harbor)",
+                "local_tips": "A solid choice for well-executed classic dishes, particularly steak and fish."
+            },
+            {
+                "name": "Egget",
+                "cuisine_type": "Modern Nordic/Innovative",
+                "signature_dishes": [
+                    "No fixed menu - daily changing small courses based on availability",
+                    "Creative use of local and seasonal ingredients",
+                    "Dishes often feature grilling techniques (BBQ crab, grilled hake, lamb)"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Intimate spot with counter seating overlooking the open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": "Highly Recommended (small place)",
+                "booking_tips": "Server brings courses until you say stop. Inform them of dietary restrictions beforehand.",
+                "dress_code": "Smart Casual",
+                "location": "City Center",
+                "local_tips": "A unique dining experience focused on the chef's daily creations. Great for adventurous eaters and solo diners."
+            },
+             {
+                "name": "Villa 22",
+                "cuisine_type": "Italian/Trattoria",
+                "signature_dishes": [
+                    "Wood-fired pizzas",
+                    "Fresh pasta",
+                    "Antipasti"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Lively Italian trattoria vibe, also features Bar Negroni",
+                "best_time": "Lunch/Dinner",
+                "reservation_needed": "Recommended for dinner/weekends",
+                "booking_tips": "Located in a historic building (Skagen 22). Good for classic Italian fare.",
+                "dress_code": "Casual to Smart Casual",
+                "location": "City Center (Skagen 22)",
+                "local_tips": "Reliable option for pizza and pasta in a central location."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Hekkan Burger",
+                "specialties": [
+                    "Gourmet burgers",
+                    "Various patty options (beef, chicken, veggie)",
+                    "Fries and sides"
+                ],
+                "price_range": "€€",
+                "hours": "Lunch/Dinner/Late",
+                "location": "Pedersgata (and other locations)",
+                "seating": "Casual seating/Takeaway",
+                "local_tips": "Considered one of the best burger joints in Stavanger, located on the popular food street Pedersgata."
+            },
+            {
+                "name": "Fly Chicken",
+                "specialties": [
+                    "Fried chicken sandwiches",
+                    "Fried chicken pieces",
+                    "Loaded fries"
+                ],
+                "price_range": "€€",
+                "hours": "Lunch/Dinner",
+                "location": "Pedersgata",
+                "seating": "Casual seating/Takeaway",
+                "local_tips": "Specializes in various styles of fried chicken, located in Pedersgata."
+            },
+            {
+                "name": "Pedersgata Takeaways",
+                "specialties": [
+                    "Diverse range of options concentrated on one street",
+                    "Asian (Vietnamese, Thai, Sushi, Ramen, Chinese)",
+                    "Middle Eastern (Kebab, Afghani, Meze)",
+                    "Pizza"
+                ],
+                "price_range": "€-€€",
+                "hours": "Varies (mostly Lunch/Dinner)",
+                "location": "Pedersgata",
+                "seating": "Mostly takeaway or limited casual seating",
+                "local_tips": "Explore Pedersgata for a wide variety of affordable and quick international food options. Specific spots include An Nam (Vietnamese), Kansui (Ramen), Istanbul Kebab, Panzanella Pizza."
+            },
+            {
+                "name": "Fortou Street Food",
+                "specialties": [
+                    "Rotating international street food concepts",
+                    "Bao buns, tacos, bowls etc. (menu changes)",
+                    "Ambitious and creative street food"
+                ],
+                "price_range": "€€-€€€",
+                "hours": "Check locally (often afternoons/evenings)",
+                "location": "Storhaug (Kvitsøygata 25)",
+                "seating": "Takeaway, or eat next door at Øst Beer Bar",
+                "local_tips": "A popular spot slightly outside the immediate center, known for high-quality, globally inspired street food. Check their current menu/concept."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Bøker og Børst",
+                "specialty": "Cozy Cafe & Bar",
+                "must_try": [
+                    "Coffee (using beans from Stavanger Kaffebrenneri)",
+                    "Hot chocolate",
+                    "Carrot cake and other baked goods",
+                    "Craft beer selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Quirky, cozy, filled with books, also operates as a bar ('Books and Booze')",
+                "best_time": "Daytime for coffee/cake, Evening for drinks",
+                "wifi_friendly": true,
+                "food_options": "Cakes, pastries, light bar snacks",
+                "local_tips": "A beloved local institution with a unique, welcoming vibe. Great for relaxing with a book or meeting friends."
+            },
+            {
+                "name": "Kokko Kaffebar",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Espresso drinks",
+                    "Pour-over coffee",
+                    "Pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Light, airy, modern Scandinavian design across multiple levels",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Baked goods, possibly light lunch items",
+                "local_tips": "Known for quality coffee and a stylish, bright atmosphere. Located near Bøker og Børst."
+            },
+            {
+                "name": "Ostehuset",
+                "specialty": "Cafe, Bakery & Delicatessen",
+                "must_try": [
+                    "Coffee",
+                    "Freshly baked bread (sourdough)",
+                    "Pastries (cinnamon buns, cheesecake)",
+                    "Cheese and deli platters",
+                    "Lunch/Brunch dishes"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Bustling cafe with a large deli counter and bakery focus",
+                "best_time": "Morning/Lunch/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Extensive menu: Breakfast, lunch, brunch, pastries, cakes, deli items",
+                "local_tips": "A popular spot (especially Ostehuset Øst in Storhaug) known for its bakery, cheese selection, and cafe menu. Also offers catering and hosts events."
+            },
+            {
+                "name": "Jakobs Brød",
+                "specialty": "Organic Sourdough Bakery & Cafe",
+                "must_try": [
+                    "Sourdough bread",
+                    "Pastries",
+                    "Coffee"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bakery-focused cafe",
+                "best_time": "Morning/Daytime",
+                "wifi_friendly": true,
+                "food_options": "Bread, pastries, possibly sandwiches/light lunch",
+                "local_tips": "Located in Pedersgata, focuses on organic sourdough products."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Cardinal Pub & Bar",
+                "type": "Beer Pub",
+                "specialty": "Extensive Beer Selection",
+                "signature_drinks": [
+                    "Huge range of international and Norwegian craft beers (check current selection)",
+                    "Cask Ales ('Real Cask')",
+                    "Beer tasting flights ('Planken')",
+                    "Good whisky selection"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Classic pub atmosphere, renowned beer destination, often busy",
+                "best_time": "Evening",
+                "food_options": "Bar snacks",
+                "reservation_needed": "Recommended for groups/tastings",
+                "local_tips": "One of Norway's most famous beer pubs. Hosts regular events like 'Mandag i Annen' (beer club), 'Strikk & Drikk' (Knit & Drink)."
+            },
+            {
+                "name": "Bøker og Børst",
+                "type": "Cafe Bar / Pub",
+                "specialty": "Craft Beer & Cozy Atmosphere",
+                "signature_drinks": [
+                    "Good selection of Norwegian and international craft beers (tap & bottle)",
+                    "Natural wine",
+                    "Good coffee & hot chocolate"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Unique, cozy, filled with books, relaxed vibe",
+                "best_time": "Evening (also daytime cafe)",
+                "food_options": "Bar snacks, cakes",
+                "reservation_needed": "Generally no, maybe for events",
+                "local_tips": "Transitions from a cozy cafe during the day to a popular bar at night. Hosts concerts and DJ nights."
+            },
+            {
+                "name": "Pjolter & Punsj",
+                "type": "Cocktail Bar",
+                "specialty": "Creative & Classic Cocktails",
+                "signature_drinks": [
+                    "Innovative cocktails using house-made ingredients",
+                    "Aquavit-based cocktails (large Aquavit selection)",
+                    "Classic cocktails expertly made"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Stylish, sophisticated cocktail bar with knowledgeable bartenders",
+                "best_time": "Evening",
+                "food_options": "Limited/None",
+                "reservation_needed": "Recommended for groups/weekends",
+                "local_tips": "Award-winning mixology. A top spot for high-quality cocktails in Stavanger."
+            },
+            {
+                "name": "Hansenhjørnet",
+                "type": "Outdoor Bar/Restaurant",
+                "specialty": "Sunny Outdoor Seating",
+                "signature_drinks": [
+                    "Standard selection of beers, wines, ciders, spirits",
+                    "Summer drinks (aperol spritz etc.)"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Large, bustling outdoor seating area in a historic location by the harbor. Very popular in summer.",
+                "best_time": "Sunny afternoons/Evenings (Seasonal)",
+                "food_options": "Pub grub - Burgers, salads, fish soup, grill items",
+                "reservation_needed": "Often busy, booking advisable especially during events (e.g., 17th May, Gladmat)",
+                "local_tips": "Stavanger's largest outdoor serving area, prime location for people-watching and enjoying good weather. Likely operates seasonally (spring/summer)."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Stavanger Food Walk (GuideCompaniet)",
+                "focus": "Local Specialties & Nordic Cuisine",
+                "duration": "Approx. 3 hours",
+                "price_range": "€€€-€€€€",
+                "highlights": [
+                    "Guided walk through Stavanger city center",
+                    "Sampling locally produced food and beverages",
+                    "Visiting hand-picked culinary hotspots",
+                    "Learning about Stavanger's food culture"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups usually",
+                "languages": ["English", "Norwegian"],
+                "booking_tips": "Book via Visit Norway, GuideCompaniet website, or Tourist Information. Stops and menu can vary. GuideCompaniet also offers food walks focused on specific areas like Pedersgata or Stavanger Øst."
+            }
+        ],
+        "cooking_classes": [
+             {
+                "name": "Various (Limited Availability)",
+                "cuisine_focus": "Varies (e.g., Italian, Pastry, Specific Events)",
+                "duration": "Varies",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Specific cuisines or techniques depending on the course offered"
+                ],
+                "group_size": "Typically small",
+                "languages": ["Likely Norwegian or English"],
+                "includes": ["Varies"],
+                "booking_tips": "Public cooking classes focusing on Norwegian/local cuisine seem rare and not consistently offered. Check event listings (e.g., Gladmat festival workshops), community centers, or inquire with catering companies like Ryfylkekokken for potential private arrangements or specific event classes. Some restaurants might offer workshops occasionally."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Fisketorget (Seafood Market section)",
+                "type": "Seafood Market/Shop",
+                "highlights": [
+                    "Fresh local fish and shellfish (based on daily catch)",
+                    "High-quality seafood sourced directly",
+                    "Knowledgeable staff",
+                    "Can buy seafood to cook at home"
+                ],
+                "hours": "Mon-Fri 10:00–17:00, Sat 09:00–15:00 (Check locally)",
+                "best_time": "Daytime",
+                "location": "Harbor/Waterfront (Strandkaien 37)",
+                "local_tips": "Located within the Fisketorget restaurant, this is the prime spot in the city center to buy fresh, high-quality local seafood."
+            },
+             {
+                "name": "Ostehuset (Deli Counter section)",
+                "type": "Delicatessen/Bakery Shop",
+                "highlights": [
+                    "Wide selection of Norwegian and imported cheeses",
+                    "Cured meats (local and imported)",
+                    "Freshly baked sourdough bread and pastries",
+                    "Local specialty products (jams, oils, etc.)",
+                    "Prepared foods (salads, dips)"
+                ],
+                "hours": "Cafe hours (check locally, generally Mon-Sun daytime/early evening)",
+                "best_time": "Daytime",
+                "location": "Storhaug (Ryfylkegata 30) and potentially other locations",
+                "local_tips": "While primarily a cafe/bakery, Ostehuset has an excellent deli counter for buying high-quality cheese, bread, pastries, and local food products."
+            },
+            {
+                "name": "Stavanger Torget (Market Square)",
+                "type": "Outdoor Market Square",
+                "highlights": [
+                    "Occasional farmers' markets or special market days (check local schedules)",
+                    "Seasonal produce (berries, vegetables in summer/autumn)",
+                    "Flowers, crafts",
+                    "Central location for events"
+                ],
+                "hours": "Varies greatly depending on event/season (often Saturdays)",
+                "best_time": "Check local event calendars (e.g., 'Bondens Marked')",
+                "location": "City Center (Torget)",
+                "local_tips": "Not a permanent daily food market, but the main square hosts periodic farmers' markets and seasonal stalls, especially during summer and festivals like Gladmat."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Early local vegetables (asparagus, rhubarb)",
+            "Mackerel season often starts",
+            "Later part of Skrei (migrating cod) season possibly",
+            "Lighter seafood dishes",
+            "Easter lamb"
+        ],
+        "summer": [
+            "Peak seafood season: Prawns (reker), crab, lobster",
+            "Strawberries (especially June/July)",
+            "Other berries (raspberries, blueberries)",
+            "Fresh local vegetables from Jæren (new potatoes, carrots, greens)",
+            "Gladmat Food Festival (late June/July)",
+            "Outdoor grilling and dining"
+        ],
+        "autumn": [
+            "Harvest season for fruit from Ryfylke (apples, pears, plums)",
+            "Lamb season ('Fårikål' - lamb and cabbage stew)",
+            "Root vegetables (potatoes, carrots, celeriac)",
+            "Wild mushrooms (chanterelles etc.)",
+            "Heartier seafood stews"
+        ],
+        "winter": [
+            "Traditional Norwegian Christmas food (December): 'Ribbe' (pork belly), 'Pinnekjøtt' (cured lamb ribs), 'Lutefisk' (lye-treated cod)",
+            "Cod, Halibut, other North Sea fish",
+            "Hearty stews and soups",
+            "Root vegetables",
+            "Citrus fruits (imported)"
+        ]
+    }
+}

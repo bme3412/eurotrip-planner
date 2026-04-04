@@ -1,0 +1,524 @@
+{
+    "destinations": [
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The City of Light with iconic landmarks, world-class museums, and unparalleled culinary scene. Only a short train ride from Limoges.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€100-250"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "3h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€35-80"
+            }
+        },
+        {
+            "city": "Bordeaux",
+            "country": "France",
+            "whyGo": "World-famous wine capital with beautiful architecture, excellent cuisine, and rich cultural heritage. Close to Limoges.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "45m",
+                "frequency": "Daily",
+                "priceRange": "€80-180"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "2h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€25-55"
+            }
+        },
+        {
+            "city": "Toulouse",
+            "country": "France",
+            "whyGo": "Pink city with aerospace heritage, beautiful architecture, and vibrant student culture.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "priceRange": "€90-200"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "3h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€30-65"
+            }
+        },
+        {
+            "city": "Lyon",
+            "country": "France",
+            "whyGo": "France's gastronomic capital with excellent museums, historic old town, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "priceRange": "€90-200"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "4h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€40-85"
+            }
+        },
+        {
+            "city": "Marseille",
+            "country": "France",
+            "whyGo": "Historic Mediterranean port city with vibrant culture, excellent seafood, and gateway to Provence.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€100-250"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "6h15m",
+                "frequency": "Daily",
+                "priceRange": "€50-110"
+            }
+        },
+        {
+            "city": "Nice",
+            "country": "France",
+            "whyGo": "Beautiful French Riviera city with stunning beaches, Promenade des Anglais, and Mediterranean charm.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€100-250"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "7h15m",
+                "frequency": "Daily",
+                "priceRange": "€60-125"
+            }
+        },
+        {
+            "city": "Nantes",
+            "country": "France",
+            "whyGo": "Historic port city with castle, excellent museums, and gateway to the Loire Valley.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "priceRange": "€90-200"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "3h30m",
+                "frequency": "Daily",
+                "priceRange": "€30-65"
+            }
+        },
+        {
+            "city": "Montpellier",
+            "country": "France",
+            "whyGo": "Dynamic university city with historic center, Mediterranean climate, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€100-250"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "5h45m",
+                "frequency": "Daily",
+                "priceRange": "€45-95"
+            }
+        },
+        {
+            "city": "Strasbourg",
+            "country": "France",
+            "whyGo": "Capital of Alsace with stunning cathedral, European Parliament, and unique Franco-German culture.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€100-250"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "6h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€55-115"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Capital of Belgium and EU, known for Grand Place, Art Nouveau architecture, and beer culture.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€110-270"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "7h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€65-135"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for artistic heritage, elaborate canal system, and world-class museums.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€120-300"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "8h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€75-155"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Historic capital with world-class museums, iconic landmarks, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€130-320"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "8h",
+                "frequency": "Multiple daily",
+                "priceRange": "€85-175"
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "Global city with Red Cross headquarters, UN offices, and beautiful lake setting.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€110-270"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "7h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€70-145"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Renowned for medieval old town, excellent museums, and beautiful lake setting.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€110-270"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "8h",
+                "frequency": "Daily",
+                "priceRange": "€75-155"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Italy's fashion and design capital with stunning Gothic cathedral, world-class shopping, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€120-300"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "10h",
+                "frequency": "Daily",
+                "priceRange": "€85-175"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with ancient ruins, Vatican City, Renaissance art, and vibrant street life.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "2h",
+                "frequency": "Daily",
+                "priceRange": "€130-320"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "13h",
+                "frequency": "Daily",
+                "priceRange": "€105-215"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for Gaudí's architecture, vibrant cultural scene, and Mediterranean beaches.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€120-300"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "8h30m",
+                "frequency": "Daily",
+                "priceRange": "€75-155"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Spanish capital with rich European art collections, vibrant culture, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "2h15m",
+                "frequency": "Daily",
+                "priceRange": "€130-320"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "11h",
+                "priceRange": "€95-195"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "Major financial hub with futuristic skyline, excellent museums, and historic old town.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€110-270"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "8h30m",
+                "frequency": "Daily",
+                "priceRange": "€70-145"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Known for Oktoberfest, beer halls, excellent museums, and beautiful architecture.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€120-300"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "9h30m",
+                "frequency": "Daily",
+                "priceRange": "€85-175"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Dynamic capital with rich history, excellent museums, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€120-300"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "10h",
+                "frequency": "Daily",
+                "priceRange": "€90-185"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Imperial capital with stunning palaces, world-class classical music, and elegant coffee house culture.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "2h",
+                "frequency": "Daily",
+                "priceRange": "€140-350"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "13h30m",
+                "frequency": "Daily",
+                "priceRange": "€110-230"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Beautiful medieval old town, stunning castle complex, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "2h15m",
+                "frequency": "Daily",
+                "priceRange": "€150-370"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "15h30m",
+                "frequency": "Daily",
+                "priceRange": "€120-250"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Stunning architecture, thermal baths, vibrant nightlife, and rich cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "2h30m",
+                "frequency": "Daily",
+                "priceRange": "€160-390"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "16h30m",
+                "frequency": "Daily",
+                "priceRange": "€130-270"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Dynamic capital with rich history, excellent museums, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "2h45m",
+                "frequency": "Daily",
+                "priceRange": "€180-450"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "19h30m",
+                "frequency": "Daily",
+                "priceRange": "€150-320"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Scandinavian charm with excellent design, beautiful waterfront, and vibrant culture.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "2h",
+                "frequency": "Daily",
+                "priceRange": "€160-390"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "17h30m",
+                "frequency": "Daily",
+                "priceRange": "€140-300"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Beautiful archipelago setting, excellent museums, and Scandinavian design culture.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "2h15m",
+                "frequency": "Daily",
+                "priceRange": "€170-410"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "21h30m",
+                "frequency": "Daily",
+                "priceRange": "€170-370"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "Scenic fjord setting, excellent museums, and gateway to Norwegian nature.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "2h30m",
+                "frequency": "Daily",
+                "priceRange": "€180-430"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "23h30m",
+                "frequency": "Daily",
+                "priceRange": "€190-420"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Charming coastal capital with historic trams, beautiful viewpoints, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "2h30m",
+                "frequency": "Daily",
+                "priceRange": "€170-410"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "18h30m",
+                "frequency": "Daily",
+                "priceRange": "€130-280"
+            }
+        },
+        {
+            "city": "Porto",
+            "country": "Portugal",
+            "whyGo": "Historic port city with beautiful riverfront, excellent wine culture, and charming old town.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "2h45m",
+                "frequency": "Daily",
+                "priceRange": "€180-430"
+            },
+            "train": {
+                "departureFromLimoges": "Limoges-Bénédictins Station",
+                "journeyTime": "19h30m",
+                "frequency": "Daily",
+                "priceRange": "€140-300"
+            }
+        },
+        {
+            "city": "Reykjavik",
+            "country": "Iceland",
+            "whyGo": "Gateway to Iceland's natural wonders, Northern Lights, and unique culture.",
+            "intraEuropeFlight": {
+                "airportsInLimoges": ["Limoges Airport (LIG)"],
+                "approxFlightTime": "4h30m",
+                "frequency": "Daily",
+                "priceRange": "€280-680"
+            }
+        }
+    ]
+}

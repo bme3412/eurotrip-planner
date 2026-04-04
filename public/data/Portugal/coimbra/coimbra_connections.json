@@ -1,0 +1,182 @@
+{
+    "destinations": [
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Experience Portugal's vibrant capital city, famous for its historic trams, Belém Tower, Jerónimos Monastery, charming Alfama district, and spectacular viewpoints across seven hills.",
+            "directWithinCountryTrain": {
+                "stationInCoimbra": "Coimbra-B Railway Station",
+                "journeyTime": "Approx. 2 hours (Alfa Pendular high-speed)",
+                "frequency": "Hourly services"
+            },
+            "directWithinCountryBus": {
+                "stationInCoimbra": "Terminal Rodoviário de Coimbra",
+                "journeyTime": "Approx. 2 hours 30 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Porto",
+            "country": "Portugal",
+            "whyGo": "Discover Portugal's second city with its UNESCO-listed Ribeira district, spectacular Dom Luís I Bridge, historic port wine cellars, and the beautiful Douro River flowing through its heart.",
+            "directWithinCountryTrain": {
+                "stationInCoimbra": "Coimbra-B Railway Station",
+                "journeyTime": "Approx. 1 hour 15 minutes (Alfa Pendular)",
+                "frequency": "Hourly services"
+            },
+            "directWithinCountryBus": {
+                "stationInCoimbra": "Terminal Rodoviário de Coimbra",
+                "journeyTime": "Approx. 1 hour 30 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Faro",
+            "country": "Portugal",
+            "whyGo": "Visit the gateway to the Algarve region with its charming Old Town, access to beautiful beaches, Ria Formosa Natural Park, and perfect base for exploring Portugal's southern coast.",
+            "directWithinCountryTrain": {
+                "stationInCoimbra": "Coimbra-B Railway Station",
+                "journeyTime": "Approx. 4 hours 45 minutes (Alfa Pendular)",
+                "frequency": "Twice daily"
+            },
+            "directWithinCountryBus": {
+                "stationInCoimbra": "Terminal Rodoviário de Coimbra",
+                "journeyTime": "Approx. 5 hours 40 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Braga",
+            "country": "Portugal",
+            "whyGo": "Discover one of Portugal's oldest cities with its spectacular Bom Jesus do Monte sanctuary, medieval cathedral, charming historic center, and vibrant university atmosphere.",
+            "directWithinCountryTrain": {
+                "stationInCoimbra": "Coimbra-B Railway Station",
+                "journeyTime": "Approx. 2 hours (via Porto)",
+                "frequency": "Multiple connections daily"
+            },
+            "directWithinCountryBus": {
+                "stationInCoimbra": "Terminal Rodoviário de Coimbra",
+                "journeyTime": "Approx. 2 hours 30 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Aveiro",
+            "country": "Portugal",
+            "whyGo": "Experience Portugal's 'Venice' with its network of scenic canals, colorful moliceiro boats, Art Nouveau architecture, and nearby Costa Nova beach with its striped houses.",
+            "directWithinCountryTrain": {
+                "stationInCoimbra": "Coimbra-B Railway Station",
+                "journeyTime": "Approx. 40 minutes",
+                "frequency": "Hourly services"
+            },
+            "directWithinCountryBus": {
+                "stationInCoimbra": "Terminal Rodoviário de Coimbra",
+                "journeyTime": "Approx. 1 hour",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Experience the vibrant Spanish capital with its world-class art museums (Prado, Reina Sofía), Royal Palace, lively tapas bars, Retiro Park, and bustling nightlife.",
+            "directWithinCountryBus": {
+                "stationInCoimbra": "Terminal Rodoviário de Coimbra",
+                "journeyTime": "Approx. 6 hours 30 minutes",
+                "frequency": "Daily service"
+            },
+            "intraEuropeFlight": {
+                "airportsNearCoimbra": [
+                    "Porto Airport (OPO, 1h30m drive)",
+                    "Lisbon Airport (LIS, 2h drive)"
+                ],
+                "approxFlightTime": "1 hour 10 minutes (from Porto or Lisbon)",
+                "frequency": "Several flights daily"
+            }
+        },
+        {
+            "city": "Salamanca",
+            "country": "Spain",
+            "whyGo": "Visit this beautiful university city with its golden sandstone buildings, historic Plaza Mayor, two cathedrals, and Spain's oldest university founded in 1218.",
+            "directWithinCountryBus": {
+                "stationInCoimbra": "Terminal Rodoviário de Coimbra",
+                "journeyTime": "Approx. 3 hours 30 minutes",
+                "frequency": "Daily service"
+            }
+        },
+        {
+            "city": "Conimbriga",
+            "country": "Portugal",
+            "whyGo": "Explore Portugal's largest Roman archaeological site with remarkably preserved mosaics, house foundations, public baths, and a comprehensive museum just 16km from Coimbra.",
+            "localTransport": {
+                "departsFrom": "Coimbra Bus Terminal",
+                "journeyTime": "Approx. 30 minutes",
+                "frequency": "Limited local bus service"
+            },
+            "guidedTour": {
+                "departsFrom": "Coimbra city center",
+                "journeyTime": "Half-day tour (3-4 hours)",
+                "frequency": "Daily tours available through local operators"
+            }
+        },
+        {
+            "city": "Serra da Lousã",
+            "country": "Portugal",
+            "whyGo": "Discover this beautiful mountain range with its network of hiking trails, traditional schist villages, natural swimming pools, waterfalls, and wildlife including wild boar and deer.",
+            "localTransport": {
+                "departsFrom": "Coimbra Bus Terminal",
+                "journeyTime": "Approx. 40 minutes to Lousã",
+                "frequency": "Regular bus service"
+            },
+            "guidedTour": {
+                "departsFrom": "Coimbra city center",
+                "journeyTime": "Full-day tour (6-8 hours)",
+                "frequency": "Weekly organized tours (more frequent in summer)"
+            }
+        },
+        {
+            "city": "Figueira da Foz",
+            "country": "Portugal",
+            "whyGo": "Visit this popular coastal resort with Portugal's widest beach, Casino Figueira, attractive belle époque architecture, and excellent seafood restaurants along the marina.",
+            "directWithinCountryTrain": {
+                "stationInCoimbra": "Coimbra Railway Station",
+                "journeyTime": "Approx. 1 hour",
+                "frequency": "Several times daily"
+            },
+            "directWithinCountryBus": {
+                "stationInCoimbra": "Terminal Rodoviário de Coimbra",
+                "journeyTime": "Approx. 50 minutes",
+                "frequency": "Hourly services"
+            }
+        },
+        {
+            "city": "Buçaco Forest",
+            "country": "Portugal",
+            "whyGo": "Explore this enchanting ancient forest with over 700 native and exotic plant species, walking trails, the neo-Manueline Buçaco Palace Hotel, and important battle site from the Peninsular War.",
+            "localTransport": {
+                "departsFrom": "Coimbra Bus Terminal",
+                "journeyTime": "Approx. 40 minutes",
+                "frequency": "Limited bus service"
+            },
+            "guidedTour": {
+                "departsFrom": "Coimbra city center",
+                "journeyTime": "Half-day tour (4-5 hours)",
+                "frequency": "Tours available through local operators"
+            }
+        },
+        {
+            "city": "Tomar",
+            "country": "Portugal",
+            "whyGo": "Discover this historic Knights Templar city with its UNESCO-listed Convent of Christ, charming old town, and unique Festa dos Tabuleiros festival held every four years.",
+            "directWithinCountryTrain": {
+                "stationInCoimbra": "Coimbra-B Railway Station",
+                "journeyTime": "Approx. 1 hour 30 minutes",
+                "frequency": "Several times daily"
+            },
+            "directWithinCountryBus": {
+                "stationInCoimbra": "Terminal Rodoviário de Coimbra",
+                "journeyTime": "Approx. 1 hour 45 minutes",
+                "frequency": "Several times daily"
+            }
+        }
+    ]
+}

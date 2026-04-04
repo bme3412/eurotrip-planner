@@ -1,0 +1,466 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Casa Perbellini",
+                "cuisine_type": "Contemporary Italian Fine Dining",
+                "signature_dishes": [
+                    "Spaghetti with smoked eel and apple",
+                    "Roasted pigeon with crispy pastry",
+                    "Seasonal tasting menus"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Intimate, elegant, with open kitchen viewing",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book far in advance. Request counter seating to watch Chef Giancarlo Perbellini and his team at work.",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Piazza San Zeno",
+                "local_tips": "Chef Perbellini is one of Italy's most respected chefs. The restaurant features an open kitchen concept where you can see all dishes being prepared."
+            },
+            {
+                "name": "Il Desco",
+                "cuisine_type": "Refined Italian/Veronese",
+                "signature_dishes": [
+                    "Risotto all'Amarone",
+                    "Tortelli filled with Monte Veronese cheese",
+                    "Seasonal game and fish dishes"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant, refined, located in a historic building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book in advance. One of Verona's most established fine dining venues.",
+                "dress_code": "Elegant",
+                "michelin_stars": 1,
+                "location": "Via Dietro San Sebastiano (Near Piazza Bra)",
+                "local_tips": "Long-standing Michelin-starred restaurant offering both traditional and innovative dishes with a strong emphasis on local products."
+            },
+            {
+                "name": "12 Apostoli",
+                "cuisine_type": "Historic/Traditional Veronese with Contemporary Touches",
+                "signature_dishes": [
+                    "Risotto all'Amarone",
+                    "Bigoli pasta with duck ragù",
+                    "Pastissada de caval (horse meat stew, a Veronese specialty)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic, elegant, romantic, with Roman ruins in the cellar",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Request to see the ancient Roman crypts in the cellar. Operating since 1750.",
+                "dress_code": "Smart casual to elegant",
+                "michelin_stars": 0,
+                "location": "Corticella San Marco (Near Piazza Erbe)",
+                "local_tips": "One of Verona's oldest restaurants with incredible historical atmosphere. The wine cellar contains Roman ruins you can visit."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Osteria Sottocosta",
+                "cuisine_type": "Traditional Veronese Trattoria",
+                "signature_dishes": [
+                    "Pastissada de caval (horse meat stew)",
+                    "Risotto all'Amarone",
+                    "Luccio in salsa (pike in sauce)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, rustic, authentic osteria feel",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended, especially weekends",
+                "booking_tips": "Ask for recommendations on local wines to pair with the traditional dishes.",
+                "dress_code": "Casual",
+                "location": "Via Sottoriva (Along the Adige River)",
+                "local_tips": "Authentic local experience away from tourist crowds. Try the traditional Veronese dishes rarely found elsewhere."
+            },
+            {
+                "name": "Osteria Dogana Vecia",
+                "cuisine_type": "Classic Veronese",
+                "signature_dishes": [
+                    "Bigoli with sardines",
+                    "Brasato all'Amarone (beef braised in Amarone wine)",
+                    "Seasonal polenta dishes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional, warm, bustling",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Popular with locals. Good place to try authentic Veronese dishes at reasonable prices.",
+                "dress_code": "Casual",
+                "location": "Via Dogana (Near Roman Theatre)",
+                "local_tips": "Great selection of local wines from Valpolicella and Soave regions at fair prices."
+            },
+            {
+                "name": "Trattoria Al Pompiere",
+                "cuisine_type": "Traditional Veronese/Italian",
+                "signature_dishes": [
+                    "Exceptional salumi and cheese platters",
+                    "Bigoli pasta with duck ragù",
+                    "Ossobuco with polenta"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Historic, lively, traditional, popular",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Highly recommended",
+                "booking_tips": "Centrally located and popular. Known especially for their meat and cheese selections.",
+                "dress_code": "Smart casual",
+                "location": "Vicolo Regina D'Ungheria (Near Piazza Erbe)",
+                "local_tips": "Start with their renowned cured meat and cheese selection. They age many meats and cheeses on-site."
+            },
+            {
+                "name": "Osteria Caffe Monte Baldo",
+                "cuisine_type": "Simple Veronese (Osteria style)",
+                "signature_dishes": [
+                    "Pasta e fagioli (pasta and bean soup)",
+                    "Small cicchetti (Venetian-style tapas)",
+                    "Daily specials on blackboard"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Casual, authentic, bustling local spot",
+                "best_time": "Lunch or Aperitivo time",
+                "reservation_needed": "No reservations, can be crowded",
+                "booking_tips": "Go early. A true local experience with simple, quality food and wines by the glass.",
+                "dress_code": "Casual",
+                "location": "Via Rosa (Near Piazza Erbe)",
+                "local_tips": "Perfect for a casual lunch or to experience the local aperitivo culture with small plates and wine."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "La Passeggiata",
+                "specialties": [
+                    "Gourmet panini",
+                    "Local cheese and meat sandwiches"
+                ],
+                "price_range": "€",
+                "hours": "Lunch/Afternoon",
+                "location": "Via Oberdan",
+                "seating": "Limited/Takeaway",
+                "local_tips": "Great quality ingredients in their sandwiches. Perfect for a quick lunch while exploring."
+            },
+            {
+                "name": "Pizzeria Da Salvatore",
+                "specialties": [
+                    "Pizza al taglio (Pizza by the slice)",
+                    "Focaccia"
+                ],
+                "price_range": "€",
+                "hours": "Lunch/Dinner",
+                "location": "Via Mazzini (Main shopping street)",
+                "seating": "Limited/Takeaway",
+                "local_tips": "Good quality pizza by the slice on Verona's main shopping street. Perfect for a quick bite."
+            },
+            {
+                "name": "Gelateria Savoia",
+                "specialties": [
+                    "Artisanal gelato",
+                    "Seasonal fruit flavors",
+                    "Traditional Italian gelato"
+                ],
+                "price_range": "€",
+                "hours": "Afternoon/Evening",
+                "location": "Piazza Bra (Facing the Arena)",
+                "seating": "None/Takeaway",
+                "local_tips": "One of Verona's best gelaterias, in an ideal location for people-watching near the Arena."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Caffè Borsari",
+                "specialty": "Historic Cafe & Pasticceria",
+                "must_try": [
+                    "Espresso",
+                    "Traditional pastries",
+                    "Pandoro (in winter - Verona's traditional Christmas cake)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic Italian cafe, elegant with outdoor seating",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Pastries, light snacks",
+                "location": "Corso Porta Borsari",
+                "local_tips": "One of Verona's older cafes, excellent for an authentic Italian coffee experience with quality pastries."
+            },
+            {
+                "name": "Caffè Coloniale",
+                "specialty": "Cafe & Aperitivo",
+                "must_try": [
+                    "Coffee specialties",
+                    "Aperitivo with Aperol Spritz",
+                    "Pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Elegant, intimate, historical setting",
+                "best_time": "Morning Coffee, Aperitivo Hour",
+                "wifi_friendly": true,
+                "food_options": "Pastries, light lunch, aperitivo snacks",
+                "location": "Piazza Erbe",
+                "local_tips": "Great location on Verona's most beautiful square. Good spot for people-watching and aperitivo."
+            },
+            {
+                "name": "Pasticceria Flego",
+                "specialty": "Historic Pastry Shop & Cafe",
+                "must_try": [
+                    "Millefoglie pastry",
+                    "Coffee",
+                    "Pandoro (in season)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional pastry shop with cafe seating",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Excellent selection of pastries and cakes",
+                "location": "Via Stella (City Center)",
+                "local_tips": "One of Verona's best traditional pasticcerie. Great for breakfast or afternoon coffee and cake."
+            },
+            {
+                "name": "Campidoglio Caffè",
+                "specialty": "Wine Bar & Coffee Shop",
+                "must_try": [
+                    "Coffee",
+                    "Wine by the glass (especially local Valpolicella)",
+                    "Light meals"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern but cozy, local favorite",
+                "best_time": "Morning Coffee, Lunch, Aperitivo",
+                "wifi_friendly": true,
+                "food_options": "Pastries, sandwiches, light lunch options",
+                "location": "Via Campidoglio (Near Piazza Erbe)",
+                "local_tips": "Transforms from cafe to wine bar throughout the day. Good selection of local wines in the evening."
+            },
+            {
+                "name": "Torrefazione Caffè Castorino",
+                "specialty": "Artisanal Coffee Roaster & Shop",
+                "must_try": [
+                    "Specialty coffee",
+                    "Freshly roasted beans to take home"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Tiny, authentic coffee shop focused on quality",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Limited, focus is on coffee",
+                "location": "Via San Nazaro",
+                "local_tips": "For coffee aficionados. They roast their own beans and know their craft extremely well."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Archivio",
+                "type": "Wine Bar & Enoteca",
+                "specialty": "Local Wines, Especially Amarone",
+                "signature_drinks": [
+                    "Amarone della Valpolicella",
+                    "Soave",
+                    "Other local Veneto wines"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Sophisticated, intimate wine bar in historic setting",
+                "best_time": "Evening / Aperitivo",
+                "food_options": "Quality cheese and meat platters, some small plates",
+                "reservation_needed": "Recommended for evenings",
+                "location": "Via Sottoriva",
+                "local_tips": "Excellent selection of local wines with knowledgeable staff. Great introduction to Verona's wine regions."
+            },
+            {
+                "name": "Antica Bottega del Vino",
+                "type": "Historic Wine Bar & Restaurant",
+                "specialty": "Exceptional Wine Selection",
+                "signature_drinks": [
+                    "Rare and vintage Amarone",
+                    "Extensive Italian wine list",
+                    "World-class wine cellar"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Historic, authentic, revered wine institution",
+                "best_time": "Evening",
+                "food_options": "Full restaurant menu featuring local specialties",
+                "reservation_needed": true,
+                "location": "Via Scudo di Francia (Near Piazza Erbe)",
+                "local_tips": "One of Italy's most respected wine venues with an incredible cellar. A must for wine enthusiasts."
+            },
+            {
+                "name": "Osteria del Bugiardo",
+                "type": "Wine Bar with Food",
+                "specialty": "Valpolicella Wines",
+                "signature_drinks": [
+                    "House wines from Buglioni winery",
+                    "Valpolicella Ripasso",
+                    "Amarone"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic, casual, popular with locals",
+                "best_time": "Aperitivo / Evening",
+                "food_options": "Excellent cured meats, cheeses, simple local dishes",
+                "reservation_needed": "Recommended for dinner",
+                "location": "Corso Porta Borsari",
+                "local_tips": "Run by the Buglioni winery, offering their wines at very reasonable prices. Great for an authentic experience."
+            },
+            {
+                "name": "The Soda Jerk",
+                "type": "Craft Cocktail Bar",
+                "specialty": "Creative Cocktails",
+                "signature_drinks": [
+                    "Contemporary signature cocktails",
+                    "Classic cocktails with a twist",
+                    "Gin selection"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Modern, speakeasy vibe, hipster",
+                "best_time": "Evening / Late Night",
+                "food_options": "Limited snacks",
+                "reservation_needed": "Recommended for weekends",
+                "location": "Via Ponte Nuovo",
+                "local_tips": "One of Verona's best cocktail bars with serious mixology. Different vibe from traditional Italian spots."
+            },
+            {
+                "name": "Terzo Ponte",
+                "type": "Riverside Bar",
+                "specialty": "Aperitivo with a View",
+                "signature_drinks": [
+                    "Aperol Spritz",
+                    "Hugo Spritz",
+                    "Local beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Relaxed, outdoor, riverside setting",
+                "best_time": "Sunset / Evening",
+                "food_options": "Aperitivo buffet, light meals",
+                "reservation_needed": false,
+                "location": "Lungadige San Giorgio (Riverbank)",
+                "local_tips": "Beautiful spot for sunset drinks with views of the Adige River and the city. Popular with locals in summer."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Verona Food & Wine Walking Tour",
+                "focus": "Veronese specialties, Wine, Traditional Food Shops",
+                "duration": "Approx. 3-4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Tasting local cheeses and cured meats",
+                    "Wine sampling, including Valpolicella and Soave",
+                    "Visiting historic food shops and markets",
+                    "Learning about Veronese culinary traditions"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups (usually max 12)",
+                "languages": ["English", "Italian", "German"],
+                "booking_tips": "Book in advance, especially in high season. Morning tours often include market visits."
+            },
+            {
+                "name": "Amarone Wine Tour",
+                "focus": "Valpolicella Wine Region, Amarone Production",
+                "duration": "Half day or full day",
+                "price_range": "€€€-€€€€",
+                "highlights": [
+                    "Visiting wineries in the Valpolicella region",
+                    "Learning about the unique appassimento drying process",
+                    "Tasting different styles of Amarone and Valpolicella wines",
+                    "Often includes lunch at a winery"
+                ],
+                "booking_required": true,
+                "group_size": "Varies (private and small group options)",
+                "languages": ["English", "Italian", "German"],
+                "booking_tips": "Worth the splurge for wine lovers. Includes transportation outside the city to the vineyard area."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Veronese Cooking Class",
+                "cuisine_focus": "Traditional Veneto and Veronese Dishes",
+                "duration": "3-4 hours (including meal)",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Making fresh pasta (Bigoli or Gnocchi)",
+                    "Traditional risotto techniques (often Risotto all'Amarone)",
+                    "Seasonal Veneto specialties",
+                    "Tiramisu or Pandoro (depending on season)"
+                ],
+                "group_size": "Small groups (max 10)",
+                "languages": ["English", "Italian"],
+                "includes": ["Market visit (sometimes), ingredients, hands-on instruction, meal with wine"],
+                "booking_tips": "Many classes include a visit to local markets for ingredients. Book at least a few days ahead."
+            },
+            {
+                "name": "Risotto and Pasta Workshop",
+                "cuisine_focus": "Focused Pasta & Risotto Techniques",
+                "duration": "2-3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Mastering proper risotto technique",
+                    "Making traditional pasta shapes",
+                    "Creating classic Veneto sauces"
+                ],
+                "group_size": "Small groups",
+                "languages": ["English", "Italian", "German"],
+                "includes": ["Ingredients, hands-on instruction, tasting of prepared dishes, recipe booklet"],
+                "booking_tips": "Good option for those short on time who want a focused experience. Several cooking schools offer this."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Piazza Erbe Market",
+                "type": "Daily Market (Historic Center)",
+                "highlights": [
+                    "Fresh produce stalls",
+                    "Souvenir and craft stalls",
+                    "Historic setting in Verona's most famous square",
+                    "Surrounded by cafes and restaurants"
+                ],
+                "hours": "Morning to early evening (Daily)",
+                "best_time": "Morning for produce, any time for browsing",
+                "location": "Piazza Erbe",
+                "local_tips": "More touristy than a true local market, but has authentic produce vendors especially in the morning hours."
+            },
+            {
+                "name": "Mercato dello Stadio",
+                "type": "Weekly Farmers Market",
+                "highlights": [
+                    "Local produce from nearby farms",
+                    "Cheese vendors, bakers, and butchers",
+                    "More authentic local shopping experience",
+                    "Seasonal specialties"
+                ],
+                "hours": "Saturday mornings",
+                "best_time": "Early-mid morning",
+                "location": "Near Bentegodi Stadium",
+                "local_tips": "Much more authentic local market experience than the central Piazza Erbe. Worth the short trip from the center."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White Asparagus ('Asparagi Bianchi' - particularly from Bassano del Grappa)",
+            "Spring Peas ('Piselli')",
+            "Vialone Nano Rice (for creamy spring risottos)",
+            "Artichokes ('Carciofi')"
+        ],
+        "summer": [
+            "Peaches from Lake Garda ('Pesche')",
+            "Monte Veronese Cheese (young, summer version)",
+            "Fresh Lake Fish (especially from Lake Garda)",
+            "Heirloom Tomatoes ('Pomodori')"
+        ],
+        "autumn": [
+            "Chestnuts ('Marroni' - especially from Monti Lessini)",
+            "Pumpkin ('Zucca' - for filled pasta and risotto)",
+            "New release Valpolicella wines",
+            "Mushrooms ('Funghi porcini')",
+            "Truffles ('Tartufi' - black truffles from Lessinia)"
+        ],
+        "winter": [
+            "Pandoro (Verona's traditional Christmas cake)",
+            "Pearà sauce (bread, beef marrow, black pepper sauce)",
+            "Pastissada de Caval (horse meat stew)",
+            "Aged Monte Veronese cheese",
+            "Radicchio rosso (red chicory)"
+        ]
+    }
+} 

@@ -1,0 +1,688 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Michel Sarran",
+                "cuisine_type": "Contemporary French",
+                "signature_dishes": [
+                    "Seasonal tasting menu",
+                    "Foie gras with innovative accompaniments",
+                    "Pyrenean lamb"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Refined elegance in a historic townhouse",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least three weeks in advance, mention dietary restrictions when booking",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "City Center",
+                "local_tips": "Chef Michel Sarran (former Top Chef judge) creates dishes that blend southwestern traditions with modern techniques"
+            },
+            {
+                "name": "Restaurant Le Cénacle",
+                "cuisine_type": "Gastronomic French",
+                "signature_dishes": [
+                    "Truffle-infused creations",
+                    "Local duck preparations",
+                    "Artisanal cheese selection"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sumptuous dining room in a 5-star hotel with period details",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two weeks in advance, request the chef's table for a special experience",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "La Cité (near Capitole)",
+                "local_tips": "Chef Thomas Vonderscher showcases seasonal southwestern ingredients with classic French technique"
+            },
+            {
+                "name": "L'Avant-Comptoir",
+                "cuisine_type": "Creative French",
+                "signature_dishes": [
+                    "Innovative seasonal tasting menu",
+                    "Local fish with garden vegetables",
+                    "Modern dessert creations"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate and contemporary with open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two weeks ahead, limited seating",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Carmes",
+                "local_tips": "Chef Antonin Pont's seasonally changing menu highlights the best of local producers"
+            },
+            {
+                "name": "Sept",
+                "cuisine_type": "Modern Mediterranean",
+                "signature_dishes": [
+                    "Seven-course surprise tasting menu",
+                    "Seafood with Southwestern accents",
+                    "Creative desserts"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Minimalist chic with dramatic lighting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least two weeks in advance, request counter seating to watch the kitchen",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Carmes",
+                "local_tips": "The 7-course tasting menu changes frequently, showcasing Chef Guillaume Momboisse's creative vision"
+            },
+            {
+                "name": "Py-r",
+                "cuisine_type": "Creative French",
+                "signature_dishes": [
+                    "Market-inspired tasting menus",
+                    "Inventive seafood preparations",
+                    "Artistic plating"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Modern and bright with minimalist decor",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two weeks in advance, lunch offers excellent value",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Victor Hugo",
+                "local_tips": "Chef Pierre Lambinon creates visually stunning dishes with precise flavors and locally sourced ingredients"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Le Bibent",
+                "cuisine_type": "Classic French Brasserie",
+                "signature_dishes": [
+                    "Cassoulet Toulousain",
+                    "Steak tartare",
+                    "Plateau de fruits de mer"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Belle Époque grandeur with ornate ceiling and mirrors",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days ahead, especially for weekend dinners",
+                "dress_code": "Smart casual",
+                "location": "Place du Capitole",
+                "local_tips": "Historic brasserie revived by chef Christian Constant, offering Toulouse classics in a stunning setting"
+            },
+            {
+                "name": "Chez Émile",
+                "cuisine_type": "Traditional Toulousain",
+                "signature_dishes": [
+                    "Cassoulet Toulousain",
+                    "Confit duck",
+                    "Toulouse sausage"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Rustic traditional with wood beams and classic decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, especially for cassoulet",
+                "dress_code": "Casual",
+                "location": "Place Saint-Georges",
+                "local_tips": "One of the most authentic places to try traditional cassoulet in Toulouse"
+            },
+            {
+                "name": "N°5 Wine Bar",
+                "cuisine_type": "Wine Bar with Gourmet Tapas",
+                "signature_dishes": [
+                    "Curated cheese and charcuterie boards",
+                    "Foie gras preparations",
+                    "Seasonal small plates"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Sleek modern wine bar with self-serve wine dispensers",
+                "best_time": "Evening",
+                "reservation_needed": true,
+                "booking_tips": "Book ahead for table seating, bar may accept walk-ins",
+                "dress_code": "Smart casual",
+                "location": "Carmes",
+                "local_tips": "Named World's Best Wine Bar, featuring enomatic machines letting you sample rare wines by the glass"
+            },
+            {
+                "name": "Le J'Go",
+                "cuisine_type": "Southwestern French",
+                "signature_dishes": [
+                    "Grilled meats from local farms",
+                    "Duck specialties",
+                    "Extensive wine selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic-chic with farm-to-table ethos",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least one day ahead, specify indoor or terrace seating",
+                "dress_code": "Casual",
+                "location": "Near Capitole",
+                "local_tips": "Great for meat lovers, with an emphasis on traceable, high-quality local products"
+            },
+            {
+                "name": "La Pastel",
+                "cuisine_type": "International Fusion",
+                "signature_dishes": [
+                    "Tapas-style sharing plates",
+                    "Seasonal bowls with global flavors",
+                    "Creative cocktails"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright modern space with colorful accents",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Book ahead for dinner, lunch may accept walk-ins",
+                "dress_code": "Casual",
+                "location": "Saint-Cyprien",
+                "local_tips": "Popular with locals for lunch formulas and creative cuisine with international influences"
+            },
+            {
+                "name": "Au Pois Gourmand",
+                "cuisine_type": "Modern French Bistro",
+                "signature_dishes": [
+                    "Market-inspired daily specials",
+                    "Updated French classics",
+                    "Local fish and meat preparations"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm bistro setting with contemporary touches",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days ahead, excellent value lunch menu",
+                "dress_code": "Smart casual",
+                "location": "Patte d'Oie",
+                "local_tips": "Great neighborhood bistro popular with locals for its excellent price-quality ratio"
+            },
+            {
+                "name": "Les P'tits Fayots",
+                "cuisine_type": "Creative Southwestern",
+                "signature_dishes": [
+                    "Modern cassoulet variations",
+                    "Seasonal fish dishes",
+                    "Homemade desserts"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, intimate dining room with rustic touches",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a week ahead for dinner, popular with locals",
+                "dress_code": "Smart casual",
+                "location": "Near Jean-Jaurès",
+                "local_tips": "Chef Aziz Mokhtari offers a creative take on traditional Toulouse cuisine with excellent value"
+            },
+            {
+                "name": "La Gourmandine",
+                "cuisine_type": "Traditional French",
+                "signature_dishes": [
+                    "Duck confit",
+                    "Fresh foie gras",
+                    "Homemade terrines"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional bistro with rustic charm",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book ahead for weekends, lunch service is popular",
+                "dress_code": "Casual",
+                "location": "Les Chalets",
+                "local_tips": "Authentic southwestern cuisine in generous portions, popular with business lunch crowd"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Marché Victor Hugo",
+                "specialties": [
+                    "Toulouse sausage sandwiches",
+                    "Fresh oysters",
+                    "Local cheese and charcuterie"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sun: 7:00am-1:30pm",
+                "location": "Victor Hugo neighborhood",
+                "seating": true,
+                "local_tips": "Head to the first floor for small restaurants serving market-fresh ingredients"
+            },
+            {
+                "name": "Le Camion Qui Fume",
+                "specialties": [
+                    "Gourmet burgers",
+                    "Hand-cut fries",
+                    "Homemade sauces"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sat: 11:30am-2:00pm, 6:30pm-9:30pm",
+                "location": "Various locations, check social media",
+                "seating": false,
+                "local_tips": "One of France's original gourmet food trucks, with high-quality ingredients and rotating locations"
+            },
+            {
+                "name": "Marché des Carmes",
+                "specialties": [
+                    "Tapas",
+                    "Regional specialties",
+                    "Fresh produce and prepared foods"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sun: 7:00am-1:30pm",
+                "location": "Carmes neighborhood",
+                "seating": true,
+                "local_tips": "The market bars and tapas counters are perfect for a casual lunch"
+            },
+            {
+                "name": "Duck Me",
+                "specialties": [
+                    "Duck burgers",
+                    "Duck fat fries",
+                    "Southwestern street food"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sat: 11:30am-2:30pm, 6:30pm-10:00pm",
+                "location": "Near Capitole",
+                "seating": true,
+                "local_tips": "Unique concept featuring duck in fast food formats, showcasing the region's signature ingredient"
+            },
+            {
+                "name": "Marché Saint-Aubin",
+                "specialties": [
+                    "Global street food",
+                    "Organic produce",
+                    "Artisanal breads and pastries"
+                ],
+                "price_range": "€",
+                "hours": "Sun: 7:00am-2:00pm",
+                "location": "Saint-Aubin neighborhood",
+                "seating": false,
+                "local_tips": "Sunday only market with diverse food vendors, popular brunch spot for locals"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Cerise",
+                "specialty": "Specialty coffee and homemade cakes",
+                "must_try": [
+                    "Single-origin filter coffee",
+                    "Seasonal tarts"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, cozy space with vintage touches",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Homemade pastries, light lunch options",
+                "local_tips": "One of Toulouse's first specialty coffee shops, with a focus on quality beans and preparation"
+            },
+            {
+                "name": "L'Heure du Singe",
+                "specialty": "Coffee and cocktails",
+                "must_try": [
+                    "Espresso tonic",
+                    "Coffee-infused cocktails"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Stylish space that transitions from café to cocktail bar",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light snacks and pastries",
+                "local_tips": "Unique concept that serves excellent coffee by day and creative cocktails by night"
+            },
+            {
+                "name": "Ô Boudu Pont",
+                "specialty": "Canal-side coffee and brunch",
+                "must_try": [
+                    "Brunch plates",
+                    "Homemade cakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Relaxed waterfront location with terrace",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Full brunch menu, sandwiches and bowls",
+                "local_tips": "Beautiful location along the Canal du Midi, perfect for weekend brunch"
+            },
+            {
+                "name": "Pêcheurs de Sable",
+                "specialty": "Organic coffee and vegetarian food",
+                "must_try": [
+                    "Specialty lattes",
+                    "Homemade energy balls"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bohemian vibes with ethical focus",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Vegetarian and vegan options, healthy bowls",
+                "local_tips": "Eco-conscious café with a relaxed atmosphere, popular with students"
+            },
+            {
+                "name": "Le Bistroquet",
+                "specialty": "Traditional French café",
+                "must_try": [
+                    "Café crème",
+                    "Croissants and pastries"
+                ],
+                "price_range": "€",
+                "atmosphere": "Classic French café with terrace facing Capitole",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Classic French breakfast and light meals",
+                "local_tips": "Perfect spot for people-watching on Place du Capitole"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Fat Cat",
+                "type": "Cocktail Bar",
+                "specialty": "Creative mixology",
+                "signature_drinks": [
+                    "Seasonal craft cocktails",
+                    "House infusions and syrups"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Speakeasy style with vintage touches",
+                "best_time": "Night",
+                "food_options": "Bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Hidden entrance adds to the experience, bartenders create personalized drinks based on preferences"
+            },
+            {
+                "name": "N°5 Wine Bar",
+                "type": "Wine Bar",
+                "specialty": "Extensive wine selection",
+                "signature_drinks": [
+                    "Self-service wine dispensers",
+                    "Rare and local wines by the glass"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated yet accessible wine haven",
+                "best_time": "Evening",
+                "food_options": "Gourmet tapas, cheese and charcuterie",
+                "reservation_needed": true,
+                "local_tips": "World's Best Wine Bar winner with over 500 wines available, many by the glass through enomatic machines"
+            },
+            {
+                "name": "La Tireuse",
+                "type": "Craft Beer Bar",
+                "specialty": "Local and international craft beers",
+                "signature_drinks": [
+                    "Rotating craft beer selection",
+                    "Local microbrews"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern beer bar with industrial touches",
+                "best_time": "Evening",
+                "food_options": "Beer-friendly snacks",
+                "reservation_needed": false,
+                "local_tips": "Great selection of local Occitanie breweries alongside international craft options"
+            },
+            {
+                "name": "Le Père Peinard",
+                "type": "Traditional Wine Bar",
+                "specialty": "Natural and regional wines",
+                "signature_drinks": [
+                    "Wines from Southwest France",
+                    "Natural wine selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic French wine bar with rustic charm",
+                "best_time": "Evening",
+                "food_options": "Traditional tapas and conserves",
+                "reservation_needed": false,
+                "local_tips": "Genuine local experience with knowledgeable staff and excellent value"
+            },
+            {
+                "name": "Le Petit London",
+                "type": "Live Music Bar",
+                "specialty": "Beer and spirits with music",
+                "signature_drinks": [
+                    "Local craft beers",
+                    "Classic cocktails"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Energetic pub with regular live performances",
+                "best_time": "Night",
+                "food_options": "Bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Check their schedule for live music, popular with locals and international crowd"
+            },
+            {
+                "name": "Moloko",
+                "type": "Cocktail Bar",
+                "specialty": "Classic and creative cocktails",
+                "signature_drinks": [
+                    "House creation cocktails",
+                    "Well-executed classics"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sleek, intimate space with ambient lighting",
+                "best_time": "Evening",
+                "food_options": "Small plates",
+                "reservation_needed": true,
+                "local_tips": "Known for exceptional service and perfectly balanced drinks"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Taste of Toulouse Market Tour",
+                "focus": "Local market culture and specialties",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Victor Hugo Market exploration",
+                    "Meet local vendors",
+                    "Tastings of regional specialties"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Book at least a week in advance, tours run Tuesday through Sunday mornings"
+            },
+            {
+                "name": "Toulouse Gourmet Walking Tour",
+                "focus": "Artisanal food shops and tastings",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Historic center exploration",
+                    "Specialty food stores",
+                    "Traditional products tasting"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "French",
+                    "Spanish"
+                ],
+                "booking_tips": "Wear comfortable shoes, covers historical city center"
+            },
+            {
+                "name": "Canal du Midi Wine Cruise",
+                "focus": "Regional wines and scenic waterway",
+                "duration": "2.5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Canal boat tour",
+                    "Wine tasting",
+                    "Local cheese pairing"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Seasonal (April-October), book well in advance during summer months"
+            },
+            {
+                "name": "Violet and Pastel Tour",
+                "focus": "Unique local flavors and products",
+                "duration": "2 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Violet candy making",
+                    "Toulouse's unique products",
+                    "Historical context"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Unique tour focusing on Toulouse's traditional violet industry and pastel history"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "L'Atelier Cuisine de Théo",
+                "cuisine_focus": "Traditional Toulousain cuisine",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Authentic cassoulet",
+                    "Duck confit",
+                    "Regional pastries"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Recipe booklet",
+                    "Meal with wine"
+                ],
+                "booking_tips": "Classes run multiple times per week, book at least two weeks in advance"
+            },
+            {
+                "name": "Cook & Go Toulouse",
+                "cuisine_focus": "Efficient French cooking",
+                "duration": "1-2 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Quick French techniques",
+                    "Southwest specialties",
+                    "Dessert skills"
+                ],
+                "group_size": "12",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Take-home meal",
+                    "Recipe cards"
+                ],
+                "booking_tips": "Express lunch classes are perfect for visitors with limited time"
+            },
+            {
+                "name": "French Cooking School Toulouse",
+                "cuisine_focus": "Classic French techniques",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Professional French techniques",
+                    "Regional specialties",
+                    "Wine pairing"
+                ],
+                "group_size": "10",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "includes": [
+                    "All materials",
+                    "Full meal with wine",
+                    "Certificate"
+                ],
+                "booking_tips": "More serious cooking school offering technique-focused classes"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Marché Victor Hugo",
+                "type": "Covered food market",
+                "highlights": [
+                    "Premium meat and seafood vendors",
+                    "Cheese specialists",
+                    "Upstairs restaurants"
+                ],
+                "hours": "Tue-Sun: 7:00am-1:30pm",
+                "best_time": "Saturday morning",
+                "location": "Place Victor Hugo",
+                "local_tips": "Head upstairs for lunch where restaurants cook with ingredients from the market below"
+            },
+            {
+                "name": "Marché des Carmes",
+                "type": "Covered market",
+                "highlights": [
+                    "Gourmet food stalls",
+                    "Wine bars",
+                    "Tapas counters"
+                ],
+                "hours": "Tue-Sun: 7:00am-1:30pm",
+                "best_time": "Morning",
+                "location": "Place des Carmes",
+                "local_tips": "More intimate than Victor Hugo, with great spots for a casual glass of wine and tapas"
+            },
+            {
+                "name": "Marché Saint-Aubin",
+                "type": "Outdoor market",
+                "highlights": [
+                    "Organic produce",
+                    "Artisanal food producers",
+                    "Street food options"
+                ],
+                "hours": "Sun: 7:00am-2:00pm",
+                "best_time": "Sunday morning",
+                "location": "Place Saint-Aubin",
+                "local_tips": "Sunday-only market with a bohemian vibe, popular for brunch and people-watching"
+            },
+            {
+                "name": "Marché Cristal",
+                "type": "Organic market",
+                "highlights": [
+                    "Certified organic produce",
+                    "Artisanal products",
+                    "Local farmers"
+                ],
+                "hours": "Tue, Sat: 7:00am-1:00pm",
+                "best_time": "Early morning",
+                "location": "Boulevard de Strasbourg",
+                "local_tips": "The best market for organic and sustainably produced foods in Toulouse"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White asparagus with hollandaise sauce",
+            "Young garlic and soups",
+            "Gariguette strawberries"
+        ],
+        "summer": [
+            "Tomato and eggplant dishes",
+            "Cassoulet served at cooler temperatures",
+            "Seasonal fruit tarts"
+        ],
+        "autumn": [
+            "Toulouse cassoulet (traditional bean and meat stew)",
+            "Wild mushrooms (cèpes, girolles)",
+            "Game meats with wine sauces"
+        ],
+        "winter": [
+            "Confit de canard (preserved duck)",
+            "Saucisse de Toulouse (traditional sausage)",
+            "Violet-flavored pastries and confections"
+        ]
+    }
+}

@@ -1,0 +1,507 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Chapter One",
+                "cuisine_type": "Modern Irish",
+                "signature_dishes": [
+                    "Cured Irish Salmon",
+                    "Dry-aged Irish Beef"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and sophisticated with a focus on art and culture",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least 2 weeks in advance, especially for weekends",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Parnell Square",
+                "local_tips": "Try the tasting menu for a complete experience of the chef's creativity"
+            },
+            {
+                "name": "The Greenhouse",
+                "cuisine_type": "Irish with French influences",
+                "signature_dishes": [
+                    "Veal Sweetbreads",
+                    "Roast Duck"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Modern and intimate with a focus on detail",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations open one month in advance",
+                "dress_code": "Formal",
+                "michelin_stars": 2,
+                "location": "Dawson Street",
+                "local_tips": "Ask for a wine pairing to complement the dishes"
+            },
+            {
+                "name": "L'Ecrivain",
+                "cuisine_type": "Contemporary Irish",
+                "signature_dishes": [
+                    "Wild Atlantic Turbot",
+                    "Lamb with Connemara Seaweed"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Chic and modern with an artistic flair",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Try booking for a weekday for more availability",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Lower Baggot Street",
+                "local_tips": "Request a seat by the open kitchen for a view of the culinary action"
+            },
+            {
+                "name": "Restaurant Patrick Guilbaud",
+                "cuisine_type": "French",
+                "signature_dishes": [
+                    "Dublin Bay Prawns",
+                    "Black Sole"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Luxurious and elegant with classic decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several weeks ahead, especially for Saturday evenings",
+                "dress_code": "Formal",
+                "michelin_stars": 2,
+                "location": "Merrion Street Upper",
+                "local_tips": "The lunch menu offers a more affordable way to experience this two-star restaurant"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "The Woollen Mills",
+                "cuisine_type": "Irish Comfort Food",
+                "signature_dishes": [
+                    "Fish and Chips",
+                    "Beef Pie"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Quirky and relaxed with a historic charm",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Walk-ins are welcome, but book for larger groups",
+                "dress_code": "Casual",
+                "location": "Ormond Quay",
+                "local_tips": "Enjoy a drink on the rooftop terrace if the weather is nice"
+            },
+            {
+                "name": "Brother Hubbard",
+                "cuisine_type": "Middle Eastern",
+                "signature_dishes": [
+                    "Mezze Platter",
+                    "Lamb Shakshuka"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm and bustling with a creative vibe",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early during weekends to avoid long waits",
+                "dress_code": "Casual",
+                "location": "Capel Street",
+                "local_tips": "Don't miss their baked goods, especially the pastries"
+            },
+            {
+                "name": "Bunsen",
+                "cuisine_type": "American-style Burgers",
+                "signature_dishes": [
+                    "Cheeseburger",
+                    "Sweet Potato Fries"
+                ],
+                "price_range": "€",
+                "atmosphere": "Minimalist and straightforward, focused on quality",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations taken, but turnover is quick",
+                "dress_code": "Casual",
+                "location": "Camden Street",
+                "local_tips": "The menu is simple, but the quality is unmatched; perfect for a quick bite"
+            },
+            {
+                "name": "The Vintage Kitchen",
+                "cuisine_type": "Irish with a twist",
+                "signature_dishes": [
+                    "Duck Leg Confit",
+                    "Irish Stew"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and vintage-inspired with a friendly vibe",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance as this is a small venue",
+                "dress_code": "Smart casual",
+                "location": "Poolbeg Street",
+                "local_tips": "Bring your own bottle of wine for a small corkage fee"
+            },
+            {
+                "name": "The Fumbally",
+                "cuisine_type": "Organic and Vegetarian",
+                "signature_dishes": [
+                    "Fumbally Eggs",
+                    "Heritage Tomato Salad"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Laid-back and community-focused with a rustic feel",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to snag a good table as it fills up fast",
+                "dress_code": "Casual",
+                "location": "Fumbally Lane",
+                "local_tips": "Check out their weekly evening events and workshops"
+            },
+            {
+                "name": "Fish Shop",
+                "cuisine_type": "Seafood",
+                "signature_dishes": [
+                    "Oysters",
+                    "Fish Tacos"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Small and intimate with a nautical theme",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a week in advance; weekends are especially busy",
+                "dress_code": "Casual",
+                "location": "Benburb Street",
+                "local_tips": "Opt for the daily catch for the freshest experience"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Dublin Pizza Company",
+                "specialties": [
+                    "Margherita Pizza",
+                    "Pepperoni Pizza"
+                ],
+                "price_range": "€€",
+                "hours": "11:00 AM - 10:00 PM",
+                "location": "Aungier Street",
+                "seating": false,
+                "local_tips": "Perfect for a late-night snack; try their seasonal specials"
+            },
+            {
+                "name": "Klaw",
+                "specialties": [
+                    "Crab Claws",
+                    "Lobster Rolls"
+                ],
+                "price_range": "€€",
+                "hours": "12:00 PM - 9:00 PM",
+                "location": "Temple Bar",
+                "seating": true,
+                "local_tips": "Arrive early in the evening for the freshest seafood"
+            },
+            {
+                "name": "Sambos",
+                "specialties": [
+                    "Pulled Pork Sandwich",
+                    "Vegan Wrap"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 6:00 PM",
+                "location": "Smithfield",
+                "seating": false,
+                "local_tips": "Great for a quick bite while exploring the area"
+            },
+            {
+                "name": "The Big Blue Bus at The Bernard Shaw",
+                "specialties": [
+                    "Wood-fired Pizza",
+                    "Craft Beers"
+                ],
+                "price_range": "€€",
+                "hours": "12:00 PM - 10:00 PM",
+                "location": "Richmond Street",
+                "seating": true,
+                "local_tips": "Perfect for a casual evening with friends; enjoy the vibrant atmosphere"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "3fe",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Flat White",
+                    "Single Origin Espresso"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist and sleek with a focus on quality",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Light pastries and snacks",
+                "local_tips": "Join a coffee tasting session for an in-depth experience"
+            },
+            {
+                "name": "Kaph",
+                "specialty": "Filter Coffee",
+                "must_try": [
+                    "Filter Coffee",
+                    "Matcha Latte"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Trendy and artistic with a vibrant clientele",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Vegan cakes and cookies",
+                "local_tips": "A favorite spot among creatives; perfect for people-watching"
+            },
+            {
+                "name": "The Bald Barista",
+                "specialty": "Espresso",
+                "must_try": [
+                    "Espresso",
+                    "Cappuccino"
+                ],
+                "price_range": "€",
+                "atmosphere": "Cozy and eclectic with a local feel",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Homemade sandwiches and cakes",
+                "local_tips": "Chat with the barista for local recommendations and tips"
+            },
+            {
+                "name": "Two Pups Coffee",
+                "specialty": "Brunch and Coffee",
+                "must_try": [
+                    "Avocado Toast",
+                    "Cold Brew"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Relaxed and dog-friendly with a welcoming vibe",
+                "best_time": "Brunch",
+                "wifi_friendly": true,
+                "food_options": "Full brunch menu with vegetarian options",
+                "local_tips": "Bring your furry friend along and enjoy the pet-friendly atmosphere"
+            }
+        ],
+        "bars": [
+            {
+                "name": "The Temple Bar",
+                "type": "Traditional Irish Pub",
+                "specialty": "Irish Whiskey",
+                "signature_drinks": [
+                    "Irish Coffee",
+                    "Guinness"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Lively and iconic with live music",
+                "best_time": "Evening",
+                "food_options": "Pub grub including fish and chips",
+                "reservation_needed": false,
+                "local_tips": "Visit during the day for a quieter experience"
+            },
+            {
+                "name": "Peruke & Periwig",
+                "type": "Cocktail Bar",
+                "specialty": "Signature Cocktails",
+                "signature_drinks": [
+                    "Rhubarb Sour",
+                    "Old Fashioned"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Quirky and vintage with a theatrical flair",
+                "best_time": "Evening",
+                "food_options": "Snacks and small plates",
+                "reservation_needed": true,
+                "local_tips": "Book a table for weekend nights to ensure entry"
+            },
+            {
+                "name": "The Porterhouse",
+                "type": "Craft Beer Pub",
+                "specialty": "Craft Beers",
+                "signature_drinks": [
+                    "Plain Porter",
+                    "Temple Lager"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional and bustling with a focus on beer",
+                "best_time": "Evening",
+                "food_options": "Classic pub food",
+                "reservation_needed": false,
+                "local_tips": "Try a flight of beers to sample their range of brews"
+            },
+            {
+                "name": "The Shelbourne Bar",
+                "type": "Hotel Bar",
+                "specialty": "Classic Cocktails",
+                "signature_drinks": [
+                    "Martini",
+                    "Irish Mule"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and historic with a touch of luxury",
+                "best_time": "Late evening",
+                "food_options": "Upscale bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Perfect spot for a pre-dinner drink with a historic ambiance"
+            },
+            {
+                "name": "The Long Hall",
+                "type": "Historic Pub",
+                "specialty": "Traditional Irish Ales",
+                "signature_drinks": [
+                    "Pint of Guinness",
+                    "Irish Ale"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Victorian charm with a warm, local feel",
+                "best_time": "Afternoon",
+                "food_options": "Limited snacks",
+                "reservation_needed": false,
+                "local_tips": "Visit during off-peak hours to soak in the historic atmosphere"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Fab Food Trails",
+                "focus": "Culinary Walk",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Artisan cheese tasting",
+                    "Craft coffee",
+                    "Irish whiskey sampling"
+                ],
+                "booking_required": true,
+                "group_size": "15",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Book online at least a week in advance for preferred dates"
+            },
+            {
+                "name": "Secret Food Tours",
+                "focus": "Local and Hidden Gems",
+                "duration": "3.5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Traditional Irish stew",
+                    "Local pastries",
+                    "Craft beer"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Check for last-minute availability if booked out"
+            },
+            {
+                "name": "Dublin Tasting Trail",
+                "focus": "Irish Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Seafood sampling",
+                    "Irish cheese",
+                    "Historic pub visit"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Early morning slots are less crowded"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Dublin Cookery School",
+                "cuisine_focus": "Irish Classics",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Irish soda bread",
+                    "Seafood chowder",
+                    "Traditional desserts"
+                ],
+                "group_size": "12",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipes",
+                    "Tasting"
+                ],
+                "booking_tips": "Book a month in advance for weekend classes"
+            },
+            {
+                "name": "Cooks Academy",
+                "cuisine_focus": "Contemporary Irish",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Modern Irish dishes",
+                    "Presentation skills"
+                ],
+                "group_size": "10",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Use of equipment",
+                    "Wine pairing"
+                ],
+                "booking_tips": "Check for seasonal themed classes"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Temple Bar Food Market",
+                "type": "Farmers Market",
+                "highlights": [
+                    "Organic produce",
+                    "Irish cheeses",
+                    "Artisan breads"
+                ],
+                "hours": "Saturdays 10:00 AM - 4:30 PM",
+                "best_time": "Morning",
+                "location": "Meeting House Square",
+                "local_tips": "Arrive early for the freshest selection and to avoid crowds"
+            },
+            {
+                "name": "Dun Laoghaire Sunday Market",
+                "type": "Artisan Market",
+                "highlights": [
+                    "Local crafts",
+                    "Street food",
+                    "Fresh seafood"
+                ],
+                "hours": "Sundays 11:00 AM - 4:00 PM",
+                "best_time": "Late morning",
+                "location": "People's Park",
+                "local_tips": "Bring cash as not all vendors accept cards"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Wild Garlic Soup",
+            "Spring Lamb",
+            "Rhubarb Tart"
+        ],
+        "summer": [
+            "Fresh Oysters",
+            "Strawberry Pavlova",
+            "Elderflower Cordial"
+        ],
+        "autumn": [
+            "Pumpkin Risotto",
+            "Irish Stew",
+            "Apple and Blackberry Crumble"
+        ],
+        "winter": [
+            "Boxty Pancakes",
+            "Spiced Beef",
+            "Mulled Cider"
+        ]
+    }
+}

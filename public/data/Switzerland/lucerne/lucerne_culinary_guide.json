@@ -1,0 +1,524 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Restaurant Sens",
+                "cuisine_type": "Modern European/International",
+                "signature_dishes": [
+                    "Seasonal tasting menus combining local Lake Lucerne produce with global flavors and techniques",
+                    "Chef's surprise courses featuring innovative presentation"
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Elegant lakefront dining room in Hotel Vitznauerhof with panoramic views of Lake Lucerne and mountains",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve well in advance; request window or terrace seating for the view; formal attire recommended",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 2,
+                "location": "Hotel Vitznauerhof (Vitznau, lake shore)",
+                "local_tips": "One of the region's most prestigious dining experiences. The lakefront location combined with innovative cuisine makes for a memorable special occasion meal."
+            },
+            {
+                "name": "Lucide",
+                "cuisine_type": "Modern Swiss/International",
+                "signature_dishes": [
+                    "Four to six-course seasonal tasting menus (including vegetarian option)",
+                    "High-quality ingredients prepared with creative techniques"
+                ],
+                "price_range": "€€€€€",
+                "atmosphere": "Stylish, contemporary setting in the Culture and Congress Center (KKL) with views of the lake and city",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance; ask for a table by the window for the best views",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 1,
+                "location": "KKL Luzern (Culture and Congress Center)",
+                "local_tips": "Offers a more affordable set menu at lunch, making it accessible for those wanting to experience Michelin-starred dining without the full dinner price."
+            },
+            {
+                "name": "The Restaurant (at The Hotel)",
+                "cuisine_type": "Mediterranean/International",
+                "signature_dishes": [
+                    "Seasonal chef's menu with Mediterranean influences",
+                    "Artfully plated dishes featuring premium ingredients"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sleek, contemporary setting in the Jean Nouvel-designed boutique hotel",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Request seating in the dining room with the most natural light; good choice for foodies looking for innovative cuisine",
+                "dress_code": "Smart Elegant",
+                "michelin_stars": 0,
+                "location": "The Hotel Lucerne (near the train station)",
+                "local_tips": "While not Michelin-starred, this restaurant offers one of Lucerne's most sophisticated dining experiences with exceptional service and impressive presentation."
+            },
+            {
+                "name": "Old Swiss House",
+                "cuisine_type": "Swiss/European Classic",
+                "signature_dishes": [
+                    "Wiener Schnitzel prepared tableside in butter",
+                    "Homemade lobster soup with cognac",
+                    "Classic European dishes with French influences"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Historic half-timbered building from 1858 with wood-paneled dining rooms and traditional decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve in advance; request the main dining room; the tableside schnitzel preparation is part of the experience",
+                "dress_code": "Smart Casual to Smart Elegant",
+                "michelin_stars": 0,
+                "location": "Near the Lion Monument",
+                "local_tips": "A Lucerne institution since 1931. Don't miss the theatrical tableside preparation of the Wiener Schnitzel. The restaurant hasn't changed much in decades, which is part of its charm."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Wirtshaus Taube",
+                "cuisine_type": "Traditional Swiss",
+                "signature_dishes": [
+                    "Cheese fondue (various types)",
+                    "Rösti dishes",
+                    "Seasonal Swiss specialties"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Cozy, traditional Swiss restaurant with a homey feel",
+                "best_time": "Dinner",
+                "reservation_needed": "Recommended",
+                "booking_tips": "Popular with locals seeking authentic Swiss cuisine; comfortable casual atmosphere",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "Offers a genuine journey into Swiss culinary heritage with carefully prepared local ingredients and traditional recipes."
+            },
+            {
+                "name": "Wirtshaus Galliker",
+                "cuisine_type": "Traditional Swiss/Lucerne Specialties",
+                "signature_dishes": [
+                    "Luzerner Chügelipastete (veal and mushroom pastry)",
+                    "Seasonal game dishes",
+                    "Classic Swiss comfort food"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Family-run tavern operating since 1856 with traditional Swiss decor",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": "Recommended, especially for dinner",
+                "booking_tips": "Popular with locals for authentic Lucerne specialties; hearty portions",
+                "dress_code": "Casual",
+                "location": "Just outside Old Town",
+                "local_tips": "One of Lucerne's most beloved traditional restaurants run by the same family for four generations. The Luzerner Chügelipastete is a local specialty dating back to the 18th century."
+            },
+            {
+                "name": "Pfistern",
+                "cuisine_type": "Swiss Cheese Specialties",
+                "signature_dishes": [
+                    "Extensive fondue menu (over 100 varieties)",
+                    "Raclette variations",
+                    "Traditional Swiss dishes"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Historic guild house with river views and outdoor terrace",
+                "best_time": "Dinner",
+                "reservation_needed": "Highly recommended",
+                "booking_tips": "Request a table on the terrace in good weather for views of Chapel Bridge and the river",
+                "dress_code": "Casual",
+                "location": "Old Town (along the Reuss River)",
+                "local_tips": "Known for having one of the most extensive fondue menus in the country. The riverside location offers beautiful views of the Chapel Bridge."
+            },
+            {
+                "name": "Bürgenstock Fondue Gondola",
+                "cuisine_type": "Swiss Fondue Experience",
+                "signature_dishes": [
+                    "Traditional cheese fondue served in a converted ski gondola",
+                    "Fondue variations with accompaniments"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Unique dining in a converted gondola cable car with panoramic views",
+                "best_time": "Evening (winter season)",
+                "reservation_needed": "Essential",
+                "booking_tips": "Books out weeks in advance during winter season; unique experience especially popular for special occasions",
+                "dress_code": "Casual (warm clothing in winter)",
+                "location": "Bürgenstock Resort (short boat ride from Lucerne)",
+                "local_tips": "A truly unique Swiss dining experience, especially romantic at night. Each gondola seats 4 people and offers breathtaking views while enjoying fondue."
+            },
+            {
+                "name": "Mill'Feuille",
+                "cuisine_type": "Contemporary Swiss/International",
+                "signature_dishes": [
+                    "All-day breakfast options",
+                    "Signature steak tartare",
+                    "Seasonal lunch specials"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, modern cafe with riverside terrace",
+                "best_time": "Breakfast, Brunch, Lunch",
+                "reservation_needed": "Recommended for terrace seating",
+                "booking_tips": "Popular for brunch; breakfast served until 6pm",
+                "dress_code": "Casual",
+                "location": "Old Town (by the Reuss River)",
+                "local_tips": "Excellent spot for breakfast or brunch, especially on the terrace with river views. The quark with goji berry compote and the baked eggs are local favorites."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Lucerne Weekly Market (Tuesday & Saturday)",
+                "specialties": [
+                    "Fresh regional produce",
+                    "Local cheeses and dairy products",
+                    "Baked goods and breads",
+                    "Artisanal food products",
+                    "Seasonal fruits and vegetables",
+                    "Street food options"
+                ],
+                "price_range": "€-€€",
+                "hours": "Tuesdays & Saturdays, approx. 6 AM - 1 PM",
+                "location": "Bahnhofstrasse (along the Reuss River)",
+                "seating": "Limited public benches nearby",
+                "local_tips": "Best experienced in the morning for the freshest products. Saturday markets are larger than Tuesday ones."
+            },
+            {
+                "name": "Äss Bar",
+                "specialties": [
+                    "Rescued bakery items and pastries at 50% off",
+                    "Day-old breads, pastries, and desserts from top Lucerne bakeries",
+                    "Sustainable food concept that prevents food waste"
+                ],
+                "price_range": "€",
+                "hours": "Typically 8 AM - 6 PM (check current hours)",
+                "location": "Old Town",
+                "seating": "Limited",
+                "local_tips": "A unique concept that saves food that would otherwise be wasted. Quality items from top bakeries at half price - a great budget option with environmental benefits."
+            },
+            {
+                "name": "Max Chocolatier",
+                "specialties": [
+                    "Artisanal handmade chocolates",
+                    "Seasonal chocolate creations",
+                    "Hot chocolate drinks",
+                    "Chocolate tastings"
+                ],
+                "price_range": "€€-€€€",
+                "hours": "Typically 10 AM - 6 PM",
+                "location": "Old Town",
+                "seating": "Limited",
+                "local_tips": "Lucerne's premium chocolatier founded in 2009. The bean-to-bar chocolates are made in small batches with seasonal ingredients. Excellent for gifts or a special treat."
+            },
+            {
+                "name": "Heisse Marroni (Chestnut Vendors)",
+                "specialties": [
+                    "Roasted chestnuts (seasonal, fall and winter)",
+                    "Traditional Swiss winter street food"
+                ],
+                "price_range": "€",
+                "hours": "Variable, typically daytime hours in fall/winter",
+                "location": "Various spots in the Old Town",
+                "seating": "None (takeaway only)",
+                "local_tips": "A warming winter treat. Look for the vendors with small carts producing fragrant smoke. Perfect snack while exploring the city on a cold day."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Cafe Tacuba",
+                "specialty": "Specialty Coffee Roastery",
+                "must_try": [
+                    "Single-origin espresso",
+                    "House-roasted coffee beans",
+                    "Specialty brewing methods"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Small, laid-back neighborhood cafe with a local feel away from tourist crowds",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light snacks, some pastries",
+                "local_tips": "One of Lucerne's best specialty coffee spots. Look for the unique light fixtures made from Italian moka pots. A great place to experience local cafe culture."
+            },
+            {
+                "name": "Luz See Bistro",
+                "specialty": "Lakeside Cafe with Views",
+                "must_try": [
+                    "Coffee and tea selection",
+                    "Breakfast menu",
+                    "Pastries"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Bright, airy cafe with art deco interior and large windows overlooking Lake Lucerne",
+                "best_time": "Morning, Afternoon",
+                "wifi_friendly": "Yes",
+                "food_options": "Breakfast, light lunch, pastries",
+                "local_tips": "Beautiful vintage vibe and terrace directly on the lake. Popular with locals once the weather gets warm."
+            },
+            {
+                "name": "Blend Teehaus",
+                "specialty": "Tea House & Vegan-Friendly Cafe",
+                "must_try": [
+                    "Specialty teas",
+                    "Strong coffee",
+                    "Vegan pastries and cakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy Middle Eastern-inspired cafe in downtown Lucerne",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Plant-based cold and hot dishes, pastries, cakes",
+                "local_tips": "Good option for vegans and vegetarians. Young and hip atmosphere with excellent tea and coffee selection."
+            },
+            {
+                "name": "Mardi Gras Luzern",
+                "specialty": "Artsy Cafe & Cultural Space",
+                "must_try": [
+                    "Breakfast options",
+                    "Coffee specialties",
+                    "Cakes and pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Quirky and artistic cafe with a gallery feel, paintings on walls, and international influences",
+                "best_time": "Morning, Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Rich breakfast, light lunches, pastries",
+                "local_tips": "Features a large selection of newspapers and international flair with Moroccan and French accents. Beautiful terrace for sunny days."
+            },
+            {
+                "name": "Crazy Cupcake Café",
+                "specialty": "Vegan Cafe & Brunch Spot",
+                "must_try": [
+                    "Mini-cupcakes",
+                    "Vegan coffee drinks",
+                    "Sunday brunch buffet"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Colorful, bright cafe with a relaxed vibe off the beaten tourist path",
+                "best_time": "Brunch, Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Vegan brunch buffet, plant-based dishes, cupcakes, pastries",
+                "local_tips": "Popular with locals for Sunday brunch. Everything is plant-based but appeals to non-vegans too due to the quality and variety."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Rathaus Brauerei",
+                "type": "Brewpub",
+                "specialty": "House-Brewed Beers & Swiss Fare",
+                "signature_drinks": [
+                    "Selection of house-brewed beers",
+                    "Beer sampling flights",
+                    "Traditional Swiss spirits"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Lively historic brewery next to the town hall with traditional Swiss elements",
+                "best_time": "Evening",
+                "food_options": "Full menu of Swiss and international dishes",
+                "reservation_needed": "Recommended for dinner",
+                "local_tips": "Combines traditional beer brewing with an energetic atmosphere. Popular for both food and drinks with a great selection of house beers."
+            },
+            {
+                "name": "Bar des Alpes",
+                "type": "Hotel Bar with Views",
+                "specialty": "Cocktails & Alpine Panorama",
+                "signature_drinks": [
+                    "Classic cocktails",
+                    "Swiss wines",
+                    "High-end spirits"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Elegant hotel bar with panoramic views of Lake Lucerne and the Alps",
+                "best_time": "Sunset/Evening",
+                "food_options": "Bar snacks, small plates",
+                "reservation_needed": "Recommended for window seating",
+                "local_tips": "One of the best views in town, especially at sunset. Perfect for a special occasion drink or pre-dinner cocktail."
+            },
+            {
+                "name": "Louis Bar (at Hotel Montana)",
+                "type": "Jazz Bar",
+                "specialty": "Whisky & Live Jazz",
+                "signature_drinks": [
+                    "Extensive whisky collection (over 130 varieties)",
+                    "Classic cocktails",
+                    "Signature house drinks"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Sophisticated Art Deco bar with live jazz and panoramic lake views",
+                "best_time": "Evening",
+                "food_options": "Bar menu available",
+                "reservation_needed": "Highly recommended, especially for weekends",
+                "local_tips": "One of Switzerland's best whisky selections paired with excellent live jazz most evenings. The sophisticated atmosphere and lake views make it a special night out."
+            },
+            {
+                "name": "Shamrock Irish Pub",
+                "type": "Irish Pub",
+                "specialty": "Beer & Sports",
+                "signature_drinks": [
+                    "Guinness and Irish beers",
+                    "International beer selection",
+                    "Whiskey varieties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Casual, lively pub with sports screens and occasional live music",
+                "best_time": "Evening/Night",
+                "food_options": "Pub food",
+                "reservation_needed": false,
+                "local_tips": "Popular with both locals and tourists. Good spot to watch sports events and enjoy reasonably priced drinks in an otherwise expensive city."
+            },
+            {
+                "name": "KKL Seebar",
+                "type": "Lakeside Cultural Venue Bar",
+                "specialty": "Sophisticated Drinks & Views",
+                "signature_drinks": [
+                    "Creative cocktails",
+                    "Swiss and international wines",
+                    "Aperitifs"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern, elegant bar in the KKL cultural center with terrace overlooking the lake",
+                "best_time": "Pre/post-performance, Evening",
+                "food_options": "Small plates, snacks",
+                "reservation_needed": "Not essential but recommended for terrace",
+                "local_tips": "Perfect before or after a performance at the KKL. The terrace offers beautiful views of the lake and mountains."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Lucerne Food Trail",
+                "focus": "Self-Guided Culinary Tour of Lucerne",
+                "duration": "Flexible, typically 2-3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Self-paced exploration of Lucerne's culinary scene",
+                    "Visiting selected gourmet stops around the city",
+                    "Sampling local specialties while discovering the city",
+                    "Combination of sightseeing and food tasting"
+                ],
+                "booking_required": true,
+                "group_size": "Self-guided (individual or small group)",
+                "languages": [ "English", "German", "French" ],
+                "booking_tips": "Book through the Lucerne Tourist Information Center. The trail includes a map and vouchers for participating locations."
+            },
+            {
+                "name": "Chocolate, Lake & Old Town Tour",
+                "focus": "Combined Sightseeing & Chocolate Experience",
+                "duration": "Approx. 4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Walking tour of Lucerne's Old Town",
+                    "Boat ride on Lake Lucerne",
+                    "Learning about Swiss chocolate traditions",
+                    "Chocolate tasting experiences"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [ "English", "German" ],
+                "booking_tips": "Book in advance as these tours are popular. Combines city exploration with Swiss chocolate culture for a well-rounded experience."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Swiss Cooking Class with Marco",
+                "cuisine_focus": "Traditional Swiss Home Cooking",
+                "duration": "Approx. 3-4 hours",
+                "price_range": "€€€-€€€€",
+                "what_you_learn": [
+                    "Preparation of traditional Swiss dishes",
+                    "Techniques for Alpine cuisine",
+                    "Stories about Swiss food culture and traditions",
+                    "Local ingredient knowledge"
+                ],
+                "group_size": "Small groups",
+                "languages": [ "English", "German" ],
+                "includes": [ "Hands-on cooking, ingredients, recipes, enjoying the prepared meal together" ],
+                "booking_tips": "Available through platforms like Traveling Spoon. Authentic local cooking experience in a home setting."
+            },
+            {
+                "name": "Swiss Fondue & Raclette Workshop",
+                "cuisine_focus": "Swiss Cheese Specialties",
+                "duration": "Approx. 2 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Selecting the right cheese combinations for fondue",
+                    "Proper preparation techniques",
+                    "Traditional and creative variations",
+                    "Wine pairing suggestions"
+                ],
+                "group_size": "Small groups",
+                "languages": [ "English", "German", "French" ],
+                "includes": [ "Ingredients, recipes, tasting of prepared dishes" ],
+                "booking_tips": "Fondue is particularly associated with winter months but classes are available year-round. Check with local cooking schools or through the tourist office."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Lucerne Weekly Market",
+                "type": "Traditional Farmers Market",
+                "highlights": [
+                    "Fresh local and seasonal produce",
+                    "Regional cheeses and dairy products",
+                    "Flowers and plants",
+                    "Artisanal breads and baked goods",
+                    "Local specialty products"
+                ],
+                "hours": "Tuesday & Saturday, approx. 6 AM - 1 PM",
+                "best_time": "Morning for the freshest selection",
+                "location": "Bahnhofstrasse along the Reuss River",
+                "local_tips": "Saturday markets are larger and livelier than Tuesday ones. Come early for the best selection and to see the market at its most authentic."
+            },
+            {
+                "name": "Christmas Market (Weihnachtsmarkt)",
+                "type": "Seasonal Holiday Market",
+                "highlights": [
+                    "Traditional Swiss Christmas foods",
+                    "Glühwein (mulled wine)",
+                    "Seasonal crafts and gifts",
+                    "Holiday atmosphere"
+                ],
+                "hours": "Typically late November to December 24, daily",
+                "best_time": "Evening for the full festive atmosphere with lights",
+                "location": "Franziskanerplatz in the Old Town",
+                "local_tips": "The intimate setting in Franziskanerplatz creates a cozy atmosphere. Try the raclette, grilled sausages, and special Christmas pastries."
+            },
+            {
+                "name": "Street Food Festival Luzern",
+                "type": "Annual Food Festival",
+                "highlights": [
+                    "International street food vendors",
+                    "Local culinary innovations",
+                    "Craft beers and local drinks",
+                    "Live music and entertainment"
+                ],
+                "hours": "Check schedule - typically a weekend in summer",
+                "best_time": "Afternoon/Evening",
+                "location": "Varies by year",
+                "local_tips": "Popular annual event showcasing global cuisine alongside Swiss specialties. Check the official Lucerne tourism website for current year's dates and location."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Wild garlic (Bärlauch) dishes - in soups, pesto, and butter",
+            "White asparagus (Spargel) - A seasonal delicacy served with hollandaise sauce",
+            "Rhubarb desserts and tarts",
+            "Easter specialties including chocolate and special bread"
+        ],
+        "summer": [
+            "Lake Lucerne fish specialties, particularly fresh perch (Egli)",
+            "Seasonal berries, especially from nearby regions",
+            "Outdoor dining along the Reuss River and lake promenades",
+            "Summer salads with local produce",
+            "Gelato from Gelateria di Berna and other local ice cream shops"
+        ],
+        "autumn": [
+            "Wild game dishes (venison, wild boar) from the Alpine regions",
+            "Chestnuts (Heisse Marroni) from street vendors",
+            "Mushroom specialties with locally foraged varieties",
+            "Zuppa di Zucca (pumpkin soup) with bacon and toast",
+            "Heusuppe ('hay soup' with mountain herbs and flowers)"
+        ],
+        "winter": [
+            "Cheese fondue in various styles (try the truffle or champagne variations)",
+            "Raclette with pickles and potatoes",
+            "Älplermagronen (Alpine macaroni with cheese, potatoes, bacon, and applesauce)",
+            "Luzerner Chügelipastete (pastry shell filled with veal and mushrooms in cream sauce)",
+            "Glühwein (mulled wine) at Christmas markets",
+            "Lebkuchen and Birnenbrot (pear bread) - traditional Swiss winter sweets"
+        ]
+    }
+}

@@ -1,0 +1,654 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Le Favre d'Anne",
+                "cuisine_type": "French, Regional",
+                "signature_dishes": [
+                    "Lotte à l'armoricaine",
+                    "Pigeon aux cerises d'Anjou"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and refined with views of the Maine River",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two weeks in advance, especially on weekends",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "City center, near Place du Ralliement",
+                "local_tips": "Request a table by the window for beautiful river views"
+            },
+            {
+                "name": "L'Atelier Gourmand",
+                "cuisine_type": "French, Modern",
+                "signature_dishes": [
+                    "Saint-Jacques poêlées",
+                    "Filet de bœuf aux cèpes"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Contemporary and intimate with an open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended, book a week in advance",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Rue Saint-Laud",
+                "local_tips": "Try their seasonal tasting menu for the full experience"
+            },
+            {
+                "name": "Le Quai",
+                "cuisine_type": "French, Seafood",
+                "signature_dishes": [
+                    "Sole meunière",
+                    "Homard bleu grillé"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated with riverfront terrace",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book ahead for terrace seating during summer months",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Quai des Carmes",
+                "local_tips": "Perfect for a romantic lunch with river views"
+            },
+            {
+                "name": "La Table d'Angers",
+                "cuisine_type": "French, Traditional",
+                "signature_dishes": [
+                    "Coq au vin d'Anjou",
+                    "Tarte Tatin aux pommes"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Classic and warm with traditional French charm",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Reservations essential, book early for dinner",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Place du Ralliement",
+                "local_tips": "Try their local Anjou wine pairings"
+            },
+            {
+                "name": "Le Bistrot du Château",
+                "cuisine_type": "French, Regional",
+                "signature_dishes": [
+                    "Rillettes d'Anjou",
+                    "Poulet de Bresse aux herbes"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Historic and charming near the castle",
+                "best_time": "Both",
+                "reservation_needed": true,
+                "booking_tips": "Book ahead, especially during tourist season",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Near Château d'Angers",
+                "local_tips": "Combine with a castle visit for the perfect day"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Le Petit Comptoir",
+                "cuisine_type": "French Bistro",
+                "signature_dishes": [
+                    "Confit de canard",
+                    "Tarte flambée"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and welcoming with a neighborhood feel",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days in advance, popular with locals",
+                "dress_code": "Casual",
+                "location": "Rue Saint-Laud",
+                "local_tips": "Try their house-made terrines and local charcuterie"
+            },
+            {
+                "name": "L'Entrecôte d'Angers",
+                "cuisine_type": "French, Steakhouse",
+                "signature_dishes": [
+                    "Entrecôte grillée",
+                    "Frites maison"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively and convivial with a focus on quality meat",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, arrive early to avoid waits",
+                "dress_code": "Casual",
+                "location": "Place du Ralliement",
+                "local_tips": "Their secret sauce is a must-try, unlimited fries included"
+            },
+            {
+                "name": "Le Marais d'Angers",
+                "cuisine_type": "French, Regional",
+                "signature_dishes": [
+                    "Salade angevine",
+                    "Rillettes de porc"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic and authentic with local character",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for lunch, especially on market days",
+                "dress_code": "Casual",
+                "location": "Near Marché d'Angers",
+                "local_tips": "Ask for daily specials and local wine recommendations"
+            },
+            {
+                "name": "Le Bistrot des Halles",
+                "cuisine_type": "Traditional French",
+                "signature_dishes": [
+                    "Soupe à l'oignon",
+                    "Magret de canard"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Classic bistro with market atmosphere",
+                "best_time": "Both",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early for lunch to secure a good spot",
+                "dress_code": "Casual",
+                "location": "Near Marché d'Angers",
+                "local_tips": "Perfect for a market day lunch, try their daily specials"
+            },
+            {
+                "name": "Café de la Paix",
+                "cuisine_type": "Café/Bistro",
+                "signature_dishes": [
+                    "Croque monsieur",
+                    "Oeufs mayonnaise"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic and iconic, popular with locals and visitors",
+                "best_time": "Breakfast",
+                "reservation_needed": false,
+                "booking_tips": "Arrive early to avoid crowds, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Place du Ralliement",
+                "local_tips": "Ideal for people-watching, try their hot chocolate"
+            },
+            {
+                "name": "Le Comptoir du Marché",
+                "cuisine_type": "French, Market Fresh",
+                "signature_dishes": [
+                    "Salade composée",
+                    "Quiche lorraine"
+                ],
+                "price_range": "€",
+                "atmosphere": "Fresh and vibrant with market ingredients",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, arrive early for lunch",
+                "dress_code": "Casual",
+                "location": "Marché d'Angers",
+                "local_tips": "Ingredients change daily based on market availability"
+            },
+            {
+                "name": "Le Bistrot du Quai",
+                "cuisine_type": "French, Riverfront",
+                "signature_dishes": [
+                    "Moules marinières",
+                    "Poisson du jour"
+                ],
+                "price_range": "€",
+                "atmosphere": "Relaxed and casual with river views",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, arrive early for terrace seating",
+                "dress_code": "Casual",
+                "location": "Quai des Carmes",
+                "local_tips": "Best enjoyed on the terrace during warm weather"
+            },
+            {
+                "name": "L'As du Falafel",
+                "cuisine_type": "Middle Eastern",
+                "signature_dishes": [
+                    "Falafel sandwich",
+                    "Shawarma"
+                ],
+                "price_range": "€",
+                "atmosphere": "Casual and vibrant with authentic flavors",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, expect lines during peak hours",
+                "dress_code": "Casual",
+                "location": "Rue Saint-Laud",
+                "local_tips": "Order the falafel with all toppings for the full experience"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Marché d'Angers",
+                "specialties": [
+                    "Rillettes d'Anjou",
+                    "Fromages de chèvre"
+                ],
+                "price_range": "€",
+                "hours": "Tue, Thu, Sat: 8:00am-1:00pm",
+                "location": "Place du Ralliement",
+                "seating": true,
+                "local_tips": "Visit on Saturday for the largest selection and liveliest atmosphere"
+            },
+            {
+                "name": "Rue Saint-Laud",
+                "specialties": [
+                    "Crêpes bretonnes",
+                    "Gaufres"
+                ],
+                "price_range": "€€",
+                "hours": "Varies by vendor",
+                "location": "Rue Saint-Laud",
+                "seating": false,
+                "local_tips": "Explore different stalls for a variety of sweet and savory options"
+            },
+            {
+                "name": "La Crêperie du Château",
+                "specialties": [
+                    "Sweet crêpes",
+                    "Savory galettes"
+                ],
+                "price_range": "€",
+                "hours": "Mon-Sun: 11:00am-10:00pm",
+                "location": "Near Château d'Angers",
+                "seating": true,
+                "local_tips": "Try the Nutella-banana crêpe for a classic treat"
+            },
+            {
+                "name": "Place du Ralliement",
+                "specialties": [
+                    "Artisan cheese",
+                    "Charcuterie"
+                ],
+                "price_range": "€€",
+                "hours": "Varies by vendor",
+                "location": "Place du Ralliement",
+                "seating": false,
+                "local_tips": "Visit on market days for the best selection of local products"
+            },
+            {
+                "name": "Le Food Truck d'Angers",
+                "specialties": [
+                    "Gourmet burgers",
+                    "Truffle fries"
+                ],
+                "price_range": "€€",
+                "hours": "Varies, check social media for locations",
+                "location": "Various locations",
+                "seating": false,
+                "local_tips": "Follow their social media for current locations and specials"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café de la Paix",
+                "specialty": "Classic French café experience",
+                "must_try": [
+                    "Espresso",
+                    "Croissant"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant and historic with grand interiors",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Traditional French pastries and light meals",
+                "local_tips": "Sit on the terrace for a view of Place du Ralliement"
+            },
+            {
+                "name": "La Caféothèque d'Angers",
+                "specialty": "Artisanal coffee",
+                "must_try": [
+                    "Single-origin espresso",
+                    "Cold brew"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and rustic with a focus on coffee quality",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light snacks and pastries",
+                "local_tips": "Attend a coffee tasting session for a deeper appreciation"
+            },
+            {
+                "name": "Coutume Café Angers",
+                "specialty": "Specialty coffee",
+                "must_try": [
+                    "Flat white",
+                    "Chemex brew"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Trendy and modern with an industrial chic vibe",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Brunch options and baked goods",
+                "local_tips": "Try their weekend brunch menu for a full experience"
+            },
+            {
+                "name": "Café du Château",
+                "specialty": "Historic café with castle views",
+                "must_try": [
+                    "Café au lait",
+                    "Pain au chocolat"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming and historic with castle proximity",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Selection of pastries and light meals",
+                "local_tips": "Perfect for a coffee break during castle visits"
+            },
+            {
+                "name": "Le Petit Café",
+                "specialty": "Neighborhood coffee spot",
+                "must_try": [
+                    "Filter coffee",
+                    "Cinnamon bun"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Casual and quaint with a neighborhood feel",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Homemade pastries and sandwiches",
+                "local_tips": "Perfect for a quiet morning with a good book"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Le Bar du Château",
+                "type": "Cocktail Bar",
+                "specialty": "Innovative cocktails",
+                "signature_drinks": [
+                    "Anjou Spritz",
+                    "Maine River Mule"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Trendy and intimate with castle views",
+                "best_time": "Evening",
+                "food_options": "Light bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Request a seat with castle views for the best experience"
+            },
+            {
+                "name": "Le Syndicat d'Angers",
+                "type": "Cocktail Bar",
+                "specialty": "French spirits",
+                "signature_drinks": [
+                    "French Negroni",
+                    "Cognac Sour"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Edgy and modern with a focus on local ingredients",
+                "best_time": "Evening",
+                "food_options": "N/A",
+                "reservation_needed": false,
+                "local_tips": "Ask the bartenders for off-menu creations"
+            },
+            {
+                "name": "Bar Hemingway",
+                "type": "Hotel Bar",
+                "specialty": "Classic cocktails",
+                "signature_drinks": [
+                    "Serendipity",
+                    "Bloody Mary"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Historic and luxurious with a literary legacy",
+                "best_time": "Late evening",
+                "food_options": "Light bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Dress smartly and enjoy the rich history and stories"
+            },
+            {
+                "name": "Harry's New York Bar",
+                "type": "Cocktail Bar",
+                "specialty": "Classic American cocktails",
+                "signature_drinks": [
+                    "French 75",
+                    "Sidecar"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Classic and cozy with an American vibe",
+                "best_time": "Evening",
+                "food_options": "N/A",
+                "reservation_needed": false,
+                "local_tips": "Visit during happy hour for a more relaxed atmosphere"
+            },
+            {
+                "name": "Le Perchoir d'Angers",
+                "type": "Rooftop Bar",
+                "specialty": "Panoramic views and cocktails",
+                "signature_drinks": [
+                    "Mojito",
+                    "Aperol Spritz"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Trendy and vibrant with stunning city views",
+                "best_time": "Sunset",
+                "food_options": "Tapas and small plates",
+                "reservation_needed": true,
+                "local_tips": "Visit at sunset for the best views of the city and castle"
+            },
+            {
+                "name": "Candelaria",
+                "type": "Speakeasy",
+                "specialty": "Creative cocktails",
+                "signature_drinks": [
+                    "Mezcal Margarita",
+                    "Paloma"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Hidden and intimate with a lively backroom",
+                "best_time": "Night",
+                "food_options": "Tacos and Mexican snacks",
+                "reservation_needed": false,
+                "local_tips": "Enter through the taqueria for the full speakeasy experience"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Secret Food Tours Angers",
+                "focus": "Local Angevin cuisine",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Hidden patisseries",
+                    "Traditional markets",
+                    "Cheese tastings"
+                ],
+                "booking_required": true,
+                "group_size": "12",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Book a week in advance to secure your preferred date"
+            },
+            {
+                "name": "Angers by Mouth Food Tours",
+                "focus": "Gourmet experiences",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Boulangeries",
+                    "Artisan cheese shops",
+                    "Wine pairings"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Check for seasonal tours and special events"
+            },
+            {
+                "name": "Taste of Angers",
+                "focus": "Angers' culinary scene",
+                "duration": "3.5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Local cafés",
+                    "Historic chocolatiers",
+                    "Wine cellars"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Book early for weekend tours as they fill up quickly"
+            },
+            {
+                "name": "Angers Food and Wine Tour",
+                "focus": "Angers' food culture",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Local bistros",
+                    "Cheese and charcuterie",
+                    "Wine tasting"
+                ],
+                "booking_required": true,
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Wear comfortable shoes for walking in the historic center"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Le Foodist Angers Cooking Class",
+                "cuisine_focus": "French cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Soufflé",
+                    "Coq au vin",
+                    "Crème brûlée"
+                ],
+                "group_size": "12",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipes",
+                    "Wine pairing"
+                ],
+                "booking_tips": "Reserve your spot at least two weeks in advance"
+            },
+            {
+                "name": "La Cuisine Angers",
+                "cuisine_focus": "Pastry and baking",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Macarons",
+                    "Croissants",
+                    "Pain au chocolat"
+                ],
+                "group_size": "10",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "includes": [
+                    "Ingredients",
+                    "Recipes",
+                    "Hands-on instruction"
+                ],
+                "booking_tips": "Check for seasonal classes and holiday specials"
+            },
+            {
+                "name": "Cook'n With Class Angers",
+                "cuisine_focus": "French market-to-table",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Market shopping",
+                    "Seasonal dishes",
+                    "Cooking techniques"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Market tour",
+                    "Ingredients",
+                    "Lunch"
+                ],
+                "booking_tips": "Book in advance for market tours, which are popular"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Marché d'Angers",
+                "type": "Covered food market",
+                "highlights": [
+                    "Fresh produce",
+                    "Artisan cheese",
+                    "Local charcuterie"
+                ],
+                "hours": "Tue, Thu, Sat: 8:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Place du Ralliement",
+                "local_tips": "Arrive early for the freshest selections and fewer crowds"
+            },
+            {
+                "name": "Marché des Halles",
+                "type": "Indoor market",
+                "highlights": [
+                    "Local specialties",
+                    "Spices",
+                    "Boulangeries"
+                ],
+                "hours": "Tue-Sat: 7:30am-1:30pm",
+                "best_time": "Mid-morning",
+                "location": "Near Place du Ralliement",
+                "local_tips": "Explore the local specialties section for unique finds"
+            },
+            {
+                "name": "Marché des Enfants Rouges",
+                "type": "Covered market",
+                "highlights": [
+                    "Global street food",
+                    "Organic produce",
+                    "Flowers"
+                ],
+                "hours": "Tue-Sat: 8:30am-7:30pm, Sun: 8:30am-2:30pm",
+                "best_time": "Lunch",
+                "location": "3rd arrondissement",
+                "local_tips": "Perfect spot for a casual lunch with diverse options"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Asperges d'Anjou à la hollandaise",
+            "Tarte aux fraises d'Anjou",
+            "Soupe aux pois frais"
+        ],
+        "summer": [
+            "Ratatouille angevine",
+            "Salade composée d'Anjou",
+            "Gazpacho glacé"
+        ],
+        "autumn": [
+            "Risotto aux champignons",
+            "Soupe aux châtaignes",
+            "Cidre d'Anjou"
+        ],
+        "winter": [
+            "Cassoulet angevin",
+            "Soupe à l'oignon",
+            "Bœuf bourguignon"
+        ]
+    }
+}

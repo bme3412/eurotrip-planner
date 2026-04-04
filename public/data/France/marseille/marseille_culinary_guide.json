@@ -1,0 +1,708 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Le Petit Nice - Passédat",
+                "cuisine_type": "Mediterranean Haute Cuisine",
+                "signature_dishes": [
+                    "Bouille-Abaisse (deconstructed bouillabaisse)",
+                    "Sea anemone with egg",
+                    "Luteau (local fish) with artichokes"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant seaside villa with panoramic Mediterranean views",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least two months in advance, request terrace seating in summer",
+                "dress_code": "Formal attire",
+                "michelin_stars": 3,
+                "location": "Corniche Kennedy",
+                "local_tips": "Chef Gérald Passédat's flagship restaurant is the only three-star establishment in Marseille, celebrating the sea with over 65 varieties of Mediterranean fish"
+            },
+            {
+                "name": "AM par Alexandre Mazzia",
+                "cuisine_type": "Innovative Contemporary",
+                "signature_dishes": [
+                    "Surprise tasting menus with 20+ small courses",
+                    "Smoked eel with chocolate",
+                    "Charcoal-grilled vegetables"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Minimalist, intimate space with open kitchen and just 24 seats",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book two to three months in advance, be open to unexpected flavor combinations",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 3,
+                "location": "8th arrondissement",
+                "local_tips": "Chef Mazzia's background in basketball and Congolese upbringing influence his unique, artistic approach to Mediterranean cuisine"
+            },
+            {
+                "name": "L'Épuisette",
+                "cuisine_type": "Mediterranean Seafood",
+                "signature_dishes": [
+                    "Contemporary bouillabaisse",
+                    "Sea bass with fennel",
+                    "Seafood plateau"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant dining room extending over the sea in Vallon des Auffes fishing port",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Request a window table for spectacular views, reserve at least three weeks ahead",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Vallon des Auffes",
+                "local_tips": "Chef Guillaume Sourrieu creates refined seafood dishes in one of Marseille's most picturesque settings"
+            },
+            {
+                "name": "Une Table, au Sud",
+                "cuisine_type": "Modern Provençal",
+                "signature_dishes": [
+                    "Lobster with Provençal herbs",
+                    "Lamb with Mediterranean flavors",
+                    "Seasonal desserts"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Contemporary dining room with panoramic Vieux-Port views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Request a table by the window for harbor views, lunch menu offers better value",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Vieux-Port",
+                "local_tips": "Chef Ludovic Turac, a Marseille native, combines traditional Provençal influences with modern techniques"
+            },
+            {
+                "name": "Le Mole Passédat",
+                "cuisine_type": "Mediterranean Brasserie",
+                "signature_dishes": [
+                    "Refined fish soup",
+                    "Grilled catch of the day",
+                    "Mediterranean tapas"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Contemporary space with stunning views from atop the MuCEM museum",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve several weeks ahead for terrace seating, combine with a museum visit",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "MuCEM (Museum of European and Mediterranean Civilizations)",
+                "local_tips": "A more accessible option from three-star chef Gérald Passédat, with the same Mediterranean focus in a more casual setting"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Chez Fonfon",
+                "cuisine_type": "Traditional Marseillais",
+                "signature_dishes": [
+                    "Classic bouillabaisse",
+                    "Soupe de poisson (fish soup)",
+                    "Pieds et paquets (stuffed tripe)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Traditional bistro in a picturesque fishing port",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book at least one week ahead, bouillabaisse must be ordered in advance",
+                "dress_code": "Smart casual",
+                "location": "Vallon des Auffes",
+                "local_tips": "One of the most authentic places for traditional bouillabaisse, served in the classic two-course style"
+            },
+            {
+                "name": "La Boîte à Sardine",
+                "cuisine_type": "Fresh Seafood",
+                "signature_dishes": [
+                    "Sea urchin (in season)",
+                    "Grilled sardines",
+                    "Seafood platters"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Quirky fish shop-turned-restaurant with maritime decor",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Closed weekends, book a few days ahead, menu changes daily based on the catch",
+                "dress_code": "Casual",
+                "location": "Near Canebière",
+                "local_tips": "Run by a fishmonger, offering the freshest fish served simply in a no-frills setting"
+            },
+            {
+                "name": "Chez Etienne",
+                "cuisine_type": "Pizza & Simple Provençal",
+                "signature_dishes": [
+                    "Wood-fired pizza",
+                    "Supions (small fried squid)",
+                    "Omelette aux truffes (seasonal)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "No-frills, family-run institution with simple tables and paper placemats",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "No credit cards accepted, expect to wait even with reservation, cash only",
+                "dress_code": "Casual",
+                "location": "Le Panier district",
+                "local_tips": "A Marseille institution since 1943, no written menu, and famous for its perfectly thin-crust pizzas"
+            },
+            {
+                "name": "Le Café des Épices",
+                "cuisine_type": "Creative Mediterranean",
+                "signature_dishes": [
+                    "Market-inspired daily specials",
+                    "Fish tartare",
+                    "Inventive salads"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Relaxed contemporary bistro with small terrace",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve several days ahead, lunch menu offers excellent value",
+                "dress_code": "Smart casual",
+                "location": "Near Vieux-Port",
+                "local_tips": "Chef Arnaud Carton de Grammont creates market-fresh dishes with global influences"
+            },
+            {
+                "name": "La Cantinetta",
+                "cuisine_type": "Italian",
+                "signature_dishes": [
+                    "Homemade pasta",
+                    "Seasonal antipasti",
+                    "Tiramisu"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, authentic Italian trattoria with rustic decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book at least a week ahead, especially for weekends",
+                "dress_code": "Smart casual",
+                "location": "Near Cours Julien",
+                "local_tips": "Authentic Italian cuisine reflecting Marseille's strong Italian cultural connections"
+            },
+            {
+                "name": "Le Grain de Sel",
+                "cuisine_type": "Modern Bistro",
+                "signature_dishes": [
+                    "Creative fish dishes",
+                    "Seasonal vegetables",
+                    "Excellent wine list"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Small, contemporary bistro with minimalist decor",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, limited seating available",
+                "dress_code": "Smart casual",
+                "location": "Near Vieux-Port",
+                "local_tips": "Chef Emmanuel Perrodin brings anthropological and historical perspectives to his Mediterranean cuisine"
+            },
+            {
+                "name": "Le Malthazar",
+                "cuisine_type": "Modern Brasserie",
+                "signature_dishes": [
+                    "Generous seafood platters",
+                    "Aged steaks",
+                    "Classic French desserts"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stylish brasserie with leather banquettes and contemporary art",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Good for groups, reserve a week ahead for weekends",
+                "dress_code": "Smart casual",
+                "location": "Cours Julien area",
+                "local_tips": "Popular with locals for business lunches and special occasions, excellent wine selection"
+            },
+            {
+                "name": "La Mercerie",
+                "cuisine_type": "Neo-bistro",
+                "signature_dishes": [
+                    "Market-driven small plates",
+                    "Natural wines",
+                    "Seasonal creations"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, minimalist former haberdashery with open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book two weeks ahead, counter seating available for walk-ins",
+                "dress_code": "Smart casual",
+                "location": "Noailles district",
+                "local_tips": "Run by young chefs emphasizing local, sustainable ingredients with creative preparations"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Marché des Capucins",
+                "specialties": [
+                    "North African street food",
+                    "Moroccan pancakes",
+                    "Mediterranean fruits",
+                    "Spices and olives"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sun: 8:00am-1:00pm",
+                "location": "Noailles district",
+                "seating": false,
+                "local_tips": "Marseille's multicultural food market reflecting the city's North African influences"
+            },
+            {
+                "name": "L'Éstaque Food Stalls",
+                "specialties": [
+                    "Chichi frégi (fried dough pastry)",
+                    "Panisse (chickpea flour fritters)",
+                    "Fresh seafood"
+                ],
+                "price_range": "€",
+                "hours": "Daily: 10:00am-7:00pm (seasonal variations)",
+                "location": "L'Éstaque harbor",
+                "seating": false,
+                "local_tips": "Famous for chichi frégi, Marseille's sweet fried dough similar to churros but thicker"
+            },
+            {
+                "name": "GRAND Marché des Docks",
+                "specialties": [
+                    "International street food",
+                    "Local artisanal products",
+                    "Fusion cuisine"
+                ],
+                "price_range": "€€",
+                "hours": "Thu-Sat: 11:00am-11:00pm, Sun: 11:00am-5:00pm",
+                "location": "Les Docks, La Joliette",
+                "seating": true,
+                "local_tips": "Contemporary food hall in renovated docklands with diverse food stalls and communal seating"
+            },
+            {
+                "name": "Chez Sauveur",
+                "specialties": [
+                    "Pizza à la provençale",
+                    "Pizza au anchois (anchovy pizza)",
+                    "Takeaway slices"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sat: 11:00am-2:30pm, 6:00pm-10:00pm",
+                "location": "Near Vieux-Port",
+                "seating": true,
+                "local_tips": "Legendary local pizza institution serving slices to go - Marseille has its own pizza tradition"
+            },
+            {
+                "name": "Marché de la Plaine",
+                "specialties": [
+                    "Socca (chickpea pancakes)",
+                    "Fougasse bread",
+                    "Local produce"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sat: 7:00am-1:00pm",
+                "location": "Place Jean Jaurès",
+                "seating": false,
+                "local_tips": "Local neighborhood market with excellent street food options from various Mediterranean traditions"
+            },
+            {
+                "name": "Les Navettes des Accoules",
+                "specialties": [
+                    "Navettes (orange blossom cookies)",
+                    "Traditional Marseille pastries",
+                    "Canistrelli (Corsican cookies)"
+                ],
+                "price_range": "€",
+                "hours": "Tue-Sat: 9:00am-7:00pm",
+                "location": "Le Panier district",
+                "seating": false,
+                "local_tips": "Traditional navettes are boat-shaped cookies specific to Marseille with a history dating back centuries"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Deep Coffee Roasters",
+                "specialty": "Specialty coffee",
+                "must_try": [
+                    "Single-origin espresso",
+                    "Cold brew in summer"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial-chic with minimalist design",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Pastries and light breakfast items",
+                "local_tips": "Marseille's pioneer specialty coffee roaster with beans roasted on-site"
+            },
+            {
+                "name": "Café de l'Abbaye",
+                "specialty": "Traditional café with a view",
+                "must_try": [
+                    "Café noisette (espresso with dash of milk)",
+                    "Pastis (anise-flavored spirit)"
+                ],
+                "price_range": "€",
+                "atmosphere": "Classic French café with terrace overlooking Saint-Victor Abbey",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Simple sandwiches and pastries",
+                "local_tips": "Authentic local experience with stunning view of the Abbey and harbor"
+            },
+            {
+                "name": "Caffè Noir",
+                "specialty": "Italian-style coffee",
+                "must_try": [
+                    "Ristretto",
+                    "Affogato (espresso with ice cream)"
+                ],
+                "price_range": "€",
+                "atmosphere": "Sleek Italian café with Mediterranean touches",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Italian pastries and sandwiches",
+                "local_tips": "Reflects Marseille's Italian influences, popular with locals for quick espresso"
+            },
+            {
+                "name": "Maison Geney",
+                "specialty": "Coffee and chocolate",
+                "must_try": [
+                    "Hot chocolate made with single-origin chocolate",
+                    "Specialty coffee drinks"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Elegant café-patisserie with seasonal decorations",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Exquisite pastries and chocolate confections",
+                "local_tips": "Master chocolatier creating exceptional drinking chocolate and coffee pairings"
+            },
+            {
+                "name": "Carrément Bon",
+                "specialty": "Organic coffee and healthy options",
+                "must_try": [
+                    "Specialty coffee",
+                    "Healthy breakfast bowls"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, eco-conscious space with plants and natural materials",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Organic breakfast, lunch, and baked goods",
+                "local_tips": "Marseille's answer to the healthy café trend, popular with digital nomads"
+            }
+        ],
+        "bars": [
+            {
+                "name": "La Caravelle",
+                "type": "Historic Bar",
+                "specialty": "Classic cocktails with a view",
+                "signature_drinks": [
+                    "Pastis",
+                    "Classic martini",
+                    "Mediterranean gin and tonics"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vintage 1930s bar with terrace overlooking the Vieux-Port",
+                "best_time": "Sunset",
+                "food_options": "Tapas and small plates",
+                "reservation_needed": true,
+                "local_tips": "One of Marseille's most iconic bars, popular for aperitifs with stunning harbor views"
+            },
+            {
+                "name": "Carry Nation",
+                "type": "Speakeasy Cocktail Bar",
+                "specialty": "Craft cocktails",
+                "signature_drinks": [
+                    "Vintage-inspired cocktails",
+                    "Custom creations with local spirits",
+                    "Absinthe service"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Hidden speakeasy requiring password, 1920s prohibition style",
+                "best_time": "Evening",
+                "food_options": "Gourmet bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Request the password through their website, ring the correct doorbell for entry"
+            },
+            {
+                "name": "La Part des Anges",
+                "type": "Wine Bar",
+                "specialty": "Natural and organic wines",
+                "signature_drinks": [
+                    "Provence rosé selection",
+                    "Biodynamic wines",
+                    "Local vintages from Bandol and Cassis"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy wine cave with stone walls and intimate seating",
+                "best_time": "Evening",
+                "food_options": "Excellent charcuterie and cheese plates",
+                "reservation_needed": false,
+                "local_tips": "Staff provide excellent guidance for natural wine novices, great bottle shop for takeaway"
+            },
+            {
+                "name": "Bar de la Marine",
+                "type": "Traditional Bar",
+                "specialty": "Pastis and local atmosphere",
+                "signature_drinks": [
+                    "Pastis 51",
+                    "Ricard",
+                    "Local draft beers"
+                ],
+                "price_range": "€",
+                "atmosphere": "Authentic Marseille bar with terrace, featured in 'The French Connection'",
+                "best_time": "Afternoon",
+                "food_options": "Simple bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Experience true Marseille culture with locals playing cards and discussing football"
+            },
+            {
+                "name": "Le Rouge Belle de Mai",
+                "type": "Cultural Bar",
+                "specialty": "Creative community space",
+                "signature_drinks": [
+                    "Craft beers",
+                    "Simple cocktails",
+                    "Natural wines"
+                ],
+                "price_range": "€",
+                "atmosphere": "Alternative cultural space in former factory with eclectic decor",
+                "best_time": "Night",
+                "food_options": "Simple sustainable menu",
+                "reservation_needed": false,
+                "local_tips": "Check their program for concerts, exhibitions and cultural events"
+            },
+            {
+                "name": "Gaspard",
+                "type": "Cocktail Bar",
+                "specialty": "Mediterranean-inspired mixology",
+                "signature_drinks": [
+                    "Herb-infused cocktails",
+                    "Local spirit concoctions",
+                    "Seasonal fresh fruit drinks"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stylish, contemporary bar with knowledgeable bartenders",
+                "best_time": "Night",
+                "food_options": "Gourmet small plates",
+                "reservation_needed": true,
+                "local_tips": "Ask for off-menu creations based on your preferences"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Culinary Urban Adventure: Marseille Street Food",
+                "focus": "Multicultural food influences",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Noailles market exploration",
+                    "North African specialties",
+                    "Traditional Marseille street foods like panisse and chichi frégi"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Morning tours are best to see markets at their most active"
+            },
+            {
+                "name": "Vieux-Port Gourmet Tour",
+                "focus": "Seafood and Provençal specialties",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Fish market at Quai des Belges",
+                    "Bouillabaisse tasting",
+                    "Local olive oils and herbs"
+                ],
+                "booking_required": true,
+                "group_size": "6",
+                "languages": [
+                    "English",
+                    "French",
+                    "German"
+                ],
+                "booking_tips": "Book at least one week in advance, wear comfortable shoes for cobblestone streets"
+            },
+            {
+                "name": "Bouillabaisse Discovery Experience",
+                "focus": "The history and variations of Marseille's iconic dish",
+                "duration": "3.5 hours",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Visit to fish market with chef",
+                    "Traditional bouillabaisse demonstration",
+                    "Full bouillabaisse meal with wine pairings"
+                ],
+                "booking_required": true,
+                "group_size": "6",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Includes full meal, come hungry and specify any seafood allergies when booking"
+            },
+            {
+                "name": "Wine and Cassis Tour",
+                "focus": "Local wines and coastal village",
+                "duration": "6 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit to Cassis vineyards",
+                    "Wine tasting focusing on white wines and rosés",
+                    "Coastal views and village exploration"
+                ],
+                "booking_required": true,
+                "group_size": "8",
+                "languages": [
+                    "English",
+                    "French"
+                ],
+                "booking_tips": "Includes transportation from Marseille, wear comfortable shoes for vineyard walking"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "La Cuisine de Gagny",
+                "cuisine_focus": "Traditional Provençal",
+                "duration": "3-4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Authentic bouillabaisse preparation",
+                    "Aioli and traditional sauces",
+                    "Navettes (traditional cookies)"
+                ],
+                "group_size": "8",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "includes": [
+                    "Market visit",
+                    "All ingredients",
+                    "Meal with wine"
+                ],
+                "booking_tips": "Book at least two weeks in advance, morning classes include market shopping"
+            },
+            {
+                "name": "Conservatoire International des Cuisines Méditerranéennes",
+                "cuisine_focus": "Mediterranean cultures and techniques",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Various Mediterranean cooking styles",
+                    "North African influences in Marseille cuisine",
+                    "Seafood preparation"
+                ],
+                "group_size": "10",
+                "languages": [
+                    "French",
+                    "English (selected classes)"
+                ],
+                "includes": [
+                    "All ingredients",
+                    "Recipe booklet",
+                    "Shared meal"
+                ],
+                "booking_tips": "Each class focuses on a different Mediterranean cuisine, check calendar for themes"
+            },
+            {
+                "name": "Chef Chloé's Atelier",
+                "cuisine_focus": "Modern Provençal with sustainable focus",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Updated Provençal classics",
+                    "Working with local seasonal ingredients",
+                    "Seafood sustainability"
+                ],
+                "group_size": "6",
+                "languages": [
+                    "French",
+                    "English"
+                ],
+                "includes": [
+                    "Organic ingredients",
+                    "Wine pairings",
+                    "Take-home recipes"
+                ],
+                "booking_tips": "Held in a beautiful Vieux-Port apartment, focuses on sustainable cooking practices"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Marché des Capucins",
+                "type": "Covered multicultural market",
+                "highlights": [
+                    "North African spices and ingredients",
+                    "Fresh Mediterranean produce",
+                    "Cultural food experience"
+                ],
+                "hours": "Tue-Sun: 8:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Noailles district",
+                "local_tips": "Known as the 'belly of Marseille,' reflecting the city's diverse immigrant communities"
+            },
+            {
+                "name": "Marché de la Plaine",
+                "type": "Neighborhood market",
+                "highlights": [
+                    "Local producers",
+                    "Authentic atmosphere",
+                    "Good prices"
+                ],
+                "hours": "Tue-Sat: 8:00am-1:00pm",
+                "best_time": "Morning",
+                "location": "Place Jean Jaurès",
+                "local_tips": "Less touristy than other markets, where locals actually shop"
+            },
+            {
+                "name": "Marché du Prado",
+                "type": "Large open-air market",
+                "highlights": [
+                    "Clothing and housewares",
+                    "Food stalls",
+                    "Diverse offerings"
+                ],
+                "hours": "Wed, Sat: 7:30am-1:30pm",
+                "best_time": "Morning",
+                "location": "Avenue du Prado",
+                "local_tips": "Marseille's largest market, with everything from fresh food to clothing and household items"
+            },
+            {
+                "name": "Fish Market at Vieux-Port",
+                "type": "Fresh seafood market",
+                "highlights": [
+                    "Just-caught local fish",
+                    "Traditional fishmongers",
+                    "Authentic harbor experience"
+                ],
+                "hours": "Daily: 8:00am-1:00pm",
+                "best_time": "Early morning",
+                "location": "Quai des Belges",
+                "local_tips": "Watch fishermen sell their morning catch directly from their boats - a tradition since ancient times"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Soupe au pistou (vegetable soup with basil sauce)",
+            "Fresh violet artichokes à la barigoule",
+            "Asparagus with aioli sauce"
+        ],
+        "summer": [
+            "Ratatouille (Provençal vegetable stew)",
+            "Soupe au poisson (fish soup with rouille)",
+            "Farcis provençaux (stuffed vegetables)"
+        ],
+        "autumn": [
+            "Daube provençale (beef stew with red wine)",
+            "Bouillabaisse (traditional fisherman's stew)",
+            "Châtaignes (roasted chestnuts)"
+        ],
+        "winter": [
+            "Navettes (orange blossom cookies for Candlemas)",
+            "Aïoli garni (garlic mayonnaise with salt cod and vegetables)",
+            "Pieds et paquets (stuffed sheep's tripe)"
+        ]
+    }
+}

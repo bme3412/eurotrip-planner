@@ -1,0 +1,508 @@
+{
+    "destinations": [
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The City of Light with iconic landmarks, world-class museums, and unparalleled culinary scene. Only a short train ride from Grenoble.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€120-280"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "3h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€45-95"
+            }
+        },
+        {
+            "city": "Lyon",
+            "country": "France",
+            "whyGo": "France's gastronomic capital with excellent museums, historic old town, and vibrant cultural scene. Easy access from Grenoble.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "45m",
+                "frequency": "Daily",
+                "priceRange": "€80-180"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "1h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€20-45"
+            }
+        },
+        {
+            "city": "Marseille",
+            "country": "France",
+            "whyGo": "Historic Mediterranean port city with vibrant culture, excellent seafood, and gateway to Provence.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "priceRange": "€90-200"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "2h45m",
+                "frequency": "Daily",
+                "priceRange": "€35-75"
+            }
+        },
+        {
+            "city": "Nice",
+            "country": "France",
+            "whyGo": "Beautiful French Riviera city with stunning beaches, Promenade des Anglais, and Mediterranean charm.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "priceRange": "€90-200"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "3h45m",
+                "frequency": "Daily",
+                "priceRange": "€40-85"
+            }
+        },
+        {
+            "city": "Bordeaux",
+            "country": "France",
+            "whyGo": "World-famous wine capital with beautiful architecture, excellent cuisine, and rich cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€100-220"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "5h30m",
+                "frequency": "Daily",
+                "priceRange": "€55-110"
+            }
+        },
+        {
+            "city": "Toulouse",
+            "country": "France",
+            "whyGo": "Pink city with aerospace heritage, beautiful architecture, and vibrant student culture.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€100-220"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "6h15m",
+                "frequency": "Daily",
+                "priceRange": "€60-125"
+            }
+        },
+        {
+            "city": "Strasbourg",
+            "country": "France",
+            "whyGo": "Capital of Alsace with stunning cathedral, European Parliament, and unique Franco-German culture.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€110-250"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "4h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€45-95"
+            }
+        },
+        {
+            "city": "Nantes",
+            "country": "France",
+            "whyGo": "Historic port city with castle, excellent museums, and gateway to the Loire Valley.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€100-220"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "5h30m",
+                "frequency": "Daily",
+                "priceRange": "€55-110"
+            }
+        },
+        {
+            "city": "Montpellier",
+            "country": "France",
+            "whyGo": "Dynamic university city with historic center, Mediterranean climate, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h",
+                "frequency": "Daily",
+                "priceRange": "€90-200"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "3h15m",
+                "frequency": "Daily",
+                "priceRange": "€35-75"
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "Global city with Red Cross headquarters, UN offices, and beautiful lake setting.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "45m",
+                "frequency": "Daily",
+                "priceRange": "€90-200"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "1h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€25-55"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Renowned for medieval old town, excellent museums, and beautiful lake setting.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€100-250"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "4h",
+                "frequency": "Daily",
+                "priceRange": "€45-95"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Italy's fashion and design capital with stunning Gothic cathedral, world-class shopping, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h15m",
+                "frequency": "Daily",
+                "priceRange": "€110-260"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "6h",
+                "frequency": "Daily",
+                "priceRange": "€65-140"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with ancient ruins, Vatican City, Renaissance art, and vibrant street life.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€120-280"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "9h",
+                "frequency": "Daily",
+                "priceRange": "€85-180"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for Gaudí's architecture, vibrant cultural scene, and Mediterranean beaches.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€110-260"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "7h30m",
+                "frequency": "Daily",
+                "priceRange": "€75-160"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Spanish capital with rich European art collections, vibrant culture, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "2h",
+                "frequency": "Daily",
+                "priceRange": "€120-280"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "9h",
+                "frequency": "Daily",
+                "priceRange": "€85-180"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Capital of Belgium and EU, known for Grand Place, Art Nouveau architecture, and beer culture.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€120-280"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "5h30m",
+                "frequency": "Daily",
+                "priceRange": "€60-125"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for artistic heritage, elaborate canal system, and world-class museums.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€130-300"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "6h30m",
+                "frequency": "Daily",
+                "priceRange": "€70-150"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Historic capital with world-class museums, iconic landmarks, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€140-320"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "7h30m",
+                "frequency": "Daily",
+                "priceRange": "€80-170"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "Major financial hub with futuristic skyline, excellent museums, and historic old town.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h30m",
+                "frequency": "Daily",
+                "priceRange": "€130-300"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "6h",
+                "frequency": "Daily",
+                "priceRange": "€70-150"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Known for Oktoberfest, beer halls, excellent museums, and beautiful architecture.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€140-320"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "7h",
+                "frequency": "Daily",
+                "priceRange": "€75-160"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Imperial capital with stunning palaces, world-class classical music, and elegant coffee house culture.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "2h",
+                "frequency": "Daily",
+                "priceRange": "€150-350"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "9h30m",
+                "frequency": "Daily",
+                "priceRange": "€90-190"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Beautiful medieval old town, stunning castle complex, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "2h15m",
+                "frequency": "Daily",
+                "priceRange": "€160-380"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "11h30m",
+                "frequency": "Daily",
+                "priceRange": "€100-220"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Stunning architecture, thermal baths, vibrant nightlife, and rich cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "2h30m",
+                "frequency": "Daily",
+                "priceRange": "€170-400"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "12h30m",
+                "frequency": "Daily",
+                "priceRange": "€110-240"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Dynamic capital with rich history, excellent museums, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "2h45m",
+                "frequency": "Daily",
+                "priceRange": "€190-450"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "15h30m",
+                "frequency": "Daily",
+                "priceRange": "€130-300"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Scandinavian charm with excellent design, beautiful waterfront, and vibrant culture.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "2h30m",
+                "frequency": "Daily",
+                "priceRange": "€180-420"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "13h30m",
+                "frequency": "Daily",
+                "priceRange": "€120-270"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Beautiful archipelago setting, excellent museums, and Scandinavian design culture.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "2h45m",
+                "frequency": "Daily",
+                "priceRange": "€190-450"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "17h30m",
+                "frequency": "Daily",
+                "priceRange": "€150-340"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "Scenic fjord setting, excellent museums, and gateway to Norwegian nature.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "3h",
+                "frequency": "Daily",
+                "priceRange": "€210-500"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "19h30m",
+                "frequency": "Daily",
+                "priceRange": "€170-400"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Charming coastal capital with historic trams, beautiful viewpoints, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "2h30m",
+                "frequency": "Daily",
+                "priceRange": "€170-400"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "14h30m",
+                "frequency": "Daily",
+                "priceRange": "€110-240"
+            }
+        },
+        {
+            "city": "Porto",
+            "country": "Portugal",
+            "whyGo": "Historic port city with beautiful riverfront, excellent wine culture, and charming old town.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "2h45m",
+                "frequency": "Daily",
+                "priceRange": "€180-420"
+            },
+            "train": {
+                "departureFromGrenoble": "Grenoble Station",
+                "journeyTime": "15h30m",
+                "frequency": "Daily",
+                "priceRange": "€120-270"
+            }
+        },
+        {
+            "city": "Reykjavik",
+            "country": "Iceland",
+            "whyGo": "Gateway to Iceland's natural wonders, Northern Lights, and unique culture.",
+            "intraEuropeFlight": {
+                "airportsInGrenoble": ["Grenoble-Alpes-Isère Airport (GNB)"],
+                "approxFlightTime": "4h",
+                "frequency": "Daily",
+                "priceRange": "€260-600"
+            }
+        }
+    ]
+}

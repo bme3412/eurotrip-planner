@@ -1,0 +1,292 @@
+{
+    "destinations": [
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "The Czech capital with stunning medieval architecture, historic Prague Castle, and vibrant cultural scene. Perfect base for exploring Central Europe.",
+            "directWithinCountryTrain": {
+                "stationInLiberec": "Liberec",
+                "journeyTime": "2h30m",
+                "frequency": "Every 2 hours",
+                "trainType": "Regional Express",
+                "priceRange": "€8-15"
+            },
+            "bus": {
+                "operator": "FlixBus / RegioJet",
+                "journeyTime": "1h45m",
+                "frequency": "Hourly",
+                "priceRange": "€5-12"
+            }
+        },
+        {
+            "city": "Brno",
+            "country": "Czech Republic",
+            "whyGo": "Czech Republic's second largest city with modern architecture, vibrant student atmosphere, and excellent museums. Gateway to Moravian wine country.",
+            "connectionViaPrague": {
+                "totalJourneyTime": "4h30m",
+                "changeInPrague": "Praha hlavní nádraží",
+                "frequency": "Every 2 hours",
+                "priceRange": "€15-25"
+            },
+            "bus": {
+                "operator": "FlixBus",
+                "journeyTime": "4h",
+                "frequency": "2-3 times daily",
+                "priceRange": "€10-18"
+            }
+        },
+        {
+            "city": "Dresden",
+            "country": "Germany",
+            "whyGo": "Historic Saxon capital known as the 'Florence on the Elbe' with baroque architecture, world-class museums, and beautiful riverside setting.",
+            "directInternationalTrain": {
+                "stationInLiberec": "Liberec",
+                "journeyTime": "2h45m",
+                "frequency": "4 times daily",
+                "trainType": "Regional Express",
+                "priceRange": "€15-25"
+            },
+            "bus": {
+                "operator": "FlixBus",
+                "journeyTime": "2h30m",
+                "frequency": "2 times daily",
+                "priceRange": "€12-20"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Dynamic German capital blending history and modernity with vibrant arts scene, world-class museums, and legendary nightlife.",
+            "connectionViaDresden": {
+                "totalJourneyTime": "5h30m",
+                "changeInDresden": "Dresden Hauptbahnhof",
+                "frequency": "Multiple daily",
+                "priceRange": "€25-45"
+            },
+            "bus": {
+                "operator": "FlixBus",
+                "journeyTime": "5h",
+                "frequency": "2-3 times daily",
+                "priceRange": "€18-30"
+            },
+            "nearestAirport": {
+                "airport": "Prague Václav Havel Airport",
+                "distanceToAirport": "120km",
+                "flightTime": "1h20m",
+                "frequency": "Multiple daily",
+                "priceRange": "€80-200"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Imperial capital with magnificent palaces, world-class classical music, elegant coffee house culture, and rich Habsburg heritage.",
+            "connectionViaPrague": {
+                "totalJourneyTime": "6h30m",
+                "changeInPrague": "Praha hlavní nádraží",
+                "frequency": "Every 2 hours",
+                "priceRange": "€30-50"
+            },
+            "bus": {
+                "operator": "FlixBus",
+                "journeyTime": "6h",
+                "frequency": "Daily",
+                "priceRange": "€20-35"
+            },
+            "nearestAirport": {
+                "airport": "Prague Václav Havel Airport",
+                "distanceToAirport": "120km",
+                "flightTime": "1h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€85-220"
+            }
+        },
+        {
+            "city": "Wrocław",
+            "country": "Poland",
+            "whyGo": "Beautiful Polish city with stunning market square, rich history, and vibrant cultural scene. Known as the 'Venice of Poland' for its many bridges.",
+            "bus": {
+                "operator": "FlixBus",
+                "journeyTime": "4h30m",
+                "frequency": "2 times daily",
+                "priceRange": "€15-25"
+            },
+            "connectionViaPrague": {
+                "totalJourneyTime": "7h",
+                "changeInPrague": "Praha hlavní nádraží",
+                "frequency": "Daily",
+                "priceRange": "€25-40"
+            }
+        },
+        {
+            "city": "Kraków",
+            "country": "Poland",
+            "whyGo": "Poland's former royal capital with UNESCO-listed old town, magnificent Wawel Castle, and gateway to Auschwitz-Birkenau memorial.",
+            "bus": {
+                "operator": "FlixBus",
+                "journeyTime": "6h30m",
+                "frequency": "Daily",
+                "priceRange": "€20-35"
+            },
+            "nearestAirport": {
+                "airport": "Prague Václav Havel Airport",
+                "distanceToAirport": "120km",
+                "flightTime": "1h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€75-180"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Bavarian capital famous for Oktoberfest, beer gardens, excellent museums, and gateway to the Alps. Perfect blend of tradition and modernity.",
+            "connectionViaPrague": {
+                "totalJourneyTime": "8h30m",
+                "changeInPrague": "Praha hlavní nádraží",
+                "frequency": "Daily",
+                "priceRange": "€40-70"
+            },
+            "bus": {
+                "operator": "FlixBus",
+                "journeyTime": "7h30m",
+                "frequency": "Daily",
+                "priceRange": "€25-40"
+            },
+            "nearestAirport": {
+                "airport": "Prague Václav Havel Airport",
+                "distanceToAirport": "120km",
+                "flightTime": "1h10m",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-240"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Poland's dynamic capital with meticulously reconstructed old town, excellent museums, vibrant cultural scene, and modern business district.",
+            "bus": {
+                "operator": "FlixBus",
+                "journeyTime": "8h",
+                "frequency": "Daily",
+                "priceRange": "€25-40"
+            },
+            "connectionViaPrague": {
+                "totalJourneyTime": "9h",
+                "changeInPrague": "Praha hlavní nádraží",
+                "frequency": "Daily",
+                "priceRange": "€35-55"
+            },
+            "nearestAirport": {
+                "airport": "Prague Václav Havel Airport",
+                "distanceToAirport": "120km",
+                "flightTime": "1h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€85-220"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Stunning architecture spanning both sides of the Danube, famous thermal baths, vibrant nightlife, and rich cultural heritage.",
+            "bus": {
+                "operator": "FlixBus",
+                "journeyTime": "7h30m",
+                "frequency": "Daily",
+                "priceRange": "€25-40"
+            },
+            "connectionViaPrague": {
+                "totalJourneyTime": "9h",
+                "changeInPrague": "Praha hlavní nádraží",
+                "frequency": "Daily",
+                "priceRange": "€35-60"
+            },
+            "nearestAirport": {
+                "airport": "Prague Václav Havel Airport",
+                "distanceToAirport": "120km",
+                "flightTime": "1h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-250"
+            }
+        },
+        {
+            "city": "Český Krumlov",
+            "country": "Czech Republic",
+            "whyGo": "UNESCO World Heritage medieval fairy-tale town with stunning castle, winding Vltava River, and perfectly preserved Renaissance architecture.",
+            "connectionViaPrague": {
+                "totalJourneyTime": "5h30m",
+                "changeInPrague": "Praha hlavní nádraží",
+                "frequency": "Daily",
+                "priceRange": "€20-30"
+            },
+            "bus": {
+                "operator": "Student Agency",
+                "journeyTime": "5h",
+                "frequency": "2 times daily",
+                "priceRange": "€15-25"
+            }
+        },
+        {
+            "city": "Bratislava",
+            "country": "Slovakia",
+            "whyGo": "Charming Slovak capital on the Danube with medieval old town, hilltop castle, and easy access to Vienna.",
+            "bus": {
+                "operator": "FlixBus",
+                "journeyTime": "5h30m",
+                "frequency": "Daily",
+                "priceRange": "€18-30"
+            },
+            "connectionViaPrague": {
+                "totalJourneyTime": "7h",
+                "changeInPrague": "Praha hlavní nádraží",
+                "frequency": "Daily",
+                "priceRange": "€25-40"
+            }
+        },
+        {
+            "city": "Olomouc",
+            "country": "Czech Republic",
+            "whyGo": "Beautiful Moravian city with UNESCO-listed Holy Trinity Column, impressive cathedral, and well-preserved historic center.",
+            "connectionViaPrague": {
+                "totalJourneyTime": "5h",
+                "changeInPrague": "Praha hlavní nádraží",
+                "frequency": "Every 2 hours",
+                "priceRange": "€18-28"
+            },
+            "bus": {
+                "operator": "Student Agency",
+                "journeyTime": "4h30m",
+                "frequency": "2-3 times daily",
+                "priceRange": "€12-20"
+            }
+        },
+        {
+            "city": "Zakopane",
+            "country": "Poland",
+            "whyGo": "Poland's mountain resort capital at the foot of the Tatra Mountains, perfect for hiking, skiing, and traditional highland culture.",
+            "bus": {
+                "operator": "FlixBus",
+                "journeyTime": "5h30m",
+                "frequency": "2 times daily",
+                "priceRange": "€18-30"
+            }
+        },
+        {
+            "city": "Görlitz",
+            "country": "Germany",
+            "whyGo": "Beautifully preserved medieval town on the German-Polish border, known as 'Görliwood' for its film locations and stunning architecture.",
+            "directInternationalTrain": {
+                "stationInLiberec": "Liberec",
+                "journeyTime": "2h",
+                "frequency": "3 times daily",
+                "trainType": "Regional",
+                "priceRange": "€12-20"
+            },
+            "bus": {
+                "operator": "Regional buses",
+                "journeyTime": "1h45m",
+                "frequency": "Daily",
+                "priceRange": "€8-15"
+            }
+        }
+    ]
+}

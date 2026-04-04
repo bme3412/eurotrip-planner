@@ -1,0 +1,565 @@
+{
+    "destinations": [
+        {
+            "city": "Dubrovnik",
+            "country": "Croatia",
+            "whyGo": "UNESCO World Heritage site with stunning medieval walls, beautiful old town, and gateway to the southern Dalmatian coast.",
+            "directWithinCountryTrain": {
+                "stationInSplit": "Split Main Station",
+                "journeyTime": "4h30m",
+                "frequency": "3 times daily",
+                "trainType": "InterCity",
+                "priceRange": "€25-45"
+            },
+            "directWithinCountryBus": {
+                "stationInSplit": "Split Bus Station",
+                "journeyTime": "3h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€15-25"
+            },
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "45m",
+                "frequency": "2-3 times daily",
+                "priceRange": "€80-150"
+            }
+        },
+        {
+            "city": "Zagreb",
+            "country": "Croatia",
+            "whyGo": "Croatia's capital with historic Upper Town, excellent museums, vibrant cultural scene, and gateway to Central Europe.",
+            "directWithinCountryTrain": {
+                "stationInSplit": "Split Main Station",
+                "journeyTime": "6h",
+                "frequency": "2 times daily",
+                "trainType": "InterCity",
+                "priceRange": "€35-60"
+            },
+            "directWithinCountryBus": {
+                "stationInSplit": "Split Bus Station",
+                "journeyTime": "5h",
+                "frequency": "Multiple daily",
+                "priceRange": "€25-40"
+            },
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "Multiple daily",
+                "priceRange": "€90-180"
+            }
+        },
+        {
+            "city": "Zadar",
+            "country": "Croatia",
+            "whyGo": "Historic coastal city with Roman ruins, unique Sea Organ, beautiful old town, and excellent seafood cuisine.",
+            "directWithinCountryBus": {
+                "stationInSplit": "Split Bus Station",
+                "journeyTime": "3h",
+                "frequency": "Multiple daily",
+                "priceRange": "€15-25"
+            },
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "45m",
+                "frequency": "Daily",
+                "priceRange": "€70-150"
+            }
+        },
+        {
+            "city": "Rijeka",
+            "country": "Croatia",
+            "whyGo": "Croatia's largest port with rich maritime history, vibrant cultural scene, and gateway to the Kvarner Gulf.",
+            "directWithinCountryBus": {
+                "stationInSplit": "Split Bus Station",
+                "journeyTime": "5h",
+                "frequency": "Daily",
+                "priceRange": "€20-35"
+            },
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "2-3 times weekly",
+                "priceRange": "€80-160"
+            }
+        },
+        {
+            "city": "Mostar",
+            "country": "Bosnia and Herzegovina",
+            "whyGo": "Historic city famous for its iconic Old Bridge, Ottoman architecture, and rich multicultural heritage.",
+            "intraEuropeBus": {
+                "stationInSplit": "Split Bus Station",
+                "journeyTime": "4h",
+                "frequency": "2 times daily",
+                "priceRange": "€20-30"
+            },
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "3 times weekly",
+                "priceRange": "€120-200"
+            }
+        },
+        {
+            "city": "Sarajevo",
+            "country": "Bosnia and Herzegovina",
+            "whyGo": "Historic capital with Ottoman and Austro-Hungarian architecture, rich cultural heritage, and fascinating history.",
+            "intraEuropeBus": {
+                "stationInSplit": "Split Bus Station",
+                "journeyTime": "6h",
+                "frequency": "Daily",
+                "priceRange": "€25-40"
+            },
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "2 times weekly",
+                "priceRange": "€130-220"
+            }
+        },
+        {
+            "city": "Belgrade",
+            "country": "Serbia",
+            "whyGo": "Serbia's vibrant capital with historic Kalemegdan Fortress, excellent nightlife, and rich cultural scene.",
+            "intraEuropeBus": {
+                "stationInSplit": "Split Bus Station",
+                "journeyTime": "9h",
+                "frequency": "Daily",
+                "priceRange": "€35-55"
+            },
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "3 times weekly",
+                "priceRange": "€140-250"
+            }
+        },
+        {
+            "city": "Podgorica",
+            "country": "Montenegro",
+            "whyGo": "Montenegro's capital with modern architecture, historic old town, and gateway to the country's natural beauty.",
+            "intraEuropeBus": {
+                "stationInSplit": "Split Bus Station",
+                "journeyTime": "5h",
+                "frequency": "Daily",
+                "priceRange": "€20-30"
+            },
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "1h",
+                "frequency": "2 times weekly",
+                "priceRange": "€110-200"
+            }
+        },
+        {
+            "city": "Budva",
+            "country": "Montenegro",
+            "whyGo": "Historic coastal town with medieval old town, beautiful beaches, and vibrant nightlife scene.",
+            "intraEuropeBus": {
+                "stationInSplit": "Split Bus Station",
+                "journeyTime": "4h",
+                "frequency": "Multiple daily",
+                "priceRange": "€15-25"
+            },
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "45m",
+                "frequency": "Weekly",
+                "priceRange": "€100-180"
+            }
+        },
+        {
+            "city": "Kotor",
+            "country": "Montenegro",
+            "whyGo": "UNESCO-listed medieval town with stunning bay setting, historic walls, and beautiful old town.",
+            "intraEuropeBus": {
+                "stationInSplit": "Split Bus Station",
+                "journeyTime": "4h30m",
+                "frequency": "Daily",
+                "priceRange": "€18-28"
+            },
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "50m",
+                "frequency": "Weekly",
+                "priceRange": "€105-190"
+            }
+        },
+        {
+            "city": "Ljubljana",
+            "country": "Slovenia",
+            "whyGo": "Charming capital with beautiful architecture, vibrant cultural scene, and excellent food and wine culture.",
+            "intraEuropeBus": {
+                "stationInSplit": "Split Bus Station",
+                "journeyTime": "8h",
+                "frequency": "Daily",
+                "priceRange": "€30-50"
+            },
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "2 times weekly",
+                "priceRange": "€150-250"
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "The unique city of canals, gondolas, St. Mark's Square, and historic palaces across the Adriatic.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "1h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€120-250"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with ancient ruins, Vatican City, Renaissance art, and vibrant street life.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€140-300"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Italy's fashion and design capital with stunning Gothic cathedral, world-class shopping, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€130-280"
+            }
+        },
+        {
+            "city": "Florence",
+            "country": "Italy",
+            "whyGo": "Renaissance art and architecture, world-class museums, and charming medieval streets.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "1h40m",
+                "frequency": "Multiple daily",
+                "priceRange": "€140-300"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Imperial capital with stunning palaces, world-class classical music, and elegant coffee house culture.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "1h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€150-320"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Beautiful medieval old town, stunning castle complex, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Multiple daily",
+                "priceRange": "€160-350"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Stunning architecture, thermal baths, vibrant nightlife, and rich cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€150-320"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Dynamic capital with rich history, excellent museums, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€170-380"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Germany's vibrant capital with rich history, world-class museums, dynamic arts scene, and compelling mix of historic and modern architecture.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Multiple daily",
+                "priceRange": "€180-400"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Known for its annual Oktoberfest celebration, beer halls, excellent museums, and beautiful architecture blending tradition and modernity.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "1h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€170-380"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "A major financial hub with a futuristic skyline, excellent museums, historic old town, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Multiple daily",
+                "priceRange": "€180-400"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its artistic heritage, elaborate canal system, narrow houses, world-class museums, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€190-420"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Vibrant capital of Belgium and the European Union, known for its historic Grand Place, Art Nouveau architecture, and excellent beer culture.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€180-400"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A leading global city with strengths in the arts, commerce, finance, and culture, featuring iconic landmarks and diverse neighborhoods.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "2h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€200-450"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The City of Light with its iconic landmarks, world-class museums, romantic atmosphere, and renowned cuisine.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€190-420"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for its art and architecture, especially Gaudí's masterpieces, vibrant cultural scene, and Mediterranean beaches.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "2h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€180-400"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "The Spanish capital known for its rich repositories of European art, vibrant cultural scene, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "2h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€200-450"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Charming coastal capital with historic trams, beautiful viewpoints, and excellent cuisine.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "3h",
+                "frequency": "Multiple daily",
+                "priceRange": "€220-480"
+            }
+        },
+        {
+            "city": "Porto",
+            "country": "Portugal",
+            "whyGo": "Historic port city with beautiful riverfront, excellent wine culture, and charming old town.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "3h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€230-500"
+            }
+        },
+        {
+            "city": "Athens",
+            "country": "Greece",
+            "whyGo": "Ancient capital with Acropolis, rich history, excellent museums, and gateway to Greek islands.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "2h",
+                "frequency": "Multiple daily",
+                "priceRange": "€160-350"
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Where East meets West with stunning mosques, Grand Bazaar, and rich cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "2h30m",
+                "frequency": "Multiple daily",
+                "priceRange": "€180-400"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Scandinavian charm with excellent design, beautiful waterfront, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "2h45m",
+                "frequency": "Multiple daily",
+                "priceRange": "€220-480"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Beautiful archipelago setting, excellent museums, and Scandinavian design culture.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "3h",
+                "frequency": "Multiple daily",
+                "priceRange": "€240-520"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "Scenic fjord setting, excellent museums, and gateway to Norwegian nature.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "3h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€260-550"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Vibrant capital with rich literary heritage, excellent pubs, and friendly atmosphere.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "3h",
+                "frequency": "Multiple daily",
+                "priceRange": "€220-480"
+            }
+        },
+        {
+            "city": "Edinburgh",
+            "country": "United Kingdom",
+            "whyGo": "Historic Scottish capital with stunning castle, medieval old town, and vibrant festivals.",
+            "intraEuropeFlight": {
+                "airportsInSplit": [
+                    "Split Airport (SPU)"
+                ],
+                "approxFlightTime": "3h15m",
+                "frequency": "Multiple daily",
+                "priceRange": "€240-520"
+            }
+        }
+    ]
+}

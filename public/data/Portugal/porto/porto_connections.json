@@ -1,0 +1,191 @@
+{
+    "destinations": [
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Experience Portugal's vibrant capital city, famous for its historic trams, Belém Tower, Jerónimos Monastery, charming Alfama district, and spectacular viewpoints across seven hills.",
+            "directWithinCountryTrain": {
+                "stationInPorto": "Porto Campanhã / São Bento",
+                "journeyTime": "Approx. 3 hours (Alfa Pendular high-speed)",
+                "frequency": "Multiple times per hour"
+            },
+            "directWithinCountryBus": {
+                "stationInPorto": "Porto Campo 24 de Agosto / Campanhã",
+                "journeyTime": "Approx. 3 hours 30 minutes",
+                "frequency": "Multiple times per hour"
+            }
+        },
+        {
+            "city": "Faro (Algarve)",
+            "country": "Portugal",
+            "whyGo": "Explore the capital of the Algarve region, a gateway to southern Portugal's stunning beaches, dramatic cliffs, golf courses, and charming coastal towns.",
+            "directWithinCountryTrain": {
+                "stationInPorto": "Porto Campanhã",
+                "journeyTime": "Approx. 5 hours 45 minutes (Alfa Pendular)",
+                "frequency": "Several times daily"
+            },
+            "directWithinCountryBus": {
+                "stationInPorto": "Porto Campo 24 de Agosto",
+                "journeyTime": "Approx. 6 hours",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInPorto": [
+                    "Porto Airport (OPO)"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "Several times daily (seasonal variations)"
+            }
+        },
+        {
+            "city": "Coimbra",
+            "country": "Portugal",
+            "whyGo": "Visit Portugal's historic university city, home to one of the world's oldest universities, a stunning Baroque library (Biblioteca Joanina), and a rich tradition of Fado music.",
+            "directWithinCountryTrain": {
+                "stationInPorto": "Porto Campanhã / São Bento",
+                "journeyTime": "Approx. 1 hour 15 minutes (Alfa Pendular)",
+                "frequency": "Multiple times per hour"
+            },
+            "directWithinCountryBus": {
+                "stationInPorto": "Porto Campo 24 de Agosto",
+                "journeyTime": "Approx. 1 hour 45 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Braga",
+            "country": "Portugal",
+            "whyGo": "Discover one of Portugal's oldest cities with its spectacular Bom Jesus do Monte sanctuary, medieval cathedral, charming historic center, and vibrant university atmosphere.",
+            "directWithinCountryTrain": {
+                "stationInPorto": "Porto Campanhã / São Bento",
+                "journeyTime": "Approx. 1 hour",
+                "frequency": "Multiple times per hour"
+            },
+            "directWithinCountryBus": {
+                "stationInPorto": "Porto Campo 24 de Agosto",
+                "journeyTime": "Approx. 45 minutes",
+                "frequency": "Multiple times per hour"
+            }
+        },
+        {
+            "city": "Guimarães",
+            "country": "Portugal",
+            "whyGo": "Visit the 'birthplace of Portugal' with its beautifully preserved medieval center (UNESCO World Heritage), 10th-century castle, and rich cultural heritage as Portugal's first capital.",
+            "directWithinCountryTrain": {
+                "stationInPorto": "Porto Campanhã / São Bento",
+                "journeyTime": "Approx. 1 hour 15 minutes",
+                "frequency": "Multiple times per hour"
+            },
+            "directWithinCountryBus": {
+                "stationInPorto": "Porto Campo 24 de Agosto",
+                "journeyTime": "Approx. 50 minutes",
+                "frequency": "Multiple times per hour"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Experience the vibrant Spanish capital with its world-class art museums (Prado, Reina Sofía), Royal Palace, lively tapas bars, Retiro Park, and bustling nightlife.",
+            "directWithinCountryBus": {
+                "stationInPorto": "Porto Campo 24 de Agosto",
+                "journeyTime": "Approx. 8 hours (often overnight)",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInPorto": [
+                    "Porto Airport (OPO)"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "Multiple flights daily"
+            }
+        },
+        {
+            "city": "Santiago de Compostela",
+            "country": "Spain",
+            "whyGo": "Visit the culmination point of the famous Camino de Santiago pilgrimage with its magnificent cathedral, charming old town, Galician cuisine, and spiritual atmosphere.",
+            "directWithinCountryBus": {
+                "stationInPorto": "Porto Campo 24 de Agosto",
+                "journeyTime": "Approx. 3 hours 30 minutes",
+                "frequency": "Several times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInPorto": [
+                    "Porto Airport (OPO)"
+                ],
+                "approxFlightTime": "50 minutes",
+                "frequency": "Daily flights"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Explore Catalonia's cosmopolitan capital, renowned for Gaudí's unique architecture (Sagrada Família, Park Güell), the Gothic Quarter, Las Ramblas boulevard, and Mediterranean beaches.",
+            "intraEuropeFlight": {
+                "airportsInPorto": [
+                    "Porto Airport (OPO)"
+                ],
+                "approxFlightTime": "1 hour 50 minutes",
+                "frequency": "Multiple flights daily"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Visit the iconic City of Light, home to the Eiffel Tower, Louvre Museum, Notre Dame Cathedral, charming Montmartre, romantic Seine River cruises, and world-class cuisine.",
+            "intraEuropeFlight": {
+                "airportsInPorto": [
+                    "Porto Airport (OPO)"
+                ],
+                "approxFlightTime": "2 hours 15 minutes",
+                "frequency": "Multiple flights daily"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Experience the historic UK capital with its royal landmarks (Buckingham Palace, Tower of London), world-class museums, diverse neighborhoods, West End theatre, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInPorto": [
+                    "Porto Airport (OPO)"
+                ],
+                "approxFlightTime": "2 hours 30 minutes",
+                "frequency": "Multiple flights daily"
+            }
+        },
+        {
+            "city": "Douro Valley",
+            "country": "Portugal",
+            "whyGo": "Explore the breathtaking UNESCO World Heritage wine region where Port wine is produced, with terraced vineyards, quaint riverside villages, and stunning landscapes best viewed by boat or train.",
+            "directWithinCountryTrain": {
+                "stationInPorto": "Porto São Bento",
+                "journeyTime": "Approx. 2 hours to Pinhão (scenic Douro Line)",
+                "frequency": "Several times daily"
+            },
+            "directWithinCountryBus": {
+                "stationInPorto": "Porto Campo 24 de Agosto",
+                "journeyTime": "Approx. 1 hour 30 minutes to Peso da Régua",
+                "frequency": "Several times daily"
+            },
+            "riverCruise": {
+                "departsFrom": "Porto Ribeira (riverside)",
+                "journeyTime": "Full day (up and back) or one-way options",
+                "frequency": "Daily during tourist season (March-November)"
+            }
+        },
+        {
+            "city": "Aveiro",
+            "country": "Portugal",
+            "whyGo": "Discover Portugal's 'Venice' with its network of canals navigated by colorful moliceiro boats, Art Nouveau buildings, fresh seafood, and nearby beaches along the Costa Nova.",
+            "directWithinCountryTrain": {
+                "stationInPorto": "Porto Campanhã / São Bento",
+                "journeyTime": "Approx. 45 minutes",
+                "frequency": "Multiple times per hour"
+            },
+            "directWithinCountryBus": {
+                "stationInPorto": "Porto Campo 24 de Agosto",
+                "journeyTime": "Approx. 1 hour",
+                "frequency": "Hourly"
+            }
+        }
+    ]
+}

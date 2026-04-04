@@ -1,0 +1,355 @@
+{
+    "destinations": [
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Experience Germany's vibrant capital, rich with history, cutting-edge art, and world-class nightlife.",
+            "directWithinCountryTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "1 hour 45 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Visit Bavaria's capital with its historic architecture, beer gardens, and cultural attractions.",
+            "directWithinCountryTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "5 hours 40 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "Visit Germany's financial center with its impressive skyline, museums, and the historic Römerberg square.",
+            "directWithinCountryTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "3 hours 30 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Cologne",
+            "country": "Germany",
+            "whyGo": "Admire the magnificent Gothic cathedral and enjoy the relaxed Rhine river atmosphere.",
+            "directWithinCountryTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "4 hours",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Hannover",
+            "country": "Germany",
+            "whyGo": "Explore this green city with its historic gardens, museums, and modern architecture.",
+            "directWithinCountryTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "1 hour 20 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Bremen",
+            "country": "Germany",
+            "whyGo": "Discover this historic Hanseatic city with its medieval architecture and maritime heritage.",
+            "directWithinCountryTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "55 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Lübeck",
+            "country": "Germany",
+            "whyGo": "Visit this UNESCO World Heritage city known for its medieval architecture and marzipan.",
+            "directWithinCountryTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "45 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Copenhagen",
+            "country": "Denmark",
+            "whyGo": "Experience the quintessential Scandinavian city known for design, sustainability, and culinary excellence.",
+            "intraEuropeTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "4 hours 30 minutes",
+                "frequency": "Every 2 hours"
+            },
+            "intraEuropeFlight": {
+                "airportsInHamburg": [
+                    "Hamburg Airport (HAM)"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "Multiple times daily"
+            }
+        },
+        {
+            "city": "Stockholm",
+            "country": "Sweden",
+            "whyGo": "Explore the stunning archipelago city with its innovative design, maritime heritage, and Nordic cool.",
+            "intraEuropeTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "8 hours",
+                "frequency": "Daily with transfers"
+            },
+            "intraEuropeFlight": {
+                "airportsInHamburg": [
+                    "Hamburg Airport (HAM)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "Discover Norway's capital with its fjord views, Viking heritage, and modern architecture.",
+            "intraEuropeTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "7 hours 30 minutes",
+                "frequency": "Daily with transfers"
+            },
+            "intraEuropeFlight": {
+                "airportsInHamburg": [
+                    "Hamburg Airport (HAM)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Experience the canal-lined city known for its artistic heritage, narrow houses, and progressive culture.",
+            "intraEuropeTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "5 hours",
+                "frequency": "Daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInHamburg": [
+                    "Hamburg Airport (HAM)"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "Multiple times daily"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "Visit the city of light with its iconic monuments, world-class museums, and incomparable charm.",
+            "intraEuropeTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "7 hours",
+                "frequency": "Daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInHamburg": [
+                    "Hamburg Airport (HAM)"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "Multiple times daily"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Visit one of the world's most iconic cities with its historic landmarks, world-class museums, and diverse neighborhoods.",
+            "intraEuropeTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "6 hours 30 minutes",
+                "frequency": "Daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInHamburg": [
+                    "Hamburg Airport (HAM)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Multiple times daily"
+            }
+        },
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Explore the fairytale city with its castle, Charles Bridge, and well-preserved medieval center.",
+            "intraEuropeTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "6 hours",
+                "frequency": "Daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInHamburg": [
+                    "Hamburg Airport (HAM)"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Experience the imperial splendor, coffee house culture, and musical heritage of Austria's capital.",
+            "intraEuropeTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "7 hours",
+                "frequency": "Daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInHamburg": [
+                    "Hamburg Airport (HAM)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Discover this elegant banking capital with its beautiful lake, alpine views, and excellent museums.",
+            "intraEuropeTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "6 hours",
+                "frequency": "Daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInHamburg": [
+                    "Hamburg Airport (HAM)"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Experience Gaudi's architecture, Mediterranean beaches, and Catalonia's vibrant cultural capital.",
+            "intraEuropeTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "18 hours",
+                "frequency": "Daily with transfers"
+            },
+            "intraEuropeFlight": {
+                "airportsInHamburg": [
+                    "Hamburg Airport (HAM)"
+                ],
+                "approxFlightTime": "2 hours 45 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "Visit the Eternal City with its ancient ruins, stunning art, and la dolce vita lifestyle.",
+            "intraEuropeTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "15 hours",
+                "frequency": "Daily with transfers"
+            },
+            "intraEuropeFlight": {
+                "airportsInHamburg": [
+                    "Hamburg Airport (HAM)"
+                ],
+                "approxFlightTime": "2 hours 15 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Moscow",
+            "country": "Russia",
+            "whyGo": "Experience the grandeur of Russia's capital with its historic architecture and rich cultural heritage.",
+            "intraEuropeTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "Not applicable",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInHamburg": [
+                    "Hamburg Airport (HAM)"
+                ],
+                "approxFlightTime": "3 hours",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Istanbul",
+            "country": "Turkey",
+            "whyGo": "Experience the city where Europe meets Asia, with its stunning mosques, bazaars, and Bosphorus views.",
+            "intraEuropeTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "Not applicable",
+                "frequency": "Not applicable"
+            },
+            "intraEuropeFlight": {
+                "airportsInHamburg": [
+                    "Hamburg Airport (HAM)"
+                ],
+                "approxFlightTime": "3 hours 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Sylt",
+            "country": "Germany",
+            "whyGo": "Visit Germany's most exclusive island with its pristine beaches, dunes, and unique island culture.",
+            "directWithinCountryTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "3 hours",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Rügen",
+            "country": "Germany",
+            "whyGo": "Explore Germany's largest island with its stunning chalk cliffs, beaches, and historic architecture.",
+            "directWithinCountryTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "4 hours",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Heligoland",
+            "country": "Germany",
+            "whyGo": "Experience this unique offshore island with its dramatic cliffs, wildlife, and duty-free shopping.",
+            "directWithinCountryTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "3 hours 30 minutes",
+                "frequency": "Daily with ferry connection"
+            }
+        },
+        {
+            "city": "Schwerin",
+            "country": "Germany",
+            "whyGo": "Visit this picturesque city with its fairy-tale castle, lakes, and historic architecture.",
+            "directWithinCountryTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "1 hour",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Kiel",
+            "country": "Germany",
+            "whyGo": "Experience this maritime city with its historic port, museums, and connection to the Baltic Sea.",
+            "directWithinCountryTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "1 hour 10 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Rostock",
+            "country": "Germany",
+            "whyGo": "Discover this historic Hanseatic city with its medieval architecture and Baltic Sea location.",
+            "directWithinCountryTrain": {
+                "stationInHamburg": "Hamburg Hauptbahnhof",
+                "journeyTime": "2 hours",
+                "frequency": "Hourly"
+            }
+        }
+    ]
+} 

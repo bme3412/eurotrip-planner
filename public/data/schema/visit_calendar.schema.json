@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "visit_calendar.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["cityId", "months"],
+  "properties": {
+    "cityId": { "type": "string" },
+    "months": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "january": { "$ref": "#/$defs/month" },
+        "february": { "$ref": "#/$defs/month" },
+        "march": { "$ref": "#/$defs/month" },
+        "april": { "$ref": "#/$defs/month" },
+        "may": { "$ref": "#/$defs/month" },
+        "june": { "$ref": "#/$defs/month" },
+        "july": { "$ref": "#/$defs/month" },
+        "august": { "$ref": "#/$defs/month" },
+        "september": { "$ref": "#/$defs/month" },
+        "october": { "$ref": "#/$defs/month" },
+        "november": { "$ref": "#/$defs/month" },
+        "december": { "$ref": "#/$defs/month" }
+      }
+    },
+    "activityTypes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "spring": { "type": "array", "items": { "type": "string" } },
+        "summer": { "type": "array", "items": { "type": "string" } },
+        "autumn": { "type": "array", "items": { "type": "string" } },
+        "winter": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "$defs": {
+    "month": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "ranges"],
+      "properties": {
+        "name": { "type": "string" },
+        "weatherHighC": { "type": "number" },
+        "weatherLowC": { "type": "number" },
+        "tourismLevel": { "type": "number", "minimum": 1, "maximum": 10 },
+        "ranges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["days", "score"],
+            "properties": {
+              "days": {
+                "type": "array",
+                "items": { "type": "integer", "minimum": 1, "maximum": 31 }
+              },
+              "score": { "type": "number", "minimum": 1, "maximum": 5 },
+              "special": { "type": "boolean" },
+              "eventId": { "type": "string" },
+              "notes": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+

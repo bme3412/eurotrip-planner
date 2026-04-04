@@ -1,0 +1,660 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Restaurant 360°",
+                "cuisine_type": "Mediterranean with Croatian influences",
+                "signature_dishes": [
+                    "Adriatic sea bass with truffle",
+                    "Wagyu beef with local herbs"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated rooftop dining with panoramic views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 months in advance, especially for sunset dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Old Town",
+                "local_tips": "Located on the city walls with 360-degree views; perfect for special occasions; arrive early for sunset cocktails"
+            },
+            {
+                "name": "Nautika Restaurant",
+                "cuisine_type": "Mediterranean",
+                "signature_dishes": [
+                    "Lobster risotto",
+                    "Black truffle pasta"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant waterfront dining with sea views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1-2 months ahead, request terrace seating",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Old Town",
+                "local_tips": "Stunning views of the Adriatic and Lokrum Island; excellent wine list featuring Croatian wines; perfect for romantic dinners"
+            },
+            {
+                "name": "Lady Pi-Pi",
+                "cuisine_type": "Seafood",
+                "signature_dishes": [
+                    "Grilled Adriatic fish",
+                    "Seafood platter"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Casual waterfront with fresh seafood focus",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, arrive early to secure a table",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "Fresh seafood grilled over open fire; BYOB (bring your own wine); cash only; arrive before 7 PM to avoid long waits"
+            },
+            {
+                "name": "Restaurant Dubrovnik",
+                "cuisine_type": "Mediterranean",
+                "signature_dishes": [
+                    "Black risotto with cuttlefish",
+                    "Adriatic sea bass"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Upscale with terrace views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, request outdoor seating",
+                "dress_code": "Smart casual",
+                "location": "Old Town",
+                "local_tips": "Excellent Croatian wine selection; terrace offers beautiful sunset views; try the daily catch specials"
+            },
+            {
+                "name": "Azur",
+                "cuisine_type": "Mediterranean with Asian fusion",
+                "signature_dishes": [
+                    "Seafood curry",
+                    "Grilled octopus"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern and vibrant",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1 week ahead, popular with locals",
+                "dress_code": "Smart casual",
+                "location": "Old Town",
+                "local_tips": "Unique fusion of Mediterranean and Asian flavors; excellent vegetarian options; great cocktails"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Konoba Kamenice",
+                "cuisine_type": "Traditional Croatian",
+                "signature_dishes": [
+                    "Mussels buzara",
+                    "Black risotto"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and traditional",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, arrive early for lunch",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "Famous for fresh mussels and oysters; local favorite; arrive before noon to avoid crowds"
+            },
+            {
+                "name": "Pantarul",
+                "cuisine_type": "Modern Mediterranean",
+                "signature_dishes": [
+                    "Lamb with local herbs",
+                    "Seafood pasta"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Contemporary and stylish",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance",
+                "dress_code": "Smart casual",
+                "location": "Old Town",
+                "local_tips": "Excellent wine pairing suggestions; seasonal menu changes; great for foodies"
+            },
+            {
+                "name": "Restaurant Orsan",
+                "cuisine_type": "Mediterranean",
+                "signature_dishes": [
+                    "Grilled fish",
+                    "Seafood risotto"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant marina setting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1 week ahead, request waterfront table",
+                "dress_code": "Smart casual",
+                "location": "Marina",
+                "local_tips": "Beautiful marina views; fresh seafood; excellent service; perfect for special occasions"
+            },
+            {
+                "name": "Restaurant Dubrovnik",
+                "cuisine_type": "Traditional Croatian",
+                "signature_dishes": [
+                    "Peka (slow-cooked meat)",
+                    "Fresh Adriatic fish"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic and authentic",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1 week ahead, especially in summer",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "Traditional Croatian cooking methods; family-run; excellent local wine selection"
+            },
+            {
+                "name": "Restaurant 360°",
+                "cuisine_type": "Mediterranean",
+                "signature_dishes": [
+                    "Adriatic sea bass",
+                    "Black truffle pasta"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated rooftop with panoramic views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 months in advance for sunset dining",
+                "dress_code": "Smart elegant",
+                "location": "Old Town",
+                "local_tips": "Located on the city walls; 360-degree views; perfect for special occasions; arrive early for sunset cocktails"
+            },
+            {
+                "name": "Lady Pi-Pi",
+                "cuisine_type": "Seafood",
+                "signature_dishes": [
+                    "Grilled Adriatic fish",
+                    "Seafood platter"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Casual waterfront with fresh seafood focus",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations, arrive early to secure a table",
+                "dress_code": "Casual",
+                "location": "Old Town",
+                "local_tips": "Fresh seafood grilled over open fire; BYOB (bring your own wine); cash only; arrive before 7 PM to avoid long waits"
+            },
+            {
+                "name": "Azur",
+                "cuisine_type": "Mediterranean with Asian fusion",
+                "signature_dishes": [
+                    "Seafood curry",
+                    "Grilled octopus"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern and vibrant",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1 week ahead, popular with locals",
+                "dress_code": "Smart casual",
+                "location": "Old Town",
+                "local_tips": "Unique fusion of Mediterranean and Asian flavors; excellent vegetarian options; great cocktails"
+            },
+            {
+                "name": "Restaurant Orsan",
+                "cuisine_type": "Mediterranean",
+                "signature_dishes": [
+                    "Grilled fish",
+                    "Seafood risotto"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant marina setting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1 week ahead, request waterfront table",
+                "dress_code": "Smart casual",
+                "location": "Marina",
+                "local_tips": "Beautiful marina views; fresh seafood; excellent service; perfect for special occasions"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Burek Stand",
+                "specialties": [
+                    "Burek (meat pie)",
+                    "Cheese burek",
+                    "Spinach burek"
+                ],
+                "price_range": "€",
+                "hours": "6:00 AM - 2:00 PM",
+                "location": "Old Town",
+                "seating": "Limited",
+                "local_tips": "Best enjoyed hot in the morning; traditional Balkan pastry; perfect for breakfast on the go"
+            },
+            {
+                "name": "Gelato Corner",
+                "specialties": [
+                    "Homemade gelato",
+                    "Sorbet",
+                    "Ice cream"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 10:00 PM",
+                "location": "Old Town",
+                "seating": "Some outdoor seating",
+                "local_tips": "Perfect for cooling off in summer; try local flavors like lavender and olive oil"
+            },
+            {
+                "name": "Seafood Market",
+                "specialties": [
+                    "Fresh oysters",
+                    "Grilled fish",
+                    "Seafood sandwiches"
+                ],
+                "price_range": "€€",
+                "hours": "8:00 AM - 6:00 PM",
+                "location": "Old Port",
+                "seating": "Limited",
+                "local_tips": "Fresh daily catch; arrive early for best selection; perfect for lunch by the sea"
+            },
+            {
+                "name": "Pizza Corner",
+                "specialties": [
+                    "Margherita pizza",
+                    "Seafood pizza",
+                    "Truffle pizza"
+                ],
+                "price_range": "€€",
+                "hours": "11:00 AM - 11:00 PM",
+                "location": "Old Town",
+                "seating": "Limited",
+                "local_tips": "Wood-fired oven; authentic Italian style; great for quick dinner"
+            },
+            {
+                "name": "Cevapi Stand",
+                "specialties": [
+                    "Cevapi (grilled meat)",
+                    "Pljeskavica (burger)",
+                    "Kajmak (cream cheese)"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 8:00 PM",
+                "location": "Old Town",
+                "seating": "Limited",
+                "local_tips": "Traditional Balkan street food; served with fresh bread; perfect for lunch"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Festival",
+                "specialty": "Traditional Croatian coffee",
+                "must_try": [
+                    "Turkish coffee",
+                    "Croatian pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic and elegant",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Traditional pastries and light meals",
+                "local_tips": "Historic café with beautiful terrace; perfect for people-watching; excellent coffee culture"
+            },
+            {
+                "name": "Café Buža",
+                "specialty": "Cliffside coffee with views",
+                "must_try": [
+                    "Espresso",
+                    "Local wine"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic and scenic",
+                "best_time": "Sunset",
+                "wifi_friendly": false,
+                "food_options": "Simple snacks",
+                "local_tips": "Located on the cliffs outside the city walls; stunning sea views; perfect for sunset drinks"
+            },
+            {
+                "name": "Café Dubrovnik",
+                "specialty": "Modern coffee culture",
+                "must_try": [
+                    "Flat white",
+                    "Cold brew"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary and cozy",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries and light meals",
+                "local_tips": "Great for working remotely; excellent coffee quality; relaxed atmosphere"
+            },
+            {
+                "name": "Café Bar Atlas",
+                "specialty": "Local coffee tradition",
+                "must_try": [
+                    "Croatian coffee",
+                    "Homemade cakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional and welcoming",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Traditional Croatian pastries",
+                "local_tips": "Family-run café; authentic local experience; excellent homemade desserts"
+            },
+            {
+                "name": "Café Bar D'vino",
+                "specialty": "Wine bar with coffee",
+                "must_try": [
+                    "Croatian wines",
+                    "Coffee selection"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Wine-focused and sophisticated",
+                "best_time": "Evening",
+                "wifi_friendly": false,
+                "food_options": "Wine and cheese pairings",
+                "local_tips": "Excellent Croatian wine selection; knowledgeable staff; perfect for wine lovers"
+            }
+        ],
+        "bars": [
+            {
+                "name": "D'vino Wine Bar",
+                "type": "Wine Bar",
+                "specialty": "Croatian wines",
+                "signature_drinks": [
+                    "Plavac Mali",
+                    "Graševina",
+                    "Teran"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated wine bar",
+                "best_time": "Evening",
+                "food_options": "Cheese and charcuterie boards",
+                "reservation_needed": true,
+                "local_tips": "Extensive Croatian wine list; knowledgeable sommeliers; perfect for wine tasting"
+            },
+            {
+                "name": "Café Buža",
+                "type": "Cliff Bar",
+                "specialty": "Sunset cocktails",
+                "signature_drinks": [
+                    "Aperol Spritz",
+                    "Local wines",
+                    "Craft beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic cliffside setting",
+                "best_time": "Sunset",
+                "food_options": "Simple snacks",
+                "reservation_needed": false,
+                "local_tips": "Located on cliffs outside city walls; stunning sunset views; cash only; arrive early for best spots"
+            },
+            {
+                "name": "Glamour Beach Bar",
+                "type": "Beach Bar",
+                "specialty": "Beach cocktails",
+                "signature_drinks": [
+                    "Mojito",
+                    "Pina Colada",
+                    "Local beers"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Beachfront and relaxed",
+                "best_time": "Afternoon",
+                "food_options": "Beach snacks and light meals",
+                "reservation_needed": false,
+                "local_tips": "Beautiful beach setting; perfect for afternoon drinks; great for swimming and sunbathing"
+            },
+            {
+                "name": "Cocktail Bar Azur",
+                "type": "Cocktail Bar",
+                "specialty": "Creative cocktails",
+                "signature_drinks": [
+                    "Mediterranean Mule",
+                    "Adriatic Sunset",
+                    "Local herb cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Modern and trendy",
+                "best_time": "Evening",
+                "food_options": "Tapas and small plates",
+                "reservation_needed": true,
+                "local_tips": "Creative cocktail menu; excellent food pairing; great for pre-dinner drinks"
+            },
+            {
+                "name": "Café Bar Atlas",
+                "type": "Local Bar",
+                "specialty": "Local beers and spirits",
+                "signature_drinks": [
+                    "Karlovačko beer",
+                    "Rakija (local spirit)",
+                    "Croatian wines"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional and friendly",
+                "best_time": "Evening",
+                "food_options": "Traditional Croatian snacks",
+                "reservation_needed": false,
+                "local_tips": "Authentic local experience; friendly atmosphere; great for meeting locals"
+            },
+            {
+                "name": "Rooftop Bar 360°",
+                "type": "Rooftop Bar",
+                "specialty": "Panoramic views and cocktails",
+                "signature_drinks": [
+                    "Dubrovnik Sunset",
+                    "Adriatic Breeze",
+                    "Premium cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Luxurious rooftop setting",
+                "best_time": "Sunset",
+                "food_options": "Gourmet bar snacks",
+                "reservation_needed": true,
+                "local_tips": "360-degree city views; perfect for sunset cocktails; dress smartly; book in advance"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Dubrovnik Food Tour",
+                "focus": "Traditional Croatian cuisine",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Local market visit",
+                    "Traditional restaurants",
+                    "Wine tasting"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Croatian"
+                ],
+                "booking_tips": "Book at least a week in advance; wear comfortable walking shoes"
+            },
+            {
+                "name": "Seafood Experience",
+                "focus": "Adriatic seafood",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Fish market visit",
+                    "Seafood cooking class",
+                    "Wine pairing"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Croatian"
+                ],
+                "booking_tips": "Book 2 weeks ahead; includes hands-on cooking; fresh ingredients provided"
+            },
+            {
+                "name": "Wine Tasting Tour",
+                "focus": "Croatian wines",
+                "duration": "3.5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Local wine bars",
+                    "Wine tasting",
+                    "Cheese pairing"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Croatian"
+                ],
+                "booking_tips": "Book 1 week ahead; includes substantial wine tastings; eat before the tour"
+            },
+            {
+                "name": "Old Town Food Walk",
+                "focus": "Historic food culture",
+                "duration": "2.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Historic restaurants",
+                    "Traditional pastries",
+                    "Local specialties"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Croatian"
+                ],
+                "booking_tips": "Book early for weekend tours; includes food tastings; comfortable walking required"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Croatian Cooking Workshop",
+                "cuisine_focus": "Traditional Croatian cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Peka (slow-cooked meat)",
+                    "Black risotto",
+                    "Traditional desserts"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Croatian"
+                ],
+                "includes": [
+                    "All ingredients, recipes, full meal with wine pairing"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; classes held three times weekly"
+            },
+            {
+                "name": "Seafood Cooking Class",
+                "cuisine_focus": "Adriatic seafood",
+                "duration": "3 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Fish preparation",
+                    "Seafood risotto",
+                    "Grilled octopus"
+                ],
+                "group_size": "Max 6 participants",
+                "languages": [
+                    "English",
+                    "Croatian"
+                ],
+                "includes": [
+                    "Fresh seafood ingredients, take-home recipes, wine pairing"
+                ],
+                "booking_tips": "Book 2 weeks ahead; suitable for all skill levels"
+            },
+            {
+                "name": "Market to Table",
+                "cuisine_focus": "Local ingredients",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Market shopping",
+                    "Seasonal dishes",
+                    "Cooking techniques"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Market tour, ingredients, lunch"
+                ],
+                "booking_tips": "Book in advance for market tours; early morning start"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Gundulićeva Poljana Market",
+                "type": "Daily food market",
+                "highlights": [
+                    "Fresh produce",
+                    "Local cheeses",
+                    "Olive oil",
+                    "Croatian specialties"
+                ],
+                "hours": "Every day, 7 AM - 2 PM",
+                "best_time": "Morning",
+                "location": "Old Town",
+                "local_tips": "Arrive early for the freshest selections; excellent place to sample local products; great for photography"
+            },
+            {
+                "name": "Lapad Market",
+                "type": "Local market",
+                "highlights": [
+                    "Fresh fish",
+                    "Local vegetables",
+                    "Artisan bread",
+                    "Regional products"
+                ],
+                "hours": "Every day, 6 AM - 1 PM",
+                "best_time": "Early morning",
+                "location": "Lapad",
+                "local_tips": "Best for fresh seafood; local vendors; authentic experience; arrive early for best selection"
+            },
+            {
+                "name": "Gruž Market",
+                "type": "Large market",
+                "highlights": [
+                    "Fresh produce",
+                    "Seafood",
+                    "Local meats",
+                    "Regional specialties"
+                ],
+                "hours": "Every day, 6 AM - 2 PM",
+                "best_time": "Morning",
+                "location": "Gruž",
+                "local_tips": "Largest market in Dubrovnik; excellent variety; great for bulk shopping; parking available"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Asparagus with olive oil and lemon",
+            "Fresh pea soup with local herbs",
+            "Spring lamb with wild herbs"
+        ],
+        "summer": [
+            "Grilled Adriatic fish with herbs",
+            "Fresh tomato and basil salad",
+            "Summer fruit desserts with local berries"
+        ],
+        "autumn": [
+            "Mushroom risotto with truffle",
+            "Pumpkin soup with local spices",
+            "Autumn fruit pies and tarts"
+        ],
+        "winter": [
+            "Peka (slow-cooked meat with vegetables)",
+            "Warm chestnut desserts",
+            "Traditional Croatian Christmas cookies"
+        ]
+    }
+}

@@ -1,0 +1,884 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [1], 
+          "score": 1, 
+          "special": true, 
+          "event": "New Year's Day", 
+          "notes": "Major holiday - most attractions closed, very cold weather (-5 to 2°C), post-celebration cleanup, limited transport", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Free", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 1,
+            "couples": 2,
+            "solo": 1,
+            "business": 1,
+            "budget": 2,
+            "luxury": 1
+          },
+          "attractions": {
+            "ještědTower": "Closed",
+            "liberecZoo": "Closed", 
+            "botanicalGarden": "Closed",
+            "regionalGallery": "Closed",
+            "aquaparkBabylon": "Open"
+          },
+          "considerations": ["Most attractions closed", "Limited restaurant options", "Excellent for photography with snow", "Many shops closed"]
+        },
+        {
+          "days": [2, 3, 4, 5, 6], 
+          "score": 2, 
+          "notes": "Post-holiday recovery, gradual reopening, winter sales begin, very cold (-3 to 3°C)", 
+          "location": "Shopping districts", 
+          "time": "All day", 
+          "price": "Lower prices", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 3,
+            "solo": 3,
+            "business": 1,
+            "budget": 4,
+            "luxury": 2
+          },
+          "attractions": {
+            "ještědTower": "Open, minimal queues",
+            "liberecZoo": "Open, indoor pavilions recommended",
+            "regionalGallery": "Open, excellent for art lovers",
+            "aquaparkBabylon": "Perfect indoor activity",
+            "museums": "Perfect conditions"
+          },
+          "considerations": ["Excellent for indoor activities", "Perfect museum conditions", "Bring warm clothing", "Limited daylight 8:00am-4:30pm"]
+        },
+        {
+          "days": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 
+          "score": 2, 
+          "notes": "Coldest period (-5 to 2°C), possible snow, ideal for indoor activities, very low tourism", 
+          "location": "Museums and indoor attractions", 
+          "time": "Daytime 9am-6pm", 
+          "price": "Standard", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 2,
+            "budget": 4,
+            "luxury": 3
+          },
+          "attractions": {
+            "regionalGallery": "Excellent - no crowds",
+            "liberecCastle": "Perfect conditions",
+            "aquaparkBabylon": "Indoor tropical environment",
+            "cafes": "Cozy atmosphere", 
+            "shopping": "Continued sales"
+          },
+          "considerations": ["Pack thermal layers", "Perfect for indoor activities", "Cafés are sanctuaries", "Early sunset around 4:30pm"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 2, 
+          "notes": "Gradual warming (-2 to 4°C), excellent indoor conditions, beginning of winter sports season", 
+          "location": "Ještěd Mountain, indoor venues", 
+          "time": "All day", 
+          "price": "Lower prices continue", 
+          "crowdLevel": "Low",
+          "winterSports": ["Skiing on Ještěd", "Snowboarding", "Winter hiking"],
+          "considerations": ["Check snow conditions for skiing", "Warm clothing still essential", "Great for winter photography", "Days beginning to lengthen"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 2,
+        "lowC": -5,
+        "avgC": -1.5,
+        "realFeelC": -8,
+        "rainfallMm": 45,
+        "rainDays": 8,
+        "snowDays": 12,
+        "sunshineHours": 2,
+        "daylightHours": 8.5,
+        "sunrise": "08:00",
+        "sunset": "16:30",
+        "humidity": 85,
+        "windKmh": 12
+      },
+      "tourismLevel": 2,
+      "priceLevel": "Low",
+      "crowdLevel": "Low",
+      "schoolHolidays": {
+        "christmas": {"dates": [1, 2], "impact": "Moderate"},
+        "winter": {"starts": "mid-February", "impact": "None in January"}
+      }
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5], 
+          "score": 2, 
+          "notes": "Winter continues, cold (-3 to 4°C), fewer crowds, excellent indoor time", 
+          "location": "Museums and indoor attractions", 
+          "time": "Daytime 9am-6pm", 
+          "price": "Standard", 
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 3
+          }
+        },
+        {
+          "days": [6, 7, 8, 9, 10, 11, 12, 13], 
+          "score": 2, 
+          "notes": "Pre-Valentine's period, gradual warming (0 to 6°C), winter sales ending", 
+          "location": "Shopping areas, cultural venues", 
+          "time": "All day", 
+          "price": "End of sales", 
+          "crowdLevel": "Low",
+          "schoolHolidays": {
+            "winter": {"active": true, "impact": "Moderate", "dates": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]},
+            "description": "Zone B school holidays - increased family tourism"
+          },
+          "considerations": ["Museum queues increase slightly", "Family-friendly activities busier", "Book family restaurants ahead"]
+        },
+        {
+          "days": [14], 
+          "score": 4, 
+          "special": true, 
+          "event": "Valentine's Day", 
+          "notes": "Romantic atmosphere, special dining events, busy restaurants, book 2-3 weeks ahead", 
+          "location": "Restaurants citywide, Ještěd Tower", 
+          "time": "Evening 7pm-11pm", 
+          "price": "Premium (dinner 60-150€/person)", 
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 5,
+            "solo": 2,
+            "business": 1,
+            "budget": 2,
+            "luxury": 5
+          },
+          "romanticVenues": {
+            "restaurants": ["Rybářská bašta", "Restaurant Ještěd", "Café Central", "U Fleku"],
+            "activities": ["Ještěd Tower dinner", "Harcov reservoir walk", "Regional Gallery"],
+            "hotels": ["Special packages available", "Book 6 weeks ahead", "Expect 30-50% markup"]
+          },
+          "considerations": ["Reserve restaurants by late January", "Ještěd Tower offers romantic dining", "Indoor activities recommended due to cold"]
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], 
+          "score": 3, 
+          "notes": "Post-Valentine's, school holidays continue, gradually warming (2 to 8°C), spring hints", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Low-Moderate",
+          "schoolHolidays": {
+            "winter": {"active": true, "impact": "Moderate"}
+          },
+          "considerations": ["Days noticeably longer", "Early spring flowers in parks", "Good time for family activities"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 4,
+        "lowC": -3,
+        "avgC": 0.5,
+        "realFeelC": -2,
+        "rainfallMm": 40,
+        "rainDays": 7,
+        "snowDays": 8,
+        "sunshineHours": 3,
+        "daylightHours": 10,
+        "sunrise": "07:30",
+        "sunset": "17:30",
+        "humidity": 80,
+        "windKmh": 11
+      },
+      "tourismLevel": 3,
+      "priceLevel": "Low-Medium",
+      "crowdLevel": "Low-Medium"
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          "score": 3, 
+          "notes": "Early spring transition, variable weather (2-10°C), increasing daylight", 
+          "location": "Citywide", 
+          "time": "Extended daylight 6:30am-6pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 3
+          },
+          "weatherVariability": "High - pack layers, umbrella essential",
+          "considerations": ["Unpredictable weather", "Perfect for indoor/outdoor combination", "Early spring flowers appearing"]
+        },
+        {
+          "days": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 
+          "score": 4, 
+          "notes": "Spring awakening, pleasant temperatures (5-12°C), perfect for walking", 
+          "location": "Parks and gardens", 
+          "time": "Full day exploration", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "springActivities": ["Botanical garden visits", "Outdoor café culture returns", "Walking tours ideal", "Photography perfect light"],
+          "considerations": ["Weather can change quickly", "Perfect time for mountain walks", "Outdoor dining returns"]
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 4, 
+          "special": true, 
+          "event": "Spring Equinox & Easter Preparations", 
+          "notes": "Spring officially arrives, Easter preparations begin, excellent conditions (6-14°C)", 
+          "location": "Old Town Square, Botanical Garden, Regional Gallery", 
+          "time": "Optimal 9am-6pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate-High",
+          "easterPreparations": {
+            "markets": "Easter market setup begins",
+            "decorations": "Traditional Czech Easter decorations",
+            "activities": "Easter egg painting workshops",
+            "food": "Traditional Easter bread (mazanec) preparation"
+          },
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          },
+          "considerations": ["Easter markets begin late March", "Weekend crowds for spring activities", "Perfect for photography", "Outdoor dining fully returns"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 10,
+        "lowC": 2,
+        "avgC": 6,
+        "realFeelC": 4,
+        "rainfallMm": 45,
+        "rainDays": 10,
+        "snowDays": 3,
+        "sunshineHours": 4.5,
+        "daylightHours": 12,
+        "sunrise": "06:30",
+        "sunset": "18:00",
+        "humidity": 75,
+        "windKmh": 10
+      },
+      "tourismLevel": 5,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [1], 
+          "score": 3, 
+          "special": true, 
+          "event": "April Fool's Day", 
+          "notes": "Fun cultural atmosphere, spring flowers blooming, perfect spring weather", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Free cultural fun", 
+          "crowdLevel": "Moderate",
+          "culturalTradition": "Czech April Fool's traditions, playful atmosphere throughout the city"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 
+          "score": 5, 
+          "special": true, 
+          "event": "Easter Markets Peak Season", 
+          "notes": "Easter markets in full swing, ideal weather (8-16°C), traditional Czech celebrations", 
+          "location": "Old Town Square, various locations", 
+          "time": "All day", 
+          "price": "Free to moderate", 
+          "crowdLevel": "High at markets",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 5,
+            "luxury": 4
+          },
+          "easterActivities": {
+            "markets": "Traditional crafts, Easter decorations, local food",
+            "traditions": "Easter egg painting, willow whipping (pomlázka)",
+            "food": "Mazanec (Easter bread), decorated eggs, traditional sweets",
+            "events": "Easter processions, cultural performances"
+          },
+          "considerations": ["Easter markets peak this period", "Weather dependent timing", "Weekends extremely crowded", "Book restaurants in advance"]
+        },
+        {
+          "days": [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 4, 
+          "notes": "Perfect spring conditions (10-18°C), comfortable temperatures, ideal sightseeing", 
+          "location": "Citywide", 
+          "time": "Extended daylight 6:00am-8pm", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate",
+          "optimalActivities": ["Walking tours", "Outdoor dining", "Mountain hiking", "Botanical garden visits", "Cable car rides"],
+          "considerations": ["Spring rain showers possible", "Perfect temperature for long walks", "Outdoor dining fully active", "Book popular restaurants ahead"]
+        }
+      ],
+      "weatherDetails": {
+        "highC": 14,
+        "lowC": 4,
+        "avgC": 9,
+        "realFeelC": 10,
+        "rainfallMm": 50,
+        "rainDays": 12,
+        "sunshineHours": 6,
+        "daylightHours": 13.5,
+        "sunrise": "06:00",
+        "sunset": "19:30",
+        "humidity": 70,
+        "windKmh": 9
+      },
+      "tourismLevel": 7,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium-High"
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {
+          "days": [1], 
+          "score": 3, 
+          "special": true, 
+          "event": "Labor Day", 
+          "notes": "Public holiday, some closures but special events, spring flowers in full bloom", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Free", 
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7], 
+          "score": 4, 
+          "notes": "Spring flowers, pleasant temperatures (10-18°C), outdoor dining", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [8], 
+          "score": 3, 
+          "special": true, 
+          "event": "Victory in Europe Day", 
+          "notes": "Some closures, commemorations, historical significance", 
+          "location": "Liberec Castle, military sites", 
+          "time": "Morning", 
+          "price": "Free", 
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [9, 10, 11, 12, 13, 14, 15, 16, 17], 
+          "score": 4, 
+          "notes": "Excellent weather, not peak tourism yet, perfect for sightseeing", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [18], 
+          "score": 5, 
+          "special": true, 
+          "event": "International Museum Day", 
+          "notes": "Museums Night, special cultural events, free museum access", 
+          "location": "Museums citywide", 
+          "time": "Evening", 
+          "price": "Free", 
+          "crowdLevel": "High"
+        },
+        {
+          "days": [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 4, 
+          "notes": "Warm weather (12-20°C), outdoor café culture thriving, long days", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate"
+        }
+      ],
+      "weatherHighC": 18,
+      "weatherLowC": 8,
+      "weatherAvgC": 13,
+      "rainfallMm": 70,
+      "sunshineHours": 7,
+      "tourismLevel": 8,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium-High"
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 
+          "score": 5, 
+          "notes": "Excellent weather (14-22°C), long daylight, pre-peak season", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20], 
+          "score": 4, 
+          "notes": "Warming up, tourism increasing, still manageable crowds", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [21], 
+          "score": 5, 
+          "special": true, 
+          "event": "Summer Solstice", 
+          "notes": "Longest day of the year, summer festivals begin, free concerts", 
+          "location": "Various venues citywide", 
+          "time": "Evening", 
+          "price": "Free", 
+          "crowdLevel": "High"
+        },
+        {
+          "days": [22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 4, 
+          "notes": "Summer begins, increasing tourism, warm weather (16-24°C)", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "High"
+        }
+      ],
+      "weatherHighC": 22,
+      "weatherLowC": 12,
+      "weatherAvgC": 17,
+      "rainfallMm": 75,
+      "sunshineHours": 8,
+      "tourismLevel": 9,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 
+          "score": 3, 
+          "notes": "Peak tourism season, warm weather (16-25°C), crowded attractions", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Expensive", 
+          "crowdLevel": "Very High"
+        },
+        {
+          "days": [14], 
+          "score": 4, 
+          "special": true, 
+          "event": "Liberec Summer Festival", 
+          "notes": "Major cultural festival, outdoor performances, celebrations", 
+          "location": "Various venues", 
+          "time": "All day", 
+          "price": "Free to moderate", 
+          "crowdLevel": "Very High"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 3, 
+          "notes": "Hot weather (17-26°C), peak tourism, crowded, outdoor activities", 
+          "location": "Aquapark Babylon, outdoor venues", 
+          "time": "All day", 
+          "price": "Expensive", 
+          "crowdLevel": "Very High"
+        }
+      ],
+      "weatherHighC": 24,
+      "weatherLowC": 14,
+      "weatherAvgC": 19,
+      "rainfallMm": 80,
+      "sunshineHours": 8.5,
+      "tourismLevel": 10,
+      "priceLevel": "High",
+      "crowdLevel": "Very High"
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 
+          "score": 3, 
+          "notes": "Hot weather (17-26°C), peak tourism, many locals on vacation", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Expensive", 
+          "crowdLevel": "High"
+        },
+        {
+          "days": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31], 
+          "score": 3, 
+          "notes": "Still warm, crowds decreasing as European vacations end", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate"
+        }
+      ],
+      "weatherHighC": 24,
+      "weatherLowC": 14,
+      "weatherAvgC": 19,
+      "rainfallMm": 75,
+      "sunshineHours": 8,
+      "tourismLevel": 9,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 
+          "score": 5, 
+          "notes": "Excellent post-peak season, warm weather continues (12-20°C), fewer crowds", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 5, 
+          "special": true, 
+          "event": "Autumn Cultural Festival", 
+          "notes": "Pleasant temperatures, reduced crowds, cultural events, art exhibitions", 
+          "location": "Various venues citywide", 
+          "time": "All day", 
+          "price": "Free to moderate", 
+          "crowdLevel": "Moderate"
+        }
+      ],
+      "weatherHighC": 19,
+      "weatherLowC": 10,
+      "weatherAvgC": 14.5,
+      "rainfallMm": 60,
+      "sunshineHours": 6.5,
+      "tourismLevel": 7,
+      "priceLevel": "Medium-High",
+      "crowdLevel": "Medium"
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {
+          "days": [5], 
+          "score": 4, 
+          "special": true, 
+          "event": "Nuit Blanche", 
+          "notes": "All-night arts festival, fall colors beginning, cultural events", 
+          "location": "Various venues citywide", 
+          "time": "All night", 
+          "price": "Free", 
+          "crowdLevel": "High"
+        },
+        {
+          "days": [6, 7, 8, 9, 10, 11, 12, 13, 14], 
+          "score": 4, 
+          "notes": "Comfortable temperatures (8-15°C), beautiful autumn atmosphere, golden light", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [19, 20], 
+          "score": 4, 
+          "special": true, 
+          "event": "Harvest Festival", 
+          "notes": "Fall colors, harvest activities, local food, autumn charm", 
+          "location": "Old Town Square", 
+          "time": "Daytime", 
+          "price": "Free", 
+          "crowdLevel": "Moderate"
+        }
+      ],
+      "weatherHighC": 14,
+      "weatherLowC": 6,
+      "weatherAvgC": 10,
+      "rainfallMm": 55,
+      "sunshineHours": 5,
+      "tourismLevel": 6,
+      "priceLevel": "Medium",
+      "crowdLevel": "Medium"
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {
+          "days": [1], 
+          "score": 3, 
+          "special": true, 
+          "event": "All Saints' Day", 
+          "notes": "Holiday, some closures but special cemetery visits, chrysanthemums", 
+          "location": "Cemeteries citywide", 
+          "time": "Daytime", 
+          "price": "Free", 
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          "score": 3, 
+          "notes": "Fall colors continue, cooling temperatures (3-10°C), indoor activities", 
+          "location": "Museums and galleries", 
+          "time": "Daytime", 
+          "price": "Standard", 
+          "crowdLevel": "Low"
+        },
+        {
+          "days": [11], 
+          "score": 3, 
+          "special": true, 
+          "event": "Armistice Day", 
+          "notes": "Commemorations, some closures, historical significance", 
+          "location": "Liberec Castle", 
+          "time": "Morning", 
+          "price": "Free", 
+          "crowdLevel": "Moderate"
+        },
+        {
+          "days": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30], 
+          "score": 3, 
+          "special": true, 
+          "event": "Christmas Markets Begin", 
+          "notes": "Festive atmosphere begins, cooler weather, holiday preparations", 
+          "location": "Various locations", 
+          "time": "All day", 
+          "price": "Free", 
+          "crowdLevel": "Moderate"
+        }
+      ],
+      "weatherHighC": 8,
+      "weatherLowC": 2,
+      "weatherAvgC": 5,
+      "rainfallMm": 50,
+      "sunshineHours": 3,
+      "tourismLevel": 4,
+      "priceLevel": "Medium",
+      "crowdLevel": "Low-Medium"
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {
+          "days": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], 
+          "score": 3, 
+          "special": true, 
+          "event": "Christmas Markets", 
+          "notes": "Festive atmosphere, holiday decorations, mulled wine, seasonal treats", 
+          "location": "Various locations", 
+          "time": "All day", 
+          "price": "Free", 
+          "crowdLevel": "High"
+        },
+        {
+          "days": [15, 16, 17, 18, 19, 20, 21, 22, 23], 
+          "score": 3, 
+          "notes": "Holiday events, Christmas shopping crowds, festive lights", 
+          "location": "Shopping districts", 
+          "time": "All day", 
+          "price": "Standard", 
+          "crowdLevel": "High"
+        },
+        {
+          "days": [24, 25], 
+          "score": 2, 
+          "special": true, 
+          "event": "Christmas", 
+          "notes": "Many closures but special atmosphere, family celebrations", 
+          "location": "Citywide", 
+          "time": "All day", 
+          "price": "Free", 
+          "crowdLevel": "Low"
+        },
+        {
+          "days": [26, 27, 28, 29, 30], 
+          "score": 3, 
+          "notes": "Between Christmas and New Year's - busy tourist period, sales begin", 
+          "location": "Shopping districts", 
+          "time": "All day", 
+          "price": "Sales", 
+          "crowdLevel": "High"
+        },
+        {
+          "days": [31], 
+          "score": 3, 
+          "special": true, 
+          "event": "New Year's Eve", 
+          "notes": "Special events but very crowded, champagne celebrations", 
+          "location": "Old Town Square, Ještěd Tower", 
+          "time": "Evening", 
+          "price": "Expensive", 
+          "crowdLevel": "Very High"
+        }
+      ],
+      "weatherHighC": 4,
+      "weatherLowC": -2,
+      "weatherAvgC": 1,
+      "rainfallMm": 60,
+      "sunshineHours": 2.5,
+      "tourismLevel": 7,
+      "priceLevel": "High",
+      "crowdLevel": "High"
+    }
+  },
+  "activityTypes": {
+    "spring": [
+      "Ještěd Mountain Hiking",
+      "Botanical Garden Visits",
+      "Easter Markets",
+      "Cultural Events",
+      "Outdoor Dining",
+      "Walking Tours",
+      "Cable Car Rides",
+      "Markets & Shopping",
+      "Photography Tours",
+      "Zoo Visits"
+    ],
+    "summer": [
+      "Aquapark Babylon",
+      "Mountain Activities",
+      "Harcov Reservoir Swimming",
+      "Summer Festivals",
+      "Botanical Garden Tours",
+      "Mountain Biking",
+      "Outdoor Dining",
+      "Zoo Evening Visits",
+      "Hiking Trails",
+      "Cultural Events"
+    ],
+    "autumn": [
+      "Fall Color Hiking",
+      "Cultural Events",
+      "Mushroom Foraging",
+      "Castle Visits",
+      "Autumn Walks",
+      "Harvest Festivals",
+      "Regional Gallery",
+      "Botanical Garden",
+      "Art Exhibitions",
+      "Historical Tours"
+    ],
+    "winter": [
+      "Ještěd Ski Resort",
+      "Christmas Markets",
+      "Indoor Activities",
+      "Museum Visits",
+      "Cozy Cafés",
+      "Ještěd Tower Views",
+      "Aquapark Babylon",
+      "Shopping Centers",
+      "Regional Gallery",
+      "Winter Photography"
+    ]
+  },
+  "scoreDescription": {
+    "5": "Excellent: Perfect conditions, special events, ideal weather, moderate crowds, best value",
+    "4": "Good: Very favorable conditions, pleasant weather, manageable crowds, good value",
+    "3": "Average: Standard conditions, typical weather, moderate to high tourism, fair value",
+    "2": "Below Average: Less ideal conditions, possibly unpleasant weather or very high crowds, limited value",
+    "1": "Poor: Unfavorable conditions, extreme weather, overcrowded or limited activities, poor value"
+  },
+  "travelerTypes": {
+    "families": {
+      "bestMonths": ["April", "May", "September", "December"],
+      "considerations": ["School holidays", "Weather suitability", "Activity availability", "Crowd tolerance"],
+      "challenges": {
+        "summer": "Very crowded, expensive, hot",
+        "winter": "Cold weather, shorter days"
+      }
+    },
+    "couples": {
+      "bestMonths": ["May", "June", "September", "October"],
+      "romantic": ["February 14th", "June 21st", "December Christmas markets"],
+      "considerations": ["Weather", "Crowds", "Dining availability", "Romantic atmosphere"]
+    },
+    "solo": {
+      "bestMonths": ["September", "October", "November", "January"],
+      "advantages": ["Cultural immersion", "Photography opportunities", "Flexibility"],
+      "considerations": ["Safety", "Social opportunities", "Language", "Solo dining comfort"]
+    },
+    "business": {
+      "bestMonths": ["March", "April", "May", "September", "October", "November"],
+      "avoid": ["August", "December", "July"],
+      "considerations": ["Conference seasons", "Hotel availability", "Transportation", "Restaurant bookings"]
+    },
+    "budget": {
+      "bestMonths": ["January", "February", "March", "November"],
+      "strategies": ["Off-season travel", "Free activities", "Market meals", "Museum passes"],
+      "considerations": ["Accommodation deals", "Restaurant lunch menus", "Free events"]
+    },
+    "luxury": {
+      "bestMonths": ["May", "June", "September", "October", "December"],
+      "experiences": ["Fine dining", "Private tours", "Luxury shopping", "Exclusive events"],
+      "considerations": ["Advance bookings", "Seasonal menus", "Exclusive events", "Premium experiences"]
+    }
+  },
+  "monthlyHighlights": {
+    "january": "Winter activities, cozy indoor attractions, authentic local experience",
+    "february": "Valentine's romance, fewer crowds, cultural immersion",
+    "march": "Spring awakening, Easter preparations, perfect temperatures",
+    "april": "Easter markets, ideal weather, outdoor activities begin",
+    "may": "Perfect conditions, outdoor dining, optimal sightseeing",
+    "june": "Longest days, summer festivals, pre-peak crowds",
+    "july": "Peak summer, outdoor activities, warm weather",
+    "august": "Warm weather, summer activities, family tourism",
+    "september": "Post-peak perfection, autumn colors beginning, ideal conditions",
+    "october": "Autumn beauty, harvest festivals, comfortable temperatures",
+    "november": "Cozy atmosphere, cultural season, lower prices",
+    "december": "Christmas magic, holiday markets, festive atmosphere"
+  },
+  "additionalInfo": {
+    "peakSeasons": {
+      "high": ["June", "July", "August"],
+      "medium": ["April", "May", "September", "October", "December"],
+      "low": ["January", "February", "March", "November"]
+    },
+    "weatherNotes": {
+      "spring": "Variable weather, layers recommended, occasional rain",
+      "summer": "Warm to hot, occasional heatwaves, evening thunderstorms possible",
+      "autumn": "Gradually cooling, beautiful colors, comfortable for walking",
+      "winter": "Cold but rarely extreme, occasional snow, indoor activities recommended"
+    },
+    "transportation": {
+      "public": "Efficient year-round, limited in winter",
+      "walking": "Best in spring and autumn, challenging in extreme weather",
+      "cycling": "Excellent in spring and autumn, mountain trails available",
+      "cableCar": "Year-round to Ještěd Tower"
+    },
+    "accommodation": {
+      "peakPricing": ["June", "July", "August", "December"],
+      "valuePricing": ["January", "February", "March", "November"],
+      "advanceBooking": "Recommended 3-6 months ahead for peak season"
+    }
+  }
+}

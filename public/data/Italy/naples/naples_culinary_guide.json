@@ -1,0 +1,637 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Palazzo Petrucci",
+                "cuisine_type": "Modern Neapolitan",
+                "signature_dishes": [
+                    "Risotto with Lemon and Amberjack",
+                    "Sea Urchin Linguine"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant dining room with views of the Bay of Naples",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3-4 weeks in advance, request sea view table",
+                "dress_code": "Formal",
+                "michelin_stars": 1,
+                "location": "Posillipo",
+                "local_tips": "Chef Lino Scarallo is known for elevating traditional Neapolitan dishes with modern techniques"
+            },
+            {
+                "name": "Il Comandante",
+                "cuisine_type": "Creative Mediterranean",
+                "signature_dishes": [
+                    "Spaghetti with Clams and Burnt Wheat",
+                    "Red Mullet with Escarole"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated rooftop restaurant in the Romeo Hotel with panoramic views of Vesuvius",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 1 month in advance, request window seating for harbor views",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Porto",
+                "local_tips": "The tasting menu featuring seafood is exceptional, especially with wine pairings"
+            },
+            {
+                "name": "Veritas",
+                "cuisine_type": "Contemporary Campanian",
+                "signature_dishes": [
+                    "Spaghetti with Mediterranean Tartar",
+                    "Suckling Pig with Vesuvian Apricots"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate, elegant dining room with modern design",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2 weeks in advance, ask for chef's special seasonal offerings",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Chiaia",
+                "local_tips": "Chef Gianluca D'Agostino sources ingredients from small local producers around Campania"
+            },
+            {
+                "name": "George Restaurant",
+                "cuisine_type": "Refined Neapolitan",
+                "signature_dishes": [
+                    "Seared Scallops with Puntarelle",
+                    "Risotto with Piennolo Tomatoes and Prawns"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated terrace dining with stunning views of the Bay of Naples",
+                "best_time": "Sunset Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, specify terrace seating",
+                "dress_code": "Formal",
+                "michelin_stars": 0,
+                "location": "Grand Hotel Parker's, Corso Vittorio Emanuele",
+                "local_tips": "Time your reservation for sunset for spectacular views of the bay as the city lights turn on"
+            },
+            {
+                "name": "Sud Ristorante",
+                "cuisine_type": "Modern Southern Italian",
+                "signature_dishes": [
+                    "Smoked Provolone with Lemon Jam",
+                    "Paccheri with Genovese Sauce"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Contemporary space with warm lighting and elegant decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1-2 weeks ahead, mention any food preferences",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Vomero",
+                "local_tips": "Their wine list features excellent selections from small Campanian vineyards"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Da Michele",
+                "cuisine_type": "Traditional Neapolitan Pizza",
+                "signature_dishes": [
+                    "Margherita Pizza",
+                    "Marinara Pizza"
+                ],
+                "price_range": "€",
+                "atmosphere": "No-frills historic pizzeria with shared tables",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; arrive by 11:30 AM or after 2:30 PM to avoid the longest lines",
+                "dress_code": "Casual",
+                "location": "Via Cesare Sersale",
+                "local_tips": "Only serves two types of pizza; featured in 'Eat Pray Love'; cash only"
+            },
+            {
+                "name": "Tandem",
+                "cuisine_type": "Neapolitan Ragù",
+                "signature_dishes": [
+                    "Ragù Napoletano",
+                    "Polpette al Ragù (Meatballs)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy trattoria dedicated to Neapolitan slow-cooked ragù",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve a day or two ahead; Sunday lunch is especially popular",
+                "dress_code": "Casual",
+                "location": "Centro Storico",
+                "local_tips": "Their ragù simmers for at least 6 hours; try the 'zuppa di ragù' for the full experience"
+            },
+            {
+                "name": "Sorbillo",
+                "cuisine_type": "Neapolitan Pizza",
+                "signature_dishes": [
+                    "Bufala Pizza",
+                    "Nduja and Provola Pizza"
+                ],
+                "price_range": "€",
+                "atmosphere": "Bustling, energetic pizzeria with artisanal approach",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; expect to wait 30-60 minutes during peak hours",
+                "dress_code": "Casual",
+                "location": "Via dei Tribunali",
+                "local_tips": "From a family of 21 pizza-making siblings; they offer creative toppings while respecting tradition"
+            },
+            {
+                "name": "Trattoria da Nennella",
+                "cuisine_type": "Traditional Neapolitan",
+                "signature_dishes": [
+                    "Pasta e Patate (Pasta with Potatoes)",
+                    "Polpette (Meatballs)"
+                ],
+                "price_range": "€",
+                "atmosphere": "Lively, theatrical trattoria with singing waiters and local character",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; arrive early",
+                "dress_code": "Casual",
+                "location": "Spanish Quarters",
+                "local_tips": "Famous for boisterous atmosphere and waiters who joke with guests; fixed menu changes daily"
+            },
+            {
+                "name": "Starita",
+                "cuisine_type": "Traditional Neapolitan Pizza",
+                "signature_dishes": [
+                    "Montanara (Fried Pizza)",
+                    "Angioletti (Fried Pizza Dough with Toppings)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic pizzeria with traditional wood-fired oven",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 days in advance, especially for weekends",
+                "dress_code": "Casual",
+                "location": "Materdei",
+                "local_tips": "Famous for the montanara (fried then baked pizza); featured in the film 'L'Oro di Napoli'"
+            },
+            {
+                "name": "La Chitarra",
+                "cuisine_type": "Seafood",
+                "signature_dishes": [
+                    "Spaghetti alle Vongole",
+                    "Frittura di Paranza (Mixed Fried Fish)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Warm, family-run trattoria with nautical decor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a day ahead, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Mergellina",
+                "local_tips": "Fresh seafood delivered daily from local fishermen; ask about the daily specials"
+            },
+            {
+                "name": "Antica Capri",
+                "cuisine_type": "Neapolitan Seafood",
+                "signature_dishes": [
+                    "Linguine al Cartoccio (Baked in Parchment)",
+                    "Pezzogna all'Acqua Pazza (Local Fish)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic seafood restaurant with maritime decor",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Reservations recommended for dinner; lunch usually has availability",
+                "dress_code": "Casual",
+                "location": "Posillipo",
+                "local_tips": "Their seafood antipasto platter offers a taste of various local specialties"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Antica Friggitoria Masardona",
+                "specialties": [
+                    "Pizza Fritta (Fried Pizza)",
+                    "Montanara"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 7:00 PM",
+                "location": "Via Giulio Cesare Capaccio",
+                "seating": "Limited",
+                "local_tips": "Operating since 1945; their stuffed fried pizza is a classic Neapolitan street food"
+            },
+            {
+                "name": "Di Matteo",
+                "specialties": [
+                    "Pizza a Portafoglio (Folded Pizza)",
+                    "Frittatina di Pasta (Fried Pasta Cake)"
+                ],
+                "price_range": "€",
+                "hours": "9:00 AM - 12:00 AM",
+                "location": "Via dei Tribunali",
+                "seating": true,
+                "local_tips": "Bill Clinton ate here during the G7 summit; grab a folded pizza from the street window"
+            },
+            {
+                "name": "Puosteri del Mare",
+                "specialties": [
+                    "Cuoppo di Mare (Fried Seafood Cone)",
+                    "Fresh Oysters"
+                ],
+                "price_range": "€€",
+                "hours": "11:00 AM - 10:00 PM",
+                "location": "Borgo Marinari",
+                "seating": "Limited",
+                "local_tips": "Eat fresh seafood while overlooking the bay; perfect for a quick lunch"
+            },
+            {
+                "name": "Pastificio Vicidomini",
+                "specialties": [
+                    "Pasta al Forno (Baked Pasta)",
+                    "Zeppole"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 8:00 PM",
+                "location": "Via Toledo",
+                "seating": false,
+                "local_tips": "Perfect for a quick, filling lunch; their pasta is made fresh daily"
+            },
+            {
+                "name": "Pasticceria Attanasio",
+                "specialties": [
+                    "Sfogliatella Riccia (Flaky Pastry)",
+                    "Sfogliatella Frolla (Short Pastry)"
+                ],
+                "price_range": "€",
+                "hours": "6:30 AM - 8:00 PM",
+                "location": "Near Centrale Station",
+                "seating": false,
+                "local_tips": "Often has a line for their sfogliatelle served warm from the oven; worth the wait"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Gran Caffè Gambrinus",
+                "specialty": "Traditional Neapolitan Coffee",
+                "must_try": [
+                    "Caffè Sospeso (Suspended Coffee)",
+                    "Sfogliatella"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic, ornate café with Belle Époque interiors from 1860",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Pastries and light lunch",
+                "local_tips": "Historic literary café where Oscar Wilde and Hemingway visited; stand at the bar for lower prices"
+            },
+            {
+                "name": "Caffè del Professore",
+                "specialty": "Flavored Coffee",
+                "must_try": [
+                    "Hazelnut Coffee",
+                    "Caffè alla Nocciola"
+                ],
+                "price_range": "€",
+                "atmosphere": "Busy, traditional café with locals and tourists",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Pastries",
+                "local_tips": "Famous for flavored coffees, especially the hazelnut variant"
+            },
+            {
+                "name": "Intra Moenia",
+                "specialty": "Café-Bookstore",
+                "must_try": [
+                    "Cappuccino",
+                    "Fresh Pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Literary café and bookstore with intellectual vibe",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light meals and pastries",
+                "local_tips": "Located in Piazza Bellini, a gathering place for students and intellectuals"
+            },
+            {
+                "name": "Mexico",
+                "specialty": "Traditional Espresso",
+                "must_try": [
+                    "Espresso",
+                    "Caffè con Panna (with Cream)"
+                ],
+                "price_range": "€",
+                "atmosphere": "No-frills, authentic Neapolitan coffee bar",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Limited pastries",
+                "local_tips": "Where locals stop for a quick coffee; ask for a 'sospeso' to participate in the tradition of buying coffee for those who can't afford it"
+            },
+            {
+                "name": "Scaturchio",
+                "specialty": "Historic Pasticceria",
+                "must_try": [
+                    "Caffè",
+                    "Ministeriale (Chocolate Medallion)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Traditional pastry shop and café from 1905",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Wide selection of pastries and cakes",
+                "local_tips": "Famous for their 'ministeriale' chocolate medallions, a secret recipe since 1905"
+            }
+        ],
+        "bars": [
+            {
+                "name": "L'Antiquario",
+                "type": "Craft Cocktail Bar",
+                "specialty": "Vintage and Signature Cocktails",
+                "signature_drinks": [
+                    "Vesuvio (Mezcal-based cocktail)",
+                    "Negroni variations"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate, speakeasy-style bar with vintage decor",
+                "best_time": "Evening",
+                "food_options": "Light appetizers",
+                "reservation_needed": true,
+                "local_tips": "Naples' premier craft cocktail destination; bartenders create custom drinks based on preferences"
+            },
+            {
+                "name": "Enoteca Belledonne",
+                "type": "Wine Bar",
+                "specialty": "Southern Italian Wines",
+                "signature_drinks": [
+                    "Campanian wines by the glass",
+                    "Wine flights from volcanic soils"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy wine bar with walls lined with bottles",
+                "best_time": "Evening",
+                "food_options": "Cheese and charcuterie plates",
+                "reservation_needed": false,
+                "local_tips": "Over 3,000 labels with focus on small local producers; knowledgeable staff provide excellent recommendations"
+            },
+            {
+                "name": "Barril",
+                "type": "Rooftop Bar",
+                "specialty": "Mediterranean Cocktails",
+                "signature_drinks": [
+                    "Limoncello Spritz",
+                    "Vesuvius Mule"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stylish rooftop terrace with stunning bay views",
+                "best_time": "Sunset",
+                "food_options": "Tapas-style small plates",
+                "reservation_needed": true,
+                "local_tips": "Book in advance for sunset; spectacular views of Castel dell'Ovo and the Bay of Naples"
+            },
+            {
+                "name": "Archivio Storico",
+                "type": "Craft Cocktail Bar",
+                "specialty": "Historical Neapolitan Drinks",
+                "signature_drinks": [
+                    "Bourbon-based Kingdom of the Two Sicilies",
+                    "House Amaro Blends"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Elegant bar in historic palace with original architecture",
+                "best_time": "Evening",
+                "food_options": "Gourmet bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Set in a 16th-century palace with drinks inspired by Naples' history; ask about the stories behind each cocktail"
+            },
+            {
+                "name": "Cammarota Spritz",
+                "type": "Aperitivo Bar",
+                "specialty": "Spritz Variations",
+                "signature_drinks": [
+                    "Aperol Spritz",
+                    "Campari Spritz"
+                ],
+                "price_range": "€",
+                "atmosphere": "Lively street corner bar with outdoor seating",
+                "best_time": "Early Evening",
+                "food_options": "Free snacks with drinks",
+                "reservation_needed": false,
+                "local_tips": "Popular student hangout in the historic center; stand outside on the piazza like locals do"
+            },
+            {
+                "name": "Chandelier Bar",
+                "type": "Rooftop Bar",
+                "specialty": "Classic Cocktails with a View",
+                "signature_drinks": [
+                    "Mediterranean Martini",
+                    "Naples by Night (Rum-based)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant rooftop bar at the Romeo Hotel",
+                "best_time": "Sunset",
+                "food_options": "Gourmet small plates",
+                "reservation_needed": true,
+                "local_tips": "One of the most sophisticated bars in Naples with views of Vesuvius and the port"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Street Food Tour of Naples",
+                "focus": "Traditional Neapolitan Street Food",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Pizza a portafoglio (folded pizza)",
+                    "Frittatina di pasta",
+                    "Sfogliatella pastry"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Book at least a week in advance; wear comfortable shoes for walking the narrow historic streets"
+            },
+            {
+                "name": "Naples Food History Tour",
+                "focus": "Cultural History Through Food",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Historic coffee traditions",
+                    "Traditional bakeries and friggitorie",
+                    "Seafood markets"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "French"
+                ],
+                "booking_tips": "Reserve 10-14 days ahead; tour explains how Naples' tumultuous history shaped its cuisine"
+            },
+            {
+                "name": "Vomero Market and Cooking Experience",
+                "focus": "Market to Table",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Shopping at local market with chef",
+                    "Hands-on cooking class",
+                    "Traditional lunch with local wine"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "booking_tips": "Book early in high season (April-October); wear comfortable shoes for market visit"
+            },
+            {
+                "name": "Pizza and Pastry Crawl",
+                "focus": "Neapolitan Classics",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Pizza comparisons at multiple locations",
+                    "Traditional pastry tastings",
+                    "Limoncello sampling"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "Spanish"
+                ],
+                "booking_tips": "Come hungry; tour includes tastings at 6-8 different establishments"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Neapolitan Pizza Workshop",
+                "cuisine_focus": "Traditional Pizza Making",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Authentic dough preparation",
+                    "Proper stretching techniques",
+                    "Wood-fired oven cooking"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "All ingredients, instruction, meal with wine, and recipe"
+                ],
+                "booking_tips": "Book 2 weeks ahead; hands-on class where you make your own pizza from scratch"
+            },
+            {
+                "name": "Campanian Seafood Masterclass",
+                "cuisine_focus": "Traditional Seafood Dishes",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Fish and seafood selection and preparation",
+                    "Spaghetti alle vongole",
+                    "Zuppa di pesce"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Italian"
+                ],
+                "includes": [
+                    "Market visit, all ingredients, full meal with wine, and recipes"
+                ],
+                "booking_tips": "Reserve 2-3 weeks in advance; begins with fish market tour when possible"
+            },
+            {
+                "name": "Neapolitan Family Recipes",
+                "cuisine_focus": "Home-style Neapolitan Cuisine",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Ragù Napoletano",
+                    "Genovese sauce",
+                    "Traditional desserts"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Italian",
+                    "German"
+                ],
+                "includes": [
+                    "Ingredients, instruction, meal with local wine, recipe booklet"
+                ],
+                "booking_tips": "Classes held in family home for authentic experience; book 1-2 weeks ahead"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercato di Porta Nolana",
+                "type": "Fish and Food Market",
+                "highlights": [
+                    "Fresh seafood direct from local fishermen",
+                    "Regional produce",
+                    "Street food vendors"
+                ],
+                "hours": "Monday to Saturday 6:00 AM - 2:00 PM",
+                "best_time": "Early Morning",
+                "location": "Near Central Station",
+                "local_tips": "Best seafood market in Naples; go early for the freshest selection and watch locals haggle"
+            },
+            {
+                "name": "Mercato della Pignasecca",
+                "type": "General Food Market",
+                "highlights": [
+                    "The oldest street market in Naples",
+                    "Fresh mozzarella makers",
+                    "Butchers, fishmongers, and produce vendors"
+                ],
+                "hours": "Monday to Saturday 7:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Quartieri Spagnoli",
+                "local_tips": "More authentic and less touristic than other markets; where local restaurants shop"
+            },
+            {
+                "name": "Mercato di Antignano",
+                "type": "Neighborhood Market",
+                "highlights": [
+                    "Local produce",
+                    "Cheese vendors",
+                    "Prepared food stalls"
+                ],
+                "hours": "Monday to Saturday 7:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Vomero",
+                "local_tips": "Located in the upscale Vomero district; excellent for prepared foods and local specialties"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Pasta Primavera with Local Vegetables",
+            "Frittata di Asparagi (Asparagus Frittata)",
+            "Fave e Pecorino (Fava Beans with Sheep's Cheese)"
+        ],
+        "summer": [
+            "Insalata di Limone (Lemon Salad)",
+            "Alici Marinate (Marinated Anchovies)",
+            "Pesce all'Acqua Pazza (Fish in 'Crazy Water')"
+        ],
+        "autumn": [
+            "Pasta con Funghi Porcini (Pasta with Porcini Mushrooms)",
+            "Castagne Arrosto (Roasted Chestnuts)",
+            "Zuppa di Zucca (Pumpkin Soup)"
+        ],
+        "winter": [
+            "Minestra Maritata (Wedding Soup)",
+            "Ragù Napoletano (Slow-cooked meat sauce)",
+            "Zeppole di San Giuseppe (Saint Joseph's Day Fritters)"
+        ]
+    }
+}

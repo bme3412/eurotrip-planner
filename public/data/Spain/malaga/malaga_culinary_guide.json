@@ -1,0 +1,640 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "José Carlos García",
+                "cuisine_type": "Contemporary Mediterranean",
+                "signature_dishes": [
+                    "Gently Cooked Red Prawn with Seaweed",
+                    "White Garlic Soup with Sardine"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant, modern dining space with waterfront views of the port",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Muelle Uno, Port of Malaga",
+                "local_tips": "Chef José Carlos García focuses on reinventing Andalusian classics; the tasting menu offers the best experience"
+            },
+            {
+                "name": "Kaleja",
+                "cuisine_type": "Creative Andalusian",
+                "signature_dishes": [
+                    "Bluefin Tuna Loin",
+                    "Crispy Suckling Pig with Miso"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Intimate, sophisticated setting with warm, minimalist design",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 1 month in advance, closed Sundays and Mondays",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Historic Center",
+                "local_tips": "Chef Dani Carnero's tasting menus change seasonally; request counter seats to watch the kitchen team at work"
+            },
+            {
+                "name": "Ta-Kumi",
+                "cuisine_type": "Japanese-Mediterranean Fusion",
+                "signature_dishes": [
+                    "Bluefin Tuna Sashimi with Local Olive Oil",
+                    "Langoustine Usuzukuri"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant, minimalist Japanese-inspired dining room",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, closed Mondays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Near Plaza de la Constitución",
+                "local_tips": "Chefs Toshio and Álvaro blend Japanese techniques with Spanish ingredients; their omakase tasting menu offers the most comprehensive experience"
+            },
+            {
+                "name": "El Lago",
+                "cuisine_type": "Modern Andalusian",
+                "signature_dishes": [
+                    "Iberian Pork with Pumpkin Purée",
+                    "Red Mullet on Ajoblanco Soup"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant dining room with panoramic lake and mountain views",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 2 weeks ahead, request lakeside tables for best views",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Marbella (30 min from Malaga)",
+                "local_tips": "Chef Fernando Villasclaras emphasizes sustainable, local ingredients with many sourced from their own garden; excellent wine pairings focus on Andalusian producers"
+            },
+            {
+                "name": "Messina",
+                "cuisine_type": "Creative Mediterranean",
+                "signature_dishes": [
+                    "Tartare of Red Tuna with Avocado",
+                    "Hake with Green Curry and Coconut"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated, contemporary space with elegant minimalist design",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2 weeks ahead, closed Sunday and Monday",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Marbella (30 min from Malaga)",
+                "local_tips": "Chef Mauricio Giovanini offers innovative cuisine with Argentinian touches; the 'sensations' tasting menu changes frequently based on market availability"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "El Pimpi",
+                "cuisine_type": "Traditional Andalusian",
+                "signature_dishes": [
+                    "Iberian Ham",
+                    "Fried Eggplant with Honey",
+                    "Malaga Style Salad"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic bodega with wine barrels, memorabilia, and terrace views of the Alcazaba",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book for sit-down meals, especially for terrace seating; bar area accepts walk-ins",
+                "dress_code": "Casual",
+                "location": "Historic Center, near the Picasso Museum",
+                "local_tips": "Malaga's most famous restaurant frequented by celebrities (look for signed wine barrels); sweet Malaga wines by the glass are a must-try"
+            },
+            {
+                "name": "Los Patios de Beatas",
+                "cuisine_type": "Modern Malagueño",
+                "signature_dishes": [
+                    "Ajoblanco (Cold Almond Soup)",
+                    "Bluefin Tuna Tartare"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Elegant restaurant in a restored 18th-century mansion with beautiful courtyards",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days ahead, request courtyard seating in warm weather",
+                "dress_code": "Smart casual",
+                "location": "Historic Center",
+                "local_tips": "Exceptional wine list with over 500 references; their wine pairings are curated by expert sommeliers and focus on local Andalusian wines"
+            },
+            {
+                "name": "La Cosmopolita",
+                "cuisine_type": "Mediterranean-Fusion",
+                "signature_dishes": [
+                    "Slow-cooked Oxtail Brioche",
+                    "Tuna Tataki"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary, lively restaurant with modern design and buzzing environment",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, especially for weekends",
+                "dress_code": "Casual",
+                "location": "Historic Center",
+                "local_tips": "Innovative tapas and sharing plates; their fusion approach mixes traditional Andalusian ingredients with international techniques"
+            },
+            {
+                "name": "Uvedoble",
+                "cuisine_type": "Modern Tapas",
+                "signature_dishes": [
+                    "Bull Tail Croquettes",
+                    "Scallop Ceviche"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary, stylish space with lively atmosphere",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book for lunch; dinner usually accommodates walk-ins except weekends",
+                "dress_code": "Casual",
+                "location": "Historic Center",
+                "local_tips": "Chef Cristóbal Muñoz creates innovative takes on classic tapas; good mix of traditional and modern Andalusian cuisine"
+            },
+            {
+                "name": "El Refectorium",
+                "cuisine_type": "Traditional Andalusian",
+                "signature_dishes": [
+                    "Fresh Seafood Platters",
+                    "Grilled Iberian Pork"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic-elegant tavern with historic touches in a former convent refectory",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for weekend lunches in advance",
+                "dress_code": "Smart casual",
+                "location": "Historic Center, near Cathedral",
+                "local_tips": "Specialist in authentic Andalusian dishes; excellent selection of fresh seafood displayed at the entrance"
+            },
+            {
+                "name": "El Tapeo de Cervantes",
+                "cuisine_type": "Creative Spanish Tapas",
+                "signature_dishes": [
+                    "Pork Cheeks in Pedro Ximénez Sauce",
+                    "Grilled Octopus"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Tiny, cozy restaurant with rustic charm and intimate atmosphere",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Essential to reserve at least a week ahead as space is very limited",
+                "dress_code": "Casual",
+                "location": "Historic Center, near Teatro Cervantes",
+                "local_tips": "Family-run restaurant with just a few tables; each tapa is carefully crafted and can be ordered in three different sizes"
+            },
+            {
+                "name": "Restaurante Vino Mío",
+                "cuisine_type": "Mediterranean-International Fusion",
+                "signature_dishes": [
+                    "Slow-cooked Lamb with Moroccan Spices",
+                    "Tuna Tataki with Wasabi Ice Cream"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Vibrant restaurant with colorful décor and live flamenco performances",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for dinner and specify if you want to see the flamenco show (Tuesday, Thursday, Saturday)",
+                "dress_code": "Smart casual",
+                "location": "Near Teatro Cervantes",
+                "local_tips": "Live flamenco shows three nights a week make this a dining and cultural experience; international menu with Spanish influences"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Mercado Atarazanas",
+                "specialties": [
+                    "Pescaíto Frito (Fried Fish)",
+                    "Seafood Tapas",
+                    "Fresh Oysters"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - 3:00 PM, Closed Sundays",
+                "location": "Historic Center",
+                "seating": "Limited",
+                "local_tips": "Historic iron market with stunning stained glass window; the seafood stalls at the back serve the freshest fried fish in paper cones; Bar El Yerno and Marisquería El Yerno are highlights"
+            },
+            {
+                "name": "El Mercado de la Merced",
+                "specialties": [
+                    "International and Local Food Stalls",
+                    "Craft Beer and Local Wines"
+                ],
+                "price_range": "€€",
+                "hours": "10:00 AM - Midnight (later on weekends)",
+                "location": "Plaza de la Merced",
+                "seating": "Communal tables",
+                "local_tips": "Gourmet food hall with diverse offerings from traditional Spanish to Asian cuisine; great for trying multiple small plates in one location"
+            },
+            {
+                "name": "Casa Aranda",
+                "specialties": [
+                    "Churros with Chocolate",
+                    "Coffee"
+                ],
+                "price_range": "€",
+                "hours": "7:00 AM - 1:00 PM and 5:00 PM - 8:00 PM",
+                "location": "Calle Herrería del Rey",
+                "seating": "Limited",
+                "local_tips": "Iconic churros institution since 1932; locals come for breakfast or afternoon snack; traditional standing bar experience"
+            },
+            {
+                "name": "La Malagueña",
+                "specialties": [
+                    "Espetos (Sardines on Skewers)",
+                    "Fresh Seafood"
+                ],
+                "price_range": "€€",
+                "hours": "12:00 PM - 11:00 PM",
+                "location": "La Malagueta Beach",
+                "seating": true,
+                "local_tips": "Classic chiringuito (beach restaurant) where you can watch espetos being grilled over wood fires on boats filled with sand; best enjoyed at sunset"
+            },
+            {
+                "name": "Antigua Casa de Guardia",
+                "specialties": [
+                    "Sweet Malaga Wines",
+                    "Simple Tapas"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 10:00 PM",
+                "location": "Alameda Principal",
+                "seating": "Standing bar",
+                "local_tips": "Oldest tavern in Malaga (1840) serving traditional sweet wines from barrels; authentic experience where your tab is chalked on the bar counter"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Central",
+                "specialty": "Traditional Coffee",
+                "must_try": [
+                    "Café Central (Half coffee, half milk)",
+                    "Churros with Chocolate"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic café with marble tables and local character",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Traditional breakfast items and pastries",
+                "local_tips": "Famous for Malaga's unique coffee ordering system with nine different coffee-to-milk ratios; 'nube' (cloud) is mostly milk while 'solo' is pure espresso"
+            },
+            {
+                "name": "Santa Canela",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Single Origin Pour-Over",
+                    "Matcha Latte"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary, bright café with minimalist Nordic-inspired design",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Healthy breakfast bowls and homemade cakes",
+                "local_tips": "The pioneer of third-wave coffee in Malaga; their coffee beans are freshly roasted and they offer alternative brewing methods"
+            },
+            {
+                "name": "Mia Coffee Shop",
+                "specialty": "Artisanal Coffee & Brunch",
+                "must_try": [
+                    "Flat White",
+                    "Avocado Toast"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy, Instagram-worthy café with plants and stylish décor",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Full brunch menu and healthy options",
+                "local_tips": "Popular with digital nomads and the younger crowd; their specialty coffee is complemented by excellent homemade pastries and brunch dishes"
+            },
+            {
+                "name": "Dulces Dreams",
+                "specialty": "Coffee & Cakes",
+                "must_try": [
+                    "Homemade Cakes",
+                    "Café con Leche"
+                ],
+                "price_range": "€",
+                "atmosphere": "Charming vintage-inspired café with colorful terrace",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Homemade cakes and light lunch options",
+                "local_tips": "Part boutique hostel, part café; lovely hidden terrace in the back; famous for their creative homemade cakes"
+            },
+            {
+                "name": "La Bella Julieta",
+                "specialty": "Cakes & Coffee",
+                "must_try": [
+                    "Carrot Cake",
+                    "Specialty Lattes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Pretty, feminine café with elegant décor and outdoor patio",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Extensive cake selection and light lunch items",
+                "local_tips": "Best cake selection in Malaga; their afternoon tea with miniature desserts is popular with locals"
+            }
+        ],
+        "bars": [
+            {
+                "name": "El Pimpi Bodega Bar",
+                "type": "Traditional Wine Bar",
+                "specialty": "Malaga Sweet Wines",
+                "signature_drinks": [
+                    "Pajarete (Sweet fortified wine)",
+                    "Dry Muscat"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic bodega with wine barrels signed by celebrities, flamenco memorabilia, and multiple terraces",
+                "best_time": "Evening",
+                "food_options": "Traditional Andalusian tapas",
+                "reservation_needed": false,
+                "local_tips": "Malaga institution with spectacular views of the Alcazaba fortress; their wine barrels are signed by celebrities including Antonio Banderas"
+            },
+            {
+                "name": "La Tranca",
+                "type": "Traditional Tavern",
+                "specialty": "Vermouth and Beer",
+                "signature_drinks": [
+                    "Vermouth on tap",
+                    "Local craft beers"
+                ],
+                "price_range": "€",
+                "atmosphere": "Lively, authentic bar with vintage album covers, traditional tiles, and vibrant atmosphere",
+                "best_time": "Night",
+                "food_options": "Spanish conservas (tinned seafood) and simple tapas",
+                "reservation_needed": false,
+                "local_tips": "Best atmosphere in Malaga with spontaneous singing not uncommon; specializes in vermouth and often has standing room only"
+            },
+            {
+                "name": "Terraza Larios",
+                "type": "Rooftop Bar",
+                "specialty": "Cocktails",
+                "signature_drinks": [
+                    "Malaga Sunset (Vodka, Passion Fruit, and Cava)",
+                    "Gin & Tonic Selection"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated rooftop terrace with panoramic city views including the Cathedral",
+                "best_time": "Sunset",
+                "food_options": "Tapas and snacks",
+                "reservation_needed": true,
+                "local_tips": "The best Cathedral views in Malaga; arrive before sunset for the best experience and photos"
+            },
+            {
+                "name": "The Pharmacy",
+                "type": "Cocktail Bar",
+                "specialty": "Craft Cocktails",
+                "signature_drinks": [
+                    "Penicillin (Smoky whisky-based cocktail)",
+                    "Custom Prescription Cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Speakeasy-style bar with apothecary theme and sophisticated ambiance",
+                "best_time": "Late Night",
+                "food_options": "Light bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Hidden entrance with pharmacy theme; bartenders create custom 'prescription' cocktails based on your preferences"
+            },
+            {
+                "name": "Cervecería El Cardenal",
+                "type": "Beer Bar",
+                "specialty": "Spanish Craft Beer",
+                "signature_drinks": [
+                    "Rotating Selection of Spanish Craft Beers",
+                    "Local Málaga Brews"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy beer bar with rustic elements and friendly vibe",
+                "best_time": "Evening",
+                "food_options": "Beer-friendly tapas",
+                "reservation_needed": false,
+                "local_tips": "Best beer selection in Malaga with knowledgeable staff; focus on Spanish craft breweries with frequent tap rotations"
+            },
+            {
+                "name": "Bodega Bar El Pimpi",
+                "type": "Historic Wine Bar",
+                "specialty": "Malaga Wines",
+                "signature_drinks": [
+                    "Pedro Ximénez (Sweet dark sherry)",
+                    "Manzanilla (Dry sherry)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic tavern with wine barrels, photos of famous visitors, and terrace with Alcazaba views",
+                "best_time": "Evening",
+                "food_options": "Traditional tapas and raciones",
+                "reservation_needed": false,
+                "local_tips": "A Malaga institution since 1971; legendary status among locals and visitors alike; try the local sweet wines"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Tapas Tour in Historic Center",
+                "focus": "Traditional Malaga Tapas",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Guided tour of historic center's best tapas bars",
+                    "Tasting of 6-8 signature tapas",
+                    "Introduction to local wines and sherries"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Spanish",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance; tours explain the culture and history behind Malaga's cuisine"
+            },
+            {
+                "name": "Mercado Atarazanas Food Tour",
+                "focus": "Local Market and Products",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Guided tour of Malaga's historic central market",
+                    "Meet local vendors and taste their products",
+                    "Enjoy freshly prepared seafood at market stalls"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Spanish",
+                    "French"
+                ],
+                "booking_tips": "Morning tours recommended when market is most active; market closed Sundays"
+            },
+            {
+                "name": "Malaga Wine Country Tour",
+                "focus": "Malaga Wine Region",
+                "duration": "6-7 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit to traditional bodegas in Malaga wine country",
+                    "Vineyard tours and tastings of sweet and dry Malaga wines",
+                    "Traditional Andalusian lunch at a vineyard"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Book 1-2 weeks ahead; includes transportation from Malaga city to nearby wine regions like Axarquía or Ronda"
+            },
+            {
+                "name": "Evening Tapas and Flamenco Experience",
+                "focus": "Food and Cultural Performance",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Guided tapas crawl through historic center",
+                    "Wine, sherry and local drink tastings",
+                    "Authentic flamenco performance in historic venue"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Book several days ahead; combines culinary experience with cultural performance"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Andalusian Cooking Workshop",
+                "cuisine_focus": "Traditional Malaga Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Authentic Gazpachuelo (Malaga fish soup)",
+                    "Proper Technique for Espetos (Grilled Sardines)",
+                    "Traditional Malaga Salad"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "includes": [
+                    "Market visit, all ingredients, recipes, full meal with wine"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; begins with shopping at Atarazanas Market"
+            },
+            {
+                "name": "Paella and Sangria Masterclass",
+                "cuisine_focus": "Spanish Classics",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Authentic Seafood Paella",
+                    "Traditional Sangria Preparation",
+                    "Spanish Tapas Accompaniments"
+                ],
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Spanish",
+                    "French",
+                    "German"
+                ],
+                "includes": [
+                    "All ingredients, recipe booklet, full meal with sangria and wine"
+                ],
+                "booking_tips": "Book at least 5 days in advance; great for groups and families"
+            },
+            {
+                "name": "Sweet Malaga Workshop",
+                "cuisine_focus": "Andalusian Desserts",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Borrachuelos (Anise-flavored Fried Pastries)",
+                    "Bienmesabe (Almond Cream Dessert)",
+                    "Traditional Pestiños"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "includes": [
+                    "All materials, recipes, dessert tasting with sweet Malaga wines"
+                ],
+                "booking_tips": "Book 1 week ahead; focuses on traditional sweets often associated with festivals and holidays"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercado Atarazanas",
+                "type": "Historic Food Market",
+                "highlights": [
+                    "19th-century market with stunning stained glass window",
+                    "Fresh seafood, produce, meats, olives, and spices",
+                    "Tapas bars serving market-fresh products"
+                ],
+                "hours": "Monday to Saturday 8:00 AM - 3:00 PM, Closed Sundays",
+                "best_time": "Weekday mornings",
+                "location": "Historic Center",
+                "local_tips": "The building was once a Moorish shipyard; don't miss the seafood stalls and tapas bars at the back serving fried fish"
+            },
+            {
+                "name": "Mercado de Salamanca",
+                "type": "Neighborhood Food Market",
+                "highlights": [
+                    "Authentic local market experience",
+                    "Fresh produce and seafood",
+                    "Small tapas bars"
+                ],
+                "hours": "Monday to Saturday 8:00 AM - 3:00 PM",
+                "best_time": "Morning",
+                "location": "East Malaga",
+                "local_tips": "Less touristy than Atarazanas with similar quality; good place to see locals shopping for daily ingredients"
+            },
+            {
+                "name": "Mercado de la Merced",
+                "type": "Gourmet Food Hall",
+                "highlights": [
+                    "Modern food hall with diverse culinary offerings",
+                    "International and local food stalls",
+                    "Craft beer and wine bars"
+                ],
+                "hours": "Sunday to Thursday 10:00 AM - Midnight, Friday and Saturday 10:00 AM - 2:00 AM",
+                "best_time": "Evening",
+                "location": "Plaza de la Merced",
+                "local_tips": "More contemporary dining experience; good for trying different cuisines in one location; popular for evening drinks and tapas"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Espetos de Sardinas (Grilled Sardine Skewers)",
+            "Alcachofas (Artichokes with Ham)",
+            "Chivo Lechal Malagueño (Malaga Baby Goat)"
+        ],
+        "summer": [
+            "Ajoblanco (Cold Almond and Garlic Soup)",
+            "Ensalada Malagueña (Orange and Cod Salad)",
+            "Conchas Finas (Fine Shells Clams)"
+        ],
+        "autumn": [
+            "Plato de los Montes (Mountain Dish with Fried Eggs, Chorizo, Peppers)",
+            "Setas (Wild Mushrooms)",
+            "Chestnut Desserts"
+        ],
+        "winter": [
+            "Gazpachuelo Malagueño (Warm Fish and Potato Soup)",
+            "Migas (Fried Breadcrumbs with Chorizo and Peppers)",
+            "Torrijas (Spanish-style French Toast) during Easter season"
+        ]
+    }
+}

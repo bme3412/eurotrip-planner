@@ -1,0 +1,639 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Adolfo",
+                "cuisine_type": "Contemporary Castilian",
+                "signature_dishes": [
+                    "Perdiz Estofada (Stewed Partridge)",
+                    "Sopa Castellana (Castilian Garlic Soup)"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant dining in a 12th-century building with stone walls and vaulted ceilings",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Calle Granada, Old Town",
+                "local_tips": "Chef Adolfo Muñoz is a renowned figure in Spanish cuisine; opt for his tasting menu featuring seasonal game and local specialties"
+            },
+            {
+                "name": "El Carmen de Montesión",
+                "cuisine_type": "Modern Toledano",
+                "signature_dishes": [
+                    "Venison with Chocolate Sauce",
+                    "Truffle Croquettes"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated dining room in a restored building with contemporary elegance",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 2 weeks in advance, closed Mondays",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Near Plaza de Toros",
+                "local_tips": "Chef Iván Cerdeño creates innovative dishes rooted in La Mancha traditions; the wine pairings feature excellent regional selections"
+            },
+            {
+                "name": "Locum",
+                "cuisine_type": "Creative Mediterranean",
+                "signature_dishes": [
+                    "Duck with Apple and Foie",
+                    "Bacalao Confitado (Confit Cod)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Refined contemporary space with exposed brick walls in a historic building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, closed Sundays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Historic Jewish Quarter",
+                "local_tips": "The restaurant occupies a 17th-century house near the El Greco Museum; their tasting menu offers the best introduction to Toledo's diverse culinary influences"
+            },
+            {
+                "name": "Oratorium",
+                "cuisine_type": "Modern Spanish",
+                "signature_dishes": [
+                    "Cochifrito Toledano (Crispy Suckling Pig)",
+                    "Ciervo en Salsa de Trufa (Venison in Truffle Sauce)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant dining with panoramic views of Toledo and the Tagus River",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 2 weeks ahead, request window tables for best views",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Cigarral del Ángel",
+                "local_tips": "Located in a 'cigarral' (traditional country estate) outside the city walls with unparalleled views; lunch service offers the best visibility over the historic city"
+            },
+            {
+                "name": "El Bohío",
+                "cuisine_type": "Avant-garde Manchego",
+                "signature_dishes": [
+                    "Carcamusas Deconstructed",
+                    "Red Mullet with Manchego Essence"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Contemporary elegance in a rural setting outside Toledo",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book 3-4 weeks ahead, closed Mondays",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Illescas (20 min from Toledo)",
+                "local_tips": "Chef Pepe Rodríguez (famous from MasterChef Spain) transforms traditional La Mancha cuisine with modern techniques; worth the short drive from Toledo"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "La Abadía",
+                "cuisine_type": "Traditional Castilian",
+                "signature_dishes": [
+                    "Carcamusas (Pork and Vegetable Stew)",
+                    "Perdiz Estofada (Stewed Partridge)",
+                    "Mazapán (Marzipan Desserts)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Atmospheric restaurant in a converted 16th-century abbey with vaulted ceilings and stone walls",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book for lunch, especially on weekends; terrace seating available in warmer months",
+                "dress_code": "Casual",
+                "location": "Historic Center, near Plaza de Zocodover",
+                "local_tips": "One of Toledo's most emblematic restaurants serving authentic local specialties; excellent game dishes during hunting season"
+            },
+            {
+                "name": "El Trébol",
+                "cuisine_type": "Traditional Toledano",
+                "signature_dishes": [
+                    "Judías con Perdiz (Beans with Partridge)",
+                    "Cochifrito (Fried Suckling Pig)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic, family-style restaurant with traditional décor and warm ambiance",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book a few days ahead, particularly for Sunday lunch",
+                "dress_code": "Casual",
+                "location": "Historic Center",
+                "local_tips": "Beloved by locals for authentic home-style cooking; portions are generous and represent true Toledan family recipes passed down generations"
+            },
+            {
+                "name": "Alfileritos 24",
+                "cuisine_type": "Modern Spanish",
+                "signature_dishes": [
+                    "Pisto Manchego (Ratatouille)",
+                    "Toledano-style Meatballs"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Contemporary space with rustic elements in a restored historic building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, especially for weekends",
+                "dress_code": "Casual",
+                "location": "Historic Center",
+                "local_tips": "Named after its street address; balances traditional flavors with modern presentations; good option for trying local classics with a contemporary twist"
+            },
+            {
+                "name": "La Malquerida",
+                "cuisine_type": "Creative Tapas",
+                "signature_dishes": [
+                    "Bombón de Foie con Manzana (Foie Gras Bonbon with Apple)",
+                    "Torreznos (Crispy Pork Belly)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Lively, modern tapas bar with stylish décor",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book for dinner; lunch usually accommodates walk-ins except weekends",
+                "dress_code": "Casual",
+                "location": "Near Alcázar",
+                "local_tips": "Innovative tapas that respect traditional ingredients but with creative presentations; good for those seeking modern Spanish cuisine"
+            },
+            {
+                "name": "La Orza",
+                "cuisine_type": "Traditional Manchego",
+                "signature_dishes": [
+                    "Migas (Fried Breadcrumbs with Chorizo)",
+                    "Asadillo Manchego (Roasted Red Peppers)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy restaurant with rustic décor featuring traditional cooking implements",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for weekend lunches in advance",
+                "dress_code": "Casual",
+                "location": "Historic Center, near Cathedral",
+                "local_tips": "Specializes in slow-cooked stews and dishes from La Mancha; named after the traditional clay pot used for preserving food"
+            },
+            {
+                "name": "Restaurante Venta de Aires",
+                "cuisine_type": "Historic Castilian",
+                "signature_dishes": [
+                    "Perdiz a la Toledana (Toledo-style Partridge)",
+                    "Cordero Asado (Roast Lamb)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic restaurant (founded 1891) with traditional hunting lodge décor",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Essential to reserve, especially weekends; ask about the Cervantes Room",
+                "dress_code": "Smart casual",
+                "location": "Cigarrales area, outside city walls",
+                "local_tips": "Toledo's oldest restaurant, mentioned in literature and frequented by writers and artists; traditional recipes virtually unchanged for generations"
+            },
+            {
+                "name": "La Tabernita",
+                "cuisine_type": "Mediterranean-Spanish Fusion",
+                "signature_dishes": [
+                    "Bacalao Confitado (Confit Cod)",
+                    "Tosta de Presa Ibérica (Iberian Pork Toast)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern tavern with creative vibe and historical touches",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for dinner and request upstairs seating for more intimate atmosphere",
+                "dress_code": "Casual",
+                "location": "Near Puerta del Sol",
+                "local_tips": "Young chefs reinventing Spanish classics with international influences; good wine selection featuring small Spanish producers"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Mercado de San Agustín",
+                "specialties": [
+                    "Tapas and Pintxos",
+                    "Regional Cheeses and Charcuterie",
+                    "Craft Beer"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 10:00 PM (later on weekends)",
+                "location": "Historic Center",
+                "seating": "Communal tables",
+                "local_tips": "Renovated historic market with food stalls offering a variety of cuisines; good place to sample different Spanish specialties under one roof"
+            },
+            {
+                "name": "Santo Tomé",
+                "specialties": [
+                    "Mazapán (Marzipan)",
+                    "Marquesas (Almond Pastries)"
+                ],
+                "price_range": "€",
+                "hours": "9:00 AM - 8:00 PM",
+                "location": "Calle Santo Tomé",
+                "seating": "No",
+                "local_tips": "Historic marzipan shop since 1856; Toledo's marzipan carries a protected designation of origin and is made with local almonds; watch the artisans at work through glass windows"
+            },
+            {
+                "name": "La Despensa",
+                "specialties": [
+                    "Carcamusas (Traditional stew in takeaway containers)",
+                    "Homemade Empanadas"
+                ],
+                "price_range": "€",
+                "hours": "12:00 PM - 4:00 PM and 7:00 PM - 10:00 PM",
+                "location": "Near Plaza Zocodover",
+                "seating": "Limited",
+                "local_tips": "Authentic local food to take away; popular with locals for quality homemade traditional dishes at affordable prices"
+            },
+            {
+                "name": "Bar El Picaro",
+                "specialties": [
+                    "Patatas Bravas",
+                    "Fried Calamari Sandwich"
+                ],
+                "price_range": "€",
+                "hours": "12:00 PM - Midnight",
+                "location": "Near Plaza Mayor",
+                "seating": "Standing bar",
+                "local_tips": "Classic Spanish bar serving traditional tapas to eat standing at the bar or take away; authentic local experience away from tourist circuits"
+            },
+            {
+                "name": "Confitería San Tomé",
+                "specialties": [
+                    "Traditional Marzipan",
+                    "Ponche Toledano (Toledo's Almond Sponge Cake)"
+                ],
+                "price_range": "€",
+                "hours": "9:30 AM - 8:30 PM",
+                "location": "Jewish Quarter",
+                "seating": "No",
+                "local_tips": "Historic confectionery where you can watch artisans making traditional sweets; their marzipan is made following centuries-old recipes from the Convent of San Clemente"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Café Gijón",
+                "specialty": "Traditional Coffee",
+                "must_try": [
+                    "Café con Leche",
+                    "Miguelitos (Puff Pastry)"
+                ],
+                "price_range": "€",
+                "atmosphere": "Historic café with classic décor and literary connections",
+                "best_time": "Morning",
+                "wifi_friendly": false,
+                "food_options": "Traditional pastries and breakfast items",
+                "local_tips": "One of Toledo's oldest cafés with vintage ambiance; popular with local intellectuals and a good place to experience authentic café culture"
+            },
+            {
+                "name": "La Rosa",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Single-origin Espresso",
+                    "Mazapán (Marzipan Treats)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern café with minimalist design in a historic building",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light lunches and homemade pastries",
+                "local_tips": "Toledo's pioneer of third-wave coffee; beans sourced from small producers and roasted locally; good spot for digital nomads"
+            },
+            {
+                "name": "Círculo de Arte",
+                "specialty": "Coffee & Art",
+                "must_try": [
+                    "Café Cortado",
+                    "Toledano Toast with Tomato"
+                ],
+                "price_range": "€",
+                "atmosphere": "Cultural café in a converted church with art exhibitions",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Light meals and cakes",
+                "local_tips": "Unique cultural space combining café, art gallery, and performance venue; hosts frequent cultural events and exhibitions by local artists"
+            },
+            {
+                "name": "La Pepa",
+                "specialty": "Breakfast & Coffee",
+                "must_try": [
+                    "Tostada con Tomate",
+                    "Homemade Tortilla"
+                ],
+                "price_range": "€",
+                "atmosphere": "Bright, casual café with vintage touches",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Full breakfast and lunch menu",
+                "local_tips": "Popular with locals for breakfast; authentic Spanish morning ritual of toast with tomato and olive oil; good value for money"
+            },
+            {
+                "name": "Café El Taller",
+                "specialty": "Coffee & Books",
+                "must_try": [
+                    "Café Bombón",
+                    "Cazuela de Chocolate (Hot Chocolate)"
+                ],
+                "price_range": "€",
+                "atmosphere": "Cozy literary café with bookshelves and reading nooks",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Cakes and light snacks",
+                "local_tips": "Combines bookshop and café; hosts occasional book presentations and readings; excellent place to relax away from tourist crowds"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Cervecería El Trebol",
+                "type": "Traditional Tavern",
+                "specialty": "Beer and Vermouth",
+                "signature_drinks": [
+                    "Cerveza de Barril (Draft Beer)",
+                    "Homemade Vermouth"
+                ],
+                "price_range": "€",
+                "atmosphere": "Classic Spanish bar with tiled walls and wooden barrels",
+                "best_time": "Evening",
+                "food_options": "Traditional tapas",
+                "reservation_needed": false,
+                "local_tips": "Authentic local bar experience with generous free tapas with drinks; popular meeting point for Toledanos before dinner"
+            },
+            {
+                "name": "La Caverna",
+                "type": "Medieval Tavern",
+                "specialty": "Local Wines",
+                "signature_drinks": [
+                    "Tempranillo from Toledo Mountains",
+                    "Medieval-inspired Herbal Liqueurs"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Underground stone cellar with medieval décor and intimate lighting",
+                "best_time": "Night",
+                "food_options": "Cheese and charcuterie plates",
+                "reservation_needed": false,
+                "local_tips": "Set in actual medieval caves beneath the city; atmospheric setting for sampling regional wines; occasional live music on weekends"
+            },
+            {
+                "name": "Pavo Real",
+                "type": "Cocktail Bar",
+                "specialty": "Craft Cocktails",
+                "signature_drinks": [
+                    "Toledo Sour (Whiskey with Mazapán syrup)",
+                    "Daiquiri de Azafrán (Saffron Daiquiri)"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant cocktail lounge with art deco touches",
+                "best_time": "Late Night",
+                "food_options": "Gourmet bar snacks",
+                "reservation_needed": true,
+                "local_tips": "Toledo's premier cocktail destination; drinks incorporate local ingredients like saffron and marzipan; attracts a sophisticated crowd"
+            },
+            {
+                "name": "El Rincón del Moro",
+                "type": "Historic Tavern",
+                "specialty": "Spanish Wines",
+                "signature_drinks": [
+                    "Monastrell from nearby Jumilla",
+                    "Cava Brut Nature"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Charming tavern with Moorish-influenced décor in a historic building",
+                "best_time": "Evening",
+                "food_options": "Spanish tapas and raciones",
+                "reservation_needed": false,
+                "local_tips": "Hidden gem in the Jewish Quarter with excellent wine selection; knowledgeable staff can guide you through regional Spanish wines"
+            },
+            {
+                "name": "Taberna El Botero",
+                "type": "Traditional Wine Bar",
+                "specialty": "Local La Mancha Wines",
+                "signature_drinks": [
+                    "Garnacha Tintorera",
+                    "Airén (local white grape variety)"
+                ],
+                "price_range": "€",
+                "atmosphere": "Rustic tavern with wine barrels and historical artifacts",
+                "best_time": "Evening",
+                "food_options": "Home-style tapas",
+                "reservation_needed": false,
+                "local_tips": "Authentic no-frills tavern popular with locals; specializes in wines from La Mancha region; generous portions of complimentary tapas with drinks"
+            },
+            {
+                "name": "Terraza Miradero",
+                "type": "Rooftop Bar",
+                "specialty": "Cocktails and Gin & Tonics",
+                "signature_drinks": [
+                    "Toledo Sunset (Gin, Tonic, and Saffron)",
+                    "Sparkling Wine Cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated rooftop terrace with panoramic views of the city and Tagus River",
+                "best_time": "Sunset",
+                "food_options": "Elegant tapas and small plates",
+                "reservation_needed": true,
+                "local_tips": "Best views in Toledo; perfect for sunset drinks; reservations essential during peak tourist season"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Toledo Gastronomy Walking Tour",
+                "focus": "Traditional Toledo Cuisine",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to historic taverns and family-run eateries",
+                    "Tastings of mazapán, carcamusas, and game dishes",
+                    "Introduction to regional wines and local olive oils"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Spanish",
+                    "French"
+                ],
+                "booking_tips": "Book at least a week in advance; morning tours offer the best experience of local market life"
+            },
+            {
+                "name": "Sephardic Cuisine Experience",
+                "focus": "Jewish Culinary Heritage",
+                "duration": "4 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Exploration of Toledo's Jewish Quarter",
+                    "Tastings of dishes with Sephardic influences",
+                    "Visit to historic bakeries making traditional sweets"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Spanish",
+                    "Hebrew"
+                ],
+                "booking_tips": "Book 1-2 weeks ahead; provides unique cultural and historical perspective on Toledo's diverse culinary traditions"
+            },
+            {
+                "name": "Toledo Wine Journey",
+                "focus": "Regional Wines",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit to a vineyard in the Toledo Mountains",
+                    "Guided tasting of Castilla-La Mancha wines",
+                    "Traditional lunch at a winery"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Book 1-2 weeks ahead; includes transportation from Toledo city center to nearby wine regions"
+            },
+            {
+                "name": "Convent Sweets Route",
+                "focus": "Traditional Monastery Confections",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Visit to convents still making traditional sweets",
+                    "Tastings of nun-made pastries and confections",
+                    "Exploration of the cultural and historical significance of convent sweets"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "booking_tips": "Book several days ahead; unique opportunity to taste historic recipes preserved in Toledo's convents"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Traditional Toledo Cooking Workshop",
+                "cuisine_focus": "Castilian-Manchego Cuisine",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Authentic Carcamusas (Toledo's signature pork and vegetable stew)",
+                    "Marzipan Preparation",
+                    "Pisto Manchego (Spanish ratatouille)"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "includes": [
+                    "Market visit, all ingredients, recipes, full meal with wine"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; begins with shopping at local market for ingredients"
+            },
+            {
+                "name": "Game and Saffron Masterclass",
+                "cuisine_focus": "Hunting Traditions of Toledo",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Perdiz Estofada (Stewed Partridge)",
+                    "Saffron Rice Techniques",
+                    "Traditional Game Preparation Methods"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Spanish"
+                ],
+                "includes": [
+                    "All ingredients, recipe booklet, full meal with regional wines"
+                ],
+                "booking_tips": "Book at least 1 week in advance; focuses on Toledo's hunting traditions and use of La Mancha saffron"
+            },
+            {
+                "name": "Marzipan and Sweets Workshop",
+                "cuisine_focus": "Toledo Confectionery",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Traditional Mazapán (Toledo Marzipan PGI)",
+                    "Marquesas de Caramelo (Caramel Almond Cakes)",
+                    "Ponche Toledano (Toledo Punch Cake)"
+                ],
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Spanish",
+                    "French"
+                ],
+                "includes": [
+                    "All materials, recipes, sweet tastings with traditional sweet wine"
+                ],
+                "booking_tips": "Book 1 week ahead; appropriate for families with children; focuses on Toledo's rich tradition of sweets"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercado de San Agustín",
+                "type": "Food Hall / Gourmet Market",
+                "highlights": [
+                    "Renovated historic building with modern food concept",
+                    "Gourmet food stalls offering regional products",
+                    "Tapas bars and wine vendors"
+                ],
+                "hours": "Tuesday to Sunday 10:00 AM - 10:00 PM, Closed Mondays",
+                "best_time": "Lunch or evening",
+                "location": "Historic Center",
+                "local_tips": "Modern food hall concept in a historic setting; good place to sample different specialties in one location; popular with younger locals and visitors"
+            },
+            {
+                "name": "Mercado Municipal",
+                "type": "Traditional Food Market",
+                "highlights": [
+                    "Authentic local food market",
+                    "Fresh produce, meats, and regional specialties",
+                    "Venison and game during hunting season"
+                ],
+                "hours": "Monday to Saturday 8:00 AM - 2:00 PM",
+                "best_time": "Morning",
+                "location": "Near Plaza Mayor",
+                "local_tips": "Where locals shop daily; best for seeing authentic regional products including La Mancha cheeses, saffron, and seasonal game"
+            },
+            {
+                "name": "Mercado Gastronómico San Martín",
+                "type": "Gourmet Food Hall",
+                "highlights": [
+                    "Upscale food hall in renovated historic building",
+                    "Mix of traditional Spanish and international cuisine",
+                    "Wine bars and craft beer vendors"
+                ],
+                "hours": "Tuesday to Sunday 12:00 PM - Midnight",
+                "best_time": "Evening",
+                "location": "Near Cathedral",
+                "local_tips": "More contemporary dining experience; good option for evening tapas-hopping with variety of options under one roof"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Cordero Lechal (Spring Lamb)",
+            "Alcachofas Estofadas (Stewed Artichokes)",
+            "Espárragos de Toledo (Local Wild Asparagus)"
+        ],
+        "summer": [
+            "Pisto Manchego (La Mancha Ratatouille)",
+            "Queso Manchego Fresco (Fresh Manchego Cheese)",
+            "Gazpacho Manchego (Hearty Bread and Game Stew, despite the name)"
+        ],
+        "autumn": [
+            "Caza Mayor y Menor (Game Season Dishes)",
+            "Setas (Wild Mushrooms in various preparations)",
+            "Calabaza en Almíbar (Candied Pumpkin Desserts)"
+        ],
+        "winter": [
+            "Carcamusas (Toledo's signature pork and vegetable stew)",
+            "Migas (Fried Breadcrumbs with Chorizo and Grapes)",
+            "Mazapán Navideño (Christmas Marzipan Figures)"
+        ]
+    }
+}

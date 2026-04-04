@@ -1,0 +1,57 @@
+name: Validate Data
+
+on:
+  push:
+    paths:
+      - 'public/data/**'
+  pull_request:
+    paths:
+      - 'public/data/**'
+
+jobs:
+  validate:
+    name: Validate City Data
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run validation
+        run: npm run pipeline:validate
+
+      - name: Run quality audit
+        run: npm run pipeline:audit -- --threshold 30
+
+  check-manifest:
+    name: Check Manifest Sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate manifest
+        run: npm run pipeline:manifest -- --output manifest-check.json
+
+      - name: Compare manifests
+        run: |
+          if ! diff -q public/data/manifest.json manifest-check.json > /dev/null 2>&1; then
+            echo "::warning::Manifest is out of sync. Run 'npm run pipeline:manifest' to update."
+          fi

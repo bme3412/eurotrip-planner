@@ -1,0 +1,636 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Atelier",
+                "cuisine_type": "Contemporary European",
+                "signature_dishes": [
+                    "Pigeon with Salsify and Black Truffle",
+                    "Wagyu Beef with Potato Variations"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant modern dining room in the luxury Hotel Bayerischer Hof",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 months in advance, especially for weekend dinners",
+                "dress_code": "Formal",
+                "michelin_stars": 2,
+                "location": "Promenadeplatz",
+                "local_tips": "The 8-course tasting menu showcases the most innovative techniques; wine pairings are exceptional"
+            },
+            {
+                "name": "Tantris",
+                "cuisine_type": "Contemporary German-French",
+                "signature_dishes": [
+                    "Venison with Beetroot and Lingonberries",
+                    "Brittany Lobster with Leek and Curry"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Iconic 1970s architecture with bright orange interior, a Munich institution since 1971",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve at least 2 months in advance, closed Sunday and Monday",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Schwabing",
+                "local_tips": "Visit Tantris DNA next door for a more casual experience with the same exacting standards"
+            },
+            {
+                "name": "EssZimmer",
+                "cuisine_type": "Contemporary German",
+                "signature_dishes": [
+                    "Bavarian Prawns with Pumpkin and Curry",
+                    "Milk-fed Veal with Morels"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated dining space located within BMW Welt with automotive-inspired design elements",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 3-4 weeks in advance, closed Sunday and Monday",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Olympiapark",
+                "local_tips": "Arrive early to explore BMW Welt before your meal; the restaurant offers stunning views of the Olympic Park"
+            },
+            {
+                "name": "Schwarzreiter",
+                "cuisine_type": "Modern Bavarian",
+                "signature_dishes": [
+                    "Refined Kaiserschmarrn",
+                    "Alpine Char with Cucumber and Dill"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant yet understated dining room in the historic Hotel Vier Jahreszeiten Kempinski",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 3-4 weeks ahead, request window seating for Maximilianstrasse views",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Maximilianstrasse",
+                "local_tips": "Their 'Young Bavarian Cuisine' concept reinterprets traditional dishes with modern techniques"
+            },
+            {
+                "name": "Tian",
+                "cuisine_type": "Vegetarian Fine Dining",
+                "signature_dishes": [
+                    "Egg 63° with Truffle and Potato",
+                    "Celeriac with Preserved Lemon and Hazelnuts"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Minimalist, bright dining room with organic focus",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2 weeks ahead, mention dietary restrictions when booking",
+                "dress_code": "Smart casual",
+                "michelin_stars": 1,
+                "location": "Viktualienmarkt",
+                "local_tips": "Munich's only vegetarian Michelin-starred restaurant; their lunch menu offers excellent value"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Augustiner Bräustuben",
+                "cuisine_type": "Traditional Bavarian",
+                "signature_dishes": [
+                    "Schweinshaxe (Pork Knuckle)",
+                    "Leberkäse with Potato Salad"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic brewery restaurant with wood-paneled walls and long communal tables",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for dinner, especially on weekends; lunch usually has space for walk-ins",
+                "dress_code": "Casual",
+                "location": "Landsberger Straße",
+                "local_tips": "Connected to the Augustiner brewery; beer is served from traditional wooden barrels"
+            },
+            {
+                "name": "Wirtshaus in der Au",
+                "cuisine_type": "Classic Bavarian",
+                "signature_dishes": [
+                    "Kalbskutteln (Veal Tripe)",
+                    "Roast Duck with Red Cabbage"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic tavern dating from 1901 with traditional decor and beer garden",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several days ahead, especially for weekends",
+                "dress_code": "Casual",
+                "location": "Au-Haidhausen",
+                "local_tips": "They serve excellent seasonal specialties like asparagus in spring and game in autumn"
+            },
+            {
+                "name": "Bratwurstherzl",
+                "cuisine_type": "Traditional Bavarian",
+                "signature_dishes": [
+                    "Nürnberger Rostbratwürste",
+                    "Currywurst"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Rustic, cozy tavern in the heart of old town",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Book for dinner; lunch usually accommodates walk-ins",
+                "dress_code": "Casual",
+                "location": "Altstadt (Old Town)",
+                "local_tips": "Their homemade mustard is excellent; buy a jar to take home"
+            },
+            {
+                "name": "Gaststätte Großmarkthalle",
+                "cuisine_type": "Market Fresh German",
+                "signature_dishes": [
+                    "Daily Changing Market Menu",
+                    "Wiener Schnitzel"
+                ],
+                "price_range": "€€",
+                "atmosphere": "No-frills eatery inside the wholesale market building with simple tables",
+                "best_time": "Breakfast/Early Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; opens at 5am and closes by 2pm",
+                "dress_code": "Casual",
+                "location": "Großmarkthalle",
+                "local_tips": "Popular with market workers and chefs; incredible value and super-fresh ingredients"
+            },
+            {
+                "name": "Pizzesco",
+                "cuisine_type": "Neapolitan Pizza",
+                "signature_dishes": [
+                    "Bufala DOP (Buffalo Mozzarella Pizza)",
+                    "Diavola"
+                ],
+                "price_range": "€",
+                "atmosphere": "Modern, casual pizzeria with open kitchen and wood-fired oven",
+                "best_time": "Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; be prepared to wait during peak hours",
+                "dress_code": "Casual",
+                "location": "Neuhausen",
+                "local_tips": "Some of the best authentic Neapolitan pizza in Munich; they also have great gluten-free options"
+            },
+            {
+                "name": "Steinheil 16",
+                "cuisine_type": "Modern German",
+                "signature_dishes": [
+                    "Käsespätzle (Cheese Noodles)",
+                    "Crispy Pork Belly"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Student-friendly tavern with contemporary vibe",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book for dinner; lunch usually has availability",
+                "dress_code": "Casual",
+                "location": "Maxvorstadt",
+                "local_tips": "Popular with university students and locals; huge portions at reasonable prices"
+            },
+            {
+                "name": "Tagesbar",
+                "cuisine_type": "International",
+                "signature_dishes": [
+                    "Eggs Benedict",
+                    "Avocado Toast"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, modern cafe with Scandinavian design elements",
+                "best_time": "Breakfast/Brunch",
+                "reservation_needed": true,
+                "booking_tips": "Reserve for weekend brunch; weekdays usually have space",
+                "dress_code": "Casual",
+                "location": "Glockenbachviertel",
+                "local_tips": "One of Munich's best breakfast spots; their coffee is excellent"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Türkischer Markt Imbiss",
+                "specialties": [
+                    "Döner Kebab",
+                    "Durum Wrap"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 8:00 PM",
+                "location": "Hauptbahnhof area",
+                "seating": "Limited",
+                "local_tips": "One of the best authentic Turkish döner spots in the city; ask for extra garlic sauce"
+            },
+            {
+                "name": "Viktualienmarkt Bratwurst Stands",
+                "specialties": [
+                    "Weisswurst with Sweet Mustard",
+                    "Nuremberg Sausages"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - 6:00 PM",
+                "location": "Viktualienmarkt",
+                "seating": false,
+                "local_tips": "Traditional Bavarian breakfast is Weisswurst before noon with a pretzel and wheat beer"
+            },
+            {
+                "name": "Bergwolf",
+                "specialties": [
+                    "Currywurst",
+                    "Chili Cheese Fries"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 4:00 AM",
+                "location": "Schwabing",
+                "seating": "Limited",
+                "local_tips": "Perfect late-night food after bars; popular with locals after clubbing"
+            },
+            {
+                "name": "Focacceria Pane e Più",
+                "specialties": [
+                    "Focaccia Sandwiches",
+                    "Roman-style Pizza Slices"
+                ],
+                "price_range": "€",
+                "hours": "10:00 AM - 7:00 PM",
+                "location": "Maxvorstadt",
+                "seating": true,
+                "local_tips": "Authentic Italian street food; their schiacciata with mortadella is outstanding"
+            },
+            {
+                "name": "Lebe Gesund Falafelladen",
+                "specialties": [
+                    "Falafel Sandwich",
+                    "Hummus Plate"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 9:00 PM",
+                "location": "University Area",
+                "seating": "Limited",
+                "local_tips": "Some of Munich's best falafel; ask for extra tahini sauce"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Man Versus Machine",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Single Origin Filter Coffee",
+                    "Flat White"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist cafe with focus on craft coffee",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Pastries and small snacks",
+                "local_tips": "One of Munich's first specialty coffee roasters; buy a bag of beans to take home"
+            },
+            {
+                "name": "Café Luitpold",
+                "specialty": "Traditional Viennese-style Café",
+                "must_try": [
+                    "Apfelstrudel",
+                    "Melange (Viennese Coffee)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic, elegant cafe with chandelier and marble tables",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Full patisserie and lunch menu",
+                "local_tips": "One of Munich's oldest cafes (since 1888); their in-house bakery makes excellent pastries"
+            },
+            {
+                "name": "Standl 20",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Cappuccino",
+                    "Homemade Cheesecake"
+                ],
+                "price_range": "€",
+                "atmosphere": "Tiny bohemian cafe in a repurposed kiosk",
+                "best_time": "Any time",
+                "wifi_friendly": false,
+                "food_options": "Homemade cakes and sandwiches",
+                "local_tips": "A hidden gem in Elisabethmarkt; outdoor seating only but worth it even in cooler weather"
+            },
+            {
+                "name": "Maelu",
+                "specialty": "Cafe and Breakfast",
+                "must_try": [
+                    "Cold Brew Coffee",
+                    "Avocado Toast"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright, Instagram-friendly cafe with plants and modern decor",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast, bowls, and health-focused menu",
+                "local_tips": "Their breakfast is among the best in the city; great for digital nomads during weekdays"
+            },
+            {
+                "name": "Cafe Frischhut (Schmalznudel)",
+                "specialty": "Traditional Bavarian Pastries",
+                "must_try": [
+                    "Schmalznudel (Bavarian Donut)",
+                    "Auszogne"
+                ],
+                "price_range": "€",
+                "atmosphere": "No-frills traditional bakery near Viktualienmarkt",
+                "best_time": "Early Morning",
+                "wifi_friendly": false,
+                "food_options": "Fresh-fried pastries only",
+                "local_tips": "Opens at 5:30 AM; the place to go for fresh Schmalznudel, a Bavarian fried dough specialty"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Goldene Bar",
+                "type": "Cocktail Bar",
+                "specialty": "Classic Cocktails",
+                "signature_drinks": [
+                    "Haus der Kunst Negroni",
+                    "Seasonal Fruit Cocktails"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Elegant bar in the Haus der Kunst with gold-leaf world maps and terrace",
+                "best_time": "Evening",
+                "food_options": "Small plates menu",
+                "reservation_needed": true,
+                "local_tips": "Beautiful terrace in summer; combine with a visit to the art museum or English Garden"
+            },
+            {
+                "name": "Schumann's Bar",
+                "type": "Classic Bar",
+                "specialty": "Perfectly Executed Classics",
+                "signature_drinks": [
+                    "Schumann's Aged Negroni",
+                    "Gimlet"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated institution run by legendary bartender Charles Schumann since 1982",
+                "best_time": "Night",
+                "food_options": "Full dinner menu available",
+                "reservation_needed": true,
+                "local_tips": "A Munich institution; Charles Schumann can often be found behind the bar"
+            },
+            {
+                "name": "Zephyr Bar",
+                "type": "Craft Cocktail Bar",
+                "specialty": "Innovative Cocktails",
+                "signature_drinks": [
+                    "Smoke & Mirrors (Mezcal-based)",
+                    "Homemade Infusions"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Intimate, dimly lit speakeasy-style bar",
+                "best_time": "Evening",
+                "food_options": "Snacks only",
+                "reservation_needed": false,
+                "local_tips": "Hidden in a courtyard; bartenders create custom drinks based on your preferences"
+            },
+            {
+                "name": "Café Kosmos",
+                "type": "Dive Bar",
+                "specialty": "Craft Beer and Simple Cocktails",
+                "signature_drinks": [
+                    "Gin & Tonic",
+                    "Local Craft Beers"
+                ],
+                "price_range": "€",
+                "atmosphere": "Tiny, no-frills bar with alternative crowd and unpretentious vibe",
+                "best_time": "Late Night",
+                "food_options": "None",
+                "reservation_needed": false,
+                "local_tips": "Tiny place that gets packed quickly; great starting point for a night out"
+            },
+            {
+                "name": "Jahreszeiten Bar",
+                "type": "Hotel Bar",
+                "specialty": "Classic and Signature Cocktails",
+                "signature_drinks": [
+                    "Old Fashioned",
+                    "Champagne Cocktails"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Traditional, wood-paneled luxury hotel bar with leather armchairs",
+                "best_time": "Evening",
+                "food_options": "Bar snacks",
+                "reservation_needed": true,
+                "local_tips": "One of Munich's most elegant bars; excellent for people-watching on Maximilianstrasse"
+            },
+            {
+                "name": "Reichenbach Stüberl",
+                "type": "Traditional Beer Bar",
+                "specialty": "Augustiner Beer",
+                "signature_drinks": [
+                    "Augustiner Helles",
+                    "Weissbier"
+                ],
+                "price_range": "€",
+                "atmosphere": "Authentic neighborhood pub free of tourist crowds",
+                "best_time": "Evening",
+                "food_options": "Traditional Bavarian snacks",
+                "reservation_needed": false,
+                "local_tips": "One of the most authentic places to drink with locals; cash only"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Viktualienmarkt Culinary Tour",
+                "focus": "Traditional Bavarian Food",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Munich's historic food market exploration",
+                    "Weisswurst breakfast ritual",
+                    "Bavarian cheese and charcuterie tastings"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance; morning tours offer the freshest market experience"
+            },
+            {
+                "name": "Munich Beer and Food Tour",
+                "focus": "Beer Hall Culture",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit to traditional beer halls",
+                    "Tastings of different Bavarian beer styles",
+                    "Classic beer companion foods"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "German",
+                    "Spanish"
+                ],
+                "booking_tips": "Reserve 7-10 days ahead; tours fill quickly during Oktoberfest season"
+            },
+            {
+                "name": "Glockenbach Food Walk",
+                "focus": "Contemporary Munich Cuisine",
+                "duration": "3.5 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Trendy Glockenbach district exploration",
+                    "Modern German cuisine tastings",
+                    "Craft beer and coffee spots"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book early in high season (May-October); comfortable walking shoes recommended"
+            },
+            {
+                "name": "Bavarian Farm-to-Table Experience",
+                "focus": "Regional Production",
+                "duration": "6 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visit to organic farm outside Munich",
+                    "Traditional dairy and bread-making demonstrations",
+                    "Farm-fresh lunch with local beer"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "booking_tips": "Book 2 weeks ahead; includes transportation from Munich city center"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Bavarian Classics Workshop",
+                "cuisine_focus": "Traditional Bavarian",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Spätzle (Egg Noodles) from scratch",
+                    "Schweinsbraten (Roast Pork)",
+                    "Apple Strudel"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "Ingredients, recipes, full meal with beer pairings"
+                ],
+                "booking_tips": "Reserve 2 weeks ahead; vegetarian options available upon request"
+            },
+            {
+                "name": "Pretzel & Beer Workshop",
+                "cuisine_focus": "Bavarian Baking",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Traditional Brezel (Pretzel) baking techniques",
+                    "Obatzda (Cheese Spread) preparation",
+                    "Beer appreciation and tasting"
+                ],
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "German"
+                ],
+                "includes": [
+                    "All ingredients, beer tasting, recipes to take home"
+                ],
+                "booking_tips": "Popular with families and groups; book at least 10 days in advance"
+            },
+            {
+                "name": "Alpine Cuisine Masterclass",
+                "cuisine_focus": "Modern Bavarian-Alpine",
+                "duration": "5 hours",
+                "price_range": "€€€€",
+                "what_you_learn": [
+                    "Wild Game Preparation",
+                    "Alpine Herb Usage",
+                    "Traditional Kaiserschmarrn Dessert"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "German",
+                    "French"
+                ],
+                "includes": [
+                    "Premium ingredients, wine pairings, professional kitchen environment"
+                ],
+                "booking_tips": "More advanced cooking experience; reserve 3 weeks ahead"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Viktualienmarkt",
+                "type": "Food Market",
+                "highlights": [
+                    "Traditional butchers and sausage makers",
+                    "Specialty cheese vendors",
+                    "Fresh produce and flower stalls"
+                ],
+                "hours": "Monday to Saturday 8:00 AM - 6:00 PM",
+                "best_time": "Morning",
+                "location": "City Center",
+                "local_tips": "Visit the central beer garden where you can bring food from the market stalls but must buy beer from the rotating brewery"
+            },
+            {
+                "name": "Elisabethmarkt",
+                "type": "Neighborhood Food Market",
+                "highlights": [
+                    "Local farmers",
+                    "Artisanal food producers",
+                    "Specialty coffee stands"
+                ],
+                "hours": "Monday to Friday 8:00 AM - 6:00 PM, Saturday 8:00 AM - 3:00 PM",
+                "best_time": "Morning",
+                "location": "Schwabing",
+                "local_tips": "Less touristic than Viktualienmarkt; the Standl 20 coffee kiosk is excellent"
+            },
+            {
+                "name": "Pasinger Viktualienmarkt",
+                "type": "Local Food Market",
+                "highlights": [
+                    "Fresh produce",
+                    "International food stalls",
+                    "Neighborhood atmosphere"
+                ],
+                "hours": "Tuesday to Friday 8:00 AM - 6:00 PM, Saturday 8:00 AM - 1:00 PM",
+                "best_time": "Morning",
+                "location": "Pasing",
+                "local_tips": "An authentic local market experience away from tourist areas"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Spargelzeit dishes (White Asparagus with Hollandaise)",
+            "Bärlauch (Wild Garlic) Soup",
+            "Maibock (Strong Spring Beer)"
+        ],
+        "summer": [
+            "Obatzda with Radishes and Pretzels",
+            "Steckerlfisch (Grilled Fish on a Stick)",
+            "Erdbeerdatschi (Strawberry Cake)"
+        ],
+        "autumn": [
+            "Schwammerl (Wild Mushroom) Dishes",
+            "Zwetschgendatschi (Plum Cake)",
+            "Festbier during Oktoberfest"
+        ],
+        "winter": [
+            "Schweinshaxe (Pork Knuckle)",
+            "Gänsebraten (Roast Goose) at Christmas",
+            "Glühwein (Mulled Wine) at Christmas Markets"
+        ]
+    }
+}

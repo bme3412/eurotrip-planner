@@ -1,0 +1,281 @@
+{
+    "destinations": [
+        {
+            "city": "Prague",
+            "country": "Czech Republic",
+            "whyGo": "Czech Republic's stunning capital with medieval old town, magnificent castle complex, and rich cultural heritage.",
+            "directWithinCountryTrain": {
+                "stationInOlomouc": "Olomouc hlavní nádraží",
+                "journeyTime": "2h 12m",
+                "frequency": "Every 2 hours",
+                "trainType": "RegioJet, Leo Express",
+                "priceRange": "€7-50"
+            }
+        },
+        {
+            "city": "Brno",
+            "country": "Czech Republic",
+            "whyGo": "Czech Republic's second largest city with modern architecture, vibrant cultural scene, and excellent museums.",
+            "directWithinCountryTrain": {
+                "stationInOlomouc": "Olomouc hlavní nádraží",
+                "journeyTime": "1h 35m",
+                "frequency": "Hourly",
+                "trainType": "Regional Express",
+                "priceRange": "€8-25"
+            }
+        },
+        {
+            "city": "Ostrava",
+            "country": "Czech Republic",
+            "whyGo": "Industrial heritage city with vibrant nightlife, cultural attractions, and proximity to the Beskydy Mountains.",
+            "directWithinCountryTrain": {
+                "stationInOlomouc": "Olomouc hlavní nádraží",
+                "journeyTime": "1h 45m",
+                "frequency": "Every 2 hours",
+                "trainType": "Regional Express",
+                "priceRange": "€6-20"
+            }
+        },
+        {
+            "city": "Pardubice",
+            "country": "Czech Republic",
+            "whyGo": "Historic city famous for gingerbread, horse racing, and beautiful Renaissance architecture.",
+            "directWithinCountryTrain": {
+                "stationInOlomouc": "Olomouc hlavní nádraží",
+                "journeyTime": "1h 20m",
+                "frequency": "Every 2-3 hours",
+                "trainType": "Regional Express",
+                "priceRange": "€5-18"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Imperial capital with magnificent palaces, world-class museums, classical music heritage, and elegant coffee house culture.",
+            "intraEuropeTrain": {
+                "stationInOlomouc": "Olomouc hlavní nádraží",
+                "journeyTime": "4h 30m",
+                "frequency": "Every 2-3 hours",
+                "trainType": "RegioJet",
+                "priceRange": "€15-45"
+            },
+            "intraEuropeFlight": {
+                "airportsInOlomouc": [
+                    "Prague Airport (transfer required)"
+                ],
+                "approxFlightTime": "1h 30m",
+                "frequency": "Multiple daily via Prague",
+                "priceRange": "€80-250"
+            }
+        },
+        {
+            "city": "Bratislava",
+            "country": "Slovakia",
+            "whyGo": "Charming Slovak capital on the Danube with medieval old town, hilltop castle, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInOlomouc": "Olomouc hlavní nádraží",
+                "journeyTime": "3h 45m",
+                "frequency": "Every 3-4 hours",
+                "trainType": "RegioJet",
+                "priceRange": "€12-35"
+            }
+        },
+        {
+            "city": "Krakow",
+            "country": "Poland",
+            "whyGo": "Medieval Polish city with stunning old town square, royal castle, and gateway to Auschwitz memorial.",
+            "intraEuropeTrain": {
+                "stationInOlomouc": "Olomouc hlavní nádraží",
+                "journeyTime": "5h 30m",
+                "frequency": "Daily",
+                "trainType": "RegioJet (via Ostrava)",
+                "priceRange": "€20-55"
+            },
+            "intraEuropeFlight": {
+                "airportsInOlomouc": [
+                    "Prague Airport (transfer required)"
+                ],
+                "approxFlightTime": "1h 20m",
+                "frequency": "Daily via Prague",
+                "priceRange": "€90-280"
+            }
+        },
+        {
+            "city": "Budapest",
+            "country": "Hungary",
+            "whyGo": "Stunning capital divided by the Danube with thermal baths, magnificent architecture, and vibrant nightlife.",
+            "intraEuropeTrain": {
+                "stationInOlomouc": "Olomouc hlavní nádraží",
+                "journeyTime": "6h 15m",
+                "frequency": "Daily",
+                "trainType": "RegioJet (via Bratislava)",
+                "priceRange": "€25-65"
+            },
+            "intraEuropeFlight": {
+                "airportsInOlomouc": [
+                    "Prague Airport (transfer required)"
+                ],
+                "approxFlightTime": "1h 15m",
+                "frequency": "Daily via Prague",
+                "priceRange": "€85-260"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "Dynamic German capital blending history and modernity with world-class museums, vibrant arts scene, and rich cultural heritage.",
+            "intraEuropeTrain": {
+                "stationInOlomouc": "Olomouc hlavní nádraží",
+                "journeyTime": "7h 45m",
+                "frequency": "Daily",
+                "trainType": "Deutsche Bahn (via Prague)",
+                "priceRange": "€35-85"
+            },
+            "intraEuropeFlight": {
+                "airportsInOlomouc": [
+                    "Prague Airport (transfer required)"
+                ],
+                "approxFlightTime": "1h 25m",
+                "frequency": "Multiple daily via Prague",
+                "priceRange": "€90-280"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Bavarian capital famous for Oktoberfest, beer gardens, Alpine proximity, and beautiful architecture blending tradition and modernity.",
+            "intraEuropeTrain": {
+                "stationInOlomouc": "Olomouc hlavní nádraží",
+                "journeyTime": "8h 30m",
+                "frequency": "Daily",
+                "trainType": "Deutsche Bahn (via Prague)",
+                "priceRange": "€40-95"
+            },
+            "intraEuropeFlight": {
+                "airportsInOlomouc": [
+                    "Prague Airport (transfer required)"
+                ],
+                "approxFlightTime": "1h 30m",
+                "frequency": "Multiple daily via Prague",
+                "priceRange": "€95-300"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "Financial hub with beautiful lake setting, well-preserved medieval old town, excellent museums, and high quality of life.",
+            "intraEuropeTrain": {
+                "stationInOlomouc": "Olomouc hlavní nádraží",
+                "journeyTime": "9h 45m",
+                "frequency": "Daily",
+                "trainType": "Deutsche Bahn/SBB (via Prague)",
+                "priceRange": "€55-130"
+            },
+            "intraEuropeFlight": {
+                "airportsInOlomouc": [
+                    "Prague Airport (transfer required)"
+                ],
+                "approxFlightTime": "1h 20m",
+                "frequency": "Multiple daily via Prague",
+                "priceRange": "€110-340"
+            }
+        },
+        {
+            "city": "Warsaw",
+            "country": "Poland",
+            "whyGo": "Dynamic Polish capital with rich history, excellent museums, beautifully reconstructed old town, and vibrant cultural scene.",
+            "intraEuropeTrain": {
+                "stationInOlomouc": "Olomouc hlavní nádraží",
+                "journeyTime": "6h 45m",
+                "frequency": "Daily",
+                "trainType": "PKP Intercity (via Ostrava)",
+                "priceRange": "€25-60"
+            },
+            "intraEuropeFlight": {
+                "airportsInOlomouc": [
+                    "Prague Airport (transfer required)"
+                ],
+                "approxFlightTime": "1h 35m",
+                "frequency": "Multiple daily via Prague",
+                "priceRange": "€90-270"
+            }
+        },
+        {
+            "city": "Ljubljana",
+            "country": "Slovenia",
+            "whyGo": "Charming capital with baroque architecture, dragon-guarded bridges, hilltop castle, and gateway to the Julian Alps.",
+            "intraEuropeTrain": {
+                "stationInOlomouc": "Olomouc hlavní nádraží",
+                "journeyTime": "8h 15m",
+                "frequency": "Daily",
+                "trainType": "RegioJet/SŽ (via Vienna)",
+                "priceRange": "€30-75"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its artistic heritage, elaborate canal system, narrow houses, world-class museums, and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInOlomouc": [
+                    "Prague Airport (transfer required)"
+                ],
+                "approxFlightTime": "1h 45m",
+                "frequency": "Multiple daily via Prague",
+                "priceRange": "€100-320"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "City of Light with iconic landmarks, world-class art museums, elegant boulevards, and unparalleled cultural heritage.",
+            "intraEuropeFlight": {
+                "airportsInOlomouc": [
+                    "Prague Airport (transfer required)"
+                ],
+                "approxFlightTime": "2h 15m",
+                "frequency": "Multiple daily via Prague",
+                "priceRange": "€120-380"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "The Eternal City with ancient ruins, Vatican City, Renaissance art, vibrant street life, and incredible culinary traditions.",
+            "intraEuropeFlight": {
+                "airportsInOlomouc": [
+                    "Prague Airport (transfer required)"
+                ],
+                "approxFlightTime": "2h 30m",
+                "frequency": "Daily via Prague",
+                "priceRange": "€130-400"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Famous for Gaudí's architecture, vibrant cultural scene, Mediterranean beaches, excellent cuisine, and Gothic Quarter charm.",
+            "intraEuropeFlight": {
+                "airportsInOlomouc": [
+                    "Prague Airport (transfer required)"
+                ],
+                "approxFlightTime": "2h 45m",
+                "frequency": "Daily via Prague",
+                "priceRange": "€140-420"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "Global city with iconic landmarks, world-class museums, royal palaces, diverse neighborhoods, and rich theatrical tradition.",
+            "intraEuropeFlight": {
+                "airportsInOlomouc": [
+                    "Prague Airport (transfer required)"
+                ],
+                "approxFlightTime": "2h 30m",
+                "frequency": "Multiple daily via Prague",
+                "priceRange": "€110-350"
+            }
+        }
+    ]
+}

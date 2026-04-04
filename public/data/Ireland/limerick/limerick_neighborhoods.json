@@ -1,0 +1,485 @@
+{
+    "neighborhoods": [
+        {
+            "name": "Medieval Quarter",
+            "alternate_names": [
+                "King's Island",
+                "Historic Core",
+                "Island Field"
+            ],
+            "character": "Historic island district that forms Limerick's original settlement, featuring medieval landmarks, narrow winding streets, stone buildings, and a compact layout surrounded by the waters of the River Shannon and Abbey River.",
+            "location": {
+                "central": true,
+                "description": "Located on King's Island, an island formed by the River Shannon and Abbey River, containing the original medieval core of Limerick city.",
+                "borders": [
+                    "City Centre",
+                    "Thomondgate",
+                    "River Shannon",
+                    "Abbey River"
+                ],
+                "landmarks": [
+                    "King John's Castle",
+                    "St. Mary's Cathedral",
+                    "Treaty Stone",
+                    "Bishop's Palace"
+                ]
+            },
+            "appeal": {
+                "known_for": [
+                    "Medieval architecture",
+                    "Historic landmarks",
+                    "Shannon River views"
+                ],
+                "atmosphere": [
+                    "Historic",
+                    "Authentic",
+                    "Touristic core"
+                ],
+                "best_for": [
+                    "History enthusiasts",
+                    "First-time visitors",
+                    "Photography"
+                ]
+            },
+            "categories": {
+                "touristy": 5,
+                "residential": 3,
+                "green_spaces": 2,
+                "shopping": 2,
+                "dining": 3,
+                "nightlife": 2,
+                "cultural": 5,
+                "historic": 5
+            },
+            "highlights": {
+                "attractions": [
+                    {
+                        "name": "King John's Castle",
+                        "type": "Medieval Castle",
+                        "description": "Imposing 13th-century castle overlooking the River Shannon, featuring interactive exhibits, archaeological excavations, and reconstructions of medieval life within the massive stone fortification.",
+                        "appeal": "Experience 800 years of history at this remarkably well-preserved Norman castle with panoramic views from the towers and a modern interpretive center that brings medieval Limerick to life."
+                    },
+                    {
+                        "name": "St. Mary's Cathedral",
+                        "type": "Historic Cathedral",
+                        "description": "Limerick's oldest building dating from 1168, featuring distinctive limestone architecture, ancient stone carvings, and rare medieval misericords (carved wooden seats) in an active place of worship.",
+                        "appeal": "Step into Limerick's oldest continuously used building with over 850 years of religious heritage, architectural splendor, and fascinating historical connections to the city's foundation."
+                    }
+                ],
+                "dining": [
+                    {
+                        "name": "The Locke Bar",
+                        "cuisine": "Irish Gastropub",
+                        "price_range": "€€-€€€",
+                        "known_for": "Riverside dining with traditional Irish cuisine",
+                        "atmosphere": "Historic 18th-century building with stone walls and waterside terrace."
+                    }
+                ],
+                "activities": [
+                    {
+                        "name": "Medieval Walking Tour",
+                        "type": "Historical/Cultural",
+                        "description": "Self-guided or organized tours exploring the historic island core of Limerick with its medieval streets, walls, and landmarks.",
+                        "suitable_for": [
+                            "History enthusiasts",
+                            "Photography enthusiasts",
+                            "Cultural visitors"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Georgian Quarter",
+            "alternate_names": [
+                "Newtown Pery",
+                "Limerick CBD",
+                "O'Connell Street Area"
+            ],
+            "character": "Elegant district of Georgian architecture featuring wide streets in a grid pattern, historic limestone townhouses, grand civic buildings, and Limerick's main commercial center developed as an 18th-century planned expansion of the city.",
+            "location": {
+                "central": true,
+                "description": "South of King's Island and the medieval core, centered around O'Connell Street and extending to the People's Park, representing Limerick's 18th and 19th-century expansion.",
+                "borders": [
+                    "Medieval Quarter",
+                    "Dock Road",
+                    "South Circular Road",
+                    "Ballinacurra"
+                ],
+                "landmarks": [
+                    "People's Park",
+                    "Limerick City Gallery of Art",
+                    "Sarsfield Street",
+                    "Commercial buildings of O'Connell Street"
+                ]
+            },
+            "appeal": {
+                "known_for": [
+                    "Georgian architecture",
+                    "Shopping district",
+                    "Commercial center"
+                ],
+                "atmosphere": [
+                    "Elegant",
+                    "Urban",
+                    "Commercial"
+                ],
+                "best_for": [
+                    "Architecture enthusiasts",
+                    "Shoppers",
+                    "Urban explorers"
+                ]
+            },
+            "categories": {
+                "touristy": 3,
+                "residential": 3,
+                "green_spaces": 3,
+                "shopping": 5,
+                "dining": 4,
+                "nightlife": 4,
+                "cultural": 4,
+                "historic": 4
+            },
+            "highlights": {
+                "attractions": [
+                    {
+                        "name": "People's Park",
+                        "type": "Urban Park",
+                        "description": "Victorian-era public park featuring ornate fountains, formal gardens, mature trees, and the Richard Russell memorial drinking fountain, providing a green oasis in the heart of the city.",
+                        "appeal": "Enjoy this elegant green space that represents the Victorian civic pride of Limerick, perfect for relaxation among historic monuments and seasonal flower displays."
+                    },
+                    {
+                        "name": "Limerick City Gallery of Art",
+                        "type": "Art Gallery",
+                        "description": "Significant contemporary art gallery housed in the historic Carnegie Building, showcasing permanent collections of Irish art alongside rotating exhibitions in the Georgian district.",
+                        "appeal": "Discover Ireland's impressive artistic heritage and contemporary works in this cultural institution that connects Limerick's historic architecture with its vibrant present-day creative scene."
+                    }
+                ],
+                "dining": [
+                    {
+                        "name": "Freddy's Bistro",
+                        "cuisine": "European with Irish influences",
+                        "price_range": "€€-€€€",
+                        "known_for": "Fine dining in historic Georgian basement",
+                        "atmosphere": "Intimate dining room with stone walls and historical character."
+                    }
+                ],
+                "activities": [
+                    {
+                        "name": "Georgian Architecture Tour",
+                        "type": "Historical/Cultural",
+                        "description": "Walking tour examining the distinctive limestone facades, fanlights, and proportions of Limerick's well-preserved Georgian streetscapes.",
+                        "suitable_for": [
+                            "Architecture enthusiasts",
+                            "History buffs",
+                            "Cultural tourists"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Thomondgate",
+            "alternate_names": [
+                "North Bank",
+                "Clare Side",
+                "Thomond"
+            ],
+            "character": "Traditional working-class district with deep community roots, located on the northern bank of the Shannon River featuring landmark bridges, riverside views, and proximity to Thomond Park stadium in a primarily residential setting.",
+            "location": {
+                "central": false,
+                "description": "Situated on the northern bank of the River Shannon, across Thomond Bridge from King's Island and extending toward County Clare.",
+                "borders": [
+                    "River Shannon",
+                    "Ballynanty",
+                    "Kileely",
+                    "County Clare boundary"
+                ],
+                "landmarks": [
+                    "Thomond Bridge",
+                    "Treaty Stone",
+                    "Thomond Park Stadium",
+                    "Shannon riverfront"
+                ]
+            },
+            "appeal": {
+                "known_for": [
+                    "Rugby heritage",
+                    "Traditional community",
+                    "River views"
+                ],
+                "atmosphere": [
+                    "Authentic",
+                    "Local",
+                    "Residential"
+                ],
+                "best_for": [
+                    "Sports enthusiasts",
+                    "Local culture seekers",
+                    "Off-the-beaten-path explorers"
+                ]
+            },
+            "categories": {
+                "touristy": 2,
+                "residential": 5,
+                "green_spaces": 2,
+                "shopping": 1,
+                "dining": 2,
+                "nightlife": 1,
+                "cultural": 3,
+                "historic": 3
+            },
+            "highlights": {
+                "attractions": [
+                    {
+                        "name": "Thomond Park Stadium",
+                        "type": "Sports Venue",
+                        "description": "Legendary home of Munster Rugby with museum and stadium tours, representing the heart of Limerick's passionate rugby culture and sporting heritage.",
+                        "appeal": "Experience the spiritual home of Munster Rugby and learn about Limerick's extraordinary sporting passion, including the famous victory over the New Zealand All Blacks in 1978."
+                    },
+                    {
+                        "name": "Treaty Stone",
+                        "type": "Historic Monument",
+                        "description": "Limestone block mounted on a pedestal where the Treaty of Limerick was allegedly signed in 1691, marking a significant moment in Irish history.",
+                        "appeal": "View this simple but powerful symbol of Limerick's complex history while enjoying panoramic views of King John's Castle and the Shannon from the Clare side of the river."
+                    }
+                ],
+                "dining": [
+                    {
+                        "name": "Curragower Bar & Restaurant",
+                        "cuisine": "Irish Pub Food/Seafood",
+                        "price_range": "€€",
+                        "known_for": "Riverside dining with castle views",
+                        "atmosphere": "Traditional pub with exceptional River Shannon vistas."
+                    }
+                ],
+                "activities": [
+                    {
+                        "name": "Riverside Walking Tour",
+                        "type": "Scenic/Historical",
+                        "description": "Walking route along the Shannon's north bank with views of King John's Castle, the medieval core, and Limerick's historic bridges.",
+                        "suitable_for": [
+                            "Photographers",
+                            "History enthusiasts",
+                            "Leisurely walkers"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "South Circular Road",
+            "alternate_names": [
+                "University District",
+                "Mary Immaculate Area",
+                "Residential South"
+            ],
+            "character": "Leafy residential district with tree-lined avenues, historic houses, educational institutions, and a well-established suburban atmosphere within walking distance of the city center.",
+            "location": {
+                "central": false,
+                "description": "Extends south from the Georgian Quarter along the South Circular Road, centered around Mary Immaculate College and adjacent residential areas.",
+                "borders": [
+                    "Georgian Quarter",
+                    "Ballinacurra",
+                    "Rhebogue",
+                    "Prospect"
+                ],
+                "landmarks": [
+                    "Mary Immaculate College",
+                    "Limerick Lawn Tennis Club",
+                    "South Circular Road",
+                    "Colbert Station"
+                ]
+            },
+            "appeal": {
+                "known_for": [
+                    "Educational institutions",
+                    "Residential character",
+                    "Historic homes"
+                ],
+                "atmosphere": [
+                    "Residential",
+                    "Academic",
+                    "Leafy"
+                ],
+                "best_for": [
+                    "Long-term visitors",
+                    "Education tourists",
+                    "Quiet accommodation seekers"
+                ]
+            },
+            "categories": {
+                "touristy": 1,
+                "residential": 5,
+                "green_spaces": 3,
+                "shopping": 2,
+                "dining": 2,
+                "nightlife": 1,
+                "cultural": 3,
+                "historic": 3
+            },
+            "highlights": {
+                "attractions": [
+                    {
+                        "name": "Mary Immaculate College",
+                        "type": "Historic Educational Institution",
+                        "description": "Founded in 1898, this historic teacher training college features impressive grounds and buildings including the Foundation Building from 1901 and modern campus extensions.",
+                        "appeal": "Explore the beautiful campus of one of Ireland's oldest and most respected education colleges, with its blend of historic and contemporary architecture in a parkland setting."
+                    }
+                ],
+                "dining": [
+                    {
+                        "name": "The Buttery",
+                        "cuisine": "Café",
+                        "price_range": "€",
+                        "known_for": "Campus dining and coffee",
+                        "atmosphere": "Bright college café with student atmosphere."
+                    }
+                ],
+                "activities": [
+                    {
+                        "name": "Architectural Walking Tour",
+                        "type": "Historical/Cultural",
+                        "description": "Self-guided walks exploring the variety of 19th and early 20th-century residential architecture along South Circular Road.",
+                        "suitable_for": [
+                            "Architecture enthusiasts",
+                            "History buffs",
+                            "Leisurely walkers"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Castletroy",
+            "alternate_names": [
+                "University of Limerick Area",
+                "Plassey",
+                "National Technology Park"
+            ],
+            "character": "Modern suburban district east of the city center featuring the University of Limerick campus, technology park, retail facilities, and newer residential developments along the banks of the River Shannon.",
+            "location": {
+                "central": false,
+                "description": "Located approximately 5km east of Limerick city center, spanning both banks of the River Shannon with the University of Limerick as its focal point.",
+                "borders": [
+                    "Rhebogue",
+                    "Monaleen",
+                    "Annacotty",
+                    "County Tipperary boundary"
+                ],
+                "landmarks": [
+                    "University of Limerick campus",
+                    "National Technology Park",
+                    "Castletroy Shopping Centre",
+                    "Plassey House"
+                ]
+            },
+            "appeal": {
+                "known_for": [
+                    "University campus",
+                    "Modern facilities",
+                    "Riverside walks"
+                ],
+                "atmosphere": [
+                    "Academic",
+                    "Contemporary",
+                    "Suburban"
+                ],
+                "best_for": [
+                    "Education visitors",
+                    "Technology professionals",
+                    "Modern amenity seekers"
+                ]
+            },
+            "categories": {
+                "touristy": 2,
+                "residential": 4,
+                "green_spaces": 4,
+                "shopping": 3,
+                "dining": 3,
+                "nightlife": 2,
+                "cultural": 3,
+                "historic": 1
+            },
+            "highlights": {
+                "attractions": [
+                    {
+                        "name": "University of Limerick",
+                        "type": "Educational Campus",
+                        "description": "Modern university established in 1972 with extensive riverside campus featuring contemporary architecture, Ireland's largest collection of public art on a university campus, and the impressive Living Bridge pedestrian crossing.",
+                        "appeal": "Discover this contemporary campus with its striking architecture, beautiful riverside setting, and impressive public art collection alongside excellent sporting facilities and cultural venues."
+                    },
+                    {
+                        "name": "Plassey House and Park",
+                        "type": "Historic House/Park",
+                        "description": "Georgian manor house serving as the University's administrative center, surrounded by historic grounds including woodland walks along the riverbank.",
+                        "appeal": "Explore the historic heart of the University of Limerick campus with its elegant Georgian architecture set within impressive parkland along the Shannon riverbank."
+                    }
+                ],
+                "dining": [
+                    {
+                        "name": "Pavilion Restaurant",
+                        "cuisine": "International",
+                        "price_range": "€€",
+                        "known_for": "Campus dining with diverse options",
+                        "atmosphere": "Modern university restaurant with river views."
+                    }
+                ],
+                "activities": [
+                    {
+                        "name": "River Shannon Walk",
+                        "type": "Outdoor/Recreational",
+                        "description": "Scenic riverside paths running through the university campus with woodland sections and views of the Shannon from Ireland's longest pedestrian bridge.",
+                        "suitable_for": [
+                            "Nature lovers",
+                            "Casual walkers",
+                            "Photographers"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "activityTypes": {
+        "spring": [
+            "Limerick International Poetry Festival events",
+            "Riverside walks along the Shannon as weather improves",
+            "Exploring historic sites with fewer crowds",
+            "Shopping in the Georgian Quarter",
+            "St. Patrick's Day Festival celebrations",
+            "Milk Market weekend visits for seasonal produce",
+            "Rugby matches at Thomond Park",
+            "Day trips to nearby Bunratty Castle and Folk Park"
+        ],
+        "summer": [
+            "Limerick Riverfest activities along the Shannon",
+            "Open-air concerts and performances in People's Park",
+            "Outdoor dining in the Medieval Quarter",
+            "Eva International Biennial of Contemporary Art",
+            "Guided walking tours of historic Limerick",
+            "Kayaking on the River Shannon",
+            "Picnics in the grounds of the University of Limerick",
+            "Day trips to the Cliffs of Moher and Burren"
+        ],
+        "autumn": [
+            "Limerick Jazz Festival performances throughout the city",
+            "Literary events celebrating Limerick authors",
+            "Traditional music sessions as tourist numbers decrease",
+            "Visiting King John's Castle with autumn light",
+            "Richard Harris International Film Festival",
+            "Walking tours of Georgian architecture",
+            "Exploring Limerick Milk Market for harvest produce",
+            "Rugby season opening matches at Thomond Park"
+        ],
+        "winter": [
+            "Christmas in Limerick festivities and markets",
+            "Winter traditional music sessions in historic pubs",
+            "Hunt Museum special exhibitions",
+            "Theatrical performances at the Lime Tree Theatre",
+            "Indoor cultural experiences at Belltable Arts Centre",
+            "Exploring Limerick's museums and galleries",
+            "Six Nations Rugby matches at local pubs",
+            "Warming Irish coffee sampling in Medieval Quarter pubs"
+        ]
+    }
+}

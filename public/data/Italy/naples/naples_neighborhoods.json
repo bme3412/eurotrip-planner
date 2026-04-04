@@ -1,0 +1,756 @@
+{
+    "neighborhoods": [
+      {
+        "name": "Centro Storico",
+        "alternate_names": [
+          "Historic Center",
+          "Old Naples",
+          "Spaccanapoli"
+        ],
+        "character": "The historic heart of Naples with over 2,500 years of history, featuring narrow streets, ancient ruins, baroque churches, and vibrant street life.",
+        "location": {
+          "central": true,
+          "description": "The central district of Naples encompassing the famous Spaccanapoli street that splits the historic center.",
+          "borders": [
+            "San Carlo all'Arena",
+            "Mercato",
+            "Quartieri Spagnoli",
+            "Sanità"
+          ],
+          "landmarks": [
+            "Naples Cathedral (Duomo)",
+            "Spaccanapoli",
+            "San Gregorio Armeno",
+            "Sansevero Chapel"
+          ]
+        },
+        "history": {
+          "overview": "Centro Storico represents the ancient Greek-Roman city of Neapolis, with over 2,500 years of continuous urban history visible in its grid street plan.",
+          "significance": "This district contains the highest concentration of historic buildings in Europe, recognized as a UNESCO World Heritage site for its unparalleled historical stratification.",
+          "notable_events": [
+            "Greek foundation as Neapolis (\"New City\") in 470 BCE",
+            "Roman, Byzantine, Norman, Aragonese, Spanish and Bourbon periods all left architectural imprints",
+            "UNESCO World Heritage designation (1995)"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Metro Line 1 (Dante, Università, Municipio stations)",
+            "Taxi stands at major piazzas"
+          ],
+          "safety": "Exercise standard urban precautions, particularly after dark. Main streets are well-trafficked and generally safe.",
+          "best_time_to_visit": "Early morning for quiet exploration, midday for vibrant atmosphere, avoid midafternoon during summer heat.",
+          "walkability": "Highly walkable but features narrow streets, uneven pavements, and occasional steps."
+        },
+        "appeal": {
+          "known_for": [
+            "Ancient Greek-Roman street grid",
+            "Baroque churches and artistic treasures",
+            "Christmas alley (San Gregorio Armeno)",
+            "Traditional Neapolitan street food"
+          ],
+          "atmosphere": [
+            "Intense",
+            "Authentic",
+            "Historic",
+            "Bustling"
+          ],
+          "best_for": [
+            "History enthusiasts",
+            "Cultural explorers",
+            "Food lovers",
+            "Photographers"
+          ]
+        },
+        "categories": {
+          "touristy": 4,
+          "residential": 4,
+          "green_spaces": 1,
+          "shopping": 5,
+          "dining": 5,
+          "nightlife": 4,
+          "cultural": 5,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Cappella Sansevero",
+              "type": "Chapel/Museum",
+              "description": "Baroque chapel housing the remarkable Veiled Christ sculpture by Giuseppe Sanmartino.",
+              "appeal": "Marvel at what is considered one of the world's most remarkable sculptural achievements, where marble appears as transparent as actual fabric."
+            },
+            {
+              "name": "Via San Gregorio Armeno",
+              "type": "Historic Street",
+              "description": "Famous 'Christmas Alley' where artisans craft nativity scene figurines year-round.",
+              "appeal": "Experience centuries-old craftsmanship tradition with workshops producing both traditional religious figures and satirical contemporary characters."
+            },
+            {
+              "name": "Naples Underground (Napoli Sotterranea)",
+              "type": "Archaeological Site",
+              "description": "Ancient Greek-Roman aqueduct system 40 meters below street level, later used as WWII bomb shelters.",
+              "appeal": "Discover Naples' hidden history beneath the streets with guided tours through ancient tunnels and chambers."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Da Michele",
+              "cuisine": "Pizza",
+              "price_range": "€",
+              "known_for": "Traditional Neapolitan pizza (Margherita and Marinara only)",
+              "atmosphere": "No-frills, historic pizzeria serving pizza since 1870."
+            },
+            {
+              "name": "Tandem",
+              "cuisine": "Neapolitan",
+              "price_range": "€€",
+              "known_for": "Traditional slow-cooked ragù napoletano",
+              "atmosphere": "Cozy, focused on the city's most famous slow-cooked meat sauce."
+            },
+            {
+              "name": "Nennella",
+              "cuisine": "Home-style Neapolitan",
+              "price_range": "€",
+              "known_for": "Fixed menu of traditional dishes, theatrical service",
+              "atmosphere": "Raucous, entertaining dining with singing waiters and local humor."
+            }
+          ],
+          "activities": [
+            {
+              "name": "Street Food Walking Tour",
+              "type": "Culinary",
+              "description": "Guided exploration of Naples' famous street foods including pizza fritta, sfogliatella, and cuoppo.",
+              "suitable_for": [
+                "Food enthusiasts",
+                "Cultural explorers"
+              ]
+            },
+            {
+              "name": "Underground Naples Tour",
+              "type": "Historical",
+              "description": "Exploration of the ancient Greek-Roman aqueduct system beneath the city streets.",
+              "suitable_for": [
+                "History buffs",
+                "Adventure seekers"
+              ]
+            }
+          ]
+        },
+        "stay_here_if": [
+          "You want to be immersed in Naples' authentic historical atmosphere.",
+          "You prioritize access to key historical sites and traditional eateries.",
+          "You don't mind a bit of urban grit and lively street noise."
+        ],
+        "avoid_if": [
+          "You prefer quiet, orderly environments.",
+          "You're uncomfortable with narrow streets and some crowding.",
+          "You require modern luxury accommodations and amenities."
+        ],
+        "insider_tips": [
+          "Many small churches contain artistic masterpieces but close during midday (1-3:30pm).",
+          "The best pizza places often have lines; go slightly before or after traditional meal times.",
+          "Carry small denominations of cash as many small shops and food stalls don't accept cards."
+        ]
+      },
+      {
+        "name": "Chiaia",
+        "alternate_names": [
+          "Riviera di Chiaia",
+          "Naples Waterfront"
+        ],
+        "character": "Elegant, upscale district with seaside promenade, designer boutiques, refined dining, and a sophisticated atmosphere.",
+        "location": {
+          "central": true,
+          "description": "Located along the Bay of Naples between the historic center and Mergellina, fronting the sea.",
+          "borders": [
+            "Centro Storico",
+            "Mergellina",
+            "Vomero",
+            "Bay of Naples"
+          ],
+          "landmarks": [
+            "Villa Comunale (Public Gardens)",
+            "Piazza dei Martiri",
+            "Via dei Mille",
+            "Castel dell'Ovo"
+          ]
+        },
+        "history": {
+          "overview": "Originally developed as an exclusive residential area outside the ancient city walls, it became Naples' fashionable district during the 19th century.",
+          "significance": "Represents Naples' Belle Époque period and cosmopolitan aspirations with elegant architecture and planned public spaces.",
+          "notable_events": [
+            "Construction of the Villa Comunale public gardens (18th century)",
+            "Development as the city's shopping and fashion district (19th century)",
+            "Creation of the seaside promenade (Lungomare) in the early 20th century"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Metro Line 6 (Mergellina station)",
+            "Funicular to Vomero",
+            "Numerous bus lines along the waterfront"
+          ],
+          "safety": "One of Naples' safest districts, well-patrolled and well-lit even at night.",
+          "best_time_to_visit": "Evening for the passeggiata (traditional evening stroll) along the waterfront, afternoon for shopping.",
+          "walkability": "Very walkable with wide sidewalks and mostly flat terrain."
+        },
+        "appeal": {
+          "known_for": [
+            "Upscale shopping",
+            "Refined dining",
+            "Scenic waterfront promenade",
+            "Belle Époque architecture"
+          ],
+          "atmosphere": [
+            "Elegant",
+            "Sophisticated",
+            "Cosmopolitan",
+            "Relaxed"
+          ],
+          "best_for": [
+            "Luxury shoppers",
+            "Couples seeking romantic ambiance",
+            "Visitors wanting a more refined Neapolitan experience"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 5,
+          "green_spaces": 4,
+          "shopping": 5,
+          "dining": 5,
+          "nightlife": 4,
+          "cultural": 3,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Lungomare Caracciolo",
+              "type": "Waterfront Promenade",
+              "description": "2.5 km pedestrian seafront with views of Vesuvius, Capri, and Castel dell'Ovo.",
+              "appeal": "Experience one of Europe's most beautiful urban seafronts with spectacular Bay of Naples panoramas."
+            },
+            {
+              "name": "Villa Comunale",
+              "type": "Public Gardens",
+              "description": "Historic public park stretching along the waterfront with fountains, sculptures, and the Anton Dohrn Aquarium.",
+              "appeal": "Enjoy a peaceful retreat with sea views and centuries-old trees in Naples' oldest public garden."
+            },
+            {
+              "name": "Castel dell'Ovo",
+              "type": "Castle",
+              "description": "Naples' oldest castle on a small peninsula, with panoramic terraces and exhibitions.",
+              "appeal": "Explore medieval fortifications and enjoy stunning views across the Bay of Naples."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Palazzo Petrucci",
+              "cuisine": "Contemporary Neapolitan",
+              "price_range": "€€€€",
+              "known_for": "Refined seafood and innovative takes on traditional dishes",
+              "atmosphere": "Elegant Michelin-starred dining with sea views."
+            },
+            {
+              "name": "Gran Caffè La Caffettiera",
+              "cuisine": "Café/Pastries",
+              "price_range": "€€",
+              "known_for": "Upscale coffee experience and traditional Neapolitan pastries",
+              "atmosphere": "Elegant historic café frequented by Neapolitan upper class."
+            },
+            {
+              "name": "Pizzeria Umberto",
+              "cuisine": "Pizza",
+              "price_range": "€",
+              "known_for": "Traditional wood-fired pizza in an upscale district",
+              "atmosphere": "No-frills authenticity amidst luxury surroundings."
+            }
+          ],
+          "activities": [
+            {
+              "name": "Luxury Shopping",
+              "type": "Retail",
+              "description": "Browse high-end Italian and international fashion brands along Via dei Mille and Via Filangieri.",
+              "suitable_for": [
+                "Fashion enthusiasts",
+                "Luxury shoppers"
+              ]
+            },
+            {
+              "name": "Sunset Aperitivo",
+              "type": "Dining/Social",
+              "description": "Enjoy pre-dinner drinks and light bites at waterfront bars with Bay of Naples views.",
+              "suitable_for": [
+                "Couples",
+                "Social travelers"
+              ]
+            }
+          ]
+        },
+        "stay_here_if": [
+          "You prefer upscale environments with refined dining and shopping.",
+          "You want scenic sea views and waterfront access.",
+          "You value safety and proximity to both cultural sites and natural beauty."
+        ],
+        "avoid_if": [
+          "You're looking for budget accommodations.",
+          "You prefer the raw energy of more authentic Neapolitan districts.",
+          "You prioritize immediate access to historical monuments over ambiance."
+        ],
+        "insider_tips": [
+          "For the best sunset views, grab a bench along the Lungomare facing Vesuvius around 7-8pm.",
+          "Many high-end shops close for a long lunch break (1-4pm) but stay open later in the evening.",
+          "The side streets between Via dei Mille and Corso Vittorio Emanuele offer excellent restaurants with more reasonable prices than the main shopping streets."
+        ]
+      },
+      {
+        "name": "Quartieri Spagnoli",
+        "alternate_names": [
+          "Spanish Quarters",
+          "I Quartieri"
+        ],
+        "character": "Densely populated, vibrant district of narrow streets and high buildings, known for its authentic Neapolitan character, street art, and traditional eateries.",
+        "location": {
+          "central": true,
+          "description": "Located just west of the historic center, extending uphill from Via Toledo toward Vomero.",
+          "borders": [
+            "Centro Storico",
+            "Chiaia",
+            "Vomero",
+            "Toledo"
+          ],
+          "landmarks": [
+            "Via Toledo",
+            "Maradona Murals",
+            "Church of Santa Maria Francesca"
+          ]
+        },
+        "history": {
+          "overview": "Built in the 16th century to house Spanish troops during the Spanish viceroyalty of Naples, hence the name 'Spanish Quarters.'",
+          "significance": "Long considered a tough, working-class area, it has recently undergone a renaissance while maintaining its authentic character.",
+          "notable_events": [
+            "Construction ordered by Spanish viceroys in the 1500s",
+            "Historical reputation as a challenging area with strong Camorra presence",
+            "Recent revitalization with street art, restaurants, and tourism (2010s-present)"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Metro Line 1 (Toledo station)",
+            "Montesanto Funicular to Vomero",
+            "Central Funicular"
+          ],
+          "safety": "Much improved in recent years but exercise normal urban precautions, especially at night. Stick to busier alleys and well-lit paths after dark.",
+          "best_time_to_visit": "Daytime for exploration and photography, evening for dining atmosphere.",
+          "walkability": "Entirely walkable but features steep, narrow streets and occasional steps."
+        },
+        "appeal": {
+          "known_for": [
+            "Grid of narrow streets with washing lines overhead",
+            "Authentic Neapolitan cuisine",
+            "Street art including Maradona murals",
+            "Local life on display"
+          ],
+          "atmosphere": [
+            "Vibrant",
+            "Authentic",
+            "Chaotic",
+            "Photogenic"
+          ],
+          "best_for": [
+            "Photographers",
+            "Food enthusiasts",
+            "Cultural explorers",
+            "Travelers seeking authentic experiences"
+          ]
+        },
+        "categories": {
+          "touristy": 3,
+          "residential": 5,
+          "green_spaces": 0,
+          "shopping": 3,
+          "dining": 5,
+          "nightlife": 4,
+          "cultural": 4,
+          "historic": 4
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Maradona Street Art",
+              "type": "Cultural",
+              "description": "Murals and shrines dedicated to Diego Maradona, Naples' football icon.",
+              "appeal": "Witness the city's passionate relationship with football and its greatest adopted son."
+            },
+            {
+              "name": "Toledo Metro Station",
+              "type": "Architecture",
+              "description": "Award-winning metro station with striking blue mosaic design at the district's edge.",
+              "appeal": "See one of Europe's most beautiful metro stations, a remarkable contrast to the historic area above."
+            },
+            {
+              "name": "Chiesa delle Anime del Purgatorio",
+              "type": "Church",
+              "description": "Small church with unique skull decorations and local cult of 'anime pezzentelle' (adopted skulls).",
+              "appeal": "Discover Naples' distinctive relationship with death and the afterlife."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Trattoria da Nennella",
+              "cuisine": "Traditional Neapolitan",
+              "price_range": "€",
+              "known_for": "Home-style cooking, theatrical service with singing waiters",
+              "atmosphere": "Lively, entertaining, crowded local institution."
+            },
+            {
+              "name": "Pizzeria Concettina ai Tre Santi",
+              "cuisine": "Pizza",
+              "price_range": "€€",
+              "known_for": "Innovative and traditional Neapolitan pizza",
+              "atmosphere": "Modern take on traditional pizzeria in historic setting."
+            },
+            {
+              "name": "Osteria La Chitarra",
+              "cuisine": "Seafood",
+              "price_range": "€€",
+              "known_for": "Fresh local seafood and pasta",
+              "atmosphere": "Family-run osteria serving catch of the day."
+            }
+          ],
+          "activities": [
+            {
+              "name": "Street Art Tour",
+              "type": "Cultural",
+              "description": "Self-guided or organized tour of murals and street art throughout the district.",
+              "suitable_for": [
+                "Art enthusiasts",
+                "Photographers"
+              ]
+            },
+            {
+              "name": "Home Cooking Experience",
+              "type": "Culinary",
+              "description": "Learn to make traditional Neapolitan dishes in a local home.",
+              "suitable_for": [
+                "Food lovers",
+                "Cooking enthusiasts"
+              ]
+            }
+          ]
+        },
+        "stay_here_if": [
+          "You want to experience authentic Neapolitan daily life.",
+          "You enjoy lively urban environments with character and grit.",
+          "You want access to excellent, affordable local cuisine."
+        ],
+        "avoid_if": [
+          "You prefer quiet, orderly surroundings.",
+          "You have mobility issues (area involves steep streets).",
+          "You're uncomfortable in working-class urban environments."
+        ],
+        "insider_tips": [
+          "Colorful street art can be found around Via Emanuele De Deo and Via Speranzella.",
+          "Many locals still use the basket system - watch for baskets being lowered from apartment windows for deliveries.",
+          "The best time to photograph the iconic narrow streets with laundry is mid-morning when washing is hung out to dry."
+        ]
+      },
+      {
+        "name": "Vomero",
+        "alternate_names": [
+          "Naples' Hilltop District",
+          "Colline"
+        ],
+        "character": "Elegant, residential hilltop district with panoramic views, leafy avenues, upscale shopping, and a refined atmosphere.",
+        "location": {
+          "central": false,
+          "description": "Located on the hill above the historic center and Chiaia, providing panoramic views of the city and bay.",
+          "borders": [
+            "Arenella",
+            "Chiaia",
+            "Quartieri Spagnoli"
+          ],
+          "landmarks": [
+            "Castel Sant'Elmo",
+            "Certosa di San Martino",
+            "Piazza Vanvitelli",
+            "Piazza Medaglie d'Oro"
+          ]
+        },
+        "history": {
+          "overview": "Formerly countryside with villas and gardens, Vomero developed as a planned residential district in the late 19th century.",
+          "significance": "Represents Naples' more orderly, middle-class character with planned streets and Liberty-style (Art Nouveau) architecture.",
+          "notable_events": [
+            "Construction of funicular railways connecting to lower Naples (late 19th century)",
+            "Urban development plan creating elegant residential district (early 20th century)",
+            "Emergence as commercial and cultural hub for upper-middle-class Neapolitans"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Metro Line 1 (Vanvitelli station)",
+            "Three funicular railways (Centrale, Montesanto, and Chiaia)",
+            "Bus connections"
+          ],
+          "safety": "One of Naples' safest districts with well-lit streets and residential character.",
+          "best_time_to_visit": "Morning for clear views of the bay, evening for local atmosphere and dining.",
+          "walkability": "Walkable but hilly with some steep streets."
+        },
+        "appeal": {
+          "known_for": [
+            "Panoramic city views",
+            "Upscale shopping and dining",
+            "Medieval castle and monastery",
+            "Pleasant residential atmosphere"
+          ],
+          "atmosphere": [
+            "Elegant",
+            "Relaxed",
+            "Orderly",
+            "Breezy"
+          ],
+          "best_for": [
+            "Families",
+            "Photographers",
+            "Shoppers",
+            "Those seeking respite from the intense historic center"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 3,
+          "shopping": 4,
+          "dining": 4,
+          "nightlife": 3,
+          "cultural": 3,
+          "historic": 3
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Castel Sant'Elmo",
+              "type": "Castle/Viewpoint",
+              "description": "Medieval fortress offering 360-degree views of Naples, the bay, and Mount Vesuvius.",
+              "appeal": "Capture the most comprehensive panoramas of Naples and understand the city's layout."
+            },
+            {
+              "name": "Certosa di San Martino",
+              "type": "Monastery/Museum",
+              "description": "Former Carthusian monastery housing museum collections on Neapolitan history and art.",
+              "appeal": "Experience masterpieces of Neapolitan baroque architecture with spectacular views."
+            },
+            {
+              "name": "Villa Floridiana",
+              "type": "Park/Museum",
+              "description": "Neoclassical villa set in large public park, housing the National Museum of Ceramics.",
+              "appeal": "Enjoy green space with views and explore decorative arts in elegant setting."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Pizzeria Gorizia 1916",
+              "cuisine": "Pizza",
+              "price_range": "€€",
+              "known_for": "Traditional Neapolitan pizza in upscale setting",
+              "atmosphere": "Historic establishment with refined atmosphere."
+            },
+            {
+              "name": "Veritas",
+              "cuisine": "Contemporary Neapolitan",
+              "price_range": "€€€",
+              "known_for": "Innovative cuisine using local ingredients",
+              "atmosphere": "Michelin-starred elegance in residential district."
+            },
+            {
+              "name": "Gran Caffè Gambrinus Vomero",
+              "cuisine": "Café/Pastries",
+              "price_range": "€€",
+              "known_for": "Traditional Neapolitan pastries and coffee",
+              "atmosphere": "Upscale branch of historic downtown café."
+            }
+          ],
+          "activities": [
+            {
+              "name": "Panoramic Photography",
+              "type": "Photography",
+              "description": "Capture stunning city and bay views from multiple vantage points.",
+              "suitable_for": [
+                "Photographers",
+                "View seekers"
+              ]
+            },
+            {
+              "name": "Shopping on Via Scarlatti",
+              "type": "Retail",
+              "description": "Browse upscale shops along pedestrianized shopping street.",
+              "suitable_for": [
+                "Shoppers",
+                "Fashion enthusiasts"
+              ]
+            }
+          ]
+        },
+        "stay_here_if": [
+          "You prefer cooler temperatures and breezy climate, especially in summer.",
+          "You want a quieter, more orderly experience of Naples.",
+          "You value panoramic views and don't mind some uphill walking."
+        ],
+        "avoid_if": [
+          "You want to be immersed in historic Naples atmosphere.",
+          "You have mobility issues and find hills challenging.",
+          "You want to minimize transit time to major attractions."
+        ],
+        "insider_tips": [
+          "The most spectacular city views are at sunset from the ramparts of Castel Sant'Elmo.",
+          "Use the funicular railways to save energy; the Montesanto line connects directly to the metro.",
+          "Many locals enjoy aperitivo at cafés around Piazza Vanvitelli or Via Scarlatti before dinner."
+        ]
+      },
+      {
+        "name": "Sanità",
+        "alternate_names": [
+          "Rione Sanità",
+          "Vergini"
+        ],
+        "character": "Authentic, working-class neighborhood undergoing revitalization, known for baroque churches, catacombs, vibrant street life, and food traditions.",
+        "location": {
+          "central": false,
+          "description": "Located in a valley just north of the historic center, historically isolated by the Ponte della Sanità bridge.",
+          "borders": [
+            "Centro Storico",
+            "Capodimonte",
+            "Materdei"
+          ],
+          "landmarks": [
+            "Catacombs of San Gennaro",
+            "Catacombs of San Gaudioso",
+            "Palazzo dello Spagnolo",
+            "Basilica Santa Maria della Sanità"
+          ]
+        },
+        "history": {
+          "overview": "Originally a burial ground outside city walls, later developed into a vibrant district known for its churches and palaces.",
+          "significance": "Long isolated and economically challenged district now undergoing cultural renaissance through community initiatives.",
+          "notable_events": [
+            "Development of early Christian catacombs (2nd-5th centuries)",
+            "Construction of landmark baroque churches and palaces (17th-18th centuries)",
+            "Recent cultural revitalization through arts, tourism, and community projects (2010s-present)"
+          ]
+        },
+        "practical_info": {
+          "transit": [
+            "Metro Line 1 (Materdei station, then walk downhill)",
+            "City bus connections",
+            "Walking access from historic center"
+          ],
+          "safety": "Improving but exercise normal urban precautions. Best visited during daylight hours unless attending specific evening events.",
+          "best_time_to_visit": "Morning to mid-afternoon for attractions and local atmosphere.",
+          "walkability": "Walkable but involves hills, steps, and some challenging urban terrain."
+        },
+        "appeal": {
+          "known_for": [
+            "Early Christian catacombs",
+            "Baroque architecture",
+            "Authentic Neapolitan culture",
+            "Local food traditions"
+          ],
+          "atmosphere": [
+            "Authentic",
+            "Vibrant",
+            "Unpretentious",
+            "Evolving"
+          ],
+          "best_for": [
+            "Cultural explorers",
+            "History enthusiasts",
+            "Travelers seeking authentic experiences",
+            "Those interested in community tourism"
+          ]
+        },
+        "categories": {
+          "touristy": 2,
+          "residential": 5,
+          "green_spaces": 1,
+          "shopping": 2,
+          "dining": 3,
+          "nightlife": 1,
+          "cultural": 4,
+          "historic": 5
+        },
+        "highlights": {
+          "attractions": [
+            {
+              "name": "Catacombs of San Gennaro",
+              "type": "Archaeological Site",
+              "description": "Early Christian underground burial site with remarkable frescoes and mosaics.",
+              "appeal": "Explore the largest catacombs in southern Italy with local guides from the community cooperative."
+            },
+            {
+              "name": "Palazzo dello Spagnolo",
+              "type": "Historic Building",
+              "description": "Baroque palace with spectacular double-ramp staircase featured in many films.",
+              "appeal": "Photograph one of Naples' most distinctive architectural features in an authentic setting."
+            },
+            {
+              "name": "Basilica di Santa Maria della Sanità",
+              "type": "Church",
+              "description": "Baroque church built above early Christian catacombs with distinctive yellow dome.",
+              "appeal": "View masterpieces by Neapolitan baroque painters and connect to the paleo-Christian level below."
+            }
+          ],
+          "dining": [
+            {
+              "name": "Pizzeria Concettina ai Tre Santi",
+              "cuisine": "Pizza",
+              "price_range": "€€",
+              "known_for": "Traditional and innovative Neapolitan pizza",
+              "atmosphere": "Contemporary take on tradition in historic setting."
+            },
+            {
+              "name": "Poppella",
+              "cuisine": "Pastry",
+              "price_range": "€",
+              "known_for": "Fiocco di neve (snowflake) cream-filled pastry",
+              "atmosphere": "Traditional family-run pastry shop."
+            },
+            {
+              "name": "Di Matteo",
+              "cuisine": "Street Food",
+              "price_range": "€",
+              "known_for": "Fried pizza and traditional Neapolitan street food",
+              "atmosphere": "No-frills authentic street food institution."
+            }
+          ],
+          "activities": [
+            {
+              "name": "La Paranza Cooperative Tour",
+              "type": "Cultural/Historical",
+              "description": "Community-led guided tours of the district's catacombs and heritage sites.",
+              "suitable_for": [
+                "Social impact travelers",
+                "History enthusiasts"
+              ]
+            },
+            {
+              "name": "Street Art Walk",
+              "type": "Cultural",
+              "description": "Self-guided exploration of murals and community art projects transforming the district.",
+              "suitable_for": [
+                "Art enthusiasts",
+                "Urban explorers"
+              ]
+            }
+          ]
+        },
+        "insider_tips": [
+          "Colorful street art can be found around Via Emanuele De Deo and Via Speranzella.",
+          "Many locals still use the basket system - watch for baskets being lowered from apartment windows for deliveries.",
+          "The best time to photograph the iconic narrow streets with laundry is mid-morning when washing is hung out to dry."
+        ]
+      }
+    ]
+  }
+  

@@ -1,0 +1,379 @@
+{
+    "destinations": [
+        {
+            "city": "Marseille",
+            "country": "France",
+            "whyGo": "Known for its rich maritime heritage and vibrant culture.",
+            "directWithinCountryTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "2 hours 40 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Lyon",
+            "country": "France",
+            "whyGo": "Famous for its historical and architectural landmarks.",
+            "directWithinCountryTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "4 hours 30 minutes",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Avignon",
+            "country": "France",
+            "whyGo": "Renowned for the Palais des Papes and its annual arts festival.",
+            "directWithinCountryTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "3 hours",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Toulon",
+            "country": "France",
+            "whyGo": "A coastal city known for its naval base and beautiful harbor.",
+            "directWithinCountryTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "1 hour 30 minutes",
+                "frequency": "Hourly"
+            }
+        },
+        {
+            "city": "Genoa",
+            "country": "Italy",
+            "whyGo": "Famous for its central role in maritime trade and rich history.",
+            "intraEuropeTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "4 hours",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Milan",
+            "country": "Italy",
+            "whyGo": "Known as a global capital of fashion and design.",
+            "intraEuropeTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "5 hours 30 minutes with a transfer",
+                "frequency": "Multiple times daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "1 hour 10 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Turin",
+            "country": "Italy",
+            "whyGo": "Known for its refined architecture and cuisine.",
+            "intraEuropeTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "5 hours 45 minutes with a transfer",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "1 hour",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Monaco",
+            "country": "Monaco",
+            "whyGo": "Famous for its casino, Grand Prix, and luxurious lifestyle.",
+            "intraEuropeTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "25 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Barcelona",
+            "country": "Spain",
+            "whyGo": "Known for its art and architecture, particularly the works of Antoni Gaudí.",
+            "intraEuropeTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "6 hours with a transfer",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "1 hour 20 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Paris",
+            "country": "France",
+            "whyGo": "The capital city known for its art, fashion, gastronomy, and culture.",
+            "directWithinCountryTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "5 hours 45 minutes",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Montpellier",
+            "country": "France",
+            "whyGo": "A vibrant city known for its medieval streets and dynamic cultural scene.",
+            "directWithinCountryTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "4 hours",
+                "frequency": "Every 2 hours"
+            }
+        },
+        {
+            "city": "Cannes",
+            "country": "France",
+            "whyGo": "Famous for its film festival and luxury lifestyle.",
+            "directWithinCountryTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "30 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Antibes",
+            "country": "France",
+            "whyGo": "Known for its old town, sandy beaches, and the Picasso Museum.",
+            "directWithinCountryTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "20 minutes",
+                "frequency": "Every 30 minutes"
+            }
+        },
+        {
+            "city": "Florence",
+            "country": "Italy",
+            "whyGo": "Renowned for its Renaissance art and architecture.",
+            "intraEuropeTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "6 hours with a transfer",
+                "frequency": "Twice daily"
+            }
+        },
+        {
+            "city": "Geneva",
+            "country": "Switzerland",
+            "whyGo": "Known for its Red Cross headquarters and a hub for diplomacy and banking.",
+            "intraEuropeTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "6 hours with a transfer",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "1 hour 5 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Zurich",
+            "country": "Switzerland",
+            "whyGo": "A global center for banking and finance.",
+            "intraEuropeTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "6 hours with a transfer",
+                "frequency": "Twice daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "1 hour 15 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Venice",
+            "country": "Italy",
+            "whyGo": "Famous for its canals, Gothic architecture, and art.",
+            "intraEuropeTrain": {
+                "stationInNice": "Nice Ville",
+                "journeyTime": "6 hours with a transfer",
+                "frequency": "Once daily"
+            },
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "1 hour 20 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Naples",
+            "country": "Italy",
+            "whyGo": "Known for its rich history, art, and world-renowned cuisine.",
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Daily"
+            }
+        },
+        {
+            "city": "Rome",
+            "country": "Italy",
+            "whyGo": "A city with an unparalleled history, known for its ancient ruins.",
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "1 hour 20 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Madrid",
+            "country": "Spain",
+            "whyGo": "Known for its vibrant culture and rich history.",
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Lisbon",
+            "country": "Portugal",
+            "whyGo": "Known for its hilly landscape and vibrant culture.",
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "2 hours 20 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Vienna",
+            "country": "Austria",
+            "whyGo": "Famous for its imperial palaces and musical legacy.",
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "1 hour 45 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Brussels",
+            "country": "Belgium",
+            "whyGo": "Known for its historical and architectural landmarks.",
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "1 hour 40 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Amsterdam",
+            "country": "Netherlands",
+            "whyGo": "Famous for its artistic heritage, elaborate canal system, and narrow houses.",
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "1 hour 55 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Berlin",
+            "country": "Germany",
+            "whyGo": "A city known for its history, arts, and modern landmarks.",
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "2 hours",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Munich",
+            "country": "Germany",
+            "whyGo": "Known for its annual Oktoberfest and beer halls.",
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Frankfurt",
+            "country": "Germany",
+            "whyGo": "A major financial hub with a futuristic skyline.",
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "1 hour 30 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "London",
+            "country": "United Kingdom",
+            "whyGo": "A leading global city with a diverse range of people and cultures.",
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "2 hours",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Dublin",
+            "country": "Ireland",
+            "whyGo": "Known for its rich history and vibrant cultural scene.",
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "2 hours 20 minutes",
+                "frequency": "Several times daily"
+            }
+        },
+        {
+            "city": "Oslo",
+            "country": "Norway",
+            "whyGo": "Known for its green spaces and museums.",
+            "intraEuropeFlight": {
+                "airportsInNice": [
+                    "Nice Côte d'Azur Airport"
+                ],
+                "approxFlightTime": "2 hours 45 minutes",
+                "frequency": "Daily"
+            }
+        }
+    ]
+}

@@ -1,0 +1,343 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "ML",
+                "cuisine_type": "Modern European",
+                "signature_dishes": [
+                    "Chef's Tasting Menus",
+                    "Seasonal Dutch Ingredients",
+                    "Innovative Wine Pairings"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and historic setting within a former printing house, stylish hotel attached",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance, especially weekends. Mention dietary needs upon booking.",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Kleine Houtstraat, near Grote Markt",
+                "local_tips": "Highly acclaimed Michelin-starred experience, known for refined dishes and excellent service."
+            },
+            {
+                "name": "Ratatouille Food & Wine",
+                "cuisine_type": "French/Modern European",
+                "signature_dishes": [
+                    "Dishes featuring local seafood",
+                    "Creative presentations",
+                    "Extensive Wine List"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Chic waterside location on the Spaarne, contemporary decor",
+                "best_time": "Dinner / Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Request a table with a view of the Spaarne river. Check their lunch options.",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Spaarne",
+                "local_tips": "Another Michelin-starred gem, praised for its location, inventive cuisine, and wine expertise."
+            },
+            {
+                "name": "Restaurant Olivijn",
+                "cuisine_type": "Modern Dutch/International",
+                "signature_dishes": [
+                    "Surprise Menu",
+                    "Focus on Vegetables and Sustainability"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Intimate, refined, located in a historic building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Limited seating, book ahead. Known for personal service.",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Kleine Houtstraat",
+                "local_tips": "Focuses on pure flavors and high-quality ingredients, often with surprising combinations."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Jopenkerk",
+                "cuisine_type": "Modern European/Pub Grub/Brewery",
+                "signature_dishes": [
+                    "Dishes incorporating Jopen beer",
+                    "Burgers",
+                    "Shared Platters ('Borrelplanken')"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Spectacular setting in a converted church, lively brewery vibe, grand cafe feel",
+                "best_time": "Lunch/Dinner/Drinks",
+                "reservation_needed": "Recommended for dinner, often possible to walk in for lunch/drinks.",
+                "booking_tips": "Try a Jopen beer flight with your meal. Can be busy and loud.",
+                "dress_code": "Casual / Smart Casual",
+                "location": "Gedempte Voldersgracht",
+                "local_tips": "A Haarlem icon. Great place to try local craft beer and enjoy the unique setting."
+            },
+            {
+                "name": "De Overkant",
+                "cuisine_type": "Breakfast/Lunch/Coffee",
+                "signature_dishes": [
+                    "All-day breakfast options",
+                    "Creative Sandwiches",
+                    "Healthy Bowls"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Hip, relaxed, often busy, good for people-watching",
+                "best_time": "Breakfast/Lunch/Brunch",
+                "reservation_needed": false,
+                "booking_tips": "Popular spot, might need to wait briefly for a table during peak times.",
+                "dress_code": "Casual",
+                "location": "Zijlstraat (near Grote Markt)",
+                "local_tips": "Well-loved spot for its excellent coffee, brunch dishes, and lively atmosphere."
+            },
+            {
+                "name": "Fishbar Monk",
+                "cuisine_type": "Seafood",
+                "signature_dishes": [
+                    "Oysters",
+                    "Fruits de Mer platters",
+                    "Fish and Chips"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Stylish but relaxed seafood bar, maritime theme",
+                "best_time": "Lunch/Dinner",
+                "reservation_needed": "Recommended, especially evenings.",
+                "booking_tips": "Check the daily specials for fresh catches. Good wine selection.",
+                "dress_code": "Smart Casual",
+                "location": "Turfmarkt",
+                "local_tips": "Great place for fresh seafood lovers, from casual bites to elaborate platters."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Grote Markt Market (Saturday)",
+                "specialties": [
+                    "Herring ('Haring') Cart",
+                    "Stroopwafels (freshly made)",
+                    "Kibbeling (fried fish pieces)",
+                    "Dutch Cheese Stands",
+                    "Fries ('Patat')"
+                ],
+                "price_range": "€",
+                "hours": "Saturday, approx. 9:00 AM - 4:00 PM",
+                "location": "Grote Markt square",
+                "seating": "Limited/None (eat while walking or find a bench)",
+                "local_tips": "The main Haarlem market day. Great place for typical Dutch snacks, fresh produce, bread, and flowers. Get stroopwafels made fresh!"
+            },
+             {
+                "name": "Various Snackbars (e.g., 't Torentje)",
+                "specialties": [
+                    "Dutch Fries ('Patat') with various sauces (like 'Oorlog' or 'Speciaal')",
+                    "Kroket, Frikandel",
+                    "Other fried snacks"
+                ],
+                "price_range": "€",
+                "hours": "Varies, often lunch through late evening",
+                "location": "Throughout the city, side streets near Grote Markt",
+                "seating": "Often limited or takeaway",
+                "local_tips": "Experience a classic Dutch snackbar for a quick, cheap, and satisfying bite. Essential try: 'patatje met' (fries with mayo)."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Mogador Specialty Coffee",
+                "specialty": "High-Quality Espresso & Filter Coffee",
+                "must_try": [
+                    "Flat White",
+                    "Single Origin Filter Coffee"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, bright, focused on coffee quality",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries, cakes, some light lunch items",
+                "local_tips": "A favorite among local coffee lovers for its consistently good brews."
+            },
+            {
+                "name": "Native Haarlem",
+                "specialty": "Coffee, Healthy Food & Concept Store",
+                "must_try": [
+                    "Specialty Lattes",
+                    "Vegan treats",
+                    "Avocado Toast"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Stylish, Scandinavian-inspired design, relaxed, part shop",
+                "best_time": "Morning/Lunch/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Healthy breakfast/lunch, cakes (good vegan options)",
+                "local_tips": "Good spot for coffee combined with browsing unique design items."
+            },
+            {
+                "name": "Ax Specialty Coffee",
+                "specialty": "Expertly Brewed Coffee",
+                "must_try": [
+                    "Espresso",
+                    "Pour-over Coffee"
+                 ],
+                "price_range": "€€",
+                "atmosphere": "Small, minimalist, passionate baristas",
+                "best_time": "Morning/Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Limited pastries",
+                "local_tips": "Serious coffee place with a focus on quality beans and brewing methods."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Jopenkerk",
+                "type": "Brewery Bar/Grand Cafe",
+                "specialty": "Wide range of Jopen craft beers brewed on site",
+                "signature_drinks": [
+                    "Jopen Mooie Nel IPA",
+                    "Seasonal Jopen beers",
+                    "Beer Tasting Flights"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Unique, bustling brewery atmosphere in a former church",
+                "best_time": "Afternoon/Evening",
+                "food_options": "Full restaurant menu & bar snacks",
+                "reservation_needed": "Not usually needed just for drinks, but can be busy.",
+                "local_tips": "The essential Haarlem beer experience. Try a tasting flight to sample different styles."
+            },
+            {
+                "name": "Uiltje Bar",
+                "type": "Craft Beer Bar",
+                "specialty": "Showcasing beers from Haarlem's 'Uiltje Brewing Company' and guests",
+                "signature_drinks": [
+                    "Uiltje's Hoppy Beers (IPAs, etc.)",
+                    "Experimental Brews",
+                    "Guest Taps"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Modern craft beer bar vibe, knowledgeable staff, enthusiastic crowd",
+                "best_time": "Evening",
+                "food_options": "Bar snacks",
+                "reservation_needed": false,
+                "local_tips": "A must for craft beer fans, especially those who enjoy hoppy and innovative beers."
+            },
+            {
+                "name": "Cafe Studio",
+                "type": "Cocktail Bar/Lively Bar",
+                "specialty": "Cocktails, Music, Dancing",
+                "signature_drinks": [
+                    "Classic Cocktails",
+                    "Gin & Tonics"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Trendy, lively, often turns into a dance spot later at night",
+                "best_time": "Late Evening/Night",
+                "food_options": "Limited snacks",
+                "reservation_needed": "Can get busy, especially weekends.",
+                "local_tips": "One of the main spots on the Grote Markt for late-night drinks and dancing."
+            },
+            {
+                "name": "Café Briljant",
+                "type": "Traditional Dutch Pub ('Bruin Café')",
+                "specialty": "Local beers, Jenever, 'Gezelligheid'",
+                "signature_drinks": [
+                    "Local draft beers",
+                    "Dutch Gin ('Jenever')"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Authentic, cozy, traditional brown cafe feel, local crowd",
+                "best_time": "Afternoon/Evening",
+                "food_options": "Simple bar snacks ('borrelhapjes')",
+                "reservation_needed": false,
+                "local_tips": "Experience a genuine Haarlem local pub atmosphere."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {  
+                "name": "Haarlem Culinary Walk (Self-Guided)",
+                "focus": "Local Specialties, Markets & Charming Streets",
+                "duration": "approx. 2-4 hours",
+                "price_range": "€-€€ (depending on self-spend)",
+                "highlights": [
+                    "Visit Grote Markt market (Sat) for herring, stroopwafels, cheese",
+                    "Try Dutch fries from a snackbar",
+                    "Explore specialty food shops in 'Gouden Straatjes'",
+                    "Sample Jopen beer at Jopenkerk",
+                    "Coffee break at a specialty cafe"
+                ],
+                "booking_required": "No",
+                "group_size": "Individual/Small group",
+                "languages": ["Self-guided"],
+                "booking_tips": "Plan your route around market opening times (Sat). Include stops in Vijfhoek and Gouden Straatjes."
+            }
+        ],
+        "cooking_classes": [
+             { 
+                "name": "Dutch Cooking Workshop (General)",
+                "cuisine_focus": "Classic Dutch Dishes (e.g., Stamppot, Hachee, Apple Pie)",
+                "duration": "approx. 3-4 hours",
+                "price_range": "€€€-€€€€",
+                "what_you_learn": [
+                    "Preparing traditional Dutch meals",
+                    "Techniques for Dutch baking (e.g., Appeltaart)"
+                ],
+                "group_size": "Varies",
+                "languages": ["Dutch", "English (often available)"],
+                "includes": ["Ingredients, instruction, meal/tasting"],
+                "booking_tips": "Search for 'Kookstudio Haarlem' or workshops offered by local chefs/restaurants. Offerings may vary."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Grote Markt Market",
+                "type": "Large General Goods & Food Market",
+                "highlights": [
+                    "Main market on Haarlem's central square",
+                    "Fresh fish (incl. herring), produce, cheese, bread, clothing, flowers, snacks (stroopwafels, kibbeling)"
+                ],
+                "hours": "Saturdays approx. 9:00 AM - 4:00 PM (also smaller market Mon)",
+                "best_time": "Saturday morning for best selection and buzz",
+                "location": "Grote Markt",
+                "local_tips": "A vibrant Haarlem experience. Perfect for grabbing snacks and people-watching."
+            },
+            {
+                "name": "Botermarkt Organic Market (Boerenmarkt)",
+                "type": "Farmers Market",
+                "highlights": [
+                    "Focus on organic and local produce",
+                    "Artisanal bread, cheese, vegetables, fruits, honey"
+                ],
+                "hours": "Fridays approx. 10:00 AM - 4:00 PM",
+                "best_time": "Late morning/Midday",
+                "location": "Botermarkt Square",
+                "local_tips": "Smaller, more focused market for high-quality organic goods directly from producers."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "White Asparagus ('Asperges') - 'Limburgs Goud'",
+            "'Hollandse Nieuwe' Herring (Raw herring, starting late May/June)",
+            "Rhubarb desserts",
+            "Spring Jopen beers"
+        ],
+        "summer": [
+            "Fresh Dutch berries (strawberries, raspberries)",
+            "Mussels ('Mosselen') season starts",
+            "Salads with seasonal produce",
+            "Light, refreshing summer beers"
+        ],
+        "autumn": [
+            "'Stamppot' (various kinds, e.g., 'Boerenkool' with smoked sausage)",
+            "Wild game dishes ('Wildgerechten')",
+            "Mushrooms ('Paddenstoelen')",
+            "'Herfstbok' (autumn bock beer) - Try Jopen's version!"
+        ],
+        "winter": [
+            "'Erwtensoep' (Snert - thick pea soup with rye bread and bacon)",
+            "'Oliebollen' & 'Appelbeignets' (around New Year)",
+            "Hearty stews ('Stoofpotjes')",
+            "Hot chocolate ('Warme chocolademelk') with whipped cream",
+            "Winter Jopen beers (darker, heavier styles)"
+        ]
+    }
+} 

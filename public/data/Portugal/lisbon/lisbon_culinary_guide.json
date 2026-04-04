@@ -1,0 +1,428 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Belcanto",
+                "cuisine_type": "Contemporary Portuguese",
+                "signature_dishes": [
+                    "The Garden of the Goose that Laid the Golden Eggs",
+                    "Dip in the sea (Sea bass with seaweed and bivalves)"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and sophisticated in a historic Chiado building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book several months in advance; essential for any Lisbon fine dining experience",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Chiado",
+                "local_tips": "Chef José Avillez's flagship restaurant; offers inventive tasting menus showcasing Portuguese ingredients; located near São Carlos National Theatre."
+            },
+            {
+                "name": "Alma",
+                "cuisine_type": "Modern Portuguese",
+                "signature_dishes": [
+                    "Scarlet Shrimp with Ahlma Beer",
+                    "Calçada de Chocolate (Chocolate dessert)"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Chic and refined with an open kitchen",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 1-2 months ahead; specify dietary restrictions when booking",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 2,
+                "location": "Chiado",
+                "local_tips": "Chef Henrique Sá Pessoa offers refined Portuguese cuisine; known for its creative plating and focus on flavor; intimate dining space."
+            },
+            {
+                "name": "Feitoria",
+                "cuisine_type": "Author's Cuisine (Portuguese with Asian influences)",
+                "signature_dishes": [
+                    "Atlantic Carabineiro Shrimp",
+                    "Suckling Pig Confit"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Sophisticated waterfront dining with Tagus River views",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance; request a window table for river views",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "Belém (Altis Belém Hotel & Spa)",
+                "local_tips": "Focuses on high-quality Portuguese products with creative twists; extensive wine list with emphasis on Portuguese wines; located near Belém Tower."
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Cervejaria Ramiro",
+                "cuisine_type": "Seafood (Marisqueira)",
+                "signature_dishes": [
+                    "Garlic Shrimp (Gambas à la Aguillo)",
+                    "Scarlet Shrimp (Carabineiros)",
+                    "Prego (Steak sandwich) for dessert"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Bustling, loud, and traditional beer hall style",
+                "best_time": "Late Lunch/Early Dinner (to avoid peak crowds)",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; expect long queues (take a ticket); very popular",
+                "dress_code": "Casual",
+                "location": "Intendente",
+                "local_tips": "Iconic Lisbon seafood institution; order seafood by weight; finish your meal with a traditional Prego (steak sandwich) and beer."
+            },
+            {
+                "name": "Taberna da Rua das Flores",
+                "cuisine_type": "Traditional Portuguese Petiscos (Tapas)",
+                "signature_dishes": [
+                    "Rotating daily specials based on market availability",
+                    "Octopus Salad",
+                    "Tuna Steak Sandwich (Prego de Atum)"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Tiny, cozy, and authentic tavern feel",
+                "best_time": "Lunch or Early Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations; arrive early or prepare to wait; put your name on the chalkboard list outside",
+                "dress_code": "Casual",
+                "location": "Chiado",
+                "local_tips": "Excellent spot for trying various Portuguese small plates (petiscos); menu changes daily; cash only often preferred."
+            },
+            {
+                "name": "Ponto Final",
+                "cuisine_type": "Traditional Portuguese (Seafood focus)",
+                "signature_dishes": [
+                    "Grilled Sardines (seasonal)",
+                    "Arroz de Tamboril (Monkfish Rice)",
+                    "Ameijoas à Bulhão Pato (Clams)"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Rustic waterfront dining with stunning Lisbon views",
+                "best_time": "Sunset Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations essential, especially for tables right by the water; book well in advance",
+                "dress_code": "Casual",
+                "location": "Cacilhas (across the river)",
+                "local_tips": "Requires a short ferry ride from Cais do Sodré to Cacilhas; famous for its location directly on the water facing Lisbon; perfect for romantic sunset views."
+            },
+            {
+                "name": "Solar dos Presuntos",
+                "cuisine_type": "Traditional Portuguese (Seafood & Meat)",
+                "signature_dishes": [
+                    "Arroz de Marisco (Seafood Rice)",
+                    "Cozido à Portuguesa (Portuguese Stew - specific days)",
+                    "Fresh Grilled Fish"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Classic, bustling, and family-run feel",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations highly recommended; can be very busy",
+                "dress_code": "Smart Casual",
+                "location": "Near Avenida da Liberdade",
+                "local_tips": "Long-standing Lisbon favorite known for high-quality ingredients; popular with locals and celebrities (see photos on walls); great wine list."
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Pastéis de Belém",
+                "specialties": [
+                    "Pastel de Nata (Original recipe)"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - 11:00 PM (seasonal variations)",
+                "location": "Belém",
+                "seating": "Large indoor seating area and takeaway",
+                "local_tips": "The original home of the iconic Portuguese custard tart; expect queues but they move fast; enjoy fresh from the oven with cinnamon and powdered sugar."
+            },
+            {
+                "name": "Manteigaria",
+                "specialties": [
+                    "Pastel de Nata"
+                ],
+                "price_range": "€",
+                "hours": "8:00 AM - Midnight",
+                "location": "Chiado / Time Out Market",
+                "seating": "Standing room/takeaway (Chiado), Communal (Time Out Market)",
+                "local_tips": "Considered by many locals as the best Pastel de Nata in Lisbon; watch them being made through the window; always served warm."
+            },
+            {
+                "name": "A Ginjinha (Ginja Sem Rival / Eduardino)",
+                "specialties": [
+                    "Ginjinha (Sour cherry liqueur)"
+                ],
+                "price_range": "€",
+                "hours": "9:00 AM - 10:00 PM",
+                "location": "Rossio",
+                "seating": "Standing room only (tiny bar)",
+                "local_tips": "Historic tiny bars serving only Ginjinha; order 'com' (with fruit) or 'sem' (without fruit); a quick, traditional Lisbon experience."
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Fábrica Coffee Roasters",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Single Origin Espresso",
+                    "Cold Brew"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Hip, industrial-chic with multiple locations",
+                "best_time": "Morning / Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries, toasts, light brunch items",
+                "local_tips": "One of Lisbon's leading specialty coffee chains; roasts their own beans; popular spot for remote workers."
+            },
+            {
+                "name": "Copenhagen Coffee Lab",
+                "specialty": "Scandinavian-style Coffee & Bakery",
+                "must_try": [
+                    "Flat White",
+                    "Cinnamon Buns",
+                    "Sourdough Bread"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist, bright, and cozy",
+                "best_time": "Morning / Brunch",
+                "wifi_friendly": true,
+                "food_options": "Excellent pastries, bread, sandwiches, brunch",
+                "local_tips": "Brings Scandinavian coffee culture and baking to Lisbon; multiple locations; great for breakfast or a fika break."
+            },
+            {
+                "name": "Café A Brasileira",
+                "specialty": "Historic Cafe",
+                "must_try": [
+                    "Bica (Portuguese espresso)",
+                    "Pastel de Nata"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Iconic Art Deco interior, historic landmark",
+                "best_time": "Anytime (for the experience)",
+                "wifi_friendly": false,
+                "food_options": "Pastries, light meals",
+                "local_tips": "Famous historic café, once a meeting place for intellectuals like Fernando Pessoa (statue outside); more about history than coffee quality today, but worth seeing."
+            }
+        ],
+        "bars": [
+            {
+                "name": "Park",
+                "type": "Rooftop Bar",
+                "specialty": "Cocktails & Views",
+                "signature_drinks": [
+                    "Gin Tonics",
+                    "Caipirinhas",
+                    "Seasonal Cocktails"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Urban garden oasis on a parking garage roof",
+                "best_time": "Sunset",
+                "food_options": "Burgers and light bites",
+                "reservation_needed": false,
+                "local_tips": "Hidden entrance via a parking garage elevator; stunning panoramic views of Lisbon and the bridge; popular sunset spot; DJ sets often."
+            },
+            {
+                "name": "Pavilhão Chinês",
+                "type": "Quirky Cocktail Bar",
+                "specialty": "Unique Atmosphere & Cocktails",
+                "signature_drinks": [
+                    "Extensive cocktail menu (classic & creative)",
+                    "Port Wine selection"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Like a museum filled with antique toys and curiosities",
+                "best_time": "Evening / Late Night",
+                "food_options": "Minimal snacks",
+                "reservation_needed": false,
+                "local_tips": "Incredibly unique bar with thousands of collectibles displayed in cabinets; multiple rooms; ring the doorbell for entry; great for a conversation-starting drink."
+            },
+            {
+                "name": "Foxtrot",
+                "type": "Speakeasy Cocktail Bar",
+                "specialty": "Classic Cocktails",
+                "signature_drinks": [
+                    "Old Fashioned",
+                    "Martinis",
+                    "Whiskey Sour"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Art Deco style, intimate and cozy with fireplace",
+                "best_time": "Evening",
+                "food_options": "Light snacks, late-night sandwiches",
+                "reservation_needed": false,
+                "local_tips": "Long-standing speakeasy with a discreet entrance (ring bell); cozy atmosphere with multiple rooms; perfect for a relaxed, quality cocktail."
+            },
+            {
+                "name": "BytheWine",
+                "type": "Wine Bar",
+                "specialty": "Portuguese Wines",
+                "signature_drinks": [
+                    "Extensive selection of José Maria da Fonseca wines by the glass/bottle",
+                    "Wine flights"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Stylish, bottle-lined arched ceilings",
+                "best_time": "Early Evening",
+                "food_options": "Excellent petiscos (Portuguese tapas), cheese & charcuterie boards",
+                "reservation_needed": "Recommended for tables, not needed for bar standing",
+                "local_tips": "Flagship wine bar of a major Portuguese wine producer; knowledgeable staff; great place to sample various Portuguese wines with food pairings."
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Taste of Lisboa Food Tour",
+                "focus": "Portuguese Cuisine & History",
+                "duration": "3.5 - 4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Multiple food & drink tastings (Pastel de Nata, Bifana, Ginjinha, etc.)",
+                    "Visit local eateries and markets",
+                    "Cultural and historical insights"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups (approx. 10-12)",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Book well in advance; come hungry; wear comfortable shoes for walking."
+            },
+            {
+                "name": "Lisbon Market Tour & Cooking Class",
+                "focus": "Market-to-Table Portuguese Cooking",
+                "duration": "4-5 hours",
+                "price_range": "€€€€",
+                "highlights": [
+                    "Guided tour of a local market",
+                    "Hands-on cooking class",
+                    "Enjoying the meal you prepared with wine"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Combines market visit with cooking; great interactive experience; book ahead."
+            },
+            {
+                "name": "Lisbon Secret Food Tours",
+                "focus": "Hidden Gems & Local Flavors",
+                "duration": "3 - 3.5 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Off-the-beaten-path food spots",
+                    "Variety of traditional tastings",
+                    "Secret dish revealed at the end"
+                ],
+                "booking_required": true,
+                "group_size": "Small groups",
+                "languages": [
+                    "English", "French", "Spanish", "German"
+                ],
+                "booking_tips": "Focuses on less touristy areas; good for discovering local favorites."
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Cooking Lisbon",
+                "cuisine_focus": "Traditional Portuguese Dishes",
+                "duration": "Approx. 4 hours (including meal)",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Varies by class (e.g., Seafood Cataplana, Codfish dishes)",
+                    "Pastel de Nata making"
+                ],
+                "group_size": "Varies",
+                "languages": [
+                    "English", "Portuguese"
+                ],
+                "includes": [
+                    "Market tour option, ingredients, instruction, full meal with drinks"
+                ],
+                "booking_tips": "Offers various classes including market tours and specific dish focus; check schedule and book online."
+            },
+            {
+                "name": "Lisbon Cooking Academy",
+                "cuisine_focus": "Portuguese Cuisine (Modern & Traditional)",
+                "duration": "3-4 hours",
+                "price_range": "€€€-€€€€",
+                "what_you_learn": [
+                    "Techniques for classic Portuguese recipes",
+                    "Focus on fresh, local ingredients"
+                ],
+                "group_size": "Small groups",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "Hands-on cooking, recipes, meal with wine pairing"
+                ],
+                "booking_tips": "Professional setup; offers different themed classes; book in advance via their website."
+            }
+        ],
+        "markets": [
+            {
+                "name": "Mercado da Ribeira (Time Out Market Lisbon)",
+                "type": "Food Hall & Traditional Market",
+                "highlights": [
+                    "Gourmet food stalls from top chefs",
+                    "Traditional produce, fish, and flower market (mornings)",
+                    "Bars and event space"
+                ],
+                "hours": "Food Hall: 10 AM - Midnight (later on weekends); Traditional Market: 6 AM - 2 PM (Mon-Sat)",
+                "best_time": "Lunch/Dinner (Food Hall), Morning (Traditional Market)",
+                "location": "Cais do Sodré",
+                "local_tips": "Food hall gets very crowded at peak times; great place to sample many different high-quality dishes; traditional market section is authentic."
+            },
+            {
+                "name": "Feira da Ladra",
+                "type": "Flea Market",
+                "highlights": [
+                    "Antiques, crafts, second-hand goods",
+                    "Some food stalls (snacks, drinks)"
+                ],
+                "hours": "Tuesdays and Saturdays, Dawn - Late Afternoon",
+                "best_time": "Morning for best selection",
+                "location": "Campo de Santa Clara (Alfama)",
+                "local_tips": "Lisbon's famous flea market; primarily for goods but has a few food options; great atmosphere for browsing."
+            },
+            {
+                "name": "Mercado de Campo de Ourique",
+                "type": "Neighborhood Market & Food Hall",
+                "highlights": [
+                    "Gourmet food stalls",
+                    "Fresh produce vendors",
+                    "Local atmosphere"
+                ],
+                "hours": "Market: Daily mornings; Food Hall: Daily lunch & dinner",
+                "best_time": "Lunch or Evening",
+                "location": "Campo de Ourique",
+                "local_tips": "Similar concept to Time Out Market but smaller and more local feel; less touristy; good variety of food and drink options."
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Favas com chouriço (Broad beans with chorizo)",
+            "Enguias fritas (Fried eels - season varies)",
+            "Strawberries and cherries from local regions"
+        ],
+        "summer": [
+            "Sardinhas assadas (Grilled sardines - especially June for Santo António festival)",
+            "Salada de polvo (Octopus salad)",
+            "Caracóis (Snails - a popular summer petisco)"
+        ],
+        "autumn": [
+            "Castanhas assadas (Roasted chestnuts - sold on streets)",
+            "Game dishes (wild boar, partridge)",
+            "Quince marmalade (Marmelada)"
+        ],
+        "winter": [
+            "Cozido à Portuguesa (Rich meat and vegetable stew)",
+            "Bacalhau com todos (Codfish with potatoes, eggs, chickpeas, greens - Christmas Eve tradition)",
+            "Bolo Rei (King Cake - Christmas/Epiphany)"
+        ]
+    }
+} 

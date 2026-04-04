@@ -1,0 +1,445 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Restaurant Lieffroy",
+                "cuisine_type": "French-inspired Nordic",
+                "signature_dishes": [
+                    "Seasonal seafood from Funen waters",
+                    "Herb-crusted lamb with local vegetables"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Elegant and intimate in a historic building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 months in advance, especially for weekend dining",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 0,
+                "location": "City Center",
+                "local_tips": "One of Odense's most highly regarded restaurants; excellent wine selection; seasonal menu changes regularly based on available local ingredients"
+            },
+            {
+                "name": "Restaurant Aro",
+                "cuisine_type": "New Nordic",
+                "signature_dishes": [
+                    "Multi-course seasonal tasting menu",
+                    "Local Funen produce with innovative preparations"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Modern and sophisticated with Danish design elements",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reserve 2-3 weeks in advance, closed Sundays and Mondays",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "City Center",
+                "local_tips": "Focus on local Funen ingredients; creative presentation; opt for the wine pairing for the full experience; excellent vegetarian options available"
+            },
+            {
+                "name": "Restaurant Kvægtorvet",
+                "cuisine_type": "Modern Danish",
+                "signature_dishes": [
+                    "Dry-aged Danish beef",
+                    "Seasonal fish from local waters"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated industrial in former cattle market building",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, request window seating",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "Harbour District",
+                "local_tips": "Known for excellent steaks and seafood; housed in a beautifully renovated historic building; good cocktail menu; popular with local business diners"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "Storms Pakhus",
+                "cuisine_type": "International food hall",
+                "signature_dishes": [
+                    "Danish smørrebrød (open sandwiches)",
+                    "International street food from various vendors"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Vibrant industrial market in former warehouse",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, but arrive outside peak hours to find seating",
+                "dress_code": "Casual",
+                "location": "Harbour District",
+                "local_tips": "Over 20 food stalls offering diverse cuisines; popular with locals; great for groups with different food preferences; lively weekend atmosphere with occasional live music"
+            },
+            {
+                "name": "Café Gertrud",
+                "cuisine_type": "Danish Bistro",
+                "signature_dishes": [
+                    "Seasonal open sandwiches",
+                    "Homemade Danish classics"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Cozy and hygge with vintage Danish furnishings",
+                "best_time": "Lunch",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for lunch, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Near Hans Christian Andersen Quarter",
+                "local_tips": "Authentic Danish lunch experience; excellent smørrebrød; charming atmosphere in historic building; popular with locals for casual business lunches"
+            },
+            {
+                "name": "Pasfall",
+                "cuisine_type": "Modern Danish/European",
+                "signature_dishes": [
+                    "Seasonal Funen produce",
+                    "Danish classics with modern twists"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Bright and contemporary with Danish design",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended for dinner service",
+                "dress_code": "Smart casual",
+                "location": "City Center",
+                "local_tips": "Quality Danish cuisine at more accessible prices than fine dining; excellent lunch deal on weekdays; good wine list focusing on European selections"
+            },
+            {
+                "name": "Nordatlanten",
+                "cuisine_type": "Nordic/North Atlantic",
+                "signature_dishes": [
+                    "Faroese salmon",
+                    "Icelandic lamb",
+                    "Greenlandic specialties"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Maritime theme with North Atlantic artwork",
+                "best_time": "Lunch or Dinner",
+                "reservation_needed": false,
+                "booking_tips": "Walk-ins usually accommodated but reservations recommended for dinner",
+                "dress_code": "Casual",
+                "location": "Harbour District",
+                "local_tips": "Located in the North Atlantic House cultural center; unique opportunity to taste authentic cuisine from Greenland, Iceland, and Faroe Islands; cultural events often hosted in the same building"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "Arkaden Food Market",
+                "specialties": [
+                    "Diverse international street food",
+                    "Craft beers",
+                    "Local Danish specialties"
+                ],
+                "price_range": "€-€€",
+                "hours": "11:00 AM - 8:00 PM (later on weekends)",
+                "location": "City Center",
+                "seating": "Indoor communal tables",
+                "local_tips": "Smaller than Storms Pakhus but centrally located; good mix of international and Danish options; popular lunch spot for locals working downtown"
+            },
+            {
+                "name": "HC Andersen Bageri",
+                "specialties": [
+                    "Traditional Danish pastries",
+                    "Hans Christian Andersen themed treats",
+                    "Freshly baked bread"
+                ],
+                "price_range": "€-€€",
+                "hours": "7:00 AM - 5:30 PM",
+                "location": "Hans Christian Andersen Quarter",
+                "seating": "Limited indoor seating",
+                "local_tips": "Iconic bakery in Odense; try the 'Andersen's hat' pastry; excellent morning stop while exploring the historic quarter; popular with both locals and tourists"
+            },
+            {
+                "name": "Odense Harbour Pølsevogn",
+                "specialties": [
+                    "Traditional Danish hot dogs",
+                    "Fried fish sandwiches",
+                    "Classic harbor snacks"
+                ],
+                "price_range": "€",
+                "hours": "11:00 AM - 6:00 PM (seasonal)",
+                "location": "Harbour District",
+                "seating": "Outdoor benches",
+                "local_tips": "Authentic Danish hot dog stand experience; where locals go for quick harbor-side meals; try the 'ristet hotdog med det hele' (toasted hot dog with everything)"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Nelle's Coffee & Wine",
+                "specialty": "Specialty Coffee",
+                "must_try": [
+                    "Single Origin Espresso",
+                    "Fresh baked Danish pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Elegant yet cozy with outdoor courtyard",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Breakfast, pastries, and light lunch",
+                "local_tips": "One of Odense's best coffee spots; transforms into a wine bar in evenings; beautiful hidden courtyard seating in summer"
+            },
+            {
+                "name": "Tinderbox",
+                "specialty": "Third Wave Coffee",
+                "must_try": [
+                    "Pour-over coffee",
+                    "House-made cakes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Minimalist and modern",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Pastries and small bites",
+                "local_tips": "Named after Hans Christian Andersen's famous tale; excellent coffee beans for purchase; popular with university students and creative professionals"
+            },
+            {
+                "name": "Café Fleuri",
+                "specialty": "Traditional Danish Café",
+                "must_try": [
+                    "Danish filter coffee with refills",
+                    "Homemade layer cakes"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Classic Danish café with hygge elements",
+                "best_time": "Afternoon",
+                "wifi_friendly": false,
+                "food_options": "Traditional Danish open-faced sandwiches and cakes",
+                "local_tips": "Authentic Danish café experience; favorite among older locals; excellent place to experience 'hygge' culture; famous for generous cake portions"
+            }
+        ],
+        "bars": [
+            {
+                "name": "Christian Firtal",
+                "type": "Craft Beer Bar",
+                "specialty": "Danish and International Craft Beer",
+                "signature_drinks": [
+                    "Rotating craft beer selection",
+                    "Funen microbrewery offerings",
+                    "Beer flight samplers"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Relaxed beer café with outdoor seating",
+                "best_time": "Evening",
+                "food_options": "Light snacks and cheese boards",
+                "reservation_needed": false,
+                "local_tips": "Named after King Christian IV; over 15 taps plus extensive bottle selection; knowledgeable staff offering recommendations; popular with beer enthusiasts"
+            },
+            {
+                "name": "Anarkist Beer & Food Lab",
+                "type": "Brewery Taproom",
+                "specialty": "House-brewed craft beer",
+                "signature_drinks": [
+                    "Anarkist brand beers",
+                    "Experimental brews",
+                    "Beer cocktails"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Industrial brewery space with open kitchen",
+                "best_time": "Afternoon or Evening",
+                "food_options": "Beer-friendly food menu",
+                "reservation_needed": false,
+                "local_tips": "Innovative brewery concept from Odense's Albani brewery; experimental beers not available elsewhere; excellent food pairings; brewery tours available on weekends"
+            },
+            {
+                "name": "Blomsten & Bien",
+                "type": "Cocktail Bar",
+                "specialty": "Nordic-inspired craft cocktails",
+                "signature_drinks": [
+                    "House-made aquavit cocktails",
+                    "Seasonal ingredients from Funen",
+                    "Classic cocktails with Danish twists"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Intimate speakeasy-style with vintage touches",
+                "best_time": "Evening",
+                "food_options": "Small plates",
+                "reservation_needed": true,
+                "local_tips": "Odense's premier cocktail destination; hidden entrance adds to charm; mixologists create custom drinks based on preferences; reservations recommended on weekends"
+            },
+            {
+                "name": "Ølbaren",
+                "type": "Traditional Danish Bodega",
+                "specialty": "Danish and Belgian Beers",
+                "signature_drinks": [
+                    "Albani (local Odense brewery) beers",
+                    "Traditional Danish snaps",
+                    "Classic Belgian ales"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Authentic Danish brown bar with cozy nooks",
+                "best_time": "Evening",
+                "food_options": "Traditional bar snacks",
+                "reservation_needed": false,
+                "local_tips": "Authentic Danish pub experience; where locals gather; reasonable prices; occasional live jazz; historic venue with authentic atmosphere"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Taste of Odense Tour",
+                "focus": "Hans Christian Andersen-inspired Culinary Heritage",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Traditional Funen cuisine",
+                    "Danish pastry sampling",
+                    "Hans Christian Andersen-related food stories"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English",
+                    "Danish",
+                    "German"
+                ],
+                "booking_tips": "Book at least a week in advance; tour includes substantial walking through historic areas"
+            },
+            {
+                "name": "Culinary Funen Experience",
+                "focus": "Regional Specialties from Funen Island",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Visits to Odense's best restaurants",
+                    "Local Funen produce tasting",
+                    "Traditional island recipes"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Danish"
+                ],
+                "booking_tips": "Book 2 weeks ahead; includes transportation to local producers outside city center"
+            },
+            {
+                "name": "Brewery Heritage Tour",
+                "focus": "Odense Beer Tradition",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Albani Brewery visit",
+                    "Craft brewery tastings",
+                    "Beer history of Odense"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English",
+                    "Danish"
+                ],
+                "booking_tips": "Book 1-2 weeks ahead; includes substantial beer tastings; eat before the tour"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Funen Culinary School",
+                "cuisine_focus": "Traditional Funen Home Cooking",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Brunsviger (Funen's famous brown sugar cake)",
+                    "Traditional Danish open sandwiches",
+                    "Seasonal Funen specialties"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English",
+                    "Danish"
+                ],
+                "includes": [
+                    "All ingredients, recipes, full meal with beer or wine pairing"
+                ],
+                "booking_tips": "Reserve 1-2 weeks ahead; classes held twice weekly"
+            },
+            {
+                "name": "Hans Christian Andersen's Table",
+                "cuisine_focus": "Historic Danish Cuisine",
+                "duration": "5 hours",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Dishes from Hans Christian Andersen's era",
+                    "Historical cooking techniques",
+                    "Food references in Andersen's tales"
+                ],
+                "group_size": "Max 6 participants",
+                "languages": [
+                    "English",
+                    "Danish",
+                    "German"
+                ],
+                "includes": [
+                    "Premium ingredients, historic recipes, multi-course meal with wine pairing, storytelling session"
+                ],
+                "booking_tips": "Book 3 weeks ahead; unique cultural and culinary experience; held in historic building"
+            }
+        ],
+        "markets": [
+            {
+                "name": "Odense Marcipan Factory Store",
+                "type": "Specialty Food Shop",
+                "highlights": [
+                    "Famous Odense marzipan products",
+                    "Hans Christian Andersen-themed confections",
+                    "Chocolate and candy specialties",
+                    "Gift packages"
+                ],
+                "hours": "Monday to Friday 10 AM - 5:30 PM, Saturday 10 AM - 2 PM",
+                "best_time": "Morning",
+                "location": "City Center",
+                "local_tips": "Home of world-famous Odense Marcipan; watch demonstration of marzipan craft; special seasonal creations; perfect for edible souvenirs"
+            },
+            {
+                "name": "Odense Farmers Market",
+                "type": "Outdoor Market",
+                "highlights": [
+                    "Fresh produce from Funen farms",
+                    "Local cheeses and dairy",
+                    "Seasonal fruits and vegetables",
+                    "Artisanal breads and pastries"
+                ],
+                "hours": "Wednesdays and Saturdays, 7 AM - 1 PM",
+                "best_time": "Early morning",
+                "location": "Sortbrødre Torv",
+                "local_tips": "Odense's traditional produce market; where locals shop for fresh ingredients; excellent for picnic supplies; most vibrant on Saturday mornings"
+            },
+            {
+                "name": "Storms Pakhus",
+                "type": "Food Hall/Market",
+                "highlights": [
+                    "International food stalls",
+                    "Local products and crafts",
+                    "Danish street food",
+                    "Craft beverages"
+                ],
+                "hours": "Monday to Thursday 11 AM - 8 PM, Friday to Saturday 11 AM - 10 PM, Sunday 11 AM - 7 PM",
+                "best_time": "Evening",
+                "location": "Harbour District",
+                "local_tips": "Vibrant warehouse conversion; diverse food options; popular with locals and students; good evening atmosphere with occasional live music and events"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "Nye kartofler med smør (new potatoes with butter and dill)",
+            "Asparges (Danish asparagus) with local preparations",
+            "Ramsløg (wild garlic) featured in seasonal dishes"
+        ],
+        "summer": [
+            "Fynsk rygeost (Funen smoked fresh cheese) with radishes",
+            "Fresh berries from Funen farms",
+            "Fynbo lamb with seasonal herbs"
+        ],
+        "autumn": [
+            "Brunsviger (Funen's traditional brown sugar cake)",
+            "Game dishes with Funen mushrooms",
+            "Fynsk æblekage (Funen apple cake) with apples from local orchards"
+        ],
+        "winter": [
+            "Flæskesteg (roast pork with crackling)",
+            "H.C. Andersen-themed Christmas confections",
+            "Gløgg (mulled wine) and æbleskiver (traditional spherical pancakes)"
+        ]
+    }
+}

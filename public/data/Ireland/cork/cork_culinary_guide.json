@@ -1,0 +1,438 @@
+{
+    "restaurants": {
+        "fine_dining": [
+            {
+                "name": "Ichigo Ichie",
+                "cuisine_type": "Japanese Kaiseki",
+                "signature_dishes": [
+                    "Seasonal multi-course kaiseki menu",
+                    "Irish ingredients with Japanese techniques"
+                ],
+                "price_range": "€€€€",
+                "atmosphere": "Intimate and elegant Japanese-inspired setting",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 months in advance, limited seating available",
+                "dress_code": "Smart elegant",
+                "michelin_stars": 1,
+                "location": "City Centre",
+                "local_tips": "Cork's only Michelin-starred restaurant; chef Takashi Miyazaki creates a unique Irish-Japanese fusion experience; counter seating allows watching the chef at work"
+            },
+            {
+                "name": "Greenes Restaurant",
+                "cuisine_type": "Modern Irish",
+                "signature_dishes": [
+                    "West Cork seafood tasting plate",
+                    "Seasonal farm-to-table creations"
+                ],
+                "price_range": "€€€-€€€€",
+                "atmosphere": "Stylish and romantic with indoor waterfall",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 2-3 weeks in advance, request courtyard seating in summer",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "MacCurtain Street",
+                "local_tips": "Bib Gourmand Michelin recognition; situated in a beautiful courtyard with natural waterfall; focuses on seasonal Cork ingredients; excellent wine pairings available"
+            },
+            {
+                "name": "The Glass Curtain",
+                "cuisine_type": "Contemporary Irish",
+                "signature_dishes": [
+                    "Aged Irish beef dishes",
+                    "Innovative seafood preparations"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Sophisticated yet relaxed in historic former Thompson's Bakery",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book 1-2 weeks in advance, popular with locals for special occasions",
+                "dress_code": "Smart casual",
+                "michelin_stars": 0,
+                "location": "MacCurtain Street",
+                "local_tips": "Located in the Victorian Quarter; focuses on cooking over fire; excellent cocktail program; beautiful restoration of historic bakery building"
+            }
+        ],
+        "casual_dining": [
+            {
+                "name": "The English Market Food Stalls",
+                "cuisine_type": "Traditional Irish market food",
+                "signature_dishes": [
+                    "Farmhouse cheeses from Farmgate Café",
+                    "Fresh seafood from Kay O'Connell's",
+                    "Traditional Cork drisheen (blood pudding)"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Historic covered market with various vendors",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "No reservations needed, but visit outside peak lunch hours to avoid crowds",
+                "dress_code": "Casual",
+                "location": "City Centre",
+                "local_tips": "Cork's famous 18th-century market; visit the upstairs Farmgate Café for prepared dishes using market ingredients; Queen Elizabeth II visited during her historic trip to Ireland"
+            },
+            {
+                "name": "Market Lane",
+                "cuisine_type": "Modern Irish Bistro",
+                "signature_dishes": [
+                    "Cork whiskey-glazed pork belly",
+                    "Seasonal fish specials from nearby Ballycotton"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Buzzing contemporary bistro",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Reservations recommended, especially on weekends",
+                "dress_code": "Casual",
+                "location": "Oliver Plunkett Street",
+                "local_tips": "Popular with locals; good pre-theater menu; sources ingredients from English Market; excellent value for quality; good selection of local craft beers"
+            },
+            {
+                "name": "Elbow Lane Brew and Smoke House",
+                "cuisine_type": "Wood-fired grill specialties",
+                "signature_dishes": [
+                    "House-smoked Irish beef brisket",
+                    "Wood-grilled seafood with house brewed beer"
+                ],
+                "price_range": "€€-€€€",
+                "atmosphere": "Cozy industrial with visible kitchen and micro-brewery",
+                "best_time": "Dinner",
+                "reservation_needed": true,
+                "booking_tips": "Book well in advance for dinner, small intimate space fills quickly",
+                "dress_code": "Casual",
+                "location": "Oliver Plunkett Street",
+                "local_tips": "Sister restaurant to Market Lane; brews its own craft beer onsite; all dishes cooked over charcoal or wood fire; excellent for meat lovers"
+            },
+            {
+                "name": "Good Day Deli",
+                "cuisine_type": "Sustainable café food",
+                "signature_dishes": [
+                    "Seasonal vegetable bowls with local ingredients",
+                    "Sustainable seafood dishes"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright and airy café in cultural center gardens",
+                "best_time": "Lunch",
+                "reservation_needed": false,
+                "booking_tips": "Walk-ins welcome, busy on weekend afternoons",
+                "dress_code": "Casual",
+                "location": "Nano Nagle Place",
+                "local_tips": "Focus on sustainability and local produce; beautiful garden setting; great vegetarian and vegan options; located in peaceful cultural heritage site"
+            }
+        ],
+        "street_food": [
+            {
+                "name": "The English Market Food Stalls",
+                "specialties": [
+                    "Traditional Cork spiced beef",
+                    "Local artisanal cheeses",
+                    "Fresh seafood"
+                ],
+                "price_range": "€-€€",
+                "hours": "8:00 AM - 6:00 PM (Monday to Saturday)",
+                "location": "Grand Parade, City Centre",
+                "seating": "Limited, visit Farmgate Café upstairs for seating",
+                "local_tips": "Historic market dating from 1788; iconic Cork food experience; best traditional food shopping in the city; many stalls offer samples"
+            },
+            {
+                "name": "Miyazaki",
+                "specialties": [
+                    "Japanese takeaway",
+                    "Authentic ramen and donburi bowls",
+                    "Japanese curry"
+                ],
+                "price_range": "€€",
+                "hours": "12:00 PM - 9:00 PM (Tuesday to Saturday)",
+                "location": "Evergreen Street",
+                "seating": "Very limited counter seating",
+                "local_tips": "Tiny takeaway run by Michelin-starred chef Takashi Miyazaki; authentic Japanese street food; worth the wait; call ahead to order"
+            },
+            {
+                "name": "Cork Coffee Roasters",
+                "specialties": [
+                    "Artisan coffee",
+                    "Fresh pastries",
+                    "Light breakfast items"
+                ],
+                "price_range": "€-€€",
+                "hours": "7:30 AM - 6:00 PM",
+                "location": "Multiple locations around Cork City",
+                "seating": "Limited indoor seating",
+                "local_tips": "Cork's premier local coffee roaster; beans roasted on premises; friendly baristas; locations on Bridge Street, French Church Street and at Cork Airport"
+            }
+        ]
+    },
+    "bars_and_cafes": {
+        "coffee_shops": [
+            {
+                "name": "Three Fools Coffee",
+                "specialty": "Micro-roastery and specialty coffee",
+                "must_try": [
+                    "Single-origin filter coffee",
+                    "House-roasted espresso beans"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Modern, minimalist with industrial touches",
+                "best_time": "Morning",
+                "wifi_friendly": true,
+                "food_options": "Pastries and light bites",
+                "local_tips": "Cork's dedicated specialty coffee roasters; beans roasted on-site; knowledgeable baristas; good place to buy freshly roasted beans to take home"
+            },
+            {
+                "name": "Alchemy Coffee and Books",
+                "specialty": "Literary café with specialty coffee",
+                "must_try": [
+                    "Pour-over coffee selections",
+                    "Fresh baked goods from local producers"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Cozy hideaway with book-lined walls",
+                "best_time": "Afternoon",
+                "wifi_friendly": true,
+                "food_options": "Sandwiches, toasties, and cakes",
+                "local_tips": "Hidden gem in Barrack Street; popular with students and writers; good place to relax with a book; hosts occasional book clubs and readings"
+            },
+            {
+                "name": "The Bookshelf at the Elysian",
+                "specialty": "Contemporary café culture",
+                "must_try": [
+                    "Specialty coffee blends",
+                    "Homemade cakes and pastries"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Bright modern space with literary influences",
+                "best_time": "Morning or Afternoon",
+                "wifi_friendly": true,
+                "food_options": "All-day brunch and lunch options",
+                "local_tips": "Spacious café with good workspace options; popular with remote workers; excellent brunch menu; good meeting spot"
+            }
+        ],
+        "bars": [
+            {
+                "name": "The Mutton Lane Inn",
+                "type": "Traditional Irish Pub",
+                "specialty": "Traditional atmosphere and local beers",
+                "signature_drinks": [
+                    "Perfect pint of Murphy's Stout",
+                    "Wide selection of Irish whiskeys",
+                    "Local Cork craft beers"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Dark, intimate historic pub with candlelight",
+                "best_time": "Evening",
+                "food_options": "Light snacks only",
+                "reservation_needed": false,
+                "local_tips": "One of Cork's oldest pubs; located down a narrow lane next to the English Market; authentic local experience; no TVs or music; great for conversation"
+            },
+            {
+                "name": "The Franciscan Well Brewery",
+                "type": "Brewpub",
+                "specialty": "House-brewed craft beers",
+                "signature_drinks": [
+                    "Franciscan Well Rebel Red",
+                    "Chieftain IPA",
+                    "Seasonal brew specials"
+                ],
+                "price_range": "€€",
+                "atmosphere": "Historic brewery with large beer garden",
+                "best_time": "Evening",
+                "food_options": "Pompeii Pizza in the beer garden",
+                "reservation_needed": false,
+                "local_tips": "Cork's pioneering craft brewery; built on the site of an old Franciscan monastery; excellent wood-fired pizza in the beer garden; brewery tours available; regular beer festivals"
+            },
+            {
+                "name": "Cask",
+                "type": "Cocktail Bar",
+                "specialty": "Innovative seasonal cocktails",
+                "signature_drinks": [
+                    "Locally foraged ingredient cocktails",
+                    "Irish spirits with innovative preparations",
+                    "Seasonal botanical-focused drinks"
+                ],
+                "price_range": "€€€",
+                "atmosphere": "Stylish contemporary with outdoor garden",
+                "best_time": "Evening",
+                "food_options": "Small plates menu",
+                "reservation_needed": true,
+                "local_tips": "Award-winning cocktail bar; seasonal menu changes regularly; bartenders create custom drinks based on preferences; beautiful interior design; located in the Victorian Quarter"
+            },
+            {
+                "name": "Sin É",
+                "type": "Traditional Irish Music Pub",
+                "specialty": "Live Irish music sessions",
+                "signature_drinks": [
+                    "Local Cork stouts (Murphy's and Beamish)",
+                    "Irish whiskeys",
+                    "Local craft beers"
+                ],
+                "price_range": "€-€€",
+                "atmosphere": "Authentic Irish pub with traditional decor",
+                "best_time": "Evening",
+                "food_options": "None",
+                "reservation_needed": false,
+                "local_tips": "One of Cork's best traditional music pubs; regular live sessions; name means 'That's it' in Irish; historic venue dating from 1889; authentic Irish pub experience"
+            }
+        ]
+    },
+    "food_experiences": {
+        "food_tours": [
+            {
+                "name": "Fab Food Trails Cork",
+                "focus": "English Market and Cork's Food Heritage",
+                "duration": "3 hours",
+                "price_range": "€€",
+                "highlights": [
+                    "Guided tour of the English Market",
+                    "Meeting local food producers",
+                    "Traditional Cork foods and specialties"
+                ],
+                "booking_required": true,
+                "group_size": "Max 12 participants",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Book at least a week in advance; comfortable walking shoes recommended; tour runs rain or shine"
+            },
+            {
+                "name": "Taste the Marina",
+                "focus": "Cork's Modern Food Renaissance",
+                "duration": "4 hours",
+                "price_range": "€€€",
+                "highlights": [
+                    "Cork's redeveloped Marina area restaurants",
+                    "Craft beer and distillery tastings",
+                    "Modern Irish cuisine"
+                ],
+                "booking_required": true,
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Book 2 weeks ahead; focuses on Cork's contemporary food scene; includes transport back to city center"
+            },
+            {
+                "name": "Cork Whiskey Walk",
+                "focus": "Irish Whiskey Tradition",
+                "duration": "3 hours",
+                "price_range": "€€-€€€",
+                "highlights": [
+                    "Visits to traditional whiskey bars",
+                    "Jameson Experience insights",
+                    "Whiskey and food pairings"
+                ],
+                "booking_required": true,
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English"
+                ],
+                "booking_tips": "Book 1-2 weeks ahead; includes substantial whiskey tastings; eat before the tour"
+            }
+        ],
+        "cooking_classes": [
+            {
+                "name": "Ballymaloe Cookery School",
+                "cuisine_focus": "Farm-to-Table Irish Cooking",
+                "duration": "Half day or full day options",
+                "price_range": "€€€",
+                "what_you_learn": [
+                    "Traditional Irish dishes with modern twists",
+                    "Cooking with seasonal East Cork produce",
+                    "Bread making and pastry skills"
+                ],
+                "group_size": "Max 10 participants",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "All ingredients, recipes, full meal with wine pairing, tour of organic farm"
+                ],
+                "booking_tips": "Located outside Cork city (30 min drive); book several weeks ahead; world-famous cooking school; day courses available for visitors"
+            },
+            {
+                "name": "Cork Butter Museum Workshop",
+                "cuisine_focus": "Traditional Irish Butter Making",
+                "duration": "2 hours",
+                "price_range": "€€",
+                "what_you_learn": [
+                    "Traditional Irish butter-making techniques",
+                    "History of Cork's butter trade",
+                    "Flavored butter preparations"
+                ],
+                "group_size": "Max 8 participants",
+                "languages": [
+                    "English"
+                ],
+                "includes": [
+                    "All ingredients, take-home butter samples, museum entry, tea and scones"
+                ],
+                "booking_tips": "Workshops run monthly; book online; unique insight into Cork's historic butter trade; suitable for families"
+            }
+        ],
+        "markets": [
+            {
+                "name": "The English Market",
+                "type": "Historic Covered Food Market",
+                "highlights": [
+                    "Traditional Cork spiced beef",
+                    "Local farmhouse cheeses",
+                    "Fresh seafood from nearby Atlantic waters",
+                    "Artisanal breads and pastries"
+                ],
+                "hours": "Monday to Saturday, 8 AM - 6 PM",
+                "best_time": "Weekday mornings",
+                "location": "Grand Parade, City Centre",
+                "local_tips": "Cork's culinary landmark since 1788; best food market in Ireland; visit the Farmgate Café upstairs for lunch; traders happy to offer samples and advice"
+            },
+            {
+                "name": "Coal Quay Market",
+                "type": "Open-air Market",
+                "highlights": [
+                    "Local produce",
+                    "Street food vendors",
+                    "Crafts and antiques",
+                    "Flea market finds"
+                ],
+                "hours": "Saturdays, 9 AM - 4 PM",
+                "best_time": "Morning",
+                "location": "Cornmarket Street",
+                "local_tips": "Historic trading area of Cork; more casual than the English Market; good for browsing; mix of food and non-food items"
+            },
+            {
+                "name": "Mahon Point Farmers' Market",
+                "type": "Weekly Farmers' Market",
+                "highlights": [
+                    "Organic local produce",
+                    "Artisan food producers",
+                    "Hot food stalls with international cuisine",
+                    "Local crafts"
+                ],
+                "hours": "Thursdays, 10 AM - 2 PM",
+                "best_time": "Mid-morning",
+                "location": "Mahon Point Shopping Centre",
+                "local_tips": "One of Ireland's largest farmers' markets; excellent for lunch from diverse food stalls; mix of produce and prepared foods; accessible by bus from city center"
+            }
+        ]
+    },
+    "seasonal_specialties": {
+        "spring": [
+            "New season lamb from West Cork",
+            "Cork rhubarb in desserts and preserves",
+            "Foraged wild garlic in restaurant specials"
+        ],
+        "summer": [
+            "Freshly caught mackerel and summer seafood",
+            "Strawberries from East Cork farms",
+            "Local summer vegetable dishes at farm-to-table restaurants"
+        ],
+        "autumn": [
+            "Traditional Cork spiced beef preparations",
+            "Apple dishes using fruit from local orchards",
+            "Game dishes featuring pheasant and venison from Cork estates"
+        ],
+        "winter": [
+            "Traditional Irish Christmas cake made with Cork stout",
+            "Hearty Irish stews in local pubs",
+            "Festive seafood platters featuring native oysters"
+        ]
+    }
+}

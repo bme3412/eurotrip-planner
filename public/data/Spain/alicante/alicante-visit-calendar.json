@@ -1,0 +1,939 @@
+{
+  "months": {
+    "january": {
+      "name": "January",
+      "ranges": [
+        {
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "score": 3,
+          "special": true,
+          "event": "Epiphany (Día de los Reyes Magos)",
+          "notes": "Cool weather (10-17°C), low tourist crowds; local celebrations on Jan 5-6 bring moderate crowds.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 4,
+            "budget": 4,
+            "luxury": 3
+          }
+        },
+        {
+          "days": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "score": 2,
+          "special": false,
+          "event": null,
+          "notes": "Cool, mild winter weather; low crowds but many businesses may have reduced hours post-holiday.",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 2,
+            "solo": 3,
+            "business": 3,
+            "budget": 4,
+            "luxury": 2
+          }
+        },
+        {
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "score": 3,
+          "special": false,
+          "event": null,
+          "notes": "Slightly warmer, sunny days; ideal for budget travelers and those seeking quiet city exploration.",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 5,
+            "luxury": 3
+          }
+        }
+      ]
+    },
+    "february": {
+      "name": "February",
+      "ranges": [
+        {
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "score": 3,
+          "special": false,
+          "event": null,
+          "notes": "Mild weather, occasional rain; low tourist numbers; good for off-season travelers.",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 5,
+            "luxury": 3
+          }
+        },
+        {
+          "days": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "score": 4,
+          "special": true,
+          "event": "Carnival Celebrations",
+          "notes": "Carnival events with parades and festivities; mild weather enhances experience; moderate crowds.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
+        },
+        {
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
+          "score": 3,
+          "special": false,
+          "event": null,
+          "notes": "Stable mild weather, fewer tourists; good for sightseeing and budget travel.",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 4,
+            "business": 3,
+            "budget": 5,
+            "luxury": 3
+          }
+        }
+      ]
+    },
+    "march": {
+      "name": "March",
+      "ranges": [
+        {
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "score": 4,
+          "special": false,
+          "event": null,
+          "notes": "Spring starts with pleasant 15-20°C temps; perfect for outdoor activities; low to moderate crowds.",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
+        },
+        {
+          "days": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "score": 5,
+          "special": true,
+          "event": "Semana Santa (Holy Week) begins late March or early April",
+          "notes": "Some years Holy Week starts late March with vibrant religious processions attracting many visitors; weather warm and sunny.",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
+        },
+        {
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "score": 4,
+          "special": false,
+          "event": null,
+          "notes": "Generally warm and sunny with occasional rain; ideal for hiking and beach walks; moderate crowds.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 3,
+            "budget": 4,
+            "luxury": 4
+          }
+        }
+      ]
+    },
+    "april": {
+      "name": "April",
+      "ranges": [
+        {
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "score": 5,
+          "special": true,
+          "event": "Semana Santa (Holy Week) or Easter Week",
+          "notes": "Holy Week with colorful processions and cultural events; warm weather 17-22°C; very popular with visitors.",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
+        },
+        {
+          "days": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "score": 4,
+          "special": false,
+          "event": null,
+          "notes": "Post-Easter mild weather, pleasant for sightseeing and outdoor dining; crowds drop slightly but still moderate.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 4
+          }
+        },
+        {
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "score": 5,
+          "special": true,
+          "event": "Alicante May Festival Preparations / Pre-Summer Season",
+          "notes": "Warming up to 22-25°C, sunny days; perfect beach and city weather; crowds increase as summer approaches.",
+          "crowdLevel": "Moderate to High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 4,
+            "luxury": 5
+          }
+        }
+      ]
+    },
+    "may": {
+      "name": "May",
+      "ranges": [
+        {
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "score": 5,
+          "special": true,
+          "event": "Fiestas de Mayo (May Festival)",
+          "notes": "Major local festival with parades, concerts, and cultural events; warm weather around 24-27°C; lively atmosphere and high crowds.",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 3,
+            "luxury": 5
+          }
+        },
+        {
+          "days": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "score": 5,
+          "special": false,
+          "event": null,
+          "notes": "Ideal beach weather, warm and sunny with low rain; moderate to high tourists; great for outdoor activities.",
+          "crowdLevel": "High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 4,
+            "luxury": 5
+          }
+        },
+        {
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "score": 5,
+          "special": false,
+          "event": null,
+          "notes": "Consistently warm and sunny; beach season in full swing; very popular with travelers; expect busy spots.",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 5,
+            "business": 4,
+            "budget": 3,
+            "luxury": 5
+          }
+        }
+      ]
+    },
+    "june": {
+      "name": "June",
+      "ranges": [
+        {
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "score": 5,
+          "special": false,
+          "event": null,
+          "notes": "Start of high summer season; temperatures 27-30°C; beaches and nightlife lively; very high tourist numbers.",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 5,
+            "couples": 5,
+            "solo": 4,
+            "business": 4,
+            "budget": 3,
+            "luxury": 5
+          }
+        },
+        {
+          "days": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "score": 5,
+          "special": true,
+          "event": "Bonfires of San Juan (June 23-24)",
+          "notes": "Popular midsummer festival with bonfires and beach parties; hot weather; attracts large crowds, especially young travelers.",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 5,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
+        }
+      ]
+    },
+    "july": {
+      "name": "July",
+      "ranges": [
+        {
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "score": 4,
+          "special": false,
+          "event": null,
+          "notes": "Peak summer heat (30-33°C); beaches crowded; vibrant nightlife; some may find heat intense.",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
+        },
+        {
+          "days": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "score": 4,
+          "special": false,
+          "event": null,
+          "notes": "Continued hot weather and peak tourism; crowded beaches and attractions; best for those enjoying lively summer scenes.",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
+        }
+      ]
+    },
+    "august": {
+      "name": "August",
+      "ranges": [
+        {
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "score": 4,
+          "special": true,
+          "event": "Fiestas de la Virgen del Carmen (August 15)",
+          "notes": "Hot weather continues; popular maritime festival with boat processions; very crowded; lively atmosphere.",
+          "crowdLevel": "Very High",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 3,
+            "budget": 3,
+            "luxury": 5
+          }
+        },
+        {
+          "days": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "score": 3,
+          "special": false,
+          "event": null,
+          "notes": "End of peak season; very hot (sometimes 33+°C); many locals on holiday, some restaurants closed; crowds thin but weather intense.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 2,
+            "budget": 2,
+            "luxury": 4
+          }
+        }
+      ]
+    },
+    "september": {
+      "name": "September",
+      "ranges": [
+        {
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "score": 4,
+          "special": false,
+          "event": null,
+          "notes": "Weather starts cooling to 26-29°C; sea still warm; crowds decrease; good for beach and city exploration.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 5
+          }
+        },
+        {
+          "days": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "score": 4,
+          "special": true,
+          "event": "Alicante Film Festival (mid-September)",
+          "notes": "Warm weather with mild evenings; cultural festival attracts visitors; moderate crowds and pleasant conditions.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 4,
+            "business": 4,
+            "budget": 4,
+            "luxury": 5
+          }
+        }
+      ]
+    },
+    "october": {
+      "name": "October",
+      "ranges": [
+        {
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "score": 4,
+          "special": false,
+          "event": null,
+          "notes": "Temperatures drop to 20-25°C; pleasant for walking and sightseeing; lower crowds; occasional rain possible.",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 4,
+            "business": 4,
+            "budget": 5,
+            "luxury": 4
+          }
+        },
+        {
+          "days": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "score": 3,
+          "special": false,
+          "event": null,
+          "notes": "Cooling weather, more rain; fewer tourists; good budget option but some outdoor activities may be limited.",
+          "crowdLevel": "Low",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 3,
+            "budget": 5,
+            "luxury": 3
+          }
+        }
+      ]
+    },
+    "november": {
+      "name": "November",
+      "ranges": [
+        {
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "score": 2,
+          "special": false,
+          "event": null,
+          "notes": "Cooler and wetter weather; average 14-19°C; low tourist activity; some attractions may close early.",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 2,
+            "solo": 3,
+            "business": 3,
+            "budget": 5,
+            "luxury": 2
+          }
+        },
+        {
+          "days": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "score": 2,
+          "special": false,
+          "event": null,
+          "notes": "Rain increases; cooler temps; quiet season; good for budget travelers seeking solitude.",
+          "crowdLevel": "Very Low",
+          "travelerTypes": {
+            "families": 2,
+            "couples": 2,
+            "solo": 3,
+            "business": 3,
+            "budget": 5,
+            "luxury": 2
+          }
+        }
+      ]
+    },
+    "december": {
+      "name": "December",
+      "ranges": [
+        {
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "score": 3,
+          "special": false,
+          "event": null,
+          "notes": "Cool, mild weather with occasional rain; Christmas preparations start; low to moderate crowds.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 3,
+            "couples": 3,
+            "solo": 3,
+            "business": 4,
+            "budget": 4,
+            "luxury": 3
+          }
+        },
+        {
+          "days": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "score": 4,
+          "special": true,
+          "event": "Christmas Markets and Festivities",
+          "notes": "Festive atmosphere with markets and lights; mild weather; moderate crowds looking for holiday experiences.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 4,
+            "solo": 3,
+            "business": 4,
+            "budget": 3,
+            "luxury": 4
+          }
+        },
+        {
+          "days": [
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "score": 4,
+          "special": true,
+          "event": "Christmas and New Year's Eve",
+          "notes": "Holiday period with special events, dinners, and celebrations; mild weather; higher prices and moderate crowds.",
+          "crowdLevel": "Moderate",
+          "travelerTypes": {
+            "families": 4,
+            "couples": 5,
+            "solo": 3,
+            "business": 3,
+            "budget": 2,
+            "luxury": 5
+          }
+        }
+      ]
+    }
+  }
+}
