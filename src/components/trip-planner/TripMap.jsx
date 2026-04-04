@@ -153,10 +153,13 @@ export default function TripMap({
     ];
   }, [cities, suggestions]);
 
+  // Determine if we have data to display
+  const hasData = cities.length > 0 || suggestions.length > 0;
+
   // Initialize map
   useEffect(() => {
     if (map.current) return;
-    if (cities.length === 0 && suggestions.length === 0) return;
+    if (!hasData) return;
 
     const initMap = async () => {
       try {
@@ -219,7 +222,8 @@ export default function TripMap({
         setMapLoaded(false);
       }
     };
-  }, [cities.length > 0 || suggestions.length > 0]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hasData]);
 
   // Update markers and routes when data changes
   useEffect(() => {

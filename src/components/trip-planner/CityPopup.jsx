@@ -47,7 +47,7 @@ export default function CityPopup({ city, onSelect, onClose }) {
         {/* Why go description */}
         {city.whyGo && (
           <p className="text-sm text-[#5a5549] leading-relaxed line-clamp-3">
-            "{city.whyGo}"
+            &ldquo;{city.whyGo}&rdquo;
           </p>
         )}
 

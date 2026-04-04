@@ -122,7 +122,7 @@ function CitySearchDropdown({ value, onSelect, onClose, label }) {
             </svg>
           </div>
           <div className="text-left">
-            <div className="font-semibold">I'm flexible</div>
+            <div className="font-semibold">I&apos;m flexible</div>
             <div className="text-xs text-gray-500">Show me all options</div>
           </div>
           {!value && (
@@ -136,7 +136,7 @@ function CitySearchDropdown({ value, onSelect, onClose, label }) {
       {/* Section label */}
       <div className="px-5 pt-3 pb-2">
         <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
-          {search ? `Results for "${search}"` : "Popular starting points"}
+          {search ? `Results for \u201c${search}\u201d` : "Popular starting points"}
         </span>
       </div>
 
@@ -191,7 +191,7 @@ function CitySearchDropdown({ value, onSelect, onClose, label }) {
 
         {filteredCities.length === 0 && search && (
           <div className="text-center py-8 text-gray-500">
-            <p className="text-sm">No cities found for "{search}"</p>
+            <p className="text-sm">No cities found for &ldquo;{search}&rdquo;</p>
             <p className="text-xs mt-1">Try a different search term</p>
           </div>
         )}
@@ -264,7 +264,7 @@ export default function TripSearchBar({ value, onChange, onSubmit, className = "
             Where do you want to go?
           </h3>
           <p className="text-gray-500 text-base">
-            Tell us your start and end points, and we'll suggest the best cities to visit
+            Tell us your start and end points, and we&apos;ll suggest the best cities to visit
           </p>
         </div>
 

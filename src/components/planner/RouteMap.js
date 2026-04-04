@@ -136,6 +136,7 @@ export default function RouteMap({ cities = [], stops = [], editingStopIndex = n
         map.current = null;
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasCities]);
 
   // Render route segments and markers

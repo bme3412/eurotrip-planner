@@ -252,6 +252,7 @@ export default function GapFillerMap({
     } catch (err) {
       console.error('Marker render error:', err);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mapLoaded, suggestions, anchorCoords, anchorCity, selectedCity, hoveredCity, bounds, getPinColor, onHoverCity]);
 
   // Show popup for a city
