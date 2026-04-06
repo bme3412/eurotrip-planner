@@ -227,7 +227,7 @@ export default function AnchoredWizard() {
     return result;
   }, [startCity, endCity, startCityDays, endCityDays]);
 
-  // Calculate the gap between start and end cities
+  // Calculate the gap between start and end cities (accounting for intermediate stops)
   const gaps = useMemo(() => {
     if (!startCity || !endCity || startCityDays.length === 0 || endCityDays.length === 0) {
       return [];
@@ -248,7 +248,18 @@ export default function AnchoredWizard() {
 
     const gapStartDate = new Date(gapStart + 'T12:00:00');
     const gapEndDate = new Date(gapEnd + 'T12:00:00');
-    const gapDays = Math.round((gapEndDate - gapStartDate) / (1000 * 60 * 60 * 24)) + 1;
+    const totalGapDays = Math.round((gapEndDate - gapStartDate) / (1000 * 60 * 60 * 24)) + 1;
+
+    if (totalGapDays <= 0) return [];
+
+    // Subtract days already filled by intermediate stops
+    const filledDays = new Set();
+    intermediateStops.forEach(stop => {
+      (stop.days || []).forEach(d => filledDays.add(d));
+    });
+
+    // Calculate remaining unfilled gap days
+    const gapDays = totalGapDays - filledDays.size;
 
     if (gapDays <= 0) return [];
 
@@ -257,12 +268,14 @@ export default function AnchoredWizard() {
       startDate: gapStart,
       endDate: gapEnd,
       days: gapDays,
+      totalDays: totalGapDays,
+      filledDays: filledDays.size,
       previousCity: startCity.id,
       previousCityName: startCity.name,
       nextCity: endCity.id,
       nextCityName: endCity.name,
     }];
-  }, [startCity, endCity, startCityDays, endCityDays]);
+  }, [startCity, endCity, startCityDays, endCityDays, intermediateStops]);
 
   // Build the full itinerary for timeline/map display
   const itinerary = useMemo(() => {
