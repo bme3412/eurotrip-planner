@@ -12,8 +12,8 @@ import TripMap from './TripMap';
 
 const STEPS = [
   { id: 'setup', label: 'Your Trip', description: 'Where and when are you traveling?' },
-  { id: 'preferences', label: 'Preferences', description: 'How do you like to travel?' },
   { id: 'stops', label: 'Add Stops', description: 'Discover cities along your route' },
+  { id: 'preferences', label: 'Preferences', description: 'How do you like to travel?' },
   { id: 'review', label: 'Review', description: 'Finalize your trip' },
 ];
 
@@ -136,6 +136,64 @@ export default function AnchoredWizard() {
       setEndCityDays([tripDates.end]);
     }
   }, [endCity, tripDates?.end, endCityDays.length]);
+
+  // === CASCADING UPDATES: When Step 1 changes, update Step 2 data ===
+
+  // Effect 1: Watch trip dates - filter intermediate stops to valid range
+  useEffect(() => {
+    if (!tripDates.start || !tripDates.end) return;
+
+    const start = new Date(tripDates.start + 'T00:00:00');
+    const end = new Date(tripDates.end + 'T23:59:59');
+
+    setIntermediateStops(prev => {
+      const filtered = prev.map(stop => ({
+        ...stop,
+        days: (stop.days || []).filter(d => {
+          const date = new Date(d + 'T12:00:00');
+          return date >= start && date <= end;
+        })
+      })).filter(stop => stop.days.length > 0);
+
+      // Only update if something changed
+      if (JSON.stringify(filtered) !== JSON.stringify(prev)) {
+        return filtered;
+      }
+      return prev;
+    });
+
+    // Clear gap selections for regeneration
+    setStopSelections({});
+  }, [tripDates.start, tripDates.end]);
+
+  // Effect 2: Watch anchor city changes - clear selections when route changes
+  useEffect(() => {
+    if (startCity?.id || endCity?.id) {
+      setStopSelections({});
+    }
+  }, [startCity?.id, endCity?.id]);
+
+  // Effect 3: Watch anchor day changes - remove overlapping intermediate days
+  useEffect(() => {
+    if (!startCityDays.length && !endCityDays.length) return;
+
+    const anchorDays = new Set([...startCityDays, ...endCityDays]);
+
+    setIntermediateStops(prev => {
+      const filtered = prev.map(stop => ({
+        ...stop,
+        days: (stop.days || []).filter(d => !anchorDays.has(d))
+      })).filter(stop => stop.days.length > 0);
+
+      // Only update if something changed
+      if (JSON.stringify(filtered) !== JSON.stringify(prev)) {
+        return filtered;
+      }
+      return prev;
+    });
+
+    setStopSelections({});
+  }, [startCityDays, endCityDays]);
 
   // Build anchors from start/end cities for compatibility with existing gap logic
   const anchors = useMemo(() => {
