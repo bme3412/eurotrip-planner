@@ -688,6 +688,81 @@ function ViewModeToggle({ viewMode, onChangeMode }) {
 }
 
 /**
+ * CurrentRouteCard - Shows a city in the current route
+ */
+function CurrentRouteCard({ city, days, label, isRemovable, onRemove }) {
+  return (
+    <div className="flex-shrink-0 w-[180px] p-4 bg-white rounded-xl border border-[#e5e0d8] shadow-sm">
+      <div className="text-[9px] font-semibold text-[#8a8578] uppercase tracking-wider mb-2">
+        {label}
+      </div>
+      <div className="flex items-center gap-2 mb-1">
+        <MapPin className="w-4 h-4 text-[#a08545]" />
+        <span className="font-medium text-[#2a2520]">{city.name || city.cityName}</span>
+      </div>
+      <div className="text-xs text-[#6a6459]">{days} days</div>
+      {isRemovable && onRemove && (
+        <button
+          type="button"
+          onClick={onRemove}
+          className="mt-2 text-xs text-[#a5a098] hover:text-[#991b1b]"
+        >
+          Remove
+        </button>
+      )}
+    </div>
+  );
+}
+
+/**
+ * CurrentRouteDisplay - Shows the full current route as cards
+ */
+function CurrentRouteDisplay({ startCity, endCity, intermediateStops, startCityDays, endCityDays, onRemoveStop }) {
+  if (!startCity) return null;
+
+  return (
+    <div className="mb-6">
+      <div className="flex items-center gap-2 mb-3">
+        <Route className="w-4 h-4 text-[#a08545]" />
+        <span className="text-sm font-medium text-[#2a2520]">Your Current Route</span>
+        <span className="text-xs text-[#8a8578]">
+          ({1 + (intermediateStops?.length || 0) + (endCity ? 1 : 0)} cities)
+        </span>
+      </div>
+      <div className="flex gap-3 overflow-x-auto pb-2">
+        {/* Start City */}
+        <CurrentRouteCard
+          city={startCity}
+          days={startCityDays?.length || 0}
+          label="Start"
+        />
+
+        {/* Intermediate Stops */}
+        {intermediateStops?.map((stop, idx) => (
+          <CurrentRouteCard
+            key={stop.id}
+            city={stop.city}
+            days={stop.days?.length || 0}
+            label={`Stop ${idx + 1}`}
+            isRemovable
+            onRemove={() => onRemoveStop?.(stop.id)}
+          />
+        ))}
+
+        {/* End City */}
+        {endCity && (
+          <CurrentRouteCard
+            city={endCity}
+            days={endCityDays?.length || 0}
+            label="End"
+          />
+        )}
+      </div>
+    </div>
+  );
+}
+
+/**
  * StepGaps - Main component for filling gaps in the trip
  */
 export default function StepGaps({
@@ -704,6 +779,11 @@ export default function StepGaps({
   onHoverSuggestion,
   startCity,
   endCity,
+  intermediateStops = [],
+  startCityDays = [],
+  endCityDays = [],
+  tripDates,
+  onRemoveStop,
 }) {
   const [viewMode, setViewMode] = useState('browse'); // 'browse' | 'ai'
 
@@ -728,21 +808,27 @@ export default function StepGaps({
     setViewMode('browse');
   };
 
-  if (gaps.length === 0) {
-    return (
-      <div className="text-center py-16">
-        <div className="text-[#6a6459] mb-2 font-light">No gaps to fill</div>
-        <div className="text-sm text-[#8a8578] font-light">
-          Your anchors cover the entire trip. Adjust dates if needed.
-        </div>
-      </div>
-    );
-  }
+  // Check if there are any stops at all (including intermediate from Step 1)
+  const hasIntermediateStops = intermediateStops.length > 0;
+  const hasGapSelections = selections.length > 0;
+  const hasAnyStops = hasIntermediateStops || hasGapSelections;
 
   return (
     <div className="space-y-4">
-      {/* View mode toggle */}
-      <ViewModeToggle viewMode={viewMode} onChangeMode={setViewMode} />
+      {/* Current Route - always show if there's a start city */}
+      <CurrentRouteDisplay
+        startCity={startCity}
+        endCity={endCity}
+        intermediateStops={intermediateStops}
+        startCityDays={startCityDays}
+        endCityDays={endCityDays}
+        onRemoveStop={onRemoveStop}
+      />
+
+      {/* View mode toggle - only show if there are gaps to fill */}
+      {gaps.length > 0 && (
+        <ViewModeToggle viewMode={viewMode} onChangeMode={setViewMode} />
+      )}
 
       {/* Remaining days bar - shows allocation progress */}
       {totalGapDays > 0 && (
@@ -752,6 +838,19 @@ export default function StepGaps({
           startCityName={startCity?.name}
           endCityName={endCity?.name}
         />
+      )}
+
+      {/* All days filled message */}
+      {gaps.length === 0 && hasAnyStops && (
+        <div className="p-4 bg-[#f0fdf4] border border-[#bbf7d0] rounded-xl">
+          <div className="flex items-center gap-2 text-[#166534]">
+            <Check className="w-5 h-5" />
+            <span className="font-medium">All days allocated!</span>
+          </div>
+          <p className="text-sm text-[#15803d] mt-1">
+            Your route is complete. You can still browse alternatives below to swap cities.
+          </p>
+        </div>
       )}
 
       {/* AI Suggest Mode */}
@@ -769,7 +868,7 @@ export default function StepGaps({
       )}
 
       {/* Browse Mode - Gap cards */}
-      {viewMode === 'browse' && (
+      {viewMode === 'browse' && gaps.length > 0 && (
         <>
           <div className="space-y-4">
             {gaps.map((gap, index) => (

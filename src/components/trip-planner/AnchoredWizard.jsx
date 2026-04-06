@@ -727,9 +727,14 @@ export default function AnchoredWizard() {
                       preferences={preferences}
                       startCity={startCity}
                       endCity={endCity}
+                      intermediateStops={intermediateStops}
+                      startCityDays={startCityDays}
+                      endCityDays={endCityDays}
+                      tripDates={tripDates}
                       onFillGap={handleFillGap}
                       onClearGap={handleClearGap}
                       onUpdateSelection={handleUpdateSelection}
+                      onRemoveStop={handleRemoveIntermediateStop}
                       onSuggestionsLoaded={setCurrentSuggestions}
                       hoveredSuggestion={hoveredSuggestion}
                       onHoverSuggestion={setHoveredSuggestion}
