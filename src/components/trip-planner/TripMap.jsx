@@ -48,7 +48,7 @@ export default function TripMap({
   // Extract cities with coordinates from itinerary
   const cities = useMemo(() => {
     return itinerary
-      .filter(item => item.type === 'anchor' || item.type === 'gap-filled')
+      .filter(item => item.type === 'anchor' || item.type === 'gap-filled' || item.type === 'intermediate')
       .map((item, index) => {
         const cityId = item.city || item.cityId;
         const coords = cityCoords[cityId];
@@ -57,8 +57,8 @@ export default function TripMap({
           name: item.cityName || coords?.name || cityId,
           country: item.country || coords?.country,
           type: item.type,
-          lng: coords?.lng,
-          lat: coords?.lat,
+          lng: item.lng || coords?.lng,
+          lat: item.lat || coords?.lat,
           index,
           // Transport info for how you GET to this city
           transportType: item.transportType,
@@ -273,13 +273,17 @@ export default function TripMap({
       // Add itinerary markers (on top of suggestions)
       cities.forEach((city, index) => {
         const isAnchor = city.type === 'anchor';
+        const isIntermediate = city.type === 'intermediate';
         const isFirst = index === 0;
         const isLast = index === cities.length - 1;
+
+        // Determine marker style class
+        const markerClass = isAnchor ? 'anchor' : isIntermediate ? 'intermediate' : 'gap-filled';
 
         const el = document.createElement('div');
         el.className = 'trip-marker';
         el.innerHTML = `
-          <div class="trip-marker-pin ${isAnchor ? 'anchor' : 'gap-filled'} ${isFirst ? 'first' : ''} ${isLast ? 'last' : ''}">
+          <div class="trip-marker-pin ${markerClass} ${isFirst ? 'first' : ''} ${isLast ? 'last' : ''}">
             <span class="marker-num">${index + 1}</span>
           </div>
           <div class="trip-marker-label">${city.name}</div>
@@ -400,6 +404,10 @@ export default function TripMap({
 
         .trip-marker-pin.gap-filled {
           background: linear-gradient(135deg, #c9a227, #a08545);
+        }
+
+        .trip-marker-pin.intermediate {
+          background: linear-gradient(135deg, #6366f1, #4f46e5);
         }
 
         .trip-marker-pin.first,

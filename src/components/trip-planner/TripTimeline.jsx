@@ -110,6 +110,27 @@ export default function TripTimeline({ tripDates, items, onClearGap }) {
                 </button>
               </motion.div>
             )}
+
+            {item.type === 'intermediate' && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.05 }}
+                className="relative group flex-shrink-0"
+              >
+                <div className="px-2.5 py-1.5 rounded-md bg-[#eef2ff] border border-[#6366f1]/30">
+                  <div className="flex items-center gap-1.5">
+                    <MapPin className="w-3 h-3 text-[#6366f1]" />
+                    <span className="text-xs font-medium text-[#2a2520]">
+                      {item.cityName}
+                    </span>
+                    <span className="text-[10px] text-[#6366f1]">
+                      {item.days || getDayCount(item.startDate, item.endDate)}d
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            )}
           </div>
         ))}
       </div>

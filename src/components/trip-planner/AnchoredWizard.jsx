@@ -288,22 +288,43 @@ export default function AnchoredWizard() {
         items.push({ type: 'anchor', ...start });
       }
 
-      // Add gap or filled stops
-      if (gaps.length > 0) {
-        const gap = gaps[0];
-        if (Object.keys(stopSelections).length > 0) {
-          // Add filled stops
-          Object.values(stopSelections).forEach(stop => {
-            items.push({
-              type: 'gap-filled',
-              ...stop,
-              gapId: 'main-gap',
-            });
+      // Add intermediate stops from Step 1 (sorted by first day)
+      const sortedIntermediateStops = [...intermediateStops].sort((a, b) => {
+        const aDate = a.days?.[0] || '';
+        const bDate = b.days?.[0] || '';
+        return aDate.localeCompare(bDate);
+      });
+
+      sortedIntermediateStops.forEach(stop => {
+        if (stop.city) {
+          items.push({
+            type: 'intermediate',
+            id: stop.id,
+            city: stop.city.id,
+            cityName: stop.city.name,
+            country: stop.city.country,
+            days: stop.days?.length || 0,
+            startDate: stop.days?.[0],
+            endDate: stop.days?.[stop.days.length - 1],
+            lat: stop.city.lat,
+            lng: stop.city.lng,
           });
-        } else {
-          // Show empty gap
-          items.push({ type: 'gap', ...gap });
         }
+      });
+
+      // Add gap selections from Step 2
+      if (Object.keys(stopSelections).length > 0) {
+        Object.values(stopSelections).forEach(stop => {
+          items.push({
+            type: 'gap-filled',
+            ...stop,
+            gapId: 'main-gap',
+          });
+        });
+      } else if (gaps.length > 0 && intermediateStops.length === 0) {
+        // Show empty gap only if no intermediate stops
+        const gap = gaps[0];
+        items.push({ type: 'gap', ...gap });
       }
 
       // Add end city
@@ -314,7 +335,7 @@ export default function AnchoredWizard() {
     }
 
     return items;
-  }, [anchors, gaps, stopSelections]);
+  }, [anchors, gaps, stopSelections, intermediateStops]);
 
   const validateStep = () => {
     setError(null);
