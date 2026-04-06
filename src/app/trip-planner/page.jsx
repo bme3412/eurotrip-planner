@@ -1,9 +1,38 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import AnchoredWizard from '@/components/trip-planner/AnchoredWizard';
+import { ConversationalPlanner } from '@/components/conversation';
 
-export default function TripPlannerPage() {
+/**
+ * Loading fallback for conversation mode
+ */
+function ConversationLoading() {
+  return (
+    <div className="h-screen flex items-center justify-center bg-slate-50">
+      <div className="text-center">
+        <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+        <p className="text-slate-600">Loading trip planner...</p>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Inner component that reads search params
+ */
+function TripPlannerContent() {
+  const searchParams = useSearchParams();
+  const mode = searchParams.get('mode');
+
+  // Show conversational mode if explicitly requested
+  if (mode === 'conversation') {
+    return <ConversationalPlanner />;
+  }
+
+  // Default: Show advanced wizard mode
   return (
     <div className="min-h-screen relative overflow-hidden bg-[#faf8f5]">
       {/* Atmospheric background */}
@@ -33,19 +62,6 @@ export default function TripPlannerPage() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-10">
-        {/* Header */}
-        <header className="text-center mb-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="text-2xl sm:text-3xl font-light text-[#2a2520] leading-tight tracking-tight"
-            style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-          >
-            Plan Your <span className="italic">European Adventure</span>
-          </motion.h1>
-        </header>
-
         {/* Wizard */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -56,5 +72,20 @@ export default function TripPlannerPage() {
         </motion.div>
       </div>
     </div>
+  );
+}
+
+/**
+ * TripPlannerPage - Entry point for trip planning
+ *
+ * Supports two modes:
+ * - Default: Advanced step-by-step wizard
+ * - ?mode=conversation: Conversational AI-powered planning
+ */
+export default function TripPlannerPage() {
+  return (
+    <Suspense fallback={<ConversationLoading />}>
+      <TripPlannerContent />
+    </Suspense>
   );
 }

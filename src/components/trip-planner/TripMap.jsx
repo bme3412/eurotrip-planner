@@ -26,7 +26,7 @@ for (const city of citiesData) {
  * Shows:
  * - Anchor cities (green markers, numbered)
  * - Filled gap cities (gold markers, numbered)
- * - Route lines between cities
+ * - Animated transport icons moving between cities
  * - Suggestion cities (smaller, score-colored pins) when provided
  */
 export default function TripMap({
@@ -42,7 +42,6 @@ export default function TripMap({
   const mapboxglRef = useRef(null);
   const markersRef = useRef([]);
   const suggestionMarkersRef = useRef([]);
-  const transitLabelsRef = useRef([]);
   const [mapLoaded, setMapLoaded] = useState(false);
   const [error, setError] = useState(null);
 
@@ -116,17 +115,6 @@ export default function TripMap({
 
   // Animated transport icons
   const animationStates = useTransportAnimation(routeSegments, map, mapLoaded);
-
-  // Get transport icon based on type
-  const getTransportIcon = useCallback((type) => {
-    switch (type?.toLowerCase()) {
-      case 'train': return '🚂';
-      case 'flight': return '✈️';
-      case 'bus': return '🚌';
-      case 'ferry': return '⛴️';
-      default: return '🚂';
-    }
-  }, []);
 
   // Get pin color based on score
   const getPinColor = useCallback((score) => {
@@ -237,96 +225,14 @@ export default function TripMap({
       markersRef.current = [];
       suggestionMarkersRef.current.forEach(m => m.remove());
       suggestionMarkersRef.current = [];
-      transitLabelsRef.current.forEach(m => m.remove());
-      transitLabelsRef.current = [];
 
-      // Remove old routes
+      // Clean up any old route layers (no longer drawing lines between cities)
       ['route-line', 'route-glow', 'suggestion-line', 'suggestion-glow'].forEach(id => {
         if (map.current.getLayer(id)) map.current.removeLayer(id);
       });
       ['route', 'suggestion-route'].forEach(id => {
         if (map.current.getSource(id)) map.current.removeSource(id);
       });
-
-      // Add route line for itinerary cities
-      if (cities.length > 1) {
-        const coordinates = cities.map(c => [c.lng, c.lat]);
-
-        map.current.addSource('route', {
-          type: 'geojson',
-          data: {
-            type: 'Feature',
-            geometry: { type: 'LineString', coordinates },
-          },
-        });
-
-        map.current.addLayer({
-          id: 'route-glow',
-          type: 'line',
-          source: 'route',
-          paint: {
-            'line-color': '#c9a227',
-            'line-width': 6,
-            'line-opacity': 0.3,
-            'line-blur': 3,
-          },
-        });
-
-        map.current.addLayer({
-          id: 'route-line',
-          type: 'line',
-          source: 'route',
-          paint: {
-            'line-color': '#a08545',
-            'line-width': 2,
-            'line-opacity': 0.6,
-          },
-        });
-
-        // Add transit labels at segment midpoints
-        for (let i = 0; i < cities.length - 1; i++) {
-          const fromCity = cities[i];
-          const toCity = cities[i + 1];
-
-          // Only show label if destination has transport info
-          if (toCity.transportType || toCity.transportTime) {
-            // Calculate midpoint
-            const midLng = (fromCity.lng + toCity.lng) / 2;
-            const midLat = (fromCity.lat + toCity.lat) / 2;
-
-            // Format transit time (e.g., "1h40m" or "2h")
-            const formatTime = (minutes) => {
-              if (!minutes) return '';
-              const h = Math.floor(minutes / 60);
-              const m = minutes % 60;
-              if (h === 0) return `${m}m`;
-              if (m === 0) return `${h}h`;
-              return `${h}h${m}m`;
-            };
-
-            const icon = getTransportIcon(toCity.transportType);
-            const time = formatTime(toCity.transportTime);
-
-            const el = document.createElement('div');
-            el.className = 'transit-label';
-            el.innerHTML = `
-              <div class="transit-pill">
-                <span class="transit-icon">${icon}</span>
-                ${time ? `<span class="transit-time">${time}</span>` : ''}
-              </div>
-            `;
-
-            const marker = new mapboxgl.Marker({
-              element: el,
-              anchor: 'center',
-            })
-              .setLngLat([midLng, midLat])
-              .addTo(map.current);
-
-            transitLabelsRef.current.push(marker);
-          }
-        }
-      }
 
       // Add suggestion markers
       suggestions.forEach((suggestion) => {
@@ -397,7 +303,7 @@ export default function TripMap({
     } catch (err) {
       console.error('Map update error:', err);
     }
-  }, [mapLoaded, cities, suggestions, hoveredSuggestion, bounds, getPinColor, getTransportIcon, onSelectSuggestion, onHoverSuggestion]);
+  }, [mapLoaded, cities, suggestions, hoveredSuggestion, bounds, getPinColor, onSelectSuggestion, onHoverSuggestion]);
 
   // Don't render until we have cities or suggestions
   if (cities.length === 0 && suggestions.length === 0) {

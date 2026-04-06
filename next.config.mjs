@@ -1,4 +1,3 @@
-import { withSentryConfig } from '@sentry/nextjs';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 
 /** @type {import('next').NextConfig} */
@@ -105,15 +104,4 @@ const withAnalyzer = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
-export default withSentryConfig(withAnalyzer(baseConfig), {
-  org: process.env.SENTRY_ORG,
-  project: process.env.SENTRY_PROJECT,
-  silent: !process.env.CI,
-  widenClientFileUpload: true,
-  tunnelRoute: "/monitoring",
-  hideSourceMaps: true,
-  sourcemaps: {
-    deleteSourcemapsAfterUpload: true,
-  },
-  telemetry: false,
-});
+export default withAnalyzer(baseConfig);

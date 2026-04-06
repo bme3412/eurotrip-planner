@@ -146,7 +146,7 @@ export default function RouteMap({ cities = [], stops = [], editingStopIndex = n
     const mapboxgl = mapboxglRef.current;
 
     try {
-      // Remove existing layers and sources
+      // Clean up any old route layers (no longer drawing lines)
       routeSegments.forEach((_, i) => {
         const lineId = `route-line-${i}`;
         const glowId = `route-glow-${i}`;
@@ -154,8 +154,6 @@ export default function RouteMap({ cities = [], stops = [], editingStopIndex = n
         if (map.current.getLayer(glowId)) map.current.removeLayer(glowId);
         if (map.current.getSource(`route-${i}`)) map.current.removeSource(`route-${i}`);
       });
-
-      // Also clean up any legacy single route
       if (map.current.getLayer('route-line')) map.current.removeLayer('route-line');
       if (map.current.getLayer('route-line-glow')) map.current.removeLayer('route-line-glow');
       if (map.current.getSource('route')) map.current.removeSource('route');
@@ -164,63 +162,7 @@ export default function RouteMap({ cities = [], stops = [], editingStopIndex = n
       markersRef.current.forEach(m => m.remove());
       markersRef.current = [];
 
-      // Add route segments
-      routeSegments.forEach((segment, i) => {
-        const sourceId = `route-${i}`;
-        const lineId = `route-line-${i}`;
-        const glowId = `route-glow-${i}`;
-
-        // Colors based on state
-        let lineColor = '#6366f1'; // indigo
-        let glowColor = '#818cf8';
-        let opacity = 1;
-
-        if (segment.state === 'editing') {
-          lineColor = '#f59e0b'; // amber
-          glowColor = '#fbbf24';
-        } else if (segment.state === 'downstream') {
-          lineColor = '#9ca3af'; // gray
-          glowColor = '#d1d5db';
-          opacity = 0.5;
-        }
-
-        // Add source
-        map.current.addSource(sourceId, {
-          type: 'geojson',
-          data: {
-            type: 'Feature',
-            geometry: {
-              type: 'LineString',
-              coordinates: segment.coordinates,
-            },
-          },
-        });
-
-        // Add glow layer
-        map.current.addLayer({
-          id: glowId,
-          type: 'line',
-          source: sourceId,
-          paint: {
-            'line-color': glowColor,
-            'line-width': 8,
-            'line-opacity': 0.3 * opacity,
-            'line-blur': 3,
-          },
-        });
-
-        // Add line layer (solid line, no dash)
-        map.current.addLayer({
-          id: lineId,
-          type: 'line',
-          source: sourceId,
-          paint: {
-            'line-color': lineColor,
-            'line-width': 2.5,
-            'line-opacity': opacity * 0.7,
-          },
-        });
-      });
+      // No route lines between cities - transport animation shows the connection
 
       // Add markers with transport pills
       validCities.forEach((city, index) => {

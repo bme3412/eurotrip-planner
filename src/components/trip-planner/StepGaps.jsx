@@ -20,6 +20,11 @@ import {
 } from './icons';
 import FilterChip, { FilterChipGroup } from './FilterChip';
 import CityDetailModal from './CityDetailModal';
+import InterestFilterChips, { INTEREST_OPTIONS } from './InterestFilterChips';
+import RemainingDaysBar from './RemainingDaysBar';
+import DayAllocationControls from './DayAllocationControls';
+import RouteValidationPanel from './RouteValidationPanel';
+import AIRouteSuggester from './AIRouteSuggester';
 
 // Transport type icons and labels
 const TRANSPORT_TYPES = {
@@ -55,7 +60,15 @@ const TIME_FILTER_CONFIG = {
 /**
  * Filter chips component - using unified FilterChip with gold colors
  */
-function FilterChips({ transportFilter, setTransportFilter, timeFilters, setTimeFilters }) {
+function FilterChips({
+  transportFilter,
+  setTransportFilter,
+  timeFilters,
+  setTimeFilters,
+  interestFilters,
+  setInterestFilters,
+  userPreferences,
+}) {
   const toggleTimeFilter = (key) => {
     setTimeFilters(prev => ({
       ...prev,
@@ -63,8 +76,23 @@ function FilterChips({ transportFilter, setTransportFilter, timeFilters, setTime
     }));
   };
 
+  const toggleInterestFilter = (id) => {
+    setInterestFilters(prev =>
+      prev.includes(id)
+        ? prev.filter(x => x !== id)
+        : [...prev, id]
+    );
+  };
+
   return (
     <div className="space-y-3 px-4 py-3 bg-[#faf8f5] border-b border-[#e5e0d8]">
+      {/* Interest filters row */}
+      <InterestFilterChips
+        activeFilters={interestFilters}
+        userPreferences={userPreferences}
+        onToggle={toggleInterestFilter}
+      />
+
       {/* Transport type row */}
       <FilterChipGroup label="Transport">
         {Object.entries(TRANSPORT_TYPES).map(([key, { label, Icon }]) => (
@@ -320,12 +348,15 @@ function CityListItem({ city, isHovered, onPreview, onHover }) {
 function GapCard({
   gap,
   selection,
+  allSelections,
   preferences,
   onFillGap,
   onClearGap,
+  onUpdateSelection,
   onSuggestionsLoaded,
   hoveredSuggestion,
   onHoverSuggestion,
+  remainingDays,
 }) {
   const [suggestions, setSuggestions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -335,6 +366,7 @@ function GapCard({
   // Filter state - default to showing all time ranges
   const [transportFilter, setTransportFilter] = useState('all');
   const [timeFilters, setTimeFilters] = useState({ quick: true, medium: true, long: true });
+  const [interestFilters, setInterestFilters] = useState([]);
 
   const previousCity = gap.previousCity || null;
   const nextCity = gap.nextCity || null;
@@ -386,6 +418,13 @@ function GapCard({
         return false;
       }
 
+      // Interest filter - if any interests selected, city must match at least one
+      if (interestFilters.length > 0) {
+        const cityInterests = city.interestMatches || [];
+        const hasMatch = interestFilters.some(interest => cityInterests.includes(interest));
+        if (!hasMatch) return false;
+      }
+
       // Time filter - any selected bucket matches
       const anyTimeSelected = timeFilters.quick || timeFilters.medium || timeFilters.long;
       if (!anyTimeSelected) return true; // If nothing selected, show all
@@ -401,7 +440,7 @@ function GapCard({
     // Safeguard: if filtering results in zero matches, show all suggestions
     // This prevents confusing "no matches" when there are valid suggestions
     return filtered.length > 0 ? filtered : suggestions;
-  }, [suggestions, transportFilter, timeFilters]);
+  }, [suggestions, transportFilter, timeFilters, interestFilters]);
 
   // Group filtered suggestions by travel time, with optional "Best for You" group
   const groupedSuggestions = useMemo(() => {
@@ -539,6 +578,9 @@ function GapCard({
                   setTransportFilter={setTransportFilter}
                   timeFilters={timeFilters}
                   setTimeFilters={setTimeFilters}
+                  interestFilters={interestFilters}
+                  setInterestFilters={setInterestFilters}
+                  userPreferences={preferences?.interests || []}
                 />
 
                 {/* Grouped city lists */}
@@ -614,6 +656,38 @@ function GapCard({
 }
 
 /**
+ * View mode toggle component
+ */
+function ViewModeToggle({ viewMode, onChangeMode }) {
+  return (
+    <div className="flex rounded-lg border border-[#e5e0d8] bg-[#faf8f5] p-1 gap-1">
+      <button
+        onClick={() => onChangeMode('browse')}
+        className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-light transition-all ${
+          viewMode === 'browse'
+            ? 'bg-white text-[#2a2520] shadow-sm'
+            : 'text-[#6a6459] hover:text-[#2a2520]'
+        }`}
+      >
+        <MapPin className="w-4 h-4" />
+        Browse Cities
+      </button>
+      <button
+        onClick={() => onChangeMode('ai')}
+        className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-light transition-all ${
+          viewMode === 'ai'
+            ? 'bg-white text-[#2a2520] shadow-sm'
+            : 'text-[#6a6459] hover:text-[#2a2520]'
+        }`}
+      >
+        <Star className="w-4 h-4" />
+        AI Suggest
+      </button>
+    </div>
+  );
+}
+
+/**
  * StepGaps - Main component for filling gaps in the trip
  */
 export default function StepGaps({
@@ -623,10 +697,37 @@ export default function StepGaps({
   preferences,
   onFillGap,
   onClearGap,
+  onUpdateSelection,
+  onAcceptAIRoute,
   onSuggestionsLoaded,
   hoveredSuggestion,
   onHoverSuggestion,
+  startCity,
+  endCity,
 }) {
+  const [viewMode, setViewMode] = useState('browse'); // 'browse' | 'ai'
+
+  // Calculate total gap days and selections for remaining days bar
+  const totalGapDays = gaps.reduce((sum, gap) => sum + gap.days, 0);
+  const selections = Object.values(gapSelections || {});
+
+  // Handle AI route acceptance
+  const handleAcceptAIRoute = (route) => {
+    // Convert AI route format to gapSelections format
+    route.cities.forEach((city, idx) => {
+      onFillGap(gaps[0]?.id || 'main-gap', {
+        city: city.cityId || city.id,
+        cityName: city.cityName || city.name,
+        country: city.country,
+        days: city.days,
+        transportTime: city.transportTime,
+        transportType: city.transportType,
+      });
+    });
+    // Switch back to browse mode to show results
+    setViewMode('browse');
+  };
+
   if (gaps.length === 0) {
     return (
       <div className="text-center py-16">
@@ -640,22 +741,65 @@ export default function StepGaps({
 
   return (
     <div className="space-y-4">
-      {/* Gap cards */}
-      <div className="space-y-4">
-        {gaps.map((gap, index) => (
-          <GapCard
-            key={gap.id}
-            gap={gap}
-            selection={gapSelections[gap.id]}
-            preferences={preferences}
-            onFillGap={onFillGap}
-            onClearGap={onClearGap}
-            onSuggestionsLoaded={index === 0 ? onSuggestionsLoaded : undefined}
-            hoveredSuggestion={hoveredSuggestion}
-            onHoverSuggestion={onHoverSuggestion}
-          />
-        ))}
-      </div>
+      {/* View mode toggle */}
+      <ViewModeToggle viewMode={viewMode} onChangeMode={setViewMode} />
+
+      {/* Remaining days bar - shows allocation progress */}
+      {totalGapDays > 0 && (
+        <RemainingDaysBar
+          totalDays={totalGapDays}
+          selections={selections}
+          startCityName={startCity?.name}
+          endCityName={endCity?.name}
+        />
+      )}
+
+      {/* AI Suggest Mode */}
+      {viewMode === 'ai' && startCity && endCity && gaps.length > 0 && (
+        <AIRouteSuggester
+          startCity={startCity}
+          endCity={endCity}
+          gapDays={totalGapDays}
+          gapStart={gaps[0].startDate}
+          gapEnd={gaps[0].endDate}
+          preferences={preferences}
+          onAcceptRoute={handleAcceptAIRoute}
+          onBack={() => setViewMode('browse')}
+        />
+      )}
+
+      {/* Browse Mode - Gap cards */}
+      {viewMode === 'browse' && (
+        <>
+          <div className="space-y-4">
+            {gaps.map((gap, index) => (
+              <GapCard
+                key={gap.id}
+                gap={gap}
+                selection={gapSelections[gap.id]}
+                allSelections={gapSelections}
+                preferences={preferences}
+                onFillGap={onFillGap}
+                onClearGap={onClearGap}
+                onUpdateSelection={onUpdateSelection}
+                onSuggestionsLoaded={index === 0 ? onSuggestionsLoaded : undefined}
+                hoveredSuggestion={hoveredSuggestion}
+                onHoverSuggestion={onHoverSuggestion}
+                remainingDays={totalGapDays - selections.reduce((sum, s) => sum + (s.days || 0), 0)}
+              />
+            ))}
+          </div>
+
+          {/* Route validation - shows when stops are selected */}
+          {selections.length > 0 && startCity && endCity && (
+            <RouteValidationPanel
+              stops={selections}
+              startCity={startCity}
+              endCity={endCity}
+            />
+          )}
+        </>
+      )}
     </div>
   );
 }

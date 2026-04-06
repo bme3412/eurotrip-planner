@@ -1,3 +1,4 @@
+
 # EuroTrip Planner - App Overview
 
 A European travel planning application that scores 220 cities based on real-time factors and generates personalized day-by-day itineraries.

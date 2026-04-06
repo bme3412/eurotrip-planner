@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { Plane, Train, Plus, X, ChevronDown } from "lucide-react";
 import DateRangePicker from "./DateRangePicker";
 
 function formatDisplay(iso) {
@@ -16,10 +17,278 @@ function formatDisplay(iso) {
   }
 }
 
-export default function DateRangePopover({ value, onChange, showSearchLabelOnSelection = true }) {
+function formatFullDate(iso) {
+  if (!iso) return "";
+  try {
+    const date = new Date(iso + "T00:00:00");
+    const day = date.getDate();
+    const suffix = day === 1 || day === 21 || day === 31 ? 'st'
+      : day === 2 || day === 22 ? 'nd'
+      : day === 3 || day === 23 ? 'rd' : 'th';
+
+    return date.toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }).replace(/(\d+)/, `$1${suffix}`);
+  } catch {
+    return iso;
+  }
+}
+
+function TransportModal({ isOpen, onClose, onSave, initialData, dateLabel, defaultDate }) {
+  const [type, setType] = useState(initialData?.type || 'flight');
+  const [date, setDate] = useState(initialData?.date || defaultDate || '');
+  const [departureTime, setDepartureTime] = useState(initialData?.departureTime || initialData?.time || '');
+  const [arrivalTime, setArrivalTime] = useState(initialData?.arrivalTime || '');
+  const [details, setDetails] = useState(initialData?.details || '');
+  const [confirmationCode, setConfirmationCode] = useState(initialData?.confirmationCode || '');
+
+  // Reset form when modal opens with new data
+  useEffect(() => {
+    if (isOpen) {
+      setType(initialData?.type || 'flight');
+      setDate(initialData?.date || defaultDate || '');
+      setDepartureTime(initialData?.departureTime || initialData?.time || '');
+      setArrivalTime(initialData?.arrivalTime || '');
+      setDetails(initialData?.details || '');
+      setConfirmationCode(initialData?.confirmationCode || '');
+    }
+  }, [isOpen, initialData, defaultDate]);
+
+  if (!isOpen) return null;
+
+  const handleSave = () => {
+    onSave({
+      type,
+      date,
+      departureTime,
+      arrivalTime,
+      time: departureTime, // Keep backwards compatibility
+      details,
+      confirmationCode,
+    });
+    onClose();
+  };
+
+  // Format date for display
+  const formatDateDisplay = (dateStr) => {
+    if (!dateStr) return '';
+    try {
+      const d = new Date(dateStr + 'T00:00:00');
+      return d.toLocaleDateString('en-US', {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+      });
+    } catch {
+      return dateStr;
+    }
+  };
+
+  return createPortal(
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div className="px-5 py-4 border-b border-[#e5e0d8] flex items-center justify-between">
+          <h3 className="text-lg font-medium text-[#2a2520]">
+            {dateLabel} Transportation
+          </h3>
+          <button
+            type="button"
+            onClick={onClose}
+            className="w-8 h-8 rounded-full flex items-center justify-center text-[#8a8578] hover:bg-[#faf8f5]"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        <div className="p-5 space-y-4">
+          {/* Transport Type */}
+          <div>
+            <label className="block text-[11px] font-semibold text-[#8a8578] uppercase tracking-wider mb-2">
+              Type
+            </label>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => setType('flight')}
+                className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl border transition-all ${
+                  type === 'flight'
+                    ? 'bg-[#2a2520] text-white border-[#2a2520]'
+                    : 'bg-[#faf8f5] text-[#6a6459] border-[#e5e0d8] hover:border-[#c9a227]'
+                }`}
+              >
+                <Plane className="w-4 h-4" />
+                Flight
+              </button>
+              <button
+                type="button"
+                onClick={() => setType('train')}
+                className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl border transition-all ${
+                  type === 'train'
+                    ? 'bg-[#2a2520] text-white border-[#2a2520]'
+                    : 'bg-[#faf8f5] text-[#6a6459] border-[#e5e0d8] hover:border-[#c9a227]'
+                }`}
+              >
+                <Train className="w-4 h-4" />
+                Train
+              </button>
+            </div>
+          </div>
+
+          {/* Date - Improved */}
+          <div>
+            <label className="block text-[11px] font-semibold text-[#8a8578] uppercase tracking-wider mb-2">
+              Date
+            </label>
+            <div className="relative">
+              <input
+                type="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                className="w-full px-4 py-3 bg-[#faf8f5] border border-[#e5e0d8] rounded-xl text-sm text-[#2a2520] focus:outline-none focus:border-[#c9a227] cursor-pointer"
+              />
+              {date && (
+                <div className="absolute inset-0 flex items-center px-4 pointer-events-none bg-[#faf8f5] rounded-xl border border-transparent">
+                  <svg className="w-4 h-4 text-[#a08545] mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                  </svg>
+                  <span className="text-sm text-[#2a2520]">{formatDateDisplay(date)}</span>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Departure & Arrival Times */}
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="block text-[11px] font-semibold text-[#8a8578] uppercase tracking-wider mb-2">
+                Departure Time
+              </label>
+              <div className="relative">
+                <input
+                  type="time"
+                  value={departureTime}
+                  onChange={(e) => setDepartureTime(e.target.value)}
+                  className="w-full px-4 py-3 bg-[#faf8f5] border border-[#e5e0d8] rounded-xl text-sm text-[#2a2520] focus:outline-none focus:border-[#c9a227]"
+                />
+                {!departureTime && (
+                  <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                    <span className="text-sm text-[#a5a098]">--:--</span>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div>
+              <label className="block text-[11px] font-semibold text-[#8a8578] uppercase tracking-wider mb-2">
+                Arrival Time
+              </label>
+              <div className="relative">
+                <input
+                  type="time"
+                  value={arrivalTime}
+                  onChange={(e) => setArrivalTime(e.target.value)}
+                  className="w-full px-4 py-3 bg-[#faf8f5] border border-[#e5e0d8] rounded-xl text-sm text-[#2a2520] focus:outline-none focus:border-[#c9a227]"
+                />
+                {!arrivalTime && (
+                  <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                    <span className="text-sm text-[#a5a098]">--:--</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Time summary */}
+          {departureTime && arrivalTime && (
+            <div className="flex items-center justify-center gap-3 py-2 px-4 bg-[#faf6eb] rounded-lg text-sm">
+              <span className="font-medium text-[#2a2520]">{departureTime}</span>
+              <span className="text-[#c9a227]">→</span>
+              <span className="font-medium text-[#2a2520]">{arrivalTime}</span>
+              {(() => {
+                const [depH, depM] = departureTime.split(':').map(Number);
+                const [arrH, arrM] = arrivalTime.split(':').map(Number);
+                let duration = (arrH * 60 + arrM) - (depH * 60 + depM);
+                if (duration < 0) duration += 24 * 60; // Next day arrival
+                const hours = Math.floor(duration / 60);
+                const mins = duration % 60;
+                return (
+                  <span className="text-[#8a8578] text-xs">
+                    ({hours > 0 ? `${hours}h ` : ''}{mins > 0 ? `${mins}m` : ''}{hours === 0 && mins === 0 ? '0m' : ''})
+                  </span>
+                );
+              })()}
+            </div>
+          )}
+
+          {/* Details */}
+          <div>
+            <label className="block text-[11px] font-semibold text-[#8a8578] uppercase tracking-wider mb-2">
+              {type === 'flight' ? 'Flight Number / Route' : 'Train / Route'}
+            </label>
+            <input
+              type="text"
+              value={details}
+              onChange={(e) => setDetails(e.target.value)}
+              placeholder={type === 'flight' ? 'e.g., AA 123 JFK → CDG' : 'e.g., Eurostar 9014 London → Paris'}
+              className="w-full px-4 py-3 bg-[#faf8f5] border border-[#e5e0d8] rounded-xl text-sm text-[#2a2520] placeholder:text-[#a5a098] focus:outline-none focus:border-[#c9a227]"
+            />
+          </div>
+
+          {/* Confirmation Code */}
+          <div>
+            <label className="block text-[11px] font-semibold text-[#8a8578] uppercase tracking-wider mb-2">
+              Confirmation / Ticket #
+            </label>
+            <input
+              type="text"
+              value={confirmationCode}
+              onChange={(e) => setConfirmationCode(e.target.value)}
+              placeholder="e.g., ABC123"
+              className="w-full px-4 py-3 bg-[#faf8f5] border border-[#e5e0d8] rounded-xl text-sm text-[#2a2520] placeholder:text-[#a5a098] focus:outline-none focus:border-[#c9a227]"
+            />
+          </div>
+        </div>
+
+        <div className="px-5 py-4 border-t border-[#e5e0d8] bg-[#faf8f5] flex items-center justify-between">
+          <button
+            type="button"
+            onClick={onClose}
+            className="px-4 py-2 text-sm text-[#6a6459] hover:text-[#2a2520]"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            onClick={handleSave}
+            className="px-5 py-2.5 bg-[#2a2520] hover:bg-[#3a3530] text-white text-sm font-medium rounded-lg"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>,
+    document.body
+  );
+}
+
+export default function DateRangePopover({
+  value,
+  onChange,
+  showSearchLabelOnSelection = true,
+  vertical = false,
+  inline = false,
+  departureTransport,
+  returnTransport,
+  onChangeDepartureTransport,
+  onChangeReturnTransport,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [temp, setTemp] = useState(value || { start: "", end: "" });
   const [mounted, setMounted] = useState(false);
+  const [transportModalOpen, setTransportModalOpen] = useState(null); // 'departure' | 'return' | null
 
   // createPortal requires browser DOM — only mount after hydration
   useEffect(() => { setMounted(true); }, []);
@@ -39,6 +308,11 @@ export default function DateRangePopover({ value, onChange, showSearchLabelOnSel
 
   const display = useMemo(
     () => ({ start: formatDisplay(value?.start), end: formatDisplay(value?.end) }),
+    [value?.start, value?.end]
+  );
+
+  const fullDisplay = useMemo(
+    () => ({ start: formatFullDate(value?.start), end: formatFullDate(value?.end) }),
     [value?.start, value?.end]
   );
 
@@ -89,6 +363,201 @@ export default function DateRangePopover({ value, onChange, showSearchLabelOnSel
         document.body
       )
     : null;
+
+  // Vertical layout for compact column display
+  if (vertical) {
+    return (
+      <>
+        <div className="w-full flex flex-col gap-4">
+          {/* Start Date */}
+          <div>
+            <div className="text-[11px] font-semibold text-[#8a8578] uppercase tracking-wider mb-2">Start Date</div>
+            <button
+              type="button"
+              onClick={() => {
+                setTemp(value || { start: "", end: "" });
+                setIsOpen(true);
+              }}
+              className="w-full flex items-center gap-3 h-14 px-4 bg-[#faf8f5] border border-[#e5e0d8] hover:border-[#c9a227]/50 hover:bg-[#faf6eb] rounded-xl transition-all text-left"
+            >
+              <svg className="w-5 h-5 text-[#a08545] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              <span className={`text-sm ${value?.start ? 'text-[#2a2520]' : 'text-[#a5a098]'}`}>
+                {fullDisplay.start || "Select date"}
+              </span>
+            </button>
+            {/* Departure Transport */}
+            {value?.start && onChangeDepartureTransport && (
+              <div className="mt-2">
+                {departureTransport?.type ? (
+                  <div className="flex items-center gap-2 px-3 py-2.5 bg-[#faf6eb] border border-[#e5e0d8] rounded-lg">
+                    {departureTransport.type === 'flight' ? (
+                      <Plane className="w-4 h-4 text-[#a08545] shrink-0" />
+                    ) : (
+                      <Train className="w-4 h-4 text-[#a08545] shrink-0" />
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs font-medium text-[#2a2520] truncate">
+                        {departureTransport.details || (departureTransport.type === 'flight' ? 'Flight' : 'Train')}
+                      </div>
+                      <div className="text-[10px] text-[#8a8578] flex items-center gap-1">
+                        {departureTransport.departureTime && (
+                          <span>{departureTransport.departureTime}</span>
+                        )}
+                        {departureTransport.departureTime && departureTransport.arrivalTime && (
+                          <>
+                            <span className="text-[#c9a227]">→</span>
+                            <span>{departureTransport.arrivalTime}</span>
+                          </>
+                        )}
+                        {departureTransport.confirmationCode && (
+                          <span className="ml-1 text-[#a08545]">• {departureTransport.confirmationCode}</span>
+                        )}
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setTransportModalOpen('departure')}
+                      className="text-[10px] text-[#a08545] hover:text-[#c9a227] shrink-0"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setTransportModalOpen('departure')}
+                    className="flex items-center gap-1.5 text-xs text-[#a08545] hover:text-[#c9a227]"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                    Add flight or train
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* End Date */}
+          <div>
+            <div className="text-[11px] font-semibold text-[#8a8578] uppercase tracking-wider mb-2">End Date</div>
+            <button
+              type="button"
+              onClick={() => {
+                setTemp(value || { start: "", end: "" });
+                setIsOpen(true);
+              }}
+              className="w-full flex items-center gap-3 h-14 px-4 bg-[#faf8f5] border border-[#e5e0d8] hover:border-[#c9a227]/50 hover:bg-[#faf6eb] rounded-xl transition-all text-left"
+            >
+              <svg className="w-5 h-5 text-[#a08545] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              <span className={`text-sm ${value?.end ? 'text-[#2a2520]' : 'text-[#a5a098]'}`}>
+                {fullDisplay.end || "Select date"}
+              </span>
+            </button>
+            {/* Return Transport */}
+            {value?.end && onChangeReturnTransport && (
+              <div className="mt-2">
+                {returnTransport?.type ? (
+                  <div className="flex items-center gap-2 px-3 py-2.5 bg-[#faf6eb] border border-[#e5e0d8] rounded-lg">
+                    {returnTransport.type === 'flight' ? (
+                      <Plane className="w-4 h-4 text-[#a08545] shrink-0" />
+                    ) : (
+                      <Train className="w-4 h-4 text-[#a08545] shrink-0" />
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs font-medium text-[#2a2520] truncate">
+                        {returnTransport.details || (returnTransport.type === 'flight' ? 'Flight' : 'Train')}
+                      </div>
+                      <div className="text-[10px] text-[#8a8578] flex items-center gap-1">
+                        {returnTransport.departureTime && (
+                          <span>{returnTransport.departureTime}</span>
+                        )}
+                        {returnTransport.departureTime && returnTransport.arrivalTime && (
+                          <>
+                            <span className="text-[#c9a227]">→</span>
+                            <span>{returnTransport.arrivalTime}</span>
+                          </>
+                        )}
+                        {returnTransport.confirmationCode && (
+                          <span className="ml-1 text-[#a08545]">• {returnTransport.confirmationCode}</span>
+                        )}
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setTransportModalOpen('return')}
+                      className="text-[10px] text-[#a08545] hover:text-[#c9a227] shrink-0"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setTransportModalOpen('return')}
+                    className="flex items-center gap-1.5 text-xs text-[#a08545] hover:text-[#c9a227]"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                    Add flight or train
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {overlay}
+
+        {/* Transport Modal */}
+        {mounted && (
+          <TransportModal
+            isOpen={transportModalOpen !== null}
+            onClose={() => setTransportModalOpen(null)}
+            onSave={(data) => {
+              if (transportModalOpen === 'departure' && onChangeDepartureTransport) {
+                onChangeDepartureTransport(data);
+              } else if (transportModalOpen === 'return' && onChangeReturnTransport) {
+                onChangeReturnTransport(data);
+              }
+            }}
+            initialData={transportModalOpen === 'departure' ? departureTransport : returnTransport}
+            dateLabel={transportModalOpen === 'departure' ? 'Departure' : 'Return'}
+            defaultDate={transportModalOpen === 'departure' ? value?.start : value?.end}
+          />
+        )}
+      </>
+    );
+  }
+
+  // Inline layout - compact single row for search bar style
+  if (inline) {
+    return (
+      <>
+        <div className="text-[11px] font-semibold text-[#8a8578] uppercase tracking-wider mb-2">Dates</div>
+        <button
+          type="button"
+          onClick={() => {
+            setTemp(value || { start: "", end: "" });
+            setIsOpen(true);
+          }}
+          className="w-full flex items-center gap-3 h-14 px-4 bg-[#faf8f5] border border-[#e5e0d8] hover:border-[#c9a227]/50 hover:bg-[#faf6eb] rounded-xl transition-all cursor-pointer text-left"
+        >
+          <svg className="w-5 h-5 text-[#a08545] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          <span className="text-base text-[#2a2520]">
+            {display.start && display.end
+              ? `${display.start} – ${display.end}`
+              : "Select dates"
+            }
+          </span>
+        </button>
+        {overlay}
+      </>
+    );
+  }
 
   return (
     <>

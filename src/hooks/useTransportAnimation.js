@@ -41,16 +41,6 @@ export function useTransportAnimation(routeSegments, mapRef, isMapLoaded) {
   const startTimeRef = useRef(null);
   const segmentStartTimesRef = useRef([]);
 
-  // Debug logging
-  useEffect(() => {
-    console.log('[useTransportAnimation] State:', {
-      isMapLoaded,
-      hasMapRef: !!mapRef?.current,
-      segmentCount: routeSegments.length,
-      segments: routeSegments.map(s => ({ id: s.id, mode: s.stop?.transport?.mode })),
-    });
-  }, [isMapLoaded, mapRef, routeSegments]);
-
   // Project lng/lat to screen coordinates
   const projectToScreen = useCallback((lngLat) => {
     if (!mapRef?.current) return { x: 0, y: 0 };

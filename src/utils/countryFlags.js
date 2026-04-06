@@ -66,4 +66,7 @@ export const countryFlags = {
 
 export const getFlagForCountry = (countryName) => countryFlags[countryName] || '🏳️';
 
+// Alias for components using the alternate name
+export const getCountryFlag = getFlagForCountry;
+
 

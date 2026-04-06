@@ -12,11 +12,6 @@ import AnimatedTransportIcon from './AnimatedTransportIcon';
  * @param {Array} animationStates - Array of animation states from useTransportAnimation
  */
 function TransportAnimationOverlay({ animationStates = [] }) {
-  // Debug: log animation states
-  if (animationStates.length > 0) {
-    console.log('[Transport Animation] Rendering', animationStates.length, 'icons', animationStates[0]);
-  }
-
   if (animationStates.length === 0) {
     return null;
   }
@@ -35,6 +30,7 @@ function TransportAnimationOverlay({ animationStates = [] }) {
           rotation={state.bearing}
           state={state.state}
           opacity={1}
+          progress={state.progress}
         />
       ))}
     </div>
