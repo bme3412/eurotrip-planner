@@ -77,7 +77,7 @@ function getCityCenter(cityData, cityName) {
 }
 
 function CityPageClient({ cityData, cityName }) {
-  const [activeTab, setActiveTab] = useState('starthere');
+  const [activeTab, setActiveTab] = useState('gettingin');
   const [isTabTransitioning, setIsTabTransitioning] = useState(false);
   const [componentLoaded, setComponentLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -141,7 +141,7 @@ function CityPageClient({ cityData, cityName }) {
   );
 
   const tabs = useMemo(() => [
-    { id: 'starthere', label: 'Start Here', icon: '🚀' },
+    { id: 'gettingin', label: 'Getting In', icon: '✈️' },
     { id: 'overview', label: 'Best Time to Go', icon: '📆' },
     { id: 'map', label: 'Interactive Map', icon: '🗺️' },
     { id: 'monthly', label: monthlyDataLoading ? 'Monthly Guide...' : 'Monthly Guide', icon: monthlyDataLoading ? '⏳' : monthlyDataError ? '⚠️' : '📅' },
@@ -228,7 +228,7 @@ function CityPageClient({ cityData, cityName }) {
 
   const preloadTab = (tabId) => {
     switch (tabId) {
-      case 'starthere':
+      case 'gettingin':
         import('@/components/city-guides/StartHere');
         break;
       case 'overview':
@@ -321,7 +321,7 @@ function CityPageClient({ cityData, cityName }) {
 
   const renderTabContent = () => {
     switch (activeTab) {
-      case 'starthere':
+      case 'gettingin':
         return (
           <Suspense fallback={<SkeletonOverview />}>
             <LazyStartHere cityName={cityName} cityData={cityData} />

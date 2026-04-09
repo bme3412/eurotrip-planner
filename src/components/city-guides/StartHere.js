@@ -1,16 +1,31 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import {
   ChevronDown,
   Plane,
   Navigation,
   Wallet,
   Wifi,
-  Clock,
-  Lightbulb
+  Lightbulb,
+  MapPin
 } from 'lucide-react';
+import { TransportOptionList } from './TransportOptionCard';
+
+// Dynamically import the map component to avoid SSR issues
+const AirportRouteMap = dynamic(() => import('./AirportRouteMap'), {
+  ssr: false,
+  loading: () => (
+    <div className="h-64 bg-gray-100 rounded-xl flex items-center justify-center">
+      <div className="flex items-center gap-2 text-gray-500">
+        <div className="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin" />
+        <span>Loading map...</span>
+      </div>
+    </div>
+  ),
+});
 
 // City-specific FAQ data
 const CITY_FAQS = {
@@ -1400,21 +1415,68 @@ const DEFAULT_NARRATIVE = {
   }
 };
 
-export default function StartHere({ cityName }) {
+export default function StartHere({ cityName, cityData }) {
   const cityKey = cityName?.toLowerCase();
   const narrative = CITY_NARRATIVES[cityKey] || DEFAULT_NARRATIVE;
   const faqs = CITY_FAQS[cityKey] || DEFAULT_FAQS;
   const displayName = cityName?.charAt(0).toUpperCase() + cityName?.slice(1) || 'This City';
-  
-  const [openFaq, setOpenFaq] = useState(null);
 
-  // Section accent colors - just left border + icon color
+  const [openFaq, setOpenFaq] = useState(null);
+  const [gettingInData, setGettingInData] = useState(null);
+  const [selectedAirport, setSelectedAirport] = useState(null);
+  const [selectedRouteId, setSelectedRouteId] = useState(null);
+
+  // Fetch getting-in.json data for the city
+  useEffect(() => {
+    const fetchGettingInData = async () => {
+      if (!cityData?.country || !cityKey) return;
+
+      try {
+        const countryFolder = cityData.country === 'United Kingdom' ? 'UK'
+          : cityData.country === 'Czech Republic' ? 'Czechia'
+          : cityData.country;
+
+        const response = await fetch(`/data/${countryFolder}/${cityKey}/getting-in.json`);
+        if (response.ok) {
+          const data = await response.json();
+          setGettingInData(data);
+          // Auto-select first airport
+          if (data.airports?.length > 0) {
+            setSelectedAirport(data.airports[0].code);
+          }
+        }
+      } catch (error) {
+        // Silently fail - city doesn't have getting-in.json yet
+        console.log(`No getting-in.json for ${cityKey}`);
+      }
+    };
+
+    fetchGettingInData();
+  }, [cityKey, cityData?.country]);
+
+  // Get routes for selected airport
+  const selectedAirportData = useMemo(() => {
+    if (!gettingInData || !selectedAirport) return null;
+    return gettingInData.airports?.find((a) => a.code === selectedAirport);
+  }, [gettingInData, selectedAirport]);
+
+  // Handle airport selection
+  const handleSelectAirport = (code) => {
+    setSelectedAirport(code);
+    setSelectedRouteId(null); // Clear route selection when changing airport
+  };
+
+  // Handle route selection
+  const handleSelectRoute = (routeId) => {
+    setSelectedRouteId(selectedRouteId === routeId ? null : routeId);
+  };
+
+  // Section accent colors - just left border + icon color (removed timing)
   const SECTION_ACCENTS = {
     arrival: { border: 'border-l-sky-400', icon: Plane, iconColor: 'text-sky-500' },
     gettingAround: { border: 'border-l-indigo-400', icon: Navigation, iconColor: 'text-indigo-500' },
     money: { border: 'border-l-emerald-400', icon: Wallet, iconColor: 'text-emerald-500' },
     connectivity: { border: 'border-l-amber-400', icon: Wifi, iconColor: 'text-amber-500' },
-    timing: { border: 'border-l-rose-400', icon: Clock, iconColor: 'text-rose-500' },
     quickWins: { border: 'border-l-violet-400', icon: Lightbulb, iconColor: 'text-violet-500' }
   };
 
@@ -1485,13 +1547,100 @@ export default function StartHere({ cityName }) {
           </p>
         </div>
 
-        {/* Two column layout with editorial sections */}
+        {/* Airport Route Map - Full width arrival section */}
+        <div className="mb-10">
+          <div className="flex items-center gap-2.5 mb-4">
+            <Plane className="h-5 w-5 text-sky-500" />
+            <h2 className="text-lg font-bold text-gray-900 tracking-tight">
+              Getting to {displayName}
+            </h2>
+          </div>
+
+          {/* Interactive Map */}
+          {gettingInData && (
+            <div className="mb-6">
+              <AirportRouteMap
+                data={gettingInData}
+                selectedRouteId={selectedRouteId}
+                onSelectRoute={handleSelectRoute}
+                selectedAirport={selectedAirport}
+                onSelectAirport={handleSelectAirport}
+                className="h-64 md:h-80"
+              />
+            </div>
+          )}
+
+          {/* Airport selector tabs (if multiple airports) */}
+          {gettingInData?.airports?.length > 1 && (
+            <div className="flex gap-2 mb-4">
+              {gettingInData.airports.map((airport) => (
+                <button
+                  key={airport.code}
+                  onClick={() => handleSelectAirport(airport.code)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                    selectedAirport === airport.code
+                      ? 'bg-sky-500 text-white shadow-md'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  <span className="mr-1.5">{airport.code}</span>
+                  <span className="text-xs opacity-75">{airport.distanceKm}km</span>
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Transport options for selected airport */}
+          {selectedAirportData?.routes && (
+            <div className="mb-6">
+              <p className="text-sm text-gray-600 mb-3">
+                Select a transport option to see the route:
+              </p>
+              <TransportOptionList
+                routes={selectedAirportData.routes}
+                selectedRouteId={selectedRouteId}
+                onSelectRoute={handleSelectRoute}
+                layout="row"
+                compact={true}
+              />
+            </div>
+          )}
+
+          {/* Narrative arrival text */}
+          <div className="border-l-[3px] border-sky-400 pl-5 py-1">
+            <div className="space-y-3">
+              {narrative.arrival.content.split('\n\n').map((paragraph, i) => (
+                <p key={i} className="text-gray-600 leading-7 text-[15px]">
+                  {renderContent(paragraph)}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          {/* General tips from JSON */}
+          {gettingInData?.generalTips?.length > 0 && (
+            <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+              <h4 className="text-sm font-semibold text-amber-800 mb-2 flex items-center gap-2">
+                <Lightbulb className="w-4 h-4" />
+                Pro Tips
+              </h4>
+              <ul className="space-y-1.5">
+                {gettingInData.generalTips.slice(0, 3).map((tip, i) => (
+                  <li key={i} className="text-sm text-amber-900 flex items-start gap-2">
+                    <MapPin className="w-3 h-3 mt-1 flex-shrink-0 text-amber-600" />
+                    {tip}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        {/* Remaining 4 sections in 2x2 grid */}
         <div className="grid lg:grid-cols-2 gap-x-10 gap-y-8">
-          <Section sectionKey="arrival" title={narrative.arrival.title} content={narrative.arrival.content} />
           <Section sectionKey="gettingAround" title={narrative.gettingAround.title} content={narrative.gettingAround.content} />
           <Section sectionKey="money" title={narrative.money.title} content={narrative.money.content} />
           <Section sectionKey="connectivity" title={narrative.connectivity.title} content={narrative.connectivity.content} />
-          <Section sectionKey="timing" title={narrative.timing.title} content={narrative.timing.content} />
           <Section sectionKey="quickWins" title={narrative.quickWins.title} content={narrative.quickWins.content} />
         </div>
       </article>

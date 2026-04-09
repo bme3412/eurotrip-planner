@@ -1,0 +1,207 @@
+{
+  "city": "paris",
+  "cityCenter": {
+    "name": "Central Paris",
+    "coordinates": [2.3522, 48.8566],
+    "description": "Heart of Paris near Notre-Dame"
+  },
+  "airports": [
+    {
+      "code": "CDG",
+      "name": "Charles de Gaulle",
+      "fullName": "Paris Charles de Gaulle Airport",
+      "coordinates": [2.5479, 49.0097],
+      "distanceKm": 25,
+      "terminals": "T1, T2, T3",
+      "routes": [
+        {
+          "id": "cdg-rer-b",
+          "type": "train",
+          "name": "RER B",
+          "icon": "train",
+          "color": "#4164E3",
+          "duration": { "min": 35, "max": 50 },
+          "frequency": "Every 10-15 min",
+          "price": { "amount": 11.80, "currency": "EUR" },
+          "destination": "Gare du Nord / Châtelet-Les Halles",
+          "operatingHours": "4:50am - 11:50pm",
+          "tips": "Follow blue RER signs. Validate ticket at yellow machines before boarding.",
+          "pros": ["Cheapest option", "Direct to city center", "No traffic delays"],
+          "cons": ["Can be crowded with luggage", "Watch for pickpockets"],
+          "waypoints": [
+            [2.5479, 49.0097],
+            [2.4500, 48.9400],
+            [2.3554, 48.8809],
+            [2.3470, 48.8620]
+          ]
+        },
+        {
+          "id": "cdg-roissybus",
+          "type": "bus",
+          "name": "Roissybus",
+          "icon": "bus",
+          "color": "#36A559",
+          "duration": { "min": 60, "max": 75 },
+          "frequency": "Every 15-20 min",
+          "price": { "amount": 16.20, "currency": "EUR" },
+          "destination": "Opéra Garnier",
+          "operatingHours": "5:15am - 12:30am",
+          "tips": "Comfortable with luggage space. Stops at all terminals.",
+          "pros": ["Comfortable seats", "Luggage storage", "Direct to Opéra"],
+          "cons": ["Subject to traffic", "Longer journey time"],
+          "waypoints": [
+            [2.5479, 49.0097],
+            [2.3316, 48.8718]
+          ]
+        },
+        {
+          "id": "cdg-taxi",
+          "type": "taxi",
+          "name": "Taxi",
+          "icon": "car",
+          "color": "#F59E0B",
+          "duration": { "min": 45, "max": 75 },
+          "frequency": "On demand",
+          "price": {
+            "amount": 55,
+            "amountMax": 62,
+            "currency": "EUR",
+            "note": "Flat fare: €55 Right Bank, €62 Left Bank"
+          },
+          "destination": "Any address in Paris",
+          "operatingHours": "24/7",
+          "tips": "Use official taxi stands only. Fixed price regardless of traffic. Receipt included.",
+          "pros": ["Door-to-door", "Fixed price", "24/7 availability"],
+          "cons": ["Most expensive", "Traffic delays possible"],
+          "waypoints": [
+            [2.5479, 49.0097],
+            [2.3522, 48.8566]
+          ]
+        },
+        {
+          "id": "cdg-uber",
+          "type": "rideshare",
+          "name": "Uber/Bolt",
+          "icon": "smartphone",
+          "color": "#000000",
+          "duration": { "min": 45, "max": 75 },
+          "frequency": "On demand",
+          "price": {
+            "amount": 50,
+            "amountMax": 80,
+            "currency": "EUR",
+            "note": "Variable pricing based on demand"
+          },
+          "destination": "Any address",
+          "operatingHours": "24/7",
+          "tips": "Meet at designated rideshare pickup zones. Check app for current price before booking.",
+          "pros": ["Door-to-door", "Pay via app", "Track your ride"],
+          "cons": ["Surge pricing possible", "Pickup zone can be confusing"],
+          "waypoints": [
+            [2.5479, 49.0097],
+            [2.3522, 48.8566]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ORY",
+      "name": "Orly",
+      "fullName": "Paris Orly Airport",
+      "coordinates": [2.3795, 48.7262],
+      "distanceKm": 14,
+      "terminals": "Orly 1, Orly 2, Orly 3, Orly 4",
+      "routes": [
+        {
+          "id": "ory-orlybus",
+          "type": "bus",
+          "name": "Orlybus",
+          "icon": "bus",
+          "color": "#36A559",
+          "duration": { "min": 30, "max": 40 },
+          "frequency": "Every 10-15 min",
+          "price": { "amount": 11.50, "currency": "EUR" },
+          "destination": "Denfert-Rochereau",
+          "operatingHours": "5:35am - 12:00am",
+          "tips": "Stops at all Orly terminals. Connect to Metro lines 4 & 6 at Denfert.",
+          "pros": ["Frequent service", "Direct to Metro hub", "Affordable"],
+          "cons": ["No direct city center access", "Subject to traffic"],
+          "waypoints": [
+            [2.3795, 48.7262],
+            [2.3325, 48.8339]
+          ]
+        },
+        {
+          "id": "ory-orlyval",
+          "type": "train",
+          "name": "Orlyval + RER B",
+          "icon": "train",
+          "color": "#4164E3",
+          "duration": { "min": 35, "max": 45 },
+          "frequency": "Every 5-8 min",
+          "price": { "amount": 14.10, "currency": "EUR" },
+          "destination": "Châtelet-Les Halles via Antony",
+          "operatingHours": "6:00am - 11:00pm",
+          "tips": "Automated train to Antony, then RER B north. Single ticket covers both.",
+          "pros": ["No traffic", "Modern trains", "Connects to RER network"],
+          "cons": ["Requires transfer", "More expensive than bus"],
+          "waypoints": [
+            [2.3795, 48.7262],
+            [2.3004, 48.7543],
+            [2.3470, 48.8620]
+          ]
+        },
+        {
+          "id": "ory-tram",
+          "type": "tram",
+          "name": "Tram T7",
+          "icon": "tram",
+          "color": "#9C27B0",
+          "duration": { "min": 40, "max": 50 },
+          "frequency": "Every 10 min",
+          "price": { "amount": 2.15, "currency": "EUR" },
+          "destination": "Villejuif-Louis Aragon (Metro 7)",
+          "operatingHours": "5:30am - 12:30am",
+          "tips": "Budget option. Connect to Metro 7 for city center.",
+          "pros": ["Cheapest option", "Scenic route", "Regular ticket"],
+          "cons": ["Slow", "Requires Metro transfer", "Far from center"],
+          "waypoints": [
+            [2.3795, 48.7262],
+            [2.3678, 48.7874]
+          ]
+        },
+        {
+          "id": "ory-taxi",
+          "type": "taxi",
+          "name": "Taxi",
+          "icon": "car",
+          "color": "#F59E0B",
+          "duration": { "min": 25, "max": 50 },
+          "frequency": "On demand",
+          "price": {
+            "amount": 35,
+            "amountMax": 41,
+            "currency": "EUR",
+            "note": "Flat fare: €35 Left Bank, €41 Right Bank"
+          },
+          "destination": "Any address in Paris",
+          "operatingHours": "24/7",
+          "tips": "Cheaper than CDG due to shorter distance. Same flat-rate system.",
+          "pros": ["Door-to-door", "Fixed price", "Faster than CDG"],
+          "cons": ["Most expensive", "Traffic on périphérique"],
+          "waypoints": [
+            [2.3795, 48.7262],
+            [2.3522, 48.8566]
+          ]
+        }
+      ]
+    }
+  ],
+  "generalTips": [
+    "Official taxis are beige/cream colored with a roof light. Never accept rides from solicitors inside terminals.",
+    "Buy a Paris Visite pass if you plan to use public transport extensively.",
+    "RER B trains can be crowded during rush hours (7-9am, 5-7pm). Avoid if you have large luggage.",
+    "Download the Citymapper or RATP apps for real-time transit info.",
+    "Keep valuables secure—airports and transit are popular with pickpockets."
+  ]
+}
