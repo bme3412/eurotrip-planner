@@ -1,12 +1,14 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getImageUrl, isCDNEnabled } from '../../utils/cdnUtils';
 import { getFlagForCountry } from '../../utils/countryFlags';
 
-// Flags are centralized in utils/countryFlags
+// Tiny 10x10 blurred placeholder SVG (generic gray gradient)
+const DEFAULT_BLUR_DATA_URL =
+  'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZTVlN2ViIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZDFkNWRiIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+';
 
 // Region color mapping with improved colors
 const regionColors = {
@@ -22,7 +24,7 @@ const regionColors = {
   "Other": "#6B7280", // gray
 };
 
-const CityCard = ({ city, priority = false }) => {
+const CityCard = ({ city, priority = false, blurDataUrl = null, lazyRoot = null }) => {
   const getRegionColorClass = (regionName) => {
     const hexColor = regionColors[regionName] || regionColors["Other"];
     switch(hexColor) {
@@ -100,33 +102,83 @@ const CityCard = ({ city, priority = false }) => {
 
   const [srcIndex, setSrcIndex] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(priority); // Priority images render immediately
+  const cardRef = useRef(null);
   const currentSrc = fallbacks[Math.min(srcIndex, fallbacks.length - 1)];
+
+  // Intersection Observer for lazy loading
+  useEffect(() => {
+    if (priority || isInView) return; // Skip if priority or already in view
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      {
+        root: lazyRoot,
+        rootMargin: '100px', // Start loading 100px before entering viewport
+        threshold: 0,
+      }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [priority, isInView, lazyRoot]);
 
   const handleImgError = () => {
     setSrcIndex((prev) => (prev < fallbacks.length - 1 ? prev + 1 : prev));
   };
-  
+
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
-  
+
+  // Determine blur placeholder to use
+  const placeholderUrl = blurDataUrl || DEFAULT_BLUR_DATA_URL;
+
   return (
-    <div className="group relative">
+    <div className="group relative" ref={cardRef}>
       <Link href={`/city-guides/${city.id}`} className="block">
         <div className="card overflow-hidden transition duration-300 hover:-translate-y-0.5">
           {/* Card image container */}
           <div className="relative h-48 overflow-hidden bg-gray-100">
-            <Image
-              src={currentSrc}
-              alt={`${city.name}, ${city.country} - European city guide`}
-              fill
-              style={{ objectFit: 'cover' }}
-              className="transition-transform duration-500 group-hover:scale-110"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-              {...(priority ? { priority: true } : { loading: 'lazy' })}
-              quality={85}
-              onError={handleImgError}
-            />
+            {/* Skeleton shimmer - shown while image loads */}
+            {!imageLoaded && (
+              <div
+                className="absolute inset-0 z-5"
+                style={{
+                  background: 'linear-gradient(90deg, #f3f4f6 0%, #e5e7eb 20%, #f3f4f6 40%, #f3f4f6 100%)',
+                  backgroundSize: '200% 100%',
+                  animation: 'shimmer 1.5s ease-in-out infinite',
+                }}
+              />
+            )}
+
+            {/* Only render image when in viewport (or priority) */}
+            {isInView && (
+              <Image
+                src={currentSrc}
+                alt={`${city.name}, ${city.country} - European city guide`}
+                fill
+                style={{ objectFit: 'cover' }}
+                className={`transition-all duration-500 group-hover:scale-110 ${
+                  imageLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                {...(priority ? { priority: true } : { loading: 'lazy' })}
+                placeholder="blur"
+                blurDataURL={placeholderUrl}
+                quality={85}
+                onError={handleImgError}
+                onLoad={handleImageLoad}
+              />
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10"></div>
             <div className="absolute top-3 left-3 px-3 py-1.5 text-xs font-medium bg-white/95 backdrop-blur-sm rounded-full text-gray-800 z-20 shadow-sm">
               <span className="mr-1">{getFlagEmoji(city.country)}</span>

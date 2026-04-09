@@ -15,6 +15,7 @@ import { parseDatesFromParams } from '@/hooks/useTripDates';
 import UnifiedFilter from '@/components/city-guides/UnifiedFilter';
 import CityCard from '@/components/city-guides/CityCard';
 import CityCardSkeleton from '@/components/city-guides/CityCardSkeleton';
+import PopularCitiesSection from '@/components/city-guides/PopularCitiesSection';
 import { getCitiesData as getStaticCityData } from '@/generated/cityIndex';
 import { COASTAL_CITY_IDS as COASTAL_CITY_IDS_CURATED } from '@/components/city-guides/coastalCityIds';
 import { getFlagForCountry } from '@/utils/countryFlags';
@@ -33,18 +34,6 @@ const staticCityDescriptions = (() => {
 
 const INITIAL_LOAD = 24;
 const LOAD_INCREMENT = 24;
-
-// 8 most popular European cities for the featured section
-const POPULAR_CITIES = [
-  { id: 'paris', name: 'Paris', country: 'France', description: 'The City of Light, famous for the Eiffel Tower, world-class museums, and romantic boulevards.' },
-  { id: 'london', name: 'London', country: 'United Kingdom', description: 'Historic capital blending royal heritage with cutting-edge culture, from Big Ben to Borough Market.' },
-  { id: 'barcelona', name: 'Barcelona', country: 'Spain', description: 'Gaudí\'s masterpieces, Mediterranean beaches, and legendary tapas in Catalonia\'s vibrant capital.' },
-  { id: 'rome', name: 'Rome', country: 'Italy', description: 'The Eternal City where ancient ruins, Renaissance art, and Italian dolce vita converge.' },
-  { id: 'amsterdam', name: 'Amsterdam', country: 'Netherlands', description: 'Picturesque canals, world-renowned museums, and a famously free-spirited atmosphere.' },
-  { id: 'prague', name: 'Prague', country: 'Czech Republic', description: 'Fairytale spires, medieval charm, and one of Europe\'s best-preserved historic centers.' },
-  { id: 'lisbon', name: 'Lisbon', country: 'Portugal', description: 'Sun-drenched hills, historic trams, and a thriving food scene on the Atlantic coast.' },
-  { id: 'vienna', name: 'Vienna', country: 'Austria', description: 'Imperial palaces, legendary coffee houses, and the birthplace of classical music.' },
-];
 
 // Normalize countries from manifest to UI labels used across components
 const COUNTRY_NORMALIZATION = {
@@ -365,35 +354,9 @@ function CityGuidesContent() {
           />
         </div>
 
-        {/* Popular Cities Section - Only shown when no filters active */}
+        {/* Popular Cities Section - Lazy loaded with blur placeholders */}
         {!hasActiveFilters && !loading && cities.length > 0 && (
-          <div className="mb-8">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-xl">🌟</span>
-              <h2 className="text-lg font-semibold text-gray-900">Popular Cities</h2>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {POPULAR_CITIES.map((popularCity, index) => {
-                // Merge loaded city data with our curated description
-                const loadedCity = cities.find(c => c.id === popularCity.id);
-                const mergedCity = loadedCity 
-                  ? { ...loadedCity, description: popularCity.description }
-                  : popularCity;
-                return (
-                  <div 
-                    key={popularCity.id}
-                    className="animate-in fade-in slide-in-from-bottom-4 duration-500"
-                    style={{ animationDelay: `${index * 75}ms`, animationFillMode: 'both' }}
-                  >
-                    <CityCard 
-                      city={mergedCity}
-                      priority={index < 4}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          <PopularCitiesSection cities={cities} />
         )}
 
         {/* Browse by Country Section with TOC */}
