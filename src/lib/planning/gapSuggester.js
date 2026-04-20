@@ -12,7 +12,7 @@ import { calculateEaseScores, batchGetConnectionsToCity } from './easeScoreCalcu
 import { suggestDaysForCity } from './gapAnalyzer';
 import { batchGetDateScores, getScoreBadges } from './dateScorer';
 import { generateVisitDescription, generateShortTagline } from './generateVisitDescription';
-import cityTraitsData from '@/lib/scoring/v3/config/cityTraits.json';
+import cityTraitsData from '@/lib/planning/config/cityTraits.json';
 import citiesData from '@/generated/cities.json';
 
 // Build lookup for city descriptions and thumbnails
