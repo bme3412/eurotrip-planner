@@ -1,6 +1,6 @@
 /**
- * Shared agent tools and prompt for both OpenAI and Bedrock Converse agent routes.
- * Used by: /api/plan/agent (OpenAI), /api/plan/agent-bedrock (Bedrock Converse).
+ * Shared agent tools and prompt for the OpenAI-backed planner chat.
+ * Used by: /api/plan/agent.
  */
 
 import { getCityData } from '@/lib/data-utils';
@@ -116,116 +116,6 @@ export const OPENAI_TOOLS = [
     },
   },
 ];
-
-// ── Bedrock Converse API toolConfig (for /api/plan/agent-bedrock) ────────────
-
-export const BEDROCK_TOOL_CONFIG = {
-  tools: [
-    {
-      toolSpec: {
-        name: 'get_city_attractions',
-        description:
-          'Returns curated attractions for a city, optionally filtered by interest categories. ' +
-          'Always call this before recommending any new attraction not already in the plan.',
-        inputSchema: {
-          json: {
-            type: 'object',
-            properties: {
-              city: { type: 'string', description: 'City slug e.g. "barcelona"' },
-              interests: {
-                type: 'array',
-                items: { type: 'string' },
-                description: 'Interest tags to filter by e.g. ["food", "history", "outdoor"]',
-              },
-              exclude_names: {
-                type: 'array',
-                items: { type: 'string' },
-                description: 'Attraction names already in the plan that should be excluded from results',
-              },
-            },
-            required: ['city'],
-          },
-        },
-      },
-    },
-    {
-      toolSpec: {
-        name: 'get_place_details',
-        description:
-          'Fetches live Google Places data for a specific place: current opening hours, rating, ' +
-          'review count, price level. Use this to verify a place before swapping it in.',
-        inputSchema: {
-          json: {
-            type: 'object',
-            properties: {
-              place_id: { type: 'string', description: 'Google Place ID' },
-            },
-            required: ['place_id'],
-          },
-        },
-      },
-    },
-    {
-      toolSpec: {
-        name: 'search_nearby',
-        description:
-          'Finds places near a geographic location using Google Nearby Search. Useful for ' +
-          'restaurant alternatives, cafes, or discoveries near a point on the itinerary.',
-        inputSchema: {
-          json: {
-            type: 'object',
-            properties: {
-              latitude: { type: 'number' },
-              longitude: { type: 'number' },
-              type: {
-                type: 'string',
-                description: 'Place type e.g. "restaurant", "museum", "park", "cafe"',
-              },
-              radius: { type: 'number', description: 'Search radius in meters, default 500' },
-            },
-            required: ['latitude', 'longitude', 'type'],
-          },
-        },
-      },
-    },
-    {
-      toolSpec: {
-        name: 'update_itinerary',
-        description:
-          'Swaps an existing activity in the itinerary with a new one. Persists the change. ' +
-          'Call get_city_attractions or get_place_details first to get accurate details for the new activity.',
-        inputSchema: {
-          json: {
-            type: 'object',
-            properties: {
-              trip_id: { type: 'string' },
-              activity_id: { type: 'string', description: 'ID of the existing trip_activity row to replace' },
-              reason: { type: 'string', description: 'Human-readable reason for the swap' },
-              new_activity: {
-                type: 'object',
-                properties: {
-                  name: { type: 'string' },
-                  type: { type: 'string' },
-                  description: { type: 'string' },
-                  duration_minutes: { type: 'number' },
-                  price_range: { type: 'string' },
-                  latitude: { type: 'number' },
-                  longitude: { type: 'number' },
-                  neighborhood: { type: 'string' },
-                  indoor: { type: 'boolean' },
-                  booking_url: { type: 'string' },
-                  google_place_id: { type: 'string' },
-                },
-                required: ['name'],
-              },
-            },
-            required: ['trip_id', 'activity_id', 'new_activity', 'reason'],
-          },
-        },
-      },
-    },
-  ],
-};
 
 // ── Tool executors ───────────────────────────────────────────────────────────
 

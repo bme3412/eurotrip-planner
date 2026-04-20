@@ -84,17 +84,7 @@ function MessageBubble({ msg }) {
   );
 }
 
-const AGENT_ROUTES = {
-  'openai': '/api/plan/agent',
-  'bedrock-converse': '/api/plan/agent-bedrock',
-  'bedrock-agent': '/api/plan/agent-bedrock-rc',
-};
-
-function getAgentUrl() {
-  const provider = process.env.NEXT_PUBLIC_AGENT_PROVIDER || 'openai';
-  if (process.env.NEXT_PUBLIC_USE_BEDROCK_AGENT === 'true') return AGENT_ROUTES['bedrock-converse'];
-  return AGENT_ROUTES[provider] || AGENT_ROUTES['openai'];
-}
+const AGENT_URL = '/api/plan/agent';
 
 export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onActivityUpdate }) {
   const [open, setOpen] = useState(false);
@@ -166,7 +156,7 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
 
       try {
         abortRef.current = new AbortController();
-        const res = await fetch(getAgentUrl(), {
+        const res = await fetch(AGENT_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
