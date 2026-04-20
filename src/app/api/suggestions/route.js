@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import { scoreCitiesForDates } from '@/lib/scoring/cityScorer';
 import { scoreCitiesV2 } from '@/lib/scoring/cityScoreV2';
-import { scoreCities as scoreCitiesV3, toV2Format } from '@/lib/scoring/v3/index.js';
 import {
   getPrecomputedMonthlyScores,
   getCachedSuggestions,
@@ -17,12 +15,12 @@ export const runtime = 'nodejs';
  * POST /api/suggestions  { dates: { start, end }, interests?, weights? }
  *
  * Query params:
- * - v=1|2|3|4: Scoring version (default: 2)
+ * - v=2|4: Scoring version (default: 2)
  * - v2=true: Legacy flag for V2 scoring
  * - travelerType: couples, families, solo, budget, luxury, culture, foodie, adventure
  * - budget: budget, moderate, luxury (for pricing preference)
- * - originCity: For ease-of-travel scoring (V3/V4)
- * - debug=true: Include debug breakdown (V3/V4 only)
+ * - originCity: For ease-of-travel scoring (V4)
+ * - debug=true: Include debug breakdown (V4 only)
  *
  * V4: Simplified 6-factor scoring (culture, beach, timing, crowds, value, logistics)
  * Returns scored city suggestions based on visit calendar data.
@@ -42,13 +40,8 @@ export async function GET(request) {
 
   // Determine scoring version
   const vParam = searchParams.get('v');
-  const useV2Legacy = searchParams.get('v2') === 'true';
   let version = 2; // Default to V2
-  if (vParam === '1') version = 1;
-  else if (vParam === '2') version = 2;
-  else if (vParam === '3') version = 3;
-  else if (vParam === '4') version = 4;
-  else if (useV2Legacy) version = 2;
+  if (vParam === '4') version = 4;
 
   if (!startDate || !endDate) {
     return NextResponse.json(
@@ -72,7 +65,7 @@ export async function GET(request) {
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { dates, travelerType, budget, originCity, v, v2, debug, flat, llm } = body;
+    const { dates, travelerType, budget, originCity, v, debug, flat, llm } = body;
 
     if (!dates?.start || !dates?.end) {
       return NextResponse.json(
@@ -81,9 +74,9 @@ export async function POST(request) {
       );
     }
 
-    // Determine version
-    let version = v || (v2 ? 2 : 2);
-    if (typeof version === 'string') version = parseInt(version, 10);
+    // Determine version: only 2 (default) or 4 are supported
+    const vNum = typeof v === 'string' ? parseInt(v, 10) : v;
+    const version = vNum === 4 ? 4 : 2;
 
     // LLM is enabled by default for V4
     const useLLM = llm !== false;
@@ -251,38 +244,8 @@ async function scoreAndRespond(startDate, endDate, preferences, limit, version =
           'X-Cache': 'MISS',
         }
       });
-    } else if (version === 3) {
-      // V3: New unified scoring with transparency
-      const v3Results = await scoreWithV3(
-        start,
-        end,
-        preferences,
-        limit,
-        debug
-      );
-      results = v3Results.items;
-      scoringVersion = 'v3';
-
-      // Return enhanced response for V3 with CDN caching
-      return NextResponse.json({
-        items: results,
-        meta: {
-          startDate,
-          endDate,
-          travelerType: preferences.travelerType,
-          budget: preferences.budget,
-          originCity: preferences.originCity,
-          totalScored: results.length,
-          scoringVersion,
-        },
-      }, {
-        headers: {
-          'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
-          'Vary': 'Accept-Encoding'
-        }
-      });
-    } else if (version === 2) {
-      // V2: Weighted multi-factor scoring with enrichment
+    } else {
+      // V2: Weighted multi-factor scoring with enrichment (default)
       results = await scoreCitiesV2({
         startDate: start,
         endDate: end,
@@ -294,15 +257,6 @@ async function scoreAndRespond(startDate, endDate, preferences, limit, version =
         includeEnrichment: true,
       });
       scoringVersion = 'v2';
-    } else {
-      // V1: Legacy scoring (simple +0.2/+0.3 boosts)
-      results = await scoreCitiesForDates({
-        startDate: start,
-        endDate: end,
-        travelerType: preferences.travelerType,
-        limit,
-      });
-      scoringVersion = 'v1';
     }
 
     // Return in the shape the homepage ResultsGrid / ResultCard expects with CDN caching
@@ -332,59 +286,6 @@ async function scoreAndRespond(startDate, endDate, preferences, limit, version =
 }
 
 /**
- * Score cities using V3 unified scoring system.
- */
-async function scoreWithV3(startDate, endDate, preferences, limit, debug) {
-  // Get city IDs from manifest
-  const manifest = await loadManifest();
-  const cityIds = Object.keys(manifest.cities || {});
-
-  // Build traveler profile
-  const travelerProfile = {
-    type: preferences.travelerType || 'everyone',
-    budget: preferences.budget || 'medium',
-  };
-
-  // Score all cities
-  const results = await scoreCitiesV3({
-    cityIds,
-    startDate,
-    endDate,
-    travelerProfile,
-    originCity: preferences.originCity,
-    getCityData: (cityId) => getCityDataFromManifest(manifest, cityId),
-    options: {
-      includeDebug: debug,
-    },
-  });
-
-  // Transform to API response format
-  const items = results.slice(0, limit).map((result, index) => ({
-    id: result.cityId,
-    cityId: result.cityId,
-    score: result.finalScore,
-    confidence: result.confidence,
-    rank: index + 1,
-
-    // Transparency: Full breakdown
-    breakdown: result.breakdown,
-
-    // Human-readable summary
-    why: result.summary?.why || '',
-    highlights: result.summary?.highlights || [],
-    warnings: result.summary?.warnings || [],
-
-    // Legacy compatibility (0-5 scale)
-    legacyScore: Math.round((result.finalScore / 100) * 5 * 10) / 10,
-
-    // Debug info if requested
-    ...(debug && result.debug ? { debug: result.debug } : {}),
-  }));
-
-  return { items };
-}
-
-/**
  * Load city manifest.
  */
 async function loadManifest() {
@@ -398,22 +299,6 @@ async function loadManifest() {
     console.error('Failed to load manifest:', error);
     return { cities: {} };
   }
-}
-
-/**
- * Get city data from manifest.
- */
-function getCityDataFromManifest(manifest, cityId) {
-  const cityInfo = manifest.cities?.[cityId];
-  if (!cityInfo) return null;
-
-  return {
-    cityId,
-    country: cityInfo.country,
-    directoryName: cityInfo.directoryName,
-    // The full city data would need to be loaded from the city's index.json
-    // For now, return basic info from manifest
-  };
 }
 
 /**
