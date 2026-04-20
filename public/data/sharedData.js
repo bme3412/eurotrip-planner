@@ -36,7 +36,6 @@ export const countryFlags = {
   'North Macedonia': '🇲🇰',
   'North-Macedonia': '🇲🇰',
   Kosovo: '🇽🇰',
-  Kosov: '🇽🇰',
 
   // Baltics
   Estonia: '🇪🇪',
@@ -50,7 +49,6 @@ export const countryFlags = {
   'San Marino': '🇸🇲',
   'San-Marino': '🇸🇲',
   Liechtenstein: '🇱🇮',
-  Liechtensetin: '🇱🇮',
 
   // Nordics & related
   Iceland: '🇮🇸',

@@ -20,7 +20,6 @@ const COUNTRY_FLAGS = {
   'Serbia': '🇷🇸', 'Slovakia': '🇸🇰', 'Slovenia': '🇸🇮', 'Spain': '🇪🇸',
   'Sweden': '🇸🇪', 'Switzerland': '🇨🇭', 'UK': '🇬🇧', 'Albania': '🇦🇱',
   'Andorra': '🇦🇩', 'Belarus': '🇧🇾', 'Moldova': '🇲🇩', 'Ukraine': '🇺🇦',
-  'Kosov': '🇽🇰', 'Liechtensetin': '🇱🇮',
 };
 
 /**
