@@ -217,16 +217,16 @@ export default function Page() {
           {/* Left: narrative & CTA */}
           <div className="flex flex-col animate-fade-in lg:pr-8">
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.0] text-gray-900 font-bold mb-5 tracking-tighter">
-              Stop guessing.<br />
+              Plan smarter.<br />
               <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-indigo-700 bg-clip-text text-transparent">
                 220 European cities,
               </span><br />
               <span className="text-blue-600">scored for when</span><br />
               <span className="text-gray-900">you&apos;re actually there.</span>
             </h1>
-            
+
             <p className="text-lg md:text-xl text-gray-600 leading-snug mb-8 max-w-md">
-              Our scoring engine analyzes weather, crowds, seasonal events, and costs — for your exact dates. Enter your dates and see who wins.
+              Our scoring engine analyzes weather, crowds, seasonal events, and costs — for your exact travel dates. Find your perfect destinations.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 mb-6">

@@ -234,7 +234,142 @@ export function getValidationSummary(validation) {
   }
 }
 
+/**
+ * Calculate total route distance in km
+ */
+export function calculateTotalDistance(route) {
+  let total = 0;
+  for (let i = 0; i < route.length - 1; i++) {
+    const from = cityCoords[route[i].id];
+    const to = cityCoords[route[i + 1].id];
+    if (from && to) {
+      total += haversineDistance(from, to);
+    }
+  }
+  return Math.round(total);
+}
+
+/**
+ * Optimize route order using nearest-neighbor algorithm
+ * Starts from startCity and visits nearest unvisited city until done
+ *
+ * TODO(cleanup): Duplicates the nearest-neighbor TSP heuristic in
+ * `src/lib/planning/routeOptimizer.js` (used by /api/trips/multi-city for
+ * full itinerary generation). Both implementations should be unified into a
+ * single shared helper — deferred to a follow-up refactor pass since the call
+ * sites have different shapes (validator works on wizard `stops`, optimizer
+ * works on full city objects).
+ *
+ * @param {Array} stops - Intermediate stops with city data
+ * @param {Object} startCity - Start city { id, name }
+ * @param {Object} endCity - End city { id, name }
+ * @returns {Object} Optimized route data
+ */
+export function optimizeRouteOrder(stops, startCity, endCity) {
+  if (!stops || stops.length === 0) {
+    return { optimizedStops: [], savings: 0, newEfficiency: 100 };
+  }
+
+  // Prepare stops with coordinates
+  const stopsWithCoords = stops.map(stop => {
+    const cityId = stop.city?.id || stop.id;
+    const coords = cityCoords[cityId];
+    return {
+      ...stop,
+      cityId,
+      coords,
+    };
+  }).filter(s => s.coords);
+
+  if (stopsWithCoords.length === 0) {
+    return { optimizedStops: stops, savings: 0, newEfficiency: 100 };
+  }
+
+  // Nearest-neighbor algorithm
+  const remaining = [...stopsWithCoords];
+  const optimized = [];
+  let current = cityCoords[startCity.id];
+
+  while (remaining.length > 0) {
+    let nearestIdx = 0;
+    let nearestDist = Infinity;
+
+    remaining.forEach((stop, idx) => {
+      if (stop.coords && current) {
+        const dist = haversineDistance(current, stop.coords);
+        if (dist < nearestDist) {
+          nearestDist = dist;
+          nearestIdx = idx;
+        }
+      }
+    });
+
+    const nearest = remaining[nearestIdx];
+    optimized.push(nearest);
+    current = nearest.coords;
+    remaining.splice(nearestIdx, 1);
+  }
+
+  // Calculate distances for comparison
+  const originalRoute = [
+    { id: startCity.id },
+    ...stops.map(s => ({ id: s.city?.id || s.id })),
+    { id: endCity.id },
+  ];
+  const optimizedRoute = [
+    { id: startCity.id },
+    ...optimized.map(s => ({ id: s.cityId })),
+    { id: endCity.id },
+  ];
+
+  const originalDistance = calculateTotalDistance(originalRoute);
+  const optimizedDistance = calculateTotalDistance(optimizedRoute);
+  const savings = originalDistance - optimizedDistance;
+
+  // Validate the optimized route
+  const validation = validateRoute(
+    optimized.map(s => ({ city: s.cityId, cityName: s.city?.name || s.cityName })),
+    startCity,
+    endCity
+  );
+
+  return {
+    optimizedStops: optimized,
+    originalDistance,
+    optimizedDistance,
+    savings,
+    newEfficiency: validation.efficiencyScore,
+  };
+}
+
+/**
+ * Compare current route with optimized version
+ */
+export function compareRoutes(stops, startCity, endCity) {
+  const currentValidation = validateRoute(stops, startCity, endCity);
+  const optimization = optimizeRouteOrder(stops, startCity, endCity);
+
+  return {
+    current: {
+      route: currentValidation.route,
+      distance: calculateTotalDistance(currentValidation.route),
+      efficiency: currentValidation.efficiencyScore,
+      warnings: currentValidation.warnings,
+    },
+    optimized: {
+      stops: optimization.optimizedStops,
+      distance: optimization.optimizedDistance,
+      efficiency: optimization.newEfficiency,
+      savings: optimization.savings,
+    },
+    shouldOptimize: optimization.savings > 100 && optimization.newEfficiency > currentValidation.efficiencyScore,
+  };
+}
+
 export default {
   validateRoute,
   getValidationSummary,
+  optimizeRouteOrder,
+  calculateTotalDistance,
+  compareRoutes,
 };

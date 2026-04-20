@@ -784,6 +784,7 @@ export default function StepGaps({
   endCityDays = [],
   tripDates,
   onRemoveStop,
+  onOptimizeRoute,
 }) {
   const [viewMode, setViewMode] = useState('browse'); // 'browse' | 'ai'
 
@@ -813,6 +814,33 @@ export default function StepGaps({
   const hasGapSelections = selections.length > 0;
   const hasAnyStops = hasIntermediateStops || hasGapSelections;
 
+  // Combine all stops for route validation
+  const allStopsForValidation = useMemo(() => {
+    const combined = [];
+
+    // Add intermediate stops from Step 1
+    intermediateStops.forEach(stop => {
+      combined.push({
+        city: stop.city?.id || stop.id,
+        cityName: stop.city?.name || stop.cityName,
+        country: stop.city?.country || stop.country,
+        days: stop.days?.length || stop.days || 0,
+      });
+    });
+
+    // Add gap selections
+    selections.forEach(sel => {
+      combined.push({
+        city: sel.city,
+        cityName: sel.cityName,
+        country: sel.country,
+        days: sel.days,
+      });
+    });
+
+    return combined;
+  }, [intermediateStops, selections]);
+
   return (
     <div className="space-y-4">
       {/* Current Route - always show if there's a start city */}
@@ -840,17 +868,14 @@ export default function StepGaps({
         />
       )}
 
-      {/* All days filled message */}
-      {gaps.length === 0 && hasAnyStops && (
-        <div className="p-4 bg-[#f0fdf4] border border-[#bbf7d0] rounded-xl">
-          <div className="flex items-center gap-2 text-[#166534]">
-            <Check className="w-5 h-5" />
-            <span className="font-medium">All days allocated!</span>
-          </div>
-          <p className="text-sm text-[#15803d] mt-1">
-            Your route is complete. You can still browse alternatives below to swap cities.
-          </p>
-        </div>
+      {/* Route Validation Panel - shows when there are stops */}
+      {hasAnyStops && startCity && endCity && (
+        <RouteValidationPanel
+          stops={allStopsForValidation}
+          startCity={startCity}
+          endCity={endCity}
+          onOptimize={onOptimizeRoute}
+        />
       )}
 
       {/* AI Suggest Mode */}
@@ -889,14 +914,6 @@ export default function StepGaps({
             ))}
           </div>
 
-          {/* Route validation - shows when stops are selected */}
-          {selections.length > 0 && startCity && endCity && (
-            <RouteValidationPanel
-              stops={selections}
-              startCity={startCity}
-              endCity={endCity}
-            />
-          )}
         </>
       )}
     </div>

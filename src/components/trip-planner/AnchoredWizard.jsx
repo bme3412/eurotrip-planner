@@ -9,6 +9,7 @@ import StepPreferences from './StepPreferences';
 import StepReview from './StepReview';
 import TripTimeline from './TripTimeline';
 import TripMap from './TripMap';
+import citiesData from '@/generated/cities.json';
 
 const STEPS = [
   { id: 'setup', label: 'Your Trip', description: 'Where and when are you traveling?' },
@@ -17,9 +18,17 @@ const STEPS = [
   { id: 'review', label: 'Review', description: 'Finalize your trip' },
 ];
 
-export default function AnchoredWizard() {
+export default function AnchoredWizard({
+  initialStartCityId,
+  initialEndCityId,
+  initialStartDate,
+  initialEndDate,
+  isAuditMode = false,
+  auditCityIds = [],
+}) {
   const [currentStep, setCurrentStep] = useState(0);
   const [error, setError] = useState(null);
+  const [initialized, setInitialized] = useState(false);
 
   // Trip state - simplified model
   const [tripDates, setTripDates] = useState({ start: '', end: '' });
@@ -61,6 +70,57 @@ export default function AnchoredWizard() {
       }
     }
   }, []);
+
+  // Initialize from URL params (runs once)
+  useEffect(() => {
+    if (initialized) return;
+
+    // Helper to find city by ID
+    const findCity = (id) => citiesData.find(c => c.id === id) || null;
+
+    // Set dates if provided
+    if (initialStartDate || initialEndDate) {
+      setTripDates({
+        start: initialStartDate || '',
+        end: initialEndDate || '',
+      });
+    }
+
+    // Set start city if provided
+    if (initialStartCityId) {
+      const city = findCity(initialStartCityId);
+      if (city) setStartCity(city);
+    }
+
+    // Set end city if provided
+    if (initialEndCityId) {
+      const city = findCity(initialEndCityId);
+      if (city) setEndCity(city);
+    }
+
+    // Handle audit mode - populate intermediate stops from city IDs
+    if (isAuditMode && auditCityIds.length > 0) {
+      const cities = auditCityIds.map(findCity).filter(Boolean);
+      if (cities.length >= 2) {
+        // First city is start, last is end
+        setStartCity(cities[0]);
+        setEndCity(cities[cities.length - 1]);
+        // Middle cities are intermediate stops
+        if (cities.length > 2) {
+          const intermediates = cities.slice(1, -1).map(city => ({
+            city,
+            cityName: city.name,
+            days: [],
+          }));
+          setIntermediateStops(intermediates);
+        }
+      }
+      // Jump to step 2 (Add Stops) to show route validation
+      setCurrentStep(1);
+    }
+
+    setInitialized(true);
+  }, [initialized, initialStartCityId, initialEndCityId, initialStartDate, initialEndDate, isAuditMode, auditCityIds]);
 
   // Save itinerary to localStorage
   const handleSaveItinerary = useCallback(() => {
@@ -436,6 +496,38 @@ export default function AnchoredWizard() {
     }));
   };
 
+  // Reorder intermediate stops based on optimized route from RouteValidationPanel
+  const handleOptimizeRoute = useCallback((optimizedStops) => {
+    // Map optimized stops back to our intermediate stop format
+    const optimizedIds = optimizedStops.map(s => s.cityId || s.city?.id || s.city);
+
+    // Reorder intermediate stops to match optimized order
+    const reorderedIntermediateStops = optimizedIds
+      .map(cityId => intermediateStops.find(stop =>
+        (stop.city?.id || stop.id) === cityId
+      ))
+      .filter(Boolean);
+
+    // Handle stops that weren't in intermediateStops (from gap selections)
+    const reorderedGapSelections = {};
+    const gapSelectionValues = Object.values(stopSelections);
+
+    optimizedIds.forEach(cityId => {
+      const gapSelection = gapSelectionValues.find(sel => sel.city === cityId);
+      if (gapSelection) {
+        reorderedGapSelections[cityId] = gapSelection;
+      }
+    });
+
+    // Update state
+    if (reorderedIntermediateStops.length > 0) {
+      setIntermediateStops(reorderedIntermediateStops);
+    }
+    if (Object.keys(reorderedGapSelections).length > 0) {
+      setStopSelections(reorderedGapSelections);
+    }
+  }, [intermediateStops, stopSelections]);
+
   const handleSelectSuggestion = (suggestion) => {
     handleFillGap('main-gap', {
       city: suggestion.id,
@@ -756,6 +848,7 @@ export default function AnchoredWizard() {
                       onClearGap={handleClearGap}
                       onUpdateSelection={handleUpdateSelection}
                       onRemoveStop={handleRemoveIntermediateStop}
+                      onOptimizeRoute={handleOptimizeRoute}
                       onSuggestionsLoaded={setCurrentSuggestions}
                       hoveredSuggestion={hoveredSuggestion}
                       onHoverSuggestion={setHoveredSuggestion}

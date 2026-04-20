@@ -32,6 +32,14 @@ function TripPlannerContent() {
     return <ConversationalPlanner />;
   }
 
+  // Read URL params for pre-filling wizard
+  const initialStartCityId = searchParams.get('start');
+  const initialEndCityId = searchParams.get('end');
+  const initialStartDate = searchParams.get('startDate');
+  const initialEndDate = searchParams.get('endDate');
+  const isAuditMode = mode === 'audit';
+  const auditCityIds = searchParams.get('cities')?.split(',').filter(Boolean) || [];
+
   // Default: Show advanced wizard mode
   return (
     <div className="min-h-screen relative overflow-hidden bg-[#faf8f5]">
@@ -68,7 +76,14 @@ function TripPlannerContent() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
-          <AnchoredWizard />
+          <AnchoredWizard
+            initialStartCityId={initialStartCityId}
+            initialEndCityId={initialEndCityId}
+            initialStartDate={initialStartDate}
+            initialEndDate={initialEndDate}
+            isAuditMode={isAuditMode}
+            auditCityIds={auditCityIds}
+          />
         </motion.div>
       </div>
     </div>
