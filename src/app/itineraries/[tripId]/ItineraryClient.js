@@ -345,86 +345,12 @@ function GenericTimeBlock({ block, isLast, index, experienceScores }) {
   );
 }
 
-// ─── ParisBlock ───────────────────────────────────────────────────────────
-
-function ParisBlock({ block, index }) {
-  const { slot, slotType, item, transferMinutes, longTransfer, transferFrom, transferDistanceKm } = block;
-  if (!item) return null;
-
-  return (
-    <motion.div
-      variants={blockV}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      custom={index}
-      className="rounded-xl border border-zinc-800 bg-[#18181b] px-4 py-4"
-    >
-      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">
-        {slotType === 'food' ? 'Dining' : 'Visit'} · {slot}
-      </p>
-      <div className="mt-1.5 flex flex-col gap-0.5">
-        {item.url ? (
-          <a href={item.url} target="_blank" rel="noreferrer"
-            className="text-sm font-semibold text-white underline decoration-zinc-600 underline-offset-4 hover:decoration-[#c9963c] hover:text-[#c9963c] transition-colors">
-            {item.name}
-          </a>
-        ) : (
-          <p className="text-sm font-semibold text-white">{item.name}</p>
-        )}
-        {item.subtitle && <p className="text-xs font-medium text-[#c9963c]">{item.subtitle}</p>}
-        {item.arrondissement && <p className="text-xs text-zinc-500">Arr. {item.arrondissement}</p>}
-      </div>
-      {item.friendlyDetails?.length > 0 && (
-        <div className="mt-3 space-y-2 text-sm leading-relaxed text-zinc-400">
-          {item.friendlyDetails.map((line, idx) => (
-            <p key={idx}>{renderRich(line)}</p>
-          ))}
-        </div>
-      )}
-      <div className="mt-3 flex flex-wrap gap-1.5">
-        {item.bestTime && (
-          <span className="rounded bg-zinc-800 px-2.5 py-1 text-xs text-zinc-400">{item.bestTime}</span>
-        )}
-        {item.durationHours && (
-          <span className="rounded bg-zinc-800 px-2.5 py-1 text-xs text-zinc-400">{item.durationHours}h</span>
-        )}
-        {item.price && (
-          <span className="rounded bg-zinc-800 px-2.5 py-1 text-xs text-zinc-400">{item.price}</span>
-        )}
-        {item.transit?.closest_metro?.[0] && (
-          <span className="rounded bg-zinc-800 px-2.5 py-1 text-xs text-zinc-400">
-            M{item.transit.closest_metro[0].line} · {item.transit.closest_metro[0].station}
-          </span>
-        )}
-      </div>
-      {transferMinutes != null && (
-        <p className={`mt-3 text-xs ${longTransfer ? 'text-amber-500' : 'text-zinc-600'}`}>
-          {longTransfer
-            ? `~${transferMinutes} min${transferDistanceKm ? ` · ${transferDistanceKm} km` : ''} from ${transferFrom || 'previous stop'}`
-            : `~${transferMinutes} min from ${transferFrom || 'previous stop'}`}
-        </p>
-      )}
-      {item.url && (
-        <a href={item.url} target="_blank" rel="noreferrer"
-          className="mt-3 inline-flex w-max items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-semibold text-black transition hover:opacity-90"
-          style={{ backgroundColor: GOLD }}
-        >
-          Book tickets ↗
-        </a>
-      )}
-    </motion.div>
-  );
-}
-
 // ─── DayCard ──────────────────────────────────────────────────────────────
 
 function DayCard({ day, index, weather, experienceScores }) {
-  const hasGenericBlocks = day.timeBlocks && !day.blocks;
-  const neighborhoods = hasGenericBlocks
+  const neighborhoods = day.timeBlocks
     ? [...new Set(day.timeBlocks.map(b => b.activity?.neighborhood).filter(Boolean))]
     : [];
-  const zoneSummary = day.zones?.length ? [...new Set(day.zones)].join(' → ') : null;
   const dayNum = day.dayNumber || index + 1;
 
   return (
@@ -459,15 +385,15 @@ function DayCard({ day, index, weather, experienceScores }) {
             )}
             {weather && <WeatherBadge weather={weather} />}
           </div>
-          {(zoneSummary || neighborhoods.length > 0) && (
+          {neighborhoods.length > 0 && (
             <p className="mt-1 truncate text-xs text-zinc-600">
-              {zoneSummary || neighborhoods.join(' → ')}
+              {neighborhoods.join(' → ')}
             </p>
           )}
         </div>
       </header>
 
-      {hasGenericBlocks && (
+      {day.timeBlocks && (
         <div className="px-6 py-5">
           {day.timeBlocks.map((block, i) => (
             <GenericTimeBlock
@@ -478,28 +404,6 @@ function DayCard({ day, index, weather, experienceScores }) {
               experienceScores={experienceScores}
             />
           ))}
-        </div>
-      )}
-
-      {day.blocks && (
-        <div className="space-y-4 px-6 py-5">
-          {day.blocks.map((block, i) => (
-            <ParisBlock key={`${block.slot}-${i}`} block={block} index={i} />
-          ))}
-          {day.supporting?.length > 0 && (
-            <div className="rounded-xl border border-[#c9963c30] bg-[#c9963c08] px-4 py-4">
-              <p className="text-[10px] font-bold uppercase tracking-[0.25em]" style={{ color: GOLD }}>
-                Evening wind-down
-              </p>
-              {day.supporting.map((item) => (
-                <div key={item.title} className="mt-2.5 space-y-0.5">
-                  <p className="text-sm font-semibold text-zinc-200">{item.title}</p>
-                  {item.subtitle && <p className="text-xs font-medium" style={{ color: GOLD + 'cc' }}>{item.subtitle}</p>}
-                  {item.description && <p className="text-sm text-zinc-400">{item.description}</p>}
-                </div>
-              ))}
-            </div>
-          )}
         </div>
       )}
     </motion.article>
@@ -618,11 +522,6 @@ export default function ItineraryClient({
         const a = b.activity;
         if (a?.latitude && a?.longitude) {
           out.push({ lat: a.latitude, lng: a.longitude, name: a.name, dayNum, color: GOLD, timeBlock: b.time });
-        }
-      }
-      for (const b of day.blocks || []) {
-        if (b.item?.latitude && b.item?.longitude) {
-          out.push({ lat: b.item.latitude, lng: b.item.longitude, name: b.item.name, dayNum, color: GOLD, timeBlock: b.slot });
         }
       }
     }

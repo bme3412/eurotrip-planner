@@ -10,7 +10,7 @@ import { getSupabaseAdmin } from '../supabase/server';
  * Create a trip with normalized day and activity rows.
  *
  * @param {object} tripPayload — flat trip row (city, dates, interests, etc.)
- * @param {object} itinerary — output from buildItinerary / buildParisRecommendations
+ * @param {object} itinerary — output from buildItinerary
  * @returns {Promise<object>} created trip with id
  */
 export async function createTripWithDays(tripPayload, itinerary) {
@@ -214,55 +214,29 @@ function computeDayDate(startDate, dayIndex) {
 }
 
 /**
- * Extract activities from either buildItinerary or buildParisRecommendations output.
+ * Extract activities from buildItinerary output (day.timeBlocks shape).
  */
 function extractActivities(day) {
+  if (!day.timeBlocks) return [];
   const activities = [];
-
-  // Generic format: day.timeBlocks
-  if (day.timeBlocks) {
-    for (const block of day.timeBlocks) {
-      if (!block.activity) continue;
-      activities.push({
-        timeBlock: block.time || 'morning',
-        startTime: block.startTime || null,
-        endTime: block.endTime || null,
-        name: block.activity.name,
-        type: block.activity.type || null,
-        description: block.activity.description || null,
-        durationMinutes: block.activity.duration ? parseDurationMinutes(block.activity.duration) : null,
-        price: block.activity.price || null,
-        latitude: block.activity.latitude || null,
-        longitude: block.activity.longitude || null,
-        neighborhood: block.activity.neighborhood || null,
-        bookingUrl: block.activity.bookingUrl || null,
-        indoor: block.activity.indoor ?? false,
-      });
-    }
+  for (const block of day.timeBlocks) {
+    if (!block.activity) continue;
+    activities.push({
+      timeBlock: block.time || 'morning',
+      startTime: block.startTime || null,
+      endTime: block.endTime || null,
+      name: block.activity.name,
+      type: block.activity.type || null,
+      description: block.activity.description || null,
+      durationMinutes: block.activity.duration ? parseDurationMinutes(block.activity.duration) : null,
+      price: block.activity.price || null,
+      latitude: block.activity.latitude || null,
+      longitude: block.activity.longitude || null,
+      neighborhood: block.activity.neighborhood || null,
+      bookingUrl: block.activity.bookingUrl || null,
+      indoor: block.activity.indoor ?? false,
+    });
   }
-
-  // Paris format: day.blocks
-  if (day.blocks) {
-    for (const block of day.blocks) {
-      if (!block.item) continue;
-      activities.push({
-        timeBlock: mapSlotToTimeBlock(block.slot),
-        startTime: null,
-        endTime: null,
-        name: block.item.name,
-        type: block.item.subtitle || block.slotType || null,
-        description: block.item.description || null,
-        durationMinutes: block.item.durationHours ? Math.round(block.item.durationHours * 60) : null,
-        price: block.item.price || null,
-        latitude: block.item.latitude || null,
-        longitude: block.item.longitude || null,
-        neighborhood: block.item.arrondissement ? `${block.item.arrondissement} arr.` : null,
-        bookingUrl: block.item.url || null,
-        indoor: block.item.indoor ?? false,
-      });
-    }
-  }
-
   return activities;
 }
 
@@ -274,13 +248,3 @@ function parseDurationMinutes(str) {
   return match[2].startsWith('h') ? Math.round(val * 60) : Math.round(val);
 }
 
-function mapSlotToTimeBlock(slot) {
-  if (!slot) return 'morning';
-  const s = slot.toLowerCase();
-  if (s.includes('morning') || s.includes('am')) return 'morning';
-  if (s.includes('lunch') || s.includes('midday')) return 'lunch';
-  if (s.includes('afternoon')) return 'afternoon';
-  if (s.includes('evening') || s.includes('dinner')) return 'evening';
-  if (s.includes('night') || s.includes('late')) return 'night';
-  return 'morning';
-}

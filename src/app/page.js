@@ -321,7 +321,6 @@ export default function Page() {
               <ul className="space-y-2 text-sm text-zinc-600">
                 <li><Link href="/city-guides" className="hover:text-indigo-600 transition-colors">City Guides</Link></li>
                 <li><Link href="/explore" className="hover:text-indigo-600 transition-colors">Interactive Map</Link></li>
-                <li><Link href="/paris-trip" className="hover:text-indigo-600 transition-colors">Paris Itinerary</Link></li>
                 <li><Link href="/start-planning" className="hover:text-indigo-600 transition-colors">Start Planning</Link></li>
               </ul>
             </div>

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCityData, getCityVisitCalendar, getCityExperiences } from "@/lib/data-utils";
-import { buildParisRecommendations } from "@/lib/planning/buildParisRecommendations";
 import { buildItinerary } from "@/lib/planning/buildItinerary";
 import { getTripWithDetails } from "@/lib/trips/tripState";
 import ItineraryClient from "./ItineraryClient";
@@ -91,62 +90,6 @@ function buildPlanFromNormalizedDays(trip) {
   };
 }
 
-function buildFriendlyDetails(item) {
-  const lines = [];
-  if (item.description) {
-    lines.push(item.description.replace(/(^\w)/, (c) => c.toUpperCase()));
-  }
-  const minDur = item.visitProfile?.min_duration_hours ?? item.durationHours;
-  const maxDur = item.visitProfile?.max_duration_hours;
-  const block = item.visitProfile?.ideal_time_block;
-  const bestTime = item.bestTime || item.openingHours?.weekday;
-  if (bestTime || minDur || block) {
-    const tidbits = [];
-    if (bestTime) tidbits.push(`Sweet spot: ${bestTime.toLowerCase()}.`);
-    if (minDur && maxDur && maxDur !== minDur) {
-      tidbits.push(`Expect to linger for ${minDur}-${maxDur} hrs.`);
-    } else if (minDur) {
-      tidbits.push(`Give it about ${minDur} hr${minDur > 1 ? 's' : ''}.`);
-    }
-    if (block) tidbits.push(`Feels best as a ${block.toLowerCase()} moment.`);
-    if (tidbits.length) lines.push(tidbits.join(' '));
-  }
-  if (item.bookingTips) lines.push(item.bookingTips);
-  if (!item.bookingTips && item.transit?.closest_metro?.[0]) {
-    const metro = item.transit.closest_metro[0];
-    const walk = metro.walk_minutes ?? 5;
-    lines.push(`Closest metro: line ${metro.line} ${metro.station} — about ${walk} min on foot.`);
-  }
-  return lines;
-}
-
-/**
- * Pre-compute friendly details for Paris-format plan so client doesn't need
- * the buildFriendlyDetails logic.
- */
-function precomputeParisPlanDetails(plan) {
-  if (!plan?.days) return plan;
-  return {
-    ...plan,
-    days: plan.days.map(day => {
-      if (!day.blocks) return day;
-      return {
-        ...day,
-        blocks: day.blocks.map(block => {
-          if (!block.item) return block;
-          return {
-            ...block,
-            item: {
-              ...block.item,
-              friendlyDetails: buildFriendlyDetails(block.item),
-            },
-          };
-        }),
-      };
-    }),
-  };
-}
-
 /**
  * Extract monthly weather for the trip start month.
  */
@@ -217,25 +160,17 @@ export default async function ItineraryPage({ params }) {
   if (!trip) notFound();
 
   const citySlug = trip.city || 'paris';
-  const isParisTrip = citySlug.toLowerCase() === 'paris';
   const hasNormalizedDays = trip.days?.length > 0 && trip.days[0].activities?.length > 0;
 
-  // Load city data, weather, and experience scores in parallel
   const [cityData, visitCalendar, experiences] = await Promise.all([
     getCityData(citySlug),
     getCityVisitCalendar(citySlug),
     getCityExperiences(citySlug),
   ]);
 
-  // Build the plan
-  let plan;
-  if (hasNormalizedDays) {
-    plan = buildPlanFromNormalizedDays(trip);
-  } else if (isParisTrip) {
-    plan = precomputeParisPlanDetails(buildParisRecommendations(trip, cityData));
-  } else {
-    plan = buildItinerary(trip, cityData);
-  }
+  const plan = hasNormalizedDays
+    ? buildPlanFromNormalizedDays(trip)
+    : buildItinerary(trip, cityData);
 
   const cityDisplay = cityData?.cityName || cityData?.name || citySlug.charAt(0).toUpperCase() + citySlug.slice(1);
   const dateRangeLabel = formatDateRange(trip.start_date, trip.end_date);

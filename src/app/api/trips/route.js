@@ -3,7 +3,6 @@
 import { NextResponse } from "next/server";
 import { getCityData } from "../../../lib/data-utils.js";
 import { buildItinerary } from "../../../lib/planning/buildItinerary.js";
-import { buildParisRecommendations } from "../../../lib/planning/buildParisRecommendations.js";
 import { createTripWithDays } from "../../../lib/trips/tripState.js";
 import { getSupabaseAdmin } from "../../../lib/supabase/server";
 
@@ -79,12 +78,8 @@ export async function POST(request) {
     const citySlug = payload.city.toLowerCase();
     const cityData = await getCityData(citySlug);
 
-    const isParisTrip = citySlug === 'paris';
-    const itinerary = isParisTrip
-      ? buildParisRecommendations(payload, cityData)
-      : buildItinerary(payload, cityData);
+    const itinerary = buildItinerary(payload, cityData);
 
-    // Store initial_plan as backup
     payload.initial_plan = itinerary;
 
     const trip = await createTripWithDays(payload, itinerary);
