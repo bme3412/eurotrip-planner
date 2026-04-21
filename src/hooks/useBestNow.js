@@ -44,8 +44,10 @@ function writeCache(key, items) {
  * @param {number} [opts.windowDays=30] - Forward window for the score.
  */
 export function useBestNow({ limit = 5, windowDays = 30 } = {}) {
-  const [items, setItems] = useState(() => readCache(`${windowDays}-${limit}`));
-  const [loading, setLoading] = useState(items == null);
+  // Always start with loading=true to avoid hydration mismatch
+  // (server has no sessionStorage, client may have cached data)
+  const [items, setItems] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [dates] = useState(() => ({ start: todayPlus(0), end: todayPlus(windowDays) }));
 
@@ -59,7 +61,6 @@ export function useBestNow({ limit = 5, windowDays = 30 } = {}) {
     }
 
     let cancelled = false;
-    setLoading(true);
 
     fetch("/api/suggestions", {
       method: "POST",
@@ -78,12 +79,16 @@ export function useBestNow({ limit = 5, windowDays = 30 } = {}) {
       .then((data) => {
         if (cancelled) return;
         const top = (data.items ?? []).slice(0, limit);
+        if (top.length === 0) {
+          console.warn("[useBestNow] API returned empty items");
+        }
         setItems(top);
         writeCache(cacheKey, top);
         setLoading(false);
       })
       .catch((e) => {
         if (cancelled) return;
+        console.error("[useBestNow] fetch error:", e);
         setError(e);
         setLoading(false);
       });

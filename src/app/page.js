@@ -1,6 +1,8 @@
 "use client";
-import { useState, useRef, useCallback, useEffect, useMemo } from "react";
+import { useState, useRef, useCallback, useEffect, useMemo, Suspense } from "react";
 import { createPortal } from "react-dom";
+import { useSearchParams } from "next/navigation";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Sun, Users, Calendar, Wallet, Plane, Landmark } from "lucide-react";
 import ResultsGrid from "../components/ResultsGrid";
@@ -9,6 +11,16 @@ import ScoringDemoSection from "../components/home/ScoringDemoSection";
 import BestCitiesNow from "../components/home/BestCitiesNow";
 import BestNowTicker from "../components/home/BestNowTicker";
 import HeroWidget from "../components/home/HeroWidget";
+
+// Lazy load Hero V2 - only imported when ?v=2 is present
+const HeroV2 = dynamic(() => import("@/components/home/v2/Hero"), {
+  ssr: true,
+  loading: () => (
+    <div className="min-h-screen bg-hero-paper flex items-center justify-center">
+      <div className="animate-pulse text-hero-ink-muted">Loading...</div>
+    </div>
+  ),
+});
 
 const SCORING_FACTORS = [
   { Icon: Sun, label: "Weather", tip: "Daily highs/lows, rain probability, sun hours for your dates." },
@@ -181,8 +193,31 @@ function LoadingState() {
   );
 }
 
-// ── Page ────────────────────────────────────────────────────────────
+// ── Page Router ─────────────────────────────────────────────────────
+function PageRouter() {
+  const searchParams = useSearchParams();
+  const isV2 = searchParams.get("v") === "2";
+
+  // Render Hero V2 if ?v=2 is present
+  if (isV2) {
+    return <HeroV2 />;
+  }
+
+  // V1 (default) rendering continues below
+  return <PageV1 />;
+}
+
+// ── Page (exported with Suspense boundary) ──────────────────────────
 export default function Page() {
+  return (
+    <Suspense fallback={<PageV1 />}>
+      <PageRouter />
+    </Suspense>
+  );
+}
+
+// ── Page V1 (existing implementation) ─────────────────────────────────
+function PageV1() {
   const initialDates = useMemo(() => getInitialDates(), []);
   const { dates, setDates } = useTripDates(initialDates);
   const [loading, setLoading] = useState(false);
@@ -216,7 +251,7 @@ export default function Page() {
       const res = await fetch("/api/suggestions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ dates: d, interests, weights, v: 4 }),
+        body: JSON.stringify({ dates: d, interests, weights, v: 4, flat: true }),
       });
       if (!res.ok) {
         throw new Error(`HTTP ${res.status}`);
