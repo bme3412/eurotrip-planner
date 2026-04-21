@@ -73,10 +73,13 @@ const AirportRouteMap = ({
 
         const map = new mapboxgl.Map({
           container: mapContainerRef.current,
-          style: 'mapbox://styles/mapbox/light-v11',
+          style: 'mapbox://styles/mapbox/streets-v12',
           bounds: bounds,
-          fitBoundsOptions: { padding: 50 },
+          fitBoundsOptions: { padding: { top: 40, bottom: 40, left: 30, right: 30 } },
           attributionControl: false,
+          interactive: true,
+          minZoom: 9,
+          maxZoom: 12,
         });
 
         // Add minimal controls
@@ -119,8 +122,8 @@ const AirportRouteMap = ({
       const el = document.createElement('div');
       el.className = 'city-center-marker';
       el.innerHTML = `
-        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
-          <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <div class="w-9 h-9 bg-rose-500 rounded-full flex items-center justify-center shadow-lg border-3 border-white ring-2 ring-rose-200">
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
@@ -146,13 +149,13 @@ const AirportRouteMap = ({
       el.className = 'airport-marker cursor-pointer';
       el.innerHTML = `
         <div class="relative">
-          <div class="w-10 h-10 ${isSelected ? 'bg-sky-500 scale-110' : 'bg-gray-700'} rounded-full flex items-center justify-center shadow-lg border-2 border-white transition-all duration-200 hover:scale-110">
+          <div class="w-11 h-11 ${isSelected ? 'bg-sky-500 ring-2 ring-sky-200 scale-110' : 'bg-sky-600'} rounded-full flex items-center justify-center shadow-lg border-3 border-white transition-all duration-200 hover:scale-110">
             <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
               <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
             </svg>
           </div>
           <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap">
-            <span class="px-2 py-0.5 bg-white rounded-full text-xs font-medium shadow-sm border ${isSelected ? 'border-sky-400 text-sky-700' : 'border-gray-200 text-gray-700'}">
+            <span class="px-2 py-0.5 bg-white rounded-full text-xs font-bold shadow-sm border-2 ${isSelected ? 'border-sky-400 text-sky-700' : 'border-sky-200 text-sky-700'}">
               ${airport.code}
             </span>
           </div>
@@ -180,7 +183,65 @@ const AirportRouteMap = ({
     });
   }, [mapLoaded, data, selectedAirport, onSelectAirport]);
 
-  // Draw route line when a route is selected
+  // Zoom to selected airport and draw all its routes
+  useEffect(() => {
+    if (!mapLoaded || !mapRef.current || !data || !selectedAirport) return;
+
+    const map = mapRef.current;
+    const airport = data.airports?.find((a) => a.code === selectedAirport);
+    if (!airport) return;
+
+    // Zoom to show airport and city center
+    const bounds = [
+      [
+        Math.min(airport.coordinates[0], data.cityCenter.coordinates[0]),
+        Math.min(airport.coordinates[1], data.cityCenter.coordinates[1])
+      ],
+      [
+        Math.max(airport.coordinates[0], data.cityCenter.coordinates[0]),
+        Math.max(airport.coordinates[1], data.cityCenter.coordinates[1])
+      ]
+    ];
+    map.fitBounds(bounds, { padding: 60, duration: 400 });
+
+    // Clear existing airport routes
+    const routeSourceId = 'airport-routes';
+    const routeLayerId = 'airport-routes-line';
+    if (map.getLayer(routeLayerId)) map.removeLayer(routeLayerId);
+    if (map.getSource(routeSourceId)) map.removeSource(routeSourceId);
+
+    // Draw all routes from this airport (faded)
+    const routesWithWaypoints = airport.routes?.filter((r) => r.waypoints?.length > 1) || [];
+    if (routesWithWaypoints.length > 0) {
+      const features = routesWithWaypoints.map((route) => ({
+        type: 'Feature',
+        properties: { color: route.color || '#3B82F6', id: route.id },
+        geometry: {
+          type: 'LineString',
+          coordinates: route.waypoints,
+        },
+      }));
+
+      map.addSource(routeSourceId, {
+        type: 'geojson',
+        data: { type: 'FeatureCollection', features },
+      });
+
+      map.addLayer({
+        id: routeLayerId,
+        type: 'line',
+        source: routeSourceId,
+        layout: { 'line-join': 'round', 'line-cap': 'round' },
+        paint: {
+          'line-color': ['get', 'color'],
+          'line-width': 3,
+          'line-opacity': 0.4,
+        },
+      });
+    }
+  }, [mapLoaded, data, selectedAirport]);
+
+  // Highlight specific route when selected
   useEffect(() => {
     if (!mapLoaded || !mapRef.current || !data || !selectedRouteId) return;
 
@@ -231,25 +292,15 @@ const AirportRouteMap = ({
       },
       paint: {
         'line-color': selectedRoute.color || '#3B82F6',
-        'line-width': 4,
-        'line-opacity': 0.8,
+        'line-width': 5,
+        'line-opacity': 0.9,
         'line-dasharray': selectedRoute.type === 'taxi' || selectedRoute.type === 'rideshare'
           ? [2, 1]
           : [1],
       },
     });
 
-    // Fit bounds to show route
-    const coordinates = selectedRoute.waypoints;
-    if (coordinates.length > 1) {
-      const lngs = coordinates.map((c) => c[0]);
-      const lats = coordinates.map((c) => c[1]);
-      const bounds = [
-        [Math.min(...lngs), Math.min(...lats)],
-        [Math.max(...lngs), Math.max(...lats)],
-      ];
-      map.fitBounds(bounds, { padding: 60, duration: 500 });
-    }
+    // No auto-zoom - keep view stable
   }, [mapLoaded, data, selectedRouteId]);
 
   // Clear route when deselected
@@ -267,12 +318,8 @@ const AirportRouteMap = ({
       map.removeSource(sourceId);
     }
 
-    // Reset to show all airports
-    const bounds = calculateBounds();
-    if (bounds) {
-      map.fitBounds(bounds, { padding: 50, duration: 500 });
-    }
-  }, [mapLoaded, selectedRouteId, calculateBounds]);
+    // No auto-zoom on deselect - keep view stable
+  }, [mapLoaded, selectedRouteId]);
 
   // Error state
   if (error) {
@@ -315,21 +362,6 @@ const AirportRouteMap = ({
         </div>
       )}
 
-      {/* Legend */}
-      {mapLoaded && (
-        <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm rounded-lg shadow-sm border border-gray-200 px-3 py-2 text-xs">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1.5">
-              <div className="w-3 h-3 bg-gray-700 rounded-full" />
-              <span className="text-gray-600">Airport</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <div className="w-3 h-3 bg-blue-600 rounded-full" />
-              <span className="text-gray-600">City Center</span>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

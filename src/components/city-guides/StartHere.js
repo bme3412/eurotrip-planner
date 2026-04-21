@@ -18,7 +18,7 @@ import { TransportOptionList } from './TransportOptionCard';
 const AirportRouteMap = dynamic(() => import('./AirportRouteMap'), {
   ssr: false,
   loading: () => (
-    <div className="h-64 bg-gray-100 rounded-xl flex items-center justify-center">
+    <div className="h-72 sm:h-80 md:h-96 bg-gray-100 rounded-xl flex items-center justify-center">
       <div className="flex items-center gap-2 text-gray-500">
         <div className="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin" />
         <span>Loading map...</span>
@@ -761,7 +761,7 @@ EU SIMs roam free. Non-EU visitors should grab a prepaid SIM from **Orange, Voda
     }
   },
   paris: {
-    intro: `You’ve landed at Charles de Gaulle. Here’s the fast start—no scams, no confusion, just the moves that make you feel like you’ve been here before.`,
+    intro: `Two airports serve Paris: CDG (25km northeast) and Orly (14km south). Both connect to the city center by train, bus, or taxi. Here's what actually works.`,
     
     arrival: {
       title: "From the Airport",
@@ -1540,62 +1540,63 @@ export default function StartHere({ cityName, cityData }) {
   return (
     <div className="space-y-8">
       <article className="lg:max-w-none">
-        {/* Lead - editorial pull-quote style */}
-        <div className="border-l-4 border-indigo-400 pl-6 mb-10">
-          <p className="text-xl md:text-[22px] text-gray-800 leading-relaxed font-medium max-w-3xl">
-            {narrative.intro}
-          </p>
-        </div>
-
-        {/* Airport Route Map - Full width arrival section */}
+        {/* Getting to city */}
         <div className="mb-10">
-          <div className="flex items-center gap-2.5 mb-4">
-            <Plane className="h-5 w-5 text-sky-500" />
-            <h2 className="text-lg font-bold text-gray-900 tracking-tight">
-              Getting to {displayName}
-            </h2>
+          {/* Header with airport tabs */}
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2.5">
+              <Plane className="h-5 w-5 text-sky-500" />
+              <h2 className="text-lg font-bold text-gray-900 tracking-tight">
+                Getting to {displayName}
+              </h2>
+            </div>
+
+            {/* Airport toggle */}
+            {gettingInData?.airports?.length > 1 && (
+              <div className="flex bg-gray-100 rounded-lg p-1">
+                {gettingInData.airports.map((airport) => (
+                  <button
+                    key={airport.code}
+                    onClick={() => handleSelectAirport(airport.code)}
+                    className={`px-3 py-1.5 text-sm font-medium rounded-md transition-all ${
+                      selectedAirport === airport.code
+                        ? 'bg-white text-gray-900 shadow-sm'
+                        : 'text-gray-600 hover:text-gray-900'
+                    }`}
+                  >
+                    {airport.code}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Interactive Map */}
-          {gettingInData && (
-            <div className="mb-6">
-              <AirportRouteMap
-                data={gettingInData}
-                selectedRouteId={selectedRouteId}
-                onSelectRoute={handleSelectRoute}
-                selectedAirport={selectedAirport}
-                onSelectAirport={handleSelectAirport}
-                className="h-64 md:h-80"
-              />
-            </div>
+          {/* Prose summary */}
+          {selectedAirportData && (
+            <p className="text-gray-600 leading-relaxed mb-5">
+              {selectedAirportData.code === 'CDG' ? (
+                <>
+                  <strong className="text-gray-900">RER B</strong> is fastest (€12, 35–50 min to Gare du Nord). {' '}
+                  <strong className="text-gray-900">Roissybus</strong> goes to Opéra (€16, 60–75 min). {' '}
+                  <strong className="text-gray-900">Taxis</strong> are flat-rate: €55 Right Bank, €62 Left Bank. {' '}
+                  <strong className="text-gray-900">Uber/Bolt</strong> run €50–80.
+                </>
+              ) : selectedAirportData.code === 'ORY' ? (
+                <>
+                  <strong className="text-gray-900">Orlybus</strong> to Denfert-Rochereau is simplest (€12, 30–40 min). {' '}
+                  <strong className="text-gray-900">Orlyval + RER B</strong> connects to central Paris (€14, 35–45 min). {' '}
+                  <strong className="text-gray-900">Tram T7</strong> is cheapest but slow (€2, 40–50 min). {' '}
+                  <strong className="text-gray-900">Taxis</strong> are flat-rate: €35 Left Bank, €41 Right Bank.
+                </>
+              ) : (
+                <>Multiple transport options connect the airport to the city center.</>
+              )}
+            </p>
           )}
 
-          {/* Airport selector tabs (if multiple airports) */}
-          {gettingInData?.airports?.length > 1 && (
-            <div className="flex gap-2 mb-4">
-              {gettingInData.airports.map((airport) => (
-                <button
-                  key={airport.code}
-                  onClick={() => handleSelectAirport(airport.code)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                    selectedAirport === airport.code
-                      ? 'bg-sky-500 text-white shadow-md'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  <span className="mr-1.5">{airport.code}</span>
-                  <span className="text-xs opacity-75">{airport.distanceKm}km</span>
-                </button>
-              ))}
-            </div>
-          )}
-
-          {/* Transport options for selected airport */}
+          {/* Transport options */}
           {selectedAirportData?.routes && (
             <div className="mb-6">
-              <p className="text-sm text-gray-600 mb-3">
-                Select a transport option to see the route:
-              </p>
               <TransportOptionList
                 routes={selectedAirportData.routes}
                 selectedRouteId={selectedRouteId}
@@ -1606,42 +1607,18 @@ export default function StartHere({ cityName, cityData }) {
             </div>
           )}
 
-          {/* Narrative arrival text */}
-          <div className="border-l-[3px] border-sky-400 pl-5 py-1">
-            <div className="space-y-3">
-              {narrative.arrival.content.split('\n\n').map((paragraph, i) => (
-                <p key={i} className="text-gray-600 leading-7 text-[15px]">
-                  {renderContent(paragraph)}
-                </p>
-              ))}
-            </div>
-          </div>
-
-          {/* General tips from JSON */}
-          {gettingInData?.generalTips?.length > 0 && (
-            <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-xl">
-              <h4 className="text-sm font-semibold text-amber-800 mb-2 flex items-center gap-2">
-                <Lightbulb className="w-4 h-4" />
-                Pro Tips
-              </h4>
-              <ul className="space-y-1.5">
-                {gettingInData.generalTips.slice(0, 3).map((tip, i) => (
-                  <li key={i} className="text-sm text-amber-900 flex items-start gap-2">
-                    <MapPin className="w-3 h-3 mt-1 flex-shrink-0 text-amber-600" />
-                    {tip}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Map */}
+          {gettingInData && (
+            <AirportRouteMap
+              data={gettingInData}
+              selectedRouteId={selectedRouteId}
+              onSelectRoute={handleSelectRoute}
+              selectedAirport={selectedAirport}
+              onSelectAirport={handleSelectAirport}
+              className="h-72 sm:h-80 md:h-96 aspect-[4/3] md:aspect-auto"
+            />
           )}
-        </div>
 
-        {/* Remaining 4 sections in 2x2 grid */}
-        <div className="grid lg:grid-cols-2 gap-x-10 gap-y-8">
-          <Section sectionKey="gettingAround" title={narrative.gettingAround.title} content={narrative.gettingAround.content} />
-          <Section sectionKey="money" title={narrative.money.title} content={narrative.money.content} />
-          <Section sectionKey="connectivity" title={narrative.connectivity.title} content={narrative.connectivity.content} />
-          <Section sectionKey="quickWins" title={narrative.quickWins.title} content={narrative.quickWins.content} />
         </div>
       </article>
 
