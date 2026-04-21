@@ -14,6 +14,53 @@ function formatShort(isoDate) {
   return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
 
+function toIso(date) {
+  return date.toISOString().slice(0, 10);
+}
+
+function addDays(date, n) {
+  const d = new Date(date);
+  d.setDate(d.getDate() + n);
+  return d;
+}
+
+function nextWeekendDates() {
+  const today = new Date();
+  const dow = today.getDay();
+  const friOffset = (5 - dow + 7) % 7 || 7;
+  const fri = addDays(today, friOffset);
+  const sun = addDays(fri, 2);
+  return { mode: "dates", start: toIso(fri), end: toIso(sun) };
+}
+
+function nextMonthDates() {
+  const today = new Date();
+  const first = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+  const end = addDays(first, 7);
+  return { mode: "dates", start: toIso(first), end: toIso(end) };
+}
+
+function summer2026Dates() {
+  const start = new Date(2026, 6, 1);
+  const end = addDays(start, 14);
+  return { mode: "dates", start: toIso(start), end: toIso(end) };
+}
+
+const DATE_PRESETS = [
+  { id: "weekend", label: "Next weekend", get: nextWeekendDates },
+  { id: "month", label: "Next month", get: nextMonthDates },
+  { id: "summer", label: "Summer 2026", get: summer2026Dates },
+];
+
+function detectActivePreset(value) {
+  if (!value?.start || !value?.end) return null;
+  for (const p of DATE_PRESETS) {
+    const preset = p.get();
+    if (preset.start === value.start && preset.end === value.end) return p.id;
+  }
+  return null;
+}
+
 // ─── Popular cities for quick selection ────────────────────────────────────
 
 const POPULAR_CITIES = [
@@ -289,94 +336,13 @@ function CityButton({ city, label, iconType, onClick }) {
   );
 }
 
-// ─── Route City Chip (for review mode) ─────────────────────────────────────
-
-function RouteCityChip({ city, onRemove, isFirst, isLast }) {
-  return (
-    <div className="flex items-center gap-1">
-      {!isFirst && (
-        <svg className="w-4 h-4 text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      )}
-      <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-full group">
-        <span className="text-sm font-medium text-gray-800">{city.name}</span>
-        <button
-          onClick={() => onRemove(city)}
-          className="w-4 h-4 rounded-full bg-gray-300 hover:bg-red-400 flex items-center justify-center transition-colors"
-        >
-          <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  );
-}
-
-// ─── Contextual Hint ───────────────────────────────────────────────────────
-
-function ContextualHint({ detectedMode, startCity, endCity, nights, routeCities }) {
-  const hints = {
-    empty: {
-      icon: "💡",
-      text: "Select your travel dates to get started",
-      subtext: null,
-    },
-    discovery: {
-      icon: "🔍",
-      text: "Find the best cities for your dates",
-      subtext: nights ? `${nights} nights of possibilities` : null,
-    },
-    roundtrip: {
-      icon: "📍",
-      text: `${nights || "Your"} days in ${startCity?.name || "one city"}`,
-      subtext: "We'll help plan activities and day trips",
-    },
-    openjaw: {
-      icon: "🗺️",
-      text: `${startCity?.name} → ${endCity?.name}`,
-      subtext: nights ? `${nights} nights — we'll suggest the best stops` : "We'll suggest the best stops along the way",
-    },
-    audit: {
-      icon: "✅",
-      text: routeCities?.length > 0
-        ? `Review: ${routeCities.map(c => c.name).join(" → ")}`
-        : "Add your planned cities to review",
-      subtext: routeCities?.length > 0
-        ? "We'll check efficiency and suggest improvements"
-        : "Build your route using the button below",
-    },
-  };
-
-  const hint = hints[detectedMode] || hints.empty;
-
-  return (
-    <div className="flex items-start gap-3 px-4 py-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
-      <span className="text-lg">{hint.icon}</span>
-      <div className="flex-1 min-w-0">
-        <div className="text-sm font-medium text-gray-800 truncate">
-          {hint.text}
-        </div>
-        {hint.subtext && (
-          <div className="text-xs text-gray-500 mt-0.5">
-            {hint.subtext}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
 // ─── Main Component ────────────────────────────────────────────────────────
 
-export default function TripSearchBar({ value, onChange, onSubmit, className = "" }) {
+export default function TripSearchBar({ value, onChange, onSubmit, className = "", embedded = false }) {
   const router = useRouter();
   const [activePanel, setActivePanel] = useState(null); // "start" | "end" | "dates" | "addCity"
   const [startCity, setStartCity] = useState(null);
   const [endCity, setEndCity] = useState(null);
-  const [mode, setMode] = useState("plan"); // "plan" | "review"
-  const [routeCities, setRouteCities] = useState([]); // For review mode
 
   const hasValidDates = value?.start && value?.end;
   const dateDisplay = hasValidDates
@@ -387,16 +353,15 @@ export default function TripSearchBar({ value, onChange, onSubmit, className = "
     ? Math.ceil((new Date(value.end) - new Date(value.start)) / 86400000)
     : null;
 
-  // Detect mode based on what user has filled in
+  // Detect mode based on what user has filled in (Form tab only)
   const detectedMode = useMemo(() => {
-    if (mode === "review") return "audit";
     if (!startCity && !endCity && !hasValidDates) return "empty";
     if (!startCity && !endCity && hasValidDates) return "discovery";
     if (startCity && !endCity) return "roundtrip";
     if (startCity && endCity && startCity.id === endCity.id) return "roundtrip";
     if (startCity && endCity) return "openjaw";
     return "discovery";
-  }, [startCity, endCity, hasValidDates, mode]);
+  }, [startCity, endCity, hasValidDates]);
 
   // Get button text based on mode
   const buttonText = useMemo(() => {
@@ -405,22 +370,9 @@ export default function TripSearchBar({ value, onChange, onSubmit, className = "
       case "discovery": return "Show best cities";
       case "roundtrip": return "Plan my trip";
       case "openjaw": return "Plan my route";
-      case "audit": return "Audit my route";
       default: return "Continue";
     }
   }, [detectedMode]);
-
-  // Add city to route (review mode)
-  const handleAddCityToRoute = (city) => {
-    if (city && !routeCities.find(c => c.id === city.id)) {
-      setRouteCities([...routeCities, city]);
-    }
-  };
-
-  // Remove city from route (review mode)
-  const handleRemoveCityFromRoute = (city) => {
-    setRouteCities(routeCities.filter(c => c.id !== city.id));
-  };
 
   // Handle submit based on detected mode
   const handleSubmit = () => {
@@ -457,182 +409,108 @@ export default function TripSearchBar({ value, onChange, onSubmit, className = "
         router.push(`/trip-planner?${params.toString()}`);
         break;
 
-      case "audit":
-        // Navigate to trip planner in audit mode
-        if (routeCities.length > 0) {
-          params.set("mode", "audit");
-          params.set("cities", routeCities.map(c => c.id).join(","));
-          if (value?.start) params.set("startDate", value.start);
-          if (value?.end) params.set("endDate", value.end);
-          router.push(`/trip-planner?${params.toString()}`);
-        } else {
-          // Open city picker
-          setActivePanel("addCity");
-        }
-        break;
-
       default:
-        onSubmit?.({ dates: value, startCity, endCity, mode });
+        onSubmit?.({ dates: value, startCity, endCity });
     }
   };
 
-  return (
-    <div className={`w-full ${className}`}>
-      <div className="bg-white rounded-3xl p-5 md:p-6 shadow-[0_8px_40px_rgba(0,0,0,0.08)] border border-gray-100">
-        {/* Compact header */}
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-bold text-gray-900">
-            Plan your trip
-          </h3>
-          <span className="text-xs text-gray-400">
-            220 cities
-          </span>
-        </div>
+  // Inner content — used both standalone and embedded.
+  const Inner = (
+    <>
+      {/* City selectors */}
+      <div className="grid grid-cols-2 gap-3 mb-3">
+        <CityButton
+          city={startCity}
+          label="From"
+          iconType="start"
+          onClick={() => setActivePanel("start")}
+        />
+        <CityButton
+          city={endCity}
+          label="To"
+          iconType="end"
+          onClick={() => setActivePanel("end")}
+        />
+      </div>
 
-        {/* Mode toggle */}
-        <div className="flex gap-2 mb-4">
+      {/* Merged date row: chips on the left, current selection on the right */}
+      <div className="mb-4 rounded-xl border border-gray-200 bg-white">
+        <div className="flex flex-wrap items-center gap-2 px-3 py-2.5 border-b border-gray-100">
+          {DATE_PRESETS.map((preset) => {
+            const isActive = detectActivePreset(value) === preset.id;
+            return (
+              <button
+                key={preset.id}
+                type="button"
+                onClick={() => onChange?.(preset.get())}
+                className={`px-2.5 py-1 rounded-full text-xs font-semibold border transition-all ${
+                  isActive
+                    ? "bg-blue-600 text-white border-blue-600 shadow-sm"
+                    : "bg-white text-gray-600 border-gray-200 hover:border-blue-400 hover:text-blue-600"
+                }`}
+              >
+                {preset.label}
+              </button>
+            );
+          })}
           <button
             type="button"
-            onClick={() => setMode("plan")}
-            className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
-              mode === "plan"
-                ? "bg-blue-600 text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-            }`}
+            onClick={() => setActivePanel("dates")}
+            className="px-2.5 py-1 rounded-full text-xs font-semibold border border-dashed border-gray-300 text-gray-500 hover:border-blue-400 hover:text-blue-600 transition-all"
           >
-            Plan trip
-          </button>
-          <button
-            type="button"
-            onClick={() => setMode("review")}
-            className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
-              mode === "review"
-                ? "bg-blue-600 text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-            }`}
-          >
-            Review route
+            Custom
           </button>
         </div>
-
-        {/* Plan mode: City selectors */}
-        {mode === "plan" && (
-          <div className="grid grid-cols-2 gap-3 mb-4">
-            <CityButton
-              city={startCity}
-              label="From"
-              iconType="start"
-              onClick={() => setActivePanel("start")}
-            />
-            <CityButton
-              city={endCity}
-              label="To"
-              iconType="end"
-              onClick={() => setActivePanel("end")}
-            />
-          </div>
-        )}
-
-        {/* Review mode: Route builder */}
-        {mode === "review" && (
-          <div className="mb-4">
-            {routeCities.length > 0 ? (
-              <div className="flex flex-wrap items-center gap-1 p-3 bg-gray-50 rounded-xl mb-3">
-                {routeCities.map((city, idx) => (
-                  <RouteCityChip
-                    key={city.id}
-                    city={city}
-                    onRemove={handleRemoveCityFromRoute}
-                    isFirst={idx === 0}
-                    isLast={idx === routeCities.length - 1}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div className="p-4 bg-gray-50 rounded-xl border-2 border-dashed border-gray-200 text-center mb-3">
-                <p className="text-sm text-gray-500">No cities added yet</p>
-              </div>
-            )}
-            <button
-              type="button"
-              onClick={() => setActivePanel("addCity")}
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-white rounded-xl border border-gray-200 hover:border-blue-400 hover:bg-blue-50 transition-all text-sm font-medium text-gray-600 hover:text-blue-600"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-              </svg>
-              Add city to route
-            </button>
-          </div>
-        )}
-
-        {/* Date selector */}
         <button
           type="button"
           onClick={() => setActivePanel("dates")}
-          className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border transition-all text-left mb-4 ${
-            hasValidDates
-              ? "bg-blue-50 border-blue-200 hover:border-blue-400"
-              : "bg-gray-50 border-dashed border-gray-200 hover:border-blue-300 hover:bg-blue-50/30"
-          }`}
+          className="w-full flex items-center gap-3 px-3 py-2.5 text-left rounded-b-xl hover:bg-blue-50/50 transition-colors"
         >
-          <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${
-            hasValidDates
-              ? "bg-blue-600"
-              : "bg-gradient-to-br from-blue-50 to-indigo-100"
-          }`}>
-            <svg className={`w-5 h-5 ${hasValidDates ? "text-white" : "text-blue-600"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <div className="min-w-0 flex-1">
-            {hasValidDates ? (
-              <>
-                <div className="text-sm font-semibold text-gray-900">
-                  {dateDisplay}
-                </div>
-                <div className="text-xs text-blue-600 font-medium">
-                  {nights} nights
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">When</div>
-                <div className="text-sm font-medium text-gray-500">
-                  Select dates
-                </div>
-              </>
-            )}
-          </div>
-          {hasValidDates && (
-            <span className="text-xs text-blue-600 font-medium">Change</span>
-          )}
-        </button>
-
-        {/* Contextual hint */}
-        <div className="mb-4">
-          <ContextualHint
-            detectedMode={detectedMode}
-            startCity={startCity}
-            endCity={endCity}
-            nights={nights}
-            routeCities={routeCities}
-          />
-        </div>
-
-        {/* Submit button */}
-        <button
-          type="button"
-          onClick={handleSubmit}
-          disabled={detectedMode === "audit" && routeCities.length === 0}
-          className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-base font-bold rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
-        >
-          {buttonText}
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          <svg className={`w-4 h-4 flex-shrink-0 ${hasValidDates ? "text-blue-600" : "text-gray-400"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
+          {hasValidDates ? (
+            <span className="flex-1 text-sm font-semibold text-gray-900 truncate">
+              {dateDisplay}
+              <span className="ml-2 text-xs font-medium text-blue-600">{nights} nights</span>
+            </span>
+          ) : (
+            <span className="flex-1 text-sm font-medium text-gray-500">
+              Select dates
+            </span>
+          )}
+          <span className="text-xs text-gray-400">Change</span>
         </button>
       </div>
+
+      {/* Submit button */}
+      <button
+        type="button"
+        onClick={handleSubmit}
+        className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-base font-bold rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5 active:translate-y-0"
+      >
+        {buttonText}
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </button>
+
+      {/* Microcopy under CTA */}
+      <p className="mt-3 text-center text-xs text-gray-500">
+        Free · No signup · 220 cities across 41 countries
+      </p>
+    </>
+  );
+
+  return (
+    <div className={`w-full ${className}`}>
+      {embedded ? (
+        Inner
+      ) : (
+        <div className="bg-white rounded-3xl p-5 md:p-6 shadow-[0_8px_40px_rgba(0,0,0,0.08)] border border-gray-100">
+          {Inner}
+        </div>
+      )}
 
       {/* Modals */}
       {activePanel === "start" && (
@@ -663,20 +541,6 @@ export default function TripSearchBar({ value, onChange, onSubmit, className = "
             value={value}
             onChange={onChange}
             onClose={() => setActivePanel(null)}
-          />
-        </Modal>
-      )}
-
-      {activePanel === "addCity" && (
-        <Modal onClose={() => setActivePanel(null)}>
-          <CitySearchDropdown
-            value={null}
-            onSelect={(city) => {
-              handleAddCityToRoute(city);
-              setActivePanel(null);
-            }}
-            onClose={() => setActivePanel(null)}
-            label="Add city to your route"
           />
         </Modal>
       )}

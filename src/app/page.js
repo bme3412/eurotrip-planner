@@ -1,12 +1,49 @@
 "use client";
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useCallback, useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
-import TripSearchBar from "../components/common/TripSearchBar";
+import { Sun, Users, Calendar, Wallet, Plane, Landmark } from "lucide-react";
 import ResultsGrid from "../components/ResultsGrid";
 import { useTripDates } from "../hooks/useTripDates";
 import ScoringDemoSection from "../components/home/ScoringDemoSection";
 import BestCitiesNow from "../components/home/BestCitiesNow";
+import BestNowTicker from "../components/home/BestNowTicker";
+import HeroWidget from "../components/home/HeroWidget";
+
+const SCORING_FACTORS = [
+  { Icon: Sun, label: "Weather", tip: "Daily highs/lows, rain probability, sun hours for your dates." },
+  { Icon: Users, label: "Crowds", tip: "Tourist density predictions \u2014 lower is better." },
+  { Icon: Calendar, label: "Events", tip: "Festivals, concerts, parades, road closures during your stay." },
+  { Icon: Wallet, label: "Value", tip: "Lodging and food costs vs. shoulder/peak season pricing." },
+  { Icon: Plane, label: "Logistics", tip: "Transport connectivity from your origin and between cities." },
+  { Icon: Landmark, label: "Culture", tip: "Museums, monuments, UNESCO sites, neighborhood depth." },
+];
+
+function FactorPills() {
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+      {SCORING_FACTORS.map(({ Icon, label, tip }) => (
+        <span
+          key={label}
+          className="group relative inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white/80 px-3 py-1.5 text-xs font-semibold text-gray-700 backdrop-blur-sm transition-colors hover:border-blue-300 hover:text-blue-700"
+          title={tip}
+        >
+          <Icon className="h-3.5 w-3.5 text-blue-600" aria-hidden />
+          {label}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function getInitialDates() {
+  const today = new Date();
+  const start = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+  const end = new Date(start);
+  end.setDate(end.getDate() + 7);
+  const toIso = (d) => d.toISOString().slice(0, 10);
+  return { mode: "dates", start: toIso(start), end: toIso(end) };
+}
 
 // ── Results Modal ───────────────────────────────────────────────────
 function ResultsModal({ results, loading, dates, sortBy, setSortBy, onClose }) {
@@ -146,7 +183,8 @@ function LoadingState() {
 
 // ── Page ────────────────────────────────────────────────────────────
 export default function Page() {
-  const { dates, setDates } = useTripDates(null);
+  const initialDates = useMemo(() => getInitialDates(), []);
+  const { dates, setDates } = useTripDates(initialDates);
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
@@ -205,70 +243,53 @@ export default function Page() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-50">
-      {/* Hero Section */}
-      <section className="relative px-6 pt-4 md:pt-6 lg:pt-8 pb-24 md:pb-32 lg:pb-40 overflow-hidden">
+      {/* Hero Section - Single column, centered */}
+      <section className="relative px-6 pt-8 md:pt-12 pb-12 md:pb-16 overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/40 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-200/40 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
         </div>
-        
-        <div className="relative w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left: narrative & CTA */}
-          <div className="flex flex-col animate-fade-in lg:pr-8">
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.0] text-gray-900 font-bold mb-5 tracking-tighter">
-              Plan smarter.<br />
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-indigo-700 bg-clip-text text-transparent">
-                220 European cities,
-              </span><br />
-              <span className="text-blue-600">scored for when</span><br />
-              <span className="text-gray-900">you&apos;re actually there.</span>
-            </h1>
 
-            <p className="text-lg md:text-xl text-gray-600 leading-snug mb-8 max-w-md">
-              Our scoring engine analyzes weather, crowds, seasonal events, and costs — for your exact travel dates. Find your perfect destinations.
-            </p>
+        <div className="relative w-full max-w-3xl mx-auto flex flex-col items-center text-center animate-fade-in">
+          {/* Headline */}
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] text-gray-900 font-bold tracking-tight mb-5">
+            Pick your dates. We&apos;ll rank{" "}
+            <span className="text-blue-600">220 European cities</span>{" "}
+            for them.
+          </h1>
 
-            <div className="flex flex-wrap items-center gap-4 mb-6">
-              <button
-                onClick={submit}
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-base font-bold rounded-full hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 active:translate-y-0"
-              >
-                <span className="flex items-center gap-2">
-                  Show me the best cities
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
-              </button>
-              <Link
-                href="/city-guides"
-                className="px-8 py-4 bg-white text-blue-600 text-base font-bold rounded-full border-2 border-blue-200 hover:border-blue-400 hover:bg-blue-50 transition-all duration-300 shadow-md hover:shadow-lg"
-              >
-                Browse All Cities
-              </Link>
-            </div>
-            
-            <div className="flex items-center gap-2 text-sm text-gray-500 font-medium">
-              <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-              </svg>
-              No signup required • Free to use • 220 cities across 41 countries
-            </div>
+          {/* Factor icons */}
+          <div className="mb-7">
+            <FactorPills />
           </div>
 
-          {/* Right: Search bar */}
-          <div ref={dateSelectorRef} className="relative lg:mt-0 mt-8 animate-fade-in-safe transition-shadow duration-500">
+          {/* Hero widget — tabbed describe / structured */}
+          <div ref={dateSelectorRef} className="relative w-full max-w-xl animate-fade-in-safe transition-shadow duration-500">
             <div className="relative z-10">
-              <TripSearchBar
-                value={dates}
-                onChange={setDates}
-                onSubmit={submit}
+              <HeroWidget
+                dates={dates}
+                onChangeDates={setDates}
+                onSubmitStructured={submit}
               />
             </div>
             {/* Background blob */}
             <div className="absolute -inset-4 bg-gradient-to-tr from-blue-100/40 to-indigo-100/40 rounded-[2.5rem] -z-0 blur-2xl"></div>
           </div>
+
+          {/* Live ticker — single live-data proof row */}
+          <div className="mt-10 w-full">
+            <BestNowTicker onCityClick={() => submit()} />
+          </div>
+
+          {/* Tertiary: browse all */}
+          <Link
+            href="/city-guides"
+            className="mt-6 text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors inline-flex items-center gap-1"
+          >
+            Browse all cities
+            <span aria-hidden>→</span>
+          </Link>
         </div>
       </section>
 

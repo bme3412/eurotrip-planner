@@ -1,10 +1,9 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+import { Suspense, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import AnchoredWizard from '@/components/trip-planner/AnchoredWizard';
-import { ConversationalPlanner } from '@/components/conversation';
 
 /**
  * Loading fallback for conversation mode
@@ -25,11 +24,26 @@ function ConversationLoading() {
  */
 function TripPlannerContent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const mode = searchParams.get('mode');
 
-  // Show conversational mode if explicitly requested
+  // Redirect conversation mode to /plan (the new unified agent route)
+  useEffect(() => {
+    if (mode === 'conversation') {
+      router.replace('/plan');
+    }
+  }, [mode, router]);
+
+  // Show loading while redirecting
   if (mode === 'conversation') {
-    return <ConversationalPlanner />;
+    return (
+      <div className="h-screen flex items-center justify-center bg-slate-50">
+        <div className="text-center">
+          <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-slate-600">Redirecting...</p>
+        </div>
+      </div>
+    );
   }
 
   // Read URL params for pre-filling wizard
@@ -91,11 +105,9 @@ function TripPlannerContent() {
 }
 
 /**
- * TripPlannerPage - Entry point for trip planning
+ * TripPlannerPage - Entry point for the step-by-step wizard
  *
- * Supports two modes:
- * - Default: Advanced step-by-step wizard
- * - ?mode=conversation: Conversational AI-powered planning
+ * Note: ?mode=conversation now redirects to /plan (the unified agent route)
  */
 export default function TripPlannerPage() {
   return (

@@ -1,27 +1,43 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { X, Send, Sparkles, Loader2, MapPin, RefreshCw } from 'lucide-react';
+import { X, Send, Loader2, RefreshCw, Pencil } from 'lucide-react';
 
-const STARTER_PROMPTS = [
-  'Replace the museum on Day 2 with something outdoors',
-  'Add a great dinner spot on Day 1 — local, not touristy',
-  "I've already visited this attraction — can you swap it out?",
-  'What should I prioritise if I only have half a day?',
+const AGENT_URL = '/api/plan/agent';
+
+const QUICK_EDITS = [
+  {
+    label: 'Swap a museum for something outdoors',
+    request: 'Swap one of the museums for something outdoors with strong reviews — same time block.',
+  },
+  {
+    label: 'Add a non-touristy dinner',
+    request: 'Add a great dinner spot — local, not touristy, well-reviewed. Pick the day that needs it most.',
+  },
+  {
+    label: 'Make Day 1 lighter',
+    request: 'Make Day 1 lighter — fewer activities, more downtime, keep the best one.',
+  },
+  {
+    label: 'Add half-day priorities',
+    request: 'If I only had a half day, what should I prioritise from this trip and why?',
+  },
+  {
+    label: 'Find a better lunch spot',
+    request: 'Replace the weakest lunch with something better-rated within 10 minutes walk.',
+  },
+  {
+    label: 'Cut one activity per day',
+    request: 'Cut the lowest-impact activity each day so the pace breathes.',
+  },
 ];
 
 function ToolPill({ event }) {
-  const icons = {
-    get_city_attractions: '🏛️',
-    get_place_details: '📍',
-    search_nearby: '🔍',
-    update_itinerary: '✏️',
-  };
   const labels = {
     get_city_attractions: 'Looking up attractions',
     get_place_details: 'Checking place details',
     search_nearby: 'Searching nearby',
-    update_itinerary: 'Updating your itinerary',
+    update_itinerary: 'Updating the trip',
   };
 
   if (event.type === 'tool_call') {
@@ -63,13 +79,8 @@ function MessageBubble({ msg }) {
 
   return (
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
-      {!isUser && (
-        <div className="mr-2 mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#c9963c] text-xs text-black">
-          <Sparkles className="h-3 w-3" />
-        </div>
-      )}
       <div
-        className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
+        className={`max-w-[88%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
           isUser
             ? 'rounded-br-sm bg-zinc-700 text-white'
             : 'rounded-bl-sm border border-zinc-700 bg-[#1c1c1f] text-zinc-200'
@@ -84,10 +95,16 @@ function MessageBubble({ msg }) {
   );
 }
 
-const AGENT_URL = '/api/plan/agent';
-
-export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onActivityUpdate }) {
-  const [open, setOpen] = useState(false);
+export default function EditPanel({
+  open,
+  onClose,
+  tripId,
+  citySlug,
+  cityDisplay,
+  plan,
+  onActivityUpdate,
+}) {
+  const [mode, setMode] = useState('quick'); // 'quick' | 'type'
   const [messages, setMessages] = useState([]);
   const [displayMessages, setDisplayMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -95,19 +112,32 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
   const bottomRef = useRef(null);
   const inputRef = useRef(null);
   const abortRef = useRef(null);
-  const sessionIdRef = useRef(typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `s-${Date.now()}`);
+  const sessionIdRef = useRef(
+    typeof crypto !== 'undefined' && crypto.randomUUID
+      ? crypto.randomUUID()
+      : `s-${Date.now()}`
+  );
 
-  // Scroll to bottom on new message
+  // Auto-scroll on new messages
   useEffect(() => {
     if (open) {
       bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
   }, [displayMessages, open]);
 
-  // Focus input when opened
+  // Focus input when switching to type mode
   useEffect(() => {
-    if (open) {
+    if (open && mode === 'type') {
       setTimeout(() => inputRef.current?.focus(), 150);
+    }
+  }, [open, mode]);
+
+  // Cancel any in-flight stream when the panel closes
+  useEffect(() => {
+    if (!open && abortRef.current) {
+      abortRef.current.abort();
+      abortRef.current = null;
+      setStreaming(false);
     }
   }, [open]);
 
@@ -116,6 +146,8 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
       const userText = text.trim();
       if (!userText || streaming) return;
 
+      // Once a request fires, drop into the conversation view.
+      setMode('type');
       setInput('');
       setStreaming(true);
 
@@ -123,19 +155,23 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
       const nextMessages = [...messages, userMsg];
       setMessages(nextMessages);
 
-      // Add user bubble + placeholder assistant bubble
       const userDisplay = { ...userMsg };
-      const assistantPlaceholder = { role: 'assistant', content: '', isStreaming: true, _key: Date.now() };
+      const assistantPlaceholder = {
+        role: 'assistant',
+        content: '',
+        isStreaming: true,
+        _key: Date.now(),
+      };
       setDisplayMessages((prev) => [...prev, userDisplay, assistantPlaceholder]);
 
       let assistantText = '';
 
-      const updateAssistant = (text, done = false) => {
-        assistantText = text;
+      const updateAssistant = (next, done = false) => {
+        assistantText = next;
         setDisplayMessages((prev) =>
           prev.map((m) =>
             m._key === assistantPlaceholder._key
-              ? { ...m, content: text, isStreaming: !done }
+              ? { ...m, content: next, isStreaming: !done }
               : m
           )
         );
@@ -143,7 +179,6 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
 
       const insertToolEvent = (event) => {
         setDisplayMessages((prev) => {
-          // Insert before the streaming assistant bubble
           const idx = prev.findIndex((m) => m._key === assistantPlaceholder._key);
           if (idx === -1) return [...prev, { role: 'tool_event', ...event }];
           return [
@@ -168,9 +203,7 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
           signal: abortRef.current.signal,
         });
 
-        if (!res.ok) {
-          throw new Error(`HTTP ${res.status}`);
-        }
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
         const reader = res.body.getReader();
         const decoder = new TextDecoder();
@@ -187,11 +220,7 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
           for (const line of lines) {
             if (!line.startsWith('data: ')) continue;
             let event;
-            try {
-              event = JSON.parse(line.slice(6));
-            } catch {
-              continue;
-            }
+            try { event = JSON.parse(line.slice(6)); } catch { continue; }
 
             switch (event.type) {
               case 'delta':
@@ -215,7 +244,7 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
                 }
                 break;
               case 'error':
-                updateAssistant(`Sorry, something went wrong: ${event.message}`, true);
+                updateAssistant(`Couldn't apply that — ${event.message}`, true);
                 break;
               case 'done':
                 updateAssistant(assistantText, true);
@@ -224,12 +253,11 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
           }
         }
 
-        // Commit final assistant text to message history
         updateAssistant(assistantText, true);
         setMessages((prev) => [...prev, { role: 'assistant', content: assistantText }]);
       } catch (err) {
         if (err.name !== 'AbortError') {
-          updateAssistant("Sorry, I couldn't connect to the planning agent. Please try again.", true);
+          updateAssistant("Couldn't reach the trip data right now. Try again in a moment.", true);
         }
       } finally {
         setStreaming(false);
@@ -256,77 +284,113 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
     setStreaming(false);
   };
 
-  const isEmpty = displayMessages.length === 0;
+  if (!open) return null;
+
+  const hasThread = displayMessages.length > 0;
 
   return (
     <>
-      {/* Floating trigger */}
-      {!open && (
-        <button
-          onClick={() => setOpen(true)}
-          className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold text-black shadow-xl transition hover:opacity-90 focus:outline-none"
-          style={{ backgroundColor: '#c9963c' }}
-          aria-label="Refine your itinerary with AI"
-        >
-          <Sparkles className="h-4 w-4" />
-          Refine with AI
-        </button>
-      )}
+      {/* Backdrop (mobile) */}
+      <div
+        className="fixed inset-0 z-40 bg-black/40 sm:bg-transparent"
+        onClick={onClose}
+        aria-hidden="true"
+      />
 
-      {/* Slide-in panel */}
-      {open && (
-        <div className="fixed bottom-0 right-0 z-50 flex h-[80vh] w-full max-w-md flex-col rounded-t-2xl border border-zinc-700 bg-[#111113] shadow-2xl sm:bottom-6 sm:right-6 sm:h-[600px] sm:rounded-2xl">
-          {/* Header */}
-          <div className="flex items-center justify-between rounded-t-2xl border-b border-zinc-800 px-4 py-3.5">
-            <div className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4" style={{ color: '#c9963c' }} />
-              <span className="text-sm font-semibold text-zinc-200">Refine your {cityDisplay} trip</span>
-            </div>
+      {/* Panel */}
+      <aside
+        role="dialog"
+        aria-label={`Edit ${cityDisplay} trip`}
+        className="fixed bottom-0 right-0 z-50 flex h-[85vh] w-full max-w-md flex-col rounded-t-2xl border border-zinc-700 bg-[#111113] shadow-2xl sm:bottom-6 sm:right-6 sm:h-[640px] sm:rounded-2xl"
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-3.5">
+          <div className="flex items-center gap-2 min-w-0">
+            <Pencil className="h-4 w-4 shrink-0" style={{ color: '#c9963c' }} />
+            <span className="text-sm font-semibold text-zinc-200 truncate">
+              {cityDisplay} trip — edits
+            </span>
+          </div>
+          <button
+            onClick={onClose}
+            className="rounded-lg p-1 text-zinc-500 transition hover:bg-zinc-800 hover:text-zinc-300"
+            aria-label="Close edit panel"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+
+        {/* Mode tabs (only shown before any thread exists) */}
+        {!hasThread && (
+          <div className="flex border-b border-zinc-800 px-4">
             <button
-              onClick={() => setOpen(false)}
-              className="rounded-lg p-1 text-zinc-500 transition hover:bg-zinc-800 hover:text-zinc-300"
-              aria-label="Close chat"
+              onClick={() => setMode('quick')}
+              className={`relative px-3 py-2.5 text-xs font-semibold uppercase tracking-wider transition ${
+                mode === 'quick'
+                  ? 'text-[#c9963c]'
+                  : 'text-zinc-500 hover:text-zinc-300'
+              }`}
             >
-              <X className="h-4 w-4" />
+              Quick edits
+              {mode === 'quick' && (
+                <span className="absolute inset-x-3 -bottom-px h-0.5 bg-[#c9963c]" />
+              )}
+            </button>
+            <button
+              onClick={() => setMode('type')}
+              className={`relative px-3 py-2.5 text-xs font-semibold uppercase tracking-wider transition ${
+                mode === 'type'
+                  ? 'text-[#c9963c]'
+                  : 'text-zinc-500 hover:text-zinc-300'
+              }`}
+            >
+              Type a request
+              {mode === 'type' && (
+                <span className="absolute inset-x-3 -bottom-px h-0.5 bg-[#c9963c]" />
+              )}
             </button>
           </div>
+        )}
 
-          {/* Message thread */}
-          <div className="flex-1 overflow-y-auto px-4 py-4">
-            {isEmpty ? (
-              <div className="flex h-full flex-col items-center justify-center gap-5 text-center">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full" style={{ backgroundColor: '#c9963c20' }}>
-                  <Sparkles className="h-6 w-6" style={{ color: '#c9963c' }} />
-                </div>
-                <div>
-                  <p className="font-semibold text-zinc-200">Your AI travel editor</p>
-                  <p className="mt-1 text-sm text-zinc-500">
-                    Tell me what to change and I&apos;ll update your plan instantly.
-                  </p>
-                </div>
-                <div className="flex w-full flex-col gap-2">
-                  {STARTER_PROMPTS.map((prompt) => (
-                    <button
-                      key={prompt}
-                      onClick={() => sendMessage(prompt)}
-                      className="w-full rounded-xl border border-zinc-800 bg-zinc-800/50 px-3 py-2.5 text-left text-sm text-zinc-400 transition hover:border-zinc-600 hover:text-zinc-200"
-                    >
-                      {prompt}
-                    </button>
-                  ))}
-                </div>
+        {/* Body */}
+        <div className="flex-1 overflow-y-auto px-4 py-4">
+          {hasThread ? (
+            <div className="flex flex-col gap-3">
+              {displayMessages.map((msg, i) => (
+                <MessageBubble key={msg._key ?? i} msg={msg} />
+              ))}
+              <div ref={bottomRef} />
+            </div>
+          ) : mode === 'quick' ? (
+            <div className="flex flex-col gap-2">
+              <p className="px-1 pb-1 text-xs text-zinc-500">
+                Pick one. The trip updates in place.
+              </p>
+              {QUICK_EDITS.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => sendMessage(item.request)}
+                  className="w-full rounded-xl border border-zinc-800 bg-zinc-800/40 px-3.5 py-3 text-left text-sm text-zinc-200 transition hover:border-zinc-600 hover:bg-zinc-800"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="flex h-full flex-col items-center justify-center text-center">
+              <div className="max-w-xs">
+                <p className="font-semibold text-zinc-200">What needs to change?</p>
+                <p className="mt-1.5 text-sm text-zinc-500">
+                  Describe the swap, addition, or pace change. Cite a day if it
+                  helps — e.g. &ldquo;Day 2 morning is too packed.&rdquo;
+                </p>
               </div>
-            ) : (
-              <div className="flex flex-col gap-3">
-                {displayMessages.map((msg, i) => (
-                  <MessageBubble key={msg._key ?? i} msg={msg} />
-                ))}
-                <div ref={bottomRef} />
-              </div>
-            )}
-          </div>
+            </div>
+          )}
+        </div>
 
-          {/* Input */}
+        {/* Input — always visible once thread starts; visible in 'type' mode pre-thread */}
+        {(hasThread || mode === 'type') && (
           <form onSubmit={handleSubmit} className="border-t border-zinc-800 px-3 py-3">
             <div className="flex items-end gap-2 rounded-xl border border-zinc-700 bg-zinc-800/60 px-3 py-2 focus-within:border-zinc-500">
               <textarea
@@ -336,7 +400,7 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
                 onKeyDown={handleKeyDown}
                 rows={1}
                 disabled={streaming}
-                placeholder="Ask me to change anything…"
+                placeholder="Describe a change to the trip…"
                 className="flex-1 resize-none bg-transparent text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none disabled:opacity-50"
                 style={{ maxHeight: '96px' }}
               />
@@ -345,7 +409,7 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
                   type="button"
                   onClick={handleAbort}
                   className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-zinc-700 text-zinc-400 transition hover:bg-zinc-600"
-                  title="Stop generating"
+                  title="Stop"
                 >
                   <X className="h-3.5 w-3.5" />
                 </button>
@@ -362,11 +426,11 @@ export default function PlannerChat({ tripId, citySlug, cityDisplay, plan, onAct
               )}
             </div>
             <p className="mt-1.5 text-center text-[10px] text-zinc-600">
-              Changes save automatically · AI-powered planner
+              Changes save automatically.
             </p>
           </form>
-        </div>
-      )}
+        )}
+      </aside>
     </>
   );
 }

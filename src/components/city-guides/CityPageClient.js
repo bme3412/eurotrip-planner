@@ -11,6 +11,7 @@ import Hero from '@/components/common/Hero';
 import SaveToTrips from '@/components/common/SaveToTrips';
 import AuthButton from '@/components/auth/AuthButton';
 import BookActivities from '@/components/city-guides/BookActivities';
+import QuestionChips from '@/components/city-guides/QuestionChips';
 import { 
   SkeletonOverview, 
   SkeletonMapLoader, 
@@ -487,6 +488,9 @@ function CityPageClient({ cityData, cityName }) {
           Plan Your Trip to {displayName}
         </Link>
       </div>
+
+      {/* Question Chips - inline answers, no chat */}
+      <QuestionChips cityName={displayName} citySlug={cityName?.toLowerCase()} />
 
       {/* Tabs + Actions - Sticky when scrolled */}
       <div 

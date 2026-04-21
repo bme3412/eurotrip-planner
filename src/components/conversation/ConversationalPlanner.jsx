@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { MessageList, ErrorMessage } from './ChatArea';
 import { ChatInput } from './InputArea';
@@ -11,10 +11,16 @@ import { useConversation } from '@/hooks/useConversation';
 
 /**
  * ConversationalPlanner - Main component for the conversational trip planning experience
+ *
+ * Props:
+ *   initialUserMessage - Optional. If provided, automatically sent as the user's
+ *     first message after the opening assistant turn completes. Used by /plan?q=...
+ *     to honor a CommandBar query.
  */
-export default function ConversationalPlanner() {
+export default function ConversationalPlanner({ initialUserMessage = null } = {}) {
   const router = useRouter();
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
+  const seededRef = useRef(false);
 
   const {
     messages,
@@ -28,6 +34,7 @@ export default function ConversationalPlanner() {
     startConversation,
     handleOptionSelect,
     handleCitySelect,
+    confirmParsedItinerary,
     updateTrip,
     reset,
     retry,
@@ -43,6 +50,18 @@ export default function ConversationalPlanner() {
       startConversation();
     }
   }, [hasStarted, startConversation]);
+
+  // After the opening assistant turn finishes, if we were handed an initial
+  // user message (from /plan?q=...), dispatch it once.
+  useEffect(() => {
+    if (!initialUserMessage) return;
+    if (seededRef.current) return;
+    if (!hasStarted) return;
+    if (isStreaming) return;
+    if (messages.length === 0) return;
+    seededRef.current = true;
+    sendMessage(initialUserMessage);
+  }, [initialUserMessage, hasStarted, isStreaming, messages.length, sendMessage]);
 
   // Handle text input submission
   const handleSendMessage = useCallback((text) => {
@@ -72,6 +91,17 @@ export default function ConversationalPlanner() {
     const summary = entries.map(([, days]) => `${days}d`).join(', ');
     sendMessage(`I'll go with: ${summary}`);
   }, [updateTrip, sendMessage]);
+
+  // Handle parse_itinerary confirm (from ParsedItineraryCard)
+  const handleParsedItineraryConfirm = useCallback((cities) => {
+    confirmParsedItinerary(cities);
+  }, [confirmParsedItinerary]);
+
+  // Handle parse_itinerary refine - drop the card, hand the summary
+  // back to the agent as a new user message so it can re-parse.
+  const handleParsedItineraryRefine = useCallback((summary) => {
+    sendMessage(summary);
+  }, [sendMessage]);
 
   // Handle date selection
   const handleDateSelect = useCallback((dates) => {
@@ -119,10 +149,10 @@ export default function ConversationalPlanner() {
         {/* Header */}
         <header className="flex-shrink-0 px-6 py-4 bg-white border-b border-slate-200">
           <h1 className="text-xl font-semibold text-slate-800">
-            Plan Your Trip
+            Plan or review a trip
           </h1>
           <p className="text-sm text-slate-500 mt-0.5">
-            Chat with me to create your perfect European adventure
+            Tell us about your trip, paste a draft to review, or ask about anywhere in Europe.
           </p>
         </header>
 
@@ -138,6 +168,8 @@ export default function ConversationalPlanner() {
               onCitySelect={handleCity}
               onDaysChange={handleDaysChange}
               onDateSelect={handleDateSelect}
+              onParsedItineraryConfirm={handleParsedItineraryConfirm}
+              onParsedItineraryRefine={handleParsedItineraryRefine}
             />
           </div>
 

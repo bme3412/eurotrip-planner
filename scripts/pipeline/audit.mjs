@@ -27,6 +27,53 @@ import {
 } from './lib/quality.mjs';
 
 const DATA_DIR = path.join(process.cwd(), 'public/data');
+const BRIDGE_FILE = path.join(process.cwd(), 'scripts/cityMetadata.json');
+
+// Bridge data loaded once at startup
+let bridgeData = null;
+
+/**
+ * Load the cityMetadata.json bridge file.
+ * This contains coordinates, descriptions, and tourismCategories for cities
+ * that may not have them in their index.json.
+ */
+async function loadBridgeData() {
+  try {
+    const content = await fs.readFile(BRIDGE_FILE, 'utf-8');
+    bridgeData = JSON.parse(content);
+  } catch (error) {
+    // Bridge file is optional; if missing, just use empty object
+    bridgeData = {};
+  }
+}
+
+/**
+ * Merge bridge data into city data for quality checking.
+ * Bridge fields only fill gaps - index.json data takes precedence.
+ */
+function mergeWithBridgeData(data, cityId) {
+  const bridge = bridgeData[cityId];
+  if (!bridge) return data;
+
+  const merged = { ...data };
+
+  // Coordinates: use bridge if index.json lacks them
+  if (!merged.coordinates?.lat && !merged.latitude && bridge.latitude && bridge.longitude) {
+    merged.coordinates = { lat: bridge.latitude, lng: bridge.longitude };
+  }
+
+  // Description: use bridge if index.json lacks it
+  if (!merged.description && !merged.overview?.brief_description && bridge.description) {
+    merged.description = bridge.description;
+  }
+
+  // Tourism categories: use bridge if index.json lacks them
+  if ((!merged.tourismCategories || merged.tourismCategories.length === 0) && bridge.tourismCategories?.length > 0) {
+    merged.tourismCategories = bridge.tourismCategories;
+  }
+
+  return merged;
+}
 
 /**
  * Find all city index.json files.
@@ -70,13 +117,19 @@ async function auditFile(filePath) {
     const content = await fs.readFile(filePath, 'utf-8');
     const data = JSON.parse(content);
 
-    const quality = calculateQualityScore(data);
-    const completeness = getCompletenessCheck(data);
+    // Derive city ID for bridge lookup
+    const cityId = (data.id || data.cityId || city).toLowerCase();
+
+    // Merge with bridge data (coordinates, description, tourismCategories)
+    const mergedData = mergeWithBridgeData(data, cityId);
+
+    const quality = calculateQualityScore(mergedData);
+    const completeness = getCompletenessCheck(mergedData);
 
     return {
       country,
       city,
-      cityId: data.id || data.cityId || city.toLowerCase(),
+      cityId,
       displayName: data.name || data.city || city,
       qualityScore: quality.score,
       qualityTier: getQualityTier(quality.score),
@@ -186,6 +239,13 @@ async function main() {
   const outputPath = outputIndex >= 0 ? args[outputIndex + 1] : null;
 
   logger.info('Starting data quality audit', { dataDir: DATA_DIR });
+
+  // Load bridge data (coordinates, descriptions, categories from scripts/cityMetadata.json)
+  await loadBridgeData();
+  const bridgeCount = Object.keys(bridgeData).length;
+  if (bridgeCount > 0) {
+    logger.info(`Loaded bridge data for ${bridgeCount} cities`);
+  }
 
   // Find all city files
   const files = await findCityFiles();

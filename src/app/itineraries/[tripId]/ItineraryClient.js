@@ -12,7 +12,7 @@ const ItineraryMap = dynamic(() => import('./ItineraryMap'), {
   loading: () => <div className="h-72 animate-pulse rounded-xl bg-zinc-800 md:h-[420px]" />,
 });
 
-const PlannerChat = dynamic(() => import('@/components/itinerary/PlannerChat'), {
+const EditPanel = dynamic(() => import('@/components/itinerary/EditPanel'), {
   ssr: false,
   loading: () => null,
 });
@@ -455,6 +455,7 @@ export default function ItineraryClient({
   experienceScores,
 }) {
   const [showMap, setShowMap] = useState(false);
+  const [editPanelOpen, setEditPanelOpen] = useState(false);
   const [activeDayIndex, setActiveDayIndex] = useState(0);
   const dayRefs = useRef([]);
 
@@ -589,6 +590,15 @@ export default function ItineraryClient({
               </div>
             </dl>
             <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => setEditPanelOpen(true)}
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border border-zinc-700 bg-zinc-800 px-3.5 py-1.5 text-xs font-semibold text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-700"
+              >
+                <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                </svg>
+                Edit
+              </button>
               <ShareButton tripId={tripId} cityName={cityDisplay} />
               <a
                 href={`/api/trips/${tripId}/calendar`}
@@ -676,9 +686,11 @@ export default function ItineraryClient({
         </section>
       </div>
 
-      {/* ── AI Planner Chat ── */}
+      {/* ── Edit Panel ── */}
       {tripId && citySlug && (
-        <PlannerChat
+        <EditPanel
+          open={editPanelOpen}
+          onClose={() => setEditPanelOpen(false)}
           tripId={tripId}
           citySlug={citySlug}
           cityDisplay={cityDisplay}

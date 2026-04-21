@@ -4,6 +4,136 @@
  */
 
 export const tools = [
+  // Intent classification - MUST be called first on any new conversation
+  {
+    name: 'classify_intent',
+    description: `Classify the user's intent on their FIRST message. Call this BEFORE any other tool.
+
+Intents:
+- "plan": User wants to create a new trip (mentions cities, dates, travel plans)
+- "review": User is pasting/describing an existing itinerary to review/improve
+- "browse": User is asking questions about cities, travel, or seeking info without planning
+
+Extract any useful details from their message (cities mentioned, dates, interests, etc.)`,
+    input_schema: {
+      type: 'object',
+      properties: {
+        intent: {
+          type: 'string',
+          enum: ['plan', 'review', 'browse'],
+          description: 'The classified intent',
+        },
+        confidence: {
+          type: 'number',
+          description: 'Confidence score 0-1',
+        },
+        extracted: {
+          type: 'object',
+          description: 'Any details extracted from the message',
+          properties: {
+            cities: {
+              type: 'array',
+              items: { type: 'string' },
+              description: 'City names mentioned',
+            },
+            dates: {
+              type: 'object',
+              properties: {
+                start: { type: 'string' },
+                end: { type: 'string' },
+                month: { type: 'string' },
+                duration: { type: 'string' },
+                flexible: { type: 'boolean' },
+              },
+            },
+            interests: {
+              type: 'array',
+              items: { type: 'string' },
+              description: 'Interests or preferences mentioned',
+            },
+            rawItinerary: {
+              type: 'string',
+              description: 'If review intent, the pasted itinerary text',
+            },
+            question: {
+              type: 'string',
+              description: 'If browse intent, the question being asked',
+            },
+          },
+        },
+      },
+      required: ['intent', 'extracted'],
+    },
+  },
+  // Review-path tool — used when the user has ALREADY described a trip and
+  // wants it reviewed. Pulls raw text into a structured itinerary so the UI
+  // can render an editable summary and the planner can validate it.
+  {
+    name: 'parse_itinerary',
+    description: `Structure a free-text itinerary the user pasted or described.
+Call this on REVIEW intent, the moment the user says something like
+"I'm in Paris Mon-Wed, then Rome Thu-Sun" or pastes a draft trip.
+
+Extract every city the user mentioned, in the order they said it, with
+however many nights they are spending there. Guess only the details you
+are confident about. Leave unknowns null — do not invent dates or durations.
+
+After this tool runs, the UI will show the user an editable summary; do
+NOT also call update_trip or show_route_summary in the same turn.`,
+    input_schema: {
+      type: 'object',
+      properties: {
+        cities: {
+          type: 'array',
+          description: 'Cities in the order visited',
+          items: {
+            type: 'object',
+            properties: {
+              name: {
+                type: 'string',
+                description: 'City name exactly as the user said it (e.g. "Paris", "Rome"). Do not translate or normalize.',
+              },
+              nights: {
+                type: 'number',
+                description: 'Number of nights in this city. Leave blank if unclear.',
+              },
+              startDate: {
+                type: 'string',
+                description: 'Arrival date in YYYY-MM-DD if the user gave a real date. Leave blank for weekday-only refs like "Mon".',
+              },
+              endDate: {
+                type: 'string',
+                description: 'Departure date in YYYY-MM-DD if the user gave one. Leave blank otherwise.',
+              },
+              notes: {
+                type: 'string',
+                description: 'Anything specific the user said about this stop (e.g. "museum-heavy", "day trip to Versailles").',
+              },
+            },
+            required: ['name'],
+          },
+        },
+        totalNights: {
+          type: 'number',
+          description: 'Total nights across the trip if the user stated it explicitly. Leave blank otherwise.',
+        },
+        travelYear: {
+          type: 'number',
+          description: 'The year the user is travelling if stated (e.g. 2026). Leave blank otherwise.',
+        },
+        confidence: {
+          type: 'string',
+          enum: ['high', 'medium', 'low'],
+          description: 'How confident you are in the structure. High = explicit dates + cities. Low = vague.',
+        },
+        rawText: {
+          type: 'string',
+          description: 'The exact snippet of the user message you parsed (for the UI to quote).',
+        },
+      },
+      required: ['cities', 'confidence'],
+    },
+  },
   {
     name: 'show_options',
     description: 'Display clickable option buttons for the user to choose from. Use this when presenting choices.',

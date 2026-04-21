@@ -7,6 +7,7 @@ import CityCards from '../InputArea/CityCards';
 import DaysSlider from '../InputArea/DaysSlider';
 import DatePicker from '../InputArea/DatePicker';
 import RouteSummary from '../RouteSummary';
+import ParsedItineraryCard from '../ParsedItineraryCard';
 
 /**
  * Get fallback options based on current trip state
@@ -105,6 +106,8 @@ export default function AIMessage({
   onCitySelect,
   onDaysChange,
   onDateSelect,
+  onParsedItineraryConfirm,
+  onParsedItineraryRefine,
 }) {
   // Get fallback options if AI didn't provide a tool
   const fallbackInput = isLatest && !pendingInput ? getFallbackOptions(trip) : null;
@@ -168,6 +171,15 @@ export default function AIMessage({
             confirmable={pendingInput.data.confirmable}
             onConfirm={() => onOptionSelect({ id: 'confirm', label: 'Looks good!' })}
             onEdit={() => onOptionSelect({ id: 'edit', label: 'Make changes' })}
+          />
+        );
+
+      case 'parse_itinerary':
+        return (
+          <ParsedItineraryCard
+            data={pendingInput.data}
+            onConfirm={onParsedItineraryConfirm}
+            onRefine={onParsedItineraryRefine}
           />
         );
 

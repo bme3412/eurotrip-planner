@@ -25,6 +25,7 @@ import RemainingDaysBar from './RemainingDaysBar';
 import DayAllocationControls from './DayAllocationControls';
 import RouteValidationPanel from './RouteValidationPanel';
 import AIRouteSuggester from './AIRouteSuggester';
+import NotSureLink from '@/components/common/NotSureLink';
 
 // Transport type icons and labels
 const TRANSPORT_TYPES = {
@@ -855,7 +856,19 @@ export default function StepGaps({
 
       {/* View mode toggle - only show if there are gaps to fill */}
       {gaps.length > 0 && (
-        <ViewModeToggle viewMode={viewMode} onChangeMode={setViewMode} />
+        <div className="flex items-center justify-between gap-3">
+          <ViewModeToggle viewMode={viewMode} onChangeMode={setViewMode} />
+          <NotSureLink
+            question={
+              startCity && endCity
+                ? `I'm going from ${startCity.name} to ${endCity.name}. Which intermediate cities should I add and how should I split my days?`
+                : startCity
+                ? `I'm starting in ${startCity.name} for a Europe trip — what should I add?`
+                : 'I have no idea where to add stops in Europe. Where should I start?'
+            }
+            label="Not sure where to stop?"
+          />
+        </div>
       )}
 
       {/* Remaining days bar - shows allocation progress */}

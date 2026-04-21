@@ -17,6 +17,115 @@ for (const city of citiesData) {
  */
 async function handleToolCall(toolName, toolInput, tripContext) {
   switch (toolName) {
+    case 'parse_itinerary': {
+      const { cities = [], totalNights, travelYear, confidence, rawText } = toolInput || {};
+
+      const resolved = [];
+      const unresolved = [];
+
+      for (let i = 0; i < cities.length; i += 1) {
+        const raw = cities[i] || {};
+        const name = (raw.name || '').trim();
+        if (!name) continue;
+
+        const hit = cityLookup[name.toLowerCase()];
+
+        let nights = Number.isFinite(raw.nights) ? raw.nights : null;
+        if (!nights && raw.startDate && raw.endDate) {
+          const start = new Date(raw.startDate);
+          const end = new Date(raw.endDate);
+          if (!Number.isNaN(start.getTime()) && !Number.isNaN(end.getTime())) {
+            const diff = Math.round((end - start) / 86400000);
+            if (diff > 0) nights = diff;
+          }
+        }
+
+        if (hit) {
+          resolved.push({
+            order: i + 1,
+            id: hit.id,
+            name: hit.name,
+            country: hit.country,
+            latitude: hit.latitude,
+            longitude: hit.longitude,
+            nights,
+            startDate: raw.startDate || null,
+            endDate: raw.endDate || null,
+            notes: raw.notes || null,
+          });
+        } else {
+          unresolved.push({
+            order: i + 1,
+            name,
+            nights,
+            startDate: raw.startDate || null,
+            endDate: raw.endDate || null,
+            notes: raw.notes || null,
+          });
+        }
+      }
+
+      const computedTotalNights =
+        resolved.reduce((sum, c) => sum + (c.nights || 0), 0) || null;
+
+      const flags = [];
+      if (unresolved.length > 0) {
+        flags.push({
+          type: 'unresolved_city',
+          message: `${unresolved.length} ${unresolved.length === 1 ? 'city' : 'cities'} not in our 220-city dataset: ${unresolved.map((c) => c.name).join(', ')}`,
+        });
+      }
+      if (resolved.length >= 2) {
+        const noNights = resolved.filter((c) => !c.nights);
+        if (noNights.length > 0) {
+          flags.push({
+            type: 'missing_nights',
+            message: `Nights unknown for: ${noNights.map((c) => c.name).join(', ')}`,
+          });
+        }
+      }
+
+      return {
+        cities: resolved,
+        unresolved,
+        totalNights: totalNights || computedTotalNights,
+        travelYear: travelYear || null,
+        confidence: confidence || 'medium',
+        rawText: rawText || null,
+        flags,
+      };
+    }
+
+    case 'classify_intent': {
+      // Intent classification - extract info and pass it back
+      // The model classifies, we just acknowledge and return the extracted data
+      const { intent, confidence, extracted } = toolInput;
+
+      // Try to resolve city names to IDs if cities were mentioned
+      const resolvedCities = [];
+      if (extracted?.cities?.length > 0) {
+        for (const cityName of extracted.cities) {
+          const city = cityLookup[cityName.toLowerCase()];
+          if (city) {
+            resolvedCities.push({
+              id: city.id,
+              name: city.name,
+              country: city.country,
+            });
+          }
+        }
+      }
+
+      return {
+        intent,
+        confidence,
+        extracted: {
+          ...extracted,
+          resolvedCities,
+        },
+      };
+    }
+
     case 'get_city_suggestions': {
       const { fromCity, toCity, interests, maxResults = 6 } = toolInput;
 
@@ -216,8 +325,22 @@ export async function POST(request) {
               // Execute tool and get result
               const toolResult = await handleToolCall(block.name, block.input, tripContext);
 
+              // Surface server-resolved results to the UI for tools whose output
+              // the client needs to render directly (e.g. parse_itinerary's
+              // canonicalized city list).
+              const uiResultTools = new Set(['parse_itinerary']);
+              if (uiResultTools.has(block.name) && toolResult) {
+                send({
+                  type: 'tool_result',
+                  id: block.id,
+                  name: block.name,
+                  result: toolResult,
+                });
+              }
+
               // If this tool returns data (not just UI), we need to continue the conversation
-              if (toolResult !== null && (block.name === 'get_city_suggestions' || block.name === 'get_travel_info')) {
+              const dataTools = ['get_city_suggestions', 'get_travel_info', 'classify_intent', 'parse_itinerary'];
+              if (toolResult !== null && dataTools.includes(block.name)) {
                 // Add assistant message with tool use
                 currentMessages.push({
                   role: 'assistant',

@@ -18,6 +18,8 @@ export default function MessageList({
   onCitySelect,
   onDaysChange,
   onDateSelect,
+  onParsedItineraryConfirm,
+  onParsedItineraryRefine,
 }) {
   const bottomRef = useRef(null);
   const containerRef = useRef(null);
@@ -60,6 +62,8 @@ export default function MessageList({
                 onCitySelect={onCitySelect}
                 onDaysChange={onDaysChange}
                 onDateSelect={onDateSelect}
+                onParsedItineraryConfirm={onParsedItineraryConfirm}
+                onParsedItineraryRefine={onParsedItineraryRefine}
               />
             ) : (
               <UserMessage content={message.content} />

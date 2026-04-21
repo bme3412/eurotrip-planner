@@ -246,15 +246,26 @@ export function useConversation() {
         clearStorage();
         break;
 
+      case 'parse_itinerary':
       case 'get_city_suggestions':
       case 'get_travel_info':
-        // These return data - handled by the API
+        // These return data - handled by the API. For parse_itinerary we also
+        // wait for the server's tool_result event to render the review card.
         break;
 
       default:
         console.warn('Unknown tool:', toolName);
     }
   }, [updateTrip]);
+
+  /**
+   * Handle tool results pushed back from the server (e.g. the canonicalized
+   * output of parse_itinerary, with city IDs resolved).
+   */
+  const handleToolResult = useCallback((toolName, result) => {
+    if (toolName !== 'parse_itinerary' || !result) return;
+    setPendingInput({ type: 'parse_itinerary', data: result });
+  }, []);
 
   /**
    * Send a message and get AI response
@@ -325,6 +336,8 @@ export function useConversation() {
               } else if (data.type === 'tool_use') {
                 toolCalls.push(data);
                 handleToolCall(data.name, data.input);
+              } else if (data.type === 'tool_result') {
+                handleToolResult(data.name, data.result);
               } else if (data.type === 'done') {
                 // Stream complete
               } else if (data.type === 'error') {
@@ -351,7 +364,7 @@ export function useConversation() {
       setIsStreaming(false);
       abortControllerRef.current = null;
     }
-  }, [messages, trip, addMessage, updateLastAssistantMessage, handleToolCall]);
+  }, [messages, trip, addMessage, updateLastAssistantMessage, handleToolCall, handleToolResult]);
 
   /**
    * Start the conversation
@@ -401,6 +414,8 @@ export function useConversation() {
                 updateLastAssistantMessage(fullContent);
               } else if (data.type === 'tool_use') {
                 handleToolCall(data.name, data.input);
+              } else if (data.type === 'tool_result') {
+                handleToolResult(data.name, data.result);
               }
             } catch {
               // Skip invalid JSON
@@ -417,7 +432,7 @@ export function useConversation() {
     } finally {
       setIsStreaming(false);
     }
-  }, [hasStarted, trip, addMessage, updateLastAssistantMessage, handleToolCall]);
+  }, [hasStarted, trip, addMessage, updateLastAssistantMessage, handleToolCall, handleToolResult]);
 
   /**
    * Handle user selecting an option from UI
@@ -492,6 +507,44 @@ export function useConversation() {
   }, [sendMessage, hasStarted, messages.length, startConversation]);
 
   /**
+   * Confirm a parsed itinerary (from parse_itinerary review card). Turns the
+   * edited city list into the canonical trip shape and tells the agent to
+   * continue from review mode.
+   */
+  const confirmParsedItinerary = useCallback((cities) => {
+    const list = Array.isArray(cities) ? cities.filter((c) => c?.id) : [];
+    if (list.length === 0) {
+      sendMessage("The parsed trip is empty — let me describe it again.");
+      return;
+    }
+
+    const startCity = list[0];
+    const endCity = list[list.length - 1];
+    const stops = list.slice(1, -1);
+    const totalDays = list.reduce((sum, c) => sum + (c.nights || 0), 0) || null;
+    const daysPerCity = {};
+    for (const c of list) {
+      if (c.nights) daysPerCity[c.id] = c.nights;
+    }
+
+    updateTrip({
+      startCity: { id: startCity.id, name: startCity.name, country: startCity.country },
+      endCity: list.length === 1
+        ? { id: startCity.id, name: startCity.name, country: startCity.country }
+        : { id: endCity.id, name: endCity.name, country: endCity.country },
+      addStops: stops.map((s) => ({ id: s.id, name: s.name, country: s.country })),
+      totalDays,
+      daysPerCity,
+    });
+    setPendingInput(null);
+
+    const summary = list
+      .map((c) => (c.nights ? `${c.nights}n ${c.name}` : c.name))
+      .join(' → ');
+    sendMessage(`Confirmed: ${summary}. What should I tighten up?`);
+  }, [sendMessage, updateTrip]);
+
+  /**
    * Dismiss the error without retrying
    */
   const dismissError = useCallback(() => {
@@ -524,6 +577,7 @@ export function useConversation() {
     startConversation,
     handleOptionSelect,
     handleCitySelect,
+    confirmParsedItinerary,
     updateTrip,
     reset,
     retry,

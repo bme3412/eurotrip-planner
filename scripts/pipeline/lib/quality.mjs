@@ -149,7 +149,15 @@ const QUALITY_CHECKS = {
 
       let withEvents = 0;
       for (const month of months) {
-        if (month && (month.events?.length > 0 || month.highlights?.length > 0 || month.keyEvents?.length > 0)) {
+        if (!month) continue;
+
+        // Check multiple data shapes:
+        // 1. month.events[] / month.highlights[] / month.keyEvents[] (old formats)
+        // 2. month.ranges[] with event/special fields (current format)
+        const hasEventsArray = month.events?.length > 0 || month.highlights?.length > 0 || month.keyEvents?.length > 0;
+        const hasRangesWithEvents = month.ranges?.some(r => r.event || r.special);
+
+        if (hasEventsArray || hasRangesWithEvents) {
           withEvents++;
         }
       }

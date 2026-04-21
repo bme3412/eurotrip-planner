@@ -10,6 +10,7 @@ import {
   ShoppingBag,
   Camera,
 } from './icons';
+import NotSureLink from '@/components/common/NotSureLink';
 
 const PACE_CARDS = [
   {
@@ -86,9 +87,15 @@ export default function StepPreferences({ preferences, onChangePreferences }) {
     <div className="space-y-10">
       {/* Pace */}
       <div>
-        <label className="block text-xs font-medium uppercase tracking-[0.2em] text-[#6a6459] mb-4">
-          Travel Pace
-        </label>
+        <div className="flex items-baseline justify-between mb-4">
+          <label className="block text-xs font-medium uppercase tracking-[0.2em] text-[#6a6459]">
+            Travel Pace
+          </label>
+          <NotSureLink
+            question="How do I pick a travel pace? What's the difference between relaxed, balanced, and active for a week in Europe?"
+            label="Not sure which pace?"
+          />
+        </div>
         <div className="grid grid-cols-3 gap-3">
           {PACE_CARDS.map(card => {
             const active = paceId === card.id;
@@ -161,9 +168,15 @@ export default function StepPreferences({ preferences, onChangePreferences }) {
 
       {/* Budget */}
       <div>
-        <label className="block text-xs font-medium uppercase tracking-[0.2em] text-[#6a6459] mb-4">
-          Budget
-        </label>
+        <div className="flex items-baseline justify-between mb-4">
+          <label className="block text-xs font-medium uppercase tracking-[0.2em] text-[#6a6459]">
+            Budget
+          </label>
+          <NotSureLink
+            question="How should I think about budget for a Europe trip — what does each level actually buy in terms of food, hotels, and activities?"
+            label="What does each level get me?"
+          />
+        </div>
         <div className="flex rounded-xl border border-[#e5e0d8] bg-[#faf8f5] p-1 gap-1">
           {BUDGET_OPTIONS.map(opt => (
             <button
