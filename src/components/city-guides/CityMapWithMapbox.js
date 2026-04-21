@@ -141,6 +141,15 @@ export default function CityMapWithMapbox({
     setSelectedLocal(selectedAttraction);
   }, [selectedAttraction]);
 
+  // Keep latest hover/select handlers without re-running the marker effect when
+  // parent passes new function identities (exhaustive-deps + stale listeners).
+  const onHoverRef = useRef(onHover);
+  const onSelectRef = useRef(onSelect);
+  useEffect(() => {
+    onHoverRef.current = onHover;
+    onSelectRef.current = onSelect;
+  });
+
   // Derive a set of iconic attractions (by name) to show on first load
   const iconicAttractionNames = useMemo(() => {
     if (!Array.isArray(attractions) || attractions.length === 0) return new Set();
@@ -848,11 +857,11 @@ export default function CityMapWithMapbox({
         popupContent += `</div></div>`;
         
         // Wire hover/select to parent consumers
-        markerEl.addEventListener('mouseenter', () => onHover(attraction));
-        markerEl.addEventListener('mouseleave', () => onHover(null));
+        markerEl.addEventListener('mouseenter', () => onHoverRef.current(attraction));
+        markerEl.addEventListener('mouseleave', () => onHoverRef.current(null));
         markerEl.addEventListener('click', () => {
           setSelectedLocal(attraction);
-          onSelect(attraction);
+          onSelectRef.current(attraction);
         });
 
         // Create popup with improved styling, using ref
@@ -1060,7 +1069,7 @@ export default function CityMapWithMapbox({
       console.error('Error adding map features:', err);
       setMapError(err.message || 'Failed to add map features');
     }
-  }, [mapLoaded, styleLoaded, attractions, activeCategories, smartFilters, showingIconicOnly, iconicAttractionNames, categoriesProcessed, processCategories, renderCue, ENABLE_HIGHLIGHT_TOUR, autoOpenedHighlights, matchesSmartFiltersLocal]);
+  }, [mapLoaded, styleLoaded, attractions, activeCategories, smartFilters, showingIconicOnly, iconicAttractionNames, categoriesProcessed, processCategories, renderCue, ENABLE_HIGHLIGHT_TOUR, autoOpenedHighlights, matchesSmartFiltersLocal, selectedLocal]);
 
   // Get the list of categories to show in filters - now memoized
   const getFilterCategories = () => {

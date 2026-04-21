@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import DateRangePicker from "./DateRangePicker";
 import citiesData from "@/generated/cities.json";
 
@@ -205,10 +206,12 @@ function CitySearchDropdown({ value, onSelect, onClose, label }) {
               >
                 {/* Thumbnail */}
                 <div className="aspect-[4/3] relative">
-                  <img
+                  <Image
                     src={city.thumbnail || "/images/city-placeholder.svg"}
                     alt={city.name}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 640px) 50vw, 200px"
+                    className="object-cover"
                   />
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -304,11 +307,13 @@ function CityButton({ city, label, iconType, onClick }) {
     >
       {/* Thumbnail or icon */}
       {hasCity ? (
-        <div className="w-11 h-11 rounded-lg overflow-hidden flex-shrink-0 ring-2 ring-gray-100">
-          <img
+        <div className="w-11 h-11 rounded-lg overflow-hidden flex-shrink-0 ring-2 ring-gray-100 relative">
+          <Image
             src={city.thumbnail || "/images/city-placeholder.svg"}
             alt={city.name}
-            className="w-full h-full object-cover"
+            width={44}
+            height={44}
+            className="object-cover"
           />
         </div>
       ) : (

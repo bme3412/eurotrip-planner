@@ -337,8 +337,9 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
     const countryCap = String(countryName).charAt(0).toUpperCase() + String(countryName).slice(1);
     const cacheKey = `${countrySlug}|${citySlug}|${monthKey.toLowerCase()}`;
 
-    if (fetchedMonthsRef.current.has(cacheKey) || inflightMonthsRef.current.has(cacheKey)) return;
-    inflightMonthsRef.current.add(cacheKey);
+    const inflightSet = inflightMonthsRef.current;
+    if (fetchedMonthsRef.current.has(cacheKey) || inflightSet.has(cacheKey)) return;
+    inflightSet.add(cacheKey);
     const candidates = [
       `/data/${countryName}/${citySlug}/monthly/${monthKey.toLowerCase()}.json`,
       `/data/${countryName}/${cityCap}/monthly/${monthKey.toLowerCase()}.json`,
@@ -364,16 +365,13 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
       } catch (_) {
         // ignore
       } finally {
-        inflightMonthsRef.current.delete(cacheKey);
+        inflightSet.delete(cacheKey);
       }
     })();
 
-    return () => { 
-      cancelled = true; 
-      // Allow re-fetch if effect re-runs before async completes
-      // Capture ref value to avoid stale closure warning
-      const currentInflight = inflightMonthsRef.current;
-      currentInflight.delete(cacheKey);
+    return () => {
+      cancelled = true;
+      inflightSet.delete(cacheKey);
     };
   }, [m?.name, cityName, countryName, monthlyData, extraMonths]);
 

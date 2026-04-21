@@ -8,7 +8,7 @@ const EXAMPLES = [
   "5 days in Paris over Christmas",
   "Lisbon to Rome by train in late April",
   "Family trip with kids 8 and 11, Amsterdam area",
-  "10 nights in Spain, beach + tapas, no cities I've already been",
+  "10 nights in Spain, beach + tapas, no cities I have already been",
 ];
 
 export default function DescribeTripInput({ value, onChange }) {
@@ -40,7 +40,7 @@ export default function DescribeTripInput({ value, onChange }) {
     }
   };
 
-  const useExample = (example) => {
+  const applyExample = (example) => {
     setText(example);
     requestAnimationFrame(() => taRef.current?.focus());
   };
@@ -55,14 +55,14 @@ export default function DescribeTripInput({ value, onChange }) {
           onChange={(e) => setText(e.target.value)}
           onKeyDown={handleKeyDown}
           rows={3}
-          placeholder="I'm going to Rome in June for a week, want food and ancient history..."
+          placeholder="I am going to Rome in June for a week, want food and ancient history..."
           className="w-full resize-none bg-transparent px-4 pt-3.5 pb-2 text-[15px] leading-relaxed text-gray-900 placeholder:text-gray-400 focus:outline-none"
           style={{ maxHeight: "220px" }}
         />
         <div className="flex items-center justify-between px-3 pb-2.5 pt-1">
           <span className="hidden sm:inline-flex items-center gap-1 text-[11px] text-gray-400">
             <Pencil className="w-3 h-3" />
-            Cities, dates, who you're going with — anything goes
+            Cities, dates, who you are going with — anything goes
           </span>
           <span className="sm:hidden" />
           <span className="text-[10px] text-gray-400 hidden md:inline">
@@ -80,7 +80,7 @@ export default function DescribeTripInput({ value, onChange }) {
           <button
             key={ex}
             type="button"
-            onClick={() => useExample(ex)}
+            onClick={() => applyExample(ex)}
             className="px-2.5 py-1 rounded-full text-xs text-gray-600 bg-gray-50 border border-gray-200 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-colors"
           >
             {ex}
