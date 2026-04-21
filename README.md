@@ -24,13 +24,16 @@ GOOGLE_PLACES_API_KEY=your_key_here
 
 ### City Guides (`/city-guides/[city]`)
 
-Comprehensive guides for European cities with:
+Comprehensive guides for 220+ European cities with:
 
+- **Getting In** - Airport transport options with interactive route map, prose summaries, and transport cards showing price/duration
+- **Best Time to Go** - Seasonal recommendations and visit calendar
+- **Interactive Map** - Mapbox-powered map with attractions and neighborhoods
+- **Monthly Guide** - What's happening each month, events, and seasonal tips
 - **Experiences** - Curated activities across time-of-day categories
 - **Food + Drink** - Restaurant recommendations with filtering by category and price
-- **Neighborhoods** - District overviews and local tips
 - **Photo Spots** - Instagram-worthy locations
-- **Visit Calendar** - Best times to visit attractions
+- **Neighborhoods** - District overviews and local tips
 
 ### Discover (`/discover`)
 
@@ -54,10 +57,15 @@ City data lives in `public/data/{Country}/{city}/`:
 public/data/
 ├── France/
 │   └── paris/
+│       ├── index.json                  # Consolidated city data
+│       ├── getting-in.json             # Airport transport routes
 │       ├── paris-experiences.json      # Curated experiences
 │       ├── paris_culinary_guide.json   # Restaurant data
 │       ├── paris_neighborhoods.json    # District info
-│       └── ...
+│       ├── paris-visit-calendar.json   # Best times to visit
+│       └── monthly/                    # Monthly guides
+│           ├── january.json
+│           └── ...
 ├── UK/
 │   └── london/
 │       └── ...
@@ -137,6 +145,40 @@ The script:
 4. Writes Place IDs to `google-place-ids.json`
 5. Adds `googlePlaceKey` to each experience
 
+### Getting In Data
+
+Airport transport data lives in `{city}/getting-in.json`:
+
+```json
+{
+  "city": "paris",
+  "cityCenter": { "name": "Central Paris", "coordinates": [2.3522, 48.8566] },
+  "airports": [
+    {
+      "code": "CDG",
+      "name": "Charles de Gaulle",
+      "coordinates": [2.5479, 49.0097],
+      "distanceKm": 25,
+      "routes": [
+        {
+          "id": "cdg-rer-b",
+          "type": "train",
+          "name": "RER B",
+          "duration": { "min": 35, "max": 50 },
+          "price": { "amount": 11.80, "currency": "EUR" },
+          "waypoints": [[2.5479, 49.0097], [2.3470, 48.8620]]
+        }
+      ]
+    }
+  ]
+}
+```
+
+The interactive map:
+- Zooms to selected airport when toggling CDG/ORY
+- Draws all routes from selected airport (faded)
+- Highlights specific route when transport option clicked
+
 ### Culinary Guide
 
 The Food + Drink tab loads from `{city}_culinary_guide.json`:
@@ -193,11 +235,12 @@ public/data/
    mkdir -p public/data/{Country}/{city}
    ```
 
-2. Create `{city}-experiences.json` following the format above
+2. Create required data files:
+   - `{city}-experiences.json` - Curated experiences
+   - `{city}_culinary_guide.json` - Restaurant data
+   - `getting-in.json` - Airport transport routes (optional but recommended)
 
-3. Create `{city}_culinary_guide.json` for restaurant data
-
-4. Add the city to `scripts/resolveExperiencePlaceIds.mjs`:
+3. Add the city to `scripts/resolveExperiencePlaceIds.mjs`:
    ```javascript
    const CITY_CONFIG = {
      // ...existing cities
