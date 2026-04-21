@@ -2,6 +2,83 @@
 
 A Next.js application for planning European travel, featuring AI-powered itinerary generation, city guides with curated experiences, and integration with Google Places for real-time photos.
 
+## Architecture
+
+```mermaid
+flowchart TB
+    subgraph Client["Client (Next.js App Router)"]
+        Home["/ Homepage"]
+        CityGuides["/city-guides/[city]"]
+        Discover["/discover"]
+        Plan["/plan"]
+    end
+
+    subgraph CityGuidesTabs["City Guide Tabs"]
+        GettingIn["Getting In"]
+        BestTime["Best Time to Go"]
+        Map["Interactive Map"]
+        Monthly["Monthly Guide"]
+        Experiences["Experiences"]
+        FoodDrink["Food + Drink"]
+    end
+
+    subgraph Data["Public Data (static JSON)"]
+        CityIndex["index.json"]
+        GettingInData["getting-in.json"]
+        MonthlyData["monthly/*.json"]
+        Culinary["culinary_guide.json"]
+    end
+
+    subgraph APIs["API Routes"]
+        Suggestions["/api/suggestions"]
+        GooglePhotos["/api/google-photos"]
+        Conversation["/api/conversation"]
+    end
+
+    subgraph External["External Services"]
+        Mapbox["Mapbox GL"]
+        GooglePlaces["Google Places API"]
+        Claude["Claude API"]
+    end
+
+    Home --> CityGuides
+    Home --> Discover
+    Home --> Plan
+
+    CityGuides --> CityGuidesTabs
+    GettingIn --> GettingInData
+    GettingIn --> Mapbox
+    Monthly --> MonthlyData
+    FoodDrink --> Culinary
+    Experiences --> GooglePhotos
+
+    GooglePhotos --> GooglePlaces
+    Conversation --> Claude
+    Suggestions --> CityIndex
+    Map --> Mapbox
+```
+
+## Data Flow
+
+```mermaid
+flowchart LR
+    subgraph Build["Build Time"]
+        Raw["Raw JSON files"] --> Consolidate["generateCityIndex.mjs"]
+        Consolidate --> Index["index.json per city"]
+    end
+
+    subgraph Runtime["Runtime"]
+        Index --> SSR["Server Component"]
+        SSR --> Client["Client Component"]
+        Client --> Tabs["Tab Content"]
+    end
+
+    subgraph Lazy["Lazy Loading"]
+        Tabs --> |"on tab click"| MonthlyHook["useMonthlyData()"]
+        MonthlyHook --> |"fetch"| MonthlyJSON["monthly/*.json"]
+    end
+```
+
 ## Getting Started
 
 ```bash
