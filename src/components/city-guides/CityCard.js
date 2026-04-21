@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useMemo, useRef, useEffect } from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { getImageUrl, isCDNEnabled } from '../../utils/cdnUtils';
 import { getFlagForCountry } from '../../utils/countryFlags';
 
@@ -104,7 +105,31 @@ const CityCard = ({ city, priority = false, blurDataUrl = null, lazyRoot = null 
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority); // Priority images render immediately
   const cardRef = useRef(null);
+  const prefetchedRef = useRef(false);
+  const router = useRouter();
   const currentSrc = fallbacks[Math.min(srcIndex, fallbacks.length - 1)];
+
+  // Warm the route (RSC payload) AND the city's data JSON on hover/focus so
+  // the eventual click is instant. The JSON is served with a 1-year immutable
+  // cache-control, so warming it is essentially free on repeat hovers.
+  const warmRoute = useCallback(() => {
+    if (prefetchedRef.current) return;
+    prefetchedRef.current = true;
+    try {
+      router.prefetch(`/city-guides/${city.id}`);
+    } catch {
+      /* no-op: prefetch is best-effort */
+    }
+    if (city.country) {
+      const folder = getCountryFolder(city.country);
+      const url = `/data/${folder}/${city.id}/index.json`;
+      try {
+        fetch(url, { cache: 'force-cache', priority: 'low' }).catch(() => {});
+      } catch {
+        /* no-op */
+      }
+    }
+  }, [router, city.id, city.country]);
 
   // Intersection Observer for lazy loading
   useEffect(() => {
@@ -143,8 +168,18 @@ const CityCard = ({ city, priority = false, blurDataUrl = null, lazyRoot = null 
   const placeholderUrl = blurDataUrl || DEFAULT_BLUR_DATA_URL;
 
   return (
-    <div className="group relative" ref={cardRef}>
-      <Link href={`/city-guides/${city.id}`} className="block">
+    <div
+      className="group relative"
+      ref={cardRef}
+      onMouseEnter={warmRoute}
+      onFocus={warmRoute}
+      onTouchStart={warmRoute}
+    >
+      <Link
+        href={`/city-guides/${city.id}`}
+        prefetch={false}
+        className="block"
+      >
         <div className="card overflow-hidden transition duration-300 hover:-translate-y-0.5">
           {/* Card image container */}
           <div className="relative h-48 overflow-hidden bg-gray-100">

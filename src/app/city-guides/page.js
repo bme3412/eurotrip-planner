@@ -71,15 +71,29 @@ const COASTAL_CITY_IDS = (() => {
   return union;
 })();
 
+// Build the city list synchronously from the static generated data.
+// This is a 79KB file already imported at build time; no network / no localStorage needed.
+const INITIAL_CITIES = getStaticCityData().map((c) => ({
+  id: c.id,
+  name: c.name,
+  country: normalizeCountry(c.country),
+  thumbnail: c.thumbnail,
+  region: c.region,
+  description: c.description,
+}));
+const INITIAL_COUNTRIES = [
+  ...new Set(INITIAL_CITIES.map((x) => x.country).filter(Boolean)),
+].sort();
+
 function CityGuidesContent() {
   /* ───────── state ───────── */
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('All Regions');
   const [selectedCountries, setSelectedCountries] = useState([]);
-  const [cities, setCities] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [allCountries, setAllCountries] = useState([]);
-  const [error, setError] = useState(null);
+  const [cities] = useState(INITIAL_CITIES);
+  const [loading] = useState(false);
+  const [allCountries] = useState(INITIAL_COUNTRIES);
+  const [error] = useState(null);
   const [activeFilterType, setActiveFilterType] = useState('euro-region');
 
   const [displayed, setDisplayed] = useState([]);
@@ -105,72 +119,6 @@ function CityGuidesContent() {
     if (next?.month) p.set('month', next.month);
     router.replace(`/city-guides?${p.toString()}`);
   }, [router]);
-
-  /* ───────── data load with caching ───────── */
-  useEffect(() => {
-    let cancelled = false;
-
-    const load = async () => {
-      setLoading(true);
-      setError(null);
-      
-      try {
-        // Check cache first (5 minute cache)
-        const cacheKey = 'eurotrip_cities_data';
-        const cacheTimeKey = 'eurotrip_cities_timestamp';
-        const cacheExpiry = 5 * 60 * 1000; // 5 minutes
-        
-        const cachedData = localStorage.getItem(cacheKey);
-        const cachedTime = localStorage.getItem(cacheTimeKey);
-        const now = Date.now();
-        
-        if (cachedData && cachedTime && (now - parseInt(cachedTime)) < cacheExpiry) {
-          // Use cached data
-          const list = JSON.parse(cachedData);
-          if (!cancelled) {
-            setCities(list);
-            setAllCountries([...new Set(list.map((x) => x.country).filter(Boolean))].sort());
-            setLoading(false);
-          }
-          return;
-        }
-        
-        // Fetch fresh data
-        const res = await fetch(`/api/cities?limit=all`, { 
-          cache: 'force-cache',
-          next: { revalidate: 300 } // 5 minutes
-        });
-        const json = await res.json();
-        const list = (json?.data || []).map((c) => ({
-          id: c.id,
-          name: c.name,
-          country: normalizeCountry(c.country),
-          thumbnail: c.thumbnail,
-          region: c.region,
-          description: c.description,
-        }));
-
-        if (!cancelled) {
-          // Cache the data
-          localStorage.setItem(cacheKey, JSON.stringify(list));
-          localStorage.setItem(cacheTimeKey, now.toString());
-          
-          setCities(list);
-          setAllCountries([...new Set(list.map((x) => x.country).filter(Boolean))].sort());
-          setLoading(false);
-        }
-      } catch (err) {
-        if (!cancelled) {
-          console.error('Failed to load cities from API:', err);
-          setError('Failed to load city data');
-          setLoading(false);
-        }
-      }
-    };
-
-    load();
-    return () => { cancelled = true; };
-  }, []);
 
   /* ───────── filtering ───────── */
   const filtered = useMemo(() => {

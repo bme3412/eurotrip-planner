@@ -76,7 +76,14 @@ function getCityCenter(cityData, cityName) {
   return DEFAULT_CENTER;
 }
 
-function CityPageClient({ cityData, cityName }) {
+// Country → folder-name mapping (some public/data folders use different casing)
+const COUNTRY_FOLDER_MAP = {
+  'United Kingdom': 'UK',
+  'Czech Republic': 'Czechia',
+};
+const getCountryFolder = (country) => COUNTRY_FOLDER_MAP[country] || country;
+
+function CityPageClient({ cityData: initialCityData, cityName }) {
   const [activeTab, setActiveTab] = useState('gettingin');
   const [isTabTransitioning, setIsTabTransitioning] = useState(false);
   const [componentLoaded, setComponentLoaded] = useState(false);
@@ -88,7 +95,59 @@ function CityPageClient({ cityData, cityName }) {
   const tabBarOriginalTop = useRef(null);
   const lastScrollY = useRef(0);
   const scrollTicking = useRef(false);
-  
+
+  // The server only ships a small "shell" ({ cityName, country, overview }).
+  // Heavy sections (attractions, neighborhoods, culinary, connections, seasonal,
+  // visit calendar, monthly) are hydrated client-side from the CDN-cached
+  // /data/{country}/{slug}/index.json. This keeps the initial RSC payload tiny.
+  const [cityData, setCityData] = useState(initialCityData);
+  const [extendedDataLoaded, setExtendedDataLoaded] = useState(false);
+
+  useEffect(() => {
+    const country = initialCityData?.country;
+    if (!country || !cityName) return;
+
+    // If the shell already happens to include heavy fields (e.g. local dev
+    // with the old full-object payload), skip the fetch.
+    if (initialCityData?.attractions || initialCityData?.neighborhoods) {
+      setExtendedDataLoaded(true);
+      return;
+    }
+
+    const controller = new AbortController();
+    const folder = getCountryFolder(country);
+    const slug = cityName.toLowerCase();
+    const url = `/data/${folder}/${slug}/index.json`;
+
+    fetch(url, { signal: controller.signal, cache: 'force-cache' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((idx) => {
+        if (!idx) return;
+        setCityData((prev) => ({
+          ...prev,
+          attractions: idx.attractions ?? null,
+          neighborhoods: idx.neighborhoods ?? null,
+          culinaryGuide: idx.culinaryGuide ?? null,
+          connections: idx.connections ?? null,
+          seasonalActivities: idx.seasonalActivities ?? null,
+          visitCalendar: idx.visitCalendar ?? null,
+          monthlyEvents: idx.monthly ?? {},
+          summary: idx.summary ?? null,
+        }));
+        setExtendedDataLoaded(true);
+      })
+      .catch((err) => {
+        if (err?.name !== 'AbortError') {
+          console.error(`Failed to load extended city data for ${cityName}:`, err);
+          // Don't block the UI forever — mark as loaded so tabs can render
+          // whatever empty-state UX they already have.
+          setExtendedDataLoaded(true);
+        }
+      });
+
+    return () => controller.abort();
+  }, [cityName, initialCityData]);
+
   const { monthlyData, isLoading: monthlyDataLoading, error: monthlyDataError, refetch: loadAllMonthly } = useMonthlyData(
     cityData?.country || 'Unknown',
     cityName || 'unknown',
@@ -319,7 +378,20 @@ function CityPageClient({ cityData, cityName }) {
     );
   }
 
+  // Tabs that depend on the heavy data sections need to wait for the
+  // client-side hydration fetch before they can render meaningfully.
+  const needsExtendedData = (tabId) =>
+    tabId === 'overview' ||
+    tabId === 'map' ||
+    tabId === 'attractions' ||
+    tabId === 'neighborhoods' ||
+    tabId === 'food';
+
   const renderTabContent = () => {
+    if (needsExtendedData(activeTab) && !extendedDataLoaded) {
+      return activeTab === 'map' ? <SkeletonMapLoader /> : <SkeletonTabContent />;
+    }
+
     switch (activeTab) {
       case 'gettingin':
         return (

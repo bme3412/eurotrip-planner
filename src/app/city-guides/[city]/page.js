@@ -270,14 +270,27 @@ export default async function CityPage({ params, searchParams }) {
   const { city } = await params;
   const cityName = decodeURIComponent(city);
   const resolvedSearch = await searchParams;
-  
+
   /** @type {import('@/types').CityData | null} */
   const cityData = await getCityData(cityName);
-  
+
   if (!cityData) {
     console.log(`City data returned null for param: ${cityName}. Triggering notFound().`);
     notFound();
   }
+
+  // Ship only the "shell" needed for the hero, header, breadcrumbs and the
+  // default "Getting In" tab. The heavy fields (attractions, neighborhoods,
+  // culinary, connections, seasonal, visit calendar, monthly) are fetched
+  // client-side from `/data/{country}/{slug}/index.json`, which is served
+  // with `Cache-Control: public, max-age=31536000, immutable` (see next.config).
+  // This keeps the RSC payload small on navigation (~20KB vs ~500KB for Paris)
+  // without duplicating data — the browser reuses the exact same JSON file.
+  const shellCityData = {
+    cityName: cityData.cityName,
+    country: cityData.country,
+    overview: cityData.overview,
+  };
 
   const tripStart = resolvedSearch?.start ?? null;
   const tripEnd = resolvedSearch?.end ?? null;
@@ -286,7 +299,7 @@ export default async function CityPage({ params, searchParams }) {
     <>
       <CityJsonLd cityData={cityData} citySlug={city} />
       <TripDatesBanner start={tripStart} end={tripEnd} />
-      <CityPageClient cityData={cityData} cityName={cityName} />
+      <CityPageClient cityData={shellCityData} cityName={cityName} />
     </>
   );
 }
