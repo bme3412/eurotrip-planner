@@ -4,7 +4,6 @@ import { createPortal } from "react-dom";
 import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { Sun, Users, Calendar, Wallet, Plane, Landmark } from "lucide-react";
 import ResultsGrid from "../components/ResultsGrid";
 import { useTripDates } from "../hooks/useTripDates";
 import ScoringDemoSection from "../components/home/ScoringDemoSection";
@@ -21,32 +20,6 @@ const HeroV2 = dynamic(() => import("@/components/home/v2/Hero"), {
     </div>
   ),
 });
-
-const SCORING_FACTORS = [
-  { Icon: Sun, label: "Weather", tip: "Daily highs/lows, rain probability, sun hours for your dates." },
-  { Icon: Users, label: "Crowds", tip: "Tourist density predictions \u2014 lower is better." },
-  { Icon: Calendar, label: "Events", tip: "Festivals, concerts, parades, road closures during your stay." },
-  { Icon: Wallet, label: "Value", tip: "Lodging and food costs vs. shoulder/peak season pricing." },
-  { Icon: Plane, label: "Logistics", tip: "Transport connectivity from your origin and between cities." },
-  { Icon: Landmark, label: "Culture", tip: "Museums, monuments, UNESCO sites, neighborhood depth." },
-];
-
-function FactorPills() {
-  return (
-    <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-      {SCORING_FACTORS.map(({ Icon, label, tip }) => (
-        <span
-          key={label}
-          className="group relative inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white/80 px-3 py-1.5 text-xs font-semibold text-gray-700 backdrop-blur-sm transition-colors hover:border-blue-300 hover:text-blue-700"
-          title={tip}
-        >
-          <Icon className="h-3.5 w-3.5 text-blue-600" aria-hidden />
-          {label}
-        </span>
-      ))}
-    </div>
-  );
-}
 
 function getInitialDates() {
   const today = new Date();
@@ -293,11 +266,6 @@ function PageV1() {
             <span className="text-blue-600">220 European cities</span>{" "}
             for them.
           </h1>
-
-          {/* Factor icons */}
-          <div className="mb-7">
-            <FactorPills />
-          </div>
 
           {/* Hero widget — tabbed describe / structured */}
           <div ref={dateSelectorRef} className="relative w-full max-w-xl animate-fade-in-safe transition-shadow duration-500">
