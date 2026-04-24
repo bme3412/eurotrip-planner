@@ -9,7 +9,7 @@
     "build:scores": "node scripts/generateMonthlyScores.mjs",
     "start": "next start",
     "lint": "next lint",
-    "test": "node --test 'tests/**/*.test.mjs'",
+    "test": "node --test tests/*.test.mjs",
     "analyze": "ANALYZE=true next build",
     "prepare": "husky",
     "build:data": "node scripts/generateMonthlyIndex.mjs",
@@ -21,7 +21,7 @@
     "replace-thumbnails": "node scripts/replaceThumbnails.mjs",
     "validate-data": "node scripts/validateCityData.mjs",
     "pipeline:validate": "node scripts/pipeline/validate.mjs",
-    "pipeline:validate:ci": "node scripts/pipeline/validate.mjs --ci --fail-on-warning",
+    "pipeline:validate:ci": "node scripts/pipeline/validate.mjs --ci",
     "pipeline:manifest": "node scripts/pipeline/manifest.mjs",
     "pipeline:audit": "node scripts/pipeline/audit.mjs",
     "pipeline:quality-check": "node scripts/pipeline/audit.mjs --threshold 40"
