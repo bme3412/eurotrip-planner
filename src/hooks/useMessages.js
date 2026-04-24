@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useCallback, useRef, useEffect, useMemo } from 'react';
-
-const INITIAL_USER_MESSAGE = 'I want to plan a European trip.';
+import { useState, useCallback, useRef, useEffect } from 'react';
+import { buildApiMessages as buildApiMessagesPure } from '@/lib/conversation/messageBuilder';
 
 function generateId() {
   return `msg_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
@@ -62,37 +61,10 @@ export function useMessages() {
 
   /**
    * Build API-ready messages from the current message list.
-   * - Prepends the initial user message
-   * - Converts system_event to user notes
-   * - Merges consecutive same-role messages (Anthropic requirement)
+   * See buildApiMessages in @/lib/conversation/messageBuilder for the rules.
    */
   const buildApiMessages = useCallback((userContent) => {
-    const currentMessages = messagesRef.current
-      .filter(m => m.content)
-      .map(m => {
-        if (m.role === 'system_event') {
-          return { role: 'user', content: `[user edited the schedule] ${m.content}` };
-        }
-        return { role: m.role, content: m.content };
-      });
-
-    const rawApiMessages = [
-      { role: 'user', content: INITIAL_USER_MESSAGE },
-      ...currentMessages,
-      ...(userContent ? [{ role: 'user', content: userContent }] : []),
-    ];
-
-    // Merge consecutive same-role
-    const apiMessages = [];
-    for (const msg of rawApiMessages) {
-      const prev = apiMessages[apiMessages.length - 1];
-      if (prev && prev.role === msg.role) {
-        prev.content += '\n' + msg.content;
-      } else {
-        apiMessages.push({ ...msg });
-      }
-    }
-    return apiMessages;
+    return buildApiMessagesPure(messagesRef.current, userContent);
   }, []);
 
   return {

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getTripWithDetails } from "@/lib/trips/tripState";
+import { getTripWithDetails } from "@/lib/trips/tripsRepository";
 
 function capitalize(s) {
   if (!s) return '';

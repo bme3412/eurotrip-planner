@@ -3,7 +3,7 @@
 import { NextResponse } from "next/server";
 import { getCityData } from "../../../lib/data-utils.js";
 import { buildItinerary } from "../../../lib/planning/buildItinerary.js";
-import { createTripWithDays } from "../../../lib/trips/tripState.js";
+import { createTripWithDays } from "../../../lib/trips/tripsRepository.js";
 import { getSupabaseAdmin } from "../../../lib/supabase/server";
 
 function normalizeTripPayload(input) {

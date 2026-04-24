@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { X, Plus } from 'lucide-react';
 import { parseIsoDate } from '@/lib/conversation/dayAssignments';
 
@@ -183,10 +183,12 @@ export default function DayStrip({
   const chipRefs = useRef(new Map());
   const scrollerRef = useRef(null);
 
-  const registerRef = (idx, el) => {
+  // Stable identity so DayChip's registration effect doesn't re-fire every
+  // time DayStrip renders.
+  const registerRef = useCallback((idx, el) => {
     if (el) chipRefs.current.set(idx, el);
     else chipRefs.current.delete(idx);
-  };
+  }, []);
 
   useEffect(() => {
     if (focusedDayIndex == null) return;

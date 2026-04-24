@@ -284,6 +284,7 @@ export async function executeToolCall(toolName, toolInput, tripState) {
     case 'render_options':
     case 'render_date_picker':
     case 'render_nights_allocator':
+    case 'confirm_changes':
     case 'finalize_trip':
       return null; // No server-side execution needed
 

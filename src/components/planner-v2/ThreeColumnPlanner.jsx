@@ -28,8 +28,6 @@ export default function ThreeColumnPlanner({ initialUserMessage = null }) {
     startConversation,
     handleOptionSelect,
     handleCitySelect,
-    handleDaysChange,
-    handleDateSelect,
     dismissError,
     assignDaysToCity,
     unassignDays,
@@ -109,11 +107,11 @@ export default function ThreeColumnPlanner({ initialUserMessage = null }) {
             onSendMessage={handleSendMessage}
             onOptionSelect={handleOption}
             onCitySelect={handleCity}
-            onDaysChange={handleDaysChange}
-            onDateSelect={handleDateSelect}
             onDismissError={dismissError}
             onRetry={() => sendMessage('Please continue.')}
-            onParsedItineraryConfirm={() => {}}
+            onParsedItineraryConfirm={() =>
+              sendMessage('Yes, apply that itinerary.')
+            }
             onParsedItineraryRefine={(summary) => sendMessage(summary)}
           />
         </div>

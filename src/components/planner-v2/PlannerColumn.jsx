@@ -7,7 +7,7 @@ import CompactChatInput from './CompactChatInput';
 import PlannerProgressBar from './PlannerProgressBar';
 
 // Build contextual quick-reply suggestions from gap analysis + trip state.
-function deriveQuickReplies(gaps, trip, tripState) {
+function deriveQuickReplies(gaps, tripState) {
   const next = gaps?.nextQuestion;
   if (!next) return [];
 
@@ -122,8 +122,6 @@ export default function PlannerColumn({
   onSendMessage,
   onOptionSelect,
   onCitySelect,
-  onDaysChange,
-  onDateSelect,
   onDismissError,
   onRetry,
   onParsedItineraryConfirm,
@@ -132,8 +130,8 @@ export default function PlannerColumn({
   const scrollContainerRef = useRef(null);
 
   const quickReplies = useMemo(
-    () => (isFinalized || isStreaming || pendingInput ? [] : deriveQuickReplies(gaps, trip, tripState)),
-    [gaps, trip, tripState, isFinalized, isStreaming, pendingInput]
+    () => (isFinalized || isStreaming || pendingInput ? [] : deriveQuickReplies(gaps, tripState)),
+    [gaps, tripState, isFinalized, isStreaming, pendingInput]
   );
 
   const placeholder = useMemo(
@@ -163,8 +161,6 @@ export default function PlannerColumn({
           trip={trip}
           onOptionSelect={onOptionSelect}
           onCitySelect={onCitySelect}
-          onDaysChange={onDaysChange}
-          onDateSelect={onDateSelect}
           onParsedItineraryConfirm={onParsedItineraryConfirm}
           onParsedItineraryRefine={onParsedItineraryRefine}
           scrollContainerRef={scrollContainerRef}

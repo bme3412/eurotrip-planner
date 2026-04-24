@@ -21,8 +21,6 @@ export const initialTripState = {
     endDate: null,
     flexibleMonth: null,
     flexibility: null, // 'fixed' | 'flexible_week' | 'flexible_month' | 'flexible_season'
-    arrivalTime: null,
-    departureTime: null,
   },
 
   budget: {
@@ -199,8 +197,6 @@ export function mergeTripData(current, extracted) {
   if (ext.endDate) next.dates.endDate = ext.endDate;
   if (ext.flexibleMonth) next.dates.flexibleMonth = ext.flexibleMonth;
   if (ext.flexibility) next.dates.flexibility = ext.flexibility;
-  if (ext.arrivalTime) next.dates.arrivalTime = ext.arrivalTime;
-  if (ext.departureTime) next.dates.departureTime = ext.departureTime;
 
   // Derive totalNights from dates if both are set
   if (next.dates.startDate && next.dates.endDate && !next.dates.totalNights) {

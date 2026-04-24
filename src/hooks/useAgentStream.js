@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useCallback, useRef } from 'react';
+import { createSSEBuffer, feedSSE, flushSSE } from '@/lib/conversation/sseParser';
 
 /**
  * Hook for SSE streaming, tool call dispatch, and abort/cleanup.
@@ -84,6 +85,14 @@ export function useAgentStream({
       case 'error':
         throw new Error(data.error || 'Server error');
 
+      case 'incomplete':
+        // Server hit MAX_LOOPS or bailed early; surface the nudge to the user.
+        if (data.message) {
+          fullContent += (fullContent ? '\n\n' : '') + data.message;
+          updateLastAssistantMessage(fullContent);
+        }
+        break;
+
       case 'done':
         break;
     }
@@ -94,48 +103,26 @@ export function useAgentStream({
   const processStream = useCallback(async (response) => {
     const reader = response.body.getReader();
     const decoder = new TextDecoder();
+    const buffer = createSSEBuffer();
     let fullContent = '';
-    let lineBuffer = '';
 
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
 
       const chunk = decoder.decode(value, { stream: true });
-      lineBuffer += chunk;
-
-      // Split on newlines; the last segment may be incomplete so keep it buffered
-      const lines = lineBuffer.split('\n');
-      lineBuffer = lines.pop() || '';
-
-      for (const line of lines) {
-        if (!line.startsWith('data: ')) continue;
-        const jsonStr = line.slice(6).trim();
-        if (!jsonStr) continue;
-
-        let data;
-        try { data = JSON.parse(jsonStr); } catch { continue; }
-
+      for (const data of feedSSE(buffer, chunk)) {
         console.log('[sse]', data.type, data.type === 'tool_use' ? data.name : '');
         fullContent = handleSSEData(data, fullContent);
       }
     }
 
-    console.log('[sse] Stream reader done. fullContent length:', fullContent.length);
-
-    // Process any remaining data in the buffer after stream closes
-    if (lineBuffer.trim()) {
-      const line = lineBuffer.trim();
-      if (line.startsWith('data: ')) {
-        const jsonStr = line.slice(6).trim();
-        if (jsonStr) {
-          try {
-            const data = JSON.parse(jsonStr);
-            fullContent = handleSSEData(data, fullContent);
-          } catch { /* incomplete final line */ }
-        }
-      }
+    for (const data of flushSSE(buffer)) {
+      console.log('[sse]', data.type, data.type === 'tool_use' ? data.name : '');
+      fullContent = handleSSEData(data, fullContent);
     }
+
+    console.log('[sse] Stream reader done. fullContent length:', fullContent.length);
   }, [handleSSEData]);
 
   const abortStream = useCallback(() => {

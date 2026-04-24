@@ -113,12 +113,16 @@ function TypingIndicator() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      role="status"
+      aria-live="polite"
+      aria-label="Trip planner is typing"
       className="py-2 max-w-[92%]"
     >
       <div className="rounded-2xl rounded-tl-md bg-[#faf8f5] border border-[#e5e0d8]/60 px-4 py-3 inline-flex items-center gap-1.5">
         {[0, 1, 2].map(i => (
           <motion.span
             key={i}
+            aria-hidden="true"
             className="w-1.5 h-1.5 rounded-full bg-[#c9a227]"
             animate={{ y: [0, -4, 0] }}
             transition={{
@@ -142,8 +146,6 @@ export default function CompactMessageList({
   trip,
   onOptionSelect,
   onCitySelect,
-  onDaysChange,
-  onDateSelect,
   onParsedItineraryConfirm,
   onParsedItineraryRefine,
   scrollContainerRef: externalScrollRef,
@@ -165,15 +167,19 @@ export default function CompactMessageList({
     return () => container.removeEventListener('scroll', handleScroll);
   }, [externalScrollRef]);
 
-  // Auto-scroll to bottom when messages change (unless user scrolled up)
+  // Auto-scroll to bottom when messages or streaming state change
+  // (unless the user has scrolled up to read earlier messages).
   useEffect(() => {
-    if (!userScrolledUpRef.current) {
-      // Use requestAnimationFrame to ensure DOM has updated
-      requestAnimationFrame(() => {
-        bottomRef.current?.scrollIntoView({ behavior: messages.length <= 2 ? 'instant' : 'smooth', block: 'end' });
+    if (userScrolledUpRef.current) return;
+    // Use requestAnimationFrame to ensure DOM has updated.
+    // 'auto' is the spec-defined instant option; 'instant' is non-standard.
+    requestAnimationFrame(() => {
+      bottomRef.current?.scrollIntoView({
+        behavior: messages.length <= 2 ? 'auto' : 'smooth',
+        block: 'end',
       });
-    }
-  }, [messages, pendingInput]);
+    });
+  }, [messages, pendingInput, isStreaming]);
 
   const scrollToBottom = useCallback(() => {
     userScrolledUpRef.current = false;

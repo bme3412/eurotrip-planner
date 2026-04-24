@@ -14,7 +14,7 @@
  *   done           — stream complete
  */
 
-import { getTripWithDetails } from '@/lib/trips/tripState';
+import { getTripWithDetails } from '@/lib/trips/tripsRepository';
 import {
   OPENAI_TOOLS,
   execGetCityAttractions,

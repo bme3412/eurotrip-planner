@@ -14,30 +14,50 @@ import { useItineraryGeneration } from './useItineraryGeneration';
  */
 /**
  * Summarize a tool call for inclusion in the tool history context.
+ * Include key input args for data tools so Claude doesn't repeat them
+ * with identical arguments on the next turn.
  */
 function summarizeToolCall(name, input) {
   switch (name) {
-    case 'extract_trip_data':
-      return `Extracted trip data (${Object.keys(input || {}).filter(k => input[k] != null).join(', ')})`;
+    case 'extract_trip_data': {
+      const fields = Object.keys(input || {}).filter((k) => input[k] != null);
+      return `Extracted trip data (${fields.join(', ') || 'no new fields'})`;
+    }
     case 'resolve_cities':
       return `Resolved cities: ${(input?.names || []).join(', ')}`;
+    case 'get_route_options':
+      return `Looked up route: ${input?.fromCityId} → ${input?.toCityId}`;
+    case 'suggest_cities':
+      return `Suggested cities near ${input?.fromCityId}${input?.toCityId ? ` → ${input.toCityId}` : ''}`;
+    case 'get_city_info':
+      return `Fetched city info: ${input?.cityId}`;
+    case 'optimize_route':
+      return `Optimized route: [${(input?.cityIds || []).join(', ')}]`;
     case 'render_options':
-      return `Showed options: ${(input?.options || []).map(o => o.label).join(', ')}`;
+      return `Showed options: ${(input?.options || []).map((o) => o.label).join(', ')}`;
     case 'render_city_picker':
       return `Showed city picker (${input?.purpose || 'add_city'})`;
     case 'render_trip_card':
-      return `Showed trip summary card`;
+      return 'Showed trip summary card';
     case 'render_date_picker':
       return `Showed date picker (${input?.mode || 'range'})`;
     case 'render_nights_allocator':
-      return `Showed nights allocator`;
+      return 'Showed nights allocator';
     case 'confirm_changes':
       return `Asked to confirm: ${input?.summary || 'changes'}`;
     case 'finalize_trip':
-      return `Finalized trip`;
+      return 'Finalized trip';
     default:
       return `Called ${name}`;
   }
+}
+
+// Stable per-session id for log correlation. Regenerated on reset.
+function makeSessionId() {
+  if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+    return crypto.randomUUID();
+  }
+  return `s-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
 export function useTripPlannerAgent() {
@@ -45,6 +65,7 @@ export function useTripPlannerAgent() {
   const [hasStarted, setHasStarted] = useState(false);
   const startingRef = useRef(false);
   const toolHistoryRef = useRef([]);
+  const sessionIdRef = useRef(makeSessionId());
 
   // ── Sub-hooks ────────────────────────────────────────────
   const {
@@ -114,6 +135,7 @@ export function useTripPlannerAgent() {
           messages: [],
           tripState: initialTripState,
           isStart: true,
+          sessionId: sessionIdRef.current,
         }),
         signal: controller.signal,
       });
@@ -160,7 +182,8 @@ export function useTripPlannerAgent() {
         body: JSON.stringify({
           messages: apiMessages,
           tripState: tripStateRef.current,
-          recentToolHistory: toolHistoryRef.current.slice(-5),
+          recentToolHistory: toolHistoryRef.current.slice(-10),
+          sessionId: sessionIdRef.current,
         }),
         signal: controller.signal,
       });
@@ -231,6 +254,7 @@ export function useTripPlannerAgent() {
     setHasStarted(false);
     startingRef.current = false;
     toolHistoryRef.current = [];
+    sessionIdRef.current = makeSessionId();
     resetGeneration();
   }, [abortStream, clearMessages, resetTripState, resetGeneration]);
 

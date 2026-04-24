@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react';
 import dynamic from 'next/dynamic';
+import { getCityById } from '@/lib/cities/lookup';
 
 const TripMap = dynamic(
   () => import('@/components/trip-planner/TripMap'),
@@ -53,25 +54,17 @@ export default function RouteMapColumn({ trip }) {
     return items;
   }, [trip.startCity, trip.stops, trip.endCity]);
 
-  // Route stats from city coordinates
+  // Route stats from city coordinates.
   const stats = useMemo(() => {
     if (itinerary.length < 2) return null;
 
-    // Use cities.json lookup for coordinates
     let totalKm = 0;
-    try {
-      const citiesData = require('@/generated/cities.json');
-      const lookup = new Map(citiesData.map(c => [c.id, c]));
-
-      for (let i = 0; i < itinerary.length - 1; i++) {
-        const from = lookup.get(itinerary[i].city);
-        const to = lookup.get(itinerary[i + 1].city);
-        if (from?.latitude && to?.latitude) {
-          totalKm += haversine(from.latitude, from.longitude, to.latitude, to.longitude);
-        }
+    for (let i = 0; i < itinerary.length - 1; i++) {
+      const from = getCityById(itinerary[i].city);
+      const to = getCityById(itinerary[i + 1].city);
+      if (from?.latitude && to?.latitude) {
+        totalKm += haversine(from.latitude, from.longitude, to.latitude, to.longitude);
       }
-    } catch {
-      return null;
     }
 
     if (totalKm === 0) return null;

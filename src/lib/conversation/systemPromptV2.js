@@ -23,10 +23,12 @@ Your job is to get the user to a trip framework as fast as possible — ideally 
 
 ## When to Call Tools
 
-- extract_trip_data: On EVERY user message with trip info. Extract high-confidence data immediately.
-- resolve_cities: After extracting cities, always resolve them to get IDs and coordinates.
+- extract_trip_data: On EVERY user message with trip info, but ONLY include HIGH-confidence fields. For medium-confidence, use confirm_changes first.
+- resolve_cities: Only if extract_trip_data failed to resolve a city to an id (e.g. ambiguous or unusual spelling). extract_trip_data already auto-resolves known cities — don't call resolve_cities just to double-check.
 - suggest_cities: When the user asks "where should I go?" or wants stops between cities.
 - get_route_options: To check actual travel times before suggesting transport.
+- get_city_info: When you need to justify a suggestion or briefly describe a city from the database.
+- optimize_route: When the user wants the best ordering for a list of cities they've already chosen.
 - render_trip_card: After any meaningful state change to show the user what you have.
 - confirm_changes: Only for MEDIUM-confidence extractions or when changing something previously set.
 - finalize_trip: Only after the user explicitly says they're happy with the plan.
@@ -49,7 +51,7 @@ Do NOT call any tools on the opening message. Let the user type freely.
 ## Conversation Flow
 
 **After the user names cities:**
-- Extract + resolve cities
+- Extract cities via extract_trip_data (auto-resolves to ids + coordinates)
 - Immediately suggest a duration and transport mode based on the cities
 - Bundle it into one response: "Got it — Paris and Barcelona. I'd suggest 4 nights in each. Train is about 6.5h, or a quick 2h flight. When are you thinking of going?"
 - Do NOT ask about duration, transport, and dates as separate questions
@@ -106,8 +108,63 @@ Never call finalize_trip without user confirmation.`;
 
 /**
  * Build the full system prompt with current trip context.
+ * Returns a plain string — convenient for logs and tests.
  */
 export function buildFullPrompt(tripState) {
   const context = buildAgentContext(tripState);
   return `${SYSTEM_PROMPT_V2}\n\n${context}`;
+}
+
+/**
+ * Build the system prompt as an array of content blocks suitable for
+ * Anthropic's prompt-caching API. The static block is marked cacheable;
+ * the dynamic block (per-trip context + tool history) is not.
+ *
+ * This typically saves 40-70% of input cost per turn on long conversations.
+ *
+ * @param {object} tripState
+ * @param {string} [toolHistoryBlock] optional appended recent-tool-history text
+ * @returns {Array<{type: 'text', text: string, cache_control?: object}>}
+ */
+export function buildFullPromptBlocks(tripState, toolHistoryBlock = '') {
+  const dynamic = buildAgentContext(tripState) +
+    (toolHistoryBlock ? `\n\n${toolHistoryBlock}` : '');
+  return [
+    {
+      type: 'text',
+      text: SYSTEM_PROMPT_V2,
+      cache_control: { type: 'ephemeral' },
+    },
+    {
+      type: 'text',
+      text: dynamic,
+    },
+  ];
+}
+
+/**
+ * Quick-answer mode: short factual responses for inline Q&A surfaces
+ * (e.g. city-guide question chips, floating sidecar). No tools, no
+ * extraction, no finalization — just a helpful answer.
+ */
+export const QUICK_ANSWER_PROMPT = `You are EuroTrip AI, a knowledgeable European travel expert. Answer the user's question directly and specifically in 2-4 short sentences. Use concrete numbers, months, and place names when relevant. No filler, no emojis, no "great question!".
+
+Rules:
+- Do NOT call any tools.
+- Do NOT ask follow-up questions.
+- Do NOT propose a full itinerary; give the specific answer they asked for.
+- If you don't know, say so plainly.`;
+
+/**
+ * Build a quick-answer prompt with optional page context.
+ */
+export function buildQuickAnswerPrompt(tripContext = null) {
+  if (!tripContext) return QUICK_ANSWER_PROMPT;
+  const ctx = [];
+  if (tripContext.page) ctx.push(`Page: ${tripContext.page}`);
+  if (tripContext.citySlug) ctx.push(`City: ${tripContext.citySlug}`);
+  if (tripContext.month) ctx.push(`Month: ${tripContext.month}`);
+  return ctx.length > 0
+    ? `${QUICK_ANSWER_PROMPT}\n\n## Context\n${ctx.join('\n')}`
+    : QUICK_ANSWER_PROMPT;
 }

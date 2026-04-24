@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCityData, getCityVisitCalendar, getCityExperiences } from "@/lib/data-utils";
 import { buildItinerary } from "@/lib/planning/buildItinerary";
-import { getTripWithDetails } from "@/lib/trips/tripState";
+import { getTripWithDetails } from "@/lib/trips/tripsRepository";
 import ItineraryClient from "./ItineraryClient";
 
 // ─── Server-side helpers ────────────────────────────────────────────────

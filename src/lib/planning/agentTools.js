@@ -5,7 +5,7 @@
 
 import { getCityData } from '@/lib/data-utils';
 import { getPlaceDetails, getNearbyPlaces } from '@/lib/google-places/index';
-import { getTripWithDetails, swapActivity } from '@/lib/trips/tripState';
+import { getTripWithDetails, swapActivity } from '@/lib/trips/tripsRepository';
 
 // ── OpenAI tool definitions (for /api/plan/agent) ───────────────────────────
 

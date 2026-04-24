@@ -74,8 +74,8 @@ export default function QuestionChips({ cityName, citySlug }) {
           if (!line.startsWith('data: ')) continue;
           try {
             const event = JSON.parse(line.slice(6));
-            if (event.type === 'delta' || event.type === 'content') {
-              fullAnswer += event.text || event.content || '';
+            if (event.type === 'content_delta' || event.type === 'content') {
+              fullAnswer += event.content || event.text || '';
               setAnswers(prev => ({ ...prev, [chip.id]: fullAnswer }));
             } else if (event.type === 'done') {
               setAnswers(prev => ({ ...prev, [chip.id]: fullAnswer }));

@@ -42,7 +42,12 @@ export function analyzeGaps(tripState) {
   const b = tripState.budget;
   const tv = tripState.travelers;
   const p = tripState.preferences;
-  const filledFields = new Set();
+  // hardFilled: user has explicitly provided this info. Drives completeness %.
+  // softFilled: we have a safe default so it shouldn't block, but we still
+  // surface it as a gap the agent can weave into conversation. Not counted
+  // toward completeness so the bar and the category dots agree.
+  const hardFilled = new Set();
+  const softFilled = new Set();
 
   // ── Critical: cities ──────────────────────────────────────
   // This is the only thing we truly need from the user.
@@ -54,7 +59,7 @@ export function analyzeGaps(tripState) {
       question: 'Which European cities are you interested in visiting?',
     });
   } else {
-    filledFields.add('cities');
+    hardFilled.add('cities');
   }
 
   // ── Important: duration ───────────────────────────────────
@@ -63,7 +68,7 @@ export function analyzeGaps(tripState) {
   const hasCityNights = r.cities.some(c => c.nights != null);
   const hasDateRange = d.startDate && d.endDate;
   if (!hasNights && !hasCityNights && !hasDateRange) {
-    filledFields.add('duration'); // mark as "filled" so it doesn't block — we have defaults
+    softFilled.add('duration');
     if (r.cities.length > 0) {
       gaps.push({
         field: 'duration',
@@ -73,13 +78,13 @@ export function analyzeGaps(tripState) {
       });
     }
   } else {
-    filledFields.add('duration');
+    hardFilled.add('duration');
   }
 
   // ── Important: dates ──────────────────────────────────────
   // Useful for weather/events, but "flexible" is fine.
   if (!d.startDate && !d.flexibleMonth && !d.flexibility) {
-    filledFields.add('dates'); // default to "flexible"
+    softFilled.add('dates');
     if (r.cities.length > 0) {
       gaps.push({
         field: 'dates',
@@ -89,7 +94,7 @@ export function analyzeGaps(tripState) {
       });
     }
   } else {
-    filledFields.add('dates');
+    hardFilled.add('dates');
   }
 
   // ── Optional: interests ───────────────────────────────────
@@ -102,7 +107,7 @@ export function analyzeGaps(tripState) {
       question: 'What are you into — culture, food, nature, nightlife?',
     });
   } else {
-    filledFields.add('interests');
+    hardFilled.add('interests');
   }
 
   // ── Optional: budget ──────────────────────────────────────
@@ -115,7 +120,7 @@ export function analyzeGaps(tripState) {
       question: 'Any budget preference?',
     });
   } else {
-    filledFields.add('budget');
+    hardFilled.add('budget');
   }
 
   // ── Optional: travelers ───────────────────────────────────
@@ -128,7 +133,7 @@ export function analyzeGaps(tripState) {
       question: 'Who is going — solo, couple, family, friends?',
     });
   } else {
-    filledFields.add('travelers');
+    hardFilled.add('travelers');
   }
 
   // ── Route gaps: unallocated nights ────────────────────────
@@ -147,15 +152,18 @@ export function analyzeGaps(tripState) {
 
   gaps.sort((a, b) => a.priority - b.priority);
 
-  // Completeness: simple count of filled fields out of the ones we care about
+  // Completeness: only count fields the user actually specified.
+  // Invariant: if a field has an entry in `gaps`, it is NOT counted as complete.
   const trackedFields = ['cities', 'duration', 'dates', 'interests', 'budget', 'travelers'];
-  const filledCount = trackedFields.filter(f => filledFields.has(f)).length;
+  const filledCount = trackedFields.filter(f => hardFilled.has(f)).length;
   const completeness = Math.round((filledCount / trackedFields.length) * 100);
 
   return {
     gaps,
     nextQuestion: gaps[0] || null,
     completeness,
+    hardFilled: Array.from(hardFilled),
+    softFilled: Array.from(softFilled),
     // Ready to generate a framework as soon as we have at least 1 city
     isReadyToFinalize: r.cities.length > 0,
   };

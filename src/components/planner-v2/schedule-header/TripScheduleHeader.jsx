@@ -4,8 +4,8 @@ import { useCallback, useMemo, useState } from 'react';
 import DateRangeChip from './DateRangeChip';
 import CityScheduleCard from './CityScheduleCard';
 import DayStrip from './DayStrip';
-import Legend from './Legend';
 import { useDaySelection } from './useDaySelection';
+import { CitySearchInput } from '../../conversation/InputArea';
 import { buildDayAssignments, getTripDayCount } from '@/lib/conversation/dayAssignments';
 
 const CITY_PALETTE = [
@@ -42,6 +42,7 @@ export default function TripScheduleHeader({
   addCity,
 }) {
   const [focusedDayIndex, setFocusedDayIndex] = useState(null);
+  const [pendingNewCityIndices, setPendingNewCityIndices] = useState(null);
 
   const days = useMemo(() => buildDayAssignments(tripState), [tripState]);
   const orderedCities = useMemo(() => {
@@ -86,23 +87,45 @@ export default function TripScheduleHeader({
     (cityIdOrNew, indices) => {
       if (!indices || indices.length === 0) return;
       if (cityIdOrNew === '__new__') {
-        const name = (typeof window !== 'undefined'
-          ? window.prompt('New city name?')
-          : ''
-        )?.trim();
-        if (!name) return;
-        const created = addCity?.({ name }) || null;
-        const newId = created?.id || name.toLowerCase();
-        if (assignDaysToCity) {
-          assignDaysToCity(newId, indices);
-        }
-      } else if (assignDaysToCity) {
+        // Open the inline city search popover; remember which day indices
+        // the user had selected so we can assign them after a city is picked.
+        setPendingNewCityIndices([...indices]);
+        return;
+      }
+      if (assignDaysToCity) {
         assignDaysToCity(cityIdOrNew, indices);
       }
       clear();
     },
-    [addCity, assignDaysToCity, clear]
+    [assignDaysToCity, clear]
   );
+
+  const handleNewCitySelect = useCallback(
+    (city) => {
+      if (!city?.name) {
+        setPendingNewCityIndices(null);
+        return;
+      }
+      const created = addCity?.({
+        name: city.name,
+        id: city.id,
+        country: city.country,
+        latitude: city.latitude,
+        longitude: city.longitude,
+      }) || null;
+      const newId = created?.id || city.id || city.name.toLowerCase();
+      if (assignDaysToCity && pendingNewCityIndices?.length) {
+        assignDaysToCity(newId, pendingNewCityIndices);
+      }
+      setPendingNewCityIndices(null);
+      clear();
+    },
+    [addCity, assignDaysToCity, clear, pendingNewCityIndices]
+  );
+
+  const handleCancelNewCity = useCallback(() => {
+    setPendingNewCityIndices(null);
+  }, []);
 
   const handleUnassign = useCallback(
     (indices) => {
@@ -149,26 +172,6 @@ export default function TripScheduleHeader({
     },
     [setTripDates]
   );
-
-  const hasGaps = useMemo(() => days.some((d) => d.cityId == null), [days]);
-
-  // Empty shell: seed dates without chat.
-  if (!hasDates && orderedCities.length === 0) {
-    return (
-      <div className="z-20 max-h-[200px] shrink-0 overflow-y-auto border-b border-[#e5e0d8] bg-[#faf8f5]/95 px-4 py-2.5 backdrop-blur-sm">
-        <div className="flex flex-wrap items-center gap-2">
-          <DateRangeChip
-            startDate={tripState?.dates?.startDate}
-            endDate={tripState?.dates?.endDate}
-            onDatesChange={handleDatesChange}
-          />
-          <p className="text-xs text-[#8a8578]">
-            Pick dates or tell me where you want to go.
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="z-20 max-h-[160px] shrink-0 overflow-y-auto border-b border-[#e5e0d8] bg-[#faf8f5]/95 backdrop-blur-sm">
@@ -229,7 +232,24 @@ export default function TripScheduleHeader({
           />
         )}
 
-        {/* Legend removed — city colors are visible on the day chips */}
+        {pendingNewCityIndices && (
+          <div className="rounded-xl border border-[#e5e0d8] bg-white p-2 shadow-sm">
+            <div className="mb-1.5 flex items-center justify-between">
+              <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-[#8a8578]">
+                Pick a city for the selected {pendingNewCityIndices.length}{' '}
+                {pendingNewCityIndices.length === 1 ? 'day' : 'days'}
+              </span>
+              <button
+                type="button"
+                onClick={handleCancelNewCity}
+                className="text-[10px] uppercase tracking-[0.1em] text-[#8a8578] hover:text-[#2a2520]"
+              >
+                Cancel
+              </button>
+            </div>
+            <CitySearchInput purpose="stop" onSelect={handleNewCitySelect} />
+          </div>
+        )}
       </div>
     </div>
   );

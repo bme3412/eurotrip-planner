@@ -254,9 +254,9 @@ export function calculateTotalDistance(route) {
  * Starts from startCity and visits nearest unvisited city until done
  *
  * TODO(cleanup): Duplicates the nearest-neighbor TSP heuristic in
- * `src/lib/planning/routeOptimizer.js` (used by /api/trips/multi-city for
- * full itinerary generation). Both implementations should be unified into a
- * single shared helper — deferred to a follow-up refactor pass since the call
+ * `src/lib/planning/routeOptimizer.js` (used by the agent's optimize_route
+ * tool). Both implementations should be unified into a single shared helper
+ * — deferred to a follow-up refactor pass since the call
  * sites have different shapes (validator works on wizard `stops`, optimizer
  * works on full city objects).
  *

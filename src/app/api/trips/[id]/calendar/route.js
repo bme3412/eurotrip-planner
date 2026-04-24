@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getTripWithDetails } from '@/lib/trips/tripState';
+import { getTripWithDetails } from '@/lib/trips/tripsRepository';
 import { generateICS } from '@/lib/trips/calendarExport';
 
 export const runtime = 'nodejs';

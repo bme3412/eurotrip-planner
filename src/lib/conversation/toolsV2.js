@@ -7,7 +7,9 @@
 
 const extract_trip_data = {
   name: 'extract_trip_data',
-  description: `Extract ALL recognizable trip data from the user's message. Parse cities, dates, durations, transport bookings, budget, traveler details, and preferences. Extract everything — do not wait for confirmation. Call this on EVERY user message with trip info.`,
+  description: `Extract HIGH-confidence trip data from the user's message: cities they explicitly named, concrete dates, transport bookings they pasted, durations and traveler counts they stated. Call this on every user message that contains specific trip info.
+
+Do NOT include MEDIUM-confidence extractions here — for phrases like "maybe Nice" or "possibly 4 nights", use confirm_changes first. Do NOT include LOW-confidence mentions (e.g. "I've heard good things about Lyon"). When in doubt, leave the field out and clarify in text.`,
   input_schema: {
     type: 'object',
     properties: {
@@ -116,7 +118,7 @@ const get_route_options = {
 
 const suggest_cities = {
   name: 'suggest_cities',
-  description: 'Get scored city suggestions between two cities or from a starting city.',
+  description: 'Get scored city suggestions near a starting city, optionally bounded by a destination. Use when the user asks "where should I go?" or wants stops between two cities.',
   input_schema: {
     type: 'object',
     properties: {
@@ -125,8 +127,6 @@ const suggest_cities = {
       interests: { type: 'array', items: { type: 'string' } },
       budget: { type: 'string' },
       maxResults: { type: 'number' },
-      gapStart: { type: 'string', description: 'YYYY-MM-DD start of gap period (optional)' },
-      gapEnd: { type: 'string', description: 'YYYY-MM-DD end of gap period (optional)' },
     },
     required: ['fromCityId'],
   },
@@ -134,12 +134,11 @@ const suggest_cities = {
 
 const get_city_info = {
   name: 'get_city_info',
-  description: 'Get weather, events, and attractions summary for a city during specific dates.',
+  description: 'Get the canonical description, country, region, and tourism categories for a city in the database. Useful for justifying a suggestion or answering "what is this city like?". Does NOT return live weather or events.',
   input_schema: {
     type: 'object',
     properties: {
       cityId: { type: 'string' },
-      month: { type: 'string' },
     },
     required: ['cityId'],
   },
