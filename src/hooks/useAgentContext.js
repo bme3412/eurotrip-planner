@@ -41,13 +41,6 @@ export function useAgentContext() {
       };
     }
 
-    // Discover page
-    if (pathname === '/discover' || pathname.startsWith('/discover/')) {
-      return {
-        page: 'discover',
-      };
-    }
-
     // Itinerary pages: /itineraries/[tripId]
     if (pathname.startsWith('/itineraries/') && params?.tripId) {
       return {

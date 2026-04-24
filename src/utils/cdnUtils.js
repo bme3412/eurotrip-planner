@@ -15,13 +15,14 @@ export const isCDNEnabled = () => {
 
 // Get full URL for JSON/data assets (e.g., under /data/**)
 export const getDataUrl = (dataPath) => {
-  const cdnUrl = getCDNUrl();
   if (!dataPath) return dataPath;
+  const cdnUrl = getCDNUrl();
   const cleanPath = dataPath.startsWith('/') ? dataPath.slice(1) : dataPath;
   if (cdnUrl && cleanPath.startsWith('data/')) {
     return `${cdnUrl}/${cleanPath}`;
   }
-  return `/${cleanPath}`;
+  // Preserve leading slash for same-origin paths so relative paths resolve correctly
+  return dataPath.startsWith('/') ? dataPath : `/${cleanPath}`;
 };
 
 // Get full URL for a video

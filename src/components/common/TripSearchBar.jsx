@@ -402,7 +402,7 @@ export default function TripSearchBar({ value, onChange, onSubmit, className = "
         }
         if (value?.start) params.set("startDate", value.start);
         if (value?.end) params.set("endDate", value.end);
-        router.push(`/trip-planner?${params.toString()}`);
+        router.push(`/plan?mode=wizard&${params.toString()}`);
         break;
 
       case "openjaw":
@@ -411,7 +411,7 @@ export default function TripSearchBar({ value, onChange, onSubmit, className = "
         if (endCity) params.set("end", endCity.id);
         if (value?.start) params.set("startDate", value.start);
         if (value?.end) params.set("endDate", value.end);
-        router.push(`/trip-planner?${params.toString()}`);
+        router.push(`/plan?mode=wizard&${params.toString()}`);
         break;
 
       default:

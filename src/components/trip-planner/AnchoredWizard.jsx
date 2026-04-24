@@ -49,6 +49,11 @@ export default function AnchoredWizard({
     budget: 'moderate',
   });
 
+  // Generation state
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [generateError, setGenerateError] = useState(null);
+  const [generatedItinerary, setGeneratedItinerary] = useState(null);
+
   // Suggestions state for unified map
   const [currentSuggestions, setCurrentSuggestions] = useState([]);
   const [hoveredSuggestion, setHoveredSuggestion] = useState(null);
@@ -540,14 +545,52 @@ export default function AnchoredWizard({
   };
 
   const handleGenerate = async () => {
-    console.log('Generating itinerary:', {
-      tripDates,
-      startCity,
-      endCity,
-      stopSelections,
-      preferences,
-      itinerary,
-    });
+    setIsGenerating(true);
+    setGenerateError(null);
+    try {
+      // Build ordered city list
+      const cities = [];
+      if (startCity) cities.push({ id: startCity.id, name: startCity.name, country: startCity.country });
+      // Add intermediate stops in order
+      const stops = Object.values(stopSelections || {});
+      for (const stop of stops) {
+        cities.push({ id: stop.city, name: stop.cityName, country: stop.country });
+      }
+      if (endCity) cities.push({ id: endCity.id, name: endCity.name, country: endCity.country });
+
+      // Build day allocation from selected days
+      const dayAllocation = {};
+      if (startCity && startCityDays.length > 0) dayAllocation[startCity.id] = startCityDays.length;
+      for (const stop of stops) {
+        if (stop.days) dayAllocation[stop.city] = stop.days;
+      }
+      if (endCity && endCityDays.length > 0) dayAllocation[endCity.id] = endCityDays.length;
+
+      const payload = {
+        cities,
+        start_date: tripDates.start,
+        end_date: tripDates.end,
+        interests: preferences.interests || [],
+        pace: preferences.paceId || 'balanced',
+        budget: preferences.budget || 'moderate',
+        day_allocation: Object.keys(dayAllocation).length > 0 ? dayAllocation : null,
+        city_order: cities.map(c => c.id),
+      };
+
+      const res = await fetch('/api/trips/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      setGeneratedItinerary(data.itinerary);
+    } catch (e) {
+      console.error('[AnchoredWizard] Generate failed:', e);
+      setGenerateError('Failed to generate itinerary. Please try again.');
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   const step = STEPS[currentStep];
@@ -866,6 +909,15 @@ export default function AnchoredWizard({
                       itinerary={itinerary}
                       preferences={preferences}
                       onGenerate={handleGenerate}
+                      isGenerating={isGenerating}
+                      generateError={generateError}
+                      generatedItinerary={generatedItinerary}
+                      onRetry={handleGenerate}
+                      onStartOver={() => {
+                        setGeneratedItinerary(null);
+                        setGenerateError(null);
+                        setCurrentStep(0);
+                      }}
                     />
                   )}
                 </motion.div>
@@ -887,10 +939,22 @@ export default function AnchoredWizard({
                 <button
                   type="button"
                   onClick={handleGenerate}
-                  className="group px-6 py-2.5 bg-[#c9a227] hover:bg-[#d4af37] text-white text-sm font-medium rounded-lg transition-all shadow-lg shadow-[#c9a227]/20"
+                  disabled={isGenerating || !!generatedItinerary}
+                  className="group px-6 py-2.5 bg-[#c9a227] hover:bg-[#d4af37] text-white text-sm font-medium rounded-lg transition-all shadow-lg shadow-[#c9a227]/20 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Generate Itinerary
-                  <span className="inline-block ml-2 transition-transform group-hover:translate-x-1">&rarr;</span>
+                  {isGenerating ? (
+                    <span className="flex items-center gap-2">
+                      <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      Generating...
+                    </span>
+                  ) : generatedItinerary ? (
+                    'Itinerary Ready'
+                  ) : (
+                    <>
+                      Generate Itinerary
+                      <span className="inline-block ml-2 transition-transform group-hover:translate-x-1">&rarr;</span>
+                    </>
+                  )}
                 </button>
               ) : (
                 <button

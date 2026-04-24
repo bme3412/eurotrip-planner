@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, MapPin, X } from 'lucide-react';
-import { getAllCities } from '@/lib/planning/easeScoreCalculator';
+// Use synchronous import to avoid duplicate manifest fetches
+import cities from '@/generated/cities.json';
 
 const POPULAR_CITIES = [
   { id: 'paris', name: 'Paris', country: 'France' },
@@ -18,15 +19,12 @@ const POPULAR_CITIES = [
 
 export default function AnchorSelector({ value, onChange }) {
   const [query, setQuery] = useState('');
-  const [allCities, setAllCities] = useState([]);
+  // Use synchronous import instead of async fetch to avoid duplicate requests
+  const allCities = cities;
   const [isOpen, setIsOpen] = useState(false);
   const [highlightIndex, setHighlightIndex] = useState(-1);
   const inputRef = useRef(null);
   const dropdownRef = useRef(null);
-
-  useEffect(() => {
-    getAllCities().then(setAllCities);
-  }, []);
 
   useEffect(() => {
     function handleClickOutside(e) {

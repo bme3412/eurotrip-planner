@@ -31,7 +31,7 @@ function getInitialDates() {
 }
 
 // ── Results Modal ───────────────────────────────────────────────────
-function ResultsModal({ results, loading, dates, sortBy, setSortBy, onClose }) {
+function ResultsModal({ results, loading, error, dates, sortBy, setSortBy, onClose }) {
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
   const scrollRef = useRef(null);
@@ -126,6 +126,17 @@ function ResultsModal({ results, loading, dates, sortBy, setSortBy, onClose }) {
         <div ref={scrollRef} className="flex-1 overflow-y-auto overscroll-contain px-4 md:px-6 pb-10">
           {loading ? (
             <LoadingState />
+          ) : error ? (
+            <div className="flex flex-col items-center justify-center py-16 text-center">
+              <div className="text-4xl mb-4">😕</div>
+              <p className="text-gray-700 font-medium mb-2">{error}</p>
+              <button
+                onClick={handleClose}
+                className="mt-4 px-5 py-2 bg-blue-600 text-white text-sm font-semibold rounded-full hover:bg-blue-700 transition-colors"
+              >
+                Close
+              </button>
+            </div>
           ) : (
             <div className="pt-6">
               <ResultsGrid
@@ -195,6 +206,7 @@ function PageV1() {
   const { dates, setDates } = useTripDates(initialDates);
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
+  const [error, setError] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [sortBy, setSortBy] = useState("score");
   const [interests] = useState([]);
@@ -218,6 +230,7 @@ function PageV1() {
       return;
     }
     setResults([]);
+    setError(null);
     setModalOpen(true);
     setLoading(true);
     try {
@@ -233,6 +246,7 @@ function PageV1() {
       setResults(data.items ?? []);
     } catch (e) {
       console.error(e);
+      setError("Something went wrong scoring cities. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -305,6 +319,7 @@ function PageV1() {
         <ResultsModal
           results={results}
           loading={loading}
+          error={error}
           dates={dates}
           sortBy={sortBy}
           setSortBy={setSortBy}
@@ -312,51 +327,7 @@ function PageV1() {
         />
       )}
 
-      {/* Footer */}
-      <footer className="mt-auto border-t border-black/5 bg-white/70 backdrop-blur">
-        <div className="mx-auto max-w-6xl px-6 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-zinc-900">Euro‑Trip</h3>
-              <p className="text-sm text-zinc-600">
-                Plan your perfect European adventure with data-driven recommendations and seasonal insights.
-              </p>
-            </div>
-            <div className="space-y-3">
-              <h4 className="font-medium text-zinc-900">Features</h4>
-              <ul className="space-y-2 text-sm text-zinc-600">
-                <li>Seasonal Activity Planning</li>
-                <li>Weather-Based Recommendations</li>
-                <li>City Connection Maps</li>
-                <li>Cultural Event Calendar</li>
-              </ul>
-            </div>
-            <div className="space-y-3">
-              <h4 className="font-medium text-zinc-900">Coverage</h4>
-              <ul className="space-y-2 text-sm text-zinc-600">
-                <li>220+ European Cities</li>
-                <li>39 Countries</li>
-                <li>Monthly Activity Guides</li>
-                <li>Transport Connections</li>
-              </ul>
-            </div>
-            <div className="space-y-3">
-              <h4 className="font-medium text-zinc-900">Explore</h4>
-              <ul className="space-y-2 text-sm text-zinc-600">
-                <li><Link href="/city-guides" className="hover:text-indigo-600 transition-colors">City Guides</Link></li>
-                <li><Link href="/explore" className="hover:text-indigo-600 transition-colors">Interactive Map</Link></li>
-                <li><Link href="/start-planning" className="hover:text-indigo-600 transition-colors">Start Planning</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-8 pt-6 border-t border-black/5 flex flex-col sm:flex-row items-center justify-between text-sm text-zinc-500">
-            <span>© {new Date().getFullYear()} Euro‑Trip. All rights reserved.</span>
-            <div className="mt-2 sm:mt-0 flex items-center space-x-4">
-              <span>Made with ❤️ for European travelers</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* Footer is now in layout.js */}
     </div>
   );
 }

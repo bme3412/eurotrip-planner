@@ -18,12 +18,6 @@ export const LazyMonthlyGuideSection = lazy(() => import('../city-guides/Monthly
 // MEDIUM COMPONENTS
 // =================
 
-// Planner components
-export const LazyEuroTripPlanner = lazy(() => import('../EuroTripPlanner'));
-export const LazyPaginatedRow = lazy(() => import('../planner/PaginatedRow'));
-export const LazyTripRouteDisplay = lazy(() => import('../planner/TripRouteDisplay'));
-export const LazySeasonalRecommendations = lazy(() => import('../planner/SeasonalRecommendations'));
-
 // City guide components
 export const LazyTransportConnections = lazy(() => import('../city-guides/TransportConnections'));
 export const LazyCityVisitSection = lazy(() => import('../city-guides/CityVisitSection'));

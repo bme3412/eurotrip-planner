@@ -49,7 +49,7 @@ export default function BestCitiesNow({ onScrollToDatePicker }) {
     if (fetchedRef.current) return;
     fetchedRef.current = true;
 
-    fetch(`/api/suggestions?startDate=${startDate}&endDate=${endDate}&limit=6&v=4`)
+    fetch(`/api/suggestions?startDate=${startDate}&endDate=${endDate}&limit=6&v=4&flat=true`)
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((data) => setCities(data.items ?? []))
       .catch(() => setError(true))

@@ -1,12 +1,20 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import TripRoulette from '@/components/planner/TripRoulette';
 import AnchorSelector from '@/components/planner/AnchorSelector';
 
 export default function RoulettePage() {
+  const router = useRouter();
   const [anchorCity, setAnchorCity] = useState('barcelona');
+
+  function handleBuildTrip(cities) {
+    const params = new URLSearchParams();
+    params.set('cities', cities.join(','));
+    router.push(`/plan?mode=wizard&${params.toString()}`);
+  }
 
   return (
     <div
@@ -62,7 +70,7 @@ export default function RoulettePage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.3 }}
         >
-          <TripRoulette anchorCity={anchorCity} />
+          <TripRoulette anchorCity={anchorCity} onBuildTrip={handleBuildTrip} />
         </motion.div>
       </div>
     </div>

@@ -271,7 +271,6 @@ export default async function CityPage({ params, searchParams }) {
   const cityName = decodeURIComponent(city);
   const resolvedSearch = await searchParams;
 
-  /** @type {import('@/types').CityData | null} */
   const cityData = await getCityData(cityName);
 
   if (!cityData) {

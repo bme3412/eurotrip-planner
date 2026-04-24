@@ -2,6 +2,7 @@ import './globals.css';
 import { Analytics } from "@vercel/analytics/next"
 import Providers from './Providers';
 import Navbar from '@/components/common/Navbar';
+import Footer from '@/components/common/Footer';
 import { dmSans, ebGaramond } from './fonts';
 
 export const metadata = {
@@ -36,6 +37,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <Navbar />
           <main>{children}</main>
+          <Footer />
         </Providers>
         <Analytics />
       </body>

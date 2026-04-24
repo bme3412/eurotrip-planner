@@ -1,28 +1,46 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import CommandBar from './CommandBar';
+import { useState, useEffect, useCallback } from 'react';
+import dynamic from 'next/dynamic';
+
+// Lazy-load CommandBar — removes ~81 KB from every page's critical JS
+const CommandBar = dynamic(() => import('./CommandBar'), {
+  ssr: false,
+  loading: () => null,
+});
 
 export default function SearchBar() {
   const [open, setOpen] = useState(false);
+  const [preloaded, setPreloaded] = useState(false);
+
+  // Preload CommandBar chunk on hover or ⌘K to keep UX instantaneous
+  const preloadCommandBar = useCallback(() => {
+    if (!preloaded) {
+      import('./CommandBar');
+      setPreloaded(true);
+    }
+  }, [preloaded]);
 
   // Global keyboard shortcut: ⌘K or Ctrl+K
   useEffect(() => {
     function handleKeyDown(e) {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
+        preloadCommandBar();
         setOpen(true);
       }
     }
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [preloadCommandBar]);
 
   return (
     <>
       {/* Search trigger button */}
       <button
         onClick={() => setOpen(true)}
+        onMouseEnter={preloadCommandBar}
+        onFocus={preloadCommandBar}
         className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 text-sm transition-colors"
         aria-label="Search cities or ask a question"
       >
@@ -35,8 +53,8 @@ export default function SearchBar() {
         </kbd>
       </button>
 
-      {/* Command bar modal */}
-      <CommandBar open={open} onClose={() => setOpen(false)} />
+      {/* Command bar modal — only rendered when open */}
+      {open && <CommandBar open={open} onClose={() => setOpen(false)} />}
     </>
   );
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { MapPin, Calendar, Gauge, Wallet, Heart } from 'lucide-react';
+import InlineItinerary from '@/components/conversation/InlineItinerary';
 
 function formatDate(iso) {
   if (!iso) return '';
@@ -30,7 +31,7 @@ const BUDGET_LABELS = {
   premium: 'Premium',
 };
 
-export default function StepReview({ tripDates, itinerary, preferences }) {
+export default function StepReview({ tripDates, itinerary, preferences, isGenerating, generateError, generatedItinerary, onRetry, onStartOver }) {
   const totalDays = getDayCount(tripDates.start, tripDates.end);
   const cities = itinerary.filter(item => item.type === 'anchor' || item.type === 'gap-filled');
   const openGaps = itinerary.filter(item => item.type === 'gap');
@@ -176,11 +177,25 @@ export default function StepReview({ tripDates, itinerary, preferences }) {
       )}
 
       {/* Warning for open gaps */}
-      {openGaps.length > 0 && (
+      {openGaps.length > 0 && !generatedItinerary && (
         <div className="p-4 rounded-xl bg-[#faf8f5] border border-[#d5d0c8]">
           <div className="text-sm text-[#6a6459] font-light">
             {openGaps.length} open day{openGaps.length !== 1 ? 's' : ''} will remain flexible in your itinerary.
           </div>
+        </div>
+      )}
+
+      {/* Generated itinerary */}
+      {(isGenerating || generateError || generatedItinerary) && (
+        <div className="mt-8 pt-8 border-t border-[#e5e0d8]">
+          <InlineItinerary
+            itinerary={generatedItinerary}
+            isLoading={isGenerating}
+            error={generateError}
+            trip={{ dates: tripDates }}
+            onRetry={onRetry}
+            onStartOver={onStartOver}
+          />
         </div>
       )}
     </div>

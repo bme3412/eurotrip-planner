@@ -6,7 +6,7 @@ import { X, Send, Sparkles, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Routes where sidecar should be hidden
-const HIDDEN_ROUTES = ['/plan', '/trip-planner', '/start-planning'];
+const HIDDEN_ROUTES = ['/plan'];
 
 /**
  * MessageBubble - Renders a single message in the chat

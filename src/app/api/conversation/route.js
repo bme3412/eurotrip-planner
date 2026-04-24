@@ -1,253 +1,30 @@
 import Anthropic from '@anthropic-ai/sdk';
-import { SYSTEM_PROMPT, buildContextPrompt } from '@/lib/conversation/systemPrompt';
-import { tools } from '@/lib/conversation/tools';
-import { getSuggestionsForGap } from '@/lib/planning/gapSuggester';
-import citiesData from '@/generated/cities.json';
-
-// Build city lookup
-const cityLookup = {};
-for (const city of citiesData) {
-  cityLookup[city.id] = city;
-  // Also index by lowercase name for fuzzy matching
-  cityLookup[city.name.toLowerCase()] = city;
-}
+import { buildFullPrompt } from '@/lib/conversation/systemPromptV2';
+import { TOOLS_V2, DATA_TOOLS, UI_TOOLS } from '@/lib/conversation/toolsV2';
+import { initialTripState } from '@/lib/conversation/tripState';
+import { executeToolCall } from '@/lib/conversation/toolHandlers';
 
 /**
- * Handle tool calls and return results
- */
-async function handleToolCall(toolName, toolInput, tripContext) {
-  switch (toolName) {
-    case 'parse_itinerary': {
-      const { cities = [], totalNights, travelYear, confidence, rawText } = toolInput || {};
-
-      const resolved = [];
-      const unresolved = [];
-
-      for (let i = 0; i < cities.length; i += 1) {
-        const raw = cities[i] || {};
-        const name = (raw.name || '').trim();
-        if (!name) continue;
-
-        const hit = cityLookup[name.toLowerCase()];
-
-        let nights = Number.isFinite(raw.nights) ? raw.nights : null;
-        if (!nights && raw.startDate && raw.endDate) {
-          const start = new Date(raw.startDate);
-          const end = new Date(raw.endDate);
-          if (!Number.isNaN(start.getTime()) && !Number.isNaN(end.getTime())) {
-            const diff = Math.round((end - start) / 86400000);
-            if (diff > 0) nights = diff;
-          }
-        }
-
-        if (hit) {
-          resolved.push({
-            order: i + 1,
-            id: hit.id,
-            name: hit.name,
-            country: hit.country,
-            latitude: hit.latitude,
-            longitude: hit.longitude,
-            nights,
-            startDate: raw.startDate || null,
-            endDate: raw.endDate || null,
-            notes: raw.notes || null,
-          });
-        } else {
-          unresolved.push({
-            order: i + 1,
-            name,
-            nights,
-            startDate: raw.startDate || null,
-            endDate: raw.endDate || null,
-            notes: raw.notes || null,
-          });
-        }
-      }
-
-      const computedTotalNights =
-        resolved.reduce((sum, c) => sum + (c.nights || 0), 0) || null;
-
-      const flags = [];
-      if (unresolved.length > 0) {
-        flags.push({
-          type: 'unresolved_city',
-          message: `${unresolved.length} ${unresolved.length === 1 ? 'city' : 'cities'} not in our 220-city dataset: ${unresolved.map((c) => c.name).join(', ')}`,
-        });
-      }
-      if (resolved.length >= 2) {
-        const noNights = resolved.filter((c) => !c.nights);
-        if (noNights.length > 0) {
-          flags.push({
-            type: 'missing_nights',
-            message: `Nights unknown for: ${noNights.map((c) => c.name).join(', ')}`,
-          });
-        }
-      }
-
-      return {
-        cities: resolved,
-        unresolved,
-        totalNights: totalNights || computedTotalNights,
-        travelYear: travelYear || null,
-        confidence: confidence || 'medium',
-        rawText: rawText || null,
-        flags,
-      };
-    }
-
-    case 'classify_intent': {
-      // Intent classification - extract info and pass it back
-      // The model classifies, we just acknowledge and return the extracted data
-      const { intent, confidence, extracted } = toolInput;
-
-      // Try to resolve city names to IDs if cities were mentioned
-      const resolvedCities = [];
-      if (extracted?.cities?.length > 0) {
-        for (const cityName of extracted.cities) {
-          const city = cityLookup[cityName.toLowerCase()];
-          if (city) {
-            resolvedCities.push({
-              id: city.id,
-              name: city.name,
-              country: city.country,
-            });
-          }
-        }
-      }
-
-      return {
-        intent,
-        confidence,
-        extracted: {
-          ...extracted,
-          resolvedCities,
-        },
-      };
-    }
-
-    case 'get_city_suggestions': {
-      const { fromCity, toCity, interests, maxResults = 6 } = toolInput;
-
-      try {
-        // Use the existing gapSuggester
-        const suggestions = await getSuggestionsForGap({
-          fromCity,
-          toCity: toCity || null,
-          gapStart: new Date().toISOString().split('T')[0],
-          gapEnd: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-          preferences: {
-            interests: interests || [],
-            budget: tripContext.preferences?.budget || 'moderate',
-            paceId: tripContext.preferences?.pace || 'balanced',
-          },
-        });
-
-        return suggestions.slice(0, maxResults).map(s => ({
-          id: s.id,
-          name: s.name,
-          country: s.country,
-          score: s.score,
-          travelMinutes: s.travelMinutes,
-          transportMode: s.transportDetails?.mode,
-          matchReasons: s.matchReasons || [],
-        }));
-      } catch (error) {
-        console.error('Error getting suggestions:', error);
-        return [];
-      }
-    }
-
-    case 'get_travel_info': {
-      const { from, to } = toolInput;
-      const fromCity = cityLookup[from];
-      const toCity = cityLookup[to];
-
-      if (!fromCity || !toCity) {
-        return { error: 'City not found' };
-      }
-
-      // Try to load connections data
-      try {
-        const connectionsPath = `/data/${fromCity.country}/${fromCity.id}/${fromCity.id}_connections.json`;
-        const response = await fetch(`${process.env.NEXT_PUBLIC_CDN_URL || ''}${connectionsPath}`);
-
-        if (response.ok) {
-          const connections = await response.json();
-          const connection = connections.find(c => c.to === to);
-
-          if (connection) {
-            return {
-              from: fromCity.name,
-              to: toCity.name,
-              travelTime: connection.time,
-              mode: connection.mode,
-              frequency: connection.frequency,
-            };
-          }
-        }
-      } catch {
-        // Fall back to estimate
-      }
-
-      // Estimate based on distance
-      const distance = calculateDistance(fromCity, toCity);
-      const estimatedHours = distance < 300 ? 2 : distance < 600 ? 4 : 6;
-
-      return {
-        from: fromCity.name,
-        to: toCity.name,
-        travelTime: `~${estimatedHours}h`,
-        mode: distance > 800 ? 'flight' : 'train',
-        estimated: true,
-      };
-    }
-
-    default:
-      return null;
-  }
-}
-
-/**
- * Calculate distance between two cities (haversine)
- */
-function calculateDistance(city1, city2) {
-  const R = 6371; // Earth's radius in km
-  const dLat = toRad(city2.latitude - city1.latitude);
-  const dLon = toRad(city2.longitude - city1.longitude);
-  const lat1 = toRad(city1.latitude);
-  const lat2 = toRad(city2.latitude);
-
-  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-  return R * c;
-}
-
-function toRad(deg) {
-  return deg * (Math.PI / 180);
-}
-
-/**
- * Stream response as SSE
+ * Create an SSE stream for real-time responses.
  */
 function createSSEStream() {
   const encoder = new TextEncoder();
   let controller;
 
   const stream = new ReadableStream({
-    start(c) {
-      controller = c;
-    },
+    start(c) { controller = c; },
   });
 
   const send = (data) => {
-    controller.enqueue(encoder.encode(`data: ${JSON.stringify(data)}\n\n`));
+    try {
+      controller.enqueue(encoder.encode(`data: ${JSON.stringify(data)}\n\n`));
+    } catch {
+      // Stream may be closed
+    }
   };
 
   const close = () => {
-    controller.close();
+    try { controller.close(); } catch { /* already closed */ }
   };
 
   return { stream, send, close };
@@ -264,57 +41,82 @@ export async function POST(request) {
   }
 
   try {
-    const { messages, tripContext, isStart } = await request.json();
+    const { messages, tripState: clientTripState, isStart } = await request.json();
 
     const client = new Anthropic({ apiKey });
 
-    // Build the full system prompt with context
-    const contextPrompt = buildContextPrompt(tripContext || {});
-    const fullSystemPrompt = `${SYSTEM_PROMPT}\n\n${contextPrompt}`;
+    // Use client-provided trip state or start fresh
+    let tripState = clientTripState || { ...initialTripState };
+
+    // Build system prompt with current context + gap analysis
+    const systemPrompt = buildFullPrompt(tripState);
 
     // Build messages array
-    let apiMessages = [];
-
-    if (isStart) {
-      // Starting conversation - send initial prompt
+    let apiMessages;
+    if (isStart || !messages || messages.length === 0) {
       apiMessages = [{
         role: 'user',
-        content: 'Start the conversation by greeting me and asking where I want to start my trip.',
+        content: 'Hi, I want to plan a European trip.',
       }];
     } else {
-      // Continue conversation
-      apiMessages = messages.map(m => ({
-        role: m.role,
-        content: m.content,
-      }));
+      apiMessages = messages
+        .filter(m => m.content)
+        .map(m => ({ role: m.role, content: m.content }));
     }
 
-    // Create SSE stream
+    // Ensure messages alternate roles (Anthropic requirement)
+    const mergedMessages = [];
+    for (const msg of apiMessages) {
+      const prev = mergedMessages[mergedMessages.length - 1];
+      if (prev && prev.role === msg.role) {
+        prev.content += '\n' + msg.content;
+      } else {
+        mergedMessages.push({ ...msg });
+      }
+    }
+
+    // Ensure first message is 'user'
+    if (mergedMessages.length > 0 && mergedMessages[0].role !== 'user') {
+      mergedMessages.unshift({ role: 'user', content: 'I want to plan a European trip.' });
+    }
+
     const { stream, send, close } = createSSEStream();
 
-    // Start streaming in background
+    // Process in background
     (async () => {
       try {
         let continueLoop = true;
-        let currentMessages = [...apiMessages];
+        let currentMessages = [...mergedMessages];
+        let loopCount = 0;
+        const MAX_LOOPS = 5; // Safety limit
 
-        while (continueLoop) {
+        while (continueLoop && loopCount < MAX_LOOPS) {
           continueLoop = false;
+          loopCount++;
 
-          const response = await client.messages.create({
+          // Use Anthropic SDK streaming so text deltas reach the client as they're produced
+          const streamResp = client.messages.stream({
             model: 'claude-sonnet-4-20250514',
             max_tokens: 1024,
-            system: fullSystemPrompt,
+            system: systemPrompt,
             messages: currentMessages,
-            tools,
+            tools: TOOLS_V2,
           });
 
-          // Process response content
+          streamResp.on('text', (textDelta) => {
+            if (textDelta) send({ type: 'content_delta', content: textDelta });
+          });
+
+          const response = await streamResp.finalMessage();
+
+          // Text was already streamed incrementally above via 'content_delta'.
+          // Process tool calls and continuation logic from the final message.
           for (const block of response.content) {
             if (block.type === 'text') {
-              send({ type: 'content', content: block.text });
+              // no-op: already streamed via content_delta
+
             } else if (block.type === 'tool_use') {
-              // Handle tool call
+              // Send tool call to client for UI tools
               send({
                 type: 'tool_use',
                 id: block.id,
@@ -322,56 +124,68 @@ export async function POST(request) {
                 input: block.input,
               });
 
-              // Execute tool and get result
-              const toolResult = await handleToolCall(block.name, block.input, tripContext);
+              // Execute server-side for data tools
+              if (DATA_TOOLS.has(block.name)) {
+                const result = await executeToolCall(block.name, block.input, tripState);
 
-              // Surface server-resolved results to the UI for tools whose output
-              // the client needs to render directly (e.g. parse_itinerary's
-              // canonicalized city list).
-              const uiResultTools = new Set(['parse_itinerary']);
-              if (uiResultTools.has(block.name) && toolResult) {
-                send({
-                  type: 'tool_result',
-                  id: block.id,
-                  name: block.name,
-                  result: toolResult,
-                });
-              }
+                // If extract_trip_data, update the server-side trip state and send to client
+                if (block.name === 'extract_trip_data' && result?.updatedState) {
+                  tripState = result.updatedState;
+                  send({ type: 'state_update', state: tripState });
+                }
 
-              // If this tool returns data (not just UI), we need to continue the conversation
-              const dataTools = ['get_city_suggestions', 'get_travel_info', 'classify_intent', 'parse_itinerary'];
-              if (toolResult !== null && dataTools.includes(block.name)) {
-                // Add assistant message with tool use
+                // If resolve_cities, merge resolved data back into tripState
+                if (result && block.name === 'resolve_cities') {
+                  send({ type: 'tool_result', name: block.name, result });
+                  for (const resolved of (Array.isArray(result) ? result : [])) {
+                    if (!resolved.resolved) continue;
+                    const city = tripState.route?.cities?.find(c =>
+                      c.name?.toLowerCase() === resolved.input?.toLowerCase()
+                    );
+                    if (city) {
+                      city.id = resolved.id;
+                      city.country = resolved.country;
+                      city.latitude = resolved.latitude;
+                      city.longitude = resolved.longitude;
+                    }
+                  }
+                  send({ type: 'state_update', state: tripState });
+                }
+
+                // Continue the loop with tool result so Claude can respond to the data
                 currentMessages.push({
                   role: 'assistant',
                   content: response.content,
                 });
-
-                // Add tool result
                 currentMessages.push({
                   role: 'user',
                   content: [{
                     type: 'tool_result',
                     tool_use_id: block.id,
-                    content: JSON.stringify(toolResult),
+                    content: JSON.stringify(result || {}),
                   }],
                 });
 
                 continueLoop = true;
+
+              } else if (UI_TOOLS.has(block.name)) {
+                // UI tools: already sent to client via SSE above.
+                // Don't continue the agentic loop — Claude's text + UI tool
+                // in the same response are both sent to the client.
               }
             }
           }
 
-          // Check if we need to continue (tool use with end_turn)
-          if (response.stop_reason === 'tool_use' && !continueLoop) {
-            // Tool was UI-only, we're done
+          // If stop reason is end_turn with no tool use, we're done
+          if (response.stop_reason === 'end_turn') {
+            continueLoop = false;
           }
         }
 
         send({ type: 'done' });
       } catch (error) {
-        console.error('Streaming error:', error);
-        send({ type: 'error', error: error.message });
+        console.error('[conversation] Streaming error:', error);
+        send({ type: 'error', error: error.message || 'Unknown error' });
       } finally {
         close();
       }
@@ -384,8 +198,9 @@ export async function POST(request) {
         'Connection': 'keep-alive',
       },
     });
+
   } catch (error) {
-    console.error('API error:', error);
+    console.error('[conversation] Request error:', error);
     return new Response(
       JSON.stringify({ error: error.message }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }

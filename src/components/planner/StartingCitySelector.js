@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X } from 'lucide-react';
-import { getAllCities } from '@/lib/planning/easeScoreCalculator';
+// Use synchronous import to avoid duplicate manifest fetches
+import cities from '@/generated/cities.json';
 import { COUNTRY_FLAGS } from '@/lib/planning/rankDestinations';
 
 const POPULAR_CITIES = [
@@ -23,23 +24,17 @@ function getFlag(country) {
 }
 
 export default function StartingCitySelector({ selectedCity, onSelectCity, onClearCity }) {
-  const [allCities, setAllCities] = useState([]);
+  // Use synchronous import instead of async fetch
+  const allCities = useMemo(() =>
+    cities.map(c => ({ ...c, flag: getFlag(c.country) })),
+    []
+  );
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [highlightIndex, setHighlightIndex] = useState(-1);
 
   const searchRef = useRef(null);
   const dropdownRef = useRef(null);
-
-  // Load all cities on mount
-  useEffect(() => {
-    getAllCities().then(cities => {
-      setAllCities(cities.map(c => ({
-        ...c,
-        flag: getFlag(c.country),
-      })));
-    });
-  }, []);
 
   // Handle click outside search
   useEffect(() => {

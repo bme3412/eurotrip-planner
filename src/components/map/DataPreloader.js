@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useCallback } from 'react';
-import { useMapData } from '@/context/MapDataContext';
+import { useMapData } from '@/contexts/MapDataContext';
 import { 
   getCityRatingForDateRangeCached, 
   getCityRatingForMonthsCached, 

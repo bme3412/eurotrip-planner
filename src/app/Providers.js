@@ -1,9 +1,9 @@
 'use client';
 
-import { TravelDataProvider } from '../context/TravelDataProvider';
-import { MapDataProvider } from '../context/MapDataContext';
-import { CurrencyProvider } from '../components/common/CurrencySelector';
-import { AuthProvider } from '../contexts/AuthContext';
+import { TravelDataProvider } from '@/contexts/TravelDataProvider';
+import { MapDataProvider } from '@/contexts/MapDataContext';
+import { CurrencyProvider } from '@/components/common/CurrencySelector';
+import { AuthProvider } from '@/contexts/AuthContext';
 
 export default function Providers({ children }) {
   return (

@@ -23,7 +23,7 @@ import LoadingOverlay from '../common/LoadingOverlay';
 import CityDetailsPopup from './CityDetailsPopup';
 import CacheManager from './CacheManager';
 import DataPreloader from './DataPreloader';
-import { useMapData, useCityRatings, useCurrentFilters, useLoadingStates } from '@/context/MapDataContext';
+import { useMapData, useCityRatings, useCurrentFilters, useLoadingStates } from '@/contexts/MapDataContext';
 
 /**
  * Map Component

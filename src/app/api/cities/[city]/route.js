@@ -3,6 +3,8 @@ import { getCityData } from '../../../../lib/data-utils.js';
 import { enrichAttractionsForCity } from '../../../../lib/google-places/enrichment.js';
 
 export const runtime = 'nodejs';
+// City data changes rarely; let Next ISR cache the response for 1h.
+export const revalidate = 3600;
 
 const enrichCache = new Map();
 const ENRICH_TTL = 24 * 60 * 60 * 1000;
@@ -52,7 +54,13 @@ export async function GET(request, { params }) {
       }
     }
 
-    return NextResponse.json(cityData);
+    return NextResponse.json(cityData, {
+      headers: {
+        // CDN cache 1 hour, serve stale up to 24h while revalidating.
+        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+        'Vary': 'Accept-Encoding',
+      },
+    });
   } catch (error) {
     console.error('Error fetching city data:', error);
     return NextResponse.json(
@@ -60,4 +68,4 @@ export async function GET(request, { params }) {
       { status: 500 }
     );
   }
-} 
+}

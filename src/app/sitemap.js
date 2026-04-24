@@ -19,7 +19,7 @@ export default async function sitemap() {
     { url: baseUrl, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
     { url: `${baseUrl}/city-guides`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/explore`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/start-planning`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/plan`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   ];
 
   // Dynamic city pages

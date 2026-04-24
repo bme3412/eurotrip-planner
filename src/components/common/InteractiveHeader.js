@@ -68,7 +68,7 @@ const InteractiveHeader = ({
           {/* Call to Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
-              href="/start-planning"
+              href="/plan"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl"
             >
               Start Planning Your Trip

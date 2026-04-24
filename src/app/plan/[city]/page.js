@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter, useParams } from 'next/navigation';
 import DateRangePopover from '@/components/common/DateRangePopover';
 import { useTripDates } from '@/hooks/useTripDates';
 import { getTravelStyleForPace } from '@/lib/planning/travelStyles';
 import { useAuth } from '@/contexts/AuthContext';
+import { cityById } from '@/generated/cityIndex';
 
 // ── Pace options (replaces slider) ───────────────────────────────────
 const PACE_CARDS = [
@@ -88,7 +89,10 @@ export default function PlanCityPage() {
 
   const [topAttractions, setTopAttractions] = useState([]);
   useEffect(() => {
-    fetch(`/api/cities/${citySlug}`)
+    // Fetch directly from static file instead of API — reuses warm cache from CityCard hover
+    const cityInfo = cityById[citySlug];
+    const country = cityInfo?.country?.toLowerCase() || 'france';
+    fetch(`/data/${country}/${citySlug}/index.json`)
       .then(r => r.ok ? r.json() : null)
       .then(data => {
         const sites = data?.attractions?.sites || data?.attractions || [];
@@ -98,7 +102,11 @@ export default function PlanCityPage() {
             .slice(0, 8)
         );
       })
-      .catch(() => {});
+      .catch((err) => {
+        if (err?.name !== 'AbortError') {
+          console.error(`Failed to load attractions for ${citySlug}:`, err);
+        }
+      });
   }, [citySlug]);
 
   const selectedBudget = BUDGET_OPTIONS.find(b => b.id === budget) || BUDGET_OPTIONS[1];
@@ -121,12 +129,13 @@ export default function PlanCityPage() {
     setPace(card.pace);
   };
 
-  const toggleMustSee = (name) => {
+  const toggleMustSee = useCallback((name) => {
     const slug = name.toLowerCase().replace(/\s+/g, '-');
     setMustSee(prev => prev.includes(slug) ? prev.filter(x => x !== slug) : [...prev, slug]);
-  };
+  }, []);
 
-  const steps = [
+  // Memoize steps to avoid recreating on every keystroke — only update when deps change
+  const steps = useMemo(() => [
     {
       id: 'dates',
       title: `When are you visiting ${cityDisplay}?`,
@@ -324,7 +333,7 @@ export default function PlanCityPage() {
         </div>
       ),
     },
-  ];
+  ], [cityDisplay, dateRange, dates, setDates, nightsLabel, paceId, selectPace, interests, toggleInterest, budget, setBudget, selectedBudget, topAttractions, mustSee, toggleMustSee]);
 
   const handleNext = () => {
     const currentStep = steps[stepIndex];

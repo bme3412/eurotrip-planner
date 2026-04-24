@@ -7,19 +7,30 @@ import { useAuth } from '@/contexts/AuthContext';
 import { Disclosure } from '@headlessui/react';
 import SearchBar from './SearchBar';
 
+// Heavy routes — disable default prefetch, warm on hover
 const NAV_LINKS = [
-  { label: 'City Guides', href: '/city-guides' },
-  { label: 'Explore', href: '/explore' },
-  { label: 'Plan Trip', href: '/trip-planner' },
+  { label: 'City Guides', href: '/city-guides', heavy: true },
+  { label: 'Explore', href: '/explore', heavy: true },
+  { label: 'Plan Trip', href: '/plan', heavy: true },
 ];
 
-function NavLink({ href, children }) {
+function NavLink({ href, children, heavy = false }) {
   const pathname = usePathname();
+  const router = require('next/navigation').useRouter();
   const isActive = pathname === href || pathname.startsWith(href + '/');
+
+  // Warm on hover for heavy routes to maintain UX
+  const handleMouseEnter = () => {
+    if (heavy) {
+      router.prefetch(href);
+    }
+  };
 
   return (
     <Link
       href={href}
+      prefetch={!heavy}
+      onMouseEnter={handleMouseEnter}
       className={`text-sm font-medium transition-colors ${
         isActive
           ? 'text-blue-600 font-semibold'
@@ -61,7 +72,7 @@ export default function Navbar() {
               {/* Desktop nav links */}
               <div className="hidden md:flex items-center gap-6">
                 {NAV_LINKS.map(link => (
-                  <NavLink key={link.href} href={link.href}>
+                  <NavLink key={link.href} href={link.href} heavy={link.heavy}>
                     {link.label}
                   </NavLink>
                 ))}

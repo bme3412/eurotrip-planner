@@ -11,7 +11,7 @@ export default function SpinnerPage() {
     // Navigate to the multi-city planner with the selected cities
     const params = new URLSearchParams();
     params.set('cities', cities.join(','));
-    router.push(`/planner?${params.toString()}`);
+    router.push(`/plan?mode=wizard&${params.toString()}`);
   }
 
   return (

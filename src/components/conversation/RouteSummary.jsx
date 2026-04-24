@@ -1,57 +1,15 @@
 'use client';
 
-import { useConversation } from '@/hooks/useConversation';
 import { motion } from 'framer-motion';
-import { ArrowDown, Check, Pencil, Train, Plane } from 'lucide-react';
+import { ArrowDown, Check, Pencil } from 'lucide-react';
 import { getCountryFlag } from '@/utils/countryFlags';
 
 /**
- * RouteSummary - Visual route summary that can be embedded in messages
- */
-export default function RouteSummary({
-  showDays = true,
-  showDates = true,
-  confirmable = false,
-  onConfirm,
-  onEdit,
-}) {
-  // Get trip state from context (we'll use this in the actual implementation)
-  // For now, we'll receive it as a prop or from context
-
-  return (
-    <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl border border-slate-200 overflow-hidden">
-      {/* This will be populated from the trip context */}
-      <div className="p-4">
-        <p className="text-sm text-slate-600 text-center">
-          Route summary will appear here once your trip is planned.
-        </p>
-      </div>
-
-      {/* Action buttons */}
-      {confirmable && (
-        <div className="flex border-t border-slate-200">
-          <button
-            onClick={onEdit}
-            className="flex-1 flex items-center justify-center gap-2 py-3 text-slate-600 hover:bg-slate-100 transition-colors border-r border-slate-200"
-          >
-            <Pencil className="w-4 h-4" />
-            <span className="text-sm font-medium">Make changes</span>
-          </button>
-          <button
-            onClick={onConfirm}
-            className="flex-1 flex items-center justify-center gap-2 py-3 text-green-600 hover:bg-green-50 transition-colors"
-          >
-            <Check className="w-4 h-4" />
-            <span className="text-sm font-medium">Looks good!</span>
-          </button>
-        </div>
-      )}
-    </div>
-  );
-}
-
-/**
- * RouteSummaryWithData - Version that receives trip data directly
+ * RouteSummaryWithData - Visual route summary that receives trip data directly.
+ *
+ * (The legacy `RouteSummary` default export — which depended on the now-removed
+ * `useConversation` hook — has been retired. Use `RouteSummaryWithData` and
+ * pass in a trip object from `useTripPlannerAgent` instead.)
  */
 export function RouteSummaryWithData({
   trip,

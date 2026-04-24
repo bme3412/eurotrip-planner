@@ -1,9 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { MessageSquare, CalendarRange } from "lucide-react";
-import TripSearchBar from "@/components/common/TripSearchBar";
 import DescribeTripInput from "./DescribeTripInput";
+
+// Lazy-load TripSearchBar to avoid shipping ~81 KB cities.json in initial bundle
+const TripSearchBar = dynamic(() => import("@/components/common/TripSearchBar"), {
+  ssr: false,
+  loading: () => (
+    <div className="h-14 rounded-2xl bg-gray-100 animate-pulse" />
+  ),
+});
 
 const TABS = [
   { id: "describe", label: "Describe your trip", Icon: MessageSquare },
@@ -12,6 +20,11 @@ const TABS = [
 
 export default function HeroWidget({ dates, onChangeDates, onSubmitStructured }) {
   const [mode, setMode] = useState("describe");
+
+  // Preload TripSearchBar when user hovers on the structured tab
+  const preloadStructured = () => {
+    import("@/components/common/TripSearchBar");
+  };
 
   return (
     <div className="bg-white rounded-3xl p-4 md:p-5 shadow-[0_8px_40px_rgba(0,0,0,0.08)] border border-gray-100">
@@ -32,6 +45,7 @@ export default function HeroWidget({ dates, onChangeDates, onSubmitStructured })
               aria-controls={`hero-pane-${tab.id}`}
               type="button"
               onClick={() => setMode(tab.id)}
+              onMouseEnter={tab.id === "structured" ? preloadStructured : undefined}
               className={`relative flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all ${
                 active
                   ? "bg-white text-gray-900 shadow-sm"

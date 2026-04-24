@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useAuth } from '@/contexts/AuthContext';
@@ -87,13 +87,15 @@ export default function SavedTripsPage() {
     setSavedExperiences(savedExperiences.filter(e => e.id !== exp.id));
   };
 
-  // Group experiences by city
-  const experiencesByCity = savedExperiences.reduce((acc, exp) => {
-    const city = exp.city_name || 'Unknown';
-    if (!acc[city]) acc[city] = [];
-    acc[city].push(exp);
-    return acc;
-  }, {});
+  // Group experiences by city — memoized to avoid recomputing on every render
+  const experiencesByCity = useMemo(() => {
+    return savedExperiences.reduce((acc, exp) => {
+      const city = exp.city_name || 'Unknown';
+      if (!acc[city]) acc[city] = [];
+      acc[city].push(exp);
+      return acc;
+    }, {});
+  }, [savedExperiences]);
 
   const totalSaved = savedCities.length + savedExperiences.length;
 

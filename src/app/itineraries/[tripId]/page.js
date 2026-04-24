@@ -160,18 +160,44 @@ export default async function ItineraryPage({ params }) {
   if (!trip) notFound();
 
   const citySlug = trip.city || 'paris';
+  const country = trip.country || 'France';
   const hasNormalizedDays = trip.days?.length > 0 && trip.days[0].activities?.length > 0;
 
+  // When hasNormalizedDays is true, skip heavy data fetches — let client hydrate on demand
+  if (hasNormalizedDays) {
+    // Only fetch slim city data for display purposes
+    const cityData = await getCityData(citySlug);
+    const plan = buildPlanFromNormalizedDays(trip);
+    const cityDisplay = cityData?.cityName || cityData?.name || citySlug.charAt(0).toUpperCase() + citySlug.slice(1);
+    const dateRangeLabel = formatDateRange(trip.start_date, trip.end_date);
+    const interestsList = trip.interests?.length ? trip.interests.join(' · ') : `${cityDisplay} essentials`;
+
+    return (
+      <ItineraryClient
+        plan={plan}
+        tripId={tripId}
+        cityDisplay={cityDisplay}
+        citySlug={citySlug}
+        country={country}
+        thumbnail={cityData?.thumbnail}
+        coordinates={cityData?.coordinates || null}
+        dateRangeLabel={dateRangeLabel}
+        interestsList={interestsList}
+        hasNormalizedDays={true}
+        weather={null}
+        experienceScores={null}
+      />
+    );
+  }
+
+  // Legacy path: no normalized days, fetch all data server-side
   const [cityData, visitCalendar, experiences] = await Promise.all([
     getCityData(citySlug),
     getCityVisitCalendar(citySlug),
     getCityExperiences(citySlug),
   ]);
 
-  const plan = hasNormalizedDays
-    ? buildPlanFromNormalizedDays(trip)
-    : buildItinerary(trip, cityData);
-
+  const plan = buildItinerary(trip, cityData);
   const cityDisplay = cityData?.cityName || cityData?.name || citySlug.charAt(0).toUpperCase() + citySlug.slice(1);
   const dateRangeLabel = formatDateRange(trip.start_date, trip.end_date);
   const interestsList = trip.interests?.length ? trip.interests.join(' · ') : `${cityDisplay} essentials`;
@@ -184,9 +210,12 @@ export default async function ItineraryPage({ params }) {
       tripId={tripId}
       cityDisplay={cityDisplay}
       citySlug={citySlug}
+      country={country}
       thumbnail={cityData?.thumbnail}
+      coordinates={cityData?.coordinates || null}
       dateRangeLabel={dateRangeLabel}
       interestsList={interestsList}
+      hasNormalizedDays={false}
       weather={weather}
       experienceScores={experienceScores}
     />

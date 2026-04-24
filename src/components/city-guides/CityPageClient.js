@@ -148,10 +148,13 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
     return () => controller.abort();
   }, [cityName, initialCityData]);
 
+  // Auto-load when SSR/index didn't include monthly data (slim-index mode).
+  const monthlyEventsKeys = cityData?.monthlyEvents ? Object.keys(cityData.monthlyEvents).length : 0;
+  const monthlyAutoLoad = monthlyEventsKeys === 0;
   const { monthlyData, isLoading: monthlyDataLoading, error: monthlyDataError, refetch: loadAllMonthly } = useMonthlyData(
     cityData?.country || 'Unknown',
     cityName || 'unknown',
-    { initialData: cityData?.monthlyEvents || {}, autoLoad: false }
+    { initialData: cityData?.monthlyEvents || {}, autoLoad: monthlyAutoLoad }
   );
   const { actions: uiActions } = useUIState();
 
@@ -586,11 +589,11 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
       {isTabBarSticky && <div className="h-24" />}
 
       {/* Content */}
-      <div className="mx-auto max-w-7xl px-3 sm:px-4 py-4 sm:py-6 overflow-hidden">
-        <div 
+      <div className="mx-auto max-w-7xl px-3 sm:px-4 py-4 sm:py-6 pb-24 overflow-hidden">
+        <div
           className={`transition-all duration-200 ease-out ${
-            isTabTransitioning 
-              ? `opacity-0 ${slideDirection === 'left' ? '-translate-x-4' : 'translate-x-4'}` 
+            isTabTransitioning
+              ? `opacity-0 ${slideDirection === 'left' ? '-translate-x-4' : 'translate-x-4'}`
               : 'opacity-100 translate-x-0'
           }`}
         >
@@ -606,6 +609,21 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
           ) : (
             renderTabContent()
           )}
+        </div>
+      </div>
+
+      {/* Sticky bottom CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-30 bg-white/90 backdrop-blur-lg border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] print:hidden">
+        <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between gap-4">
+          <div className="hidden sm:block text-sm text-gray-600">
+            Ready to visit <span className="font-semibold text-gray-900">{displayName}</span>?
+          </div>
+          <Link
+            href={`/plan/${encodeURIComponent(cityName.toLowerCase())}`}
+            className="ml-auto px-6 py-2.5 bg-blue-600 text-white font-semibold text-sm rounded-full hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20"
+          >
+            Plan a Trip to {displayName}
+          </Link>
         </div>
       </div>
 
