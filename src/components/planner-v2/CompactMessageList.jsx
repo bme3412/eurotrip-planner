@@ -1,50 +1,58 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 import { CitySearchInput } from '../conversation/InputArea';
 import { RouteSummaryWithData } from '../conversation/RouteSummary';
 import ParsedItineraryCard from '../conversation/ParsedItineraryCard';
 
-// ── Compact AI message — editorial style, no avatar ──────────────
+// ── Compact AI message — card style with directional bubble ──────
 function CompactAIMessage({ content }) {
   if (!content) return null;
   return (
     <motion.div
       initial={{ opacity: 0, x: -4 }}
       animate={{ opacity: 1, x: 0 }}
-      className="py-1.5"
+      className="py-1.5 max-w-[92%]"
     >
-      <p className="text-[13px] text-[#4a4540] leading-relaxed">{content}</p>
+      <div className="rounded-2xl rounded-tl-md bg-[#faf8f5] border border-[#e5e0d8]/60 px-3.5 py-2.5">
+        <p className="text-[13px] text-[#4a4540] leading-relaxed whitespace-pre-wrap">{content}</p>
+      </div>
     </motion.div>
   );
 }
 
-// ── User message — right-aligned pill ────────────────────────────
+// ── User message — right-aligned pill with directional corner ────
 function CompactUserMessage({ content }) {
   if (!content) return null;
   return (
     <div className="flex justify-end py-1">
-      <span className="bg-[#2a2520] text-white text-[12px] rounded-full px-3.5 py-1.5 max-w-[85%] leading-snug">
+      <div className="bg-[#2a2520] text-white text-[12px] rounded-2xl rounded-tr-md px-3.5 py-2 max-w-[85%] leading-snug whitespace-pre-wrap">
         {content}
-      </span>
+      </div>
     </div>
   );
 }
 
-// ── System event — direct-manipulation echo from the schedule header ────
+// ── System event — centered pill style ───────────────────────────
 function CompactSystemEvent({ content }) {
   if (!content) return null;
   return (
-    <div className="py-1 flex items-center gap-1.5 text-[11px] text-[#8a8578] italic">
-      <ArrowUp className="w-3 h-3 text-[#b5b0a8] shrink-0" aria-hidden="true" />
-      <span>{content}</span>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      className="py-1.5 flex justify-center"
+    >
+      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f0ede6] text-[11px] text-[#6a6459] italic border border-[#e5e0d8]/50">
+        <ArrowUp className="w-3 h-3 text-[#b5b0a8]" aria-hidden="true" />
+        {content}
+      </span>
+    </motion.div>
   );
 }
 
-// ── Hint pointing at the trip schedule header for replaced inline UIs ────
+// ── Hint pointing at the trip schedule header ────────────────────
 function HeaderHint({ label }) {
   return (
     <div className="py-1.5 px-3 rounded-xl border border-dashed border-[#d5d0c8] bg-[#faf8f5] text-[12px] text-[#6a6459] flex items-center gap-2">
@@ -54,7 +62,7 @@ function HeaderHint({ label }) {
   );
 }
 
-// ── Styled option cards — replaces generic QuickReplies ──────────
+// ── Styled option cards ──────────────────────────────────────────
 function PlannerOptions({ options = [], onSelect }) {
   return (
     <div className="grid grid-cols-1 gap-1.5 py-1">
@@ -88,14 +96,41 @@ function PlannerOptions({ options = [], onSelect }) {
   );
 }
 
-// ── Section divider with label ───────────────────────────────────
+// ── Section divider ──────────────────────────────────────────────
 function StepDivider({ label }) {
   return (
     <div className="flex items-center gap-2 py-2">
       <div className="flex-1 h-px bg-[#e5e0d8]" />
-      <span className="text-[8px] font-semibold uppercase tracking-[0.2em] text-[#b5b0a8]">{label}</span>
+      {label && <span className="text-[8px] font-semibold uppercase tracking-[0.2em] text-[#b5b0a8]">{label}</span>}
       <div className="flex-1 h-px bg-[#e5e0d8]" />
     </div>
+  );
+}
+
+// ── Bouncing typing indicator ────────────────────────────────────
+function TypingIndicator() {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="py-2 max-w-[92%]"
+    >
+      <div className="rounded-2xl rounded-tl-md bg-[#faf8f5] border border-[#e5e0d8]/60 px-4 py-3 inline-flex items-center gap-1.5">
+        {[0, 1, 2].map(i => (
+          <motion.span
+            key={i}
+            className="w-1.5 h-1.5 rounded-full bg-[#c9a227]"
+            animate={{ y: [0, -4, 0] }}
+            transition={{
+              duration: 0.6,
+              repeat: Infinity,
+              delay: i * 0.15,
+              ease: 'easeInOut',
+            }}
+          />
+        ))}
+      </div>
+    </motion.div>
   );
 }
 
@@ -111,18 +146,44 @@ export default function CompactMessageList({
   onDateSelect,
   onParsedItineraryConfirm,
   onParsedItineraryRefine,
+  scrollContainerRef: externalScrollRef,
 }) {
   const bottomRef = useRef(null);
+  const userScrolledUpRef = useRef(false);
 
+  // Track if user has manually scrolled up
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-  }, [messages.length, pendingInput]);
+    const container = externalScrollRef?.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const distanceFromBottom = container.scrollHeight - container.scrollTop - container.clientHeight;
+      userScrolledUpRef.current = distanceFromBottom > 200;
+    };
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [externalScrollRef]);
+
+  // Auto-scroll to bottom when messages change (unless user scrolled up)
+  useEffect(() => {
+    if (!userScrolledUpRef.current) {
+      // Use requestAnimationFrame to ensure DOM has updated
+      requestAnimationFrame(() => {
+        bottomRef.current?.scrollIntoView({ behavior: messages.length <= 2 ? 'instant' : 'smooth', block: 'end' });
+      });
+    }
+  }, [messages, pendingInput]);
+
+  const scrollToBottom = useCallback(() => {
+    userScrolledUpRef.current = false;
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
 
   const renderPendingInput = () => {
     if (!pendingInput) return null;
 
     switch (pendingInput.type) {
-      // V2 tool types
       case 'render_options':
       case 'show_options':
         return (
@@ -179,8 +240,38 @@ export default function CompactMessageList({
             />
           </div>
         );
+      case 'confirm_changes':
+        return (
+          <div className="py-1 space-y-2">
+            <div className="px-3 py-2.5 rounded-xl border border-amber-200 bg-amber-50">
+              <p className="text-[12px] font-medium text-amber-900 mb-1.5">
+                {pendingInput.data?.summary || 'Confirm these changes?'}
+              </p>
+              {pendingInput.data?.changes?.map((change, i) => (
+                <div key={i} className="text-[11px] text-amber-800 flex gap-2">
+                  <span className="font-medium">{change.field}:</span>
+                  {change.from && <span className="line-through text-amber-600">{change.from}</span>}
+                  <span>{change.to}</span>
+                </div>
+              ))}
+              <div className="flex gap-2 mt-2">
+                <button
+                  onClick={() => onOptionSelect({ id: 'confirm', label: 'Yes, apply those changes' })}
+                  className="px-3 py-1 text-[11px] font-medium rounded-full bg-amber-600 text-white hover:bg-amber-700 transition-colors"
+                >
+                  Apply
+                </button>
+                <button
+                  onClick={() => onOptionSelect({ id: 'reject', label: 'No, keep it as is' })}
+                  className="px-3 py-1 text-[11px] font-medium rounded-full border border-amber-300 text-amber-700 hover:bg-amber-100 transition-colors"
+                >
+                  Keep as is
+                </button>
+              </div>
+            </div>
+          </div>
+        );
       case 'render_trip_card':
-        // Simple inline trip card — shows what's been captured
         return (
           <div className="py-1 px-3 rounded-xl border border-[#e5e0d8] bg-[#faf8f5] text-[12px] text-[#4a4540]">
             <p className="font-medium text-[#2a2520] mb-1">Trip updated</p>
@@ -194,14 +285,13 @@ export default function CompactMessageList({
     }
   };
 
-  // Group consecutive messages by role for visual separation
   const shouldShowDivider = (msg, prevMsg) => {
     if (!prevMsg) return false;
     return prevMsg.role === 'user' && msg.role === 'assistant';
   };
 
   return (
-    <div className="px-3 py-3 space-y-1">
+    <div className="px-3 py-3 space-y-1 relative">
       <AnimatePresence mode="popLayout">
         {messages.map((message, index) => {
           if (message.role === 'assistant' && !message.content) return null;
@@ -209,6 +299,7 @@ export default function CompactMessageList({
           return (
             <motion.div
               key={message.id}
+              layout
               initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.15 }}
@@ -226,13 +317,9 @@ export default function CompactMessageList({
         })}
       </AnimatePresence>
 
-      {/* Streaming indicator */}
-      {isStreaming && (
-        <div className="py-2 flex items-center gap-1.5">
-          <span className="w-1 h-1 rounded-full bg-[#c9a227] animate-pulse" />
-          <span className="w-1 h-1 rounded-full bg-[#c9a227] animate-pulse" style={{ animationDelay: '0.15s' }} />
-          <span className="w-1 h-1 rounded-full bg-[#c9a227] animate-pulse" style={{ animationDelay: '0.3s' }} />
-        </div>
+      {/* Streaming typing indicator — only show before content arrives */}
+      {isStreaming && (!messages.length || !messages[messages.length - 1]?.content) && (
+        <TypingIndicator />
       )}
 
       {/* Pending input UI */}

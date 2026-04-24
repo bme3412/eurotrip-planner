@@ -97,13 +97,8 @@ export default function RouteMapColumn({ trip }) {
 
   return (
     <div className="flex flex-col h-full bg-white">
-      {/* Header */}
-      <div className="px-4 py-3 border-b border-slate-200 shrink-0">
-        <span className="text-[9px] uppercase tracking-[0.15em] text-slate-400 font-medium">
-          03 &nbsp;Route map&nbsp;
-          <span className="text-emerald-500">LIVE</span>
-        </span>
-      </div>
+      {/* Thin top border — no label needed */}
+      <div className="border-b border-slate-200 shrink-0" />
 
       {/* Map */}
       <div className="flex-1 relative min-h-0">

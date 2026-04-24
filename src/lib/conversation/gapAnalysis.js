@@ -1,159 +1,172 @@
 /**
  * Gap analysis for the agentic trip planner.
- * Determines what info is missing and what to ask next.
+ *
+ * Philosophy: Infer first, ask only when stuck.
+ * Only cities are truly critical — everything else gets smart defaults.
+ * The AI should propose a complete picture early and let the user tweak.
  */
 
-const PRIORITY = {
-  cities: 1,
-  duration: 2,
-  routeShape: 3,
-  dates: 4,
-  transport: 5,
-  budget: 6,
-  travelers: 7,
-  interests: 8,
-  accommodation: 9,
-};
+/**
+ * Smart defaults for anything the user hasn't specified.
+ */
+export function getSmartDefaults(tripState) {
+  const cityCount = tripState.route.cities.length || 1;
+  const hasNights = tripState.dates.totalNights != null;
+  const hasCityNights = tripState.route.cities.some(c => c.nights != null);
+
+  return {
+    nightsPerCity: 3,
+    totalNights: hasNights
+      ? tripState.dates.totalNights
+      : hasCityNights
+        ? tripState.route.cities.reduce((s, c) => s + (c.nights || 3), 0)
+        : cityCount * 3,
+    transport: 'train',
+    budget: 'moderate',
+    accommodation: 'hotel',
+    pace: 'balanced',
+    interests: ['culture', 'food', 'walking'],
+  };
+}
 
 /**
- * Analyze the current trip state and return ordered list of gaps.
+ * Analyze the current trip state and return gaps + smart defaults.
+ *
+ * Gaps are things the AI should naturally weave into conversation,
+ * NOT a rigid checklist to interrogate the user about.
  */
 export function analyzeGaps(tripState) {
   const gaps = [];
   const r = tripState.route;
   const d = tripState.dates;
-  const t = tripState.transport;
   const b = tripState.budget;
   const tv = tripState.travelers;
   const p = tripState.preferences;
+  const filledFields = new Set();
 
-  // P1: At least one city
+  // ── Critical: cities ──────────────────────────────────────
+  // This is the only thing we truly need from the user.
   if (r.cities.length === 0) {
     gaps.push({
       field: 'cities',
-      priority: PRIORITY.cities,
+      priority: 1,
       critical: true,
-      question: 'Where do you want to go?',
+      question: 'Which European cities are you interested in visiting?',
     });
+  } else {
+    filledFields.add('cities');
   }
 
-  // P2: Duration
+  // ── Important: duration ───────────────────────────────────
+  // Good to know, but we can default to ~3 nights per city.
   const hasNights = d.totalNights != null;
   const hasCityNights = r.cities.some(c => c.nights != null);
   const hasDateRange = d.startDate && d.endDate;
   if (!hasNights && !hasCityNights && !hasDateRange) {
-    gaps.push({
-      field: 'duration',
-      priority: PRIORITY.duration,
-      critical: true,
-      question: 'How many nights total?',
-    });
+    filledFields.add('duration'); // mark as "filled" so it doesn't block — we have defaults
+    if (r.cities.length > 0) {
+      gaps.push({
+        field: 'duration',
+        priority: 3,
+        critical: false,
+        question: `How many nights are you thinking? (I'd suggest ~${r.cities.length * 3} for ${r.cities.length} ${r.cities.length === 1 ? 'city' : 'cities'})`,
+      });
+    }
+  } else {
+    filledFields.add('duration');
   }
 
-  // P3: Route shape (only if exactly 1 city)
-  if (r.cities.length === 1 && !r.routeShape) {
-    gaps.push({
-      field: 'routeShape',
-      priority: PRIORITY.routeShape,
-      critical: false,
-      question: 'Staying in one city, or visiting others too?',
-      options: [
-        { id: 'roundtrip', label: 'Just this city (roundtrip)' },
-        { id: 'multi-city', label: 'Adding more cities' },
-        { id: 'decide-later', label: 'Decide later' },
-      ],
-    });
-  }
-
-  // P4: Dates
+  // ── Important: dates ──────────────────────────────────────
+  // Useful for weather/events, but "flexible" is fine.
   if (!d.startDate && !d.flexibleMonth && !d.flexibility) {
-    gaps.push({
-      field: 'dates',
-      priority: PRIORITY.dates,
-      critical: false,
-      question: 'When are you thinking of going?',
-    });
+    filledFields.add('dates'); // default to "flexible"
+    if (r.cities.length > 0) {
+      gaps.push({
+        field: 'dates',
+        priority: 4,
+        critical: false,
+        question: 'When are you thinking of going?',
+      });
+    }
+  } else {
+    filledFields.add('dates');
   }
 
-  // P5: Transport (only for multi-city)
-  if (r.cities.length >= 2 && !t.preferredMode && t.bookings.length === 0) {
-    gaps.push({
-      field: 'transport',
-      priority: PRIORITY.transport,
-      critical: false,
-      question: 'How do you want to get between cities — train, flight, or mix?',
-      options: [
-        { id: 'train', label: 'Train' },
-        { id: 'flight', label: 'Flight' },
-        { id: 'mixed', label: 'Mix of both' },
-      ],
-    });
-  }
-
-  // P6: Budget
-  if (!b.style && b.total == null) {
-    gaps.push({
-      field: 'budget',
-      priority: PRIORITY.budget,
-      critical: false,
-      question: 'Any budget preference?',
-      options: [
-        { id: 'budget', label: 'Budget-friendly' },
-        { id: 'moderate', label: 'Moderate' },
-        { id: 'premium', label: 'Premium' },
-      ],
-    });
-  }
-
-  // P7: Travelers
-  if (!tv.groupType && tv.count == null) {
-    gaps.push({
-      field: 'travelers',
-      priority: PRIORITY.travelers,
-      critical: false,
-      question: 'Who is going — solo, couple, family, friends?',
-    });
-  }
-
-  // P8: Interests
+  // ── Optional: interests ───────────────────────────────────
+  // Helps with city suggestions and highlights. Default: balanced mix.
   if (p.interests.length === 0) {
     gaps.push({
       field: 'interests',
-      priority: PRIORITY.interests,
+      priority: 5,
       critical: false,
-      question: 'What are you most interested in — culture, food, nature, nightlife?',
+      question: 'What are you into — culture, food, nature, nightlife?',
     });
+  } else {
+    filledFields.add('interests');
   }
 
-  // P9: Accommodation
-  if (!p.accommodationStyle) {
+  // ── Optional: budget ──────────────────────────────────────
+  // Default: moderate. Only ask if it would change recommendations.
+  if (!b.style && b.total == null) {
     gaps.push({
-      field: 'accommodation',
-      priority: PRIORITY.accommodation,
+      field: 'budget',
+      priority: 6,
       critical: false,
-      question: 'Any accommodation preference?',
+      question: 'Any budget preference?',
     });
+  } else {
+    filledFields.add('budget');
+  }
+
+  // ── Optional: travelers ───────────────────────────────────
+  // Only matters for family/accessibility. Default: solo/couple.
+  if (!tv.groupType && tv.count == null) {
+    gaps.push({
+      field: 'travelers',
+      priority: 7,
+      critical: false,
+      question: 'Who is going — solo, couple, family, friends?',
+    });
+  } else {
+    filledFields.add('travelers');
+  }
+
+  // ── Route gaps: unallocated nights ────────────────────────
+  if (r.cities.length >= 2 && d.totalNights) {
+    const allocatedNights = r.cities.reduce((s, c) => s + (c.nights || 0), 0);
+    const unallocated = d.totalNights - allocatedNights;
+    if (unallocated >= 3) {
+      gaps.push({
+        field: 'routeGap',
+        priority: 8,
+        critical: false,
+        question: `You have ${unallocated} unallocated nights. Want suggestions for stops to fill the gap?`,
+      });
+    }
   }
 
   gaps.sort((a, b) => a.priority - b.priority);
 
-  const total = Object.keys(PRIORITY).length;
-  const filled = total - gaps.length;
-  const completeness = Math.round((filled / total) * 100);
+  // Completeness: simple count of filled fields out of the ones we care about
+  const trackedFields = ['cities', 'duration', 'dates', 'interests', 'budget', 'travelers'];
+  const filledCount = trackedFields.filter(f => filledFields.has(f)).length;
+  const completeness = Math.round((filledCount / trackedFields.length) * 100);
 
   return {
     gaps,
     nextQuestion: gaps[0] || null,
     completeness,
-    isReadyToFinalize: gaps.filter(g => g.critical).length === 0 && completeness >= 40,
+    // Ready to generate a framework as soon as we have at least 1 city
+    isReadyToFinalize: r.cities.length > 0,
   };
 }
 
 /**
- * Build compact context string for Claude showing current state + gaps.
+ * Build compact context string for Claude showing current state + defaults.
  */
 export function buildAgentContext(tripState) {
-  const { gaps, completeness, nextQuestion } = analyzeGaps(tripState);
+  const { gaps, completeness } = analyzeGaps(tripState);
+  const defaults = getSmartDefaults(tripState);
   const lines = [];
   const r = tripState.route;
   const d = tripState.dates;
@@ -162,7 +175,7 @@ export function buildAgentContext(tripState) {
   const tv = tripState.travelers;
   const p = tripState.preferences;
 
-  lines.push(`## Trip State (${completeness}% complete)`);
+  lines.push(`## Trip State (${completeness}% specified)`);
 
   // Route
   if (r.cities.length > 0) {
@@ -172,7 +185,8 @@ export function buildAgentContext(tripState) {
       return s;
     }).join(' → ');
     lines.push(`Route: ${routeStr}`);
-    if (r.routeShape) lines.push(`Shape: ${r.routeShape}`);
+  } else {
+    lines.push('Route: not set');
   }
 
   // Dates
@@ -203,15 +217,31 @@ export function buildAgentContext(tripState) {
   if (p.interests.length > 0) lines.push(`Interests: ${p.interests.join(', ')}`);
   if (p.pace) lines.push(`Pace: ${p.pace}`);
 
-  // Gaps
+  // Smart defaults — tell Claude what to assume for anything not specified
   lines.push('');
-  lines.push(`## Missing Info (${gaps.length} gaps)`);
-  if (nextQuestion) {
-    lines.push(`→ NEXT ASK: ${nextQuestion.question}`);
+  lines.push('## Smart Defaults (use these for anything not specified above)');
+  if (!d.totalNights && !d.startDate) {
+    lines.push(`Duration: ~${defaults.totalNights} nights (~${defaults.nightsPerCity} per city)`);
   }
-  gaps.forEach(g => {
-    lines.push(`  [P${g.priority}] ${g.field}: ${g.question}`);
-  });
+  if (!t.preferredMode && t.bookings.length === 0) {
+    lines.push(`Transport: ${defaults.transport} for short routes, flight for 5h+`);
+  }
+  if (!b.style && b.total == null) {
+    lines.push(`Budget: ${defaults.budget}`);
+  }
+  if (p.interests.length === 0) {
+    lines.push(`Interests: ${defaults.interests.join(', ')}`);
+  }
+  lines.push(`Pace: ${p.pace || defaults.pace}`);
+
+  // Remaining gaps — things to weave in naturally
+  if (gaps.length > 0) {
+    lines.push('');
+    lines.push(`## Info to Weave In (${gaps.length} items — do NOT interrogate)`);
+    gaps.forEach(g => {
+      lines.push(`  - ${g.field}: ${g.question}`);
+    });
+  }
 
   return lines.join('\n');
 }

@@ -200,11 +200,8 @@ export default function DayStrip({
 
   return (
     <div>
-      <div className="mb-2 flex items-baseline justify-between px-1">
-        <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#8a8578]">
-          Trip schedule · {days.length} {days.length === 1 ? 'day' : 'days'}
-        </span>
-        {selectionCount > 0 && (
+      {selectionCount > 0 && (
+        <div className="mb-1 flex justify-end px-1">
           <button
             type="button"
             onClick={onClearSelection}
@@ -212,8 +209,8 @@ export default function DayStrip({
           >
             Clear selection
           </button>
-        )}
-      </div>
+        </div>
+      )}
 
       {selectionCount > 0 && onAssignSelectionToCity && (
         <AssignToolbar

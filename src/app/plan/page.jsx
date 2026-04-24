@@ -68,7 +68,7 @@ function PlanContent() {
   };
 
   return (
-    <div className="h-[calc(100vh-56px)] flex flex-col bg-[#faf8f5] overflow-hidden">
+    <div className="fixed inset-0 top-[56px] flex flex-col bg-[#faf8f5] overflow-hidden z-10">
       {/* Top header bar */}
       <div className="flex items-center justify-between px-6 py-3 border-b border-[#e5e0d8] shrink-0">
         <div className="min-w-0">

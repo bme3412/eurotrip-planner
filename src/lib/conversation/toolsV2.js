@@ -125,6 +125,8 @@ const suggest_cities = {
       interests: { type: 'array', items: { type: 'string' } },
       budget: { type: 'string' },
       maxResults: { type: 'number' },
+      gapStart: { type: 'string', description: 'YYYY-MM-DD start of gap period (optional)' },
+      gapEnd: { type: 'string', description: 'YYYY-MM-DD end of gap period (optional)' },
     },
     required: ['fromCityId'],
   },
@@ -272,6 +274,31 @@ const finalize_trip = {
   },
 };
 
+const confirm_changes = {
+  name: 'confirm_changes',
+  description: 'Show proposed changes to the trip and ask the user to confirm before applying. Use when: (1) user changes something previously set, (2) multiple fields change at once, (3) a medium-confidence extraction needs validation.',
+  input_schema: {
+    type: 'object',
+    properties: {
+      changes: {
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            field: { type: 'string', description: 'What is changing (e.g. "end city", "budget", "dates")' },
+            from: { type: 'string', description: 'Previous value (null if new)' },
+            to: { type: 'string', description: 'Proposed new value' },
+            confidence: { type: 'string', enum: ['high', 'medium'], description: 'Extraction confidence' },
+          },
+          required: ['field', 'to'],
+        },
+      },
+      summary: { type: 'string', description: 'One-line summary of the proposed changes' },
+    },
+    required: ['changes', 'summary'],
+  },
+};
+
 // ── EXPORTS ──────────────────────────────────────────────────────
 
 export const TOOLS_V2 = [
@@ -289,6 +316,7 @@ export const TOOLS_V2 = [
   render_options,
   render_date_picker,
   render_nights_allocator,
+  confirm_changes,
   finalize_trip,
 ];
 
@@ -310,5 +338,6 @@ export const UI_TOOLS = new Set([
   'render_options',
   'render_date_picker',
   'render_nights_allocator',
+  'confirm_changes',
   'finalize_trip',
 ]);

@@ -41,7 +41,8 @@ export async function POST(request) {
   }
 
   try {
-    const { messages, tripState: clientTripState, isStart } = await request.json();
+    const { messages, tripState: clientTripState, isStart, recentToolHistory } = await request.json();
+    console.log('[conversation] POST received:', { isStart, messageCount: messages?.length || 0 });
 
     const client = new Anthropic({ apiKey });
 
@@ -49,7 +50,15 @@ export async function POST(request) {
     let tripState = clientTripState || { ...initialTripState };
 
     // Build system prompt with current context + gap analysis
-    const systemPrompt = buildFullPrompt(tripState);
+    let systemPrompt = buildFullPrompt(tripState);
+
+    // Append recent tool history if provided (gives Claude memory of its own tool calls)
+    if (recentToolHistory?.length > 0) {
+      const historyText = recentToolHistory
+        .map(t => `- Called ${t.tool}: ${t.summary}`)
+        .join('\n');
+      systemPrompt += `\n\n## Recent Tool History\nThese tools were called in previous turns:\n${historyText}`;
+    }
 
     // Build messages array
     let apiMessages;
@@ -88,16 +97,18 @@ export async function POST(request) {
         let continueLoop = true;
         let currentMessages = [...mergedMessages];
         let loopCount = 0;
-        const MAX_LOOPS = 5; // Safety limit
+        const MAX_LOOPS = 8;
 
         while (continueLoop && loopCount < MAX_LOOPS) {
           continueLoop = false;
           loopCount++;
 
+          console.log(`[conversation] Loop ${loopCount}: calling Anthropic (${currentMessages.length} messages)`);
+
           // Use Anthropic SDK streaming so text deltas reach the client as they're produced
           const streamResp = client.messages.stream({
             model: 'claude-sonnet-4-20250514',
-            max_tokens: 1024,
+            max_tokens: 4096,
             system: systemPrompt,
             messages: currentMessages,
             tools: TOOLS_V2,
@@ -108,15 +119,18 @@ export async function POST(request) {
           });
 
           const response = await streamResp.finalMessage();
+          const blockTypes = response.content.map(b => b.type === 'tool_use' ? `tool_use(${b.name})` : b.type);
+          console.log(`[conversation] Loop ${loopCount}: stop_reason=${response.stop_reason}, blocks=[${blockTypes.join(', ')}]`);
 
-          // Text was already streamed incrementally above via 'content_delta'.
-          // Process tool calls and continuation logic from the final message.
+          // --- PASS 1: Execute tools and collect all tool results ---
+          const toolResults = [];
+          let hasDataTools = false;
+
           for (const block of response.content) {
             if (block.type === 'text') {
               // no-op: already streamed via content_delta
-
             } else if (block.type === 'tool_use') {
-              // Send tool call to client for UI tools
+              // Send every tool call to client (for UI rendering or informational)
               send({
                 type: 'tool_use',
                 id: block.id,
@@ -124,8 +138,8 @@ export async function POST(request) {
                 input: block.input,
               });
 
-              // Execute server-side for data tools
               if (DATA_TOOLS.has(block.name)) {
+                hasDataTools = true;
                 const result = await executeToolCall(block.name, block.input, tripState);
 
                 // If extract_trip_data, update the server-side trip state and send to client
@@ -152,33 +166,43 @@ export async function POST(request) {
                   send({ type: 'state_update', state: tripState });
                 }
 
-                // Continue the loop with tool result so Claude can respond to the data
-                currentMessages.push({
-                  role: 'assistant',
-                  content: response.content,
+                toolResults.push({
+                  type: 'tool_result',
+                  tool_use_id: block.id,
+                  content: JSON.stringify(result || {}),
                 });
-                currentMessages.push({
-                  role: 'user',
-                  content: [{
-                    type: 'tool_result',
-                    tool_use_id: block.id,
-                    content: JSON.stringify(result || {}),
-                  }],
-                });
-
-                continueLoop = true;
 
               } else if (UI_TOOLS.has(block.name)) {
-                // UI tools: already sent to client via SSE above.
-                // Don't continue the agentic loop — Claude's text + UI tool
-                // in the same response are both sent to the client.
+                // UI tools pass through to client. Add a synthetic tool_result
+                // so the message history stays valid when mixed with data tools.
+                toolResults.push({
+                  type: 'tool_result',
+                  tool_use_id: block.id,
+                  content: JSON.stringify({ rendered: true }),
+                });
               }
             }
           }
 
-          // If stop reason is end_turn with no tool use, we're done
-          if (response.stop_reason === 'end_turn') {
-            continueLoop = false;
+          // --- PASS 2: If tools were called and stop_reason is tool_use, continue the loop ---
+          // Claude needs to see tool results before it can write follow-up text.
+          // This applies to BOTH data tools and UI tools.
+          if (toolResults.length > 0 && response.stop_reason === 'tool_use') {
+            currentMessages.push({
+              role: 'assistant',
+              content: response.content,
+            });
+            currentMessages.push({
+              role: 'user',
+              content: toolResults,
+            });
+
+            // Rebuild system prompt with updated trip state (gap analysis may have changed)
+            if (hasDataTools) {
+              systemPrompt = buildFullPrompt(tripState);
+            }
+
+            continueLoop = true;
           }
         }
 

@@ -23,6 +23,7 @@ export default function ThreeColumnPlanner({ initialUserMessage = null }) {
     hasStarted,
     isFinalized,
     gaps,
+    generationPhase,
     sendMessage,
     startConversation,
     handleOptionSelect,
@@ -81,37 +82,43 @@ export default function ThreeColumnPlanner({ initialUserMessage = null }) {
 
   return (
     <div className="flex h-full min-h-0 flex-col">
-      <TripScheduleHeader
-        tripState={tripState}
-        setTripDates={setTripDates}
-        assignDaysToCity={assignDaysToCity}
-        unassignDays={unassignDays}
-        setCityNights={setCityNights}
-        addCity={addCity}
-      />
-
-      <div className="min-h-0 flex-1 grid grid-cols-1 lg:grid-cols-[minmax(360px,2fr)_minmax(360px,3fr)]">
-        <PlannerColumn
-          messages={messages}
-          isStreaming={isStreaming}
-          pendingInput={pendingInput}
-          trip={legacyTrip}
+      {/* Only show schedule header once cities are added */}
+      {tripHasCities && (
+        <TripScheduleHeader
           tripState={tripState}
-          isFinalized={isFinalized}
-          gaps={gaps}
-          error={error}
-          onSendMessage={handleSendMessage}
-          onOptionSelect={handleOption}
-          onCitySelect={handleCity}
-          onDaysChange={handleDaysChange}
-          onDateSelect={handleDateSelect}
-          onDismissError={dismissError}
-          onRetry={() => sendMessage('Please continue.')}
-          onParsedItineraryConfirm={() => {}}
-          onParsedItineraryRefine={(summary) => sendMessage(summary)}
+          setTripDates={setTripDates}
+          assignDaysToCity={assignDaysToCity}
+          unassignDays={unassignDays}
+          setCityNights={setCityNights}
+          addCity={addCity}
         />
+      )}
 
-        <div className="hidden min-h-0 flex-col lg:flex">
+      <div className="min-h-0 flex-1 flex overflow-hidden">
+        <div className="flex-[3] min-w-0 min-h-0 overflow-hidden">
+          <PlannerColumn
+            messages={messages}
+            isStreaming={isStreaming}
+            pendingInput={pendingInput}
+            trip={legacyTrip}
+            tripState={tripState}
+            isFinalized={isFinalized}
+            gaps={gaps}
+            error={error}
+            generationPhase={generationPhase}
+            onSendMessage={handleSendMessage}
+            onOptionSelect={handleOption}
+            onCitySelect={handleCity}
+            onDaysChange={handleDaysChange}
+            onDateSelect={handleDateSelect}
+            onDismissError={dismissError}
+            onRetry={() => sendMessage('Please continue.')}
+            onParsedItineraryConfirm={() => {}}
+            onParsedItineraryRefine={(summary) => sendMessage(summary)}
+          />
+        </div>
+
+        <div className="hidden flex-[2] min-w-0 min-h-0 flex-col lg:flex">
           <RouteMapColumn trip={legacyTrip} />
         </div>
       </div>

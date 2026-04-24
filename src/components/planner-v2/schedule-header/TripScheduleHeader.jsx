@@ -171,9 +171,9 @@ export default function TripScheduleHeader({
   }
 
   return (
-    <div className="z-20 max-h-[200px] shrink-0 overflow-y-auto border-b border-[#e5e0d8] bg-[#faf8f5]/95 backdrop-blur-sm">
-      <div className="space-y-2 px-4 py-2.5">
-        <div className="flex max-w-full flex-nowrap items-stretch gap-2 overflow-x-auto pb-1">
+    <div className="z-20 max-h-[160px] shrink-0 overflow-y-auto border-b border-[#e5e0d8] bg-[#faf8f5]/95 backdrop-blur-sm">
+      <div className="space-y-1.5 px-3 py-2">
+        <div className="flex max-w-full flex-nowrap items-stretch gap-1.5 overflow-x-auto pb-0.5">
           <DateRangeChip
             startDate={tripState?.dates?.startDate}
             endDate={tripState?.dates?.endDate}
@@ -229,16 +229,7 @@ export default function TripScheduleHeader({
           />
         )}
 
-        {orderedCities.length > 0 && (
-          <Legend
-            cities={orderedCities.map((c) => ({
-              id: c.id || c.name?.toLowerCase(),
-              name: c.name,
-              color: cityColors[c.id || c.name?.toLowerCase()],
-            }))}
-            hasGaps={hasGaps}
-          />
-        )}
+        {/* Legend removed — city colors are visible on the day chips */}
       </div>
     </div>
   );

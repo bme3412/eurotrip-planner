@@ -1,45 +1,73 @@
 'use client';
 
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 import { AlertTriangle, RotateCcw, X } from 'lucide-react';
 import CompactMessageList from './CompactMessageList';
 import CompactChatInput from './CompactChatInput';
-import SuggestedCityGrid from './SuggestedCityGrid';
 import PlannerProgressBar from './PlannerProgressBar';
-import citiesData from '@/generated/cities.json';
 
-// Build short, contextual quick-reply suggestions from the gap analysis.
-function deriveQuickReplies(gaps, trip) {
+// Build contextual quick-reply suggestions from gap analysis + trip state.
+function deriveQuickReplies(gaps, trip, tripState) {
   const next = gaps?.nextQuestion;
   if (!next) return [];
+
+  const cities = tripState?.route?.cities || [];
+  const cityCount = cities.length;
+
   switch (next.field) {
-    case 'cities':
-      return [
-        { id: 'paris-rome', label: 'Paris and Rome' },
-        { id: 'classic', label: 'Classic European tour' },
-        { id: 'surprise', label: 'Surprise me' },
+    case 'cities': {
+      const replies = [
+        { id: 'surprise', label: 'Surprise me', emoji: '\uD83C\uDFB2' },
+        { id: 'classic', label: 'Classic European tour', emoji: '\uD83C\uDFDB\uFE0F' },
       ];
-    case 'duration':
+      if (cityCount === 0) {
+        replies.push({ id: 'loop', label: 'One-city deep dive', emoji: '\uD83D\uDCCD' });
+      }
+      return replies;
+    }
+    case 'duration': {
+      if (cityCount <= 1) {
+        return [
+          { id: '3n', label: '3 nights' },
+          { id: '5n', label: '5 nights' },
+          { id: '7n', label: '7 nights' },
+        ];
+      }
+      const suggested = Math.max(7, cityCount * 3);
       return [
-        { id: '7n', label: '7 nights' },
+        { id: 'suggested', label: `${suggested} nights` },
         { id: '10n', label: '10 nights' },
         { id: '14n', label: '14 nights' },
       ];
+    }
     case 'routeShape':
       return next.options || [];
     case 'dates': {
-      const fall = `September ${new Date().getFullYear() + 1}`;
-      const spring = `May ${new Date().getFullYear() + 1}`;
-      return [
-        { id: 'fall', label: fall },
-        { id: 'spring', label: spring },
-        { id: 'flex', label: "I'm flexible" },
-      ];
+      const now = new Date();
+      const month = now.getMonth();
+      const replies = [];
+      if (month >= 9 || month <= 2) {
+        // Winter: suggest spring
+        replies.push({ id: 'spring', label: `Spring ${now.getFullYear() + (month <= 2 ? 0 : 1)}` });
+      } else {
+        // Spring/Summer: suggest fall
+        replies.push({ id: 'fall', label: `Fall ${now.getFullYear()}` });
+      }
+      replies.push({ id: 'flex', label: "I'm flexible" });
+      return replies;
     }
     case 'transport':
-      return next.options || [];
+      return [
+        { id: 'train', label: 'Train' },
+        { id: 'flight', label: 'Flight' },
+        { id: 'mix', label: 'Mix of both' },
+      ];
     case 'budget':
-      return next.options || [];
+      return [
+        { id: 'budget', label: 'Budget' },
+        { id: 'moderate', label: 'Moderate' },
+        { id: 'premium', label: 'Premium' },
+      ];
     case 'travelers':
       return [
         { id: 'solo', label: 'Solo' },
@@ -58,6 +86,29 @@ function deriveQuickReplies(gaps, trip) {
   }
 }
 
+// Context-aware placeholder based on gap analysis.
+function derivePlaceholder(gaps, isStreaming, isFinalized, generationPhase) {
+  if (isStreaming) return 'Thinking...';
+  if (generationPhase === 'complete') return 'Want to make changes?';
+  if (isFinalized) return 'Trip finalized';
+
+  const next = gaps?.nextQuestion;
+  if (!next) return 'Anything else to add?';
+
+  const map = {
+    cities: 'Type a city name, like "Paris" or "Barcelona"...',
+    duration: 'How many nights? e.g. "10 nights"...',
+    dates: 'When are you going? e.g. "September 2027"...',
+    routeShape: 'One city or multi-city trip?',
+    transport: 'Train, flight, or a mix?',
+    budget: "What's your budget style?",
+    travelers: "Who's coming along?",
+    interests: 'What do you love? Food, art, nature...',
+    accommodation: 'Hotels, Airbnb, hostels?',
+  };
+  return map[next.field] || 'Tell me more about your trip...';
+}
+
 export default function PlannerColumn({
   messages,
   isStreaming,
@@ -67,6 +118,7 @@ export default function PlannerColumn({
   isFinalized,
   gaps,
   error,
+  generationPhase,
   onSendMessage,
   onOptionSelect,
   onCitySelect,
@@ -77,24 +129,17 @@ export default function PlannerColumn({
   onParsedItineraryConfirm,
   onParsedItineraryRefine,
 }) {
-  const showSuggestions = !trip.startCity && !isStreaming && messages.length > 0 && !pendingInput;
+  const scrollContainerRef = useRef(null);
 
   const quickReplies = useMemo(
-    () => (isFinalized || isStreaming || pendingInput ? [] : deriveQuickReplies(gaps, trip)),
-    [gaps, trip, isFinalized, isStreaming, pendingInput]
+    () => (isFinalized || isStreaming || pendingInput ? [] : deriveQuickReplies(gaps, trip, tripState)),
+    [gaps, trip, tripState, isFinalized, isStreaming, pendingInput]
   );
 
-  const handleSurprise = useCallback(() => {
-    onSendMessage('Surprise me with a great European trip!');
-  }, [onSendMessage]);
-
-  const handleLoop = useCallback(() => {
-    onSendMessage('I want to stay in one city (a loop trip)');
-  }, [onSendMessage]);
-
-  const handleCityPick = useCallback((city) => {
-    onCitySelect(city, 'start');
-  }, [onCitySelect]);
+  const placeholder = useMemo(
+    () => derivePlaceholder(gaps, isStreaming, isFinalized, generationPhase),
+    [gaps, isStreaming, isFinalized, generationPhase]
+  );
 
   const handleQuickReply = useCallback(
     (option) => {
@@ -106,16 +151,11 @@ export default function PlannerColumn({
 
   return (
     <div className="flex flex-col h-full bg-white border-r border-[#e5e0d8]">
-      {/* Column header */}
-      <div className="px-4 py-3 border-b border-[#e5e0d8] shrink-0">
-        <span className="text-[9px] uppercase tracking-[0.15em] text-[#8a8578] font-medium">
-          01 &nbsp;Planner&nbsp;
-          <span className="text-emerald-500">LIVE</span>
-        </span>
-      </div>
+      {/* Thin top border — no label needed */}
+      <div className="border-b border-[#e5e0d8] shrink-0" />
 
-      {/* Messages + suggestions */}
-      <div className="flex-1 overflow-y-auto min-h-0">
+      {/* Messages + suggestions — this div is the scroll container */}
+      <div ref={scrollContainerRef} className="flex-1 overflow-y-auto min-h-0">
         <CompactMessageList
           messages={messages}
           isStreaming={isStreaming}
@@ -127,19 +167,10 @@ export default function PlannerColumn({
           onDateSelect={onDateSelect}
           onParsedItineraryConfirm={onParsedItineraryConfirm}
           onParsedItineraryRefine={onParsedItineraryRefine}
+          scrollContainerRef={scrollContainerRef}
         />
 
-        {showSuggestions && (
-          <div className="px-3 pb-3">
-            <SuggestedCityGrid
-              citiesData={citiesData}
-              onSelect={handleCityPick}
-              label="Final city"
-            />
-          </div>
-        )}
-
-        {/* Inline error with retry — keeps users unstuck without reload */}
+        {/* Inline error with retry */}
         {error && (
           <div className="px-3 pb-3">
             <div className="rounded-xl border border-red-200 bg-red-50 px-3 py-2.5 flex items-start gap-2">
@@ -174,54 +205,38 @@ export default function PlannerColumn({
             </div>
           </div>
         )}
+
+        {/* Quick replies — inline after messages so they scroll with the conversation */}
+        {quickReplies.length > 0 && (
+          <div className="px-3 pb-2">
+            <div className="flex flex-wrap gap-1.5">
+              {quickReplies.map((opt) => (
+                <button
+                  key={opt.id}
+                  onClick={() => handleQuickReply(opt)}
+                  className="px-3 py-1.5 text-[11px] font-medium text-[#6a6459] bg-[#faf6eb] rounded-full border border-[#e5e0d8] hover:bg-[#f5ecd8] hover:border-[#c9a227]/40 transition-all active:scale-95"
+                >
+                  {opt.emoji && <span className="mr-1">{opt.emoji}</span>}
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Gap-driven quick replies (only when no other UI is competing) */}
-      {quickReplies.length > 0 && (
-        <div className="px-3 pt-2 flex flex-wrap gap-1.5 shrink-0 border-t border-[#e5e0d8]/50">
-          {quickReplies.map((opt) => (
-            <button
-              key={opt.id}
-              onClick={() => handleQuickReply(opt)}
-              className="px-3 py-1.5 text-[11px] font-medium text-[#6a6459] bg-[#faf6eb] rounded-full border border-[#e5e0d8] hover:bg-[#f5ecd8] transition-colors"
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {/* Loop / surprise shortcuts */}
-      {!isFinalized && (
-        <div className="px-3 py-2 flex gap-2 shrink-0">
-          <button
-            onClick={handleLoop}
-            disabled={isStreaming}
-            className="px-3 py-1.5 text-[11px] font-medium text-[#6a6459] bg-[#f5f0e8] rounded-full border border-[#e5e0d8] hover:bg-[#ebe6de] transition-colors disabled:opacity-40"
-          >
-            Same city (a loop)
-          </button>
-          <button
-            onClick={handleSurprise}
-            disabled={isStreaming}
-            className="px-3 py-1.5 text-[11px] font-medium text-[#6a6459] bg-[#f5f0e8] rounded-full border border-[#e5e0d8] hover:bg-[#ebe6de] transition-colors disabled:opacity-40"
-          >
-            Surprise me
-          </button>
-        </div>
-      )}
-
-      {/* Chat input */}
-      {!isFinalized && (
+      {/* Chat input — visible unless actively generating */}
+      {generationPhase !== 'generating' && (
         <div className="px-3 py-3 shrink-0">
           <CompactChatInput
             onSend={onSendMessage}
             disabled={isStreaming}
+            placeholder={placeholder}
           />
         </div>
       )}
 
-      <PlannerProgressBar trip={trip} gaps={gaps} />
+      <PlannerProgressBar gaps={gaps} />
     </div>
   );
 }
