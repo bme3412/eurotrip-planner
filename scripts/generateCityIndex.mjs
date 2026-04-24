@@ -56,13 +56,18 @@ async function loadMonthlyData(baseDir) {
   }
 }
 
+// Toggle to omit monthly data from the consolidated index. Set
+// EUROTRIP_INDEX_INCLUDE_MONTHLY=false to drop it (~35% smaller index.json
+// for cities like Paris). Monthly data still lives in `monthly/index.json`
+// and is fetched lazily by useMonthlyData when needed.
+const includeMonthly = process.env.EUROTRIP_INDEX_INCLUDE_MONTHLY !== 'false';
+
 async function buildCityIndex(country, cityDir) {
   const baseDir = path.join(dataRoot, country, cityDir);
   if (!(await pathExists(baseDir))) return false;
   const citySlug = cityDir.toLowerCase();
 
-  // Load all data types in parallel for faster builds
-  const [overview, attractions, neighborhoods, culinaryGuide, connections, seasonalActivities, summary, visitCalendar, monthly] = await Promise.all([
+  const fieldLoaders = [
     readWithFallbacks(baseDir, citySlug, [
       `${citySlug}-overview.json`, `${citySlug}_overview.json`, 'overview.json', 'city_overview.json'
     ]),
@@ -87,8 +92,10 @@ async function buildCityIndex(country, cityDir) {
     readWithFallbacks(baseDir, citySlug, [
       `${citySlug}-visit-calendar.json`, 'visit-calendar.json'
     ]),
-    loadMonthlyData(baseDir)
-  ]);
+    includeMonthly ? loadMonthlyData(baseDir) : Promise.resolve(null),
+  ];
+
+  const [overview, attractions, neighborhoods, culinaryGuide, connections, seasonalActivities, summary, visitCalendar, monthly] = await Promise.all(fieldLoaders);
 
   const indexObj = {
     city: citySlug,
@@ -101,7 +108,9 @@ async function buildCityIndex(country, cityDir) {
     seasonalActivities,
     summary,
     visitCalendar,
-    monthly
+    // Sentinel so the client knows to lazy-fetch instead of treating absence as "no data"
+    monthly: includeMonthly ? monthly : null,
+    monthlyLazy: !includeMonthly,
   };
 
   const outPath = path.join(baseDir, 'index.json');
