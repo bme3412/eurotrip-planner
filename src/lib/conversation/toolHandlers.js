@@ -28,8 +28,81 @@ function getCityLookup() {
   for (const city of cities) {
     _cityLookup.set(city.id, city);
     _cityLookup.set(city.name.toLowerCase(), city);
+    _cityLookup.set(normalizePlace(city.name), city);
   }
   return _cityLookup;
+}
+
+const COUNTRY_OR_REGION_TERMS = new Set([
+  'albania',
+  'romania',
+  'france',
+  'italy',
+  'spain',
+  'portugal',
+  'germany',
+  'austria',
+  'switzerland',
+  'netherlands',
+  'belgium',
+  'greece',
+  'croatia',
+  'slovenia',
+  'serbia',
+  'bosnia',
+  'bosnia and herzegovina',
+  'montenegro',
+  'balkans',
+  'the balkans',
+  'scandinavia',
+  'central europe',
+  'eastern europe',
+  'western europe',
+  'southern europe',
+  'northern europe',
+]);
+
+function normalizePlace(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim();
+}
+
+function preprocessLocationIntent(input, tripState) {
+  const lookup = getCityLookup();
+  const next = JSON.parse(JSON.stringify(input || {}));
+  const targetRegions = [];
+
+  if (next.cities?.length) {
+    next.cities = next.cities.filter((city) => {
+      const key = normalizePlace(city.name);
+      if (!key) return false;
+      const resolvedCity = lookup.get(key);
+      const alreadyCommitted = (tripState?.route?.cities || []).some((existing) =>
+        normalizePlace(existing.name) === key || normalizePlace(existing.id) === key
+      );
+      if (resolvedCity || alreadyCommitted) return true;
+
+      if (COUNTRY_OR_REGION_TERMS.has(key)) {
+        targetRegions.push(city.name);
+        return false;
+      }
+
+      return true;
+    });
+  }
+
+  if (targetRegions.length > 0) {
+    next.targetRegions = [...(next.targetRegions || []), ...targetRegions];
+    next.notes = [
+      ...(next.notes || []),
+      `Country/region-level destination intent: ${targetRegions.join(', ')}. Resolve into specific cities before committing route stops.`,
+    ];
+  }
+
+  return next;
 }
 
 /**
@@ -37,14 +110,16 @@ function getCityLookup() {
  * Merges extracted data into trip state and returns the updated state.
  */
 export function handleExtractTripData(input, tripState) {
-  const newState = mergeTripData(tripState, input);
+  const normalizedInput = preprocessLocationIntent(input, tripState);
+  const newState = mergeTripData(tripState, normalizedInput);
 
   // Auto-resolve city names to canonical IDs, coordinates, and country.
   // This eliminates the need for a separate resolve_cities call.
   const lookup = getCityLookup();
-  for (const city of newState.route.cities) {
+  const unresolvedTargets = [];
+  newState.route.cities = newState.route.cities.filter((city) => {
     if (!city.id && city.name) {
-      const match = lookup.get(city.name.toLowerCase().trim());
+      const match = lookup.get(normalizePlace(city.name));
       if (match) {
         city.id = match.id;
         city.country = match.country;
@@ -52,9 +127,21 @@ export function handleExtractTripData(input, tripState) {
         city.longitude = match.longitude;
       }
     }
+    if (!city.id && COUNTRY_OR_REGION_TERMS.has(normalizePlace(city.name))) {
+      unresolvedTargets.push(city.name);
+      return false;
+    }
+    return true;
+  });
+
+  if (unresolvedTargets.length > 0) {
+    newState.brief ||= {};
+    newState.brief.targetRegions = [
+      ...new Set([...(newState.brief.targetRegions || []), ...unresolvedTargets]),
+    ];
   }
 
-  return { updatedState: newState, extracted: input };
+  return { updatedState: newState, extracted: normalizedInput };
 }
 
 /**

@@ -106,18 +106,25 @@ export function useDirectManipulation({ tripStateRef, setTripState, postSystemEv
   );
 
   const addCity = useCallback(
-    ({ name, country = null } = {}, { notify = true } = {}) => {
+    ({ name, country = null, id = null, latitude = null, longitude = null } = {}, { notify = true } = {}) => {
       if (!name?.trim()) return null;
       const cleanName = name.trim();
       const before = tripStateRef.current;
       const next = mergeTripData(before, {
-        cities: [{ name: cleanName, country, role: 'stop', nights: 0 }],
+        cities: [{ name: cleanName, country, id, latitude, longitude, role: 'stop', nights: 0 }],
       });
       // Ensure the new city has an id we can address it by.
       const created = next.route.cities.find(
-        (c) => (c.id || c.name?.toLowerCase()) === cleanName.toLowerCase()
+        (c) =>
+          (id && c.id === id) ||
+          (c.id || c.name?.toLowerCase()) === cleanName.toLowerCase()
       );
-      if (created && !created.id) created.id = cleanName.toLowerCase();
+      if (created) {
+        if (!created.id) created.id = id || cleanName.toLowerCase();
+        if (!created.country && country) created.country = country;
+        if (!created.latitude && latitude) created.latitude = latitude;
+        if (!created.longitude && longitude) created.longitude = longitude;
+      }
       setTripState(next);
       if (notify) postSystemEvent(`You added ${cleanName} to the route.`);
       return created;

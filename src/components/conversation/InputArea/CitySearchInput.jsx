@@ -96,11 +96,25 @@ export default function CitySearchInput({
     }
   }, [highlightIndex, isOpen]);
 
+  const normalizedPurpose = {
+    add_city: 'stop',
+    replace_city: 'stop',
+    suggest_stops: 'stop',
+    city: 'stop',
+  }[purpose] || purpose || 'stop';
+
+  const suggestionNames = suggestions
+    .map((suggestion) => (
+      typeof suggestion === 'string' ? suggestion : suggestion?.name
+    ))
+    .filter(Boolean);
+
   const purposeText = {
     start: 'starting city',
     end: 'ending city',
     stop: 'city to visit',
   };
+  const placeholderText = purposeText[normalizedPurpose] || 'city to visit';
 
   return (
     <div className="relative">
@@ -117,16 +131,16 @@ export default function CitySearchInput({
           }}
           onFocus={() => setIsOpen(true)}
           onKeyDown={handleKeyDown}
-          placeholder={`Search for your ${purposeText[purpose]}...`}
+          placeholder={`Search for your ${placeholderText}...`}
           className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-[15px] placeholder-slate-400 focus:outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 transition-all"
         />
       </div>
 
       {/* Quick suggestions */}
-      {suggestions.length > 0 && !query && (
+      {suggestionNames.length > 0 && !query && (
         <div className="mt-2 flex flex-wrap gap-2">
           <span className="text-xs text-slate-500">Popular:</span>
-          {suggestions.map((cityName) => {
+          {suggestionNames.map((cityName) => {
             const city = citiesData.find(c => c.name === cityName);
             if (!city) return null;
 

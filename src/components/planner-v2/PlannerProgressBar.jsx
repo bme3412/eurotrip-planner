@@ -1,48 +1,61 @@
 'use client';
 
-const CATEGORIES = [
-  { id: 'cities', label: 'Cities' },
-  { id: 'duration', label: 'Duration' },
-  { id: 'dates', label: 'Dates' },
-  { id: 'budget', label: 'Budget' },
-  { id: 'interests', label: 'Interests' },
-];
+const STATUS_LABELS = {
+  needs_anchor: 'Needs anchor',
+  draft_with_assumptions: 'Draftable',
+  ready: 'Ready',
+};
 
-export default function PlannerProgressBar({ gaps }) {
-  const completeness = gaps?.completeness ?? 0;
-  const openGaps = gaps?.gaps || [];
-  const hardFilled = new Set(gaps?.hardFilled || []);
+function collectBriefChips(gaps) {
+  const intake = gaps?.intake || {};
+  const chips = [];
+
+  if (intake.routeAnchors?.status === 'confirmed') {
+    chips.push({ id: 'route', label: intake.routeAnchors.summary });
+  }
+  if (intake.timeEnvelope?.status === 'confirmed') {
+    chips.push({ id: 'time', label: intake.timeEnvelope.summary });
+  } else if (intake.timeEnvelope?.status === 'assumed') {
+    chips.push({ id: 'time', label: intake.timeEnvelope.summary, assumed: true });
+  }
+  if (intake.tripIntent?.status === 'confirmed') {
+    chips.push({ id: 'intent', label: intake.tripIntent.summary });
+  }
+  if (intake.negativeConstraints?.status === 'confirmed') {
+    chips.push({ id: 'constraints', label: intake.negativeConstraints.summary });
+  }
+  if (intake.preferenceSignals?.status === 'assumed') {
+    chips.push({ id: 'prefs', label: intake.preferenceSignals.summary, assumed: true });
+  }
+
+  return chips.slice(0, 4);
+}
+
+export default function PlannerProgressBar({ gaps, interaction }) {
+  const nextMove = gaps?.nextMove || gaps?.nextQuestion;
+  const draftReadiness = gaps?.draftReadiness || 'needs_anchor';
+  const status = interaction?.copy?.status || STATUS_LABELS[draftReadiness] || 'Working brief';
+  const nextLabel = interaction?.copy?.nextLabel || nextMove?.label;
+  const chips = collectBriefChips(gaps);
+
+  if (interaction && !interaction.showProgress) return null;
 
   return (
-    <div className="px-3 py-1.5 border-t border-[#e5e0d8] bg-white/50 shrink-0 flex items-center gap-2">
-      <div
-        className="flex-1 h-1 bg-[#e5e0d8] rounded-full overflow-hidden"
-        role="progressbar"
-        aria-valuenow={completeness}
-        aria-valuemin={0}
-        aria-valuemax={100}
-        aria-label={`Trip framework ${completeness}% complete`}
-      >
-        <div
-          className="h-full bg-[#2a2520] rounded-full transition-all duration-500"
-          style={{ width: `${completeness}%` }}
-        />
-      </div>
-      <div className="flex items-center gap-1.5 shrink-0">
-        {CATEGORIES.map((cat) => {
-          const hasOpenGap = openGaps.some((g) => g.field === cat.id);
-          const done = hardFilled.has(cat.id) && !hasOpenGap;
-          return (
-            <div
-              key={cat.id}
-              title={`${cat.label}: ${done ? 'done' : 'pending'}`}
-              aria-label={`${cat.label}: ${done ? 'done' : 'pending'}`}
-              className={`w-1.5 h-1.5 rounded-full transition-colors ${
-                done ? 'bg-[#2a2520]' : 'bg-[#d5d0c8]'
-              }`}
-            />
-          );
-        })}
+    <div className="px-3 py-1.5 border-t border-[#e5e0d8] bg-white/80 shrink-0">
+      <div className="flex items-center gap-2 min-w-0 overflow-hidden">
+        <span className="shrink-0 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#8a8578]">
+          {status}
+        </span>
+        {nextLabel && (
+          <span className="min-w-0 truncate text-[11px] text-[#6a6459]">
+            Next: {nextLabel}
+          </span>
+        )}
+        {chips.length > 0 && (
+          <span className="hidden md:inline min-w-0 truncate text-[10px] text-[#8a8578]">
+            · {chips.map((chip) => `${chip.assumed ? 'assume ' : ''}${chip.label}`).join(' · ')}
+          </span>
+        )}
       </div>
     </div>
   );

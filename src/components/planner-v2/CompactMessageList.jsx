@@ -143,6 +143,7 @@ export default function CompactMessageList({
   messages,
   isStreaming,
   pendingInput,
+  interaction,
   trip,
   onOptionSelect,
   onCitySelect,
@@ -188,10 +189,12 @@ export default function CompactMessageList({
 
   const renderPendingInput = () => {
     if (!pendingInput) return null;
+    const activeWidget = interaction?.activeWidget || 'none';
 
     switch (pendingInput.type) {
       case 'render_options':
       case 'show_options':
+        if (activeWidget !== 'route_options') return null;
         return (
           <PlannerOptions
             options={pendingInput.data.options}
@@ -200,11 +203,12 @@ export default function CompactMessageList({
         );
       case 'render_city_picker':
       case 'show_city_search':
+        if (activeWidget !== 'city_picker') return null;
         return (
           <div className="py-1">
             <CitySearchInput
-              purpose={pendingInput.data.purpose}
-              suggestions={pendingInput.data.suggestions}
+              purpose={pendingInput.data?.purpose || 'stop'}
+              suggestions={pendingInput.data?.suggestions || []}
               onSelect={onCitySelect}
             />
           </div>
@@ -215,15 +219,18 @@ export default function CompactMessageList({
         );
       case 'render_nights_allocator':
       case 'show_days_allocation':
+        if (activeWidget !== 'night_allocator') return null;
         return (
           <HeaderHint label="Use the +/- nights buttons in the schedule header above to allocate days." />
         );
       case 'render_date_picker':
       case 'show_date_picker':
+        if (activeWidget !== 'date_picker') return null;
         return (
           <HeaderHint label="Pick your dates in the trip schedule header above, or tell me when you want to travel." />
         );
       case 'show_route_summary':
+        if (activeWidget !== 'route_review') return null;
         return (
           <div className="py-1">
             <RouteSummaryWithData
@@ -237,6 +244,7 @@ export default function CompactMessageList({
           </div>
         );
       case 'parse_itinerary':
+        if (activeWidget !== 'route_review') return null;
         return (
           <div className="py-1">
             <ParsedItineraryCard
@@ -247,6 +255,7 @@ export default function CompactMessageList({
           </div>
         );
       case 'confirm_changes':
+        if (activeWidget !== 'route_review') return null;
         return (
           <div className="py-1 space-y-2">
             <div className="px-3 py-2.5 rounded-xl border border-amber-200 bg-amber-50">
@@ -278,6 +287,7 @@ export default function CompactMessageList({
           </div>
         );
       case 'render_trip_card':
+        if (activeWidget !== 'route_review') return null;
         return (
           <div className="py-1 px-3 rounded-xl border border-[#e5e0d8] bg-[#faf8f5] text-[12px] text-[#4a4540]">
             <p className="font-medium text-[#2a2520] mb-1">Trip updated</p>

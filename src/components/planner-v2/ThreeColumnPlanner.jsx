@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import PlannerColumn from './PlannerColumn';
 import RouteMapColumn from './RouteMapColumn';
 import TripScheduleHeader from './schedule-header/TripScheduleHeader';
 import MobileDrawer, { MobileMapButton } from '../conversation/MobileDrawer';
 import { useTripPlannerAgent } from '@/hooks/useTripPlannerAgent';
+import { derivePlannerInteraction } from '@/lib/conversation/plannerInteraction';
 
 /**
  * Agentic /plan layout: compact TripScheduleHeader + chat + map.
@@ -37,6 +38,18 @@ export default function ThreeColumnPlanner({ initialUserMessage = null }) {
   } = useTripPlannerAgent();
 
   const tripHasCities = tripState.route.cities.length > 0;
+  const interaction = useMemo(
+    () => derivePlannerInteraction({
+      tripState,
+      gaps,
+      pendingInput,
+      messages,
+      generationPhase,
+      isStreaming,
+      isFinalized,
+    }),
+    [gaps, generationPhase, isFinalized, isStreaming, messages, pendingInput, tripState]
+  );
 
   useEffect(() => {
     if (!hasStarted) {
@@ -98,6 +111,7 @@ export default function ThreeColumnPlanner({ initialUserMessage = null }) {
             messages={messages}
             isStreaming={isStreaming}
             pendingInput={pendingInput}
+            interaction={interaction}
             trip={legacyTrip}
             tripState={tripState}
             isFinalized={isFinalized}
@@ -113,11 +127,13 @@ export default function ThreeColumnPlanner({ initialUserMessage = null }) {
               sendMessage('Yes, apply that itinerary.')
             }
             onParsedItineraryRefine={(summary) => sendMessage(summary)}
+            assignDaysToCity={assignDaysToCity}
+            addCity={addCity}
           />
         </div>
 
         <div className="hidden flex-[2] min-w-0 min-h-0 flex-col lg:flex">
-          <RouteMapColumn trip={legacyTrip} />
+          <RouteMapColumn tripState={tripState} interaction={interaction} />
         </div>
       </div>
 
@@ -130,7 +146,7 @@ export default function ThreeColumnPlanner({ initialUserMessage = null }) {
           isOpen={isMobileDrawerOpen}
           onClose={() => setIsMobileDrawerOpen(false)}
         >
-          <RouteMapColumn trip={legacyTrip} />
+          <RouteMapColumn tripState={tripState} interaction={interaction} />
         </MobileDrawer>
       </div>
     </div>

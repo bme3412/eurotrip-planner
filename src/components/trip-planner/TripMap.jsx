@@ -312,8 +312,33 @@ export default function TripMap({
   // Don't render until we have cities or suggestions
   if (cities.length === 0 && suggestions.length === 0) {
     return (
-      <div className={`relative rounded-xl overflow-hidden border border-[#e5e0d8] bg-[#faf8f5] flex items-center justify-center ${className}`}>
-        <p className="text-sm text-[#8a8578]">Add a city to see the map</p>
+      <div className={`relative overflow-hidden rounded-xl border border-[#e5e0d8] bg-[#f7f3ec] ${className}`}>
+        <div className="absolute inset-0 opacity-70">
+          <div className="absolute left-[12%] top-[18%] h-24 w-24 rounded-full border border-[#e5e0d8]" />
+          <div className="absolute right-[16%] top-[28%] h-16 w-16 rounded-full border border-[#e5e0d8]" />
+          <div className="absolute bottom-[18%] left-[30%] h-20 w-20 rounded-full border border-[#e5e0d8]" />
+          <div className="absolute left-[20%] right-[20%] top-1/2 border-t border-dashed border-[#d5d0c8]" />
+        </div>
+
+        <div className="relative flex h-full min-h-[320px] items-center justify-center p-8">
+          <div className="max-w-sm rounded-3xl border border-[#e5e0d8] bg-white/85 p-5 text-center shadow-sm backdrop-blur">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a8578]">
+              Route map
+            </p>
+            <h3 className="mt-2 font-display text-xl font-semibold text-[#2a2520]">
+              Your map builds as you talk.
+            </h3>
+            <p className="mt-2 text-[13px] leading-relaxed text-[#6a6459]">
+              Add a city, paste a flight, or describe a region. The planner will place anchors,
+              open nights, and suggested stops here.
+            </p>
+            <div className="mt-4 flex justify-center gap-2 text-[10px] text-[#8a8578]">
+              <span className="rounded-full border border-[#e5e0d8] px-2 py-1">Cities</span>
+              <span className="rounded-full border border-[#e5e0d8] px-2 py-1">Routes</span>
+              <span className="rounded-full border border-[#e5e0d8] px-2 py-1">Open nights</span>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

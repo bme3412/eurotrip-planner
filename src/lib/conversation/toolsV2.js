@@ -85,6 +85,40 @@ Do NOT include MEDIUM-confidence extractions here — for phrases like "maybe Ni
           weatherTolerance: { type: 'string', enum: ['any', 'warm_only', 'avoid_rain'] },
         },
       },
+      tripIntent: {
+        type: 'string',
+        description: 'The user’s overall trip purpose or vibe, e.g. "first Europe trip", "romantic food trip", "family-friendly rail adventure".',
+      },
+      targetRegions: {
+        type: 'array',
+        items: { type: 'string' },
+        description: 'Countries, regions, or broad destination areas the user wants considered but has not yet converted into specific city stops, e.g. "Albania", "Romania", "the Balkans". Do not put these in cities unless a specific city is named.',
+      },
+      intentSignals: {
+        type: 'array',
+        items: { type: 'string' },
+        description: 'Natural-language signals about what the trip should feel like or optimize for.',
+      },
+      hardConstraints: {
+        type: 'array',
+        items: { type: 'string' },
+        description: 'Non-negotiable requirements, e.g. "must be in Paris on June 12", "no flights", "needs wheelchair access".',
+      },
+      negativeConstraints: {
+        type: 'array',
+        items: { type: 'string' },
+        description: 'Things the user wants to avoid, e.g. "no early mornings", "avoid museums", "avoid extreme heat".',
+      },
+      assumptions: {
+        type: 'array',
+        items: { type: 'string' },
+        description: 'Useful assumptions explicitly stated by the user or clearly implied by their wording.',
+      },
+      notes: {
+        type: 'array',
+        items: { type: 'string' },
+        description: 'Other relevant planning notes that should remain visible in the travel brief.',
+      },
     },
   },
 };
@@ -175,7 +209,7 @@ const render_trip_card = {
 
 const render_city_picker = {
   name: 'render_city_picker',
-  description: 'Display a city picker with optional suggestions.',
+  description: 'Display a city picker with optional suggestions. Use only when the user explicitly needs to add, replace, or choose a city. If assistant prose asks the user to choose specific cities, call this tool with those same suggestions so the UI can show preview map pins. Do not use this when asking about trip vibe, interests, pace, budget, dates, or whether to draft.',
   input_schema: {
     type: 'object',
     properties: {
@@ -202,7 +236,7 @@ const render_city_picker = {
 
 const render_options = {
   name: 'render_options',
-  description: 'Display clickable option buttons for quick choices.',
+  description: 'Display clickable option buttons for quick non-city choices. Use for actual interaction points only, such as route style, transport preference, or draft/refine decisions.',
   input_schema: {
     type: 'object',
     properties: {
@@ -227,7 +261,7 @@ const render_options = {
 
 const render_date_picker = {
   name: 'render_date_picker',
-  description: 'Display a calendar date picker.',
+  description: 'Display a calendar date picker only when the next interaction is selecting dates or a flexible travel window.',
   input_schema: {
     type: 'object',
     properties: {
@@ -241,7 +275,7 @@ const render_date_picker = {
 
 const render_nights_allocator = {
   name: 'render_nights_allocator',
-  description: 'Display a per-city nights allocation widget.',
+  description: 'Display a per-city nights allocation widget only for already-confirmed cities. Do not use it for choosing new suggested stops.',
   input_schema: {
     type: 'object',
     properties: {
