@@ -2,15 +2,11 @@ import globals from "globals";
 import reactPlugin from "eslint-plugin-react";
 import hooksPlugin from "eslint-plugin-react-hooks";
 import nextPlugin from "@next/eslint-plugin-next";
-// import js from "@eslint/js"; // Optional: include recommended JS rules
-
-// Note: parser/parserOptions might be needed depending on project specifics,
-// but we start without them for a JS project as Next's plugin might handle it.
+import tsParser from "@typescript-eslint/parser";
 
 const eslintConfig = [
-  // Optional: js.configs.recommended,
   {
-    files: ["**/*.{js,mjs,cjs,jsx,mjsx}"], // Adjust files as needed
+    files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx}"],
     plugins: {
       react: reactPlugin,
       "react-hooks": hooksPlugin,
@@ -37,10 +33,10 @@ const eslintConfig = [
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs["core-web-vitals"].rules,
 
-      // Add/override custom rules below if needed
-      "react/react-in-jsx-scope": "off", // Often not needed with Next.js/React 17+
-      "react/prop-types": "off", // Disable prop-types if using TS or prefer not to use them
-      "react/no-unknown-property": "off", // Temporarily disable due to jsx/global errors
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
+      // Re-enable property checking; raise specific exemptions inline if needed
+      "react/no-unknown-property": ["warn", { ignore: ["jsx", "global"] }],
     },
     settings: {
       react: {
@@ -49,13 +45,24 @@ const eslintConfig = [
     },
   },
   {
-    // Ignores configuration - adjust as needed
+    files: ["**/*.{ts,tsx}"],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+        ecmaFeatures: { jsx: true },
+      },
+    },
+  },
+  {
     ignores: [
-        ".next/",
-        "node_modules/",
-        // Add other ignored files/directories
+      ".next/",
+      "node_modules/",
+      "versions/",
+      "scripts/enrich/",
     ],
-  }
+  },
 ];
 
 export default eslintConfig;

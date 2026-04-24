@@ -346,9 +346,32 @@ City data is consolidated into a single `index.json` per city at build time:
 
 ```bash
 node scripts/generateCityIndex.mjs
+
+# Opt-in slim mode: drops `monthly` from index.json (~35% smaller for big cities).
+# Monthly data is fetched lazily by useMonthlyData() from monthly/index.json.
+EUROTRIP_INDEX_INCLUDE_MONTHLY=false node scripts/generateCityIndex.mjs
 ```
 
 This combines all JSON files (overview, attractions, neighborhoods, monthly data, etc.) into one file, reducing SSR file operations from 10-15 down to 1-2.
+
+### CDN Asset Strategy
+
+Static images and JSON can be served from CloudFront via the helpers in
+[`src/utils/cdnUtils.js`](src/utils/cdnUtils.js). To enable:
+
+1. Sync assets to S3 (one-time):
+
+   ```bash
+   ./infra/sync-images.sh prod
+   ./infra/sync-city-data.sh prod
+   ```
+
+2. Set `NEXT_PUBLIC_CDN_URL=https://<distribution>.cloudfront.net` in Vercel.
+
+3. Optionally remove `public/images/` from the deploy (already excluded from
+   server bundle tracing in `next.config.mjs`).
+
+Modern image formats are negotiated automatically (`images.formats: ['image/avif', 'image/webp']` in `next.config.mjs`).
 
 ### Manifest-based O(1) Lookups
 
@@ -375,6 +398,21 @@ const path = getCityPath('paris'); // /path/to/public/data/France/paris
 | `src/lib/manifest.js` | Cached manifest utilities for O(1) city lookups |
 | `src/hooks/useMonthlyData.js` | Smart monthly data loading with SSR check |
 | `scripts/generateCityIndex.mjs` | Build script for data consolidation |
+
+## Testing & CI
+
+Pure modules under `src/lib/` are unit tested with Node's built-in test runner
+(`node --test`, no extra dependencies). Tests live in `tests/`:
+
+```bash
+npm test
+```
+
+A GitHub Actions workflow (`.github/workflows/ci.yml`) runs lint, unit tests,
+the data pipeline validator, and a `next build` on every PR.
+
+A Husky `pre-commit` hook runs `eslint --fix` against staged source files via
+`lint-staged`, so most issues are auto-fixed before they hit the remote.
 
 ## Tech Stack
 

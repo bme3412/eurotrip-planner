@@ -3,11 +3,39 @@ import withBundleAnalyzer from '@next/bundle-analyzer';
 /** @type {import('next').NextConfig} */
 const baseConfig = {
   output: 'standalone',
+  experimental: {
+    optimizePackageImports: ['lucide-react', '@heroicons/react', 'date-fns', 'framer-motion'],
+  },
   async redirects() {
     return [
       {
         source: '/paris-trip',
         destination: '/plan/paris',
+        permanent: true,
+      },
+      {
+        source: '/planner',
+        destination: '/plan',
+        permanent: true,
+      },
+      {
+        source: '/planning',
+        destination: '/plan',
+        permanent: true,
+      },
+      {
+        source: '/start-planning',
+        destination: '/plan',
+        permanent: true,
+      },
+      {
+        source: '/trip-planner',
+        destination: '/plan',
+        permanent: true,
+      },
+      {
+        source: '/discover',
+        destination: '/',
         permanent: true,
       },
     ];
@@ -20,6 +48,12 @@ const baseConfig = {
     ]
   },
   images: {
+    // Modern formats — Next will negotiate best format per browser
+    formats: ['image/avif', 'image/webp'],
+    // Tighten the breakpoint set so the optimizer caches fewer permutations
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
     remotePatterns: [
       {
         protocol: 'https',
