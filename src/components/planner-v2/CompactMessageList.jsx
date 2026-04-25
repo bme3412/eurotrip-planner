@@ -7,6 +7,7 @@ import { CitySearchInput } from '../conversation/InputArea';
 import { RouteSummaryWithData } from '../conversation/RouteSummary';
 import ParsedItineraryCard from '../conversation/ParsedItineraryCard';
 import { getFlagForCountry } from '@/utils/countryFlags';
+import { getFirstEuropeRoutePresets } from '@/lib/planning/routePresets';
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -200,6 +201,54 @@ function TypingIndicator() {
   );
 }
 
+function RoutePresetCards({ onSelect }) {
+  const presets = getFirstEuropeRoutePresets();
+
+  return (
+    <div className="grid gap-2 py-1">
+      <p className="px-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8a8578]">
+        Pick a starter itinerary
+      </p>
+      {presets.map((preset, index) => (
+        <motion.button
+          key={preset.id}
+          type="button"
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.04 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={() => onSelect(preset)}
+          className="group rounded-2xl border border-[#e5e0d8] bg-white p-3 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#c9a227]/60 hover:bg-[#fffaf0] hover:shadow-md"
+        >
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <p className="font-display text-[15px] font-semibold text-[#2a2520]">
+                {preset.title}
+              </p>
+              <p className="mt-0.5 text-[12px] font-medium text-[#6a6459]">
+                {preset.cities.map((city) => `${getFlagForCountry(city.country)} ${city.name}`).join(' -> ')}
+              </p>
+            </div>
+            <span className="shrink-0 rounded-full bg-[#f3ead8] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#8a6a22]">
+              {preset.nights}n
+            </span>
+          </div>
+          <p className="mt-2 text-[12px] leading-relaxed text-[#6a6459]">
+            {preset.description}
+          </p>
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {preset.bestFor.map((tag) => (
+              <span key={tag} className="rounded-full bg-[#faf8f5] px-2 py-0.5 text-[10px] font-medium text-[#8a8578]">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </motion.button>
+      ))}
+    </div>
+  );
+}
+
 // ── Main component ───────────────────────────────────────────────
 export default function CompactMessageList({
   messages,
@@ -209,6 +258,7 @@ export default function CompactMessageList({
   trip,
   onOptionSelect,
   onCitySelect,
+  onRoutePresetSelect,
   onParsedItineraryConfirm,
   onParsedItineraryRefine,
   scrollContainerRef: externalScrollRef,
@@ -267,6 +317,14 @@ export default function CompactMessageList({
       case 'render_city_picker':
       case 'show_city_search':
         if (activeWidget !== 'city_picker') return null;
+        if (
+          pendingInput.data?.purpose === 'suggest_stops' &&
+          (!trip?.startCity && !(trip?.stops || []).length && !trip?.endCity)
+        ) {
+          return (
+            <RoutePresetCards onSelect={onRoutePresetSelect} />
+          );
+        }
         return (
           <div className="py-1">
             <CitySearchInput

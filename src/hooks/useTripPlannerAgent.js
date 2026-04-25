@@ -4,6 +4,8 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import { initialTripState } from '@/lib/conversation/tripState';
 import { useAuth } from '@/contexts/AuthContext';
 import { canPersistTripDraft, normalizeTripState } from '@/lib/trips/tripLifecycle';
+import { getLocalTripDraft, upsertLocalTripDraft } from '@/lib/trips/localTripDrafts';
+import { hydrateRoutePreset } from '@/lib/planning/routePresets';
 import { useMessages } from './useMessages';
 import { useTripState } from './useTripState';
 import { useDirectManipulation } from './useDirectManipulation';
@@ -62,12 +64,13 @@ function makeSessionId() {
   return `s-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
-export function useTripPlannerAgent({ initialTripId = null } = {}) {
+export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId = null } = {}) {
   const { user, isSupabaseConfigured } = useAuth();
   const [pendingInput, setPendingInput] = useState(null);
   const [hasStarted, setHasStarted] = useState(false);
   const [savedTripId, setSavedTripId] = useState(initialTripId);
-  const [saveStatus, setSaveStatus] = useState(initialTripId ? 'loading' : 'local');
+  const [localTripId, setLocalTripId] = useState(initialLocalTripId);
+  const [saveStatus, setSaveStatus] = useState(initialTripId || initialLocalTripId ? 'loading' : 'local');
   const [saveError, setSaveError] = useState(null);
   const startingRef = useRef(false);
   const toolHistoryRef = useRef([]);
@@ -129,6 +132,21 @@ export function useTripPlannerAgent({ initialTripId = null } = {}) {
     };
   }, [initialTripId, setTripState]);
 
+  useEffect(() => {
+    if (!initialLocalTripId || initialTripId) return;
+
+    const draft = getLocalTripDraft(initialLocalTripId);
+    if (!draft?.trip_state) {
+      setSaveError('Unable to load local trip draft.');
+      setSaveStatus('error');
+      return;
+    }
+
+    setTripState(normalizeTripState(draft.trip_state));
+    setLocalTripId(draft.id);
+    setSaveStatus('saved_local');
+  }, [initialLocalTripId, initialTripId, setTripState]);
+
   // Track tool calls for multi-turn context
   const handleToolHistoryEntry = useCallback((name, input) => {
     toolHistoryRef.current.push({
@@ -157,20 +175,61 @@ export function useTripPlannerAgent({ initialTripId = null } = {}) {
     assignDaysToCity, unassignDays, setCityNights, setTripDates, addCity,
   } = useDirectManipulation({ tripStateRef, setTripState, postSystemEvent });
 
+  const applyRoutePreset = useCallback((preset) => {
+    const hydrated = hydrateRoutePreset(preset);
+    if (!hydrated.cities?.length) return;
+
+    setTripState((current) => ({
+      ...current,
+      route: {
+        ...current.route,
+        cities: hydrated.cities,
+        routeShape: 'one-way',
+      },
+      dates: {
+        ...current.dates,
+        totalNights: current.dates.totalNights || hydrated.nights,
+      },
+      preferences: {
+        ...current.preferences,
+        pace: current.preferences.pace || hydrated.pace || 'balanced',
+      },
+      brief: {
+        ...current.brief,
+        intent: current.brief.intent || 'classic first Europe trip',
+        assumptions: [
+          ...(current.brief.assumptions || []),
+          `${hydrated.title}: ${hydrated.subtitle}, ${hydrated.nights} nights total.`,
+        ],
+      },
+    }));
+
+    postSystemEvent(`Selected ${hydrated.title}: ${hydrated.subtitle}.`);
+    setPendingInput(null);
+  }, [postSystemEvent, setTripState]);
+
   useEffect(() => {
     if (isStreaming) return;
-    if (!isSupabaseConfigured) {
-      setSaveStatus('local');
-      setSaveError(null);
-      return;
-    }
     if (!canPersistTripDraft(tripState)) {
-      setSaveStatus(savedTripId ? 'saved' : 'local');
+      setSaveStatus(savedTripId ? 'saved' : localTripId ? 'saved_local' : 'local');
       return;
     }
 
     if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
     saveTimerRef.current = setTimeout(async () => {
+      const shouldSyncToAccount = isSupabaseConfigured && Boolean(user?.id || user?.email);
+
+      if (!shouldSyncToAccount) {
+        const draft = upsertLocalTripDraft({
+          id: localTripId,
+          tripState,
+        });
+        setLocalTripId(draft.id);
+        setSaveStatus('saved_local');
+        setSaveError(null);
+        return;
+      }
+
       try {
         setSaveStatus('saving');
         setSaveError(null);
@@ -210,7 +269,7 @@ export function useTripPlannerAgent({ initialTripId = null } = {}) {
     return () => {
       if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
     };
-  }, [isStreaming, isSupabaseConfigured, savedTripId, tripState, user?.email, user?.id]);
+  }, [isStreaming, isSupabaseConfigured, localTripId, savedTripId, tripState, user?.email, user?.id]);
 
   // ── Start conversation ─────────────────────────────────────
   const startConversation = useCallback(async () => {
@@ -352,6 +411,7 @@ export function useTripPlannerAgent({ initialTripId = null } = {}) {
     resetTripState();
     setPendingInput(null);
     setSavedTripId(null);
+    setLocalTripId(null);
     setSaveStatus('local');
     setSaveError(null);
     setHasStarted(false);
@@ -377,6 +437,7 @@ export function useTripPlannerAgent({ initialTripId = null } = {}) {
     itinerary,
     generationError,
     savedTripId,
+    localTripId,
     saveStatus,
     saveError,
 
@@ -387,6 +448,7 @@ export function useTripPlannerAgent({ initialTripId = null } = {}) {
     handleCitySelect,
     handleDaysChange,
     handleDateSelect,
+    applyRoutePreset,
     reset,
     dismissError,
     setPendingInput,

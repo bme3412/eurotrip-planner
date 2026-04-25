@@ -47,13 +47,16 @@ export function AuthProvider({ children }) {
     return () => subscription.unsubscribe();
   }, [supabase]);
 
-  const signInWithGoogle = async () => {
+  const signInWithGoogle = async ({ next } = {}) => {
     if (!supabase) return { error: new Error('Supabase not configured') };
+    const nextPath = next || `${window.location.pathname}${window.location.search}`;
+    const redirectTo = new URL('/auth/callback', window.location.origin);
+    redirectTo.searchParams.set('next', nextPath || '/saved-trips');
     
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
+        redirectTo: redirectTo.toString(),
         queryParams: {
           prompt: 'select_account',
         },
@@ -79,7 +82,7 @@ export function AuthProvider({ children }) {
       email,
       password,
       options: {
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
+        emailRedirectTo: `${window.location.origin}/auth/callback?next=/saved-trips`,
       },
     });
     return { data, error };

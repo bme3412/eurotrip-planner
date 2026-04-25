@@ -1,4 +1,4 @@
-import { buildItinerary } from './buildItinerary.js';
+import { buildItineraryWithRouting } from './buildItinerary.js';
 import { allocateDays } from './dayAllocator.js';
 import { getConnectionBetweenCities } from './routeOptimizer.js';
 import { getCityData } from '../data-utils.js';
@@ -138,7 +138,8 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
   const {
     dayAllocation = null,
     useAI = false,
-    includeTransfers = true
+    includeTransfers = true,
+    routeOptimization = true,
   } = options;
 
   if (!cities || cities.length === 0) {
@@ -215,7 +216,10 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
 
     // Build itinerary for this city
     console.log(`Building itinerary for ${city.id} (${cityAlloc.days} days)...`);
-    const cityItinerary = buildItinerary(cityTrip, cityData);
+    const cityItinerary = await buildItineraryWithRouting(cityTrip, cityData, {
+      routeOptimization,
+      travelMode: 'WALK',
+    });
 
     // Add city metadata to each day
     const cityDays = cityItinerary.days.map((day, idx) => ({
@@ -237,7 +241,8 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
       days: cityAlloc.days,
       dayRange: `${currentDayNumber}-${currentDayNumber + cityAlloc.days - 1}`,
       rationale: cityAlloc.rationale,
-      summary: cityItinerary.summary
+      summary: cityItinerary.summary,
+      routing: cityItinerary.routing || null
     });
 
     currentDayNumber += cityAlloc.days;
@@ -312,5 +317,5 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
  * @returns {Object} Single-city itinerary
  */
 export async function buildSingleCityItinerary(trip, cityData) {
-  return buildItinerary(trip, cityData);
+  return buildItineraryWithRouting(trip, cityData);
 }

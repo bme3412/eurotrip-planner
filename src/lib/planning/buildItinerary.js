@@ -454,7 +454,7 @@ export function buildItinerary(trip, cityData) {
               type: 'neighborhood',
               description: hood.character || `Discover the charm of ${hood.name}`,
               neighborhood: hood.name,
-              highlights: hood.highlights?.slice(0, 3) || [],
+              highlights: Array.isArray(hood.highlights) ? hood.highlights.slice(0, 3) : [],
             },
           });
         }
@@ -501,4 +501,14 @@ export function buildItinerary(trip, cityData) {
       mustSeeCompleted: mustSee,
     },
   };
+}
+
+export async function buildItineraryWithRouting(trip, cityData, options = {}) {
+  const itinerary = buildItinerary(trip, cityData);
+  if (options.routeOptimization === false) return itinerary;
+
+  const { applyGoogleRouteOrdering } = await import('./googleRouteOrdering.js');
+  return applyGoogleRouteOrdering(itinerary, {
+    travelMode: options.travelMode || 'WALK',
+  });
 }

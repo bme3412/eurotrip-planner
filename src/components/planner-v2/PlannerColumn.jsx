@@ -232,6 +232,7 @@ export default function PlannerColumn({
   onSendMessage,
   onOptionSelect,
   onCitySelect,
+  onRoutePresetSelect,
   onDismissError,
   onRetry,
   onParsedItineraryConfirm,
@@ -284,6 +285,7 @@ export default function PlannerColumn({
           trip={trip}
           onOptionSelect={onOptionSelect}
           onCitySelect={onCitySelect}
+          onRoutePresetSelect={onRoutePresetSelect}
           onParsedItineraryConfirm={onParsedItineraryConfirm}
           onParsedItineraryRefine={onParsedItineraryRefine}
           scrollContainerRef={scrollContainerRef}

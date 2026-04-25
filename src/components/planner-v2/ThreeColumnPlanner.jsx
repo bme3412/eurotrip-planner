@@ -16,6 +16,7 @@ const SAVE_STATUS_LABELS = {
   loading: 'Loading trip',
   saving: 'Saving draft',
   saved: 'Saved draft',
+  saved_local: 'Saved on this device',
   error: 'Save issue',
 };
 
@@ -23,7 +24,11 @@ const DEFAULT_CHAT_WIDTH = 60;
 const MIN_CHAT_WIDTH = 34;
 const MAX_CHAT_WIDTH = 76;
 
-export default function ThreeColumnPlanner({ initialUserMessage = null, initialTripId = null }) {
+export default function ThreeColumnPlanner({
+  initialUserMessage = null,
+  initialTripId = null,
+  initialLocalTripId = null,
+}) {
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
   const [chatWidthPct, setChatWidthPct] = useState(DEFAULT_CHAT_WIDTH);
   const seededRef = useRef(false);
@@ -40,19 +45,21 @@ export default function ThreeColumnPlanner({ initialUserMessage = null, initialT
     gaps,
     generationPhase,
     savedTripId,
+    localTripId,
     saveStatus,
     saveError,
     sendMessage,
     startConversation,
     handleOptionSelect,
     handleCitySelect,
+    applyRoutePreset,
     dismissError,
     assignDaysToCity,
     unassignDays,
     setCityNights,
     addCity,
     setTripDates,
-  } = useTripPlannerAgent({ initialTripId });
+  } = useTripPlannerAgent({ initialTripId, initialLocalTripId });
 
   const tripHasCities = tripState.route.cities.length > 0;
   const interaction = useMemo(
@@ -81,6 +88,14 @@ export default function ThreeColumnPlanner({ initialUserMessage = null, initialT
     url.searchParams.set('tripId', savedTripId);
     window.history.replaceState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
   }, [initialTripId, savedTripId]);
+
+  useEffect(() => {
+    if (!localTripId || savedTripId || initialTripId || initialLocalTripId) return;
+    const url = new URL(window.location.href);
+    url.searchParams.delete('tripId');
+    url.searchParams.set('localTripId', localTripId);
+    window.history.replaceState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
+  }, [initialLocalTripId, initialTripId, localTripId, savedTripId]);
 
   useEffect(() => {
     if (!initialUserMessage) return;
@@ -183,7 +198,7 @@ export default function ThreeColumnPlanner({ initialUserMessage = null, initialT
         />
       )}
 
-      {(savedTripId || saveStatus !== 'local') && (
+      {(savedTripId || localTripId || saveStatus !== 'local') && (
         <div className="flex shrink-0 items-center justify-between border-b border-[#e5e0d8] bg-white/85 px-4 py-1.5 text-[11px] text-[#6a6459]">
           <span>
             {SAVE_STATUS_LABELS[saveStatus] || 'Trip draft'}
@@ -196,6 +211,16 @@ export default function ThreeColumnPlanner({ initialUserMessage = null, initialT
               </a>
               <a href={`/trips/${savedTripId}`} className="font-semibold text-[#2a2520] hover:underline">
                 View
+              </a>
+            </div>
+          )}
+          {!savedTripId && localTripId && (
+            <div className="flex items-center gap-3">
+              <a href={`/plan?localTripId=${localTripId}`} className="font-semibold text-[#2a2520] hover:underline">
+                Edit
+              </a>
+              <a href="/saved-trips" className="font-semibold text-[#2a2520] hover:underline">
+                My Trips
               </a>
             </div>
           )}
@@ -221,6 +246,7 @@ export default function ThreeColumnPlanner({ initialUserMessage = null, initialT
             onSendMessage={handleSendMessage}
             onOptionSelect={handleOption}
             onCitySelect={handleCity}
+            onRoutePresetSelect={applyRoutePreset}
             onDismissError={dismissError}
             onRetry={() => sendMessage('Please continue.')}
             onParsedItineraryConfirm={() =>

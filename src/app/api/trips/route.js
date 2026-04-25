@@ -2,7 +2,7 @@
 
 import { NextResponse } from "next/server";
 import { getCityData } from "../../../lib/data-utils.js";
-import { buildItinerary } from "../../../lib/planning/buildItinerary.js";
+import { buildItineraryWithRouting } from "../../../lib/planning/buildItinerary.js";
 import { createTripWithDays, listTripsForUser } from "../../../lib/trips/tripsRepository.js";
 import { getSupabaseAdmin } from "../../../lib/supabase/server";
 
@@ -95,7 +95,7 @@ export async function POST(request) {
     const citySlug = payload.city.toLowerCase();
     const cityData = await getCityData(citySlug);
 
-    const itinerary = buildItinerary(payload, cityData);
+    const itinerary = await buildItineraryWithRouting(payload, cityData);
 
     payload.initial_plan = itinerary;
 

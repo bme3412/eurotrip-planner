@@ -45,13 +45,17 @@ function NavLink({ href, children, heavy = false }) {
 export default function Navbar() {
   const { user, loading, signInWithGoogle, signOut, isSupabaseConfigured } = useAuth();
   const [signingIn, setSigningIn] = useState(false);
+  const [authError, setAuthError] = useState(null);
 
   const handleSignIn = async () => {
     setSigningIn(true);
+    setAuthError(null);
     try {
-      await signInWithGoogle();
+      const { error } = await signInWithGoogle();
+      if (error) throw error;
     } catch (err) {
       console.error('Sign in error:', err);
+      setAuthError(err.message || 'Unable to start sign in.');
       setSigningIn(false);
     }
   };
@@ -84,6 +88,11 @@ export default function Navbar() {
               {/* Search + auth + mobile hamburger */}
               <div className="flex items-center gap-3">
                 <SearchBar />
+                {authError && (
+                  <span className="hidden max-w-[220px] truncate text-xs text-red-600 lg:inline">
+                    {authError}
+                  </span>
+                )}
                 {/* Auth button (always visible) */}
                 <div className="hidden md:block">
                   {user ? (

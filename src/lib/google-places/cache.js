@@ -74,12 +74,21 @@ function set(key, data, ttlMs) {
 
 // ── Public helpers keyed by domain concept ──────────────────────────
 
-export function getCachedPlaceDetails(placeId) {
-  return get(`place_details:${placeId}`);
+function normalizeFieldMask(fieldMask = '') {
+  return String(fieldMask)
+    .split(',')
+    .map((field) => field.trim())
+    .filter(Boolean)
+    .sort()
+    .join(',');
 }
 
-export function setCachedPlaceDetails(placeId, data, ttlMs = TTL_7D) {
-  set(`place_details:${placeId}`, data, ttlMs);
+export function getCachedPlaceDetails(placeId, fieldMask = '') {
+  return get(`place_details:${placeId}:${normalizeFieldMask(fieldMask)}`);
+}
+
+export function setCachedPlaceDetails(placeId, fieldMask = '', data, ttlMs = TTL_7D) {
+  set(`place_details:${placeId}:${normalizeFieldMask(fieldMask)}`, data, ttlMs);
 }
 
 export function getCachedPlaceId(citySlug, attractionName) {
@@ -90,12 +99,16 @@ export function setCachedPlaceId(citySlug, attractionName, placeId) {
   set(`place_id_map:${citySlug}:${attractionName}`, placeId, TTL_7D);
 }
 
-export function getCachedPhotoUrl(photoName) {
-  return get(`photo_url:${photoName}`);
+function photoUrlKey(photoName, width = 800, height) {
+  return `photo_url:${photoName}:${width || 800}:${height || 'auto'}`;
 }
 
-export function setCachedPhotoUrl(photoName, url) {
-  set(`photo_url:${photoName}`, url, TTL_24H);
+export function getCachedPhotoUrl(photoName, width = 800, height) {
+  return get(photoUrlKey(photoName, width, height));
+}
+
+export function setCachedPhotoUrl(photoName, width = 800, height, url) {
+  set(photoUrlKey(photoName, width, height), url, TTL_24H);
   persistPhotoCache();
 }
 

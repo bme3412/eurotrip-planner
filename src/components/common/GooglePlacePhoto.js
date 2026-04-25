@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 
 // Tiny blur placeholder - gray gradient
@@ -29,7 +29,7 @@ export default function GooglePlacePhoto({
   priority = false,
 }) {
   // Build URL based on whether we have photoName or placeId
-  const buildPhotoUrl = () => {
+  const srcUrl = useMemo(() => {
     const params = new URLSearchParams();
     params.set('w', String(maxWidth));
     if (maxHeight) params.set('h', String(maxHeight));
@@ -40,14 +40,19 @@ export default function GooglePlacePhoto({
       params.set('placeId', placeId);
     }
     return `/api/google-photos?${params.toString()}`;
-  };
+  }, [photoName, placeId, maxWidth, maxHeight]);
 
-  const [src, setSrc] = useState(buildPhotoUrl());
+  const [src, setSrc] = useState(srcUrl);
   const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    setSrc(srcUrl);
+    setFailed(false);
+  }, [srcUrl]);
 
   if (failed) {
     return fallback || (
-      <div className={`flex items-center justify-center bg-gray-100 text-gray-300 text-3xl ${className}`}>
+      <div className={`flex items-center justify-center bg-gray-100 text-gray-300 text-3xl ${className}`} title="Google photo unavailable">
         📍
       </div>
     );

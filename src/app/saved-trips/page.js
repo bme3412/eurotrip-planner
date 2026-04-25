@@ -5,6 +5,7 @@ import Link from "next/link";
 import AuthButton from "@/components/auth/AuthButton";
 import { SavedTripsList } from "@/components/common/SaveToTrips";
 import { useAuth } from "@/contexts/AuthContext";
+import { readLocalTripDrafts, removeLocalTripDraft } from "@/lib/trips/localTripDrafts";
 import { getFlagForCountry } from "@/utils/countryFlags";
 
 const STATUS_LABELS = {
@@ -194,6 +195,74 @@ function TripDraftsSection() {
   );
 }
 
+function LocalTripDraftsSection() {
+  const [drafts, setDrafts] = useState([]);
+
+  const loadDrafts = useCallback(() => {
+    setDrafts(readLocalTripDrafts());
+  }, []);
+
+  useEffect(() => {
+    loadDrafts();
+    window.addEventListener("storage", loadDrafts);
+    return () => window.removeEventListener("storage", loadDrafts);
+  }, [loadDrafts]);
+
+  const handleRemove = useCallback((id) => {
+    removeLocalTripDraft(id);
+    loadDrafts();
+  }, [loadDrafts]);
+
+  if (drafts.length === 0) return null;
+
+  return (
+    <section>
+      <div className="mb-4">
+        <h2 className="text-lg font-semibold text-gray-950">Saved on this device</h2>
+        <p className="text-sm text-gray-600">Local planner drafts you can reopen from this browser.</p>
+      </div>
+      <div className="grid gap-4 md:grid-cols-2">
+        {drafts.map((trip) => (
+          <article key={trip.id} className="rounded-2xl border border-amber-200 bg-amber-50/70 p-5 shadow-sm">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">
+                  Saved on this device
+                </p>
+                <h2 className="mt-1 text-xl font-semibold text-gray-950">
+                  {trip.title || "Untitled Europe Trip"}
+                </h2>
+              </div>
+              <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-amber-700">
+                Local
+              </span>
+            </div>
+
+            <p className="mt-3 text-sm text-gray-700">{tripCitiesLabel(trip)}</p>
+            <p className="mt-1 text-sm text-gray-500">{tripDateLabel(trip)}</p>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              <Link
+                href={`/plan?localTripId=${trip.id}`}
+                className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800"
+              >
+                Continue
+              </Link>
+              <button
+                type="button"
+                onClick={() => handleRemove(trip.id)}
+                className="rounded-full border border-amber-300 bg-white px-4 py-2 text-sm font-semibold text-amber-800 hover:border-amber-400"
+              >
+                Remove
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default function SavedTripsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -220,6 +289,8 @@ export default function SavedTripsPage() {
           </div>
           <TripDraftsSection />
         </section>
+
+        <LocalTripDraftsSection />
 
         <section>
           <div className="mb-4">
