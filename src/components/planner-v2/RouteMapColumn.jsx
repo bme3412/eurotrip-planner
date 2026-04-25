@@ -170,7 +170,7 @@ function DayTabs({ days, selectedIndex, onSelectDay }) {
   );
 }
 
-function DetailCard({ selectedDay, routePoints, stats }) {
+function DetailCard({ selectedDay, routePoints, stats, mode, onModeChange }) {
   const point = selectedDay?.point || routePoints[0];
   if (!point) return null;
 
@@ -204,26 +204,52 @@ function DetailCard({ selectedDay, routePoints, stats }) {
     navigator.clipboard?.writeText(text);
   };
 
+  const expanded = mode === 'expanded';
+
   return (
-    <div className="absolute bottom-4 right-4 top-20 z-20 w-[min(360px,calc(100%-2rem))] overflow-y-auto rounded-3xl border border-[#e5e0d8] bg-white/95 p-5 shadow-xl backdrop-blur">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a8578]">
-        {selectedDay?.label || `Stop ${routeIndex + 1}`}
-        {selectedDay?.dateLabel ? ` · ${selectedDay.dateLabel}` : ''}
-      </p>
-      <h3 className="mt-2 font-display text-2xl font-semibold leading-tight text-[#2a2520]">
-        <span className="font-sans" aria-hidden="true">
-          {point.country ? `${getFlagForCountry(point.country)} ` : ''}
-        </span>
-        {point.name}
-      </h3>
+    <div className={`absolute bottom-4 right-4 z-20 w-[min(360px,calc(100%-2rem))] overflow-y-auto rounded-3xl border border-[#e5e0d8] bg-white/95 p-4 shadow-xl backdrop-blur ${
+      expanded ? 'top-20' : 'max-h-[220px]'
+    }`}>
+      <div className="mb-2 flex items-start justify-between gap-3">
+        <div>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a8578]">
+            {selectedDay?.label || `Stop ${routeIndex + 1}`}
+            {selectedDay?.dateLabel ? ` · ${selectedDay.dateLabel}` : ''}
+          </p>
+          <h3 className="mt-1 font-display text-xl font-semibold leading-tight text-[#2a2520]">
+            <span className="font-sans" aria-hidden="true">
+              {point.country ? `${getFlagForCountry(point.country)} ` : ''}
+            </span>
+            {point.name}
+          </h3>
+        </div>
+        <div className="flex shrink-0 gap-1">
+          <button
+            type="button"
+            onClick={() => onModeChange(expanded ? 'compact' : 'expanded')}
+            className="rounded-full border border-[#e5e0d8] px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-[#6a6459] hover:bg-[#faf8f5]"
+          >
+            {expanded ? 'Less' : 'More'}
+          </button>
+          <button
+            type="button"
+            onClick={() => onModeChange('hidden')}
+            className="rounded-full border border-[#e5e0d8] px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-[#6a6459] hover:bg-[#faf8f5]"
+          >
+            Hide
+          </button>
+        </div>
+      </div>
       {point.country && (
         <p className="mt-1 text-sm text-[#8a8578]">{point.country}</p>
       )}
 
-      <p className="mt-4 text-sm leading-relaxed text-[#4a4540]">
-        {point.description ||
-          `${point.name} is part of the current route. Use the conversation or schedule above to tune nights, add stops, or reshape the order.`}
-      </p>
+      {expanded && (
+        <p className="mt-4 text-sm leading-relaxed text-[#4a4540]">
+          {point.description ||
+            `${point.name} is part of the current route. Use the conversation or schedule above to tune nights, add stops, or reshape the order.`}
+        </p>
+      )}
 
       <div className="mt-4 flex flex-wrap gap-2">
         <a
@@ -243,7 +269,7 @@ function DetailCard({ selectedDay, routePoints, stats }) {
         </button>
       </div>
 
-      <div className="mt-5 grid grid-cols-2 gap-2">
+      <div className="mt-4 grid grid-cols-2 gap-2">
         <div className="rounded-2xl bg-[#faf8f5] p-3">
           <p className="text-[10px] uppercase tracking-[0.14em] text-[#8a8578]">Stay</p>
           <p className="mt-1 text-sm font-semibold text-[#2a2520]">
@@ -270,7 +296,7 @@ function DetailCard({ selectedDay, routePoints, stats }) {
         </div>
       )}
 
-      {stats && (
+      {stats && expanded && (
         <div className="mt-4 border-t border-[#e5e0d8] pt-4 text-xs text-[#6a6459]">
           <div className="flex justify-between">
             <span>Total distance</span>
@@ -316,6 +342,7 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
   const mapboxRef = useRef(null);
   const markersRef = useRef([]);
   const [loaded, setLoaded] = useState(false);
+  const [detailMode, setDetailMode] = useState('compact');
   const selectedDay = days.find((day) => day.dayIndex === selectedDayIndex && day.point) ||
     days.find((day) => day.point) ||
     null;
@@ -458,12 +485,17 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
       map.easeTo({ center: [mapPoints[0].lng, mapPoints[0].lat], zoom: 6, duration: 400 });
     } else {
       map.fitBounds(bounds, {
-        padding: { top: 90, right: 420, bottom: 60, left: 60 },
+        padding: {
+          top: 80,
+          right: detailMode === 'expanded' ? 420 : 80,
+          bottom: detailMode === 'hidden' ? 60 : 170,
+          left: 60,
+        },
         maxZoom: 7,
         duration: 500,
       });
     }
-  }, [days, lineCoordinates, loaded, mapPoints, onSelectDay, previewPoints, routeGradient, routePoints, selectedDay]);
+  }, [days, detailMode, lineCoordinates, loaded, mapPoints, onSelectDay, previewPoints, routeGradient, routePoints, selectedDay]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -485,8 +517,23 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
         </div>
       )}
       <DayTabs days={days} selectedIndex={selectedDay?.dayIndex} onSelectDay={onSelectDay} />
-      {routePoints.length > 0 ? (
-        <DetailCard selectedDay={selectedDay} routePoints={routePoints} stats={stats} />
+      {routePoints.length > 0 && detailMode === 'hidden' && (
+        <button
+          type="button"
+          onClick={() => setDetailMode('compact')}
+          className="absolute bottom-4 right-4 z-20 rounded-full border border-[#e5e0d8] bg-white/95 px-4 py-2 text-sm font-semibold text-[#2a2520] shadow-lg backdrop-blur hover:bg-[#faf8f5]"
+        >
+          Show stop details
+        </button>
+      )}
+      {routePoints.length > 0 && detailMode !== 'hidden' ? (
+        <DetailCard
+          selectedDay={selectedDay}
+          routePoints={routePoints}
+          stats={stats}
+          mode={detailMode}
+          onModeChange={setDetailMode}
+        />
       ) : (
         <PreviewCard previewPoints={previewPoints} />
       )}

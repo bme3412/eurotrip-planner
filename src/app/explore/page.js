@@ -11,6 +11,7 @@ export const metadata = {
 
 export default function ExplorePage() {
   const destinations = getCitiesData().map((city) => ({
+    id: city.id,
     title: city.name,
     country: city.country,
     latitude: city.latitude,

@@ -158,8 +158,11 @@ const suggest_cities = {
     properties: {
       fromCityId: { type: 'string' },
       toCityId: { type: 'string' },
+      startDate: { type: 'string', description: 'YYYY-MM-DD start date for ranking context' },
+      endDate: { type: 'string', description: 'YYYY-MM-DD end date for ranking context' },
       interests: { type: 'array', items: { type: 'string' } },
       budget: { type: 'string' },
+      pace: { type: 'string' },
       maxResults: { type: 'number' },
     },
     required: ['fromCityId'],
@@ -209,7 +212,7 @@ const render_trip_card = {
 
 const render_city_picker = {
   name: 'render_city_picker',
-  description: 'Display a city picker with optional suggestions. Use only when the user explicitly needs to add, replace, or choose a city. If assistant prose asks the user to choose specific cities, call this tool with those same suggestions so the UI can show preview map pins. Do not use this when asking about trip vibe, interests, pace, budget, dates, or whether to draft.',
+  description: 'Display a city picker with optional suggestions. Use only when the user explicitly needs to add, replace, or choose a city. If assistant prose asks the user to choose specific cities, call this tool with those same suggestions so the UI can show preview map pins. For broad regions, include regionFocus and routeRole so the UI can show whether a city is a gateway, coastal base, castle base, etc. Do not use this when asking about trip vibe, interests, pace, budget, dates, or whether to draft.',
   input_schema: {
     type: 'object',
     properties: {
@@ -223,8 +226,14 @@ const render_city_picker = {
             name: { type: 'string' },
             country: { type: 'string' },
             highlight: { type: 'string' },
+            reason: { type: 'string' },
+            regionFocus: { type: 'string', description: 'Broad region this city helps satisfy, e.g. "Albanian Riviera" or "Romania".' },
+            routeRole: { type: 'string', description: 'Role in the route, e.g. "coastal base", "flight gateway", "castle base", "arrival hub".' },
+            nextStep: { type: 'string', description: 'What the planner should guide after selection, e.g. "assign coast nights" or "compare flights".' },
+            transportNote: { type: 'string', description: 'Brief transport implication to show or preserve after selection.' },
             travelTime: { type: 'string' },
             score: { type: 'number' },
+            rank: { type: 'number' },
           },
         },
       },

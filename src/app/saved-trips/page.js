@@ -183,10 +183,10 @@ function TripDraftsSection() {
               Edit
             </Link>
             <Link
-              href={`/trips/${trip.id}`}
+              href={trip.itinerary_generated_at ? `/itineraries/${trip.id}` : `/plan?tripId=${trip.id}`}
               className="rounded-full border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 hover:border-gray-300"
             >
-              View
+              {trip.itinerary_generated_at ? "View itinerary" : "Continue draft"}
             </Link>
           </div>
         </article>

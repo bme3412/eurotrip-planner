@@ -26,6 +26,15 @@ function deriveConcreteDates(tripState) {
   return { startDate, endDate };
 }
 
+function canWriteTrip(trip, body = {}) {
+  const ownerId = trip?.user_id || null;
+  const ownerEmail = trip?.user_email || null;
+  if (!ownerId && !ownerEmail) return false;
+  if (ownerId && body.userId === ownerId) return true;
+  if (ownerEmail && body.userEmail === ownerEmail) return true;
+  return false;
+}
+
 export async function POST(request, { params }) {
   const { id } = await params;
   if (!id) {
@@ -43,6 +52,9 @@ export async function POST(request, { params }) {
     const trip = await getTripWithDetails(id);
     if (!trip) {
       return NextResponse.json({ error: "Trip not found." }, { status: 404 });
+    }
+    if (!canWriteTrip(trip, body)) {
+      return NextResponse.json({ error: "You do not have access to generate this itinerary." }, { status: 403 });
     }
 
     const tripState = normalizeTripState(body.tripState || body.trip_state || trip.trip_state);

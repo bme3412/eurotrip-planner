@@ -35,7 +35,10 @@ function getCityLookup() {
 
 const COUNTRY_OR_REGION_TERMS = new Set([
   'albania',
+  'albanian riviera',
   'romania',
+  'romanian castles',
+  'transylvania',
   'france',
   'italy',
   'spain',
@@ -260,14 +263,23 @@ export function handleGetRouteOptions(input) {
 export async function handleSuggestCities(input) {
   try {
     const { getSuggestionsForGap } = await import('../planning/gapSuggester.js');
+    const fallbackStart = new Date();
+    fallbackStart.setDate(fallbackStart.getDate() + 30);
+    const fallbackEnd = new Date(fallbackStart);
+    fallbackEnd.setDate(fallbackEnd.getDate() + 4);
+    const toIso = (date) => date.toISOString().slice(0, 10);
     const suggestions = await getSuggestionsForGap({
       fromCity: input.fromCityId,
       toCity: input.toCityId || null,
-      interests: input.interests || [],
-      budget: input.budget || 'moderate',
-      maxResults: input.maxResults || 6,
+      gapStart: input.startDate || input.gapStart || toIso(fallbackStart),
+      gapEnd: input.endDate || input.gapEnd || toIso(fallbackEnd),
+      preferences: {
+        interests: input.interests || [],
+        budget: input.budget || 'moderate',
+        paceId: input.pace || input.paceId || 'balanced',
+      },
     });
-    return suggestions;
+    return suggestions.slice(0, input.maxResults || 6);
   } catch (e) {
     console.warn('[toolHandlers] Suggestion failed:', e.message);
     // Fallback: return nearby cities from database

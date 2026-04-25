@@ -10,8 +10,17 @@ function normalizeSuggestion(suggestion) {
   }
   return {
     ...suggestion,
-    id: suggestion.id || suggestion.name?.toLowerCase?.().replace(/\s+/g, '-'),
-    name: suggestion.name,
+    id: suggestion.id || suggestion.cityId || suggestion.rankedCandidate?.cityId || suggestion.name?.toLowerCase?.().replace(/\s+/g, '-'),
+    name: suggestion.name || suggestion.cityName || suggestion.rankedCandidate?.name,
+    country: suggestion.country || suggestion.rankedCandidate?.country,
+    reason: suggestion.reason || suggestion.highlight || suggestion.rankedCandidate?.reason,
+    regionFocus: suggestion.regionFocus || suggestion.region || suggestion.rankedCandidate?.regionFocus,
+    routeRole: suggestion.routeRole || suggestion.roleLabel || suggestion.rankedCandidate?.routeRole,
+    nextStep: suggestion.nextStep || suggestion.rankedCandidate?.nextStep,
+    transportNote: suggestion.transportNote || suggestion.rankedCandidate?.transportNote,
+    rank: suggestion.rank || suggestion.rankedCandidate?.rank,
+    score: suggestion.score || suggestion.rankedCandidate?.score,
+    travelTime: suggestion.travelTime || suggestion.transportTime || suggestion.rankedCandidate?.route?.travelTime,
   };
 }
 
@@ -112,10 +121,17 @@ function quickRepliesForMode(mode, gaps) {
       { id: 'slower', label: 'Make it slower' },
     ];
   }
+  if (mode === 'choose_stops') {
+    return [
+      { id: 'suggest-cities', label: 'Suggest bases' },
+      { id: 'assign-dates', label: 'Help assign dates' },
+      { id: 'transport-options', label: 'Compare transport' },
+    ];
+  }
   if (mode === 'allocate_nights') {
     return [
-      { id: 'suggest-stop', label: 'Suggest a stop' },
-      { id: 'spread-out', label: 'Spread the nights out' },
+      { id: 'assign-dates', label: 'Help assign dates' },
+      { id: 'transport-options', label: 'Compare transport' },
       { id: 'draft', label: 'Build a first draft' },
     ];
   }
@@ -123,7 +139,7 @@ function quickRepliesForMode(mode, gaps) {
     return [
       { id: 'draft', label: 'Build the itinerary' },
       { id: 'slower', label: 'Make it slower' },
-      { id: 'avoid-flight', label: 'Avoid flights' },
+      { id: 'transport-options', label: 'Compare transport' },
     ];
   }
   return (gaps?.nextMove || gaps?.nextQuestion)?.options || [];
@@ -143,14 +159,14 @@ function copyForMode(mode, gaps) {
       placeholder: 'Say how much time you have, or ask for a first draft...',
     },
     choose_stops: {
-      status: 'Choose stops',
-      nextLabel: 'Resolve destination intent',
-      placeholder: 'Choose specific cities, ask for tradeoffs, or name the stop you want...',
+      status: 'Pick suggested stops',
+      nextLabel: 'Choose a city card',
+      placeholder: 'Pick a suggested stop, ask for tradeoffs, or search another city...',
     },
     allocate_nights: {
-      status: 'Allocate nights',
+      status: 'Choose stop for open nights',
       nextLabel: 'Assign open nights',
-      placeholder: 'Assign open nights, spread them out, or ask for a draft...',
+      placeholder: 'Pick a suggested stop for the selected nights, or search another city...',
     },
     review_route: {
       status: 'Ready',

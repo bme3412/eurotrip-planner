@@ -12,6 +12,8 @@ import { getCountryFlag } from '@/utils/countryFlags';
 export default function CitySearchInput({
   purpose = 'start', // 'start' | 'end' | 'stop'
   suggestions = [],
+  label,
+  placeholder,
   onSelect,
 }) {
   const [query, setQuery] = useState('');
@@ -103,10 +105,22 @@ export default function CitySearchInput({
     city: 'stop',
   }[purpose] || purpose || 'stop';
 
-  const suggestionNames = suggestions
-    .map((suggestion) => (
-      typeof suggestion === 'string' ? suggestion : suggestion?.name
-    ))
+  const suggestionItems = suggestions
+    .map((suggestion) => {
+      const name = typeof suggestion === 'string' ? suggestion : suggestion?.name;
+      if (!name) return null;
+      const canonical = citiesData.find(c => c.name === name || c.id === suggestion?.id);
+      if (!canonical && typeof suggestion === 'string') return null;
+      return {
+        ...(canonical || {}),
+        ...(typeof suggestion === 'string' ? { name } : suggestion),
+        name: canonical?.name || name,
+        id: canonical?.id || suggestion?.id || name.toLowerCase().replace(/\s+/g, '-'),
+        country: canonical?.country || suggestion?.country,
+        latitude: canonical?.latitude || suggestion?.latitude,
+        longitude: canonical?.longitude || suggestion?.longitude,
+      };
+    })
     .filter(Boolean);
 
   const purposeText = {
@@ -118,6 +132,11 @@ export default function CitySearchInput({
 
   return (
     <div className="relative">
+      {label && (
+        <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.14em] text-[#8a8578]">
+          {label}
+        </label>
+      )}
       {/* Search input */}
       <div className="relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -131,29 +150,26 @@ export default function CitySearchInput({
           }}
           onFocus={() => setIsOpen(true)}
           onKeyDown={handleKeyDown}
-          placeholder={`Search for your ${placeholderText}...`}
+          placeholder={placeholder || `Search for your ${placeholderText}...`}
           className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-[15px] placeholder-slate-400 focus:outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 transition-all"
         />
       </div>
 
       {/* Quick suggestions */}
-      {suggestionNames.length > 0 && !query && (
+      {suggestionItems.length > 0 && !query && (
         <div className="mt-2 flex flex-wrap gap-2">
-          <span className="text-xs text-slate-500">Popular:</span>
-          {suggestionNames.map((cityName) => {
-            const city = citiesData.find(c => c.name === cityName);
-            if (!city) return null;
-
-            return (
-              <button
-                key={city.id}
-                onClick={() => handleSelect(city)}
-                className="text-sm text-blue-600 hover:text-blue-700 hover:underline"
-              >
-                {cityName}
-              </button>
-            );
-          })}
+          <span className="text-xs text-slate-500">Ranked picks:</span>
+          {suggestionItems.map((city) => (
+            <button
+              key={city.id}
+              onClick={() => handleSelect(city)}
+              title={city.reason || city.highlight || undefined}
+              className="rounded-full border border-blue-100 bg-blue-50 px-2.5 py-1 text-sm font-medium text-blue-700 hover:border-blue-200 hover:bg-blue-100"
+            >
+              {city.rank ? `#${city.rank} ` : ''}{city.name}
+              {city.score != null ? ` · ${Math.round(Number(city.score))}` : ''}
+            </button>
+          ))}
         </div>
       )}
 

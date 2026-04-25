@@ -46,6 +46,7 @@ export default function CityScheduleCard({
   onIncrementNights,
   onDecrementNights,
   onDayFocus,
+  dateRange,
 }) {
   if (!city) return null;
   const nights = Number.isFinite(city.nights) ? city.nights : 0;
@@ -79,6 +80,11 @@ export default function CityScheduleCard({
           </div>
           {city.country && (
             <p className="truncate text-[9px] text-[#8a8578]">{city.country}</p>
+          )}
+          {dateRange && (
+            <p className="mt-0.5 truncate text-[9px] font-medium text-[#6a6459]">
+              {dateRange}
+            </p>
           )}
         </div>
 

@@ -7,12 +7,13 @@ import {
   unassignDays as unassignDaysPure,
   setCityNights as setCityNightsPure,
 } from '@/lib/conversation/dayAssignments';
+import { applySuggestedAllocation, buildPlannerAction } from '@/lib/conversation/plannerActions';
 
 /**
  * Hook for direct-manipulation mutators used by the schedule header.
  * These modify tripState outside the chat flow and post system events.
  */
-export function useDirectManipulation({ tripStateRef, setTripState, postSystemEvent }) {
+export function useDirectManipulation({ tripStateRef, setTripState, onPlannerAction }) {
   const assignDaysToCity = useCallback(
     (cityId, dayIndices, { notify = true } = {}) => {
       if (!cityId || !dayIndices?.length) return;
@@ -24,14 +25,13 @@ export function useDirectManipulation({ tripStateRef, setTripState, postSystemEv
         const city = next.route.cities.find(
           (c) => (c.id || c.name?.toLowerCase()) === cityId
         );
-        const dayLabel =
-          dayIndices.length === 1
-            ? `day ${dayIndices[0] + 1}`
-            : `${dayIndices.length} days`;
-        postSystemEvent(`You assigned ${dayLabel} to ${city?.name || 'a city'}.`);
+        onPlannerAction?.(
+          buildPlannerAction('assign_days_to_city', { before, after: next, city, dayIndices }),
+          next
+        );
       }
     },
-    [tripStateRef, setTripState, postSystemEvent]
+    [onPlannerAction, tripStateRef, setTripState]
   );
 
   const unassignDays = useCallback(
@@ -42,14 +42,13 @@ export function useDirectManipulation({ tripStateRef, setTripState, postSystemEv
       if (next === before) return;
       setTripState(next);
       if (notify) {
-        const dayLabel =
-          dayIndices.length === 1
-            ? `day ${dayIndices[0] + 1}`
-            : `${dayIndices.length} days`;
-        postSystemEvent(`You freed up ${dayLabel}.`);
+        onPlannerAction?.(
+          buildPlannerAction('unassign_days', { before, after: next, dayIndices }),
+          next
+        );
       }
     },
-    [tripStateRef, setTripState, postSystemEvent]
+    [onPlannerAction, tripStateRef, setTripState]
   );
 
   const setCityNights = useCallback(
@@ -63,10 +62,13 @@ export function useDirectManipulation({ tripStateRef, setTripState, postSystemEv
         const city = next.route.cities.find(
           (c) => (c.id || c.name?.toLowerCase()) === cityId
         );
-        postSystemEvent(`You set ${city?.name || 'a city'} to ${nights} nights.`);
+        onPlannerAction?.(
+          buildPlannerAction('set_city_nights', { before, after: next, city }),
+          next
+        );
       }
     },
-    [tripStateRef, setTripState, postSystemEvent]
+    [onPlannerAction, tripStateRef, setTripState]
   );
 
   const setTripDates = useCallback(
@@ -96,13 +98,13 @@ export function useDirectManipulation({ tripStateRef, setTripState, postSystemEv
       }
       setTripState(next);
       if (notify && s && e) {
-        const nights = next.dates.totalNights;
-        postSystemEvent(
-          `You set trip dates to ${s} through ${e}${nights != null ? ` (${nights} nights).` : '.'}`
+        onPlannerAction?.(
+          buildPlannerAction('set_trip_dates', { before, after: next, partial }),
+          next
         );
       }
     },
-    [tripStateRef, setTripState, postSystemEvent]
+    [onPlannerAction, tripStateRef, setTripState]
   );
 
   const addCity = useCallback(
@@ -126,10 +128,32 @@ export function useDirectManipulation({ tripStateRef, setTripState, postSystemEv
         if (!created.longitude && longitude) created.longitude = longitude;
       }
       setTripState(next);
-      if (notify) postSystemEvent(`You added ${cleanName} to the route.`);
+      if (notify) {
+        onPlannerAction?.(
+          buildPlannerAction('add_city', { before, after: next, city: created }),
+          next
+        );
+      }
       return created;
     },
-    [tripStateRef, setTripState, postSystemEvent]
+    [onPlannerAction, tripStateRef, setTripState]
+  );
+
+  const acceptSuggestedAllocation = useCallback(
+    (allocation, { notify = true } = {}) => {
+      if (!allocation?.segments?.length) return;
+      const before = tripStateRef.current;
+      const next = applySuggestedAllocation(before, allocation);
+      if (next === before) return;
+      setTripState(next);
+      if (notify) {
+        onPlannerAction?.(
+          buildPlannerAction('accept_allocation', { before, after: next }),
+          next
+        );
+      }
+    },
+    [onPlannerAction, tripStateRef, setTripState]
   );
 
   return {
@@ -138,5 +162,6 @@ export function useDirectManipulation({ tripStateRef, setTripState, postSystemEv
     setCityNights,
     setTripDates,
     addCity,
+    acceptSuggestedAllocation,
   };
 }

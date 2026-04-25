@@ -5,6 +5,23 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { getSupabaseClient } from '@/lib/supabase/client';
 
+const AUTH_NEXT_PATH_KEY = 'eurotrip.auth.nextPath';
+
+function getSafeNextPath(searchParams) {
+  const fromUrl = searchParams.get('next');
+  if (fromUrl?.startsWith('/')) return fromUrl;
+
+  try {
+    const stored = window.localStorage.getItem(AUTH_NEXT_PATH_KEY);
+    window.localStorage.removeItem(AUTH_NEXT_PATH_KEY);
+    if (stored?.startsWith('/')) return stored;
+  } catch {
+    // Ignore storage issues and fall back below.
+  }
+
+  return '/saved-trips';
+}
+
 function AuthCallbackContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -15,7 +32,7 @@ function AuthCallbackContent() {
 
     async function completeSignIn() {
       const supabase = getSupabaseClient();
-      const next = searchParams.get('next') || '/saved-trips';
+      const next = getSafeNextPath(searchParams);
       const code = searchParams.get('code');
       const errorDescription = searchParams.get('error_description') || searchParams.get('error');
 
@@ -40,7 +57,7 @@ function AuthCallbackContent() {
         }
 
         if (!cancelled) {
-          router.replace(next.startsWith('/') ? next : '/saved-trips');
+          router.replace(next);
         }
       } catch (err) {
         if (!cancelled) {

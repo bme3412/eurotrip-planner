@@ -12,6 +12,7 @@ import { calculateEaseScores, batchGetConnectionsToCity } from './easeScoreCalcu
 import { suggestDaysForCity } from './gapAnalyzer';
 import { batchGetDateScores, getScoreBadges } from './dateScorer';
 import { generateVisitDescription, generateShortTagline } from './generateVisitDescription';
+import { normalizeRankedCandidate } from '@/lib/discovery/rankedCandidate';
 import cityTraitsData from '@/lib/planning/config/cityTraits.json';
 import citiesData from '@/generated/cities.json';
 
@@ -528,8 +529,20 @@ export async function getSuggestionsForGap({
     };
   });
 
-  // Sort by total score
-  return suggestions.sort((a, b) => b.score - a.score);
+  // Sort by total score and attach the same ranked-candidate contract used by discovery.
+  return suggestions
+    .sort((a, b) => b.score - a.score)
+    .map((suggestion, index) => ({
+      ...suggestion,
+      rankedCandidate: normalizeRankedCandidate({
+        ...suggestion,
+        reason: suggestion.visitDescription || suggestion.shortTagline,
+      }, {
+        rank: index + 1,
+        startDate: gapStart,
+        endDate: gapEnd,
+      }),
+    }));
 }
 
 /**

@@ -94,7 +94,31 @@ function notFoundResponse() {
   return NextResponse.json({ error: "Trip not found." }, { status: 404 });
 }
 
-export async function GET(_request, { params }) {
+function requesterFromRequest(request, body = null) {
+  const url = new URL(request.url);
+  return {
+    userId: url.searchParams.get("userId") || body?.userId || body?.user_id || null,
+    userEmail: url.searchParams.get("userEmail") || body?.userEmail || body?.user_email || null,
+  };
+}
+
+function canAccessTrip(trip, requester, { write = false } = {}) {
+  if (!trip) return false;
+  const ownerId = trip.user_id || null;
+  const ownerEmail = trip.user_email || null;
+  const hasOwner = Boolean(ownerId || ownerEmail);
+
+  if (!hasOwner) return !write;
+  if (ownerId && requester.userId === ownerId) return true;
+  if (ownerEmail && requester.userEmail === ownerEmail) return true;
+  return !write && trip.is_public === true;
+}
+
+function forbiddenResponse() {
+  return NextResponse.json({ error: "You do not have access to this trip." }, { status: 403 });
+}
+
+export async function GET(request, { params }) {
   const { id } = await params;
   if (!id) {
     return NextResponse.json({ error: "Trip id is required." }, { status: 400 });
@@ -103,6 +127,7 @@ export async function GET(_request, { params }) {
   try {
     const trip = await getTripWithDetails(id);
     if (!trip) return notFoundResponse();
+    if (!canAccessTrip(trip, requesterFromRequest(request))) return forbiddenResponse();
     return NextResponse.json(trip, { status: 200 });
   } catch (error) {
     console.error("Failed to load trip", error);
@@ -122,8 +147,17 @@ export async function PUT(request, { params }) {
   let body;
   try {
     body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON body." }, { status: 400 });
+  }
 
-    if (body?.tripState || body?.trip_state) {
+  if (body?.tripState || body?.trip_state) {
+    try {
+      const existing = await getTripWithDetails(id);
+      if (!existing) return notFoundResponse();
+      if (!canAccessTrip(existing, requesterFromRequest(request, body), { write: true })) {
+        return forbiddenResponse();
+      }
       const data = await updateTripDraft(id, {
         tripState: body.tripState || body.trip_state,
         title: body.title,
@@ -131,9 +165,13 @@ export async function PUT(request, { params }) {
         status: body.status,
       });
       return NextResponse.json(data, { status: 200 });
+    } catch (error) {
+      console.error("Failed to update trip draft", error);
+      return NextResponse.json(
+        { error: "Unable to update trip at this time." },
+        { status: 500 }
+      );
     }
-  } catch {
-    return NextResponse.json({ error: "Invalid JSON body." }, { status: 400 });
   }
 
   const updates = sanitizeUpdatePayload(body);
@@ -142,6 +180,11 @@ export async function PUT(request, { params }) {
   }
 
   try {
+    const existing = await getTripWithDetails(id);
+    if (!existing) return notFoundResponse();
+    if (!canAccessTrip(existing, requesterFromRequest(request, body), { write: true })) {
+      return forbiddenResponse();
+    }
     const supabase = await getSupabaseAdmin();
     const { data, error } = await supabase
       .from("trips")

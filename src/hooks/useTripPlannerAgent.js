@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { initialTripState } from '@/lib/conversation/tripState';
 import { useAuth } from '@/contexts/AuthContext';
-import { canPersistTripDraft, normalizeTripState } from '@/lib/trips/tripLifecycle';
+import { canPersistTripDraft, deriveTripTitle, normalizeTripState } from '@/lib/trips/tripLifecycle';
 import { getLocalTripDraft, upsertLocalTripDraft } from '@/lib/trips/localTripDrafts';
 import { hydrateRoutePreset } from '@/lib/planning/routePresets';
 import { useMessages } from './useMessages';
@@ -11,6 +11,7 @@ import { useTripState } from './useTripState';
 import { useDirectManipulation } from './useDirectManipulation';
 import { useAgentStream } from './useAgentStream';
 import { useItineraryGeneration } from './useItineraryGeneration';
+import { buildCitySelectionMessage } from '@/lib/conversation/citySelectionMessage';
 
 /**
  * Coordinator hook for the agentic trip planner V2.
@@ -65,13 +66,15 @@ function makeSessionId() {
 }
 
 export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId = null } = {}) {
-  const { user, isSupabaseConfigured } = useAuth();
+  const { user, loading: authLoading, isSupabaseConfigured } = useAuth();
   const [pendingInput, setPendingInput] = useState(null);
   const [hasStarted, setHasStarted] = useState(false);
   const [savedTripId, setSavedTripId] = useState(initialTripId);
   const [localTripId, setLocalTripId] = useState(initialLocalTripId);
   const [saveStatus, setSaveStatus] = useState(initialTripId || initialLocalTripId ? 'loading' : 'local');
   const [saveError, setSaveError] = useState(null);
+  const [tripTitle, setTripTitle] = useState('');
+  const [latestPlannerAction, setLatestPlannerAction] = useState(null);
   const startingRef = useRef(false);
   const toolHistoryRef = useRef([]);
   const sessionIdRef = useRef(makeSessionId());
@@ -94,7 +97,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     generationPhase, itinerary, generationError,
     requestFinalization, confirmGeneration, cancelFinalization,
     retryGeneration, resetGeneration,
-  } = useItineraryGeneration({ tripStateRef, tripIdRef });
+  } = useItineraryGeneration({ tripStateRef, tripIdRef, user });
 
   useEffect(() => {
     tripIdRef.current = savedTripId;
@@ -102,12 +105,17 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
 
   useEffect(() => {
     if (!initialTripId) return;
+    if (authLoading) return;
     if (loadedTripIdRef.current === initialTripId) return;
     loadedTripIdRef.current = initialTripId;
 
     let cancelled = false;
     setSaveStatus('loading');
-    fetch(`/api/trips/${initialTripId}`)
+    const params = new URLSearchParams();
+    if (user?.id) params.set('userId', user.id);
+    if (user?.email) params.set('userEmail', user.email);
+    const url = params.toString() ? `/api/trips/${initialTripId}?${params}` : `/api/trips/${initialTripId}`;
+    fetch(url)
       .then(async (res) => {
         if (!res.ok) throw new Error(await res.text());
         return res.json();
@@ -117,6 +125,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
         if (trip?.trip_state) {
           setTripState(normalizeTripState(trip.trip_state));
         }
+        setTripTitle(trip.title || '');
         setSavedTripId(trip.id);
         setSaveStatus('saved');
       })
@@ -130,7 +139,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     return () => {
       cancelled = true;
     };
-  }, [initialTripId, setTripState]);
+  }, [authLoading, initialTripId, setTripState, user?.email, user?.id]);
 
   useEffect(() => {
     if (!initialLocalTripId || initialTripId) return;
@@ -143,6 +152,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     }
 
     setTripState(normalizeTripState(draft.trip_state));
+    setTripTitle(draft.title || '');
     setLocalTripId(draft.id);
     setSaveStatus('saved_local');
   }, [initialLocalTripId, initialTripId, setTripState]);
@@ -170,10 +180,6 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     onFinalize: requestFinalization,
     onToolCall: handleToolHistoryEntry,
   });
-
-  const {
-    assignDaysToCity, unassignDays, setCityNights, setTripDates, addCity,
-  } = useDirectManipulation({ tripStateRef, setTripState, postSystemEvent });
 
   const applyRoutePreset = useCallback((preset) => {
     const hydrated = hydrateRoutePreset(preset);
@@ -208,68 +214,114 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     setPendingInput(null);
   }, [postSystemEvent, setTripState]);
 
-  useEffect(() => {
-    if (isStreaming) return;
-    if (!canPersistTripDraft(tripState)) {
+  const persistDraft = useCallback(async ({ manual = false, tripStateOverride = null } = {}) => {
+    const draftTripState = tripStateOverride || tripState;
+    if (!canPersistTripDraft(draftTripState)) {
       setSaveStatus(savedTripId ? 'saved' : localTripId ? 'saved_local' : 'local');
-      return;
+      if (manual) {
+        setSaveError('Add at least one city and a time range before saving.');
+      }
+      return null;
     }
 
+    const title = tripTitle.trim() || deriveTripTitle(draftTripState);
+    const shouldSyncToAccount = isSupabaseConfigured && Boolean(user?.id || user?.email);
+
+    if (!shouldSyncToAccount) {
+      const draft = upsertLocalTripDraft({
+        id: localTripId,
+        tripState: draftTripState,
+        title,
+      });
+      setLocalTripId(draft.id);
+      setSaveStatus('saved_local');
+      setSaveError(null);
+      return draft;
+    }
+
+    try {
+      setSaveStatus('saving');
+      setSaveError(null);
+      const method = savedTripId ? 'PUT' : 'POST';
+      const url = savedTripId ? `/api/trips/${savedTripId}` : '/api/trips/drafts';
+      const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          tripState: draftTripState,
+          title,
+          userId: user?.id || null,
+          userEmail: user?.email || null,
+        }),
+      });
+
+      if (!res.ok) {
+        const fallback = manual ? 'Save failed.' : 'Autosave failed.';
+        const body = await res.clone().json().catch(async () => {
+          const text = await res.text().catch(() => '');
+          return { error: text || fallback };
+        });
+        setSaveError(body.error || fallback);
+        setSaveStatus(res.status === 503 ? 'local' : 'error');
+        return null;
+      }
+
+      const saved = await res.json();
+      setSavedTripId(saved.id);
+      setTripTitle(saved.title || title);
+      setSaveStatus('saved');
+      return saved;
+    } catch (error) {
+      console.warn('[agent] Failed to save trip:', error);
+      setSaveError(manual ? 'Save failed.' : 'Autosave failed.');
+      setSaveStatus('error');
+      return null;
+    }
+  }, [isSupabaseConfigured, localTripId, savedTripId, tripState, tripTitle, user?.email, user?.id]);
+
+  const handlePlannerAction = useCallback((action, nextTripState) => {
+    if (!action) return;
+    setLatestPlannerAction({
+      ...action,
+      savedAt: null,
+      saveStatus: action.shouldSave ? 'saving' : 'idle',
+    });
+    if (action.confirmation) {
+      postSystemEvent(action.confirmation);
+    }
+    if (action.shouldSave) {
+      persistDraft({ tripStateOverride: nextTripState }).then((saved) => {
+        setLatestPlannerAction((current) => {
+          if (!current || current.type !== action.type || current.confirmation !== action.confirmation) {
+            return current;
+          }
+          return {
+            ...current,
+            saveStatus: saved ? 'saved' : 'error',
+            savedAt: saved ? new Date().toISOString() : null,
+          };
+        });
+      });
+    }
+  }, [persistDraft, postSystemEvent]);
+
+  const {
+    assignDaysToCity, unassignDays, setCityNights, setTripDates, addCity, acceptSuggestedAllocation,
+  } = useDirectManipulation({ tripStateRef, setTripState, onPlannerAction: handlePlannerAction });
+
+  useEffect(() => {
+    if (isStreaming) return;
+    if (authLoading) return;
+
     if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
-    saveTimerRef.current = setTimeout(async () => {
-      const shouldSyncToAccount = isSupabaseConfigured && Boolean(user?.id || user?.email);
-
-      if (!shouldSyncToAccount) {
-        const draft = upsertLocalTripDraft({
-          id: localTripId,
-          tripState,
-        });
-        setLocalTripId(draft.id);
-        setSaveStatus('saved_local');
-        setSaveError(null);
-        return;
-      }
-
-      try {
-        setSaveStatus('saving');
-        setSaveError(null);
-        const method = savedTripId ? 'PUT' : 'POST';
-        const url = savedTripId ? `/api/trips/${savedTripId}` : '/api/trips/drafts';
-        const res = await fetch(url, {
-          method,
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            tripState,
-            userId: user?.id || null,
-            userEmail: user?.email || null,
-          }),
-        });
-
-        if (!res.ok) {
-          const fallback = 'Autosave failed.';
-          const body = await res.clone().json().catch(async () => {
-            const text = await res.text().catch(() => '');
-            return { error: text || fallback };
-          });
-          setSaveError(body.error || fallback);
-          setSaveStatus(res.status === 503 ? 'local' : 'error');
-          return;
-        }
-
-        const saved = await res.json();
-        setSavedTripId(saved.id);
-        setSaveStatus('saved');
-      } catch (error) {
-        console.warn('[agent] Failed to autosave trip:', error);
-        setSaveError('Autosave failed.');
-        setSaveStatus('error');
-      }
+    saveTimerRef.current = setTimeout(() => {
+      persistDraft();
     }, 900);
 
     return () => {
       if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
     };
-  }, [isStreaming, isSupabaseConfigured, localTripId, savedTripId, tripState, user?.email, user?.id]);
+  }, [authLoading, isStreaming, persistDraft]);
 
   // ── Start conversation ─────────────────────────────────────
   const startConversation = useCallback(async () => {
@@ -378,9 +430,8 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
       sendMessage("I'll skip adding more cities for now");
       return;
     }
-    const verb = purpose === 'start' ? 'start in' : purpose === 'end' ? 'end in' : 'add';
-    sendMessage(`I'll ${verb} ${city.name}`);
-  }, [sendMessage]);
+    sendMessage(buildCitySelectionMessage(city, purpose, tripStateRef.current));
+  }, [sendMessage, tripStateRef]);
 
   const handleDaysChange = useCallback((daysMap) => {
     const entries = Object.entries(daysMap);
@@ -412,6 +463,8 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     setPendingInput(null);
     setSavedTripId(null);
     setLocalTripId(null);
+    setTripTitle('');
+    setLatestPlannerAction(null);
     setSaveStatus('local');
     setSaveError(null);
     setHasStarted(false);
@@ -440,6 +493,8 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     localTripId,
     saveStatus,
     saveError,
+    tripTitle,
+    latestPlannerAction,
 
     // Actions
     sendMessage,
@@ -453,6 +508,8 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     dismissError,
     setPendingInput,
     setTripState,
+    setTripTitle,
+    saveNow: () => persistDraft({ manual: true }),
 
     // Generation actions
     confirmGeneration,
@@ -465,6 +522,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     unassignDays,
     setCityNights,
     addCity,
+    acceptSuggestedAllocation,
     setTripDates,
     postSystemEvent,
   };

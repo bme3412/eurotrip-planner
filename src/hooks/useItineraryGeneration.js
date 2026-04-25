@@ -9,7 +9,7 @@ import { useState, useCallback } from 'react';
  *   complete -> confirming (re-generate after changes)
  *   complete -> idle (start over)
  */
-export function useItineraryGeneration({ tripStateRef, tripIdRef = null }) {
+export function useItineraryGeneration({ tripStateRef, tripIdRef = null, user = null }) {
   const [generationPhase, setGenerationPhase] = useState('idle');
   const [itinerary, setItinerary] = useState(null);
   const [generationError, setGenerationError] = useState(null);
@@ -64,6 +64,8 @@ export function useItineraryGeneration({ tripStateRef, tripIdRef = null }) {
           pace: ts.preferences.pace || 'balanced',
           budget: ts.budget.style || 'moderate',
           day_allocation: dayAllocation,
+          userId: user?.id || null,
+          userEmail: user?.email || null,
         }),
       });
 
@@ -79,7 +81,7 @@ export function useItineraryGeneration({ tripStateRef, tripIdRef = null }) {
       setGenerationError(err.message);
       setGenerationPhase('error');
     }
-  }, [tripStateRef, tripIdRef]);
+  }, [tripStateRef, tripIdRef, user?.email, user?.id]);
 
   /** User declined finalization — go back to idle. */
   const cancelFinalization = useCallback(() => {

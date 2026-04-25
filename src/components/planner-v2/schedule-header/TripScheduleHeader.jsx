@@ -7,6 +7,7 @@ import DayStrip from './DayStrip';
 import { useDaySelection } from './useDaySelection';
 import { CitySearchInput } from '../../conversation/InputArea';
 import { buildDayAssignments, getTripDayCount } from '@/lib/conversation/dayAssignments';
+import { buildSuggestedAllocation, formatCityDateRange } from '@/lib/conversation/plannerActions';
 
 const CITY_PALETTE = [
   '#d97706',
@@ -40,9 +41,12 @@ export default function TripScheduleHeader({
   unassignDays,
   setCityNights,
   addCity,
+  acceptSuggestedAllocation,
+  latestPlannerAction,
 }) {
   const [focusedDayIndex, setFocusedDayIndex] = useState(null);
   const [pendingNewCityIndices, setPendingNewCityIndices] = useState(null);
+  const [showDays, setShowDays] = useState(true);
 
   const days = useMemo(() => buildDayAssignments(tripState), [tripState]);
   const orderedCities = useMemo(() => {
@@ -74,6 +78,10 @@ export default function TripScheduleHeader({
   const hasDates =
     !!tripState?.dates?.startDate || !!tripState?.dates?.endDate;
   const isInteractive = !!(assignDaysToCity || unassignDays || setCityNights);
+  const suggestedAllocation = useMemo(
+    () => buildSuggestedAllocation(tripState),
+    [tripState]
+  );
 
   const {
     selectedSet,
@@ -173,9 +181,58 @@ export default function TripScheduleHeader({
     [setTripDates]
   );
 
+  const handleAcceptSuggestedAllocation = useCallback(() => {
+    if (!suggestedAllocation) return;
+    acceptSuggestedAllocation?.(suggestedAllocation);
+  }, [acceptSuggestedAllocation, suggestedAllocation]);
+
   return (
-    <div className="z-20 max-h-[160px] shrink-0 overflow-y-auto border-b border-[#e5e0d8] bg-[#faf8f5]/95 backdrop-blur-sm">
-      <div className="space-y-1.5 px-3 py-2">
+    <div className="z-20 shrink-0 bg-[#faf8f5]/95 backdrop-blur-sm">
+      <div className="space-y-1 px-3 py-1.5">
+        {latestPlannerAction?.confirmation && (
+          <div className="rounded-xl border border-[#eadfc8] bg-white px-3 py-2 text-xs text-[#6a6459] shadow-sm">
+            <span className="font-semibold text-[#2a2520]">{latestPlannerAction.title || 'Trip updated'}.</span>{' '}
+            {latestPlannerAction.confirmation}
+          </div>
+        )}
+
+        {suggestedAllocation && (
+          <div className="rounded-xl border border-[#eadfc8] bg-white p-3 shadow-sm">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a8578]">
+                  Suggested date split
+                </p>
+                <p className="mt-1 text-xs text-[#6a6459]">
+                  Accept this split, then we can compare transport between each leg.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={handleAcceptSuggestedAllocation}
+                className="rounded-full bg-[#2a2520] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#1a1510]"
+              >
+                Apply split
+              </button>
+            </div>
+            <div className="mt-2 flex gap-1.5 overflow-x-auto pb-1">
+              {suggestedAllocation.segments.map((segment) => (
+                <div
+                  key={segment.cityId}
+                  className="min-w-[150px] rounded-xl border border-[#e5e0d8] bg-[#faf8f5] px-3 py-2"
+                >
+                  <p className="truncate text-xs font-semibold text-[#2a2520]">
+                    {segment.cityName}
+                  </p>
+                  <p className="mt-0.5 text-[11px] text-[#6a6459]">
+                    {segment.nights}n · {segment.label.split(': ')[1]}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="flex max-w-full flex-nowrap items-stretch gap-1.5 overflow-x-auto pb-0.5">
           <DateRangeChip
             startDate={tripState?.dates?.startDate}
@@ -212,11 +269,21 @@ export default function TripScheduleHeader({
               onIncrementNights={isInteractive ? handleIncrementNights : null}
               onDecrementNights={isInteractive ? handleDecrementNights : null}
               onDayFocus={handleDayFocus}
+              dateRange={formatCityDateRange(city)}
             />
           ))}
+          {days.length > 0 && (
+            <button
+              type="button"
+              onClick={() => setShowDays((value) => !value)}
+              className="flex shrink-0 items-center rounded-xl border border-[#e5e0d8] bg-white px-3 py-2 text-[11px] font-semibold text-[#6a6459] shadow-sm hover:bg-[#f5f0e8] hover:text-[#2a2520]"
+            >
+              {showDays ? 'Hide days' : 'Show days'}
+            </button>
+          )}
         </div>
 
-        {days.length > 0 && (
+        {days.length > 0 && showDays && (
           <DayStrip
             days={days}
             cityColors={cityColors}

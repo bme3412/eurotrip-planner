@@ -2,11 +2,12 @@
 
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import PlannerColumn from './PlannerColumn';
-import RouteMapColumn from './RouteMapColumn';
-import TripScheduleHeader from './schedule-header/TripScheduleHeader';
+import PlannerMapWorkspace from './PlannerMapWorkspace';
 import MobileDrawer, { MobileMapButton } from '../conversation/MobileDrawer';
 import { useTripPlannerAgent } from '@/hooks/useTripPlannerAgent';
 import { derivePlannerInteraction } from '@/lib/conversation/plannerInteraction';
+import { deriveTripTitle } from '@/lib/trips/tripLifecycle';
+import { buildRouteSummary } from '@/lib/conversation/plannerActions';
 
 /**
  * Agentic /plan layout: compact TripScheduleHeader + chat + map.
@@ -44,10 +45,13 @@ export default function ThreeColumnPlanner({
     isFinalized,
     gaps,
     generationPhase,
+    itinerary,
+    generationError,
     savedTripId,
     localTripId,
     saveStatus,
     saveError,
+    tripTitle,
     sendMessage,
     startConversation,
     handleOptionSelect,
@@ -58,7 +62,15 @@ export default function ThreeColumnPlanner({
     unassignDays,
     setCityNights,
     addCity,
+    acceptSuggestedAllocation,
     setTripDates,
+    confirmGeneration,
+    cancelFinalization,
+    retryGeneration,
+    resetGeneration,
+    setTripTitle,
+    saveNow,
+    latestPlannerAction,
   } = useTripPlannerAgent({ initialTripId, initialLocalTripId });
 
   const tripHasCities = tripState.route.cities.length > 0;
@@ -129,6 +141,14 @@ export default function ThreeColumnPlanner({
     dates: tripState.dates,
     totalDays: tripState.dates.totalNights,
   };
+  const derivedTripTitle = useMemo(() => deriveTripTitle(tripState), [tripState]);
+  const displayTripTitle = tripTitle.trim() || derivedTripTitle;
+  const routeSummary = useMemo(() => buildRouteSummary(tripState), [tripState]);
+
+  const handleTitleSubmit = useCallback((event) => {
+    event.preventDefault();
+    saveNow();
+  }, [saveNow]);
 
   useEffect(() => {
     const stored = Number(window.localStorage.getItem('plannerChatWidthPct'));
@@ -186,44 +206,63 @@ export default function ThreeColumnPlanner({
 
   return (
     <div className="flex h-full min-h-0 flex-col">
-      {/* Only show schedule header once cities are added */}
-      {tripHasCities && (
-        <TripScheduleHeader
-          tripState={tripState}
-          setTripDates={setTripDates}
-          assignDaysToCity={assignDaysToCity}
-          unassignDays={unassignDays}
-          setCityNights={setCityNights}
-          addCity={addCity}
-        />
-      )}
+      {(tripHasCities || savedTripId || localTripId || saveStatus !== 'local') && (
+        <div className="flex shrink-0 flex-wrap items-center justify-between gap-x-3 gap-y-1.5 border-b border-[#e5e0d8] bg-white/90 px-3 py-1.5 text-[11px] text-[#6a6459]">
+          <form onSubmit={handleTitleSubmit} className="flex min-w-[min(100%,320px)] flex-[1_1_360px] items-center gap-2">
+            <label className="shrink-0 font-semibold uppercase tracking-[0.14em] text-[#8a8578]" htmlFor="planner-trip-title">
+              Trip
+            </label>
+            <input
+              id="planner-trip-title"
+              type="text"
+              value={tripTitle}
+              onChange={(event) => setTripTitle(event.target.value)}
+              placeholder={derivedTripTitle}
+              className="min-w-0 max-w-[360px] flex-1 rounded-xl border border-[#e5e0d8] bg-white px-3 py-1 text-sm font-semibold text-[#2a2520] placeholder:text-[#b5ad9f] focus:border-[#c9a227] focus:outline-none focus:ring-2 focus:ring-[#c9a227]/15"
+              aria-label="Trip name"
+            />
+            <button
+              type="submit"
+              className="rounded-full bg-[#2a2520] px-3 py-1 text-xs font-semibold text-white hover:bg-[#1a1510]"
+            >
+              Save
+            </button>
+          </form>
 
-      {(savedTripId || localTripId || saveStatus !== 'local') && (
-        <div className="flex shrink-0 items-center justify-between border-b border-[#e5e0d8] bg-white/85 px-4 py-1.5 text-[11px] text-[#6a6459]">
-          <span>
-            {SAVE_STATUS_LABELS[saveStatus] || 'Trip draft'}
-            {saveError ? ` · ${saveError}` : ''}
-          </span>
-          {savedTripId && (
-            <div className="flex items-center gap-3">
-              <a href={`/plan?tripId=${savedTripId}`} className="font-semibold text-[#2a2520] hover:underline">
-                Edit
-              </a>
-              <a href={`/trips/${savedTripId}`} className="font-semibold text-[#2a2520] hover:underline">
-                View
-              </a>
-            </div>
-          )}
-          {!savedTripId && localTripId && (
-            <div className="flex items-center gap-3">
-              <a href={`/plan?localTripId=${localTripId}`} className="font-semibold text-[#2a2520] hover:underline">
-                Edit
-              </a>
-              <a href="/saved-trips" className="font-semibold text-[#2a2520] hover:underline">
-                My Trips
-              </a>
-            </div>
-          )}
+          <div className="ml-auto flex min-w-0 flex-[1_1_auto] flex-wrap items-center justify-end gap-2 sm:gap-3">
+            <span className="hidden max-w-[150px] truncate md:inline" title={displayTripTitle}>
+              {SAVE_STATUS_LABELS[saveStatus] || 'Trip draft'}
+              {saveError ? ` · ${saveError}` : ''}
+            </span>
+            {savedTripId && (
+              <>
+                <a href={`/plan?tripId=${savedTripId}`} className="font-semibold text-[#2a2520] hover:underline">
+                  Edit
+                </a>
+                <a href={`/itineraries/${savedTripId}`} className="font-semibold text-[#2a2520] hover:underline">
+                  View
+                </a>
+              </>
+            )}
+            {!savedTripId && localTripId && (
+              <>
+                <a href={`/plan?localTripId=${localTripId}`} className="font-semibold text-[#2a2520] hover:underline">
+                  Edit
+                </a>
+                <a href="/saved-trips" className="font-semibold text-[#2a2520] hover:underline">
+                  My Trips
+                </a>
+              </>
+            )}
+            <a href="/saved-trips" className="font-semibold text-[#2a2520] hover:underline">
+              Saved trips
+            </a>
+            {tripHasCities && (
+              <span className="max-w-[360px] truncate rounded-full border border-[#e5e0d8] bg-[#faf8f5] px-2.5 py-1 font-semibold text-[#6a6459]" title={routeSummary}>
+                {routeSummary}
+              </span>
+            )}
+          </div>
         </div>
       )}
 
@@ -243,6 +282,9 @@ export default function ThreeColumnPlanner({
             gaps={gaps}
             error={error}
             generationPhase={generationPhase}
+            itinerary={itinerary}
+            generationError={generationError}
+            savedTripId={savedTripId}
             onSendMessage={handleSendMessage}
             onOptionSelect={handleOption}
             onCitySelect={handleCity}
@@ -255,6 +297,12 @@ export default function ThreeColumnPlanner({
             onParsedItineraryRefine={(summary) => sendMessage(summary)}
             assignDaysToCity={assignDaysToCity}
             addCity={addCity}
+            confirmGeneration={confirmGeneration}
+            cancelFinalization={cancelFinalization}
+            retryGeneration={retryGeneration}
+            resetGeneration={resetGeneration}
+            latestPlannerAction={latestPlannerAction}
+            acceptSuggestedAllocation={acceptSuggestedAllocation}
           />
         </div>
 
@@ -277,7 +325,17 @@ export default function ThreeColumnPlanner({
           className="hidden min-w-0 min-h-0 flex-col lg:flex"
           style={{ flexBasis: `calc(${100 - chatWidthPct}% - 5px)` }}
         >
-          <RouteMapColumn tripState={tripState} interaction={interaction} />
+          <PlannerMapWorkspace
+            tripState={tripState}
+            interaction={interaction}
+            setTripDates={setTripDates}
+            assignDaysToCity={assignDaysToCity}
+            unassignDays={unassignDays}
+            setCityNights={setCityNights}
+            addCity={addCity}
+            acceptSuggestedAllocation={acceptSuggestedAllocation}
+            latestPlannerAction={latestPlannerAction}
+          />
         </div>
       </div>
 
@@ -290,7 +348,17 @@ export default function ThreeColumnPlanner({
           isOpen={isMobileDrawerOpen}
           onClose={() => setIsMobileDrawerOpen(false)}
         >
-          <RouteMapColumn tripState={tripState} interaction={interaction} />
+          <PlannerMapWorkspace
+            tripState={tripState}
+            interaction={interaction}
+            setTripDates={setTripDates}
+            assignDaysToCity={assignDaysToCity}
+            unassignDays={unassignDays}
+            setCityNights={setCityNights}
+            addCity={addCity}
+            acceptSuggestedAllocation={acceptSuggestedAllocation}
+            latestPlannerAction={latestPlannerAction}
+          />
         </MobileDrawer>
       </div>
     </div>

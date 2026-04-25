@@ -128,7 +128,7 @@ function getDaylightHours(month, country) {
   return Math.round(adjusted * 2) / 2; // Round to nearest 0.5
 }
 
-export default function CityListRow({ city, rank, onClick, startDate }) {
+export default function CityListRow({ city, rank, onClick, onStartPlan, startDate }) {
   const [isHovered, setIsHovered] = useState(false);
   const [imgError, setImgError] = useState(false);
 
@@ -245,6 +245,17 @@ export default function CityListRow({ city, rank, onClick, startDate }) {
           <div className="bg-amber-50 text-amber-700 px-2 py-1 rounded-lg text-xs font-semibold">
             {daylightHours}h
           </div>
+
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation();
+              onStartPlan?.();
+            }}
+            className="rounded-full bg-gray-900 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-gray-800"
+          >
+            Start itinerary
+          </button>
 
           {/* Arrow */}
           <ChevronRight className={`w-5 h-5 text-gray-400 transition-transform ${isHovered ? 'translate-x-1' : ''}`} />

@@ -249,6 +249,74 @@ function RoutePresetCards({ onSelect }) {
   );
 }
 
+function PendingCityPicker({ pendingInput, onCitySelect }) {
+  const suggestions = (pendingInput.data?.suggestions || [])
+    .map((city) => (typeof city === 'string' ? { id: city, name: city } : city))
+    .filter((city) => city?.name);
+  const purpose = pendingInput.data?.purpose || 'stop';
+  const regionLabels = [...new Set(suggestions.map((city) => city.regionFocus).filter(Boolean))];
+  const suggestionLabel = regionLabels.length === 1
+    ? `Good bases for ${regionLabels[0]}`
+    : regionLabels.length > 1
+      ? `Recommended bases for ${regionLabels.join(' + ')}`
+      : 'Suggested stops';
+
+  return (
+    <div className="space-y-3 py-1">
+      {suggestions.length > 0 && (
+        <div className="rounded-2xl border border-[#e5e0d8] bg-white p-3 shadow-sm">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8a8578]">
+            {suggestionLabel}
+          </p>
+          <div className="mt-2 grid gap-2">
+            {suggestions.slice(0, 5).map((city) => (
+              <button
+                key={city.id || city.name}
+                type="button"
+                onClick={() => onCitySelect(city)}
+                className="group rounded-2xl border border-[#e5e0d8] bg-[#faf8f5] p-3 text-left transition hover:border-[#c9a227] hover:bg-white"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="font-display text-[15px] font-semibold text-[#2a2520]">
+                      {city.country ? `${getFlagForCountry(city.country)} ` : ''}
+                      {city.name}
+                      {city.country ? (
+                        <span className="font-sans text-sm font-normal text-[#8a8578]">, {city.country}</span>
+                      ) : null}
+                    </p>
+                    {city.reason && (
+                      <p className="mt-1 line-clamp-2 text-[12px] leading-relaxed text-[#6a6459]">
+                        {city.reason}
+                      </p>
+                    )}
+                    {(city.regionFocus || city.routeRole || city.transportNote) && (
+                      <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#8a8578]">
+                        {[city.regionFocus, city.routeRole, city.transportNote].filter(Boolean).join(' · ')}
+                      </p>
+                    )}
+                  </div>
+                  <span className="shrink-0 rounded-full bg-[#2a2520] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-white transition group-hover:bg-[#c9a227]">
+                    Add
+                  </span>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <CitySearchInput
+        purpose={purpose}
+        label={suggestions.length > 0 ? 'Search another city' : undefined}
+        placeholder={suggestions.length > 0 ? 'Search another city to add...' : undefined}
+        suggestions={[]}
+        onSelect={onCitySelect}
+      />
+    </div>
+  );
+}
+
 // ── Main component ───────────────────────────────────────────────
 export default function CompactMessageList({
   messages,
@@ -326,13 +394,10 @@ export default function CompactMessageList({
           );
         }
         return (
-          <div className="py-1">
-            <CitySearchInput
-              purpose={pendingInput.data?.purpose || 'stop'}
-              suggestions={pendingInput.data?.suggestions || []}
-              onSelect={onCitySelect}
-            />
-          </div>
+          <PendingCityPicker
+            pendingInput={pendingInput}
+            onCitySelect={onCitySelect}
+          />
         );
       case 'show_city_cards':
         return (
@@ -342,7 +407,7 @@ export default function CompactMessageList({
       case 'show_days_allocation':
         if (activeWidget !== 'night_allocator') return null;
         return (
-          <HeaderHint label="Use the +/- nights buttons in the schedule header above to allocate days." />
+          <HeaderHint label="Use the route schedule below the map, or apply the suggested split pinned by the chat input." />
         );
       case 'render_date_picker':
       case 'show_date_picker':

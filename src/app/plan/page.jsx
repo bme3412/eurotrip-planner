@@ -38,11 +38,38 @@ const MODES = [
   { id: 'wizard', label: 'Step by step', Icon: List },
 ];
 
+function buildInitialPlannerMessage(searchParams) {
+  const q = searchParams.get('q')?.trim();
+  if (q) return q;
+
+  const city = searchParams.get('cityName') || searchParams.get('city');
+  const cities = searchParams.get('cities')?.split(',').filter(Boolean) || [];
+  const startDate = searchParams.get('startDate');
+  const endDate = searchParams.get('endDate');
+  const rank = searchParams.get('rank');
+  const reason = searchParams.get('reason');
+
+  if (cities.length > 1) {
+    const dates = startDate && endDate ? ` from ${startDate} to ${endDate}` : '';
+    return `Build a Europe route using these ranked city picks: ${cities.join(', ')}${dates}. Compare the tradeoffs and create a sensible itinerary route.`;
+  }
+
+  if (!city) return null;
+
+  const parts = [`Plan a trip to ${city}`];
+  if (startDate && endDate) parts.push(`from ${startDate} to ${endDate}`);
+  const context = [];
+  if (rank) context.push(`ranked #${rank}`);
+  if (reason) context.push(reason);
+  if (context.length > 0) parts.push(`It was ${context.join('; ')}.`);
+  return parts.join(' ');
+}
+
 function PlanContent() {
   const searchParams = useSearchParams();
 
   const urlMode = searchParams.get('mode');
-  const q = searchParams.get('q')?.trim() || null;
+  const q = buildInitialPlannerMessage(searchParams);
   const tripId = searchParams.get('tripId') || null;
   const localTripId = searchParams.get('localTripId') || null;
   const hasWizardParams =
@@ -72,20 +99,20 @@ function PlanContent() {
   return (
     <div className="fixed inset-0 top-[56px] flex flex-col bg-[#faf8f5] overflow-hidden z-10">
       {/* Top header bar */}
-      <div className="flex items-center justify-between px-6 py-3 border-b border-[#e5e0d8] shrink-0">
+      <div className="flex items-center justify-between gap-4 px-4 py-2 border-b border-[#e5e0d8] shrink-0 bg-white/85 backdrop-blur">
         <div className="min-w-0">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-[#8a8578] font-medium">
+          <p className="text-[9px] uppercase tracking-[0.2em] text-[#8a8578] font-medium leading-none">
             Plan a Trip
           </p>
-          <h1 className="mt-0.5 leading-tight">
-            <span className="font-display text-xl text-[#2a2520] font-semibold">
+          <h1 className="mt-0.5 leading-tight truncate">
+            <span className="font-display text-base sm:text-lg text-[#2a2520] font-semibold">
               Describe your trip.
             </span>{' '}
-            <span className="text-base text-[#8a8578]">
+            <span className="hidden sm:inline text-sm text-[#8a8578]">
               We&apos;ll build the route.
             </span>
           </h1>
-          <p className="text-[11px] text-[#8a8578] mt-0.5 hidden sm:block">
+          <p className="text-[11px] text-[#8a8578] mt-0.5 hidden xl:block">
             Start with a city, a season, or a mood. The route assembles as you chat,
             the map updates in real time, and the itinerary fills in with photos and rail connections.
           </p>
@@ -95,7 +122,7 @@ function PlanContent() {
         <div
           role="tablist"
           aria-label="Planning mode"
-          className="inline-flex gap-0.5 p-0.5 bg-white/80 backdrop-blur rounded-xl border border-[#e5e0d8] shadow-sm shrink-0 ml-4"
+          className="inline-flex gap-0.5 p-0.5 bg-white/80 backdrop-blur rounded-xl border border-[#e5e0d8] shadow-sm shrink-0"
         >
           {MODES.map((tab) => {
             const active = mode === tab.id;
@@ -110,7 +137,7 @@ function PlanContent() {
                 onMouseEnter={
                   tab.id === 'conversation' ? preloadConversation : preloadWizard
                 }
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   active
                     ? 'bg-white text-[#2a2520] shadow-sm'
                     : 'text-[#8a8578] hover:text-[#2a2520]'

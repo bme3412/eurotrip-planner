@@ -112,6 +112,23 @@ test('country-level destinations become target regions, not committed cities', (
   assert.deepEqual(extracted.cities.map((city) => city.name), ['Paris']);
 });
 
+test('region-level destinations like Albanian Riviera stay target regions', () => {
+  const { updatedState, extracted } = handleExtractTripData({
+    cities: [
+      { name: 'Paris', role: 'start', arrivalDate: '2026-06-19', departureDate: '2026-06-22' },
+      { name: 'Albanian Riviera', role: 'stop' },
+      { name: 'Romania', role: 'stop' },
+    ],
+    startDate: '2026-06-19',
+    endDate: '2026-07-01',
+  }, initialTripState);
+
+  assert.deepEqual(updatedState.route.cities.map((city) => city.name), ['Paris']);
+  assert.ok(updatedState.brief.targetRegions.includes('Albanian Riviera'));
+  assert.ok(updatedState.brief.targetRegions.includes('Romania'));
+  assert.deepEqual(extracted.cities.map((city) => city.name), ['Paris']);
+});
+
 test('city picker for country-level intent is choose-stops, not needs-anchor', () => {
   const tripState = mergeTripData(initialTripState, {
     cities: [{ name: 'Paris', role: 'start' }],
@@ -123,8 +140,15 @@ test('city picker for country-level intent is choose-stops, not needs-anchor', (
     data: {
       purpose: 'suggest_stops',
       suggestions: [
-        { id: 'tirana', name: 'Tirana', country: 'Albania' },
-        { id: 'bucharest', name: 'Bucharest', country: 'Romania' },
+        {
+          id: 'tirana',
+          name: 'Tirana',
+          country: 'Albania',
+          regionFocus: 'Albanian Riviera',
+          routeRole: 'flight gateway',
+          transportNote: 'use onward road transfer to the coast',
+        },
+        { id: 'bucharest', name: 'Bucharest', country: 'Romania', routeRole: 'flight hub' },
       ],
     },
   };
@@ -136,6 +160,9 @@ test('city picker for country-level intent is choose-stops, not needs-anchor', (
   });
 
   assert.equal(interaction.mode, 'choose_stops');
-  assert.equal(interaction.copy.status, 'Choose stops');
-  assert.equal(interaction.copy.nextLabel, 'Resolve destination intent');
+  assert.equal(interaction.copy.status, 'Pick suggested stops');
+  assert.equal(interaction.copy.nextLabel, 'Choose a city card');
+  assert.equal(interaction.previewSuggestions[0].regionFocus, 'Albanian Riviera');
+  assert.equal(interaction.previewSuggestions[0].routeRole, 'flight gateway');
+  assert.equal(interaction.previewSuggestions[0].transportNote, 'use onward road transfer to the coast');
 });
