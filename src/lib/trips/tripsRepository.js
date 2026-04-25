@@ -5,6 +5,16 @@
  */
 
 import { getSupabaseAdmin } from '../supabase/server';
+import {
+  buildTripDraftPayload,
+  canPersistTripDraft,
+  normalizeTripState,
+  TRIP_LIFECYCLE_STATUSES,
+} from './tripLifecycle';
+
+function makeShareToken() {
+  return `trip_${Math.random().toString(36).slice(2, 10)}${Date.now().toString(36)}`;
+}
 
 /**
  * Create a trip with normalized day and activity rows.
@@ -83,6 +93,88 @@ export async function createTripWithDays(tripPayload, itinerary) {
 }
 
 /**
+ * Create a durable draft from the conversation planner's canonical tripState.
+ */
+export async function createDraftTrip({ tripState, userId = null, userEmail = null, title = null }) {
+  if (!canPersistTripDraft(tripState)) {
+    throw new Error('Draft trips require at least one anchor city and a time range.');
+  }
+
+  const supabase = await getSupabaseAdmin();
+  const payload = buildTripDraftPayload(tripState, {
+    userId,
+    userEmail,
+    title,
+    status: TRIP_LIFECYCLE_STATUSES.DRAFT,
+  });
+
+  const { data, error } = await supabase
+    .from('trips')
+    .insert({
+      ...payload,
+      share_token: makeShareToken(),
+      is_public: false,
+    })
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+}
+
+/**
+ * Persist the latest conversation planner state into an existing trip draft.
+ */
+export async function updateTripDraft(tripId, { tripState, title, isPublic, status } = {}) {
+  const supabase = await getSupabaseAdmin();
+  const updates = {};
+
+  if (tripState) {
+    Object.assign(updates, buildTripDraftPayload(tripState, {
+      title,
+      status,
+    }));
+    delete updates.user_id;
+    delete updates.user_email;
+  } else {
+    if (title !== undefined) updates.title = title;
+    if (status !== undefined) updates.status = status;
+  }
+
+  if (isPublic !== undefined) {
+    updates.is_public = Boolean(isPublic);
+    if (isPublic) updates.status = TRIP_LIFECYCLE_STATUSES.SHARED;
+  }
+
+  const { data, error } = await supabase
+    .from('trips')
+    .update(updates)
+    .eq('id', tripId)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+}
+
+export async function listTripsForUser({ userId = null, userEmail = null } = {}) {
+  const supabase = await getSupabaseAdmin();
+  let query = supabase
+    .from('trips')
+    .select('*')
+    .order('updated_at', { ascending: false, nullsFirst: false })
+    .order('created_at', { ascending: false });
+
+  if (userId) query = query.eq('user_id', userId);
+  else if (userEmail) query = query.eq('user_email', userEmail);
+  else query = query.limit(0);
+
+  const { data, error } = await query;
+  if (error) throw error;
+  return data || [];
+}
+
+/**
  * Fetch a trip with full nested days → activities.
  */
 export async function getTripWithDetails(tripId) {
@@ -129,6 +221,97 @@ export async function getTripWithDetails(tripId) {
   }
 
   return { ...trip, days: days || [] };
+}
+
+export async function getTripByShareToken(shareToken) {
+  const supabase = await getSupabaseAdmin();
+  const { data: trip, error } = await supabase
+    .from('trips')
+    .select('*')
+    .eq('share_token', shareToken)
+    .eq('is_public', true)
+    .single();
+
+  if (error) {
+    if (error.code === 'PGRST116') return null;
+    throw error;
+  }
+  return trip ? getTripWithDetails(trip.id) : null;
+}
+
+export async function persistGeneratedItinerary(tripId, itinerary, tripState) {
+  const supabase = await getSupabaseAdmin();
+  const normalized = normalizeTripState(tripState);
+  const draftPayload = buildTripDraftPayload(normalized, {
+    status: TRIP_LIFECYCLE_STATUSES.ITINERARY_GENERATED,
+  });
+
+  await supabase.from('trip_days').delete().eq('trip_id', tripId);
+
+  const days = itinerary?.days || [];
+  for (let i = 0; i < days.length; i++) {
+    const day = days[i];
+    const city = day.city || day.cityName || day.location || null;
+    const dayDate = day.date || computeDayDate(draftPayload.start_date, i);
+    const { data: dayRow, error: dayErr } = await supabase
+      .from('trip_days')
+      .insert({
+        trip_id: tripId,
+        day_number: day.dayNumber || i + 1,
+        date: dayDate,
+        theme: day.theme || `Day ${i + 1}`,
+        notes: day.notes || null,
+        city,
+        country: day.country || null,
+        is_travel_day: Boolean(day.isTravelDay),
+      })
+      .select()
+      .single();
+
+    if (dayErr) throw dayErr;
+
+    const activities = extractActivities(day);
+    if (activities.length > 0) {
+      const rows = activities.map((act, j) => ({
+        trip_day_id: dayRow.id,
+        time_block: act.timeBlock || 'morning',
+        sort_order: j,
+        start_time: act.startTime || null,
+        end_time: act.endTime || null,
+        name: act.name,
+        type: act.type || null,
+        description: act.description || null,
+        duration_minutes: act.durationMinutes || null,
+        price_range: act.price || null,
+        latitude: act.latitude || null,
+        longitude: act.longitude || null,
+        neighborhood: act.neighborhood || null,
+        address: act.address || null,
+        google_place_id: act.googlePlaceId || null,
+        indoor: act.indoor ?? false,
+        booking_required: !!act.bookingUrl,
+        booking_url: act.bookingUrl || null,
+        status: 'planned',
+      }));
+      const { error: actErr } = await supabase.from('trip_activities').insert(rows);
+      if (actErr) throw actErr;
+    }
+  }
+
+  const { data, error } = await supabase
+    .from('trips')
+    .update({
+      ...draftPayload,
+      initial_plan: itinerary,
+      status: TRIP_LIFECYCLE_STATUSES.ITINERARY_GENERATED,
+      itinerary_generated_at: new Date().toISOString(),
+    })
+    .eq('id', tripId)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
 }
 
 /**

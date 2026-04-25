@@ -8,6 +8,7 @@ import PlannerProgressBar from './PlannerProgressBar';
 import { CitySearchInput } from '../conversation/InputArea';
 import { buildDayAssignments } from '@/lib/conversation/dayAssignments';
 import { derivePlannerInteraction } from '@/lib/conversation/plannerInteraction';
+import { getFlagForCountry } from '@/utils/countryFlags';
 
 function RouteGapAllocator({ interaction, tripState, assignDaysToCity, addCity }) {
   const [selected, setSelected] = useState(() => new Set());
@@ -146,6 +147,7 @@ function RouteGapAllocator({ interaction, tripState, assignDaysToCity, addCity }
               onClick={() => handleCitySelect(city)}
               className="rounded-full border border-[#e5e0d8] bg-white px-2.5 py-1 text-[11px] font-medium text-[#2a2520] hover:bg-[#f5f0e8] disabled:cursor-not-allowed disabled:opacity-40"
             >
+              {city.country ? `${getFlagForCountry(city.country)} ` : ''}
               {city.name}
             </button>
           ))}

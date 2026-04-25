@@ -3,6 +3,18 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { getCityById, getCityByName } from '@/lib/cities/lookup';
 import { buildDayAssignments, parseIsoDate } from '@/lib/conversation/dayAssignments';
+import { getFlagForCountry } from '@/utils/countryFlags';
+
+const MAP_CITY_PALETTE = [
+  '#d97706',
+  '#0d9488',
+  '#7c3aed',
+  '#db2777',
+  '#0369a1',
+  '#16a34a',
+  '#b45309',
+  '#4338ca',
+];
 
 function haversine(lat1, lon1, lat2, lon2) {
   const R = 6371;
@@ -19,6 +31,11 @@ function formatDayDate(value) {
   const parsed = parseIsoDate(value);
   if (!parsed) return null;
   return parsed.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+function cityDisplayName(city) {
+  if (!city?.name) return '';
+  return city.country ? `${getFlagForCountry(city.country)} ${city.name}` : city.name;
 }
 
 function resolveCity(city) {
@@ -49,6 +66,7 @@ function buildRoutePoints(tripState) {
     .map((city, index) => ({
       ...city,
       index,
+      color: MAP_CITY_PALETTE[index % MAP_CITY_PALETTE.length],
       lng: city.longitude,
       lat: city.latitude,
     }))
@@ -63,6 +81,7 @@ function buildPreviewPoints(interaction, routePoints) {
     .map((city, index) => ({
       ...city,
       index,
+      color: '#c9a227',
       lng: city.longitude,
       lat: city.latitude,
     }))
@@ -192,6 +211,9 @@ function DetailCard({ selectedDay, routePoints, stats }) {
         {selectedDay?.dateLabel ? ` · ${selectedDay.dateLabel}` : ''}
       </p>
       <h3 className="mt-2 font-display text-2xl font-semibold leading-tight text-[#2a2520]">
+        <span className="font-sans" aria-hidden="true">
+          {point.country ? `${getFlagForCountry(point.country)} ` : ''}
+        </span>
         {point.name}
       </h3>
       {point.country && (
@@ -240,7 +262,7 @@ function DetailCard({ selectedDay, routePoints, stats }) {
         <div className="mt-4 rounded-2xl border border-[#e5e0d8] p-3">
           <p className="text-[10px] uppercase tracking-[0.14em] text-[#8a8578]">Next leg</p>
           <p className="mt-1 text-sm font-semibold text-[#2a2520]">
-            {point.name} to {nextPoint.name}
+            {cityDisplayName(point)} to {cityDisplayName(nextPoint)}
           </p>
           <p className="mt-1 text-xs text-[#8a8578]">
             Approx. {Math.round(haversine(point.lat, point.lng, nextPoint.lat, nextPoint.lng))} km.
@@ -280,7 +302,7 @@ function PreviewCard({ previewPoints }) {
             key={point.id}
             className="rounded-full border border-[#e5e0d8] bg-[#faf8f5] px-2.5 py-1 text-[11px] font-semibold text-[#2a2520]"
           >
-            {point.name}
+            {cityDisplayName(point)}
           </span>
         ))}
       </div>
@@ -303,6 +325,14 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
     () => routePoints.map((point) => [point.lng, point.lat]),
     [routePoints]
   );
+  const routeGradient = useMemo(() => {
+    if (routePoints.length < 2) return '#d97706';
+    const expression = ['interpolate', ['linear'], ['line-progress']];
+    routePoints.forEach((point, index) => {
+      expression.push(index / (routePoints.length - 1), point.color || '#d97706');
+    });
+    return expression;
+  }, [routePoints]);
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current || mapPoints.length === 0) return;
@@ -316,7 +346,7 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
       mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
       mapRef.current = new mapboxgl.Map({
         container: containerRef.current,
-        style: 'mapbox://styles/mapbox/light-v11',
+        style: 'mapbox://styles/mapbox/streets-v12',
         center: [mapPoints[0].lng, mapPoints[0].lat],
         zoom: mapPoints.length > 1 ? 4 : 6,
         attributionControl: false,
@@ -362,6 +392,7 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
     if (lineCoordinates.length >= 2) {
       map.addSource('planner-route', {
         type: 'geojson',
+        lineMetrics: true,
         data: {
           type: 'Feature',
           geometry: {
@@ -379,9 +410,10 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
           'line-join': 'round',
         },
         paint: {
-          'line-color': '#2563eb',
-          'line-width': 4,
-          'line-opacity': 0.65,
+          'line-color': routePoints[0]?.color || '#d97706',
+          'line-gradient': routeGradient,
+          'line-width': 5,
+          'line-opacity': 0.85,
         },
       });
     }
@@ -391,9 +423,10 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
       const el = document.createElement('button');
       el.type = 'button';
       el.className = `planner-itinerary-marker ${selectedCityId === point.id ? 'selected' : ''}`;
+      el.style.setProperty('--marker-color', point.color || '#2a2520');
       el.innerHTML = `
         <span class="planner-itinerary-marker-num">${index + 1}</span>
-        <span class="planner-itinerary-marker-label">${point.name}</span>
+        <span class="planner-itinerary-marker-label">${cityDisplayName(point)}</span>
       `;
       el.addEventListener('click', () => {
         const dayForCity = days.find((day) => day.cityId === point.id);
@@ -408,9 +441,10 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
     previewPoints.forEach((point) => {
       const el = document.createElement('div');
       el.className = 'planner-itinerary-preview-marker';
+      el.style.setProperty('--marker-color', point.color || '#c9a227');
       el.innerHTML = `
         <span class="planner-itinerary-preview-dot"></span>
-        <span class="planner-itinerary-marker-label">${point.name}</span>
+        <span class="planner-itinerary-marker-label">${cityDisplayName(point)}</span>
       `;
       const marker = new mapboxgl.Marker({ element: el })
         .setLngLat([point.lng, point.lat])
@@ -429,7 +463,7 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
         duration: 500,
       });
     }
-  }, [days, lineCoordinates, loaded, mapPoints, onSelectDay, previewPoints, routePoints, selectedDay]);
+  }, [days, lineCoordinates, loaded, mapPoints, onSelectDay, previewPoints, routeGradient, routePoints, selectedDay]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -474,7 +508,7 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
           display: flex;
           align-items: center;
           justify-content: center;
-          background: #2a2520;
+          background: var(--marker-color, #2a2520);
           color: white;
           font-size: 12px;
           font-weight: 800;
@@ -482,8 +516,8 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
         }
         .planner-itinerary-marker.selected .planner-itinerary-marker-num {
-          background: #2563eb;
           transform: scale(1.12);
+          box-shadow: 0 0 0 4px color-mix(in srgb, var(--marker-color, #2a2520) 22%, transparent), 0 8px 18px rgba(0, 0, 0, 0.26);
         }
         .planner-itinerary-marker-label {
           margin-top: 4px;
@@ -507,8 +541,8 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
           width: 24px;
           height: 24px;
           border-radius: 999px;
-          background: #fff7ed;
-          border: 2px dashed #c9a227;
+          background: color-mix(in srgb, var(--marker-color, #c9a227) 16%, white);
+          border: 2px dashed var(--marker-color, #c9a227);
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
         }
       `}</style>

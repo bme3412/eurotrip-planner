@@ -43,6 +43,7 @@ function PlanContent() {
 
   const urlMode = searchParams.get('mode');
   const q = searchParams.get('q')?.trim() || null;
+  const tripId = searchParams.get('tripId') || null;
   const hasWizardParams =
     searchParams.get('cities') || searchParams.get('start') || searchParams.get('end');
 
@@ -125,7 +126,7 @@ function PlanContent() {
       {/* Content area: full remaining height */}
       <div className="flex-1 min-h-0 overflow-hidden">
         {mode === 'conversation' ? (
-          <ThreeColumnPlanner initialUserMessage={q} />
+          <ThreeColumnPlanner initialUserMessage={q} initialTripId={tripId} />
         ) : (
           <div className="h-full overflow-y-auto">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-10">

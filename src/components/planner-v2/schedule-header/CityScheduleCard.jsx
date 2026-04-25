@@ -1,6 +1,7 @@
 'use client';
 
 import { Minus, Plus, MapPin } from 'lucide-react';
+import { getFlagForCountry } from '@/utils/countryFlags';
 
 /**
  * Single-row segment bar: one segment per trip day; this city's days filled
@@ -68,6 +69,11 @@ export default function CityScheduleCard({
               aria-hidden="true"
             />
             <h3 className="truncate font-display text-[13px] leading-tight text-[#2a2520]">
+              {city.country && (
+                <span className="mr-1 font-sans" aria-hidden="true">
+                  {getFlagForCountry(city.country)}
+                </span>
+              )}
               {city.name}
             </h3>
           </div>

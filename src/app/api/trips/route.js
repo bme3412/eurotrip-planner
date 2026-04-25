@@ -3,7 +3,7 @@
 import { NextResponse } from "next/server";
 import { getCityData } from "../../../lib/data-utils.js";
 import { buildItinerary } from "../../../lib/planning/buildItinerary.js";
-import { createTripWithDays } from "../../../lib/trips/tripsRepository.js";
+import { createTripWithDays, listTripsForUser } from "../../../lib/trips/tripsRepository.js";
 import { getSupabaseAdmin } from "../../../lib/supabase/server";
 
 function normalizeTripPayload(input) {
@@ -57,6 +57,23 @@ function normalizeTripPayload(input) {
   };
 
   return { payload };
+}
+
+export async function GET(request) {
+  const { searchParams } = new URL(request.url);
+  const userId = searchParams.get('userId');
+  const userEmail = searchParams.get('userEmail');
+
+  try {
+    const trips = await listTripsForUser({ userId, userEmail });
+    return NextResponse.json({ trips }, { status: 200 });
+  } catch (error) {
+    console.error("Failed to list trips", error);
+    return NextResponse.json(
+      { error: "Unable to load trips at this time." },
+      { status: 500 }
+    );
+  }
 }
 
 export async function POST(request) {

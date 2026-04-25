@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef } from 'react';
 import { X, Plus } from 'lucide-react';
+import { getFlagForCountry } from '@/utils/countryFlags';
 import { parseIsoDate } from '@/lib/conversation/dayAssignments';
 
 const DOW_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -137,7 +138,9 @@ function AssignToolbar({
                 style={{ backgroundColor: color || '#2a2520' }}
                 aria-hidden="true"
               />
-              {c.name}
+              <span>
+                {c.country ? `${getFlagForCountry(c.country)} ` : ''}{c.name}
+              </span>
             </button>
           );
         })}

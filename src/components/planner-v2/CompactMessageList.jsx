@@ -6,9 +6,69 @@ import { ArrowUp } from 'lucide-react';
 import { CitySearchInput } from '../conversation/InputArea';
 import { RouteSummaryWithData } from '../conversation/RouteSummary';
 import ParsedItineraryCard from '../conversation/ParsedItineraryCard';
+import { getFlagForCountry } from '@/utils/countryFlags';
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function buildMentionCities(trip) {
+  const cities = [
+    trip?.startCity,
+    ...(trip?.stops || []),
+    trip?.endCity,
+  ].filter((city) => city?.name && city?.country);
+
+  const seen = new Set();
+  return cities
+    .filter((city) => {
+      const key = city.name.toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .sort((a, b) => b.name.length - a.name.length);
+}
+
+function FlaggedText({ content, mentionCities = [] }) {
+  if (!content || mentionCities.length === 0) return content;
+
+  const pattern = new RegExp(`\\b(${mentionCities.map((city) => escapeRegExp(city.name)).join('|')})\\b`, 'g');
+  const cityByName = new Map(mentionCities.map((city) => [city.name, city]));
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = pattern.exec(content)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(content.slice(lastIndex, match.index));
+    }
+
+    const matchedText = match[0];
+    const city = cityByName.get(matchedText);
+    const previous = content.slice(Math.max(0, match.index - 4), match.index);
+    const alreadyFlagged = /[\u{1F1E6}-\u{1F1FF}]{2}\s*$/u.test(previous);
+
+    parts.push(
+      <span key={`${match.index}-${matchedText}`}>
+        {!alreadyFlagged && (
+          <span aria-hidden="true">{getFlagForCountry(city.country)} </span>
+        )}
+        {matchedText}
+      </span>
+    );
+    lastIndex = pattern.lastIndex;
+  }
+
+  if (lastIndex < content.length) {
+    parts.push(content.slice(lastIndex));
+  }
+
+  return parts;
+}
 
 // ── Compact AI message — card style with directional bubble ──────
-function CompactAIMessage({ content }) {
+function CompactAIMessage({ content, mentionCities }) {
   if (!content) return null;
   return (
     <motion.div
@@ -17,26 +77,28 @@ function CompactAIMessage({ content }) {
       className="py-1.5 max-w-[92%]"
     >
       <div className="rounded-2xl rounded-tl-md bg-[#faf8f5] border border-[#e5e0d8]/60 px-3.5 py-2.5">
-        <p className="text-[13px] text-[#4a4540] leading-relaxed whitespace-pre-wrap">{content}</p>
+        <p className="text-[13px] text-[#4a4540] leading-relaxed whitespace-pre-wrap">
+          <FlaggedText content={content} mentionCities={mentionCities} />
+        </p>
       </div>
     </motion.div>
   );
 }
 
 // ── User message — right-aligned pill with directional corner ────
-function CompactUserMessage({ content }) {
+function CompactUserMessage({ content, mentionCities }) {
   if (!content) return null;
   return (
     <div className="flex justify-end py-1">
       <div className="bg-[#2a2520] text-white text-[12px] rounded-2xl rounded-tr-md px-3.5 py-2 max-w-[85%] leading-snug whitespace-pre-wrap">
-        {content}
+        <FlaggedText content={content} mentionCities={mentionCities} />
       </div>
     </div>
   );
 }
 
 // ── System event — centered pill style ───────────────────────────
-function CompactSystemEvent({ content }) {
+function CompactSystemEvent({ content, mentionCities }) {
   if (!content) return null;
   return (
     <motion.div
@@ -46,7 +108,7 @@ function CompactSystemEvent({ content }) {
     >
       <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f0ede6] text-[11px] text-[#6a6459] italic border border-[#e5e0d8]/50">
         <ArrowUp className="w-3 h-3 text-[#b5b0a8]" aria-hidden="true" />
-        {content}
+        <FlaggedText content={content} mentionCities={mentionCities} />
       </span>
     </motion.div>
   );
@@ -153,6 +215,7 @@ export default function CompactMessageList({
 }) {
   const bottomRef = useRef(null);
   const userScrolledUpRef = useRef(false);
+  const mentionCities = buildMentionCities(trip);
 
   // Track if user has manually scrolled up
   useEffect(() => {
@@ -322,11 +385,11 @@ export default function CompactMessageList({
             >
               {shouldShowDivider(message, prevMsg) && <StepDivider label="" />}
               {message.role === 'assistant' ? (
-                <CompactAIMessage content={message.content} />
+                <CompactAIMessage content={message.content} mentionCities={mentionCities} />
               ) : message.role === 'system_event' ? (
-                <CompactSystemEvent content={message.content} />
+                <CompactSystemEvent content={message.content} mentionCities={mentionCities} />
               ) : (
-                <CompactUserMessage content={message.content} />
+                <CompactUserMessage content={message.content} mentionCities={mentionCities} />
               )}
             </motion.div>
           );

@@ -1,7 +1,9 @@
 'use client';
 
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { initialTripState } from '@/lib/conversation/tripState';
+import { useAuth } from '@/contexts/AuthContext';
+import { canPersistTripDraft, normalizeTripState } from '@/lib/trips/tripLifecycle';
 import { useMessages } from './useMessages';
 import { useTripState } from './useTripState';
 import { useDirectManipulation } from './useDirectManipulation';
@@ -60,12 +62,19 @@ function makeSessionId() {
   return `s-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
-export function useTripPlannerAgent() {
+export function useTripPlannerAgent({ initialTripId = null } = {}) {
+  const { user, isSupabaseConfigured } = useAuth();
   const [pendingInput, setPendingInput] = useState(null);
   const [hasStarted, setHasStarted] = useState(false);
+  const [savedTripId, setSavedTripId] = useState(initialTripId);
+  const [saveStatus, setSaveStatus] = useState(initialTripId ? 'loading' : 'local');
+  const [saveError, setSaveError] = useState(null);
   const startingRef = useRef(false);
   const toolHistoryRef = useRef([]);
   const sessionIdRef = useRef(makeSessionId());
+  const tripIdRef = useRef(initialTripId);
+  const loadedTripIdRef = useRef(null);
+  const saveTimerRef = useRef(null);
 
   // ── Sub-hooks ────────────────────────────────────────────
   const {
@@ -82,7 +91,43 @@ export function useTripPlannerAgent() {
     generationPhase, itinerary, generationError,
     requestFinalization, confirmGeneration, cancelFinalization,
     retryGeneration, resetGeneration,
-  } = useItineraryGeneration({ tripStateRef });
+  } = useItineraryGeneration({ tripStateRef, tripIdRef });
+
+  useEffect(() => {
+    tripIdRef.current = savedTripId;
+  }, [savedTripId]);
+
+  useEffect(() => {
+    if (!initialTripId) return;
+    if (loadedTripIdRef.current === initialTripId) return;
+    loadedTripIdRef.current = initialTripId;
+
+    let cancelled = false;
+    setSaveStatus('loading');
+    fetch(`/api/trips/${initialTripId}`)
+      .then(async (res) => {
+        if (!res.ok) throw new Error(await res.text());
+        return res.json();
+      })
+      .then((trip) => {
+        if (cancelled) return;
+        if (trip?.trip_state) {
+          setTripState(normalizeTripState(trip.trip_state));
+        }
+        setSavedTripId(trip.id);
+        setSaveStatus('saved');
+      })
+      .catch((error) => {
+        if (cancelled) return;
+        console.error('[agent] Failed to load trip draft:', error);
+        setSaveError('Unable to load saved trip.');
+        setSaveStatus('error');
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [initialTripId, setTripState]);
 
   // Track tool calls for multi-turn context
   const handleToolHistoryEntry = useCallback((name, input) => {
@@ -111,6 +156,61 @@ export function useTripPlannerAgent() {
   const {
     assignDaysToCity, unassignDays, setCityNights, setTripDates, addCity,
   } = useDirectManipulation({ tripStateRef, setTripState, postSystemEvent });
+
+  useEffect(() => {
+    if (isStreaming) return;
+    if (!isSupabaseConfigured) {
+      setSaveStatus('local');
+      setSaveError(null);
+      return;
+    }
+    if (!canPersistTripDraft(tripState)) {
+      setSaveStatus(savedTripId ? 'saved' : 'local');
+      return;
+    }
+
+    if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
+    saveTimerRef.current = setTimeout(async () => {
+      try {
+        setSaveStatus('saving');
+        setSaveError(null);
+        const method = savedTripId ? 'PUT' : 'POST';
+        const url = savedTripId ? `/api/trips/${savedTripId}` : '/api/trips/drafts';
+        const res = await fetch(url, {
+          method,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            tripState,
+            userId: user?.id || null,
+            userEmail: user?.email || null,
+          }),
+        });
+
+        if (!res.ok) {
+          const fallback = 'Autosave failed.';
+          const body = await res.clone().json().catch(async () => {
+            const text = await res.text().catch(() => '');
+            return { error: text || fallback };
+          });
+          setSaveError(body.error || fallback);
+          setSaveStatus(res.status === 503 ? 'local' : 'error');
+          return;
+        }
+
+        const saved = await res.json();
+        setSavedTripId(saved.id);
+        setSaveStatus('saved');
+      } catch (error) {
+        console.warn('[agent] Failed to autosave trip:', error);
+        setSaveError('Autosave failed.');
+        setSaveStatus('error');
+      }
+    }, 900);
+
+    return () => {
+      if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
+    };
+  }, [isStreaming, isSupabaseConfigured, savedTripId, tripState, user?.email, user?.id]);
 
   // ── Start conversation ─────────────────────────────────────
   const startConversation = useCallback(async () => {
@@ -251,6 +351,9 @@ export function useTripPlannerAgent() {
     clearMessages();
     resetTripState();
     setPendingInput(null);
+    setSavedTripId(null);
+    setSaveStatus('local');
+    setSaveError(null);
     setHasStarted(false);
     startingRef.current = false;
     toolHistoryRef.current = [];
@@ -273,6 +376,9 @@ export function useTripPlannerAgent() {
     generationPhase,
     itinerary,
     generationError,
+    savedTripId,
+    saveStatus,
+    saveError,
 
     // Actions
     sendMessage,

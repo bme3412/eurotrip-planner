@@ -2,6 +2,7 @@
 
 import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "../../../../lib/supabase/server";
+import { getTripWithDetails, updateTripDraft } from "@/lib/trips/tripsRepository";
 
 const ALLOWED_UPDATE_FIELDS = new Set([
   "user_email",
@@ -13,6 +14,18 @@ const ALLOWED_UPDATE_FIELDS = new Set([
   "hotel_location",
   "prebookings",
   "initial_plan",
+  "title",
+  "country",
+  "cities",
+  "route_type",
+  "city_sequence",
+  "trip_state",
+  "brief",
+  "time_range",
+  "status",
+  "is_public",
+  "share_token",
+  "itinerary_generated_at",
 ]);
 
 function sanitizeUpdatePayload(input) {
@@ -42,6 +55,23 @@ function sanitizeUpdatePayload(input) {
       continue;
     }
 
+    if (key === "cities" || key === "city_sequence") {
+      if (Array.isArray(value)) update[key] = value;
+      continue;
+    }
+
+    if (key === "trip_state" || key === "brief" || key === "time_range" || key === "initial_plan") {
+      if (value == null || (typeof value === "object" && !Array.isArray(value))) {
+        update[key] = value || {};
+      }
+      continue;
+    }
+
+    if (key === "is_public") {
+      update[key] = Boolean(value);
+      continue;
+    }
+
     if (key === "pace") {
       const pace = Number(value);
       if (!Number.isFinite(pace)) continue;
@@ -49,7 +79,7 @@ function sanitizeUpdatePayload(input) {
       continue;
     }
 
-    if (key === "user_email" || key === "hotel_location" || key === "budget") {
+    if (key === "user_email" || key === "hotel_location" || key === "budget" || key === "title" || key === "country" || key === "route_type" || key === "status" || key === "share_token") {
       update[key] = typeof value === "string" ? value.trim() || null : null;
       continue;
     }
@@ -65,27 +95,15 @@ function notFoundResponse() {
 }
 
 export async function GET(_request, { params }) {
-  const { id } = params;
+  const { id } = await params;
   if (!id) {
     return NextResponse.json({ error: "Trip id is required." }, { status: 400 });
   }
 
   try {
-    const supabase = await getSupabaseAdmin();
-    const { data, error } = await supabase.from("trips").select("*").eq("id", id).single();
-
-    if (error) {
-      if (error.code === "PGRST116") {
-        return notFoundResponse();
-      }
-      throw error;
-    }
-
-    if (!data) {
-      return notFoundResponse();
-    }
-
-    return NextResponse.json(data, { status: 200 });
+    const trip = await getTripWithDetails(id);
+    if (!trip) return notFoundResponse();
+    return NextResponse.json(trip, { status: 200 });
   } catch (error) {
     console.error("Failed to load trip", error);
     return NextResponse.json(
@@ -96,7 +114,7 @@ export async function GET(_request, { params }) {
 }
 
 export async function PUT(request, { params }) {
-  const { id } = params;
+  const { id } = await params;
   if (!id) {
     return NextResponse.json({ error: "Trip id is required." }, { status: 400 });
   }
@@ -104,6 +122,16 @@ export async function PUT(request, { params }) {
   let body;
   try {
     body = await request.json();
+
+    if (body?.tripState || body?.trip_state) {
+      const data = await updateTripDraft(id, {
+        tripState: body.tripState || body.trip_state,
+        title: body.title,
+        isPublic: body.is_public,
+        status: body.status,
+      });
+      return NextResponse.json(data, { status: 200 });
+    }
   } catch {
     return NextResponse.json({ error: "Invalid JSON body." }, { status: 400 });
   }
