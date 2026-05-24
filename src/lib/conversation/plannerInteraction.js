@@ -145,13 +145,20 @@ function quickRepliesForMode(mode, gaps) {
   return (gaps?.nextMove || gaps?.nextQuestion)?.options || [];
 }
 
+function quickRepliesForCapturedRoute() {
+  return [
+    { id: 'edit-dates', label: 'Edit dates or nights' },
+    { id: 'transport-options', label: 'Compare transport' },
+  ];
+}
+
 function copyForMode(mode, gaps) {
   const next = gaps?.nextMove || gaps?.nextQuestion;
   const map = {
     collect_anchor: {
-      status: 'Needs anchor',
-      nextLabel: 'Get route anchor',
-      placeholder: 'Tell me a city, region, booking, or rough idea...',
+      status: 'Start planning',
+      nextLabel: 'Share a trip idea',
+      placeholder: 'Tell me a city, route, date, vibe, or booking...',
     },
     collect_time: {
       status: 'Set timing',
@@ -185,6 +192,99 @@ function copyForMode(mode, gaps) {
     },
   };
   return map[mode] || map.idle;
+}
+
+function hasCapturedItinerary(tripState) {
+  const cities = tripState?.route?.cities || [];
+  const hasStructuredRoute = cities.length >= 2;
+  const hasTimeRange = Boolean(
+    tripState?.dates?.startDate ||
+    tripState?.dates?.endDate ||
+    tripState?.dates?.totalNights
+  );
+  const hasCityTiming = cities.some((city) =>
+    Number.isFinite(city.nights) || city.arrivalDate || city.departureDate
+  );
+  const hasBookings = (tripState?.transport?.bookings || []).length > 0;
+  const hasBriefNotes = (tripState?.brief?.notes || []).length > 0;
+  return hasStructuredRoute && (hasTimeRange || hasCityTiming || hasBookings || hasBriefNotes);
+}
+
+function nextActionForMode(mode, { gaps, freeNights, isFinalized, capturedItinerary }) {
+  if (isFinalized) {
+    return {
+      id: 'finalized',
+      label: 'Open itinerary',
+      description: 'Your detailed itinerary is ready.',
+      type: 'passive',
+    };
+  }
+
+  if (capturedItinerary && mode === 'review_route') {
+    return {
+      id: 'captured-route',
+      label: 'Route captured',
+      description: 'Your pasted itinerary is saved as an editable route. Review stops, nights, and transport before building anything more detailed.',
+      type: 'passive',
+    };
+  }
+
+  if (mode === 'allocate_nights' && freeNights > 0) {
+    return {
+      id: 'assign-open-nights',
+      label: `Assign ${freeNights} open ${freeNights === 1 ? 'night' : 'nights'}`,
+      description: 'Use the route timeline to place the remaining nights.',
+      type: 'schedule',
+      message: 'Help me assign the open nights.',
+    };
+  }
+
+  if (mode === 'collect_time') {
+    return {
+      id: 'set-dates',
+      label: 'Set trip dates',
+      description: 'Pick dates in the route timeline, or describe the timing in chat.',
+      type: 'schedule',
+      message: "I'm flexible on dates. Build a first draft.",
+    };
+  }
+
+  if (mode === 'choose_stops') {
+    return {
+      id: 'choose-stops',
+      label: 'Choose stops',
+      description: 'Pick a suggested city, search another city, or ask for tradeoffs.',
+      type: 'chat',
+      message: 'Suggest the best bases for this route.',
+    };
+  }
+
+  if (mode === 'review_route') {
+    return {
+      id: 'build-itinerary',
+      label: 'Build itinerary',
+      description: 'Turn this route into day-by-day activities and travel blocks.',
+      type: 'chat',
+      message: 'Build the itinerary.',
+    };
+  }
+
+  if (mode === 'collect_anchor') {
+    return null;
+  }
+
+  const next = gaps?.nextMove || gaps?.nextQuestion;
+  if (next?.label) {
+    return {
+      id: next.field || 'continue',
+      label: next.label,
+      description: 'Continue shaping the trip brief.',
+      type: 'chat',
+      message: next.label,
+    };
+  }
+
+  return null;
 }
 
 function previewSuggestionsForPending(pendingInput) {
@@ -221,10 +321,12 @@ export function derivePlannerInteraction({
       : 'none';
   const activeWidget = pendingWidget !== 'none' ? pendingWidget : fallbackWidget;
   const mode = modeForState({ tripState, gaps, pendingInput, generationPhase, activeWidget, freeNights });
+  const capturedItinerary = hasCapturedItinerary(tripState);
   const previewSuggestions = previewSuggestionsForPending(pendingInput);
   const mapMode = !hasCities
     ? (previewSuggestions.length > 0 ? 'preview_suggestions' : 'empty')
     : (previewSuggestions.length > 0 ? 'review_route' : 'confirmed_route');
+  const showWelcome = !hasUserMessages && !hasCities && !pendingValid;
 
   return {
     mode,
@@ -234,10 +336,14 @@ export function derivePlannerInteraction({
     pendingInputValid: pendingValid,
     previewSuggestions,
     copy: copyForMode(mode, gaps),
-    quickReplies: isFinalized || isStreaming || pendingValid
+    hasCapturedItinerary: capturedItinerary,
+    nextAction: nextActionForMode(mode, { gaps, freeNights, isFinalized, capturedItinerary }),
+    quickReplies: isFinalized || isStreaming || pendingValid || showWelcome
       ? []
-      : quickRepliesForMode(mode, gaps),
-    showWelcome: !hasUserMessages && !hasCities && !pendingValid,
+      : capturedItinerary && mode === 'review_route'
+        ? quickRepliesForCapturedRoute()
+        : quickRepliesForMode(mode, gaps),
+    showWelcome,
     showProgress: hasCities || hasUserMessages || pendingValid,
     showRouteAllocator: activeWidget === 'night_allocator',
     freeNightCount: freeNights,

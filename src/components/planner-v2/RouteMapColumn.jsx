@@ -141,42 +141,41 @@ function EmptyMapState() {
   );
 }
 
-function DayTabs({ days, selectedIndex, onSelectDay }) {
-  if (days.length === 0) return null;
+function SelectedStopIndicator({ selectedDay }) {
+  if (!selectedDay?.point) return null;
   return (
-    <div className="absolute left-3 right-3 top-3 z-20 flex gap-2 overflow-x-auto pb-1">
-      {days.map((day) => {
-        const active = selectedIndex === day.dayIndex;
-        const disabled = !day.point;
-        return (
-          <button
-            key={`${day.dayIndex}-${day.cityId || 'free'}`}
-            type="button"
-            disabled={disabled}
-            onClick={() => onSelectDay(day.dayIndex)}
-            className={`shrink-0 rounded-full border px-4 py-2 text-sm font-semibold shadow-sm backdrop-blur transition-all ${
-              active
-                ? 'border-[#2a2520] bg-[#2a2520] text-white'
-                : disabled
-                  ? 'border-[#e5e0d8] bg-white/70 text-[#b5b0a8]'
-                  : 'border-[#e5e0d8] bg-white/90 text-[#2a2520] hover:bg-white'
-            }`}
-          >
-            {day.label}
-          </button>
-        );
-      })}
+    <div className="absolute left-3 top-3 z-20 max-w-[min(360px,calc(100%-1.5rem))] rounded-full border border-[#e5e0d8] bg-white/90 px-3 py-2 text-xs font-semibold text-[#2a2520] shadow-sm backdrop-blur">
+      <span className="text-[#8a8578]">
+        {selectedDay.label}
+        {selectedDay.dateLabel ? ` · ${selectedDay.dateLabel}` : ''}
+      </span>
+      <span className="mx-1.5 text-[#d5d0c8]" aria-hidden="true">
+        /
+      </span>
+      <span>{cityDisplayName(selectedDay.point)}</span>
     </div>
   );
 }
 
-function DetailCard({ selectedDay, routePoints, stats, mode, onModeChange }) {
+function DetailCard({
+  selectedDay,
+  routePoints,
+  onModeChange,
+  onSetCityNights,
+  onCompareTransport,
+}) {
   const point = selectedDay?.point || routePoints[0];
   if (!point) return null;
 
   const routeIndex = routePoints.findIndex((city) => city.id === point.id);
   const nextPoint = routePoints[routeIndex + 1] || null;
   const nights = Number.isFinite(point.nights) ? point.nights : null;
+  const nightLabel = nights != null
+    ? `${nights} ${nights === 1 ? 'night' : 'nights'}`
+    : 'Flexible stay';
+  const nextLegKm = nextPoint
+    ? Math.round(haversine(point.lat, point.lng, nextPoint.lat, nextPoint.lng))
+    : null;
   const routeNames = routePoints.map((city) => city.name).filter(Boolean);
   const routeUrl = routePoints.length > 1
     ? (() => {
@@ -204,13 +203,21 @@ function DetailCard({ selectedDay, routePoints, stats, mode, onModeChange }) {
     navigator.clipboard?.writeText(text);
   };
 
-  const expanded = mode === 'expanded';
+  const handleAddNight = () => {
+    if (!point?.id || !onSetCityNights) return;
+    onSetCityNights(point.id, (Number.isFinite(point.nights) ? point.nights : 0) + 1);
+  };
+
+  const handleRemoveNight = () => {
+    if (!point?.id || !onSetCityNights) return;
+    const current = Number.isFinite(point.nights) ? point.nights : 0;
+    if (current <= 0) return;
+    onSetCityNights(point.id, current - 1);
+  };
 
   return (
-    <div className={`absolute bottom-4 right-4 z-20 w-[min(360px,calc(100%-2rem))] overflow-y-auto rounded-3xl border border-[#e5e0d8] bg-white/95 p-4 shadow-xl backdrop-blur ${
-      expanded ? 'top-20' : 'max-h-[220px]'
-    }`}>
-      <div className="mb-2 flex items-start justify-between gap-3">
+    <div className="absolute bottom-4 right-4 z-20 w-[min(360px,calc(100%-2rem))] rounded-3xl border border-[#e5e0d8] bg-white/95 p-4 shadow-xl backdrop-blur">
+      <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a8578]">
             {selectedDay?.label || `Stop ${routeIndex + 1}`}
@@ -222,92 +229,106 @@ function DetailCard({ selectedDay, routePoints, stats, mode, onModeChange }) {
             </span>
             {point.name}
           </h3>
+          {point.country && (
+            <p className="mt-0.5 text-sm text-[#8a8578]">{point.country}</p>
+          )}
         </div>
-        <div className="flex shrink-0 gap-1">
-          <button
-            type="button"
-            onClick={() => onModeChange(expanded ? 'compact' : 'expanded')}
-            className="rounded-full border border-[#e5e0d8] px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-[#6a6459] hover:bg-[#faf8f5]"
-          >
-            {expanded ? 'Less' : 'More'}
-          </button>
-          <button
-            type="button"
-            onClick={() => onModeChange('hidden')}
-            className="rounded-full border border-[#e5e0d8] px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-[#6a6459] hover:bg-[#faf8f5]"
-          >
-            Hide
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => onModeChange('hidden')}
+          className="shrink-0 rounded-full border border-[#e5e0d8] px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-[#8a8578] hover:bg-[#faf8f5] hover:text-[#2a2520]"
+        >
+          Hide
+        </button>
       </div>
-      {point.country && (
-        <p className="mt-1 text-sm text-[#8a8578]">{point.country}</p>
+
+      <div className="mt-3 flex flex-wrap gap-1.5">
+        <span className="rounded-full bg-[#faf8f5] px-2.5 py-1 text-[11px] font-semibold text-[#6a6459]">
+          {nightLabel}
+        </span>
+        <span className="rounded-full bg-[#faf8f5] px-2.5 py-1 text-[11px] font-semibold text-[#6a6459]">
+          Stop {routeIndex + 1} of {routePoints.length}
+        </span>
+      </div>
+
+      {nextPoint && (
+        <div className="mt-3 rounded-2xl border border-[#e5e0d8] bg-[#faf8f5] px-3 py-2">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#8a8578]">
+            Next leg
+          </p>
+          <p className="mt-0.5 truncate text-sm font-semibold text-[#2a2520]">
+            {cityDisplayName(nextPoint)}
+            {nextLegKm != null ? (
+              <span className="font-normal text-[#8a8578]"> · approx. {nextLegKm} km</span>
+            ) : null}
+          </p>
+        </div>
       )}
 
-      {expanded && (
-        <p className="mt-4 text-sm leading-relaxed text-[#4a4540]">
-          {point.description ||
-            `${point.name} is part of the current route. Use the conversation or schedule above to tune nights, add stops, or reshape the order.`}
-        </p>
-      )}
+      <div className="mt-3 flex items-center justify-between gap-3">
+        <div className="inline-flex items-center overflow-hidden rounded-full border border-[#e5e0d8] bg-white">
+          <button
+            type="button"
+            onClick={handleRemoveNight}
+            disabled={!onSetCityNights || nights == null || nights <= 1}
+            className="flex h-8 w-8 items-center justify-center text-sm font-semibold text-[#6a6459] hover:bg-[#faf8f5] disabled:opacity-30"
+            aria-label={`Remove a night in ${point.name}`}
+          >
+            -
+          </button>
+          <span className="min-w-[78px] border-x border-[#e5e0d8] px-3 text-center text-xs font-semibold text-[#2a2520]">
+            {nightLabel}
+          </span>
+          <button
+            type="button"
+            onClick={handleAddNight}
+            disabled={!onSetCityNights}
+            className="flex h-8 w-8 items-center justify-center text-sm font-semibold text-[#6a6459] hover:bg-[#faf8f5] disabled:opacity-30"
+            aria-label={`Add a night in ${point.name}`}
+          >
+            +
+          </button>
+        </div>
 
-      <div className="mt-4 flex flex-wrap gap-2">
+        {nextPoint && (
+          <button
+            type="button"
+            onClick={() => onCompareTransport?.(point, nextPoint)}
+            className="inline-flex flex-1 items-center justify-center rounded-full bg-[#2a2520] px-3 py-2 text-xs font-semibold text-white hover:bg-[#1a1510]"
+          >
+            Compare leg
+          </button>
+        )}
+        {!nextPoint && (
+          <a
+            href={routeUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex flex-1 items-center justify-center rounded-full bg-[#2a2520] px-3 py-2 text-xs font-semibold text-white hover:bg-[#1a1510]"
+          >
+            Open route
+          </a>
+        )}
+      </div>
+
+      <div className="mt-3 flex items-center gap-3 border-t border-[#e5e0d8] pt-3 text-xs font-semibold text-[#6a6459]">
         <a
           href={routeUrl}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center justify-center rounded-xl bg-[#2a2520] px-4 py-2 text-sm font-semibold text-white hover:bg-[#1a1510]"
+          className="hover:text-[#2a2520] hover:underline"
         >
-          Open route
+          Open in Maps
         </a>
+        <span className="text-[#d5d0c8]" aria-hidden="true">/</span>
         <button
           type="button"
           onClick={handleCopyRoute}
-          className="inline-flex items-center justify-center rounded-xl border border-[#e5e0d8] bg-white px-4 py-2 text-sm font-semibold text-[#2a2520] hover:bg-[#faf8f5]"
+          className="hover:text-[#2a2520] hover:underline"
         >
           Copy route
         </button>
       </div>
-
-      <div className="mt-4 grid grid-cols-2 gap-2">
-        <div className="rounded-2xl bg-[#faf8f5] p-3">
-          <p className="text-[10px] uppercase tracking-[0.14em] text-[#8a8578]">Stay</p>
-          <p className="mt-1 text-sm font-semibold text-[#2a2520]">
-            {nights != null ? `${nights} ${nights === 1 ? 'night' : 'nights'}` : 'Flexible'}
-          </p>
-        </div>
-        <div className="rounded-2xl bg-[#faf8f5] p-3">
-          <p className="text-[10px] uppercase tracking-[0.14em] text-[#8a8578]">Route stop</p>
-          <p className="mt-1 text-sm font-semibold text-[#2a2520]">
-            {routeIndex + 1} of {routePoints.length}
-          </p>
-        </div>
-      </div>
-
-      {nextPoint && (
-        <div className="mt-4 rounded-2xl border border-[#e5e0d8] p-3">
-          <p className="text-[10px] uppercase tracking-[0.14em] text-[#8a8578]">Next leg</p>
-          <p className="mt-1 text-sm font-semibold text-[#2a2520]">
-            {cityDisplayName(point)} to {cityDisplayName(nextPoint)}
-          </p>
-          <p className="mt-1 text-xs text-[#8a8578]">
-            Approx. {Math.round(haversine(point.lat, point.lng, nextPoint.lat, nextPoint.lng))} km.
-          </p>
-        </div>
-      )}
-
-      {stats && expanded && (
-        <div className="mt-4 border-t border-[#e5e0d8] pt-4 text-xs text-[#6a6459]">
-          <div className="flex justify-between">
-            <span>Total distance</span>
-            <span className="font-semibold text-[#2a2520]">{stats.distance}</span>
-          </div>
-          <div className="mt-1 flex justify-between">
-            <span>Suggested mode</span>
-            <span className="font-semibold text-[#2a2520]">{stats.mode}</span>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
@@ -336,7 +357,15 @@ function PreviewCard({ previewPoints }) {
   );
 }
 
-function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayIndex, onSelectDay }) {
+function DynamicItineraryMap({
+  routePoints,
+  previewPoints,
+  days,
+  selectedDayIndex,
+  onSelectDay,
+  setCityNights,
+  onSendMessage,
+}) {
   const containerRef = useRef(null);
   const mapRef = useRef(null);
   const mapboxRef = useRef(null);
@@ -507,6 +536,13 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
   }, [loaded, selectedDay]);
 
   const stats = useRouteStats(routePoints);
+  const handleCompareTransport = useCallback(
+    (from, to) => {
+      if (!from?.name || !to?.name) return;
+      onSendMessage?.(`Compare the best transport from ${from.name} to ${to.name}.`);
+    },
+    [onSendMessage]
+  );
 
   return (
     <div className="relative h-full overflow-hidden bg-[#f7f3ec]">
@@ -516,7 +552,7 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
           <div className="h-6 w-6 animate-spin rounded-full border-2 border-[#c9a227]/30 border-t-[#c9a227]" />
         </div>
       )}
-      <DayTabs days={days} selectedIndex={selectedDay?.dayIndex} onSelectDay={onSelectDay} />
+      <SelectedStopIndicator selectedDay={selectedDay} />
       {routePoints.length > 0 && detailMode === 'hidden' && (
         <button
           type="button"
@@ -533,6 +569,8 @@ function DynamicItineraryMap({ routePoints, previewPoints, days, selectedDayInde
           stats={stats}
           mode={detailMode}
           onModeChange={setDetailMode}
+          onSetCityNights={setCityNights}
+          onCompareTransport={handleCompareTransport}
         />
       ) : (
         <PreviewCard previewPoints={previewPoints} />
@@ -616,7 +654,12 @@ function useRouteStats(routePoints) {
   }, [routePoints]);
 }
 
-export default function RouteMapColumn({ tripState, interaction }) {
+export default function RouteMapColumn({
+  tripState,
+  interaction,
+  setCityNights,
+  onSendMessage,
+}) {
   const routePoints = useMemo(() => buildRoutePoints(tripState), [tripState]);
   const previewPoints = useMemo(
     () => buildPreviewPoints(interaction, routePoints),
@@ -654,6 +697,8 @@ export default function RouteMapColumn({ tripState, interaction }) {
             days={days}
             selectedDayIndex={selectedDayIndex}
             onSelectDay={setSelectedDayIndex}
+            setCityNights={setCityNights}
+            onSendMessage={onSendMessage}
           />
         )}
       </div>

@@ -92,6 +92,8 @@ function PlanContent() {
     initialEndCityId: searchParams.get('end') || null,
     initialStartDate: searchParams.get('startDate') || null,
     initialEndDate: searchParams.get('endDate') || null,
+    initialTripId: tripId,
+    initialLocalTripId: localTripId,
     isAuditMode: searchParams.get('mode') === 'audit',
     auditCityIds: searchParams.get('cities')?.split(',').filter(Boolean) || [],
   };

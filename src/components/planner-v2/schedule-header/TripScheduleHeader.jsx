@@ -2,12 +2,12 @@
 
 import { useCallback, useMemo, useState } from 'react';
 import DateRangeChip from './DateRangeChip';
-import CityScheduleCard from './CityScheduleCard';
 import DayStrip from './DayStrip';
 import { useDaySelection } from './useDaySelection';
 import { CitySearchInput } from '../../conversation/InputArea';
 import { buildDayAssignments, getTripDayCount } from '@/lib/conversation/dayAssignments';
 import { buildSuggestedAllocation, formatCityDateRange } from '@/lib/conversation/plannerActions';
+import { getFlagForCountry } from '@/utils/countryFlags';
 
 const CITY_PALETTE = [
   '#d97706',
@@ -30,8 +30,206 @@ function buildCityColors(cities) {
   return out;
 }
 
+function cityKey(city) {
+  return city?.id || city?.name?.toLowerCase?.() || null;
+}
+
+function formatDayLabel(day) {
+  if (!day?.date) return `Day ${day.dayIndex + 1}`;
+  return day.date.slice(5).replace('-', '/');
+}
+
+function buildTimelineSegments(days, cities) {
+  if (days.length > 0) {
+    const cityById = new Map(cities.map((city) => [cityKey(city), city]));
+    const segments = [];
+    for (const day of days) {
+      const key = day.cityId || '__free__';
+      const last = segments[segments.length - 1];
+      if (last?.key === key) {
+        last.days.push(day);
+        continue;
+      }
+      const city = day.cityId ? cityById.get(day.cityId) : null;
+      segments.push({
+        key,
+        city,
+        cityId: day.cityId,
+        days: [day],
+        isFree: !day.cityId,
+      });
+    }
+    return segments;
+  }
+
+  return cities.map((city, index) => ({
+    key: cityKey(city) || `${city.name}-${index}`,
+    city,
+    cityId: cityKey(city),
+    days: [],
+    isFree: false,
+  }));
+}
+
+function RouteTimeline({
+  days,
+  cities,
+  cityColors,
+  selectedSet,
+  onSelectSegment,
+  onIncrementNights,
+  onDecrementNights,
+  suggestedAllocation,
+}) {
+  const segments = useMemo(() => buildTimelineSegments(days, cities), [cities, days]);
+  if (segments.length === 0) return null;
+
+  return (
+    <div className="rounded-2xl border border-[#e5e0d8] bg-white p-3 shadow-sm">
+      <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a8578]">
+            Route timeline
+          </p>
+          <p className="mt-1 hidden text-xs text-[#6a6459] sm:block">
+            Click a stop to edit nights.
+          </p>
+        </div>
+        {suggestedAllocation && (
+          <span className="rounded-full border border-[#eadfc8] bg-[#fffaf0] px-3 py-1.5 text-xs font-semibold text-[#8a6f18]">
+            Suggested split ready
+          </span>
+        )}
+      </div>
+
+      {suggestedAllocation && (
+        <div className="mb-3 flex gap-1.5 overflow-x-auto pb-1">
+          {suggestedAllocation.segments.map((segment) => (
+            <div
+              key={segment.cityId}
+              className="min-w-[140px] rounded-xl border border-[#eadfc8] bg-[#fffaf0] px-3 py-2"
+            >
+              <p className="truncate text-xs font-semibold text-[#2a2520]">
+                {segment.cityName}
+              </p>
+              <p className="mt-0.5 text-[11px] text-[#6a6459]">
+                {segment.nights}n · {segment.label.split(': ')[1]}
+              </p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <div className="flex items-stretch gap-2 overflow-x-auto pb-1">
+        {segments.map((segment, index) => {
+          const firstDay = segment.days[0];
+          const lastDay = segment.days[segment.days.length - 1];
+          const city = segment.city;
+          const color = segment.cityId ? cityColors[segment.cityId] : '#b5ad9f';
+          const selected = segment.days.length > 0 && segment.days.every((day) => selectedSet?.has(day.dayIndex));
+          const nights = city && Number.isFinite(city.nights) ? city.nights : segment.days.length;
+          const label = segment.isFree ? 'Open nights' : city?.name || 'Route stop';
+          const dateRange = city ? formatCityDateRange(city) : [
+            formatDayLabel(firstDay),
+            lastDay && lastDay !== firstDay ? formatDayLabel(lastDay) : null,
+          ].filter(Boolean).join('-');
+
+          return (
+            <div key={`${segment.key}-${index}`} className="flex items-center gap-2">
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={() => onSelectSegment(segment.days.map((day) => day.dayIndex))}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    onSelectSegment(segment.days.map((day) => day.dayIndex));
+                  }
+                }}
+                className={`min-h-[92px] min-w-[168px] rounded-2xl border p-3 text-left transition ${
+                  selected
+                    ? 'border-[#2a2520] bg-[#2a2520] text-white shadow-md'
+                    : segment.isFree
+                      ? 'border-dashed border-[#c9a227] bg-[#fffaf0] text-[#2a2520] hover:bg-white'
+                      : 'border-[#e5e0d8] bg-[#faf8f5] text-[#2a2520] hover:border-[#c9a227]/60 hover:bg-white'
+                }`}
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div className="min-w-0">
+                    <p className={`text-[9px] font-semibold uppercase tracking-[0.14em] ${
+                      selected ? 'text-white/70' : 'text-[#8a8578]'
+                    }`}>
+                      {segment.isFree ? 'Needs assignment' : city?.role || 'Stop'}
+                    </p>
+                    <p className="mt-1 truncate font-display text-base font-semibold">
+                      {city?.country ? (
+                        <span className="mr-1 font-sans" aria-hidden="true">
+                          {getFlagForCountry(city.country)}
+                        </span>
+                      ) : null}
+                      {label}
+                    </p>
+                    <p className={`mt-1 text-xs ${selected ? 'text-white/75' : 'text-[#6a6459]'}`}>
+                      {nights || segment.days.length} {nights === 1 ? 'night' : 'nights'}
+                      {dateRange ? ` · ${dateRange}` : ''}
+                    </p>
+                  </div>
+                  <span
+                    className="mt-1 h-3 w-3 shrink-0 rounded-full"
+                    style={{ backgroundColor: selected ? 'rgba(255,255,255,0.75)' : color }}
+                    aria-hidden="true"
+                  />
+                </div>
+
+                {city && (onIncrementNights || onDecrementNights) && (
+                  <div className="mt-3 flex gap-1.5">
+                    <button
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        onDecrementNights?.(city);
+                      }}
+                      disabled={!nights}
+                      className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold disabled:opacity-30 ${
+                        selected ? 'border-white/25 text-white' : 'border-[#e5e0d8] text-[#6a6459] hover:bg-[#f5f0e8]'
+                      }`}
+                    >
+                      - night
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        onIncrementNights?.(city);
+                      }}
+                      className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold ${
+                        selected ? 'border-white/25 text-white' : 'border-[#e5e0d8] text-[#6a6459] hover:bg-[#f5f0e8]'
+                      }`}
+                    >
+                      + night
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {index < segments.length - 1 && (
+                <div className="flex shrink-0 flex-col items-center text-[#b5ad9f]">
+                  <span className="h-px w-7 bg-[#d5d0c8]" />
+                  <span className="mt-1 text-[9px] font-semibold uppercase tracking-[0.12em]">
+                    travel
+                  </span>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 /**
- * Compact trip schedule header: date range, duration, per-city cards, day strip.
+ * Compact trip schedule header: date range, route timeline, and optional day strip.
  * Not sticky — the /plan page flex column allocates height to chat + map below.
  */
 export default function TripScheduleHeader({
@@ -41,12 +239,11 @@ export default function TripScheduleHeader({
   unassignDays,
   setCityNights,
   addCity,
-  acceptSuggestedAllocation,
   latestPlannerAction,
 }) {
   const [focusedDayIndex, setFocusedDayIndex] = useState(null);
   const [pendingNewCityIndices, setPendingNewCityIndices] = useState(null);
-  const [showDays, setShowDays] = useState(true);
+  const [showDays, setShowDays] = useState(false);
 
   const days = useMemo(() => buildDayAssignments(tripState), [tripState]);
   const orderedCities = useMemo(() => {
@@ -75,8 +272,6 @@ export default function TripScheduleHeader({
 
   const tripDayCount = getTripDayCount(tripState);
   const totalNightsFromDates = tripState?.dates?.totalNights;
-  const hasDates =
-    !!tripState?.dates?.startDate || !!tripState?.dates?.endDate;
   const isInteractive = !!(assignDaysToCity || unassignDays || setCityNights);
   const suggestedAllocation = useMemo(
     () => buildSuggestedAllocation(tripState),
@@ -88,6 +283,7 @@ export default function TripScheduleHeader({
     selectedIndices,
     selectionCount,
     toggle,
+    selectMany,
     clear,
   } = useDaySelection({ totalDays: days.length });
 
@@ -174,17 +370,21 @@ export default function TripScheduleHeader({
     );
   }, []);
 
+  const handleSegmentSelect = useCallback(
+    (indices) => {
+      if (!indices?.length) return;
+      selectMany(indices);
+      handleDayFocus(indices[0]);
+    },
+    [handleDayFocus, selectMany]
+  );
+
   const handleDatesChange = useCallback(
     (partial) => {
       setTripDates?.(partial);
     },
     [setTripDates]
   );
-
-  const handleAcceptSuggestedAllocation = useCallback(() => {
-    if (!suggestedAllocation) return;
-    acceptSuggestedAllocation?.(suggestedAllocation);
-  }, [acceptSuggestedAllocation, suggestedAllocation]);
 
   return (
     <div className="z-20 shrink-0 bg-[#faf8f5]/95 backdrop-blur-sm">
@@ -193,43 +393,6 @@ export default function TripScheduleHeader({
           <div className="rounded-xl border border-[#eadfc8] bg-white px-3 py-2 text-xs text-[#6a6459] shadow-sm">
             <span className="font-semibold text-[#2a2520]">{latestPlannerAction.title || 'Trip updated'}.</span>{' '}
             {latestPlannerAction.confirmation}
-          </div>
-        )}
-
-        {suggestedAllocation && (
-          <div className="rounded-xl border border-[#eadfc8] bg-white p-3 shadow-sm">
-            <div className="flex flex-wrap items-start justify-between gap-3">
-              <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a8578]">
-                  Suggested date split
-                </p>
-                <p className="mt-1 text-xs text-[#6a6459]">
-                  Accept this split, then we can compare transport between each leg.
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={handleAcceptSuggestedAllocation}
-                className="rounded-full bg-[#2a2520] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#1a1510]"
-              >
-                Apply split
-              </button>
-            </div>
-            <div className="mt-2 flex gap-1.5 overflow-x-auto pb-1">
-              {suggestedAllocation.segments.map((segment) => (
-                <div
-                  key={segment.cityId}
-                  className="min-w-[150px] rounded-xl border border-[#e5e0d8] bg-[#faf8f5] px-3 py-2"
-                >
-                  <p className="truncate text-xs font-semibold text-[#2a2520]">
-                    {segment.cityName}
-                  </p>
-                  <p className="mt-0.5 text-[11px] text-[#6a6459]">
-                    {segment.nights}n · {segment.label.split(': ')[1]}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
         )}
 
@@ -260,28 +423,27 @@ export default function TripScheduleHeader({
               </span>
             </div>
           )}
-          {orderedCities.map((city) => (
-            <CityScheduleCard
-              key={city.id || city.name}
-              city={city}
-              days={days}
-              color={cityColors[city.id || city.name?.toLowerCase()]}
-              onIncrementNights={isInteractive ? handleIncrementNights : null}
-              onDecrementNights={isInteractive ? handleDecrementNights : null}
-              onDayFocus={handleDayFocus}
-              dateRange={formatCityDateRange(city)}
-            />
-          ))}
           {days.length > 0 && (
             <button
               type="button"
               onClick={() => setShowDays((value) => !value)}
               className="flex shrink-0 items-center rounded-xl border border-[#e5e0d8] bg-white px-3 py-2 text-[11px] font-semibold text-[#6a6459] shadow-sm hover:bg-[#f5f0e8] hover:text-[#2a2520]"
             >
-              {showDays ? 'Hide days' : 'Show days'}
+              {showDays ? 'Hide fine tune' : 'Fine tune days'}
             </button>
           )}
         </div>
+
+        <RouteTimeline
+          days={days}
+          cities={orderedCities}
+          cityColors={cityColors}
+          selectedSet={selectedSet}
+          onSelectSegment={isInteractive ? handleSegmentSelect : () => {}}
+          onIncrementNights={isInteractive ? handleIncrementNights : null}
+          onDecrementNights={isInteractive ? handleDecrementNights : null}
+          suggestedAllocation={suggestedAllocation}
+        />
 
         {days.length > 0 && showDays && (
           <DayStrip

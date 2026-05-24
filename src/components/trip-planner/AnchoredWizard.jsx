@@ -10,6 +10,8 @@ import StepReview from './StepReview';
 import TripTimeline from './TripTimeline';
 import TripMap from './TripMap';
 import citiesData from '@/generated/cities.json';
+import { getLocalTripDraft } from '@/lib/trips/localTripDrafts';
+import { normalizeTripState } from '@/lib/trips/tripLifecycle';
 
 const STEPS = [
   { id: 'setup', label: 'Your Trip', description: 'Where and when are you traveling?' },
@@ -18,11 +20,100 @@ const STEPS = [
   { id: 'review', label: 'Review', description: 'Finalize your trip' },
 ];
 
+function parseIsoDate(value) {
+  if (!value) return null;
+  const date = new Date(`${value}T12:00:00`);
+  return Number.isNaN(date.getTime()) ? null : date;
+}
+
+function toIsoDate(date) {
+  return date.toISOString().slice(0, 10);
+}
+
+function addDays(value, count) {
+  const date = parseIsoDate(value);
+  if (!date) return null;
+  date.setDate(date.getDate() + count);
+  return toIsoDate(date);
+}
+
+function buildCityDayList(city) {
+  if (!city?.arrivalDate) return [];
+  const nights = Number.isFinite(city.nights) ? city.nights : null;
+  if (nights != null && nights > 0) {
+    return Array.from({ length: nights }, (_, index) => addDays(city.arrivalDate, index)).filter(Boolean);
+  }
+  const start = parseIsoDate(city.arrivalDate);
+  const end = parseIsoDate(city.departureDate);
+  if (!start || !end || end <= start) return [city.arrivalDate];
+  const days = [];
+  const cursor = new Date(start);
+  while (cursor < end) {
+    days.push(toIsoDate(cursor));
+    cursor.setDate(cursor.getDate() + 1);
+  }
+  return days;
+}
+
+function findWizardCity(city) {
+  if (!city) return null;
+  const id = city.id || city.name?.toLowerCase?.();
+  const matched = citiesData.find((item) =>
+    item.id === id ||
+    item.name?.toLowerCase() === city.name?.toLowerCase()
+  );
+  return matched || {
+    id,
+    name: city.name,
+    country: city.country,
+    lat: city.latitude,
+    lng: city.longitude,
+  };
+}
+
+function hydrateWizardDraft(tripState) {
+  const normalized = normalizeTripState(tripState);
+  const orderedCities = [...(normalized.route?.cities || [])]
+    .filter((city) => city?.name)
+    .sort((a, b) => (Number.isFinite(a.order) ? a.order : 999) - (Number.isFinite(b.order) ? b.order : 999));
+  const first = orderedCities[0] || null;
+  const last = orderedCities.length > 1 ? orderedCities[orderedCities.length - 1] : null;
+  const middle = orderedCities.length > 2 ? orderedCities.slice(1, -1) : [];
+  const paceId = normalized.preferences?.pace || 'balanced';
+  const paceValue = paceId === 'relaxed' ? 25 : paceId === 'active' ? 75 : 50;
+
+  return {
+    tripDates: {
+      start: normalized.dates?.startDate || '',
+      end: normalized.dates?.endDate || '',
+    },
+    startCity: findWizardCity(first),
+    endCity: findWizardCity(last),
+    startCityDays: buildCityDayList(first),
+    endCityDays: buildCityDayList(last),
+    intermediateStops: middle.map((city) => ({
+      id: city.id || city.name?.toLowerCase(),
+      city: findWizardCity(city),
+      cityName: city.name,
+      days: buildCityDayList(city),
+    })),
+    preferences: {
+      pace: paceValue,
+      paceId,
+      interests: normalized.preferences?.interests || [],
+      budget: normalized.budget?.style || 'moderate',
+    },
+    currentStep: orderedCities.length >= 2 && normalized.dates?.startDate && normalized.dates?.endDate ? 3 : 0,
+  };
+}
+
 export default function AnchoredWizard({
   initialStartCityId,
   initialEndCityId,
   initialStartDate,
   initialEndDate,
+  initialTripId = null,
+  initialLocalTripId = null,
   isAuditMode = false,
   auditCityIds = [],
 }) {
@@ -80,6 +171,48 @@ export default function AnchoredWizard({
   useEffect(() => {
     if (initialized) return;
 
+    const applyHydratedDraft = (tripState) => {
+      const hydrated = hydrateWizardDraft(tripState);
+      setTripDates(hydrated.tripDates);
+      setStartCity(hydrated.startCity);
+      setEndCity(hydrated.endCity);
+      setStartCityDays(hydrated.startCityDays);
+      setEndCityDays(hydrated.endCityDays);
+      setIntermediateStops(hydrated.intermediateStops);
+      setPreferences(hydrated.preferences);
+      setCurrentStep(hydrated.currentStep);
+    };
+
+    if (initialLocalTripId && !initialTripId) {
+      const draft = getLocalTripDraft(initialLocalTripId);
+      if (draft?.trip_state) {
+        applyHydratedDraft(draft.trip_state);
+        setInitialized(true);
+        return;
+      }
+    }
+
+    if (initialTripId) {
+      let cancelled = false;
+      fetch(`/api/trips/${initialTripId}`)
+        .then(async (res) => {
+          if (!res.ok) throw new Error(await res.text());
+          return res.json();
+        })
+        .then((trip) => {
+          if (cancelled) return;
+          if (trip?.trip_state) applyHydratedDraft(trip.trip_state);
+          setInitialized(true);
+        })
+        .catch((error) => {
+          console.warn('[AnchoredWizard] Failed to load trip draft:', error);
+          setInitialized(true);
+        });
+      return () => {
+        cancelled = true;
+      };
+    }
+
     // Helper to find city by ID
     const findCity = (id) => citiesData.find(c => c.id === id) || null;
 
@@ -125,7 +258,7 @@ export default function AnchoredWizard({
     }
 
     setInitialized(true);
-  }, [initialized, initialStartCityId, initialEndCityId, initialStartDate, initialEndDate, isAuditMode, auditCityIds]);
+  }, [initialized, initialLocalTripId, initialTripId, initialStartCityId, initialEndCityId, initialStartDate, initialEndDate, isAuditMode, auditCityIds]);
 
   // Save itinerary to localStorage
   const handleSaveItinerary = useCallback(() => {

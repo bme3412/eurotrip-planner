@@ -1,41 +1,37 @@
 'use client';
 
 const STATUS_LABELS = {
-  needs_anchor: 'Needs anchor',
+  needs_anchor: 'Start planning',
   draft_with_assumptions: 'Draftable',
   ready: 'Ready',
 };
+
+function compactRouteLabel(value) {
+  if (!value || !value.includes('→')) return value;
+  const parts = value.split('→').map((part) => part.trim()).filter(Boolean);
+  if (parts.length <= 3) return value;
+  return `${parts[0]} → ${parts[parts.length - 1]} · ${parts.length} stops`;
+}
 
 function collectBriefChips(gaps) {
   const intake = gaps?.intake || {};
   const chips = [];
 
   if (intake.routeAnchors?.status === 'confirmed') {
-    chips.push({ id: 'route', label: intake.routeAnchors.summary });
+    chips.push({ id: 'route', label: compactRouteLabel(intake.routeAnchors.summary) });
   }
   if (intake.timeEnvelope?.status === 'confirmed') {
     chips.push({ id: 'time', label: intake.timeEnvelope.summary });
-  } else if (intake.timeEnvelope?.status === 'assumed') {
-    chips.push({ id: 'time', label: intake.timeEnvelope.summary, assumed: true });
-  }
-  if (intake.tripIntent?.status === 'confirmed') {
-    chips.push({ id: 'intent', label: intake.tripIntent.summary });
-  }
-  if (intake.negativeConstraints?.status === 'confirmed') {
-    chips.push({ id: 'constraints', label: intake.negativeConstraints.summary });
-  }
-  if (intake.preferenceSignals?.status === 'assumed') {
-    chips.push({ id: 'prefs', label: intake.preferenceSignals.summary, assumed: true });
   }
 
-  return chips.slice(0, 4);
+  return chips.slice(0, 2);
 }
 
 export default function PlannerProgressBar({ gaps, interaction }) {
-  const nextMove = gaps?.nextMove || gaps?.nextQuestion;
   const draftReadiness = gaps?.draftReadiness || 'needs_anchor';
-  const status = interaction?.copy?.status || STATUS_LABELS[draftReadiness] || 'Working brief';
-  const nextLabel = interaction?.copy?.nextLabel || nextMove?.label;
+  const status = interaction?.hasCapturedItinerary
+    ? 'Route captured'
+    : interaction?.copy?.status || STATUS_LABELS[draftReadiness] || 'Working brief';
   const chips = collectBriefChips(gaps);
 
   if (interaction && !interaction.showProgress) return null;
@@ -46,16 +42,15 @@ export default function PlannerProgressBar({ gaps, interaction }) {
         <span className="shrink-0 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#8a8578]">
           {status}
         </span>
-        {nextLabel && (
-          <span className="min-w-0 truncate text-[11px] text-[#6a6459]">
-            Next: {nextLabel}
+        {chips.map((chip) => (
+          <span
+            key={chip.id}
+            className="min-w-0 max-w-[42%] truncate rounded-full bg-[#faf8f5] px-2 py-0.5 text-[10px] text-[#6a6459]"
+            title={chip.label}
+          >
+            {chip.label}
           </span>
-        )}
-        {chips.length > 0 && (
-          <span className="hidden md:inline min-w-0 truncate text-[10px] text-[#8a8578]">
-            · {chips.map((chip) => `${chip.assumed ? 'assume ' : ''}${chip.label}`).join(' · ')}
-          </span>
-        )}
+        ))}
       </div>
     </div>
   );

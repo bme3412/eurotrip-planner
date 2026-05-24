@@ -39,7 +39,7 @@ export function getLocalTripDraft(id) {
   return readLocalTripDrafts().find((draft) => draft.id === id) || null;
 }
 
-export function upsertLocalTripDraft({ id = null, tripState, title = null } = {}) {
+export function upsertLocalTripDraft({ id = null, tripState, title = null, messages = null } = {}) {
   const normalized = normalizeTripState(tripState);
   const now = new Date().toISOString();
   const draftId = id || makeLocalTripId();
@@ -56,6 +56,7 @@ export function upsertLocalTripDraft({ id = null, tripState, title = null } = {}
     status: TRIP_LIFECYCLE_STATUSES.DRAFT,
     cities,
     trip_state: normalized,
+    messages: Array.isArray(messages) ? messages : existing?.messages || [],
     time_range: timeRange,
     created_at: existing?.created_at || now,
     updated_at: now,

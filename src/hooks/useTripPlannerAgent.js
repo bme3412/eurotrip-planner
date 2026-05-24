@@ -65,8 +65,22 @@ function makeSessionId() {
   return `s-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
+function compactMessagesForDraft(messages = []) {
+  return (messages || [])
+    .filter((message) => message?.role && typeof message.content === 'string' && message.content.trim())
+    .slice(-40)
+    .map((message) => ({
+      id: message.id,
+      role: message.role,
+      content: message.content,
+      timestamp: message.timestamp instanceof Date
+        ? message.timestamp.toISOString()
+        : message.timestamp || new Date().toISOString(),
+    }));
+}
+
 export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId = null } = {}) {
-  const { user, loading: authLoading, isSupabaseConfigured } = useAuth();
+  const { user, loading: authLoading, isSupabaseConfigured, signInWithGoogle } = useAuth();
   const [pendingInput, setPendingInput] = useState(null);
   const [hasStarted, setHasStarted] = useState(false);
   const [savedTripId, setSavedTripId] = useState(initialTripId);
@@ -85,7 +99,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
   // ── Sub-hooks ────────────────────────────────────────────
   const {
     messages, messagesRef, addMessage, updateLastAssistantMessage,
-    postSystemEvent, clearMessages, cleanupEmptyTrailing, buildApiMessages,
+    postSystemEvent, clearMessages, replaceMessages, cleanupEmptyTrailing, buildApiMessages,
   } = useMessages();
 
   const {
@@ -152,10 +166,21 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     }
 
     setTripState(normalizeTripState(draft.trip_state));
+    if (draft.messages?.length) {
+      replaceMessages(draft.messages);
+    } else {
+      replaceMessages([{
+        role: 'system_event',
+        content: 'Loaded saved trip draft.',
+        timestamp: draft.updated_at || new Date().toISOString(),
+      }]);
+    }
     setTripTitle(draft.title || '');
     setLocalTripId(draft.id);
     setSaveStatus('saved_local');
-  }, [initialLocalTripId, initialTripId, setTripState]);
+    setHasStarted(true);
+    startingRef.current = true;
+  }, [initialLocalTripId, initialTripId, replaceMessages, setTripState]);
 
   // Track tool calls for multi-turn context
   const handleToolHistoryEntry = useCallback((name, input) => {
@@ -232,6 +257,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
         id: localTripId,
         tripState: draftTripState,
         title,
+        messages: compactMessagesForDraft(messagesRef.current),
       });
       setLocalTripId(draft.id);
       setSaveStatus('saved_local');
@@ -277,7 +303,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
       setSaveStatus('error');
       return null;
     }
-  }, [isSupabaseConfigured, localTripId, savedTripId, tripState, tripTitle, user?.email, user?.id]);
+  }, [isSupabaseConfigured, localTripId, messagesRef, savedTripId, tripState, tripTitle, user?.email, user?.id]);
 
   const handlePlannerAction = useCallback((action, nextTripState) => {
     if (!action) return;
@@ -329,6 +355,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     startingRef.current = true;
     setHasStarted(true);
 
+    if (initialTripId || initialLocalTripId) return;
     if (messagesRef.current.length > 0) return;
 
     setIsStreaming(true);
@@ -367,7 +394,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
       setIsStreaming(false);
       if (!hadError) cleanupEmptyTrailing();
     }
-  }, [hasStarted, messagesRef, addMessage, updateLastAssistantMessage, processStream, setIsStreaming, setError, cleanupEmptyTrailing, abortControllerRef]);
+  }, [hasStarted, initialLocalTripId, initialTripId, messagesRef, addMessage, updateLastAssistantMessage, processStream, setIsStreaming, setError, cleanupEmptyTrailing, abortControllerRef]);
 
   // ── Send message ───────────────────────────────────────────
   const sendMessage = useCallback(async (userMessage, selectedOption = null) => {
@@ -495,6 +522,10 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     saveError,
     tripTitle,
     latestPlannerAction,
+    user,
+    authLoading,
+    isSupabaseConfigured,
+    signInWithGoogle,
 
     // Actions
     sendMessage,

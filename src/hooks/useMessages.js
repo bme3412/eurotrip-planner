@@ -51,6 +51,19 @@ export function useMessages() {
     setMessages([]);
   }, []);
 
+  const replaceMessages = useCallback((nextMessages = []) => {
+    const cleaned = (Array.isArray(nextMessages) ? nextMessages : [])
+      .filter((message) => message?.role && typeof message.content === 'string')
+      .map((message) => ({
+        id: message.id || generateId(),
+        role: message.role,
+        content: message.content,
+        timestamp: message.timestamp ? new Date(message.timestamp) : new Date(),
+      }));
+    setMessages(cleaned);
+    messagesRef.current = cleaned;
+  }, []);
+
   /** Remove trailing empty assistant message (cleanup after stream error). */
   const cleanupEmptyTrailing = useCallback(() => {
     setMessages(prev => {
@@ -74,6 +87,7 @@ export function useMessages() {
     updateLastAssistantMessage,
     postSystemEvent,
     clearMessages,
+    replaceMessages,
     cleanupEmptyTrailing,
     buildApiMessages,
   };

@@ -6,11 +6,11 @@ import { AlertTriangle, RotateCcw, X } from 'lucide-react';
 import CompactMessageList from './CompactMessageList';
 import CompactChatInput from './CompactChatInput';
 import PlannerProgressBar from './PlannerProgressBar';
+import PlannerNextActionBar from './PlannerNextActionBar';
 import InlineItinerary from '../conversation/InlineItinerary';
 import { CitySearchInput } from '../conversation/InputArea';
 import { buildDayAssignments } from '@/lib/conversation/dayAssignments';
 import { derivePlannerInteraction } from '@/lib/conversation/plannerInteraction';
-import { buildSuggestedAllocation } from '@/lib/conversation/plannerActions';
 import { getFlagForCountry } from '@/utils/countryFlags';
 
 function SuggestedStopsPanel({ suggestions = [], selectedDayCount = 0, onSelectCity }) {
@@ -242,17 +242,17 @@ function RouteGapAllocator({ interaction, tripState, assignDaysToCity, addCity }
 const STARTER_PROMPTS = [
   {
     id: 'vibe',
-    title: 'Start with a vibe',
+    title: 'A vibe',
     text: '10 days in late September, food, scenic stops, not too rushed.',
   },
   {
     id: 'anchors',
-    title: 'Start with anchors',
+    title: 'Known flights',
     text: 'I fly into Paris and out of Rome. Fill the middle with beautiful stops, using whatever transport fits best.',
   },
   {
     id: 'open',
-    title: 'Let it suggest',
+    title: 'Surprise me',
     text: 'Surprise me with a first Europe route for two weeks in June.',
   },
 ];
@@ -261,15 +261,11 @@ function InitialPlannerWelcome({ onSendMessage }) {
   return (
     <div className="px-3 pb-4">
       <div className="rounded-3xl border border-[#e5e0d8] bg-gradient-to-br from-[#fbf7ef] via-white to-[#f3efe7] p-4 shadow-sm">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a8578]">
-          Build from messy notes
-        </p>
         <h2 className="mt-1 font-display text-xl font-semibold text-[#2a2520]">
-          Tell me what you know. I&apos;ll turn it into a route.
+          Start with whatever you know.
         </h2>
         <p className="mt-1.5 max-w-xl text-[13px] leading-relaxed text-[#6a6459]">
-          You can name cities, countries, dates, bookings, constraints, or just the feeling of the trip.
-          I&apos;ll infer the missing pieces, label assumptions, and ask one useful question at a time.
+          Name a city, paste flights, describe a vibe, or pick one of these examples.
         </p>
 
         <div className="mt-4 grid gap-2 sm:grid-cols-3">
@@ -383,69 +379,6 @@ function GenerationPanel({
   }
 
   return null;
-}
-
-function PinnedPlannerAction({ action, tripState, onSendMessage, onAcceptSuggestedAllocation }) {
-  const suggestedAllocation = buildSuggestedAllocation(tripState);
-  if (!action && !suggestedAllocation) return null;
-  const saveLabel = action?.saveStatus === 'saving'
-    ? 'Saving...'
-    : action?.saveStatus === 'saved'
-      ? 'Saved'
-      : action?.saveStatus === 'error'
-        ? 'Save issue'
-        : null;
-
-  return (
-    <div className="border-t border-[#e5e0d8] bg-[#fffaf0] px-3 py-2">
-      <div className="rounded-2xl border border-[#eadfc8] bg-white px-3 py-2 shadow-sm">
-        <div className="flex items-start justify-between gap-3">
-          <div className="min-w-0">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a8578]">
-              Latest route action
-            </p>
-            <p className="mt-0.5 text-sm font-semibold text-[#2a2520]">
-              {action?.title || 'Ready to assign dates'}
-            </p>
-            {(action?.nextPrompt || suggestedAllocation) && (
-              <p className="mt-1 text-xs leading-relaxed text-[#6a6459]">
-                {action?.nextPrompt || 'Apply a suggested night split, then compare transport between each leg.'}
-              </p>
-            )}
-          </div>
-          {saveLabel && (
-            <span className={`shrink-0 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] ${
-              action?.saveStatus === 'error'
-                ? 'bg-red-50 text-red-700'
-                : 'bg-[#f5f0e8] text-[#6a6459]'
-            }`}>
-              {saveLabel}
-            </span>
-          )}
-        </div>
-        <div className="mt-2 flex flex-wrap gap-2">
-        {suggestedAllocation && (
-          <button
-            type="button"
-            onClick={() => onAcceptSuggestedAllocation?.(suggestedAllocation)}
-            className="rounded-full bg-[#2a2520] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#1a1510]"
-          >
-            Apply suggested split
-          </button>
-        )}
-        {action?.nextPrompt?.toLowerCase().includes('transport') && (
-          <button
-            type="button"
-            onClick={() => onSendMessage('Compare the best transport between each leg.')}
-            className="rounded-full border border-[#e5e0d8] bg-white px-3 py-1.5 text-xs font-semibold text-[#2a2520] hover:bg-[#faf8f5]"
-          >
-            Compare transport
-          </button>
-        )}
-        </div>
-      </div>
-    </div>
-  );
 }
 
 export default function PlannerColumn({
@@ -611,9 +544,11 @@ export default function PlannerColumn({
       {/* Chat input — visible unless actively generating */}
       {generationPhase !== 'generating' && (
         <>
-          <PinnedPlannerAction
-            action={latestPlannerAction}
+          <PlannerNextActionBar
+            interaction={interaction}
+            latestPlannerAction={latestPlannerAction}
             tripState={tripState}
+            savedTripId={savedTripId}
             onSendMessage={onSendMessage}
             onAcceptSuggestedAllocation={acceptSuggestedAllocation}
           />
