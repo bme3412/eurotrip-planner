@@ -13,8 +13,8 @@ function getTierLabel(c) {
   return c?.tier || c?.tierLabel || null;
 }
 
-export default function BestNowTicker({ onCityClick, className = "" }) {
-  const { items, loading } = useBestNow({ limit: 5, windowDays: 30 });
+export default function BestNowTicker({ onCityClick, className = "", initialItems = null }) {
+  const { items, loading } = useBestNow({ limit: 5, windowDays: 30, initialItems });
   const [highlight, setHighlight] = useState(0);
 
   useEffect(() => {

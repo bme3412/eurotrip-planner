@@ -38,12 +38,21 @@ function SkeletonCard() {
   );
 }
 
-export default function BestCitiesNow({ onScrollToDatePicker }) {
-  const [cities, setCities] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default function BestCitiesNow({
+  onScrollToDatePicker,
+  initialItems = null,
+  monthName: monthNameProp,
+  monthYear: monthYearProp,
+}) {
+  const seeded = Array.isArray(initialItems) && initialItems.length > 0;
+  const [cities, setCities] = useState(seeded ? initialItems : []);
+  const [loading, setLoading] = useState(!seeded);
   const [error, setError] = useState(false);
-  const { startDate, endDate, monthName, year } = getMonthDateRange();
-  const fetchedRef = useRef(false);
+  const localRange = getMonthDateRange();
+  const monthName = monthNameProp || localRange.monthName;
+  const year = monthYearProp || localRange.year;
+  const { startDate, endDate } = localRange;
+  const fetchedRef = useRef(seeded);
 
   useEffect(() => {
     if (fetchedRef.current) return;
@@ -56,7 +65,7 @@ export default function BestCitiesNow({ onScrollToDatePicker }) {
       .finally(() => setLoading(false));
   }, [startDate, endDate]);
 
-  if (error) return null;
+  if (error && cities.length === 0) return null;
 
   return (
     <section className="px-6 py-20 bg-white">
