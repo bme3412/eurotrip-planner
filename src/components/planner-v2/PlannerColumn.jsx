@@ -170,6 +170,9 @@ export default function PlannerColumn({
   onOptionSelect,
   onCitySelect,
   onRoutePresetSelect,
+  onDatesPick,
+  onFlexibleMonth,
+  onFlexible,
   onDismissError,
   onRetry,
   onParsedItineraryConfirm,
@@ -227,6 +230,9 @@ export default function PlannerColumn({
           onOptionSelect={onOptionSelect}
           onCitySelect={onCitySelect}
           onRoutePresetSelect={onRoutePresetSelect}
+          onDatesPick={onDatesPick}
+          onFlexibleMonth={onFlexibleMonth}
+          onFlexible={onFlexible}
           onParsedItineraryConfirm={onParsedItineraryConfirm}
           onParsedItineraryRefine={onParsedItineraryRefine}
           scrollContainerRef={scrollContainerRef}
@@ -306,6 +312,13 @@ export default function PlannerColumn({
       {/* Chat input — visible unless actively generating */}
       {generationPhase !== 'generating' && (
         <>
+          <div className="px-3 py-3 shrink-0">
+            <CompactChatInput
+              onSend={onSendMessage}
+              disabled={isStreaming}
+              placeholder={placeholder}
+            />
+          </div>
           <PlannerNextActionBar
             interaction={interaction}
             latestPlannerAction={latestPlannerAction}
@@ -314,13 +327,6 @@ export default function PlannerColumn({
             onSendMessage={onSendMessage}
             onAcceptSuggestedAllocation={acceptSuggestedAllocation}
           />
-          <div className="px-3 py-3 shrink-0">
-            <CompactChatInput
-              onSend={onSendMessage}
-              disabled={isStreaming}
-              placeholder={placeholder}
-            />
-          </div>
         </>
       )}
 

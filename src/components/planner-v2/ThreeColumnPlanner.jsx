@@ -7,21 +7,12 @@ import RouteGapAllocator from './RouteGapAllocator';
 import MobileDrawer, { MobileMapButton } from '../conversation/MobileDrawer';
 import { useTripPlannerAgent } from '@/hooks/useTripPlannerAgent';
 import { derivePlannerInteraction } from '@/lib/conversation/plannerInteraction';
-import { deriveTripTitle } from '@/lib/trips/tripLifecycle';
-import { buildRouteSummary } from '@/lib/conversation/plannerActions';
+import { buildDayAssignments } from '@/lib/conversation/dayAssignments';
+import { buildCityColors } from '@/lib/planning/cityColors';
 
 /**
  * Agentic /plan layout: compact TripScheduleHeader + chat + map.
  */
-const SAVE_STATUS_LABELS = {
-  local: 'Define your trip',
-  loading: 'Loading trip',
-  saving: 'Saving draft',
-  saved: 'Saved draft',
-  saved_local: 'Saved on this device',
-  error: 'Save issue',
-};
-
 const DEFAULT_CHAT_WIDTH = 60;
 const ROUTE_CHAT_WIDTH = 42;
 const MIN_CHAT_WIDTH = 34;
@@ -31,6 +22,9 @@ export default function ThreeColumnPlanner({
   initialUserMessage = null,
   initialTripId = null,
   initialLocalTripId = null,
+  onPlannerStateChange = null,
+  registerSetCityNights = null,
+  registerSetTripDates = null,
 }) {
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
   const [chatWidthPct, setChatWidthPct] = useState(DEFAULT_CHAT_WIDTH);
@@ -52,16 +46,11 @@ export default function ThreeColumnPlanner({
     generationError,
     savedTripId,
     localTripId,
-    saveStatus,
-    saveError,
-    tripTitle,
-    user,
-    isSupabaseConfigured,
-    signInWithGoogle,
     sendMessage,
     startConversation,
     handleOptionSelect,
     handleCitySelect,
+    handleDateSelect,
     applyRoutePreset,
     dismissError,
     assignDaysToCity,
@@ -70,12 +59,11 @@ export default function ThreeColumnPlanner({
     addCity,
     acceptSuggestedAllocation,
     setTripDates,
+    undoLastReflow,
     confirmGeneration,
     cancelFinalization,
     retryGeneration,
     resetGeneration,
-    setTripTitle,
-    saveNow,
     latestPlannerAction,
   } = useTripPlannerAgent({ initialTripId, initialLocalTripId });
 
@@ -92,6 +80,39 @@ export default function ThreeColumnPlanner({
     }),
     [gaps, generationPhase, isFinalized, isStreaming, messages, pendingInput, tripState]
   );
+
+  const dayAssignments = useMemo(() => buildDayAssignments(tripState), [tripState]);
+  const cityColors = useMemo(
+    () => buildCityColors(tripState?.route?.cities || []),
+    [tripState?.route?.cities]
+  );
+
+  // Emit a read-only snapshot of trip state to the parent so it can render
+  // the top-bar Day Strip alongside the Describe / Step by step toggle.
+  useEffect(() => {
+    if (!onPlannerStateChange) return;
+    onPlannerStateChange({
+      tripState,
+      days: dayAssignments,
+      cities: tripState?.route?.cities || [],
+      cityColors,
+      hasCities: tripHasCities,
+    });
+  }, [onPlannerStateChange, tripState, dayAssignments, cityColors, tripHasCities]);
+
+  // Expose setCityNights upward so the top-bar Day Strip popover can adjust
+  // nights without lifting the entire planner state.
+  useEffect(() => {
+    if (!registerSetCityNights) return;
+    registerSetCityNights(setCityNights);
+    return () => registerSetCityNights(null);
+  }, [registerSetCityNights, setCityNights]);
+
+  useEffect(() => {
+    if (!registerSetTripDates) return;
+    registerSetTripDates(setTripDates);
+    return () => registerSetTripDates(null);
+  }, [registerSetTripDates, setTripDates]);
 
   useEffect(() => {
     if (!hasStarted) {
@@ -147,21 +168,6 @@ export default function ThreeColumnPlanner({
     dates: tripState.dates,
     totalDays: tripState.dates.totalNights,
   };
-  const derivedTripTitle = useMemo(() => deriveTripTitle(tripState), [tripState]);
-  const displayTripTitle = tripTitle.trim() || derivedTripTitle;
-  const routeSummary = useMemo(() => buildRouteSummary(tripState), [tripState]);
-
-  const handleTitleSubmit = useCallback(async (event) => {
-    event.preventDefault();
-    const saved = await saveNow();
-    if (!saved) return;
-    if (isSupabaseConfigured && !user) {
-      const next = saved?.local && saved?.id
-        ? `/plan?localTripId=${saved.id}`
-        : `${window.location.pathname}${window.location.search}`;
-      signInWithGoogle?.({ next });
-    }
-  }, [isSupabaseConfigured, saveNow, signInWithGoogle, user]);
 
   useEffect(() => {
     const stored = Number(window.localStorage.getItem('plannerChatWidthPct'));
@@ -226,65 +232,6 @@ export default function ThreeColumnPlanner({
 
   return (
     <div className="flex h-full min-h-0 flex-col">
-      {(tripHasCities || savedTripId || localTripId || saveStatus !== 'local') && (
-        <div className="flex shrink-0 flex-wrap items-center justify-between gap-x-3 gap-y-1.5 border-b border-[#e5e0d8] bg-white/80 px-3 py-1.5 text-[11px] text-[#6a6459]">
-          <form onSubmit={handleTitleSubmit} className="flex min-w-[min(100%,280px)] flex-[1_1_320px] items-center gap-2">
-            <label className="shrink-0 font-semibold uppercase tracking-[0.14em] text-[#8a8578]" htmlFor="planner-trip-title">
-              Trip
-            </label>
-            <input
-              id="planner-trip-title"
-              type="text"
-              value={tripTitle}
-              onChange={(event) => setTripTitle(event.target.value)}
-              placeholder={derivedTripTitle}
-              className="min-w-0 max-w-[320px] flex-1 rounded-lg border border-transparent bg-transparent px-2 py-1 text-sm font-semibold text-[#2a2520] placeholder:text-[#8a8578] hover:border-[#e5e0d8] hover:bg-white focus:border-[#c9a227] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#c9a227]/15"
-              aria-label="Trip name"
-            />
-            <button
-              type="submit"
-              className="rounded-full border border-[#e5e0d8] bg-white px-3 py-1 text-xs font-semibold text-[#2a2520] hover:bg-[#faf8f5]"
-            >
-              {isSupabaseConfigured && !user ? 'Sign in to save' : 'Save'}
-            </button>
-          </form>
-
-          <div className="ml-auto flex min-w-0 flex-[1_1_auto] flex-wrap items-center justify-end gap-2 sm:gap-3">
-            <span className="hidden max-w-[150px] truncate md:inline" title={displayTripTitle}>
-              {SAVE_STATUS_LABELS[saveStatus] || 'Trip draft'}
-              {saveError ? ` · ${saveError}` : ''}
-            </span>
-            {savedTripId && (
-              <>
-                <a href={`/plan?tripId=${savedTripId}`} className="font-semibold text-[#2a2520] hover:underline">
-                  Edit
-                </a>
-                <a href={`/itineraries/${savedTripId}`} className="font-semibold text-[#2a2520] hover:underline">
-                  View
-                </a>
-              </>
-            )}
-            {!savedTripId && localTripId && (
-              <>
-                <a href="/saved-trips" className="font-semibold text-[#2a2520] hover:underline">
-                  My Trips
-                </a>
-              </>
-            )}
-            {!localTripId && (
-              <a href="/saved-trips" className="font-semibold text-[#6a6459] hover:text-[#2a2520] hover:underline">
-                Saved trips
-              </a>
-            )}
-            {tripHasCities && (
-              <span className="max-w-[320px] truncate rounded-full bg-[#faf8f5] px-2.5 py-1 font-medium text-[#6a6459]" title={routeSummary}>
-                {routeSummary}
-              </span>
-            )}
-          </div>
-        </div>
-      )}
-
       <RouteGapAllocator
         interaction={interaction}
         tripState={tripState}
@@ -315,6 +262,9 @@ export default function ThreeColumnPlanner({
             onOptionSelect={handleOption}
             onCitySelect={handleCity}
             onRoutePresetSelect={applyRoutePreset}
+            onDatesPick={handleDateSelect}
+            onFlexibleMonth={handleDateSelect}
+            onFlexible={() => handleDateSelect({})}
             onDismissError={dismissError}
             onRetry={() => sendMessage('Please continue.')}
             onParsedItineraryConfirm={() =>
@@ -352,12 +302,7 @@ export default function ThreeColumnPlanner({
           <PlannerMapWorkspace
             tripState={tripState}
             interaction={interaction}
-            setTripDates={setTripDates}
-            assignDaysToCity={assignDaysToCity}
-            unassignDays={unassignDays}
             setCityNights={setCityNights}
-            addCity={addCity}
-            latestPlannerAction={latestPlannerAction}
             onSendMessage={handleSendMessage}
           />
         </div>
@@ -375,12 +320,7 @@ export default function ThreeColumnPlanner({
           <PlannerMapWorkspace
             tripState={tripState}
             interaction={interaction}
-            setTripDates={setTripDates}
-            assignDaysToCity={assignDaysToCity}
-            unassignDays={unassignDays}
             setCityNights={setCityNights}
-            addCity={addCity}
-            latestPlannerAction={latestPlannerAction}
             onSendMessage={handleSendMessage}
           />
         </MobileDrawer>

@@ -1,10 +1,11 @@
 'use client';
 
-import { Suspense, useState, useCallback } from 'react';
+import { Suspense, useState, useCallback, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { MessageSquare, List } from 'lucide-react';
+import TripDayStrip from '@/components/planner-v2/TripDayStrip';
 
 const ThreeColumnPlanner = dynamic(
   () => import('@/components/planner-v2/ThreeColumnPlanner'),
@@ -79,6 +80,29 @@ function PlanContent() {
     urlMode === 'wizard' || (!q && hasWizardParams) ? 'wizard' : 'conversation';
 
   const [mode, setMode] = useState(defaultMode);
+  const [plannerSnapshot, setPlannerSnapshot] = useState(null);
+  const setCityNightsRef = useRef(null);
+  const setTripDatesRef = useRef(null);
+
+  const handlePlannerStateChange = useCallback((snapshot) => {
+    setPlannerSnapshot(snapshot);
+  }, []);
+
+  const registerSetCityNights = useCallback((fn) => {
+    setCityNightsRef.current = fn;
+  }, []);
+
+  const registerSetTripDates = useCallback((fn) => {
+    setTripDatesRef.current = fn;
+  }, []);
+
+  const handleSetCityNights = useCallback((cityId, nights) => {
+    setCityNightsRef.current?.(cityId, nights);
+  }, []);
+
+  const handleSetTripDates = useCallback((partial) => {
+    setTripDatesRef.current?.(partial);
+  }, []);
 
   const preloadConversation = useCallback(() => {
     import('@/components/planner-v2/ThreeColumnPlanner');
@@ -101,7 +125,20 @@ function PlanContent() {
   return (
     <div className="fixed inset-0 top-[56px] flex flex-col bg-[#faf8f5] overflow-hidden z-10">
       {/* Top header bar */}
-      <div className="flex items-center justify-end gap-4 px-4 py-2 border-b border-[#e5e0d8] shrink-0 bg-white/85 backdrop-blur">
+      <div className="flex items-center gap-4 px-4 py-2 border-b border-[#e5e0d8] shrink-0 bg-white/85 backdrop-blur">
+        {/* Day strip (conversation mode only, once trip has cities) */}
+        {mode === 'conversation' && plannerSnapshot?.hasCities && plannerSnapshot.days?.length > 0 ? (
+          <TripDayStrip
+            days={plannerSnapshot.days}
+            cities={plannerSnapshot.cities}
+            tripDates={plannerSnapshot.tripState?.dates}
+            onSetCityNights={handleSetCityNights}
+            onSetTripDates={handleSetTripDates}
+          />
+        ) : (
+          <div className="min-w-0 flex-1" aria-hidden="true" />
+        )}
+
         {/* Mode toggle */}
         <div
           role="tablist"
@@ -142,6 +179,9 @@ function PlanContent() {
             initialUserMessage={q}
             initialTripId={tripId}
             initialLocalTripId={localTripId}
+            onPlannerStateChange={handlePlannerStateChange}
+            registerSetCityNights={registerSetCityNights}
+            registerSetTripDates={registerSetTripDates}
           />
         ) : (
           <div className="h-full overflow-y-auto">

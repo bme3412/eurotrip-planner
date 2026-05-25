@@ -29,9 +29,13 @@ function collectBriefChips(gaps) {
 
 export default function PlannerProgressBar({ gaps, interaction }) {
   const draftReadiness = gaps?.draftReadiness || 'needs_anchor';
-  const status = interaction?.hasCapturedItinerary
-    ? 'Route captured'
-    : interaction?.copy?.status || STATUS_LABELS[draftReadiness] || 'Working brief';
+  // The "Route captured" banner duplicated the inline Day Strip in the top bar
+  // and the route summary pill, so we suppress the progress bar entirely once
+  // the trip is captured. While still drafting, fall through to the normal
+  // readiness label.
+  if (interaction?.hasCapturedItinerary) return null;
+
+  const status = interaction?.copy?.status || STATUS_LABELS[draftReadiness] || 'Working brief';
   const chips = collectBriefChips(gaps);
 
   if (interaction && !interaction.showProgress) return null;
