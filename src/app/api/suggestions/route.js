@@ -346,15 +346,23 @@ async function scoreWithV4(startDate, endDate, preferences, limit, debug, flatLi
   const manifest = await loadManifest();
   const cityIds = Object.keys(manifest.cities || {});
 
-  // Score all cities with full data loading
+  // Pre-load all city data in parallel (avoids sequential await in ScoreEngine loop)
+  const cityDataMap = new Map();
+  await Promise.all(
+    cityIds.map(id =>
+      loadFullCityData(manifest, id)
+        .then(data => { if (data) cityDataMap.set(id, data); })
+        .catch(() => {})
+    )
+  );
+
+  // Score all cities with pre-loaded data (Map lookup instead of disk I/O)
   const results = await engine.scoreCitiesForAPI({
-    cityIds,
+    cityIds: [...cityDataMap.keys()],
     startDate,
     endDate,
     originCity: preferences.originCity,
-    getCityData: async (cityId) => {
-      return loadFullCityData(manifest, cityId);
-    },
+    getCityData: (cityId) => Promise.resolve(cityDataMap.get(cityId)),
     limit,
     includeDebug: debug,
     flatList,

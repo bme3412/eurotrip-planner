@@ -85,7 +85,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
   const [hasStarted, setHasStarted] = useState(false);
   const [savedTripId, setSavedTripId] = useState(initialTripId);
   const [localTripId, setLocalTripId] = useState(initialLocalTripId);
-  const [saveStatus, setSaveStatus] = useState(initialTripId || initialLocalTripId ? 'loading' : 'local');
+  const [saveStatus, setSaveStatusState] = useState(initialTripId || initialLocalTripId ? 'loading' : 'local');
   const [saveError, setSaveError] = useState(null);
   const [tripTitle, setTripTitle] = useState('');
   const [latestPlannerAction, setLatestPlannerAction] = useState(null);
@@ -95,6 +95,11 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
   const tripIdRef = useRef(initialTripId);
   const loadedTripIdRef = useRef(null);
   const saveTimerRef = useRef(null);
+  const saveStatusRef = useRef(initialTripId || initialLocalTripId ? 'loading' : 'local');
+  const setSaveStatus = useCallback((next) => {
+    saveStatusRef.current = next;
+    setSaveStatusState(next);
+  }, []);
 
   // ── Sub-hooks ────────────────────────────────────────────
   const {
@@ -153,7 +158,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     return () => {
       cancelled = true;
     };
-  }, [authLoading, initialTripId, setTripState, user?.email, user?.id]);
+  }, [authLoading, initialTripId, setTripState, setSaveStatus, user?.email, user?.id]);
 
   useEffect(() => {
     if (!initialLocalTripId || initialTripId) return;
@@ -180,7 +185,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     setSaveStatus('saved_local');
     setHasStarted(true);
     startingRef.current = true;
-  }, [initialLocalTripId, initialTripId, replaceMessages, setTripState]);
+  }, [initialLocalTripId, initialTripId, replaceMessages, setTripState, setSaveStatus]);
 
   // Track tool calls for multi-turn context
   const handleToolHistoryEntry = useCallback((name, input) => {
@@ -252,7 +257,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     const title = tripTitle.trim() || deriveTripTitle(draftTripState);
     const shouldSyncToAccount = isSupabaseConfigured && Boolean(user?.id || user?.email);
 
-    if (!shouldSyncToAccount) {
+    const saveLocally = () => {
       const draft = upsertLocalTripDraft({
         id: localTripId,
         tripState: draftTripState,
@@ -263,6 +268,10 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
       setSaveStatus('saved_local');
       setSaveError(null);
       return draft;
+    };
+
+    if (!shouldSyncToAccount) {
+      return saveLocally();
     }
 
     try {
@@ -281,6 +290,13 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
         }),
       });
 
+      // 503 = Supabase not configured / migration missing. The draft is still
+      // valuable to the user, so keep it alive locally and report that we
+      // saved "on this device" instead of surfacing a red error pill.
+      if (res.status === 503) {
+        return saveLocally();
+      }
+
       if (!res.ok) {
         const fallback = manual ? 'Save failed.' : 'Autosave failed.';
         const body = await res.clone().json().catch(async () => {
@@ -288,7 +304,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
           return { error: text || fallback };
         });
         setSaveError(body.error || fallback);
-        setSaveStatus(res.status === 503 ? 'local' : 'error');
+        setSaveStatus('error');
         return null;
       }
 
@@ -298,12 +314,19 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
       setSaveStatus('saved');
       return saved;
     } catch (error) {
-      console.warn('[agent] Failed to save trip:', error);
-      setSaveError(manual ? 'Save failed.' : 'Autosave failed.');
-      setSaveStatus('error');
-      return null;
+      // Network failure. If we already have a remote trip, this is a real
+      // problem the user should see. Otherwise we haven't promised remote
+      // persistence yet — keep the draft alive locally.
+      if (savedTripId) {
+        console.warn('[agent] Failed to save trip:', error);
+        setSaveError(manual ? 'Save failed.' : 'Autosave failed.');
+        setSaveStatus('error');
+        return null;
+      }
+      console.warn('[agent] Remote save unavailable, saving locally:', error);
+      return saveLocally();
     }
-  }, [isSupabaseConfigured, localTripId, messagesRef, savedTripId, tripState, tripTitle, user?.email, user?.id]);
+  }, [isSupabaseConfigured, localTripId, messagesRef, savedTripId, setSaveStatus, tripState, tripTitle, user?.email, user?.id]);
 
   const handlePlannerAction = useCallback((action, nextTripState) => {
     if (!action) return;
@@ -321,9 +344,14 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
           if (!current || current.type !== action.type || current.confirmation !== action.confirmation) {
             return current;
           }
+          const resolved = !saved
+            ? 'error'
+            : saveStatusRef.current === 'saved_local'
+              ? 'saved_local'
+              : 'saved';
           return {
             ...current,
-            saveStatus: saved ? 'saved' : 'error',
+            saveStatus: resolved,
             savedAt: saved ? new Date().toISOString() : null,
           };
         });
@@ -332,7 +360,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
   }, [persistDraft, postSystemEvent]);
 
   const {
-    assignDaysToCity, unassignDays, setCityNights, setTripDates, addCity, acceptSuggestedAllocation,
+    assignDaysToCity, unassignDays, setCityNights, setTripDates, undoLastReflow, addCity, acceptSuggestedAllocation,
   } = useDirectManipulation({ tripStateRef, setTripState, onPlannerAction: handlePlannerAction });
 
   useEffect(() => {
@@ -467,14 +495,23 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
   }, [sendMessage]);
 
   const handleDateSelect = useCallback((dates) => {
-    if (dates.start && dates.end) {
-      sendMessage(`I'll travel from ${dates.start} to ${dates.end}`);
-    } else if (dates.month) {
-      sendMessage(`I'll travel in ${dates.month}`);
-    } else {
-      sendMessage("I'm flexible on dates");
+    // Accept either { start, end } (legacy) or { startDate, endDate } (new picker shape).
+    const startDate = dates?.startDate || dates?.start;
+    const endDate = dates?.endDate || dates?.end;
+    if (startDate && endDate) {
+      // Update tripState directly so the schedule header + autosave catch up
+      // immediately, then echo a confirming user message into the chat.
+      setTripDates({ startDate, endDate });
+      sendMessage(`I'll travel from ${startDate} to ${endDate}`);
+      return;
     }
-  }, [sendMessage]);
+    if (dates?.month) {
+      const label = dates.year ? `${dates.month} ${dates.year}` : dates.month;
+      sendMessage(`I'll travel in ${label}`);
+      return;
+    }
+    sendMessage("I'm flexible on dates");
+  }, [sendMessage, setTripDates]);
 
   // ── Dismiss error ──────────────────────────────────────────
   const dismissError = useCallback(() => {
@@ -499,7 +536,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     toolHistoryRef.current = [];
     sessionIdRef.current = makeSessionId();
     resetGeneration();
-  }, [abortStream, clearMessages, resetTripState, resetGeneration]);
+  }, [abortStream, clearMessages, resetTripState, resetGeneration, setSaveStatus]);
 
   return {
     // State
@@ -555,6 +592,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     addCity,
     acceptSuggestedAllocation,
     setTripDates,
+    undoLastReflow,
     postSystemEvent,
   };
 }

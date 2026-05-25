@@ -15,6 +15,7 @@ function draftSaveErrorResponse(error) {
     return NextResponse.json(
       {
         error: "Trip autosave requires Supabase server configuration.",
+        reason: "supabase_unconfigured",
         ...(process.env.NODE_ENV !== "production" ? { detail: message } : {}),
       },
       { status: 503 }
@@ -34,6 +35,7 @@ function draftSaveErrorResponse(error) {
     return NextResponse.json(
       {
         error: "Trip autosave needs the trip lifecycle database migration. Apply supabase/migrations/0005_trip_lifecycle.sql.",
+        reason: "migration_missing",
         ...(process.env.NODE_ENV !== "production" ? { detail: message || details || hint } : {}),
       },
       { status: 503 }

@@ -51,7 +51,7 @@ When suggesting concrete cities, keep prose short: explain the route logic and w
 - render_trip_card: After any meaningful state change to show the user what you have.
 - render_city_picker: When you propose specific uncommitted cities or stops and want the user to choose one. Include the exact suggested cities in the tool call so the UI can show preview map pins. Do not only list cities in prose when a choice is expected.
 - render_options: When the next step is a small non-city choice such as draft now vs slower pace, train vs flight, or pick among route styles.
-- render_date_picker: Only when the next interaction is selecting dates or a flexible month.
+- render_date_picker: When the user needs to commit to travel timing. Call this if they reference a season, month, or vague window ("late September", "this fall") without concrete dates, or when the next gap is dates. Use mode='range' by default; populate suggestedStart/suggestedEnd if the user hinted at a length or a month.
 - render_nights_allocator: Only when the user needs to distribute already-confirmed route nights across already-confirmed cities.
 - confirm_changes: Only for MEDIUM-confidence extractions or when changing something previously set.
 - finalize_trip: Only after the user explicitly says they're happy with the plan.

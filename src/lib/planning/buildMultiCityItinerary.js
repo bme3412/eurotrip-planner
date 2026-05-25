@@ -178,9 +178,20 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
     );
   }
 
-  console.log('Day allocation:', allocation);
+  // Step 2: Pre-load all city data in parallel
+  const cityDataMap = new Map();
+  await Promise.all(
+    cities.map(async (city) => {
+      try {
+        const data = await getCityData(city.id);
+        if (data) cityDataMap.set(city.id, data);
+      } catch (e) {
+        console.error(`Failed to load city data for ${city.id}:`, e.message);
+      }
+    })
+  );
 
-  // Step 2: Build itinerary for each city
+  // Step 3: Build itinerary for each city (sequential — order matters for transfers)
   const allDays = [];
   const citySegments = [];
   const transfers = [];
@@ -197,12 +208,10 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
       continue;
     }
 
-    // Load city data
-    console.log(`Loading city data for ${city.id}...`);
-    const cityData = await getCityData(city.id);
+    const cityData = cityDataMap.get(city.id);
 
     if (!cityData) {
-      console.error(`Failed to load city data for ${city.id}`);
+      console.error(`No city data available for ${city.id}, skipping`);
       continue;
     }
 
@@ -215,7 +224,6 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
     };
 
     // Build itinerary for this city
-    console.log(`Building itinerary for ${city.id} (${cityAlloc.days} days)...`);
     const cityItinerary = await buildItineraryWithRouting(cityTrip, cityData, {
       routeOptimization,
       travelMode: 'WALK',
