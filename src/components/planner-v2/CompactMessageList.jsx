@@ -383,12 +383,26 @@ export default function CompactMessageList({
           />
         );
       case 'render_city_picker':
-      case 'show_city_search':
+      case 'show_city_search': {
         if (activeWidget !== 'city_picker') return null;
-        if (
+        const hasSuggestions = (pendingInput.data?.suggestions || []).length > 0;
+        const brief = trip?.brief || {};
+        const hasBriefSignal = Boolean(
+          brief.intent ||
+          (brief.targetRegions || []).length ||
+          (brief.intentSignals || []).length ||
+          (brief.hardConstraints || []).length ||
+          (brief.negativeConstraints || []).length ||
+          (brief.notes || []).length
+        );
+        const isColdStart =
           pendingInput.data?.purpose === 'suggest_stops' &&
-          (!trip?.startCity && !(trip?.stops || []).length && !trip?.endCity)
-        ) {
+          !trip?.startCity &&
+          !(trip?.stops || []).length &&
+          !trip?.endCity &&
+          !hasSuggestions &&
+          !hasBriefSignal;
+        if (isColdStart) {
           return (
             <RoutePresetCards onSelect={onRoutePresetSelect} />
           );
@@ -399,6 +413,7 @@ export default function CompactMessageList({
             onCitySelect={onCitySelect}
           />
         );
+      }
       case 'show_city_cards':
         return (
           <HeaderHint label="Tap a day in the trip schedule above and pick the city you want." />
