@@ -7,6 +7,7 @@ import { buildSuggestedAllocation } from '@/lib/conversation/plannerActions';
 function saveLabelFor(action) {
   if (action?.saveStatus === 'saving') return 'Saving';
   if (action?.saveStatus === 'saved') return 'Saved';
+  if (action?.saveStatus === 'saved_local') return 'Saved locally';
   if (action?.saveStatus === 'error') return 'Save issue';
   return null;
 }
