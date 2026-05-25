@@ -44,7 +44,7 @@ async function collectFiles(country, city) {
 async function build() {
   const manifest = {
     generatedAt: new Date().toISOString(),
-    cities: [],
+    cities: {},
   };
 
   const countries = await fs.promises.readdir(DATA_ROOT, { withFileTypes: true });
@@ -57,7 +57,12 @@ async function build() {
       if (!cityDir.isDirectory()) continue;
       const city = cityDir.name;
       const files = await collectFiles(country, city);
-      manifest.cities.push({ country, city, files });
+      const slug = city.toLowerCase();
+      manifest.cities[slug] = {
+        country,
+        directoryName: city,
+        files,
+      };
     }
   }
 
