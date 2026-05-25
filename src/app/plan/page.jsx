@@ -101,25 +101,7 @@ function PlanContent() {
   return (
     <div className="fixed inset-0 top-[56px] flex flex-col bg-[#faf8f5] overflow-hidden z-10">
       {/* Top header bar */}
-      <div className="flex items-center justify-between gap-4 px-4 py-2 border-b border-[#e5e0d8] shrink-0 bg-white/85 backdrop-blur">
-        <div className="min-w-0">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-[#8a8578] font-medium leading-none">
-            Plan a Trip
-          </p>
-          <h1 className="mt-0.5 leading-tight truncate">
-            <span className="font-display text-base sm:text-lg text-[#2a2520] font-semibold">
-              Describe your trip.
-            </span>{' '}
-            <span className="hidden sm:inline text-sm text-[#8a8578]">
-              We&apos;ll build the route.
-            </span>
-          </h1>
-          <p className="text-[11px] text-[#8a8578] mt-0.5 hidden xl:block">
-            Start with a city, a season, or a mood. The route assembles as you chat,
-            the map updates in real time, and the itinerary fills in with photos and rail connections.
-          </p>
-        </div>
-
+      <div className="flex items-center justify-end gap-4 px-4 py-2 border-b border-[#e5e0d8] shrink-0 bg-white/85 backdrop-blur">
         {/* Mode toggle */}
         <div
           role="tablist"

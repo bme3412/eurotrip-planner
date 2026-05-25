@@ -36,6 +36,7 @@ function FlaggedText({ content, mentionCities = [] }) {
 
   const pattern = new RegExp(`\\b(${mentionCities.map((city) => escapeRegExp(city.name)).join('|')})\\b`, 'g');
   const cityByName = new Map(mentionCities.map((city) => [city.name, city]));
+  const flaggedCities = new Set();
   const parts = [];
   let lastIndex = 0;
   let match;
@@ -49,10 +50,13 @@ function FlaggedText({ content, mentionCities = [] }) {
     const city = cityByName.get(matchedText);
     const previous = content.slice(Math.max(0, match.index - 4), match.index);
     const alreadyFlagged = /[\u{1F1E6}-\u{1F1FF}]{2}\s*$/u.test(previous);
+    const cityKey = matchedText.toLowerCase();
+    const shouldShowFlag = !alreadyFlagged && !flaggedCities.has(cityKey);
+    if (shouldShowFlag) flaggedCities.add(cityKey);
 
     parts.push(
       <span key={`${match.index}-${matchedText}`}>
-        {!alreadyFlagged && (
+        {shouldShowFlag && (
           <span aria-hidden="true">{getFlagForCountry(city.country)} </span>
         )}
         {matchedText}
@@ -420,10 +424,9 @@ export default function CompactMessageList({
         );
       case 'render_nights_allocator':
       case 'show_days_allocation':
-        if (activeWidget !== 'night_allocator') return null;
-        return (
-          <HeaderHint label="Use the route schedule below the map, or apply the suggested split pinned by the chat input." />
-        );
+        // Night allocator widget is rendered at the top of the planner;
+        // no inline chat hint needed.
+        return null;
       case 'render_date_picker':
       case 'show_date_picker':
         if (activeWidget !== 'date_picker') return null;

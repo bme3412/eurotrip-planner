@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import PlannerColumn from './PlannerColumn';
 import PlannerMapWorkspace from './PlannerMapWorkspace';
+import RouteGapAllocator from './RouteGapAllocator';
 import MobileDrawer, { MobileMapButton } from '../conversation/MobileDrawer';
 import { useTripPlannerAgent } from '@/hooks/useTripPlannerAgent';
 import { derivePlannerInteraction } from '@/lib/conversation/plannerInteraction';
@@ -284,6 +285,13 @@ export default function ThreeColumnPlanner({
         </div>
       )}
 
+      <RouteGapAllocator
+        interaction={interaction}
+        tripState={tripState}
+        assignDaysToCity={assignDaysToCity}
+        addCity={addCity}
+      />
+
       <div ref={splitPaneRef} className="min-h-0 flex-1 flex overflow-hidden">
         <div
           className="min-w-0 min-h-0 flex-1 overflow-hidden lg:flex-none"
@@ -313,8 +321,6 @@ export default function ThreeColumnPlanner({
               sendMessage('Yes, apply that itinerary.')
             }
             onParsedItineraryRefine={(summary) => sendMessage(summary)}
-            assignDaysToCity={assignDaysToCity}
-            addCity={addCity}
             confirmGeneration={confirmGeneration}
             cancelFinalization={cancelFinalization}
             retryGeneration={retryGeneration}
