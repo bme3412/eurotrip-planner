@@ -143,16 +143,14 @@ const cachedFetch = async (url, cacheKey, duration = CACHE_CONFIG.CITY_DATA_CACH
   // Check cache first
   const cached = getCache(cacheKey);
   if (cached) {
-    console.log(`[Cache] Hit for: ${cacheKey}`);
     return cached;
   }
-  
+
   performanceMonitor.recordCacheMiss();
   performanceMonitor.recordApiCall();
   performanceMonitor.startTimer(`fetch_${cacheKey}`);
-  
+
   try {
-    console.log(`[Cache] Miss for: ${cacheKey}, fetching...`);
     const response = await fetch(url);
     
     if (!response.ok) {
@@ -183,15 +181,13 @@ const withCache = (fn, keyGenerator, duration = CACHE_CONFIG.RATING_CACHE_DURATI
     // Check cache first
     const cached = getCache(cacheKey);
     if (cached !== null) {
-      console.log(`[Cache] Hit for: ${cacheKey}`);
       return cached;
     }
-    
+
     performanceMonitor.recordCacheMiss();
     performanceMonitor.startTimer(`compute_${cacheKey}`);
-    
+
     try {
-      console.log(`[Cache] Miss for: ${cacheKey}, computing...`);
       const result = await fn(...args);
       
       // Cache the result

@@ -88,8 +88,6 @@ const OptimizedMapComponent = ({ viewState, onViewStateChange, destinations, onM
   // Expensive calculation for filtered destinations (memoized)
   const { result: processedDestinations } = useExpensiveCalculation(
     () => {
-      const startTime = performance.now();
-      
       let filtered = destinations;
 
       // Apply search filter
@@ -125,16 +123,12 @@ const OptimizedMapComponent = ({ viewState, onViewStateChange, destinations, onM
         return (b.rating || 0) - (a.rating || 0) || a.title.localeCompare(b.title);
       });
 
-      const endTime = performance.now();
-      console.log(`Destination filtering took ${endTime - startTime} milliseconds`);
-      
       return filtered;
     },
     [destinations, debouncedSearch, state.activeCategories, debouncedFilters],
-    { 
-      enableCache: true, 
+    {
+      enableCache: true,
       cacheSize: 20,
-      enableLogging: process.env.NODE_ENV === 'development'
     }
   );
 

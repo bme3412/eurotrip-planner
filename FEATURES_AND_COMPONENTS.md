@@ -27,15 +27,11 @@ Day-by-day itineraries with time blocks, activities, restaurants, and opening ho
 Full-screen Mapbox map with all 220 cities, filterable by region/country/interest/tier.
 - **Key components:** `OptimizedMapComponent`, `FilterContainer`, `RankedListPanel`, `CityDetailsPopup`
 
-## 7. Multi-City Roulette
-Gamified multi-city route discovery with animated transport connections.
-- **Key components:** `TripRoulette`, `RouletteCard`, `CityChainBuilder`, `RouteMap`, `TripSummaryModal`
-
-## 8. Auth & Accounts
+## 7. Auth & Accounts
 Supabase Auth with Google OAuth and email/password. Syncs wishlists and trips across devices.
 - **Key components:** `AuthButton`, `AuthContext`
 
-## 9. Wishlists & Saved Trips
+## 8. Wishlists & Saved Trips
 Save cities and trips, with cloud sync for logged-in users and localStorage for guests.
 - **Key components:** `SaveToTrips`, `TravelDataProvider`
 
@@ -73,8 +69,8 @@ Save cities and trips, with cloud sync for logged-in users and localStorage for 
 - **Caching** (`src/lib/cache/`, `src/lib/enrichment/`) - Redis-compatible caching, enrichment data
 - **External APIs** - Google Places, Google Routes, Supabase, Mapbox
 
-### Utilities (9)
-- `cityDataUtils`, `monthlyDataLoader`, `travelUtils`, `countryFlags`, `chunkOptimization`, `cdnUtils`, `performanceUtils`, `debugMonthlyData`, `lineInterpolation`
+### Utilities (8)
+- `cityDataUtils`, `monthlyDataLoader`, `travelUtils`, `countryFlags`, `chunkOptimization`, `cdnUtils`, `performanceUtils`, `lineInterpolation`
 
 ### Tech Stack
 - **Framework:** Next.js 15 (App Router)
@@ -91,9 +87,9 @@ Save cities and trips, with cloud sync for logged-in users and localStorage for 
 |----------|-------|
 | Pages/Routes | 43 |
 | API Routes | 13 |
-| React Components | 187 |
+| React Components | 175 |
 | Custom Hooks | 16 |
 | Contexts | 3 |
 | Lib Modules | 70+ |
-| Utils | 9 |
-| **Total** | **~350+** |
+| Utils | 8 |
+| **Total** | **~340** |

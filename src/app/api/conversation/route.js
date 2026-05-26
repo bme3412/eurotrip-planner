@@ -7,10 +7,12 @@ const MAX_BODY_BYTES = 256 * 1024; // 256 KB — plenty for long itinerary paste
 const MODEL = 'claude-sonnet-4-20250514';
 
 function logEvent(event, data = {}) {
+  const isError = typeof event === 'string' && event.includes('error');
+  const sink = isError ? console.error : console.info;
   try {
-    console.log(JSON.stringify({ event, ...data }));
+    sink(JSON.stringify({ event, ...data }));
   } catch {
-    console.log('[conversation]', event, data);
+    sink('[conversation]', event, data);
   }
 }
 

@@ -112,17 +112,13 @@ export function useAgentStream({
 
       const chunk = decoder.decode(value, { stream: true });
       for (const data of feedSSE(buffer, chunk)) {
-        console.log('[sse]', data.type, data.type === 'tool_use' ? data.name : '');
         fullContent = handleSSEData(data, fullContent);
       }
     }
 
     for (const data of flushSSE(buffer)) {
-      console.log('[sse]', data.type, data.type === 'tool_use' ? data.name : '');
       fullContent = handleSSEData(data, fullContent);
     }
-
-    console.log('[sse] Stream reader done. fullContent length:', fullContent.length);
   }, [handleSSEData]);
 
   const abortStream = useCallback(() => {

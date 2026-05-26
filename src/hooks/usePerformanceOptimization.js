@@ -52,10 +52,9 @@ export const useThrottle = (callback, delay) => {
 
 // Hook for memoizing expensive calculations
 export const useExpensiveCalculation = (calculateFn, deps, options = {}) => {
-  const { 
+  const {
     cacheSize = 10,
     enableCache = true,
-    enableLogging = false 
   } = options;
   
   const cacheRef = useRef(new Map());
@@ -63,21 +62,15 @@ export const useExpensiveCalculation = (calculateFn, deps, options = {}) => {
 
   const memoizedResult = useMemo(() => {
     const cacheKey = JSON.stringify(deps);
-    
+
     // Check cache first
     if (enableCache && cacheRef.current.has(cacheKey)) {
-      if (enableLogging) {
-        console.log('Cache hit for:', cacheKey);
-      }
       return cacheRef.current.get(cacheKey);
     }
 
     // Calculate new result
     calculationCountRef.current++;
-    if (enableLogging) {
-      console.log(`Expensive calculation #${calculationCountRef.current} for:`, cacheKey);
-    }
-    
+
     const result = calculateFn();
 
     // Cache the result
@@ -91,7 +84,7 @@ export const useExpensiveCalculation = (calculateFn, deps, options = {}) => {
     }
 
     return result;
-  }, [calculateFn, cacheSize, enableCache, enableLogging, deps]);
+  }, [calculateFn, cacheSize, enableCache, deps]);
 
   const clearCache = useCallback(() => {
     cacheRef.current.clear();
@@ -191,10 +184,6 @@ export const useRenderOptimization = (componentName) => {
     renderTimesRef.current.push(timeSinceLastRender);
     if (renderTimesRef.current.length > 10) {
       renderTimesRef.current.shift();
-    }
-
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`${componentName} render #${renderCountRef.current}, time since last: ${timeSinceLastRender}ms`);
     }
   });
 
