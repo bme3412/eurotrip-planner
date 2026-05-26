@@ -5,6 +5,7 @@ import { buildMultiCityItinerary } from "@/lib/planning/buildMultiCityItinerary"
 import { optimizeRoute } from "@/lib/planning/routeOptimizer";
 import { getTripWithDetails, persistGeneratedItinerary } from "@/lib/trips/tripsRepository";
 import { getAnchorCities, normalizeTripState } from "@/lib/trips/tripLifecycle";
+import { forbiddenResponse, getRequesterFromAuthHeader } from "@/lib/supabase/requestAuth";
 
 function deriveConcreteDates(tripState) {
   let startDate = tripState.dates.startDate;
@@ -26,12 +27,12 @@ function deriveConcreteDates(tripState) {
   return { startDate, endDate };
 }
 
-function canWriteTrip(trip, body = {}) {
+function canWriteTrip(trip, requester) {
   const ownerId = trip?.user_id || null;
   const ownerEmail = trip?.user_email || null;
   if (!ownerId && !ownerEmail) return false;
-  if (ownerId && body.userId === ownerId) return true;
-  if (ownerEmail && body.userEmail === ownerEmail) return true;
+  if (ownerId && requester?.userId === ownerId) return true;
+  if (ownerEmail && requester?.userEmail === ownerEmail) return true;
   return false;
 }
 
@@ -40,6 +41,9 @@ export async function POST(request, { params }) {
   if (!id) {
     return NextResponse.json({ error: "Trip id is required." }, { status: 400 });
   }
+
+  const { requester, response } = await getRequesterFromAuthHeader(request);
+  if (response) return response;
 
   let body = {};
   try {
@@ -53,8 +57,8 @@ export async function POST(request, { params }) {
     if (!trip) {
       return NextResponse.json({ error: "Trip not found." }, { status: 404 });
     }
-    if (!canWriteTrip(trip, body)) {
-      return NextResponse.json({ error: "You do not have access to generate this itinerary." }, { status: 403 });
+    if (!canWriteTrip(trip, requester)) {
+      return forbiddenResponse("You do not have access to generate this itinerary.");
     }
 
     const tripState = normalizeTripState(body.tripState || body.trip_state || trip.trip_state);

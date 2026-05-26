@@ -3,6 +3,7 @@
 import { NextResponse } from "next/server";
 import { createDraftTrip } from "@/lib/trips/tripsRepository";
 import { canPersistTripDraft } from "@/lib/trips/tripLifecycle";
+import { getRequesterFromAuthHeader } from "@/lib/supabase/requestAuth";
 
 function draftSaveErrorResponse(error) {
   const message = error?.message || "";
@@ -49,6 +50,9 @@ function draftSaveErrorResponse(error) {
 }
 
 export async function POST(request) {
+  const { requester, response } = await getRequesterFromAuthHeader(request);
+  if (response) return response;
+
   let body;
   try {
     body = await request.json();
@@ -68,8 +72,8 @@ export async function POST(request) {
     const trip = await createDraftTrip({
       tripState,
       title: body?.title || null,
-      userId: body?.userId || body?.user_id || null,
-      userEmail: body?.userEmail || body?.user_email || null,
+      userId: requester.userId,
+      userEmail: requester.userEmail,
     });
     return NextResponse.json(trip, { status: 201 });
   } catch (error) {

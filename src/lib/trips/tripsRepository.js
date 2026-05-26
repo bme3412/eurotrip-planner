@@ -252,7 +252,7 @@ export async function persistGeneratedItinerary(tripId, itinerary, tripState) {
   for (let i = 0; i < days.length; i++) {
     const day = days[i];
     const city = day.city || day.cityName || day.location || null;
-    const dayDate = day.date || computeDayDate(draftPayload.start_date, i);
+    const dayDate = normalizeGeneratedDayDate(day.date) || computeDayDate(draftPayload.start_date, i);
     const { data: dayRow, error: dayErr } = await supabase
       .from('trip_days')
       .insert({
@@ -394,6 +394,13 @@ function computeDayDate(startDate, dayIndex) {
   const d = new Date(startDate);
   d.setDate(d.getDate() + dayIndex);
   return d.toISOString().slice(0, 10);
+}
+
+function normalizeGeneratedDayDate(value) {
+  if (typeof value !== 'string') return null;
+  const trimmed = value.trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) return trimmed;
+  return null;
 }
 
 /**

@@ -3,9 +3,9 @@
 import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "../../../../lib/supabase/server";
 import { getTripWithDetails, updateTripDraft } from "@/lib/trips/tripsRepository";
+import { forbiddenResponse, getRequesterFromAuthHeader } from "@/lib/supabase/requestAuth";
 
 const ALLOWED_UPDATE_FIELDS = new Set([
-  "user_email",
   "start_date",
   "end_date",
   "interests",
@@ -79,7 +79,7 @@ function sanitizeUpdatePayload(input) {
       continue;
     }
 
-    if (key === "user_email" || key === "hotel_location" || key === "budget" || key === "title" || key === "country" || key === "route_type" || key === "status" || key === "share_token") {
+    if (key === "hotel_location" || key === "budget" || key === "title" || key === "country" || key === "route_type" || key === "status" || key === "share_token") {
       update[key] = typeof value === "string" ? value.trim() || null : null;
       continue;
     }
@@ -94,28 +94,17 @@ function notFoundResponse() {
   return NextResponse.json({ error: "Trip not found." }, { status: 404 });
 }
 
-function requesterFromRequest(request, body = null) {
-  const url = new URL(request.url);
-  return {
-    userId: url.searchParams.get("userId") || body?.userId || body?.user_id || null,
-    userEmail: url.searchParams.get("userEmail") || body?.userEmail || body?.user_email || null,
-  };
-}
-
 function canAccessTrip(trip, requester, { write = false } = {}) {
   if (!trip) return false;
   const ownerId = trip.user_id || null;
   const ownerEmail = trip.user_email || null;
   const hasOwner = Boolean(ownerId || ownerEmail);
 
-  if (!hasOwner) return !write;
+  if (!write && trip.is_public === true) return true;
+  if (!hasOwner || !requester) return false;
   if (ownerId && requester.userId === ownerId) return true;
   if (ownerEmail && requester.userEmail === ownerEmail) return true;
-  return !write && trip.is_public === true;
-}
-
-function forbiddenResponse() {
-  return NextResponse.json({ error: "You do not have access to this trip." }, { status: 403 });
+  return false;
 }
 
 export async function GET(request, { params }) {
@@ -127,7 +116,11 @@ export async function GET(request, { params }) {
   try {
     const trip = await getTripWithDetails(id);
     if (!trip) return notFoundResponse();
-    if (!canAccessTrip(trip, requesterFromRequest(request))) return forbiddenResponse();
+    if (canAccessTrip(trip, null)) return NextResponse.json(trip, { status: 200 });
+
+    const { requester, response } = await getRequesterFromAuthHeader(request);
+    if (response) return response;
+    if (!canAccessTrip(trip, requester)) return forbiddenResponse("You do not have access to this trip.");
     return NextResponse.json(trip, { status: 200 });
   } catch (error) {
     console.error("Failed to load trip", error);
@@ -144,6 +137,9 @@ export async function PUT(request, { params }) {
     return NextResponse.json({ error: "Trip id is required." }, { status: 400 });
   }
 
+  const { requester, response } = await getRequesterFromAuthHeader(request);
+  if (response) return response;
+
   let body;
   try {
     body = await request.json();
@@ -155,8 +151,8 @@ export async function PUT(request, { params }) {
     try {
       const existing = await getTripWithDetails(id);
       if (!existing) return notFoundResponse();
-      if (!canAccessTrip(existing, requesterFromRequest(request, body), { write: true })) {
-        return forbiddenResponse();
+      if (!canAccessTrip(existing, requester, { write: true })) {
+        return forbiddenResponse("You do not have access to this trip.");
       }
       const data = await updateTripDraft(id, {
         tripState: body.tripState || body.trip_state,
@@ -182,8 +178,8 @@ export async function PUT(request, { params }) {
   try {
     const existing = await getTripWithDetails(id);
     if (!existing) return notFoundResponse();
-    if (!canAccessTrip(existing, requesterFromRequest(request, body), { write: true })) {
-      return forbiddenResponse();
+    if (!canAccessTrip(existing, requester, { write: true })) {
+      return forbiddenResponse("You do not have access to this trip.");
     }
     const supabase = await getSupabaseAdmin();
     const { data, error } = await supabase

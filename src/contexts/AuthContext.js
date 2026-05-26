@@ -18,7 +18,19 @@ const AUTH_NEXT_PATH_KEY = 'eurotrip.auth.nextPath';
 
 function getAuthRedirectOrigin() {
   const configured = process.env.NEXT_PUBLIC_AUTH_REDIRECT_ORIGIN?.trim();
-  if (configured) return configured.replace(/\/$/, '');
+  if (configured) {
+    try {
+      const currentUrl = new URL(window.location.origin);
+      const isLocalCurrent = ['localhost', '127.0.0.1'].includes(currentUrl.hostname);
+
+      if (isLocalCurrent) {
+        return window.location.origin;
+      }
+    } catch {
+      // Fall through and use the configured value after trimming.
+    }
+    return configured.replace(/\/$/, '');
+  }
   return window.location.origin;
 }
 
