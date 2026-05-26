@@ -11,7 +11,7 @@
 
 import Anthropic from '@anthropic-ai/sdk';
 import crypto from 'crypto';
-import { getCachedLLMDescriptions, cacheLLMDescriptions } from '@/lib/cache/suggestions.js';
+import { getCachedLLMDescriptions, cacheLLMDescriptions } from '../../../cache/suggestions.js';
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
