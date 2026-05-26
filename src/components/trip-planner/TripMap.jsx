@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import citiesData from '@/generated/cities.json';
 import { useTransportAnimation } from '@/hooks/useTransportAnimation';
-import TransportAnimationOverlay from '@/components/planner/TransportAnimationOverlay';
+import TransportAnimationOverlay from '@/components/trip-planner/TransportAnimationOverlay';
 import { calculateDistance } from '@/utils/lineInterpolation';
 
 // Build coordinate lookup
