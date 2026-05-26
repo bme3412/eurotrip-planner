@@ -1,4 +1,5 @@
 import { buildDayAssignments } from './dayAssignments';
+import { getTripBriefCompleteness } from '@/lib/trips/tripBriefCompleteness';
 
 function normalizeSuggestion(suggestion) {
   if (!suggestion) return null;
@@ -147,8 +148,10 @@ function quickRepliesForMode(mode, gaps) {
 
 function quickRepliesForCapturedRoute() {
   return [
+    { id: 'add-travel-details', label: 'Add flights or stays' },
     { id: 'edit-dates', label: 'Edit dates or nights' },
     { id: 'transport-options', label: 'Compare transport' },
+    { id: 'draft', label: 'Build itinerary' },
   ];
 }
 
@@ -210,7 +213,7 @@ function hasCapturedItinerary(tripState) {
   return hasStructuredRoute && (hasTimeRange || hasCityTiming || hasBookings || hasBriefNotes);
 }
 
-function nextActionForMode(mode, { gaps, freeNights, isFinalized, capturedItinerary }) {
+function nextActionForMode(mode, { gaps, freeNights, isFinalized, capturedItinerary, briefCompleteness }) {
   if (isFinalized) {
     return {
       id: 'finalized',
@@ -221,11 +224,29 @@ function nextActionForMode(mode, { gaps, freeNights, isFinalized, capturedItiner
   }
 
   if (capturedItinerary && mode === 'review_route') {
+    const next = briefCompleteness?.next;
+    const checklist = (briefCompleteness?.groups || []).map((item) => ({
+      id: item.id,
+      label: item.label,
+      complete: item.complete,
+      prompt: item.prompt,
+    }));
     return {
       id: 'captured-route',
-      label: 'Route captured',
-      description: 'Your pasted itinerary is saved as an editable route. Review stops, nights, and transport before building anything more detailed.',
-      type: 'passive',
+      label: next ? `Add ${next.label.toLowerCase()}` : 'Build itinerary',
+      description: next?.prompt || 'Ready when you are.',
+      type: 'chat',
+      message: next?.message || 'Build the itinerary.',
+      checklist,
+      secondaryActions: next
+        ? [
+            {
+              id: 'build-itinerary',
+              label: 'Build now',
+              message: 'Build the itinerary.',
+            },
+          ]
+        : [],
     };
   }
 
@@ -322,6 +343,7 @@ export function derivePlannerInteraction({
   const activeWidget = pendingWidget !== 'none' ? pendingWidget : fallbackWidget;
   const mode = modeForState({ tripState, gaps, pendingInput, generationPhase, activeWidget, freeNights });
   const capturedItinerary = hasCapturedItinerary(tripState);
+  const briefCompleteness = getTripBriefCompleteness(tripState);
   const previewSuggestions = previewSuggestionsForPending(pendingInput);
   const mapMode = !hasCities
     ? (previewSuggestions.length > 0 ? 'preview_suggestions' : 'empty')
@@ -337,7 +359,8 @@ export function derivePlannerInteraction({
     previewSuggestions,
     copy: copyForMode(mode, gaps),
     hasCapturedItinerary: capturedItinerary,
-    nextAction: nextActionForMode(mode, { gaps, freeNights, isFinalized, capturedItinerary }),
+    briefCompleteness,
+    nextAction: nextActionForMode(mode, { gaps, freeNights, isFinalized, capturedItinerary, briefCompleteness }),
     quickReplies: isFinalized || isStreaming || pendingValid || showWelcome
       ? []
       : capturedItinerary && mode === 'review_route'

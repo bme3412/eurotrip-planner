@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
 
 /**
  * Generation phase state machine:
@@ -9,7 +10,12 @@ import { useState, useCallback } from 'react';
  *   complete -> confirming (re-generate after changes)
  *   complete -> idle (start over)
  */
-export function useItineraryGeneration({ tripStateRef, tripIdRef = null, user = null }) {
+export function useItineraryGeneration({
+  tripStateRef,
+  tripIdRef = null,
+  session = null,
+  onGeneratedItinerary = null,
+}) {
   const [generationPhase, setGenerationPhase] = useState('idle');
   const [itinerary, setItinerary] = useState(null);
   const [generationError, setGenerationError] = useState(null);
@@ -54,7 +60,9 @@ export function useItineraryGeneration({ tripStateRef, tripIdRef = null, user = 
       const tripId = tripIdRef?.current;
       const res = await fetch(tripId ? `/api/trips/${tripId}/generate` : '/api/trips/generate', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: tripId
+          ? getSupabaseAuthHeaders(session, { 'Content-Type': 'application/json' })
+          : { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           tripState: ts,
           cities,
@@ -64,8 +72,6 @@ export function useItineraryGeneration({ tripStateRef, tripIdRef = null, user = 
           pace: ts.preferences.pace || 'balanced',
           budget: ts.budget.style || 'moderate',
           day_allocation: dayAllocation,
-          userId: user?.id || null,
-          userEmail: user?.email || null,
         }),
       });
 
@@ -76,12 +82,13 @@ export function useItineraryGeneration({ tripStateRef, tripIdRef = null, user = 
 
       const { itinerary: result } = await res.json();
       setItinerary(result);
+      onGeneratedItinerary?.(result);
       setGenerationPhase('complete');
     } catch (err) {
       setGenerationError(err.message);
       setGenerationPhase('error');
     }
-  }, [tripStateRef, tripIdRef, user?.email, user?.id]);
+  }, [tripStateRef, tripIdRef, session, onGeneratedItinerary]);
 
   /** User declined finalization — go back to idle. */
   const cancelFinalization = useCallback(() => {

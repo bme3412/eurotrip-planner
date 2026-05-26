@@ -81,11 +81,20 @@ function PlanContent() {
 
   const [mode, setMode] = useState(defaultMode);
   const [plannerSnapshot, setPlannerSnapshot] = useState(null);
+  const [sharedTripState, setSharedTripState] = useState(null);
   const setCityNightsRef = useRef(null);
   const setTripDatesRef = useRef(null);
+  const applyConversationTripStateRef = useRef(null);
 
   const handlePlannerStateChange = useCallback((snapshot) => {
     setPlannerSnapshot(snapshot);
+    if (snapshot?.tripState) {
+      setSharedTripState(snapshot.tripState);
+    }
+  }, []);
+
+  const handleWizardStateChange = useCallback((tripState) => {
+    setSharedTripState(tripState);
   }, []);
 
   const registerSetCityNights = useCallback((fn) => {
@@ -96,6 +105,10 @@ function PlanContent() {
     setTripDatesRef.current = fn;
   }, []);
 
+  const registerApplyTripState = useCallback((fn) => {
+    applyConversationTripStateRef.current = fn;
+  }, []);
+
   const handleSetCityNights = useCallback((cityId, nights) => {
     setCityNightsRef.current?.(cityId, nights);
   }, []);
@@ -103,6 +116,21 @@ function PlanContent() {
   const handleSetTripDates = useCallback((partial) => {
     setTripDatesRef.current?.(partial);
   }, []);
+
+  const handleModeChange = useCallback((nextMode) => {
+    setMode((prev) => {
+      // When switching from wizard back to conversation, push the latest shared
+      // tripState into the conversation hook so chat resumes from the same place.
+      if (prev === 'wizard' && nextMode === 'conversation' && sharedTripState) {
+        applyConversationTripStateRef.current?.(sharedTripState);
+      }
+      return nextMode;
+    });
+    if (typeof window === 'undefined') return;
+    const url = new URL(window.location.href);
+    url.searchParams.set('mode', nextMode === 'wizard' ? 'wizard' : 'conversation');
+    window.history.replaceState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
+  }, [sharedTripState]);
 
   const preloadConversation = useCallback(() => {
     import('@/components/planner-v2/ThreeColumnPlanner');
@@ -118,6 +146,8 @@ function PlanContent() {
     initialEndDate: searchParams.get('endDate') || null,
     initialTripId: tripId,
     initialLocalTripId: localTripId,
+    initialTripState: sharedTripState,
+    onTripStateChange: handleWizardStateChange,
     isAuditMode: searchParams.get('mode') === 'audit',
     auditCityIds: searchParams.get('cities')?.split(',').filter(Boolean) || [],
   };
@@ -154,7 +184,7 @@ function PlanContent() {
                 role="tab"
                 aria-selected={active}
                 type="button"
-                onClick={() => setMode(tab.id)}
+                onClick={() => handleModeChange(tab.id)}
                 onMouseEnter={
                   tab.id === 'conversation' ? preloadConversation : preloadWizard
                 }
@@ -179,9 +209,11 @@ function PlanContent() {
             initialUserMessage={q}
             initialTripId={tripId}
             initialLocalTripId={localTripId}
+            initialTripState={sharedTripState}
             onPlannerStateChange={handlePlannerStateChange}
             registerSetCityNights={registerSetCityNights}
             registerSetTripDates={registerSetTripDates}
+            registerApplyTripState={registerApplyTripState}
           />
         ) : (
           <div className="h-full overflow-y-auto">

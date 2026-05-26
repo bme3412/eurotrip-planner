@@ -3,8 +3,9 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { initialTripState } from '@/lib/conversation/tripState';
 import { useAuth } from '@/contexts/AuthContext';
+import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
 import { canPersistTripDraft, deriveTripTitle, normalizeTripState } from '@/lib/trips/tripLifecycle';
-import { getLocalTripDraft, upsertLocalTripDraft } from '@/lib/trips/localTripDrafts';
+import { getLocalTripDraft, removeLocalTripDraft, upsertLocalTripDraft } from '@/lib/trips/localTripDrafts';
 import { hydrateRoutePreset } from '@/lib/planning/routePresets';
 import { useMessages } from './useMessages';
 import { useTripState } from './useTripState';
@@ -79,8 +80,18 @@ function compactMessagesForDraft(messages = []) {
     }));
 }
 
-export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId = null } = {}) {
-  const { user, loading: authLoading, isSupabaseConfigured, signInWithGoogle } = useAuth();
+function withConversationSnapshot(tripState, messages = []) {
+  return {
+    ...tripState,
+    conversation: {
+      messages: compactMessagesForDraft(messages),
+      updatedAt: new Date().toISOString(),
+    },
+  };
+}
+
+export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId = null, initialTripState: initialTripStateOverride = null } = {}) {
+  const { user, session, loading: authLoading, isSupabaseConfigured, signInWithGoogle } = useAuth();
   const [pendingInput, setPendingInput] = useState(null);
   const [hasStarted, setHasStarted] = useState(false);
   const [savedTripId, setSavedTripId] = useState(initialTripId);
@@ -110,13 +121,37 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
   const {
     tripState, setTripState, tripStateRef,
     isFinalized, setIsFinalized, gaps, resetTripState,
-  } = useTripState();
+  } = useTripState(initialTripStateOverride || initialTripState);
+
+  const persistLocalGeneratedItinerary = useCallback((generatedItinerary) => {
+    if (tripIdRef.current || !generatedItinerary) return;
+    const draftTripState = tripStateRef.current;
+    if (!canPersistTripDraft(draftTripState)) return;
+
+    const title = tripTitle.trim() || deriveTripTitle(draftTripState);
+    const draft = upsertLocalTripDraft({
+      id: localTripId,
+      tripState: withConversationSnapshot(draftTripState, messagesRef.current),
+      title,
+      messages: compactMessagesForDraft(messagesRef.current),
+      generatedItinerary,
+      itineraryGeneratedAt: new Date().toISOString(),
+    });
+    setLocalTripId(draft.id);
+    setSaveStatus('saved_local');
+    setSaveError(null);
+  }, [localTripId, messagesRef, setSaveStatus, tripStateRef, tripTitle]);
 
   const {
     generationPhase, itinerary, generationError,
-    requestFinalization, confirmGeneration, cancelFinalization,
+    requestFinalization, confirmGeneration: rawConfirmGeneration, cancelFinalization,
     retryGeneration, resetGeneration,
-  } = useItineraryGeneration({ tripStateRef, tripIdRef, user });
+  } = useItineraryGeneration({
+    tripStateRef,
+    tripIdRef,
+    session,
+    onGeneratedItinerary: persistLocalGeneratedItinerary,
+  });
 
   useEffect(() => {
     tripIdRef.current = savedTripId;
@@ -126,27 +161,37 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     if (!initialTripId) return;
     if (authLoading) return;
     if (loadedTripIdRef.current === initialTripId) return;
-    loadedTripIdRef.current = initialTripId;
 
     let cancelled = false;
     setSaveStatus('loading');
-    const params = new URLSearchParams();
-    if (user?.id) params.set('userId', user.id);
-    if (user?.email) params.set('userEmail', user.email);
-    const url = params.toString() ? `/api/trips/${initialTripId}?${params}` : `/api/trips/${initialTripId}`;
-    fetch(url)
+    fetch(`/api/trips/${initialTripId}`, {
+      headers: getSupabaseAuthHeaders(session),
+    })
       .then(async (res) => {
         if (!res.ok) throw new Error(await res.text());
         return res.json();
       })
       .then((trip) => {
         if (cancelled) return;
+        loadedTripIdRef.current = initialTripId;
         if (trip?.trip_state) {
           setTripState(normalizeTripState(trip.trip_state));
+        }
+        const restoredMessages = trip?.trip_state?.conversation?.messages;
+        if (Array.isArray(restoredMessages) && restoredMessages.length > 0) {
+          replaceMessages(restoredMessages);
+        } else {
+          replaceMessages([{
+            role: 'system_event',
+            content: 'Loaded saved trip draft.',
+            timestamp: trip.updated_at || new Date().toISOString(),
+          }]);
         }
         setTripTitle(trip.title || '');
         setSavedTripId(trip.id);
         setSaveStatus('saved');
+        setHasStarted(true);
+        startingRef.current = true;
       })
       .catch((error) => {
         if (cancelled) return;
@@ -158,7 +203,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     return () => {
       cancelled = true;
     };
-  }, [authLoading, initialTripId, setTripState, setSaveStatus, user?.email, user?.id]);
+  }, [authLoading, initialTripId, replaceMessages, session, setTripState, setSaveStatus]);
 
   useEffect(() => {
     if (!initialLocalTripId || initialTripId) return;
@@ -255,14 +300,16 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     }
 
     const title = tripTitle.trim() || deriveTripTitle(draftTripState);
-    const shouldSyncToAccount = isSupabaseConfigured && Boolean(user?.id || user?.email);
+    const shouldSyncToAccount = isSupabaseConfigured && Boolean(session?.access_token);
 
     const saveLocally = () => {
       const draft = upsertLocalTripDraft({
         id: localTripId,
-        tripState: draftTripState,
+        tripState: withConversationSnapshot(draftTripState, messagesRef.current),
         title,
         messages: compactMessagesForDraft(messagesRef.current),
+        generatedItinerary: itinerary,
+        itineraryGeneratedAt: itinerary ? new Date().toISOString() : null,
       });
       setLocalTripId(draft.id);
       setSaveStatus('saved_local');
@@ -281,12 +328,10 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
       const url = savedTripId ? `/api/trips/${savedTripId}` : '/api/trips/drafts';
       const res = await fetch(url, {
         method,
-        headers: { 'Content-Type': 'application/json' },
+        headers: getSupabaseAuthHeaders(session, { 'Content-Type': 'application/json' }),
         body: JSON.stringify({
-          tripState: draftTripState,
+          tripState: withConversationSnapshot(draftTripState, messagesRef.current),
           title,
-          userId: user?.id || null,
-          userEmail: user?.email || null,
         }),
       });
 
@@ -310,6 +355,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
 
       const saved = await res.json();
       setSavedTripId(saved.id);
+      tripIdRef.current = saved.id;
       setTripTitle(saved.title || title);
       setSaveStatus('saved');
       return saved;
@@ -326,7 +372,33 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
       console.warn('[agent] Remote save unavailable, saving locally:', error);
       return saveLocally();
     }
-  }, [isSupabaseConfigured, localTripId, messagesRef, savedTripId, setSaveStatus, tripState, tripTitle, user?.email, user?.id]);
+  }, [isSupabaseConfigured, itinerary, localTripId, messagesRef, savedTripId, session, setSaveStatus, tripState, tripTitle]);
+
+  useEffect(() => {
+    if (authLoading) return;
+    if (!session?.access_token) return;
+    if (!localTripId || savedTripId) return;
+    if (!canPersistTripDraft(tripStateRef.current)) return;
+
+    let cancelled = false;
+    persistDraft().then((saved) => {
+      if (cancelled || !saved?.id) return;
+      removeLocalTripDraft(localTripId);
+      setLocalTripId(null);
+      postSystemEvent('Synced this trip to your account.');
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [authLoading, localTripId, persistDraft, postSystemEvent, savedTripId, session?.access_token, tripStateRef]);
+
+  const confirmGeneration = useCallback(async () => {
+    if (!tripIdRef.current && session?.access_token && canPersistTripDraft(tripStateRef.current)) {
+      await persistDraft({ manual: true });
+    }
+    return rawConfirmGeneration();
+  }, [persistDraft, rawConfirmGeneration, session?.access_token, tripStateRef]);
 
   const handlePlannerAction = useCallback((action, nextTripState) => {
     if (!action) return;

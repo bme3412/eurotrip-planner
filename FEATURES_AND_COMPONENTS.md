@@ -62,7 +62,7 @@ Save cities and trips, with cloud sync for logged-in users and localStorage for 
 - `useUIState` - UI state (modals, drawers, etc.)
 
 ### React Contexts (3)
-- **AuthContext** - Supabase authentication (user, session, login/logout)
+- **AuthContext** - Supabase authentication (user, session, login/logout)/
 - **TravelDataProvider** - Travel data management (wishlists, saved trips)
 - **MapDataContext** - Map and city data (ratings, calendar, filters, loading states)
 

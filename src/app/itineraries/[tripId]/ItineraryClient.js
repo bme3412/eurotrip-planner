@@ -10,6 +10,8 @@ import { GOLD } from './_lib/constants';
 import { buildExperienceScoreMap } from './_lib/helpers';
 import { DayCard } from './_components/DayCard';
 import { DayNavigation } from './_components/DayNavigation';
+import { useAuth } from '@/contexts/AuthContext';
+import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
 
 const ItineraryMap = dynamic(() => import('./ItineraryMap'), {
   ssr: false,
@@ -34,6 +36,7 @@ export default function ItineraryClient({
   weather: initialWeather,
   experienceScores: initialScores,
 }) {
+  const { session } = useAuth();
   const [showMap, setShowMap] = useState(false);
   const [editPanelOpen, setEditPanelOpen] = useState(false);
   const [activeDayIndex, setActiveDayIndex] = useState(0);
@@ -45,6 +48,27 @@ export default function ItineraryClient({
   const [weather, setWeather] = useState(initialWeather);
   const [experienceScores, setExperienceScores] = useState(initialScores);
   const [hydrationTriggered, setHydrationTriggered] = useState(false);
+
+  const handleCalendarDownload = useCallback(async () => {
+    try {
+      const res = await fetch(`/api/trips/${tripId}/calendar`, {
+        headers: getSupabaseAuthHeaders(session),
+      });
+      if (!res.ok) throw new Error(await res.text());
+
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${(cityDisplay || 'trip').replace(/\s+/g, '-')}-trip.ics`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('[calendar export]', error);
+    }
+  }, [cityDisplay, session, tripId]);
 
   // Hydrate weather + scores on demand: when edit panel opens, map shows, or scores already passed
   useEffect(() => {
@@ -240,13 +264,13 @@ export default function ItineraryClient({
                 Edit
               </button>
               <ShareButton tripId={tripId} cityName={cityDisplay} />
-              <a
-                href={`/api/trips/${tripId}/calendar`}
-                download
+              <button
+                type="button"
+                onClick={handleCalendarDownload}
                 className="inline-flex items-center justify-center gap-1.5 rounded-full border border-zinc-700 bg-transparent px-3.5 py-1.5 text-xs font-semibold text-zinc-400 transition hover:border-zinc-500 hover:text-zinc-200"
               >
                 Calendar
-              </a>
+              </button>
               <Link
                 href={`/plan/${citySlug}`}
                 className="inline-flex items-center justify-center rounded-full border border-zinc-700 bg-transparent px-3.5 py-1.5 text-xs font-semibold text-zinc-400 transition hover:border-zinc-500 hover:text-zinc-200"

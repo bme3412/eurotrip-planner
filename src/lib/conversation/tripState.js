@@ -205,7 +205,33 @@ export function mergeTripData(current, extracted) {
   }
 
   if (ext.transportBookings && ext.transportBookings.length > 0) {
+    const norm = (s) => (typeof s === 'string' ? s.trim().toLowerCase() : '');
+    const routeNames = (next.route?.cities || [])
+      .map((c) => norm(c?.name))
+      .filter(Boolean);
+    const firstRouteCity = routeNames[0] || '';
+    const lastRouteCity = routeNames[routeNames.length - 1] || '';
+    const inRoute = (name) => Boolean(name) && routeNames.includes(name);
+
+    const inferDirection = (booking) => {
+      if (booking.direction === 'inbound' || booking.direction === 'outbound') {
+        return booking.direction;
+      }
+      const from = norm(booking.fromCity);
+      const to = norm(booking.toCity);
+      // Inbound: lands in a city that's on the route from somewhere off-route.
+      if (to && (to === firstRouteCity || (inRoute(to) && !inRoute(from)))) {
+        return 'inbound';
+      }
+      // Outbound: departs from a city on the route to somewhere off-route (or to last anchor).
+      if (from && (from === lastRouteCity || (inRoute(from) && !inRoute(to)))) {
+        return 'outbound';
+      }
+      return null;
+    };
+
     for (const booking of ext.transportBookings) {
+      const direction = inferDirection(booking);
       next.transport.bookings.push({
         id: bookingId(),
         type: booking.type || 'flight',
@@ -218,6 +244,7 @@ export function mergeTripData(current, extracted) {
         departureTime: booking.departureTime || null,
         arrivalDate: booking.arrivalDate || null,
         arrivalTime: booking.arrivalTime || null,
+        direction,
         raw: booking.raw || null,
       });
     }

@@ -7,10 +7,10 @@ import { analyzeGaps } from '@/lib/conversation/gapAnalysis';
 /**
  * Hook for trip state and gap analysis.
  */
-export function useTripState() {
-  const [tripState, setTripState] = useState(initialTripState);
+export function useTripState(initialState = initialTripState) {
+  const [tripState, setTripState] = useState(initialState);
   const [isFinalized, setIsFinalized] = useState(false);
-  const tripStateRef = useRef(initialTripState);
+  const tripStateRef = useRef(initialState);
 
   useEffect(() => {
     tripStateRef.current = tripState;

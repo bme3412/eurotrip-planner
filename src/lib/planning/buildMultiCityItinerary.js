@@ -66,7 +66,8 @@ function createTravelDay(dayNumber, date, transfer) {
 
   return {
     dayNumber,
-    date: format(date, 'EEE, MMM d'),
+    date: format(date, 'yyyy-MM-dd'),
+    dateLabel: format(date, 'EEE, MMM d'),
     city: null,
     country: null,
     isTravelDay: true,
@@ -230,15 +231,19 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
     });
 
     // Add city metadata to each day
-    const cityDays = cityItinerary.days.map((day, idx) => ({
-      ...day,
-      dayNumber: currentDayNumber + idx,
-      date: format(addDays(currentDate, idx), 'EEE, MMM d'),
-      city: city.id,
-      cityName: city.name,
-      country: city.country,
-      isTravelDay: false
-    }));
+    const cityDays = cityItinerary.days.map((day, idx) => {
+      const dayDate = addDays(currentDate, idx);
+      return {
+        ...day,
+        dayNumber: currentDayNumber + idx,
+        date: format(dayDate, 'yyyy-MM-dd'),
+        dateLabel: format(dayDate, 'EEE, MMM d'),
+        city: city.id,
+        cityName: city.name,
+        country: city.country,
+        isTravelDay: false
+      };
+    });
 
     allDays.push(...cityDays);
 
