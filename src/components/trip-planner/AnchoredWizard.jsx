@@ -1,17 +1,26 @@
 'use client';
 
-import { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Save, FolderOpen, Trash2, X } from 'lucide-react';
+import { CheckCircle2, Circle, FolderOpen, Save, Trash2, X } from 'lucide-react';
 import StepTripSetup from './StepTripSetup';
 import StepGaps from './StepGaps';
 import StepPreferences from './StepPreferences';
 import StepReview from './StepReview';
 import TripTimeline from './TripTimeline';
 import TripMap from './TripMap';
+import { useAuth } from '@/contexts/AuthContext';
+import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
 import citiesData from '@/generated/cities.json';
-import { getLocalTripDraft } from '@/lib/trips/localTripDrafts';
+import {
+  getLocalTripDraft,
+  upsertLocalTripDraft,
+  readLocalTripDrafts,
+  removeLocalTripDraft,
+  migrateLegacyWizardItineraries,
+} from '@/lib/trips/localTripDrafts';
 import { normalizeTripState } from '@/lib/trips/tripLifecycle';
+import { getTripBriefCompleteness } from '@/lib/trips/tripBriefCompleteness';
 
 const STEPS = [
   { id: 'setup', label: 'Your Trip', description: 'Where and when are you traveling?' },
@@ -80,7 +89,9 @@ function hydrateWizardDraft(tripState) {
   const last = orderedCities.length > 1 ? orderedCities[orderedCities.length - 1] : null;
   const middle = orderedCities.length > 2 ? orderedCities.slice(1, -1) : [];
   const paceId = normalized.preferences?.pace || 'balanced';
-  const paceValue = paceId === 'relaxed' ? 25 : paceId === 'active' ? 75 : 50;
+  const paceValue = paceId === 'relaxed' ? 15 : paceId === 'active' ? 85 : 50;
+  const inbound = normalized.transport?.bookings?.find((booking) => booking.direction === 'inbound') || null;
+  const outbound = normalized.transport?.bookings?.find((booking) => booking.direction === 'outbound') || null;
 
   return {
     tripDates: {
@@ -102,9 +113,175 @@ function hydrateWizardDraft(tripState) {
       paceId,
       interests: normalized.preferences?.interests || [],
       budget: normalized.budget?.style || 'moderate',
+      accommodationStyle: normalized.preferences?.accommodationStyle || '',
+      transportPreference: normalized.transport?.preferredMode || '',
+      groupType: normalized.travelers?.groupType || '',
+      travelerCount: normalized.travelers?.count || '',
+      constraints: normalized.brief?.hardConstraints?.[0] || '',
     },
+    departureTransport: inbound ? {
+      type: inbound.type || 'flight',
+      date: inbound.departureDate || '',
+      arrivalDate: inbound.arrivalDate || '',
+      departureTime: inbound.departureTime || '',
+      arrivalTime: inbound.arrivalTime || '',
+      details: inbound.raw || inbound.flightNumber || '',
+      confirmationCode: inbound.reference || '',
+    } : null,
+    returnTransport: outbound ? {
+      type: outbound.type || 'flight',
+      date: outbound.departureDate || '',
+      arrivalDate: outbound.arrivalDate || '',
+      departureTime: outbound.departureTime || '',
+      arrivalTime: outbound.arrivalTime || '',
+      details: outbound.raw || outbound.flightNumber || '',
+      confirmationCode: outbound.reference || '',
+    } : null,
+    startCityArrivalTime: first?.arrivalTime || inbound?.arrivalTime || '',
+    endCityDepartureTime: last?.departureTime || outbound?.departureTime || '',
     currentStep: orderedCities.length >= 2 && normalized.dates?.startDate && normalized.dates?.endDate ? 3 : 0,
   };
+}
+
+function wizardCityToTripStateCity(city, { role, order, nights } = {}) {
+  if (!city) return null;
+  return {
+    id: city.id || city.name?.toLowerCase?.() || null,
+    name: city.name || city.id || null,
+    country: city.country || null,
+    latitude: city.lat || city.latitude || null,
+    longitude: city.lng || city.longitude || null,
+    role,
+    order,
+    nights: Number.isFinite(Number(nights)) ? Number(nights) : null,
+  };
+}
+
+function transportToBooking(transport, { direction, fromCity, toCity } = {}) {
+  if (!transport) return null;
+  const hasDetails = transport.date || transport.departureTime || transport.arrivalTime || transport.time || transport.details || transport.confirmationCode;
+  if (!hasDetails) return null;
+  const departureDate = transport.departureDate || transport.date || null;
+  const arrivalDate = transport.arrivalDate || departureDate;
+  return {
+    id: `${direction}_${departureDate || 'date'}_${transport.type || 'transport'}`,
+    direction,
+    type: transport.type || 'flight',
+    provider: null,
+    reference: transport.confirmationCode || null,
+    flightNumber: transport.type === 'flight' ? transport.details || null : null,
+    fromCity: fromCity?.name || fromCity?.id || null,
+    toCity: toCity?.name || toCity?.id || null,
+    departureDate,
+    departureTime: transport.departureTime || transport.time || null,
+    arrivalDate,
+    arrivalTime: transport.arrivalTime || null,
+    raw: transport.details || null,
+  };
+}
+
+function buildWizardTripState({
+  tripDates,
+  startCity,
+  endCity,
+  startCityDays,
+  endCityDays,
+  intermediateStops,
+  stopSelections,
+  departureTransport,
+  returnTransport,
+  startCityArrivalTime,
+  endCityDepartureTime,
+  preferences,
+}) {
+  const stops = [
+    ...intermediateStops,
+    ...Object.values(stopSelections || {}).map((selection) => ({
+      id: `selection-${selection.city}`,
+      city: {
+        id: selection.city,
+        name: selection.cityName,
+        country: selection.country,
+      },
+      days: Array.isArray(selection.days)
+        ? selection.days
+        : Array.from({ length: Number(selection.days) || 0 }),
+      transportType: selection.transportType,
+      transportTime: selection.transportTime,
+    })),
+  ];
+  const cities = [
+    wizardCityToTripStateCity(startCity, {
+      role: 'start',
+      order: 0,
+      nights: startCityDays.length || null,
+    }),
+    ...stops.map((stop, index) => ({
+      ...wizardCityToTripStateCity(stop.city, {
+        role: 'stop',
+        order: index + 1,
+        nights: Array.isArray(stop.days) ? stop.days.length : Number(stop.days) || null,
+      }),
+      arrivalTime: stop.arrivalTime || null,
+      transportType: stop.transportType || null,
+      transportTime: stop.transportTime || null,
+    })),
+    wizardCityToTripStateCity(endCity, {
+      role: 'end',
+      order: stops.length + 1,
+      nights: endCityDays.length || null,
+    }),
+  ].filter(Boolean);
+
+  const transportBookings = [
+    transportToBooking(departureTransport, { direction: 'inbound', toCity: startCity }),
+    transportToBooking(returnTransport, { direction: 'outbound', fromCity: endCity }),
+  ].filter(Boolean);
+
+  if (startCityArrivalTime && cities[0]) {
+    cities[0].arrivalTime = startCityArrivalTime;
+    cities[0].notes = `Arrive around ${startCityArrivalTime}.`;
+  }
+  if (endCityDepartureTime && cities[cities.length - 1]) {
+    cities[cities.length - 1].departureTime = endCityDepartureTime;
+    cities[cities.length - 1].notes = `Depart around ${endCityDepartureTime}.`;
+  }
+
+  return normalizeTripState({
+    route: {
+      cities,
+      routeShape: cities.length > 1 ? 'one-way' : null,
+    },
+    dates: {
+      startDate: tripDates.start || null,
+      endDate: tripDates.end || null,
+      totalNights: cities.reduce((sum, city) => sum + (Number(city.nights) || 0), 0) || null,
+      flexibility: tripDates.start && tripDates.end ? 'fixed' : null,
+    },
+    transport: {
+      preferredMode: preferences.transportPreference || null,
+      bookings: transportBookings,
+    },
+    preferences: {
+      pace: preferences.paceId || null,
+      interests: preferences.interests || [],
+      accommodationStyle: preferences.accommodationStyle || null,
+    },
+    budget: {
+      style: preferences.budget || null,
+    },
+    travelers: {
+      groupType: preferences.groupType || null,
+      count: Number(preferences.travelerCount) || null,
+    },
+    brief: {
+      hardConstraints: preferences.constraints ? [preferences.constraints] : [],
+      notes: [
+        departureTransport?.details ? `Inbound travel: ${departureTransport.details}` : null,
+        returnTransport?.details ? `Outbound travel: ${returnTransport.details}` : null,
+      ].filter(Boolean),
+    },
+  });
 }
 
 export default function AnchoredWizard({
@@ -114,12 +291,17 @@ export default function AnchoredWizard({
   initialEndDate,
   initialTripId = null,
   initialLocalTripId = null,
+  initialTripState = null,
+  onTripStateChange = null,
   isAuditMode = false,
   auditCityIds = [],
 }) {
+  const { session, loading: authLoading } = useAuth();
   const [currentStep, setCurrentStep] = useState(0);
   const [error, setError] = useState(null);
   const [initialized, setInitialized] = useState(false);
+  const lastHydratedRef = useRef(null);
+  const lastEmittedRef = useRef(null);
 
   // Trip state - simplified model
   const [tripDates, setTripDates] = useState({ start: '', end: '' });
@@ -138,6 +320,11 @@ export default function AnchoredWizard({
     paceId: 'balanced',
     interests: [],
     budget: 'moderate',
+    accommodationStyle: '',
+    transportPreference: '',
+    groupType: '',
+    travelerCount: '',
+    constraints: '',
   });
 
   // Generation state
@@ -155,33 +342,49 @@ export default function AnchoredWizard({
   const [itineraryName, setItineraryName] = useState('');
   const [showSaveInput, setShowSaveInput] = useState(false);
 
-  // Load saved itineraries from localStorage on mount
+  // Load saved drafts from the canonical local-drafts store (migrates legacy key on first run)
   useEffect(() => {
-    const saved = localStorage.getItem('eurotrip-saved-itineraries');
-    if (saved) {
-      try {
-        setSavedItineraries(JSON.parse(saved));
-      } catch (e) {
-        console.error('Failed to load saved itineraries:', e);
-      }
-    }
+    migrateLegacyWizardItineraries();
+    setSavedItineraries(readLocalTripDrafts());
   }, []);
+
+  const applyHydratedDraft = useCallback((tripState) => {
+    const hydrated = hydrateWizardDraft(tripState);
+    setTripDates(hydrated.tripDates);
+    setStartCity(hydrated.startCity);
+    setEndCity(hydrated.endCity);
+    setStartCityDays(hydrated.startCityDays);
+    setEndCityDays(hydrated.endCityDays);
+    setIntermediateStops(hydrated.intermediateStops);
+    setPreferences(hydrated.preferences);
+    setDepartureTransport(hydrated.departureTransport);
+    setReturnTransport(hydrated.returnTransport);
+    setStartCityArrivalTime(hydrated.startCityArrivalTime);
+    setEndCityDepartureTime(hydrated.endCityDepartureTime);
+    setCurrentStep(hydrated.currentStep);
+  }, []);
+
+  // Re-hydrate when parent supplies a new initialTripState reference (e.g., after mode toggle)
+  useEffect(() => {
+    if (!initialized) return;
+    if (!initialTripState?.route?.cities?.length) return;
+    if (initialTripState === lastHydratedRef.current) return;
+    if (initialTripState === lastEmittedRef.current) return;
+    lastHydratedRef.current = initialTripState;
+    applyHydratedDraft(initialTripState);
+  }, [initialized, initialTripState, applyHydratedDraft]);
 
   // Initialize from URL params (runs once)
   useEffect(() => {
     if (initialized) return;
+    if (initialTripId && authLoading) return;
 
-    const applyHydratedDraft = (tripState) => {
-      const hydrated = hydrateWizardDraft(tripState);
-      setTripDates(hydrated.tripDates);
-      setStartCity(hydrated.startCity);
-      setEndCity(hydrated.endCity);
-      setStartCityDays(hydrated.startCityDays);
-      setEndCityDays(hydrated.endCityDays);
-      setIntermediateStops(hydrated.intermediateStops);
-      setPreferences(hydrated.preferences);
-      setCurrentStep(hydrated.currentStep);
-    };
+    if (initialTripState?.route?.cities?.length) {
+      lastHydratedRef.current = initialTripState;
+      applyHydratedDraft(initialTripState);
+      setInitialized(true);
+      return;
+    }
 
     if (initialLocalTripId && !initialTripId) {
       const draft = getLocalTripDraft(initialLocalTripId);
@@ -194,7 +397,9 @@ export default function AnchoredWizard({
 
     if (initialTripId) {
       let cancelled = false;
-      fetch(`/api/trips/${initialTripId}`)
+      fetch(`/api/trips/${initialTripId}`, {
+        headers: getSupabaseAuthHeaders(session),
+      })
         .then(async (res) => {
           if (!res.ok) throw new Error(await res.text());
           return res.json();
@@ -258,68 +463,55 @@ export default function AnchoredWizard({
     }
 
     setInitialized(true);
-  }, [initialized, initialLocalTripId, initialTripId, initialStartCityId, initialEndCityId, initialStartDate, initialEndDate, isAuditMode, auditCityIds]);
+  }, [initialized, initialLocalTripId, initialTripId, initialTripState, initialStartCityId, initialEndCityId, initialStartDate, initialEndDate, isAuditMode, auditCityIds, session, authLoading, applyHydratedDraft]);
 
-  // Save itinerary to localStorage
+  // Save current trip to the canonical local-drafts store
   const handleSaveItinerary = useCallback(() => {
     const name = itineraryName.trim() || `Trip ${new Date().toLocaleDateString()}`;
-    const itinerary = {
-      id: Date.now().toString(),
-      name,
-      savedAt: new Date().toISOString(),
-      data: {
-        tripDates,
-        startCity,
-        endCity,
-        startCityDays,
-        endCityDays,
-        intermediateStops,
-        stopSelections,
-        departureTransport,
-        returnTransport,
-        startCityArrivalTime,
-        endCityDepartureTime,
-        preferences,
-        currentStep,
-      },
-    };
-
-    const updated = [itinerary, ...savedItineraries.filter(s => s.id !== itinerary.id)];
-    setSavedItineraries(updated);
-    localStorage.setItem('eurotrip-saved-itineraries', JSON.stringify(updated));
+    const canonicalTripState = buildWizardTripState({
+      tripDates,
+      startCity,
+      endCity,
+      startCityDays,
+      endCityDays,
+      intermediateStops,
+      stopSelections,
+      departureTransport,
+      returnTransport,
+      startCityArrivalTime,
+      endCityDepartureTime,
+      preferences,
+    });
+    const draft = upsertLocalTripDraft({
+      id: `wizard_${Date.now().toString(36)}`,
+      tripState: canonicalTripState,
+      title: name,
+      generatedItinerary,
+      itineraryGeneratedAt: generatedItinerary ? new Date().toISOString() : null,
+    });
+    setSavedItineraries((prev) => [draft, ...prev.filter((d) => d.id !== draft.id)]);
     setShowSaveInput(false);
     setItineraryName('');
   }, [
     itineraryName, tripDates, startCity, endCity, startCityDays, endCityDays,
     intermediateStops, stopSelections, departureTransport, returnTransport,
-    startCityArrivalTime, endCityDepartureTime, preferences, currentStep, savedItineraries
+    startCityArrivalTime, endCityDepartureTime, preferences, generatedItinerary,
   ]);
 
-  // Load itinerary from saved data
+  // Load a saved draft (canonical shape with `trip_state`)
   const handleLoadItinerary = useCallback((saved) => {
-    const { data } = saved;
-    setTripDates(data.tripDates || { start: '', end: '' });
-    setStartCity(data.startCity || null);
-    setEndCity(data.endCity || null);
-    setStartCityDays(data.startCityDays || []);
-    setEndCityDays(data.endCityDays || []);
-    setIntermediateStops(data.intermediateStops || []);
-    setStopSelections(data.stopSelections || {});
-    setDepartureTransport(data.departureTransport || null);
-    setReturnTransport(data.returnTransport || null);
-    setStartCityArrivalTime(data.startCityArrivalTime || '');
-    setEndCityDepartureTime(data.endCityDepartureTime || '');
-    setPreferences(data.preferences || { pace: 50, paceId: 'balanced', interests: [], budget: 'moderate' });
-    setCurrentStep(data.currentStep || 0);
+    if (saved?.trip_state) {
+      applyHydratedDraft(saved.trip_state);
+      if (saved.generated_itinerary) setGeneratedItinerary(saved.generated_itinerary);
+    }
     setShowSavedModal(false);
-  }, []);
+  }, [applyHydratedDraft]);
 
-  // Delete saved itinerary
+  // Delete a saved draft from the canonical store
   const handleDeleteItinerary = useCallback((id) => {
-    const updated = savedItineraries.filter(s => s.id !== id);
-    setSavedItineraries(updated);
-    localStorage.setItem('eurotrip-saved-itineraries', JSON.stringify(updated));
-  }, [savedItineraries]);
+    removeLocalTripDraft(id);
+    setSavedItineraries((prev) => prev.filter((d) => d.id !== id));
+  }, []);
 
   // Auto-select first day for start city (start city always begins at index 0)
   useEffect(() => {
@@ -535,6 +727,44 @@ export default function AnchoredWizard({
     return items;
   }, [anchors, gaps, stopSelections, intermediateStops]);
 
+  const canonicalTripState = useMemo(() => buildWizardTripState({
+    tripDates,
+    startCity,
+    endCity,
+    startCityDays,
+    endCityDays,
+    intermediateStops,
+    stopSelections,
+    departureTransport,
+    returnTransport,
+    startCityArrivalTime,
+    endCityDepartureTime,
+    preferences,
+  }), [
+    tripDates,
+    startCity,
+    endCity,
+    startCityDays,
+    endCityDays,
+    intermediateStops,
+    stopSelections,
+    departureTransport,
+    returnTransport,
+    startCityArrivalTime,
+    endCityDepartureTime,
+    preferences,
+  ]);
+  const briefCompleteness = useMemo(
+    () => getTripBriefCompleteness(canonicalTripState),
+    [canonicalTripState]
+  );
+
+  useEffect(() => {
+    if (!initialized || !onTripStateChange) return;
+    lastEmittedRef.current = canonicalTripState;
+    onTripStateChange(canonicalTripState);
+  }, [canonicalTripState, initialized, onTripStateChange]);
+
   const validateStep = () => {
     setError(null);
 
@@ -681,23 +911,18 @@ export default function AnchoredWizard({
     setIsGenerating(true);
     setGenerateError(null);
     try {
-      // Build ordered city list
-      const cities = [];
-      if (startCity) cities.push({ id: startCity.id, name: startCity.name, country: startCity.country });
-      // Add intermediate stops in order
-      const stops = Object.values(stopSelections || {});
-      for (const stop of stops) {
-        cities.push({ id: stop.city, name: stop.cityName, country: stop.country });
-      }
-      if (endCity) cities.push({ id: endCity.id, name: endCity.name, country: endCity.country });
-
-      // Build day allocation from selected days
-      const dayAllocation = {};
-      if (startCity && startCityDays.length > 0) dayAllocation[startCity.id] = startCityDays.length;
-      for (const stop of stops) {
-        if (stop.days) dayAllocation[stop.city] = stop.days;
-      }
-      if (endCity && endCityDays.length > 0) dayAllocation[endCity.id] = endCityDays.length;
+      const orderedCities = [...(canonicalTripState.route?.cities || [])]
+        .sort((a, b) => (Number.isFinite(a.order) ? a.order : 999) - (Number.isFinite(b.order) ? b.order : 999));
+      const cities = orderedCities.map((city) => ({
+        id: city.id,
+        name: city.name,
+        country: city.country,
+      }));
+      const dayAllocation = Object.fromEntries(
+        orderedCities
+          .filter((city) => city.id && Number.isFinite(Number(city.nights)))
+          .map((city) => [city.id, Number(city.nights)])
+      );
 
       const payload = {
         cities,
@@ -706,6 +931,12 @@ export default function AnchoredWizard({
         interests: preferences.interests || [],
         pace: preferences.paceId || 'balanced',
         budget: preferences.budget || 'moderate',
+        accommodation_style: preferences.accommodationStyle || null,
+        transport_preference: preferences.transportPreference || null,
+        transport_bookings: canonicalTripState.transport?.bookings || [],
+        travelers: canonicalTripState.travelers,
+        constraints: canonicalTripState.brief?.hardConstraints || [],
+        trip_state: canonicalTripState,
         day_allocation: Object.keys(dayAllocation).length > 0 ? dayAllocation : null,
         city_order: cities.map(c => c.id),
       };
@@ -732,7 +963,7 @@ export default function AnchoredWizard({
   const isStopsStep = step.id === 'stops';
 
   return (
-    <div className={`flex flex-col ${showMap ? 'lg:grid lg:grid-cols-[1fr_400px] lg:gap-6' : ''}`}>
+    <div className={`flex flex-col ${showMap ? 'lg:grid lg:grid-cols-[minmax(0,1fr)_420px] lg:gap-4' : ''}`}>
       {/* Left: Map + Timeline (sticky on desktop) */}
       <AnimatePresence>
         {showMap && (
@@ -741,7 +972,7 @@ export default function AnchoredWizard({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:sticky lg:top-4 lg:self-start space-y-4 mb-6 lg:mb-0"
+            className="lg:sticky lg:top-4 lg:self-start space-y-3 mb-6 lg:mb-0"
           >
             <TripMap
               itinerary={itinerary}
@@ -749,7 +980,7 @@ export default function AnchoredWizard({
               hoveredSuggestion={hoveredSuggestion}
               onSelectSuggestion={handleSelectSuggestion}
               onHoverSuggestion={setHoveredSuggestion}
-              className="h-64 lg:h-[calc(100vh-180px)] lg:min-h-[500px]"
+              className="h-64 overflow-hidden rounded-3xl border border-[#e5e0d8] lg:h-[calc(100vh-180px)] lg:min-h-[500px]"
             />
 
             <TripTimeline
@@ -763,8 +994,48 @@ export default function AnchoredWizard({
 
       {/* Right: Main content */}
       <div className={showMap ? '' : step.id === 'setup' ? 'w-full' : 'max-w-lg mx-auto w-full'}>
+        <div className="mb-4 rounded-3xl border border-[#e5e0d8] bg-white px-4 py-3 shadow-sm">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#8a8578]">
+                Step by step brief
+              </p>
+              <h1 className="mt-1 font-display text-lg font-semibold text-[#2a2520]">
+                {briefCompleteness.next ? briefCompleteness.next.label : 'Ready to build'}
+              </h1>
+              <p className="mt-1 text-xs leading-relaxed text-[#6a6459]">
+                {briefCompleteness.next
+                  ? briefCompleteness.next.prompt
+                  : 'Review the route, compare transport if needed, then build the itinerary.'}
+              </p>
+            </div>
+            <div className="shrink-0 rounded-full bg-[#faf8f5] px-3 py-1 text-xs font-semibold text-[#6a6459]">
+              {briefCompleteness.completed.length}/{briefCompleteness.groups.length}
+            </div>
+          </div>
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {briefCompleteness.groups.slice(0, 5).map((item) => (
+              <span
+                key={item.id}
+                className={`inline-flex items-center gap-1 rounded-full border px-2 py-1 text-[10px] font-semibold ${
+                  item.complete
+                    ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
+                    : 'border-[#eadfc8] bg-[#fffaf0] text-[#7a6240]'
+                }`}
+              >
+                {item.complete ? (
+                  <CheckCircle2 className="h-3 w-3" aria-hidden="true" />
+                ) : (
+                  <Circle className="h-3 w-3" aria-hidden="true" />
+                )}
+                {item.label}
+              </span>
+            ))}
+          </div>
+        </div>
+
         {/* Progress bar + Save/Load buttons */}
-        <div className="flex items-center gap-2 mb-4">
+        <div className="flex items-center gap-2 mb-4 rounded-2xl border border-[#e5e0d8] bg-white px-3 py-2 shadow-sm">
           {/* Step indicators (clickable) */}
           {STEPS.map((s, i) => (
             <button
@@ -881,19 +1152,21 @@ export default function AnchoredWizard({
                           onClick={() => handleLoadItinerary(saved)}
                           className="flex-1 text-left"
                         >
-                          <div className="font-medium text-[#2a2520]">{saved.name}</div>
+                          <div className="font-medium text-[#2a2520]">{saved.title || 'Untitled trip'}</div>
                           <div className="text-xs text-[#8a8578] mt-1">
-                            {saved.data.startCity?.name && saved.data.endCity?.name ? (
-                              <span>{saved.data.startCity.name} → {saved.data.endCity.name}</span>
+                            {saved.cities?.length >= 2 ? (
+                              <span>{saved.cities[0]?.name} → {saved.cities[saved.cities.length - 1]?.name}</span>
+                            ) : saved.cities?.[0]?.name ? (
+                              <span>{saved.cities[0].name}</span>
                             ) : (
                               <span>Draft</span>
                             )}
-                            {saved.data.tripDates?.start && (
-                              <span className="ml-2">• {new Date(saved.data.tripDates.start).toLocaleDateString()}</span>
+                            {saved.time_range?.startDate && (
+                              <span className="ml-2">• {new Date(saved.time_range.startDate).toLocaleDateString()}</span>
                             )}
                           </div>
                           <div className="text-[10px] text-[#a5a098] mt-1">
-                            Saved {new Date(saved.savedAt).toLocaleDateString()}
+                            Saved {new Date(saved.updated_at || saved.created_at).toLocaleDateString()}
                           </div>
                         </button>
                         <button
@@ -1041,6 +1314,7 @@ export default function AnchoredWizard({
                       tripDates={tripDates}
                       itinerary={itinerary}
                       preferences={preferences}
+                      tripState={canonicalTripState}
                       onGenerate={handleGenerate}
                       isGenerating={isGenerating}
                       generateError={generateError}

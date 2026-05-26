@@ -53,8 +53,38 @@ const BUDGET_OPTIONS = [
   { id: 'premium', label: 'Premium', description: 'Fine dining, boutique hotels' },
 ];
 
+const TRANSPORT_OPTIONS = [
+  { id: 'train', label: 'Train-first' },
+  { id: 'mixed', label: 'Best overall' },
+  { id: 'flight', label: 'Fastest' },
+  { id: 'bus', label: 'Cheapest' },
+];
+
+const GROUP_OPTIONS = [
+  { id: 'solo', label: 'Solo' },
+  { id: 'couple', label: 'Couple' },
+  { id: 'friends', label: 'Friends' },
+  { id: 'family', label: 'Family' },
+];
+
+const ACCOMMODATION_OPTIONS = [
+  { id: 'hostel', label: 'Hostel' },
+  { id: 'hotel', label: 'Hotel' },
+  { id: 'airbnb', label: 'Apartment' },
+  { id: 'luxury', label: 'Luxury' },
+];
+
 export default function StepPreferences({ preferences, onChangePreferences }) {
-  const { paceId, interests, budget } = preferences;
+  const {
+    paceId,
+    interests,
+    budget,
+    accommodationStyle,
+    transportPreference,
+    groupType,
+    travelerCount,
+    constraints,
+  } = preferences;
 
   const selectedBudget = BUDGET_OPTIONS.find(b => b.id === budget) || BUDGET_OPTIONS[1];
 
@@ -83,8 +113,51 @@ export default function StepPreferences({ preferences, onChangePreferences }) {
     });
   };
 
+  const setField = (key, value) => {
+    onChangePreferences({
+      ...preferences,
+      [key]: value,
+    });
+  };
+
+  const renderPillGroup = (label, value, options, keyName) => (
+    <div>
+      <label className="block text-xs font-medium uppercase tracking-[0.2em] text-[#6a6459] mb-3">
+        {label}
+      </label>
+      <div className="flex flex-wrap gap-2">
+        {options.map((option) => {
+          const active = value === option.id;
+          return (
+            <button
+              key={option.id}
+              type="button"
+              onClick={() => setField(keyName, active ? '' : option.id)}
+              className={`rounded-full border px-3 py-2 text-xs font-semibold transition-all ${
+                active
+                  ? 'border-[#2a2520] bg-[#2a2520] text-white'
+                  : 'border-[#e5e0d8] bg-white text-[#6a6459] hover:border-[#c9a227]/50 hover:bg-[#faf6eb]'
+              }`}
+            >
+              {option.label}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+
   return (
     <div className="space-y-10">
+      <div className="rounded-2xl border border-[#eadfc8] bg-[#fffaf0] px-4 py-3">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a6f18]">
+          Recommendation inputs
+        </p>
+        <p className="mt-1 text-sm leading-relaxed text-[#6a6459]">
+          These details help the planner choose better bases, realistic travel legs, and days that match your group.
+        </p>
+      </div>
+
       {/* Pace */}
       <div>
         <div className="flex items-baseline justify-between mb-4">
@@ -196,6 +269,40 @@ export default function StepPreferences({ preferences, onChangePreferences }) {
         <p className="mt-3 text-xs text-[#8a8578] text-center font-light">
           {selectedBudget.description}
         </p>
+      </div>
+
+      <div className="grid gap-6 rounded-2xl border border-[#e5e0d8] bg-[#faf8f5] p-4">
+        {renderPillGroup('Transport preference', transportPreference, TRANSPORT_OPTIONS, 'transportPreference')}
+        {renderPillGroup('Accommodation style', accommodationStyle, ACCOMMODATION_OPTIONS, 'accommodationStyle')}
+        <div className="grid gap-4 sm:grid-cols-[1fr_160px]">
+          {renderPillGroup('Traveler type', groupType, GROUP_OPTIONS, 'groupType')}
+          <div>
+            <label className="block text-xs font-medium uppercase tracking-[0.2em] text-[#6a6459] mb-3">
+              Travelers
+            </label>
+            <input
+              type="number"
+              min="1"
+              max="50"
+              value={travelerCount}
+              onChange={(event) => setField('travelerCount', event.target.value)}
+              placeholder="2"
+              className="h-10 w-full rounded-xl border border-[#e5e0d8] bg-white px-3 text-sm text-[#2a2520] outline-none transition-colors placeholder:text-[#a5a098] focus:border-[#c9a227]"
+            />
+          </div>
+        </div>
+        <div>
+          <label className="block text-xs font-medium uppercase tracking-[0.2em] text-[#6a6459] mb-3">
+            Hard constraints
+          </label>
+          <textarea
+            value={constraints}
+            onChange={(event) => setField('constraints', event.target.value)}
+            placeholder="Booked dinners, work days, mobility needs, no early mornings, must avoid flights..."
+            rows={3}
+            className="w-full resize-none rounded-xl border border-[#e5e0d8] bg-white px-3 py-2 text-sm text-[#2a2520] outline-none transition-colors placeholder:text-[#a5a098] focus:border-[#c9a227]"
+          />
+        </div>
       </div>
     </div>
   );

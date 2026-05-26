@@ -1,7 +1,8 @@
 'use client';
 
-import { MapPin, Calendar, Gauge, Wallet, Heart } from 'lucide-react';
+import { MapPin, Calendar, Gauge, Wallet, Heart, CheckCircle2, Circle } from 'lucide-react';
 import InlineItinerary from '@/components/conversation/InlineItinerary';
+import { getTripBriefCompleteness } from '@/lib/trips/tripBriefCompleteness';
 
 function formatDate(iso) {
   if (!iso) return '';
@@ -31,10 +32,11 @@ const BUDGET_LABELS = {
   premium: 'Premium',
 };
 
-export default function StepReview({ tripDates, itinerary, preferences, isGenerating, generateError, generatedItinerary, onRetry, onStartOver }) {
+export default function StepReview({ tripDates, itinerary, preferences, tripState, isGenerating, generateError, generatedItinerary, onRetry, onStartOver }) {
   const totalDays = getDayCount(tripDates.start, tripDates.end);
-  const cities = itinerary.filter(item => item.type === 'anchor' || item.type === 'gap-filled');
+  const cities = itinerary.filter(item => item.type === 'anchor' || item.type === 'gap-filled' || item.type === 'intermediate');
   const openGaps = itinerary.filter(item => item.type === 'gap');
+  const briefCompleteness = getTripBriefCompleteness(tripState);
 
   return (
     <div className="space-y-8">
@@ -70,6 +72,46 @@ export default function StepReview({ tripDates, itinerary, preferences, isGenera
           <div className="text-xs text-[#8a8578] mt-2">
             {openGaps.length > 0 ? `${openGaps.length} open gap${openGaps.length !== 1 ? 's' : ''}` : 'Route complete'}
           </div>
+        </div>
+      </div>
+
+      <div className="rounded-2xl border border-[#e5e0d8] bg-white p-4">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#8a8578]">
+              Brief progress
+            </p>
+            <h3 className="mt-1 font-display text-lg font-semibold text-[#2a2520]">
+              {briefCompleteness.itineraryReady ? 'Ready to build' : 'Add a little more context'}
+            </h3>
+            <p className="mt-1 text-sm leading-relaxed text-[#6a6459]">
+              {briefCompleteness.next
+                ? briefCompleteness.next.prompt
+                : 'The route has the core details needed for a detailed itinerary.'}
+            </p>
+          </div>
+          <div className="rounded-full bg-[#faf8f5] px-3 py-1 text-xs font-semibold text-[#6a6459]">
+            {briefCompleteness.completed.length}/{briefCompleteness.groups.length}
+          </div>
+        </div>
+        <div className="mt-3 grid gap-2 sm:grid-cols-2">
+          {briefCompleteness.groups.map((item) => (
+            <div
+              key={item.id}
+              className={`flex items-center gap-2 rounded-xl border px-3 py-2 text-xs ${
+                item.complete
+                  ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
+                  : 'border-[#eadfc8] bg-[#fffaf0] text-[#7a6240]'
+              }`}
+            >
+              {item.complete ? (
+                <CheckCircle2 className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+              ) : (
+                <Circle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+              )}
+              <span className="font-semibold">{item.label}</span>
+            </div>
+          ))}
         </div>
       </div>
 
