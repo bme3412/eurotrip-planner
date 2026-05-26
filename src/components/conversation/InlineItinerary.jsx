@@ -167,6 +167,11 @@ function DayCard({ day, dayIndex }) {
   const dayNum = day.dayNumber || dayIndex + 1;
   const theme = day.theme || '';
   const isTravelDay = day.isTravelDay || false;
+  const dateLabel = day.dateLabel || (day.date ? new Date(`${day.date}T00:00:00`).toLocaleDateString('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+  }) : null);
 
   return (
     <div className="rounded-2xl border border-gray-100 bg-white overflow-hidden">
@@ -181,6 +186,9 @@ function DayCard({ day, dayIndex }) {
           <div className="text-left">
             <p className="text-sm font-semibold text-gray-900">
               {isTravelDay ? 'Travel Day' : `Day ${dayNum}`}
+              {dateLabel && (
+                <span className="text-gray-400 font-normal"> · {dateLabel}</span>
+              )}
               {cityName && (
                 <span className="text-gray-500 font-normal"> — {cityName}</span>
               )}

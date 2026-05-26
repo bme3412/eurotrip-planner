@@ -22,9 +22,11 @@ export default function ThreeColumnPlanner({
   initialUserMessage = null,
   initialTripId = null,
   initialLocalTripId = null,
+  initialTripState = null,
   onPlannerStateChange = null,
   registerSetCityNights = null,
   registerSetTripDates = null,
+  registerApplyTripState = null,
 }) {
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
   const [chatWidthPct, setChatWidthPct] = useState(DEFAULT_CHAT_WIDTH);
@@ -46,6 +48,12 @@ export default function ThreeColumnPlanner({
     generationError,
     savedTripId,
     localTripId,
+    saveStatus,
+    saveError,
+    user,
+    isSupabaseConfigured,
+    signInWithGoogle,
+    saveNow,
     sendMessage,
     startConversation,
     handleOptionSelect,
@@ -56,6 +64,7 @@ export default function ThreeColumnPlanner({
     assignDaysToCity,
     unassignDays,
     setCityNights,
+    setTripState,
     addCity,
     acceptSuggestedAllocation,
     setTripDates,
@@ -65,7 +74,7 @@ export default function ThreeColumnPlanner({
     retryGeneration,
     resetGeneration,
     latestPlannerAction,
-  } = useTripPlannerAgent({ initialTripId, initialLocalTripId });
+  } = useTripPlannerAgent({ initialTripId, initialLocalTripId, initialTripState });
 
   const tripHasCities = tripState.route.cities.length > 0;
   const interaction = useMemo(
@@ -89,6 +98,12 @@ export default function ThreeColumnPlanner({
 
   // Emit a read-only snapshot of trip state to the parent so it can render
   // the top-bar Day Strip alongside the Describe / Step by step toggle.
+  // NOTE: `interaction` is recomputed every render (its `gaps` input is a fresh
+  // object each pass), so we deliberately depend only on tripState-derived
+  // primitives plus a stable signature for the brief/next action.
+  const briefSignature = interaction?.briefCompleteness
+    ? `${interaction.briefCompleteness.completionRatio}|${interaction.nextAction?.id || ''}|${interaction.nextAction?.label || ''}`
+    : '';
   useEffect(() => {
     if (!onPlannerStateChange) return;
     onPlannerStateChange({
@@ -97,8 +112,11 @@ export default function ThreeColumnPlanner({
       cities: tripState?.route?.cities || [],
       cityColors,
       hasCities: tripHasCities,
+      briefCompleteness: interaction?.briefCompleteness || null,
+      nextAction: interaction?.nextAction || null,
     });
-  }, [onPlannerStateChange, tripState, dayAssignments, cityColors, tripHasCities]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onPlannerStateChange, tripState, dayAssignments, cityColors, tripHasCities, briefSignature]);
 
   // Expose setCityNights upward so the top-bar Day Strip popover can adjust
   // nights without lifting the entire planner state.
@@ -113,6 +131,12 @@ export default function ThreeColumnPlanner({
     registerSetTripDates(setTripDates);
     return () => registerSetTripDates(null);
   }, [registerSetTripDates, setTripDates]);
+
+  useEffect(() => {
+    if (!registerApplyTripState) return;
+    registerApplyTripState(setTripState);
+    return () => registerApplyTripState(null);
+  }, [registerApplyTripState, setTripState]);
 
   useEffect(() => {
     if (!hasStarted) {
@@ -153,6 +177,10 @@ export default function ThreeColumnPlanner({
   const handleOption = useCallback((option) => {
     handleOptionSelect(option);
   }, [handleOptionSelect]);
+
+  const handleSignInToSync = useCallback(() => {
+    signInWithGoogle({ next: `${window.location.pathname}${window.location.search}` });
+  }, [signInWithGoogle]);
 
   const handleCity = useCallback((city, purpose) => {
     handleCitySelect(city, purpose);
@@ -258,6 +286,11 @@ export default function ThreeColumnPlanner({
             itinerary={itinerary}
             generationError={generationError}
             savedTripId={savedTripId}
+            localTripId={localTripId}
+            saveStatus={saveStatus}
+            saveError={saveError}
+            user={user}
+            isSupabaseConfigured={isSupabaseConfigured}
             onSendMessage={handleSendMessage}
             onOptionSelect={handleOption}
             onCitySelect={handleCity}
@@ -275,6 +308,8 @@ export default function ThreeColumnPlanner({
             cancelFinalization={cancelFinalization}
             retryGeneration={retryGeneration}
             resetGeneration={resetGeneration}
+            onSaveNow={saveNow}
+            onSignIn={handleSignInToSync}
             latestPlannerAction={latestPlannerAction}
             acceptSuggestedAllocation={acceptSuggestedAllocation}
           />

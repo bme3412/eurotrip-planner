@@ -2,7 +2,7 @@
 
 import { useCallback, useMemo, useRef } from 'react';
 import Link from 'next/link';
-import { AlertTriangle, RotateCcw, X } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, Cloud, CloudOff, RotateCcw, Save, X } from 'lucide-react';
 import CompactMessageList from './CompactMessageList';
 import CompactChatInput from './CompactChatInput';
 import PlannerProgressBar from './PlannerProgressBar';
@@ -27,6 +27,86 @@ const STARTER_PROMPTS = [
     text: 'Surprise me with a first Europe route for two weeks in June.',
   },
 ];
+
+function SaveStatusBar({
+  saveStatus,
+  saveError,
+  savedTripId,
+  localTripId,
+  user,
+  isSupabaseConfigured,
+  onSaveNow,
+  onSignIn,
+}) {
+  const isLocal = saveStatus === 'saved_local' || (!savedTripId && localTripId);
+  const status = saveError
+    ? {
+        label: saveError,
+        detail: 'Your latest change may not be synced.',
+        Icon: AlertTriangle,
+        tone: 'border-red-200 bg-red-50 text-red-800',
+      }
+    : saveStatus === 'saving'
+      ? {
+          label: 'Saving...',
+          detail: 'Keeping your trip up to date.',
+          Icon: Save,
+          tone: 'border-[#e5e0d8] bg-[#faf8f5] text-[#6a6459]',
+        }
+      : isLocal
+        ? {
+            label: 'Saved on this device',
+            detail: user ? 'Syncing to your account when possible.' : 'Sign in to access it anywhere.',
+            Icon: CloudOff,
+            tone: 'border-amber-200 bg-amber-50 text-amber-900',
+          }
+        : savedTripId || saveStatus === 'saved'
+          ? {
+              label: 'Saved to your account',
+              detail: 'You can reopen and edit this from My Trips.',
+              Icon: CheckCircle2,
+              tone: 'border-emerald-200 bg-emerald-50 text-emerald-900',
+            }
+          : {
+              label: 'Draft not saved yet',
+              detail: 'Add a city and dates to enable autosave.',
+              Icon: Save,
+              tone: 'border-[#e5e0d8] bg-white text-[#6a6459]',
+            };
+
+  const { Icon } = status;
+
+  return (
+    <div className="border-b border-[#e5e0d8] bg-white px-3 py-2">
+      <div className={`flex items-center gap-2 rounded-2xl border px-3 py-2 ${status.tone}`}>
+        <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-[12px] font-semibold">{status.label}</p>
+          <p className="truncate text-[11px] opacity-75">{status.detail}</p>
+        </div>
+        <div className="flex shrink-0 items-center gap-1.5">
+          {isSupabaseConfigured && !user && isLocal && (
+            <button
+              type="button"
+              onClick={onSignIn}
+              className="rounded-full bg-[#2a2520] px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-[#1a1510]"
+            >
+              Sync
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={onSaveNow}
+            className="inline-flex items-center gap-1 rounded-full border border-current/20 bg-white/70 px-3 py-1.5 text-[11px] font-semibold hover:bg-white"
+          >
+            <Cloud className="h-3 w-3" aria-hidden="true" />
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function InitialPlannerWelcome({ onSendMessage }) {
   return (
@@ -67,6 +147,7 @@ function GenerationPanel({
   generationError,
   trip,
   savedTripId,
+  localTripId,
   confirmGeneration,
   cancelFinalization,
   retryGeneration,
@@ -135,16 +216,31 @@ function GenerationPanel({
           trip={trip}
           onStartOver={resetGeneration}
         />
-        {savedTripId && (
-          <div className="mt-3 flex justify-center">
+        <div className="mt-3 flex flex-wrap justify-center gap-2">
+          {savedTripId && (
             <Link
               href={`/itineraries/${savedTripId}`}
               className="rounded-full bg-[#2a2520] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#1a1510]"
             >
               Open full itinerary
             </Link>
-          </div>
-        )}
+          )}
+          {localTripId && !savedTripId && (
+            <Link
+              href="/saved-trips"
+              className="rounded-full border border-emerald-200 bg-emerald-50 px-5 py-2.5 text-sm font-semibold text-emerald-800 hover:bg-emerald-100"
+            >
+              Saved locally in My Trips
+            </Link>
+          )}
+          <button
+            type="button"
+            onClick={resetGeneration}
+            className="rounded-full border border-[#e5e0d8] bg-white px-5 py-2.5 text-sm font-semibold text-[#6a6459] hover:bg-[#faf8f5]"
+          >
+            Keep editing route
+          </button>
+        </div>
       </div>
     );
   }
@@ -166,6 +262,11 @@ export default function PlannerColumn({
   itinerary,
   generationError,
   savedTripId,
+  localTripId,
+  saveStatus,
+  saveError,
+  user,
+  isSupabaseConfigured,
   onSendMessage,
   onOptionSelect,
   onCitySelect,
@@ -181,6 +282,8 @@ export default function PlannerColumn({
   cancelFinalization,
   retryGeneration,
   resetGeneration,
+  onSaveNow,
+  onSignIn,
   latestPlannerAction,
   acceptSuggestedAllocation,
 }) {
@@ -218,6 +321,17 @@ export default function PlannerColumn({
     <div className="flex flex-col h-full bg-white border-r border-[#e5e0d8]">
       {/* Thin top border — no label needed */}
       <div className="border-b border-[#e5e0d8] shrink-0" />
+
+      <SaveStatusBar
+        saveStatus={saveStatus}
+        saveError={saveError}
+        savedTripId={savedTripId}
+        localTripId={localTripId}
+        user={user}
+        isSupabaseConfigured={isSupabaseConfigured}
+        onSaveNow={onSaveNow}
+        onSignIn={onSignIn}
+      />
 
       {/* Messages + suggestions — this div is the scroll container */}
       <div ref={scrollContainerRef} className="flex-1 overflow-y-auto min-h-0">
@@ -302,6 +416,7 @@ export default function PlannerColumn({
           generationError={generationError}
           trip={trip}
           savedTripId={savedTripId}
+          localTripId={localTripId}
           confirmGeneration={confirmGeneration}
           cancelFinalization={cancelFinalization}
           retryGeneration={retryGeneration}
