@@ -79,6 +79,7 @@ function PlanContent() {
   const [plannerSnapshot, setPlannerSnapshot] = useState(null);
   const [sharedTripState, setSharedTripState] = useState(null);
   const setCityNightsRef = useRef(null);
+  const setCityAccommodationRef = useRef(null);
   const setTripDatesRef = useRef(null);
   const applyConversationTripStateRef = useRef(null);
 
@@ -93,6 +94,10 @@ function PlanContent() {
     setCityNightsRef.current = fn;
   }, []);
 
+  const registerSetCityAccommodation = useCallback((fn) => {
+    setCityAccommodationRef.current = fn;
+  }, []);
+
   const registerSetTripDates = useCallback((fn) => {
     setTripDatesRef.current = fn;
   }, []);
@@ -103,6 +108,10 @@ function PlanContent() {
 
   const handleSetCityNights = useCallback((cityId, nights) => {
     setCityNightsRef.current?.(cityId, nights);
+  }, []);
+
+  const handleSetCityAccommodation = useCallback((cityId, partial) => {
+    setCityAccommodationRef.current?.(cityId, partial);
   }, []);
 
   const handleSetTripDates = useCallback((partial) => {
@@ -120,6 +129,7 @@ function PlanContent() {
             cities={plannerSnapshot.cities}
             tripDates={plannerSnapshot.tripState?.dates}
             onSetCityNights={handleSetCityNights}
+            onSetCityAccommodation={handleSetCityAccommodation}
             onSetTripDates={handleSetTripDates}
           />
         ) : (
@@ -136,6 +146,7 @@ function PlanContent() {
           initialTripState={sharedTripState}
           onPlannerStateChange={handlePlannerStateChange}
           registerSetCityNights={registerSetCityNights}
+          registerSetCityAccommodation={registerSetCityAccommodation}
           registerSetTripDates={registerSetTripDates}
           registerApplyTripState={registerApplyTripState}
         />

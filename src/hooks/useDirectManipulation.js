@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback } from 'react';
-import { mergeTripData } from '@/lib/conversation/tripState';
+import { mergeTripData, setCityAccommodation as setCityAccommodationPure } from '@/lib/conversation/tripState';
 import {
   assignDaysToCity as assignDaysToCityPure,
   unassignDays as unassignDaysPure,
@@ -260,6 +260,26 @@ export function useDirectManipulation({ tripStateRef, setTripState, onPlannerAct
     [onPlannerAction, tripStateRef, setTripState]
   );
 
+  const setCityAccommodation = useCallback(
+    (cityId, partial, { notify = true } = {}) => {
+      if (!cityId || !partial || typeof partial !== 'object') return;
+      const before = tripStateRef.current;
+      const next = setCityAccommodationPure(before, cityId, partial);
+      if (next === before) return;
+      setTripState(next);
+      if (notify) {
+        const city = next.route.cities.find(
+          (c) => (c.id || c.name?.toLowerCase()) === cityId
+        );
+        onPlannerAction?.(
+          buildPlannerAction('set_city_accommodation', { before, after: next, city }),
+          next
+        );
+      }
+    },
+    [onPlannerAction, tripStateRef, setTripState]
+  );
+
   const acceptSuggestedAllocation = useCallback(
     (allocation, { notify = true } = {}) => {
       if (!allocation?.segments?.length) return;
@@ -281,6 +301,7 @@ export function useDirectManipulation({ tripStateRef, setTripState, onPlannerAct
     assignDaysToCity,
     unassignDays,
     setCityNights,
+    setCityAccommodation,
     setTripDates,
     undoLastReflow,
     addCity,

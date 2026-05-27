@@ -1,7 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { initialTripState, mergeTripData, removeCities } from '../src/lib/conversation/tripState.js';
+import {
+  initialTripState,
+  mergeTripData,
+  removeCities,
+  setCityAccommodation,
+} from '../src/lib/conversation/tripState.js';
 
 test('initialTripState has expected top-level shape', () => {
   for (const key of ['route', 'transport', 'dates', 'budget', 'travelers', 'preferences']) {
@@ -152,4 +157,80 @@ test('removeCities collapses to a single-city route correctly', () => {
   const after = removeCities(seeded, ['berlin']);
   assert.equal(after.route.cities.length, 1);
   assert.equal(after.route.cities[0].role, 'start');
+});
+
+test('setCityAccommodation patches the named city only', () => {
+  const seeded = mergeTripData(initialTripState, {
+    cities: [{ name: 'Paris' }, { name: 'Berlin' }],
+  });
+  const after = setCityAccommodation(seeded, 'paris', {
+    name: 'Hotel A',
+    address: '1 rue X',
+    checkIn: '15:00',
+    checkOut: '11:00',
+    confirmationNumber: 'ABC123',
+    notes: 'Door code 4242',
+  });
+  assert.deepEqual(after.route.cities[0].accommodation, {
+    name: 'Hotel A',
+    address: '1 rue X',
+    checkIn: '15:00',
+    checkOut: '11:00',
+    confirmationNumber: 'ABC123',
+    notes: 'Door code 4242',
+  });
+  // Other city untouched.
+  assert.equal(after.route.cities[1].accommodation ?? null, null);
+});
+
+test('setCityAccommodation merges partial patches over existing values', () => {
+  const seeded = mergeTripData(initialTripState, {
+    cities: [{ name: 'Paris' }],
+  });
+  const first = setCityAccommodation(seeded, 'paris', {
+    name: 'Hotel A',
+    address: '1 rue X',
+  });
+  const second = setCityAccommodation(first, 'paris', { checkIn: '15:00' });
+  assert.equal(second.route.cities[0].accommodation.name, 'Hotel A');
+  assert.equal(second.route.cities[0].accommodation.address, '1 rue X');
+  assert.equal(second.route.cities[0].accommodation.checkIn, '15:00');
+});
+
+test('setCityAccommodation clears a field when given empty string', () => {
+  const seeded = mergeTripData(initialTripState, {
+    cities: [{ name: 'Paris' }],
+  });
+  const first = setCityAccommodation(seeded, 'paris', { name: 'Hotel A' });
+  const cleared = setCityAccommodation(first, 'paris', { name: '' });
+  // Single non-null field cleared -> accommodation collapses to null.
+  assert.equal(cleared.route.cities[0].accommodation, null);
+});
+
+test('setCityAccommodation matches by id or case-insensitive name', () => {
+  const seeded = mergeTripData(initialTripState, {
+    cities: [{ id: 'berlin', name: 'Berlin' }],
+  });
+  const byId = setCityAccommodation(seeded, 'BERLIN', { name: 'Hotel B' });
+  assert.equal(byId.route.cities[0].accommodation.name, 'Hotel B');
+
+  const byName = setCityAccommodation(seeded, 'berlin', { name: 'Hotel B2' });
+  assert.equal(byName.route.cities[0].accommodation.name, 'Hotel B2');
+});
+
+test('setCityAccommodation is a no-op when city is not in the route', () => {
+  const seeded = mergeTripData(initialTripState, {
+    cities: [{ name: 'Paris' }],
+  });
+  const after = setCityAccommodation(seeded, 'lisbon', { name: 'Hotel X' });
+  assert.equal(after, seeded);
+});
+
+test('setCityAccommodation does not mutate the input state', () => {
+  const seeded = mergeTripData(initialTripState, {
+    cities: [{ name: 'Paris' }],
+  });
+  const before = JSON.parse(JSON.stringify(seeded));
+  setCityAccommodation(seeded, 'paris', { name: 'Hotel A' });
+  assert.deepEqual(seeded, before);
 });

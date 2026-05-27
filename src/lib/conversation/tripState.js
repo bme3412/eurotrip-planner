@@ -424,3 +424,76 @@ export function removeCities(current, cityRefs) {
 
   return next;
 }
+
+/**
+ * Per-city accommodation/stay fields editable from the day-card modal.
+ * Stored under `city.accommodation`. Each field is a plain string (or null).
+ */
+export const ACCOMMODATION_FIELDS = [
+  'name',
+  'address',
+  'checkIn',
+  'checkOut',
+  'confirmationNumber',
+  'notes',
+];
+
+function normalizeAccommodation(input = {}) {
+  const out = {};
+  for (const key of ACCOMMODATION_FIELDS) {
+    if (!(key in input)) continue;
+    const value = input[key];
+    if (value == null) {
+      out[key] = null;
+    } else if (typeof value === 'string') {
+      const trimmed = value.trim();
+      out[key] = trimmed === '' ? null : trimmed;
+    } else {
+      out[key] = String(value);
+    }
+  }
+  return out;
+}
+
+/**
+ * Update one city's accommodation/stay info. Pure — returns a new tripState.
+ * `partial` is a subset of ACCOMMODATION_FIELDS; passing `null` (or empty
+ * string) clears that field. Unspecified fields are left untouched.
+ *
+ * Matches the target city by id, then by case-insensitive name.
+ *
+ * @param {Object} current
+ * @param {string} cityRef       city id or name
+ * @param {Object} partial       partial accommodation patch
+ * @returns {Object}             new tripState (or `current` if no match)
+ */
+export function setCityAccommodation(current, cityRef, partial) {
+  if (!cityRef || !partial || typeof partial !== 'object') return current;
+
+  const patch = normalizeAccommodation(partial);
+  if (Object.keys(patch).length === 0) return current;
+
+  const norm = (s) => (typeof s === 'string' ? s.trim().toLowerCase() : '');
+  const ref = norm(cityRef);
+  if (!ref) return current;
+
+  const cities = current?.route?.cities || [];
+  const idx = cities.findIndex((c) => {
+    const id = norm(c?.id);
+    const name = norm(c?.name);
+    return (id && id === ref) || (name && name === ref);
+  });
+  if (idx < 0) return current;
+
+  const next = JSON.parse(JSON.stringify(current));
+  const city = next.route.cities[idx];
+  const existing = (city.accommodation && typeof city.accommodation === 'object') ? city.accommodation : {};
+  const merged = { ...existing, ...patch };
+
+  // If every field is null/empty, drop the accommodation block entirely so
+  // the JSON stays clean.
+  const hasAny = ACCOMMODATION_FIELDS.some((k) => merged[k] != null && merged[k] !== '');
+  city.accommodation = hasAny ? merged : null;
+
+  return next;
+}

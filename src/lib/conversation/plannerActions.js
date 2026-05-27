@@ -58,6 +58,9 @@ export function buildPlannerAction(type, { before = null, after = null, city = n
     const nightLabel = `${dayIndices.length} ${dayIndices.length === 1 ? 'night' : 'nights'}`;
     title = `${cityName} scheduled`;
     confirmation = `Assigned ${nightLabel} to ${cityName}${range ? ` (${range})` : ''}.`;
+  } else if (type === 'set_city_accommodation') {
+    title = `${cityName} stay updated`;
+    confirmation = `Updated stay details for ${cityName}.`;
   } else if (type === 'set_city_nights') {
     const nights = Number.isFinite(activeCity?.nights) ? activeCity.nights : 0;
     title = `${cityName} set to ${nights}n`;

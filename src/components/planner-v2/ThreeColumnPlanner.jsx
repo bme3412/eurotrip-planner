@@ -25,6 +25,7 @@ export default function ThreeColumnPlanner({
   initialTripState = null,
   onPlannerStateChange = null,
   registerSetCityNights = null,
+  registerSetCityAccommodation = null,
   registerSetTripDates = null,
   registerApplyTripState = null,
 }) {
@@ -64,6 +65,7 @@ export default function ThreeColumnPlanner({
     assignDaysToCity,
     unassignDays,
     setCityNights,
+    setCityAccommodation,
     setTripState,
     addCity,
     acceptSuggestedAllocation,
@@ -131,6 +133,12 @@ export default function ThreeColumnPlanner({
     registerSetTripDates(setTripDates);
     return () => registerSetTripDates(null);
   }, [registerSetTripDates, setTripDates]);
+
+  useEffect(() => {
+    if (!registerSetCityAccommodation) return;
+    registerSetCityAccommodation(setCityAccommodation);
+    return () => registerSetCityAccommodation(null);
+  }, [registerSetCityAccommodation, setCityAccommodation]);
 
   useEffect(() => {
     if (!registerApplyTripState) return;
