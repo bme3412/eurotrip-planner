@@ -1,40 +1,60 @@
 'use client';
 
-export default function PlannerProgressBar({ gaps }) {
-  const completeness = gaps?.completeness ?? 0;
-  const filledGaps = gaps?.gaps || [];
+const STATUS_LABELS = {
+  needs_anchor: 'Start planning',
+  draft_with_assumptions: 'Draftable',
+  ready: 'Ready',
+};
 
-  const categories = [
-    { id: 'cities', label: 'Cities' },
-    { id: 'duration', label: 'Duration' },
-    { id: 'dates', label: 'Dates' },
-    { id: 'budget', label: 'Budget' },
-    { id: 'interests', label: 'Interests' },
-  ];
+function compactRouteLabel(value) {
+  if (!value || !value.includes('→')) return value;
+  const parts = value.split('→').map((part) => part.trim()).filter(Boolean);
+  if (parts.length <= 3) return value;
+  return `${parts[0]} → ${parts[parts.length - 1]} · ${parts.length} stops`;
+}
+
+function collectBriefChips(gaps) {
+  const intake = gaps?.intake || {};
+  const chips = [];
+
+  if (intake.routeAnchors?.status === 'confirmed') {
+    chips.push({ id: 'route', label: compactRouteLabel(intake.routeAnchors.summary) });
+  }
+  if (intake.timeEnvelope?.status === 'confirmed') {
+    chips.push({ id: 'time', label: intake.timeEnvelope.summary });
+  }
+
+  return chips.slice(0, 2);
+}
+
+export default function PlannerProgressBar({ gaps, interaction }) {
+  const draftReadiness = gaps?.draftReadiness || 'needs_anchor';
+  // The "Route captured" banner duplicated the inline Day Strip in the top bar
+  // and the route summary pill, so we suppress the progress bar entirely once
+  // the trip is captured. While still drafting, fall through to the normal
+  // readiness label.
+  if (interaction?.hasCapturedItinerary) return null;
+
+  const status = interaction?.copy?.status || STATUS_LABELS[draftReadiness] || 'Working brief';
+  const chips = collectBriefChips(gaps);
+
+  if (interaction && !interaction.showProgress) return null;
 
   return (
-    <div className="px-3 py-1.5 border-t border-[#e5e0d8] bg-white/50 shrink-0 flex items-center gap-2">
-      {/* Progress bar */}
-      <div className="flex-1 h-1 bg-[#e5e0d8] rounded-full overflow-hidden">
-        <div
-          className="h-full bg-[#2a2520] rounded-full transition-all duration-500"
-          style={{ width: `${completeness}%` }}
-        />
-      </div>
-      {/* Category dots */}
-      <div className="flex items-center gap-1.5 shrink-0">
-        {categories.map((cat) => {
-          const done = !filledGaps.find(g => g.field === cat.id);
-          return (
-            <div
-              key={cat.id}
-              title={cat.label}
-              className={`w-1.5 h-1.5 rounded-full transition-colors ${
-                done ? 'bg-[#2a2520]' : 'bg-[#d5d0c8]'
-              }`}
-            />
-          );
-        })}
+    <div className="px-3 py-1.5 border-t border-[#e5e0d8] bg-white/80 shrink-0">
+      <div className="flex items-center gap-2 min-w-0 overflow-hidden">
+        <span className="shrink-0 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#8a8578]">
+          {status}
+        </span>
+        {chips.map((chip) => (
+          <span
+            key={chip.id}
+            className="min-w-0 max-w-[42%] truncate rounded-full bg-[#faf8f5] px-2 py-0.5 text-[10px] text-[#6a6459]"
+            title={chip.label}
+          >
+            {chip.label}
+          </span>
+        ))}
       </div>
     </div>
   );

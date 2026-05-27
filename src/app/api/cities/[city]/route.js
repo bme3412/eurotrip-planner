@@ -31,6 +31,8 @@ export async function GET(request, { params }) {
 
     const { searchParams } = new URL(request.url);
     const shouldEnrich = searchParams.get('enrich') === 'true';
+    const debug = searchParams.get('debug') === 'true';
+    const includeDiagnostics = debug || process.env.NODE_ENV !== 'production';
 
     // data-utils returns attractions as a flat array; handle both shapes
     const attractionSites = Array.isArray(cityData.attractions)
@@ -41,15 +43,39 @@ export async function GET(request, { params }) {
       const cacheKey = `enrich:${city}`;
       const cached = enrichCache.get(cacheKey);
 
-      if (cached && Date.now() < cached.expiresAt) {
+      if (!debug && cached && Date.now() < cached.expiresAt) {
         cityData.attractions = { sites: cached.data };
+        if (includeDiagnostics) {
+          cityData.googleEnrichment = {
+            ...cached.diagnostics,
+            cached: true,
+          };
+        }
       } else {
+        const diagnostics = includeDiagnostics
+          ? { total: 0, matchedPlaceIds: 0, detailsFetched: 0, withPhotos: 0, missingPlaceIds: [], errors: [] }
+          : null;
+
         try {
-          const enriched = await enrichAttractionsForCity(attractionSites, city);
+          const enriched = await enrichAttractionsForCity(attractionSites, city, 3, { diagnostics });
           cityData.attractions = { sites: enriched };
-          enrichCache.set(cacheKey, { data: enriched, expiresAt: Date.now() + ENRICH_TTL });
+          if (includeDiagnostics) {
+            cityData.googleEnrichment = {
+              ...diagnostics,
+              cached: false,
+            };
+          }
+          enrichCache.set(cacheKey, { data: enriched, diagnostics, expiresAt: Date.now() + ENRICH_TTL });
         } catch (err) {
           console.error(`[enrich] Failed for ${city}:`, err.message);
+          if (includeDiagnostics) {
+            cityData.googleEnrichment = {
+              configured: Boolean(process.env.GOOGLE_PLACES_API_KEY),
+              error: err?.diagnostic || 'enrichment_failed',
+              message: err.message,
+              cached: false,
+            };
+          }
         }
       }
     }

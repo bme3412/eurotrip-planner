@@ -41,9 +41,8 @@ export default function HeroV2() {
   }, []);
 
   // Handle city click on map
-  const handleCityClick = useCallback((city) => {
+  const handleCityClick = useCallback(() => {
     // Could toggle city selection or show details
-    console.log("City clicked:", city);
   }, []);
 
   return (

@@ -121,9 +121,7 @@ export const logCDNPerformance = (url, startTime) => {
   
   const loadTime = performance.now() - startTime;
   const isCDN = isCDNEnabled() && url.includes(getCDNUrl());
-  
-  console.log(`📊 Asset loaded: ${isCDN ? 'CDN' : 'Local'} - ${loadTime.toFixed(2)}ms - ${url}`);
-  
+
   // Send to analytics if available
   if (window.gtag) {
     window.gtag('event', 'asset_load', {
@@ -138,26 +136,21 @@ export const logCDNPerformance = (url, startTime) => {
 // CDN health check
 export const checkCDNHealth = async () => {
   if (!isCDNEnabled()) {
-    console.log('⚠️ CDN not enabled');
     return false;
   }
-  
+
   try {
     const testUrl = `${getCDNUrl()}/images/video-thumbnails/lisbon-tram-thumbnail.jpg`;
-    const startTime = performance.now();
-    
     const response = await fetch(testUrl, { method: 'HEAD' });
-    const loadTime = performance.now() - startTime;
-    
+
     if (response.ok) {
-      console.log(`✅ CDN healthy - ${loadTime.toFixed(2)}ms`);
       return true;
     } else {
-      console.log(`❌ CDN unhealthy - ${response.status}`);
+      console.warn(`CDN unhealthy - ${response.status}`);
       return false;
     }
   } catch (error) {
-    console.log(`❌ CDN error - ${error.message}`);
+    console.warn(`CDN error - ${error.message}`);
     return false;
   }
 }; 

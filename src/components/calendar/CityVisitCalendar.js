@@ -97,8 +97,8 @@ const CityVisitCalendar = ({ city, cityData = null }) => {
                 try {
                   const res = await fetch(p, { cache: 'force-cache' });
                   if (res.ok) return await res.json();
-                } catch (e) {
-                  console.log(`Failed to load from ${p}: ${e.message}`);
+                } catch {
+                  // Expected: file may not exist for this city
                 }
                 return null;
               }));
@@ -125,8 +125,8 @@ const CityVisitCalendar = ({ city, cityData = null }) => {
                     const cap = month.charAt(0).toUpperCase() + month.slice(1);
                     return [month, monthData[cap] ? monthData[cap] : monthData];
                   }
-                } catch (e) {
-                  console.log(`Failed to load ${month}: ${e.message}`);
+                } catch {
+                  // Expected: month file may not exist
                 }
                 return null;
               }));

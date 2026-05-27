@@ -7,7 +7,9 @@ import { analyzeGaps, buildAgentContext } from '../src/lib/conversation/gapAnaly
 test('analyzeGaps flags cities as critical for an empty trip', () => {
   const result = analyzeGaps(initialTripState);
   assert.equal(result.isReadyToFinalize, false);
-  assert.equal(result.nextQuestion?.field, 'cities');
+  assert.equal(result.nextMove?.field, 'cities');
+  assert.equal(result.nextMove?.canDraft, false);
+  assert.equal(result.draftReadiness, 'needs_anchor');
   assert.ok(result.gaps.some((g) => g.field === 'cities' && g.critical));
   // Duration is no longer critical — it gets smart defaults
   assert.ok(!result.gaps.some((g) => g.critical && g.field === 'duration'));
@@ -21,6 +23,9 @@ test('analyzeGaps drops the cities gap once a city is added', () => {
   const result = analyzeGaps(seeded);
   assert.ok(!result.gaps.some((g) => g.field === 'cities'));
   assert.ok(!result.gaps.some((g) => g.field === 'duration'));
+  assert.equal(result.canDraft, true);
+  assert.equal(result.draftReadiness, 'draft_with_assumptions');
+  assert.equal(result.nextMove.field, 'tripIntent');
   assert.ok(result.completeness > 0);
 });
 
@@ -39,16 +44,39 @@ test('analyzeGaps reports isReadyToFinalize when all critical gaps are filled an
   });
   const result = analyzeGaps(fullEnough);
   assert.equal(result.isReadyToFinalize, true);
+  assert.equal(result.canDraft, true);
 });
 
-test('buildAgentContext renders trip state + gaps in a single string', () => {
+test('buildAgentContext renders living brief + next best move in a single string', () => {
   const seeded = mergeTripData(initialTripState, {
     cities: [{ name: 'Paris' }],
     totalNights: 4,
+    tripIntent: 'food-focused first Europe stop',
+    negativeConstraints: ['no early mornings'],
   });
   const ctx = buildAgentContext(seeded);
-  assert.match(ctx, /Trip State \(\d+% specified\)/);
+  assert.match(ctx, /Living Travel Brief/);
   assert.match(ctx, /Route: Paris/);
   assert.match(ctx, /Duration: 4 nights/);
-  assert.match(ctx, /Info to Weave In/);
+  assert.match(ctx, /Trip intent: food-focused first Europe stop/);
+  assert.match(ctx, /Avoid: no early mornings/);
+  assert.match(ctx, /Intake Map/);
+  assert.match(ctx, /Next Best Move/);
+});
+
+test('travel brief captures natural-language intent and constraints', () => {
+  const seeded = mergeTripData(initialTripState, {
+    cities: [{ name: 'Barcelona' }],
+    tripIntent: 'romantic food trip',
+    intentSignals: ['late dinners', 'walkable neighborhoods'],
+    hardConstraints: ['must end before June 20'],
+    negativeConstraints: ['no rental car'],
+    assumptions: ['moderate budget unless changed'],
+  });
+
+  const result = analyzeGaps(seeded);
+  assert.equal(result.intake.tripIntent.status, 'confirmed');
+  assert.match(result.intake.tripIntent.summary, /romantic food trip/);
+  assert.equal(result.intake.negativeConstraints.status, 'confirmed');
+  assert.match(result.intake.confidenceAssumptions.summary, /moderate budget/);
 });

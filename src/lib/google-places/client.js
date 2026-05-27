@@ -7,9 +7,41 @@
 
 const BASE_URL = 'https://places.googleapis.com/v1';
 
+export class GooglePlacesApiError extends Error {
+  constructor(message, { status = null, body = '', service = 'Google Places' } = {}) {
+    super(message);
+    this.name = 'GooglePlacesApiError';
+    this.status = status;
+    this.body = body;
+    this.service = service;
+    this.diagnostic = classifyGoogleApiError({ status, body, message });
+  }
+}
+
+export function classifyGoogleApiError({ status = null, body = '', message = '' } = {}) {
+  const text = `${message} ${body}`.toLowerCase();
+  if (text.includes('google_places_api_key is not set')) return 'missing_api_key';
+  if (status === 403 && (text.includes('api key not valid') || text.includes('invalid api key'))) return 'invalid_api_key';
+  if (status === 403 && (text.includes('has not been used') || text.includes('not enabled') || text.includes('disabled'))) return 'api_not_enabled';
+  if (status === 403 && text.includes('billing')) return 'billing_not_enabled';
+  if (status === 429 || text.includes('quota')) return 'quota_exceeded';
+  if (status === 400) return 'bad_request';
+  return status ? `http_${status}` : 'unknown';
+}
+
+export function getGooglePlacesApiKeyStatus() {
+  return {
+    configured: Boolean(process.env.GOOGLE_PLACES_API_KEY),
+  };
+}
+
 function getApiKey() {
   const key = process.env.GOOGLE_PLACES_API_KEY;
-  if (!key) throw new Error('GOOGLE_PLACES_API_KEY is not set');
+  if (!key) {
+    throw new GooglePlacesApiError('GOOGLE_PLACES_API_KEY is not set', {
+      service: 'Google Places configuration',
+    });
+  }
   return key;
 }
 
@@ -28,7 +60,11 @@ export async function placeDetails(placeId, fieldMask) {
   });
   if (!res.ok) {
     const body = await res.text();
-    throw new Error(`Place Details failed (${res.status}): ${body}`);
+    throw new GooglePlacesApiError(`Place Details failed (${res.status})`, {
+      status: res.status,
+      body,
+      service: 'Place Details',
+    });
   }
   return res.json();
 }
@@ -63,7 +99,11 @@ export async function textSearch(query, options = {}) {
   });
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`Text Search failed (${res.status}): ${text}`);
+    throw new GooglePlacesApiError(`Text Search failed (${res.status})`, {
+      status: res.status,
+      body: text,
+      service: 'Text Search',
+    });
   }
   return res.json();
 }
@@ -103,7 +143,11 @@ export async function nearbySearch(location, radius, includedTypes, fieldMask) {
   });
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`Nearby Search failed (${res.status}): ${text}`);
+    throw new GooglePlacesApiError(`Nearby Search failed (${res.status})`, {
+      status: res.status,
+      body: text,
+      service: 'Nearby Search',
+    });
   }
   return res.json();
 }
@@ -126,7 +170,11 @@ export async function placePhoto(photoName, maxWidthPx = 800, maxHeightPx) {
   const res = await fetch(`${BASE_URL}/${photoName}/media?${params}`);
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`Place Photo failed (${res.status}): ${text}`);
+    throw new GooglePlacesApiError(`Place Photo failed (${res.status})`, {
+      status: res.status,
+      body: text,
+      service: 'Place Photo',
+    });
   }
   const data = await res.json();
   return data.photoUri;

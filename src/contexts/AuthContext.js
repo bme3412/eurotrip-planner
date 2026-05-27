@@ -14,6 +14,36 @@ const AuthContext = createContext({
   isSupabaseConfigured: false,
 });
 
+const AUTH_NEXT_PATH_KEY = 'eurotrip.auth.nextPath';
+
+function getAuthRedirectOrigin() {
+  const configured = process.env.NEXT_PUBLIC_AUTH_REDIRECT_ORIGIN?.trim();
+  if (configured) {
+    try {
+      const currentUrl = new URL(window.location.origin);
+      const isLocalCurrent = ['localhost', '127.0.0.1'].includes(currentUrl.hostname);
+
+      if (isLocalCurrent) {
+        return window.location.origin;
+      }
+    } catch {
+      // Fall through and use the configured value after trimming.
+    }
+    return configured.replace(/\/$/, '');
+  }
+  return window.location.origin;
+}
+
+function rememberAuthNextPath(nextPath) {
+  if (typeof window === 'undefined') return;
+  const safeNext = nextPath?.startsWith('/') ? nextPath : '/saved-trips';
+  window.localStorage.setItem(AUTH_NEXT_PATH_KEY, safeNext);
+}
+
+function buildAuthCallbackUrl() {
+  return new URL('/auth/callback', getAuthRedirectOrigin()).toString();
+}
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [session, setSession] = useState(null);
@@ -47,13 +77,16 @@ export function AuthProvider({ children }) {
     return () => subscription.unsubscribe();
   }, [supabase]);
 
-  const signInWithGoogle = async () => {
+  const signInWithGoogle = async ({ next } = {}) => {
     if (!supabase) return { error: new Error('Supabase not configured') };
+    const nextPath = next || `${window.location.pathname}${window.location.search}`;
+    rememberAuthNextPath(nextPath);
+    const redirectTo = buildAuthCallbackUrl();
     
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
+        redirectTo,
         queryParams: {
           prompt: 'select_account',
         },
@@ -79,7 +112,7 @@ export function AuthProvider({ children }) {
       email,
       password,
       options: {
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
+        emailRedirectTo: buildAuthCallbackUrl(),
       },
     });
     return { data, error };

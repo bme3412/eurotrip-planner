@@ -45,13 +45,17 @@ function NavLink({ href, children, heavy = false }) {
 export default function Navbar() {
   const { user, loading, signInWithGoogle, signOut, isSupabaseConfigured } = useAuth();
   const [signingIn, setSigningIn] = useState(false);
+  const [authError, setAuthError] = useState(null);
 
   const handleSignIn = async () => {
     setSigningIn(true);
+    setAuthError(null);
     try {
-      await signInWithGoogle();
+      const { error } = await signInWithGoogle();
+      if (error) throw error;
     } catch (err) {
       console.error('Sign in error:', err);
+      setAuthError(err.message || 'Unable to start sign in.');
       setSigningIn(false);
     }
   };
@@ -84,9 +88,16 @@ export default function Navbar() {
               {/* Search + auth + mobile hamburger */}
               <div className="flex items-center gap-3">
                 <SearchBar />
-                {/* Auth button (always visible) */}
-                <div className="hidden md:block">
-                  {user ? (
+                {authError && (
+                  <span className="hidden max-w-[220px] truncate text-xs text-red-600 lg:inline">
+                    {authError}
+                  </span>
+                )}
+                {/* Auth button — fixed width slot to prevent layout shift on session resolve */}
+                <div className="hidden md:flex items-center justify-end min-w-[140px] h-8">
+                  {loading ? (
+                    <div className="h-7 w-20 rounded-full bg-gray-100 animate-pulse" aria-hidden />
+                  ) : user ? (
                     <div className="flex items-center gap-3">
                       <Link
                         href="/saved-trips"
@@ -104,7 +115,7 @@ export default function Navbar() {
                   ) : isSupabaseConfigured ? (
                     <button
                       onClick={handleSignIn}
-                      disabled={signingIn || loading}
+                      disabled={signingIn}
                       className="px-4 py-1.5 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full hover:from-blue-700 hover:to-indigo-700 transition-all shadow-sm disabled:opacity-50"
                     >
                       {signingIn ? 'Signing in...' : 'Sign In'}

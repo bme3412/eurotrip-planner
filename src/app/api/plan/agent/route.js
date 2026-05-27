@@ -14,7 +14,7 @@
  *   done           — stream complete
  */
 
-import { getTripWithDetails } from '@/lib/trips/tripState';
+import { getTripWithDetails } from '@/lib/trips/tripsRepository';
 import {
   OPENAI_TOOLS,
   execGetCityAttractions,
@@ -93,8 +93,15 @@ export async function POST(request) {
         ];
 
         let continueLoop = true;
+        let loopCount = 0;
+        const MAX_AGENT_LOOPS = 10;
 
         while (continueLoop) {
+          if (++loopCount > MAX_AGENT_LOOPS) {
+            console.warn(`[agent] Hit max loop limit (${MAX_AGENT_LOOPS})`);
+            emit('delta', { text: '\n\nI\'ve reached my processing limit for this request. Please send another message to continue.' });
+            break;
+          }
           const completion = await openai.chat.completions.create({
             model: MODEL,
             temperature: 0.4,

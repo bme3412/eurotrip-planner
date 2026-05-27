@@ -97,7 +97,7 @@ export function searchUrl(platform, { city, country }) {
 /**
  * Track an affiliate link click via Vercel Analytics.
  */
-export function trackAffiliateClick({ provider, city, activityName, url }) {
+export function trackAffiliateClick({ provider, city, activityName }) {
   if (typeof window !== 'undefined' && window.va) {
     window.va('event', {
       name: 'affiliate_click',
@@ -105,8 +105,5 @@ export function trackAffiliateClick({ provider, city, activityName, url }) {
       city,
       activity: activityName,
     });
-  }
-  if (process.env.NODE_ENV === 'development') {
-    console.log('[Affiliate Click]', { provider, city, activityName, url });
   }
 }

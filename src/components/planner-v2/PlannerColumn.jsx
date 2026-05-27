@@ -1,112 +1,251 @@
 'use client';
 
 import { useCallback, useMemo, useRef } from 'react';
-import { AlertTriangle, RotateCcw, X } from 'lucide-react';
+import Link from 'next/link';
+import { AlertTriangle, CheckCircle2, Cloud, CloudOff, RotateCcw, Save, X } from 'lucide-react';
 import CompactMessageList from './CompactMessageList';
 import CompactChatInput from './CompactChatInput';
 import PlannerProgressBar from './PlannerProgressBar';
+import PlannerNextActionBar from './PlannerNextActionBar';
+import InlineItinerary from '../conversation/InlineItinerary';
+import { derivePlannerInteraction } from '@/lib/conversation/plannerInteraction';
 
-// Build contextual quick-reply suggestions from gap analysis + trip state.
-function deriveQuickReplies(gaps, trip, tripState) {
-  const next = gaps?.nextQuestion;
-  if (!next) return [];
+const STARTER_PROMPTS = [
+  {
+    id: 'vibe',
+    title: 'A vibe',
+    text: '10 days in late September, food, scenic stops, not too rushed.',
+  },
+  {
+    id: 'anchors',
+    title: 'Known flights',
+    text: 'I fly into Paris and out of Rome. Fill the middle with beautiful stops, using whatever transport fits best.',
+  },
+  {
+    id: 'open',
+    title: 'Surprise me',
+    text: 'Surprise me with a first Europe route for two weeks in June.',
+  },
+];
 
-  const cities = tripState?.route?.cities || [];
-  const cityCount = cities.length;
+function SaveStatusBar({
+  saveStatus,
+  saveError,
+  savedTripId,
+  localTripId,
+  user,
+  isSupabaseConfigured,
+  onSaveNow,
+  onSignIn,
+}) {
+  const isLocal = saveStatus === 'saved_local' || (!savedTripId && localTripId);
+  const status = saveError
+    ? {
+        label: saveError,
+        detail: 'Your latest change may not be synced.',
+        Icon: AlertTriangle,
+        tone: 'border-red-200 bg-red-50 text-red-800',
+      }
+    : saveStatus === 'saving'
+      ? {
+          label: 'Saving...',
+          detail: 'Keeping your trip up to date.',
+          Icon: Save,
+          tone: 'border-[#e5e0d8] bg-[#faf8f5] text-[#6a6459]',
+        }
+      : isLocal
+        ? {
+            label: 'Saved on this device',
+            detail: user ? 'Syncing to your account when possible.' : 'Sign in to access it anywhere.',
+            Icon: CloudOff,
+            tone: 'border-amber-200 bg-amber-50 text-amber-900',
+          }
+        : savedTripId || saveStatus === 'saved'
+          ? {
+              label: 'Saved to your account',
+              detail: 'You can reopen and edit this from My Trips.',
+              Icon: CheckCircle2,
+              tone: 'border-emerald-200 bg-emerald-50 text-emerald-900',
+            }
+          : {
+              label: 'Draft not saved yet',
+              detail: 'Add a city and dates to enable autosave.',
+              Icon: Save,
+              tone: 'border-[#e5e0d8] bg-white text-[#6a6459]',
+            };
 
-  switch (next.field) {
-    case 'cities': {
-      const replies = [
-        { id: 'surprise', label: 'Surprise me', emoji: '\uD83C\uDFB2' },
-        { id: 'classic', label: 'Classic European tour', emoji: '\uD83C\uDFDB\uFE0F' },
-      ];
-      if (cityCount === 0) {
-        replies.push({ id: 'loop', label: 'One-city deep dive', emoji: '\uD83D\uDCCD' });
-      }
-      return replies;
-    }
-    case 'duration': {
-      if (cityCount <= 1) {
-        return [
-          { id: '3n', label: '3 nights' },
-          { id: '5n', label: '5 nights' },
-          { id: '7n', label: '7 nights' },
-        ];
-      }
-      const suggested = Math.max(7, cityCount * 3);
-      return [
-        { id: 'suggested', label: `${suggested} nights` },
-        { id: '10n', label: '10 nights' },
-        { id: '14n', label: '14 nights' },
-      ];
-    }
-    case 'routeShape':
-      return next.options || [];
-    case 'dates': {
-      const now = new Date();
-      const month = now.getMonth();
-      const replies = [];
-      if (month >= 9 || month <= 2) {
-        // Winter: suggest spring
-        replies.push({ id: 'spring', label: `Spring ${now.getFullYear() + (month <= 2 ? 0 : 1)}` });
-      } else {
-        // Spring/Summer: suggest fall
-        replies.push({ id: 'fall', label: `Fall ${now.getFullYear()}` });
-      }
-      replies.push({ id: 'flex', label: "I'm flexible" });
-      return replies;
-    }
-    case 'transport':
-      return [
-        { id: 'train', label: 'Train' },
-        { id: 'flight', label: 'Flight' },
-        { id: 'mix', label: 'Mix of both' },
-      ];
-    case 'budget':
-      return [
-        { id: 'budget', label: 'Budget' },
-        { id: 'moderate', label: 'Moderate' },
-        { id: 'premium', label: 'Premium' },
-      ];
-    case 'travelers':
-      return [
-        { id: 'solo', label: 'Solo' },
-        { id: 'couple', label: 'Couple' },
-        { id: 'family', label: 'Family' },
-        { id: 'friends', label: 'Friends' },
-      ];
-    case 'interests':
-      return [
-        { id: 'culture', label: 'Culture and museums' },
-        { id: 'food', label: 'Food and wine' },
-        { id: 'nature', label: 'Nature and hikes' },
-      ];
-    default:
-      return [];
-  }
+  const { Icon } = status;
+
+  return (
+    <div className="border-b border-[#e5e0d8] bg-white px-3 py-2">
+      <div className={`flex items-center gap-2 rounded-2xl border px-3 py-2 ${status.tone}`}>
+        <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-[12px] font-semibold">{status.label}</p>
+          <p className="truncate text-[11px] opacity-75">{status.detail}</p>
+        </div>
+        <div className="flex shrink-0 items-center gap-1.5">
+          {isSupabaseConfigured && !user && isLocal && (
+            <button
+              type="button"
+              onClick={onSignIn}
+              className="rounded-full bg-[#2a2520] px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-[#1a1510]"
+            >
+              Sync
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={onSaveNow}
+            className="inline-flex items-center gap-1 rounded-full border border-current/20 bg-white/70 px-3 py-1.5 text-[11px] font-semibold hover:bg-white"
+          >
+            <Cloud className="h-3 w-3" aria-hidden="true" />
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-// Context-aware placeholder based on gap analysis.
-function derivePlaceholder(gaps, isStreaming, isFinalized, generationPhase) {
-  if (isStreaming) return 'Thinking...';
-  if (generationPhase === 'complete') return 'Want to make changes?';
-  if (isFinalized) return 'Trip finalized';
+function InitialPlannerWelcome({ onSendMessage }) {
+  return (
+    <div className="px-3 pb-4">
+      <div className="rounded-3xl border border-[#e5e0d8] bg-gradient-to-br from-[#fbf7ef] via-white to-[#f3efe7] p-4 shadow-sm">
+        <h2 className="mt-1 font-display text-xl font-semibold text-[#2a2520]">
+          Start with whatever you know.
+        </h2>
+        <p className="mt-1.5 max-w-xl text-[13px] leading-relaxed text-[#6a6459]">
+          Name a city, paste flights, describe a vibe, or pick one of these examples.
+        </p>
 
-  const next = gaps?.nextQuestion;
-  if (!next) return 'Anything else to add?';
+        <div className="mt-4 grid gap-2 sm:grid-cols-3">
+          {STARTER_PROMPTS.map((prompt) => (
+            <button
+              key={prompt.id}
+              type="button"
+              onClick={() => onSendMessage(prompt.text)}
+              className="rounded-2xl border border-[#e5e0d8] bg-white/80 p-3 text-left transition-all hover:-translate-y-0.5 hover:border-[#c9a227]/50 hover:bg-white hover:shadow-sm"
+            >
+              <span className="block text-[11px] font-semibold text-[#2a2520]">
+                {prompt.title}
+              </span>
+              <span className="mt-1 block text-[11px] leading-snug text-[#8a8578]">
+                {prompt.text}
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
-  const map = {
-    cities: 'Type a city name, like "Paris" or "Barcelona"...',
-    duration: 'How many nights? e.g. "10 nights"...',
-    dates: 'When are you going? e.g. "September 2027"...',
-    routeShape: 'One city or multi-city trip?',
-    transport: 'Train, flight, or a mix?',
-    budget: "What's your budget style?",
-    travelers: "Who's coming along?",
-    interests: 'What do you love? Food, art, nature...',
-    accommodation: 'Hotels, Airbnb, hostels?',
-  };
-  return map[next.field] || 'Tell me more about your trip...';
+function GenerationPanel({
+  generationPhase,
+  itinerary,
+  generationError,
+  trip,
+  savedTripId,
+  localTripId,
+  confirmGeneration,
+  cancelFinalization,
+  retryGeneration,
+  resetGeneration,
+}) {
+  if (generationPhase === 'idle') return null;
+
+  if (generationPhase === 'confirming') {
+    return (
+      <div className="mx-3 mb-3 rounded-2xl border border-[#d9c58e] bg-[#fff8e5] p-4 shadow-sm">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a6f18]">
+          Ready to build
+        </p>
+        <h3 className="mt-1 font-display text-lg font-semibold text-[#2a2520]">
+          Generate the detailed day-by-day itinerary?
+        </h3>
+        <p className="mt-1 text-sm text-[#6a6459]">
+          I’ll turn the route, dates, pace, and preferences into daily activities, travel days, and meal-friendly time blocks.
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <button
+            type="button"
+            onClick={confirmGeneration}
+            className="rounded-full bg-[#2a2520] px-4 py-2 text-sm font-semibold text-white hover:bg-[#1a1510]"
+          >
+            Build itinerary
+          </button>
+          <button
+            type="button"
+            onClick={cancelFinalization}
+            className="rounded-full border border-[#d9c58e] bg-white px-4 py-2 text-sm font-semibold text-[#6a6459] hover:bg-[#fffaf0]"
+          >
+            Keep editing
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (generationPhase === 'generating') {
+    return (
+      <div className="mx-3 mb-3 rounded-2xl border border-[#e5e0d8] bg-white p-4">
+        <InlineItinerary itinerary={null} isLoading trip={trip} />
+      </div>
+    );
+  }
+
+  if (generationPhase === 'error') {
+    return (
+      <div className="mx-3 mb-3 rounded-2xl border border-red-200 bg-red-50 p-4">
+        <InlineItinerary
+          itinerary={null}
+          error={generationError || 'Generation failed.'}
+          trip={trip}
+          onRetry={retryGeneration}
+        />
+      </div>
+    );
+  }
+
+  if (generationPhase === 'complete') {
+    return (
+      <div className="mx-3 mb-3 rounded-2xl border border-emerald-200 bg-white p-4">
+        <InlineItinerary
+          itinerary={itinerary}
+          trip={trip}
+          onStartOver={resetGeneration}
+        />
+        <div className="mt-3 flex flex-wrap justify-center gap-2">
+          {savedTripId && (
+            <Link
+              href={`/itineraries/${savedTripId}`}
+              className="rounded-full bg-[#2a2520] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#1a1510]"
+            >
+              Open full itinerary
+            </Link>
+          )}
+          {localTripId && !savedTripId && (
+            <Link
+              href="/saved-trips"
+              className="rounded-full border border-emerald-200 bg-emerald-50 px-5 py-2.5 text-sm font-semibold text-emerald-800 hover:bg-emerald-100"
+            >
+              Saved locally in My Trips
+            </Link>
+          )}
+          <button
+            type="button"
+            onClick={resetGeneration}
+            className="rounded-full border border-[#e5e0d8] bg-white px-5 py-2.5 text-sm font-semibold text-[#6a6459] hover:bg-[#faf8f5]"
+          >
+            Keep editing route
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return null;
 }
 
 export default function PlannerColumn({
@@ -117,29 +256,58 @@ export default function PlannerColumn({
   tripState,
   isFinalized,
   gaps,
+  interaction: providedInteraction,
   error,
   generationPhase,
+  itinerary,
+  generationError,
+  savedTripId,
+  localTripId,
+  saveStatus,
+  saveError,
+  user,
+  isSupabaseConfigured,
   onSendMessage,
   onOptionSelect,
   onCitySelect,
-  onDaysChange,
-  onDateSelect,
+  onRoutePresetSelect,
+  onDatesPick,
+  onFlexibleMonth,
+  onFlexible,
   onDismissError,
   onRetry,
   onParsedItineraryConfirm,
   onParsedItineraryRefine,
+  confirmGeneration,
+  cancelFinalization,
+  retryGeneration,
+  resetGeneration,
+  onSaveNow,
+  onSignIn,
+  latestPlannerAction,
+  acceptSuggestedAllocation,
 }) {
   const scrollContainerRef = useRef(null);
 
-  const quickReplies = useMemo(
-    () => (isFinalized || isStreaming || pendingInput ? [] : deriveQuickReplies(gaps, trip, tripState)),
-    [gaps, trip, tripState, isFinalized, isStreaming, pendingInput]
+  const derivedInteraction = useMemo(
+    () => derivePlannerInteraction({
+      tripState,
+      gaps,
+      pendingInput,
+      messages,
+      generationPhase,
+      isStreaming,
+      isFinalized,
+    }),
+    [gaps, generationPhase, isFinalized, isStreaming, messages, pendingInput, tripState]
   );
-
-  const placeholder = useMemo(
-    () => derivePlaceholder(gaps, isStreaming, isFinalized, generationPhase),
-    [gaps, isStreaming, isFinalized, generationPhase]
-  );
+  const interaction = providedInteraction || derivedInteraction;
+  const quickReplies = interaction.quickReplies;
+  const placeholder = isStreaming
+    ? 'Thinking...'
+    : isFinalized
+      ? 'Trip finalized'
+      : interaction.copy.placeholder;
 
   const handleQuickReply = useCallback(
     (option) => {
@@ -154,21 +322,39 @@ export default function PlannerColumn({
       {/* Thin top border — no label needed */}
       <div className="border-b border-[#e5e0d8] shrink-0" />
 
+      <SaveStatusBar
+        saveStatus={saveStatus}
+        saveError={saveError}
+        savedTripId={savedTripId}
+        localTripId={localTripId}
+        user={user}
+        isSupabaseConfigured={isSupabaseConfigured}
+        onSaveNow={onSaveNow}
+        onSignIn={onSignIn}
+      />
+
       {/* Messages + suggestions — this div is the scroll container */}
       <div ref={scrollContainerRef} className="flex-1 overflow-y-auto min-h-0">
         <CompactMessageList
           messages={messages}
           isStreaming={isStreaming}
-          pendingInput={pendingInput}
+          pendingInput={interaction.pendingInput}
+          interaction={interaction}
           trip={trip}
           onOptionSelect={onOptionSelect}
           onCitySelect={onCitySelect}
-          onDaysChange={onDaysChange}
-          onDateSelect={onDateSelect}
+          onRoutePresetSelect={onRoutePresetSelect}
+          onDatesPick={onDatesPick}
+          onFlexibleMonth={onFlexibleMonth}
+          onFlexible={onFlexible}
           onParsedItineraryConfirm={onParsedItineraryConfirm}
           onParsedItineraryRefine={onParsedItineraryRefine}
           scrollContainerRef={scrollContainerRef}
         />
+
+        {interaction.showWelcome && (
+          <InitialPlannerWelcome onSendMessage={onSendMessage} />
+        )}
 
         {/* Inline error with retry */}
         {error && (
@@ -223,20 +409,43 @@ export default function PlannerColumn({
             </div>
           </div>
         )}
+
+        <GenerationPanel
+          generationPhase={generationPhase}
+          itinerary={itinerary}
+          generationError={generationError}
+          trip={trip}
+          savedTripId={savedTripId}
+          localTripId={localTripId}
+          confirmGeneration={confirmGeneration}
+          cancelFinalization={cancelFinalization}
+          retryGeneration={retryGeneration}
+          resetGeneration={resetGeneration}
+        />
       </div>
 
       {/* Chat input — visible unless actively generating */}
       {generationPhase !== 'generating' && (
-        <div className="px-3 py-3 shrink-0">
-          <CompactChatInput
-            onSend={onSendMessage}
-            disabled={isStreaming}
-            placeholder={placeholder}
+        <>
+          <div className="px-3 py-3 shrink-0">
+            <CompactChatInput
+              onSend={onSendMessage}
+              disabled={isStreaming}
+              placeholder={placeholder}
+            />
+          </div>
+          <PlannerNextActionBar
+            interaction={interaction}
+            latestPlannerAction={latestPlannerAction}
+            tripState={tripState}
+            savedTripId={savedTripId}
+            onSendMessage={onSendMessage}
+            onAcceptSuggestedAllocation={acceptSuggestedAllocation}
           />
-        </div>
+        </>
       )}
 
-      <PlannerProgressBar gaps={gaps} />
+      <PlannerProgressBar gaps={gaps} interaction={interaction} />
     </div>
   );
 }

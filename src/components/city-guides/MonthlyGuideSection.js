@@ -96,7 +96,7 @@ const DynamicMonthlyContent = ({ monthlyData, cityName, countryName }) => {
   );
 };
 
-const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, countryName }) => {
+const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, countryName, selectedMonth = null }) => {
   const [activeTooltip, setActiveTooltip] = useState(null);
 
   // Add click outside handler to close tooltip
@@ -278,6 +278,7 @@ const MonthlyGuideSection = ({ city, cityName, monthlyData, visitCalendar, count
         monthlyData={monthlyData}
         cityName={cityName}
         countryName={countryName}
+        selectedMonth={selectedMonth}
       />
 
       {/* Dynamic highlight grid disabled to match streamlined Monthly Guide layout */}

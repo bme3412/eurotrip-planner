@@ -7,6 +7,7 @@ import DateRangePopover from '@/components/common/DateRangePopover';
 import { useTripDates } from '@/hooks/useTripDates';
 import { getTravelStyleForPace } from '@/lib/planning/travelStyles';
 import { useAuth } from '@/contexts/AuthContext';
+import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
 import { cityById } from '@/generated/cityIndex';
 
 // ── Pace options (replaces slider) ───────────────────────────────────
@@ -72,7 +73,7 @@ function formatDateRange(start, end) {
 export default function PlanCityPage() {
   const params = useParams();
   const router = useRouter();
-  const { user } = useAuth();
+  const { session } = useAuth();
   const citySlug = params.city;
   const cityDisplay = capitalize(citySlug);
 
@@ -365,13 +366,12 @@ export default function PlanCityPage() {
       must_see: mustSee,
       hotel_location: null,
       prebookings: {},
-      user_id: user?.id || null,
     };
 
     try {
       const res = await fetch('/api/trips', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getSupabaseAuthHeaders(session, { 'Content-Type': 'application/json' }),
         body: JSON.stringify(payload),
       });
 

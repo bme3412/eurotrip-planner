@@ -89,8 +89,6 @@ export const loadMonthlyDataCached = async (country, cityName) => {
 
       if (loadedCount === 0) {
         console.warn(`No monthly data found for ${cityName} in ${country}`);
-      } else {
-        console.log(`Loaded ${loadedCount}/12 months of data for ${cityName}`);
       }
 
       monthlyDataCache.set(cacheKey, monthlyData);

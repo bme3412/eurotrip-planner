@@ -21,8 +21,6 @@ export const initialTripState = {
     endDate: null,
     flexibleMonth: null,
     flexibility: null, // 'fixed' | 'flexible_week' | 'flexible_month' | 'flexible_season'
-    arrivalTime: null,
-    departureTime: null,
   },
 
   budget: {
@@ -48,6 +46,16 @@ export const initialTripState = {
     pace: null, // 'relaxed' | 'balanced' | 'active'
     accommodationStyle: null, // 'hostel' | 'hotel' | 'airbnb' | 'luxury'
     weatherTolerance: null,
+  },
+
+  brief: {
+    intent: null,
+    targetRegions: [],
+    intentSignals: [],
+    hardConstraints: [],
+    negativeConstraints: [],
+    assumptions: [],
+    notes: [],
   },
 };
 
@@ -118,9 +126,31 @@ function sanitizeExtraction(extracted) {
   return { data, warnings };
 }
 
+function mergeUniqueStrings(existing = [], incoming = []) {
+  const next = [...existing];
+  for (const item of incoming || []) {
+    if (typeof item !== 'string') continue;
+    const trimmed = item.trim();
+    if (!trimmed) continue;
+    if (!next.some((value) => value.toLowerCase() === trimmed.toLowerCase())) {
+      next.push(trimmed);
+    }
+  }
+  return next;
+}
+
 export function mergeTripData(current, extracted) {
   const { data: sanitized, warnings } = sanitizeExtraction(extracted);
   const next = JSON.parse(JSON.stringify(current)); // deep clone
+  next.brief ||= {
+    intent: null,
+    targetRegions: [],
+    intentSignals: [],
+    hardConstraints: [],
+    negativeConstraints: [],
+    assumptions: [],
+    notes: [],
+  };
   // Use sanitized data for all merging below
   const ext = sanitized;
 
@@ -175,7 +205,33 @@ export function mergeTripData(current, extracted) {
   }
 
   if (ext.transportBookings && ext.transportBookings.length > 0) {
+    const norm = (s) => (typeof s === 'string' ? s.trim().toLowerCase() : '');
+    const routeNames = (next.route?.cities || [])
+      .map((c) => norm(c?.name))
+      .filter(Boolean);
+    const firstRouteCity = routeNames[0] || '';
+    const lastRouteCity = routeNames[routeNames.length - 1] || '';
+    const inRoute = (name) => Boolean(name) && routeNames.includes(name);
+
+    const inferDirection = (booking) => {
+      if (booking.direction === 'inbound' || booking.direction === 'outbound') {
+        return booking.direction;
+      }
+      const from = norm(booking.fromCity);
+      const to = norm(booking.toCity);
+      // Inbound: lands in a city that's on the route from somewhere off-route.
+      if (to && (to === firstRouteCity || (inRoute(to) && !inRoute(from)))) {
+        return 'inbound';
+      }
+      // Outbound: departs from a city on the route to somewhere off-route (or to last anchor).
+      if (from && (from === lastRouteCity || (inRoute(from) && !inRoute(to)))) {
+        return 'outbound';
+      }
+      return null;
+    };
+
     for (const booking of ext.transportBookings) {
+      const direction = inferDirection(booking);
       next.transport.bookings.push({
         id: bookingId(),
         type: booking.type || 'flight',
@@ -188,6 +244,7 @@ export function mergeTripData(current, extracted) {
         departureTime: booking.departureTime || null,
         arrivalDate: booking.arrivalDate || null,
         arrivalTime: booking.arrivalTime || null,
+        direction,
         raw: booking.raw || null,
       });
     }
@@ -199,8 +256,6 @@ export function mergeTripData(current, extracted) {
   if (ext.endDate) next.dates.endDate = ext.endDate;
   if (ext.flexibleMonth) next.dates.flexibleMonth = ext.flexibleMonth;
   if (ext.flexibility) next.dates.flexibility = ext.flexibility;
-  if (ext.arrivalTime) next.dates.arrivalTime = ext.arrivalTime;
-  if (ext.departureTime) next.dates.departureTime = ext.departureTime;
 
   // Derive totalNights from dates if both are set
   if (next.dates.startDate && next.dates.endDate && !next.dates.totalNights) {
@@ -244,6 +299,38 @@ export function mergeTripData(current, extracted) {
     if (p.pace) next.preferences.pace = p.pace;
     if (p.accommodationStyle) next.preferences.accommodationStyle = p.accommodationStyle;
     if (p.weatherTolerance) next.preferences.weatherTolerance = p.weatherTolerance;
+  }
+
+  // ── Travel brief ───────────────────────────────────────────────
+  // The brief captures natural-language planning signals that are useful
+  // even when they do not map cleanly to a traditional form field.
+  if (ext.tripIntent) {
+    next.brief.intent = ext.tripIntent;
+    next.brief.intentSignals = mergeUniqueStrings(next.brief.intentSignals, [ext.tripIntent]);
+  }
+
+  if (ext.targetRegions?.length) {
+    next.brief.targetRegions = mergeUniqueStrings(next.brief.targetRegions, ext.targetRegions);
+  }
+
+  if (ext.intentSignals?.length) {
+    next.brief.intentSignals = mergeUniqueStrings(next.brief.intentSignals, ext.intentSignals);
+  }
+
+  if (ext.hardConstraints?.length) {
+    next.brief.hardConstraints = mergeUniqueStrings(next.brief.hardConstraints, ext.hardConstraints);
+  }
+
+  if (ext.negativeConstraints?.length) {
+    next.brief.negativeConstraints = mergeUniqueStrings(next.brief.negativeConstraints, ext.negativeConstraints);
+  }
+
+  if (ext.assumptions?.length) {
+    next.brief.assumptions = mergeUniqueStrings(next.brief.assumptions, ext.assumptions);
+  }
+
+  if (ext.notes?.length) {
+    next.brief.notes = mergeUniqueStrings(next.brief.notes, ext.notes);
   }
 
   return next;

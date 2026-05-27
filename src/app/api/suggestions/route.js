@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { scoreCitiesV2 } from '@/lib/scoring/cityScoreV2';
+import { normalizeRankedCandidate } from '@/lib/discovery/rankedCandidate';
 import {
   getPrecomputedMonthlyScores,
   getCachedSuggestions,
@@ -186,15 +187,23 @@ async function scoreAndRespond(startDate, endDate, preferences, limit, version =
 
       // If flat list requested, return in old format with CDN caching
       if (flat) {
+        const items = tieredResults.map((item, index) => ({
+          ...item,
+          rankedCandidate: normalizeRankedCandidate(item, {
+            rank: index + 1,
+            startDate,
+            endDate,
+          }),
+        }));
         return NextResponse.json({
-          items: tieredResults,
+          items,
           meta: {
             startDate,
             endDate,
             travelerType: preferences.travelerType,
             budget: preferences.budget,
             originCity: preferences.originCity,
-            totalScored: tieredResults.length,
+            totalScored: items.length,
             scoringVersion,
           },
         }, {
@@ -260,14 +269,23 @@ async function scoreAndRespond(startDate, endDate, preferences, limit, version =
     }
 
     // Return in the shape the homepage ResultsGrid / ResultCard expects with CDN caching
+    const items = results.map((item, index) => ({
+      ...item,
+      rankedCandidate: normalizeRankedCandidate(item, {
+        rank: index + 1,
+        startDate,
+        endDate,
+      }),
+    }));
+
     return NextResponse.json({
-      items: results,
+      items,
       meta: {
         startDate,
         endDate,
         travelerType: preferences.travelerType,
         budget: preferences.budget,
-        totalScored: results.length,
+        totalScored: items.length,
         scoringVersion,
       },
     }, {
@@ -328,15 +346,23 @@ async function scoreWithV4(startDate, endDate, preferences, limit, debug, flatLi
   const manifest = await loadManifest();
   const cityIds = Object.keys(manifest.cities || {});
 
-  // Score all cities with full data loading
+  // Pre-load all city data in parallel (avoids sequential await in ScoreEngine loop)
+  const cityDataMap = new Map();
+  await Promise.all(
+    cityIds.map(id =>
+      loadFullCityData(manifest, id)
+        .then(data => { if (data) cityDataMap.set(id, data); })
+        .catch(() => {})
+    )
+  );
+
+  // Score all cities with pre-loaded data (Map lookup instead of disk I/O)
   const results = await engine.scoreCitiesForAPI({
-    cityIds,
+    cityIds: [...cityDataMap.keys()],
     startDate,
     endDate,
     originCity: preferences.originCity,
-    getCityData: async (cityId) => {
-      return loadFullCityData(manifest, cityId);
-    },
+    getCityData: (cityId) => Promise.resolve(cityDataMap.get(cityId)),
     limit,
     includeDebug: debug,
     flatList,

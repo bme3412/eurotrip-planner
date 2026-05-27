@@ -1,15 +1,106 @@
 'use client';
 
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 import { CitySearchInput } from '../conversation/InputArea';
 import { RouteSummaryWithData } from '../conversation/RouteSummary';
 import ParsedItineraryCard from '../conversation/ParsedItineraryCard';
+import { getFlagForCountry } from '@/utils/countryFlags';
+import { getFirstEuropeRoutePresets } from '@/lib/planning/routePresets';
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Strip lightweight markdown that the LLM tends to emit so chat reads as plain prose.
+// - **bold** / __bold__ / *italic* / _italic_ -> inner text
+// - Leading "- " or "* " bullets -> "• "
+// - Leading "#" / "##" headers -> bare text
+// - Inline `code` -> code (no backticks)
+// - Also patches missing whitespace after a sentence-ending number such as "June 30The flight" -> "June 30. The flight"
+function stripMarkdown(input) {
+  if (typeof input !== 'string' || !input) return input;
+  let out = input;
+  // Headers at line starts
+  out = out.replace(/^[ \t]{0,3}#{1,6}[ \t]+/gm, '');
+  // Bullets at line starts
+  out = out.replace(/^[ \t]{0,3}[-*][ \t]+/gm, '• ');
+  // Bold/italic emphasis (handle bold before italic so ** wins)
+  out = out.replace(/\*\*([^*\n]+)\*\*/g, '$1');
+  out = out.replace(/__([^_\n]+)__/g, '$1');
+  out = out.replace(/(^|\s)\*([^*\n]+)\*/g, '$1$2');
+  out = out.replace(/(^|\s)_([^_\n]+)_/g, '$1$2');
+  // Inline code
+  out = out.replace(/`([^`\n]+)`/g, '$1');
+  // Fix run-on like "June 30The flight" -> "June 30. The flight"
+  out = out.replace(/(\d)([A-Z][a-z])/g, '$1. $2');
+  return out;
+}
+
+function buildMentionCities(trip) {
+  const cities = [
+    trip?.startCity,
+    ...(trip?.stops || []),
+    trip?.endCity,
+  ].filter((city) => city?.name && city?.country);
+
+  const seen = new Set();
+  return cities
+    .filter((city) => {
+      const key = city.name.toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .sort((a, b) => b.name.length - a.name.length);
+}
+
+function FlaggedText({ content, mentionCities = [] }) {
+  if (!content || mentionCities.length === 0) return content;
+
+  const pattern = new RegExp(`\\b(${mentionCities.map((city) => escapeRegExp(city.name)).join('|')})\\b`, 'g');
+  const cityByName = new Map(mentionCities.map((city) => [city.name, city]));
+  const flaggedCities = new Set();
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = pattern.exec(content)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(content.slice(lastIndex, match.index));
+    }
+
+    const matchedText = match[0];
+    const city = cityByName.get(matchedText);
+    const previous = content.slice(Math.max(0, match.index - 4), match.index);
+    const alreadyFlagged = /[\u{1F1E6}-\u{1F1FF}]{2}\s*$/u.test(previous);
+    const cityKey = matchedText.toLowerCase();
+    const shouldShowFlag = !alreadyFlagged && !flaggedCities.has(cityKey);
+    if (shouldShowFlag) flaggedCities.add(cityKey);
+
+    parts.push(
+      <span key={`${match.index}-${matchedText}`}>
+        {shouldShowFlag && (
+          <span aria-hidden="true">{getFlagForCountry(city.country)} </span>
+        )}
+        {matchedText}
+      </span>
+    );
+    lastIndex = pattern.lastIndex;
+  }
+
+  if (lastIndex < content.length) {
+    parts.push(content.slice(lastIndex));
+  }
+
+  return parts;
+}
 
 // ── Compact AI message — card style with directional bubble ──────
-function CompactAIMessage({ content }) {
+function CompactAIMessage({ content, mentionCities }) {
   if (!content) return null;
+  const cleaned = stripMarkdown(content);
   return (
     <motion.div
       initial={{ opacity: 0, x: -4 }}
@@ -17,26 +108,28 @@ function CompactAIMessage({ content }) {
       className="py-1.5 max-w-[92%]"
     >
       <div className="rounded-2xl rounded-tl-md bg-[#faf8f5] border border-[#e5e0d8]/60 px-3.5 py-2.5">
-        <p className="text-[13px] text-[#4a4540] leading-relaxed whitespace-pre-wrap">{content}</p>
+        <p className="text-[13px] text-[#4a4540] leading-relaxed whitespace-pre-wrap">
+          <FlaggedText content={cleaned} mentionCities={mentionCities} />
+        </p>
       </div>
     </motion.div>
   );
 }
 
 // ── User message — right-aligned pill with directional corner ────
-function CompactUserMessage({ content }) {
+function CompactUserMessage({ content, mentionCities }) {
   if (!content) return null;
   return (
     <div className="flex justify-end py-1">
       <div className="bg-[#2a2520] text-white text-[12px] rounded-2xl rounded-tr-md px-3.5 py-2 max-w-[85%] leading-snug whitespace-pre-wrap">
-        {content}
+        <FlaggedText content={content} mentionCities={mentionCities} />
       </div>
     </div>
   );
 }
 
 // ── System event — centered pill style ───────────────────────────
-function CompactSystemEvent({ content }) {
+function CompactSystemEvent({ content, mentionCities }) {
   if (!content) return null;
   return (
     <motion.div
@@ -46,7 +139,7 @@ function CompactSystemEvent({ content }) {
     >
       <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f0ede6] text-[11px] text-[#6a6459] italic border border-[#e5e0d8]/50">
         <ArrowUp className="w-3 h-3 text-[#b5b0a8]" aria-hidden="true" />
-        {content}
+        <FlaggedText content={content} mentionCities={mentionCities} />
       </span>
     </motion.div>
   );
@@ -113,12 +206,16 @@ function TypingIndicator() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      role="status"
+      aria-live="polite"
+      aria-label="Trip planner is typing"
       className="py-2 max-w-[92%]"
     >
       <div className="rounded-2xl rounded-tl-md bg-[#faf8f5] border border-[#e5e0d8]/60 px-4 py-3 inline-flex items-center gap-1.5">
         {[0, 1, 2].map(i => (
           <motion.span
             key={i}
+            aria-hidden="true"
             className="w-1.5 h-1.5 rounded-full bg-[#c9a227]"
             animate={{ y: [0, -4, 0] }}
             transition={{
@@ -134,22 +231,288 @@ function TypingIndicator() {
   );
 }
 
+function RoutePresetCards({ onSelect }) {
+  const presets = getFirstEuropeRoutePresets();
+
+  return (
+    <div className="grid gap-2 py-1">
+      <p className="px-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8a8578]">
+        Pick a starter itinerary
+      </p>
+      {presets.map((preset, index) => (
+        <motion.button
+          key={preset.id}
+          type="button"
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.04 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={() => onSelect(preset)}
+          className="group rounded-2xl border border-[#e5e0d8] bg-white p-3 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#c9a227]/60 hover:bg-[#fffaf0] hover:shadow-md"
+        >
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <p className="font-display text-[15px] font-semibold text-[#2a2520]">
+                {preset.title}
+              </p>
+              <p className="mt-0.5 text-[12px] font-medium text-[#6a6459]">
+                {preset.cities.map((city) => `${getFlagForCountry(city.country)} ${city.name}`).join(' -> ')}
+              </p>
+            </div>
+            <span className="shrink-0 rounded-full bg-[#f3ead8] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#8a6a22]">
+              {preset.nights}n
+            </span>
+          </div>
+          <p className="mt-2 text-[12px] leading-relaxed text-[#6a6459]">
+            {preset.description}
+          </p>
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {preset.bestFor.map((tag) => (
+              <span key={tag} className="rounded-full bg-[#faf8f5] px-2 py-0.5 text-[10px] font-medium text-[#8a8578]">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </motion.button>
+      ))}
+    </div>
+  );
+}
+
+function PendingCityPicker({ pendingInput, onCitySelect }) {
+  const suggestions = (pendingInput.data?.suggestions || [])
+    .map((city) => (typeof city === 'string' ? { id: city, name: city } : city))
+    .filter((city) => city?.name);
+  const purpose = pendingInput.data?.purpose || 'stop';
+  const regionLabels = [...new Set(suggestions.map((city) => city.regionFocus).filter(Boolean))];
+  const suggestionLabel = regionLabels.length === 1
+    ? `Good bases for ${regionLabels[0]}`
+    : regionLabels.length > 1
+      ? `Recommended bases for ${regionLabels.join(' + ')}`
+      : 'Suggested stops';
+
+  return (
+    <div className="space-y-3 py-1">
+      {suggestions.length > 0 && (
+        <div className="rounded-2xl border border-[#e5e0d8] bg-white p-3 shadow-sm">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8a8578]">
+            {suggestionLabel}
+          </p>
+          <div className="mt-2 grid gap-2">
+            {suggestions.slice(0, 5).map((city) => (
+              <button
+                key={city.id || city.name}
+                type="button"
+                onClick={() => onCitySelect(city)}
+                className="group rounded-2xl border border-[#e5e0d8] bg-[#faf8f5] p-3 text-left transition hover:border-[#c9a227] hover:bg-white"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="font-display text-[15px] font-semibold text-[#2a2520]">
+                      {city.country ? `${getFlagForCountry(city.country)} ` : ''}
+                      {city.name}
+                      {city.country ? (
+                        <span className="font-sans text-sm font-normal text-[#8a8578]">, {city.country}</span>
+                      ) : null}
+                    </p>
+                    {city.reason && (
+                      <p className="mt-1 line-clamp-2 text-[12px] leading-relaxed text-[#6a6459]">
+                        {city.reason}
+                      </p>
+                    )}
+                    {(city.regionFocus || city.routeRole || city.transportNote) && (
+                      <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#8a8578]">
+                        {[city.regionFocus, city.routeRole, city.transportNote].filter(Boolean).join(' · ')}
+                      </p>
+                    )}
+                  </div>
+                  <span className="shrink-0 rounded-full bg-[#2a2520] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-white transition group-hover:bg-[#c9a227]">
+                    Add
+                  </span>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <CitySearchInput
+        purpose={purpose}
+        label={suggestions.length > 0 ? 'Search another city' : undefined}
+        placeholder={suggestions.length > 0 ? 'Search another city to add...' : undefined}
+        suggestions={[]}
+        onSelect={onCitySelect}
+      />
+    </div>
+  );
+}
+
+// ── Inline date picker (start/end + flexible month fallback) ─────
+const MONTH_NAMES = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+];
+
+function todayISO() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function formatLongDate(iso) {
+  if (!iso) return '';
+  const date = new Date(`${iso}T00:00:00`);
+  if (Number.isNaN(date.getTime())) return iso;
+  return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function InlineDatePicker({ pendingInput, currentDates, onDatesPick, onFlexibleMonth, onFlexible }) {
+  const data = pendingInput?.data || {};
+  const mode = data.mode || 'range';
+  const minDate = todayISO();
+
+  const initialStart = data.suggestedStart || currentDates?.startDate || '';
+  const initialEnd = data.suggestedEnd || currentDates?.endDate || '';
+
+  const [start, setStart] = useState(initialStart);
+  const [end, setEnd] = useState(initialEnd);
+  const [flexibleOpen, setFlexibleOpen] = useState(mode === 'month' || mode === 'flexible');
+
+  // If the picker mode changes (new pendingInput), reset the flexible toggle.
+  useEffect(() => {
+    setFlexibleOpen(mode === 'month' || mode === 'flexible');
+  }, [mode]);
+
+  const validRange = Boolean(start && end && end >= start);
+  const nights = validRange
+    ? Math.round(
+        (new Date(`${end}T00:00:00`) - new Date(`${start}T00:00:00`)) /
+        (1000 * 60 * 60 * 24)
+      )
+    : 0;
+
+  const handleConfirmRange = () => {
+    if (!validRange) return;
+    onDatesPick?.({ startDate: start, endDate: end });
+  };
+
+  const handlePickMonth = (month, year) => {
+    onFlexibleMonth?.({ month, year, label: `${month} ${year}` });
+  };
+
+  const now = new Date();
+  const currentMonth = now.getMonth();
+  const currentYear = now.getFullYear();
+  const upcomingMonths = Array.from({ length: 6 }, (_, i) => {
+    const monthIndex = (currentMonth + i + 1) % 12;
+    const year = currentYear + Math.floor((currentMonth + i + 1) / 12);
+    return { month: MONTH_NAMES[monthIndex], year };
+  });
+
+  return (
+    <div className="rounded-2xl border border-[#e5e0d8] bg-white p-3 shadow-sm">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8a8578]">
+        Pick travel dates
+      </p>
+      <p className="mt-0.5 text-[12px] leading-relaxed text-[#6a6459]">
+        Choose your start and end, or pick a flexible month and we&apos;ll refine later.
+      </p>
+
+      <div className="mt-3 grid grid-cols-2 gap-2">
+        <label className="flex flex-col gap-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#8a8578]">
+          Start
+          <input
+            type="date"
+            value={start}
+            min={minDate}
+            onChange={(event) => {
+              const value = event.target.value;
+              setStart(value);
+              if (end && value && end < value) setEnd('');
+            }}
+            className="rounded-lg border border-[#e5e0d8] bg-white px-2 py-1.5 text-sm font-medium text-[#2a2520] focus:border-[#c9a227] focus:outline-none focus:ring-2 focus:ring-[#c9a227]/15"
+          />
+        </label>
+        <label className="flex flex-col gap-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#8a8578]">
+          End
+          <input
+            type="date"
+            value={end}
+            min={start || minDate}
+            onChange={(event) => setEnd(event.target.value)}
+            className="rounded-lg border border-[#e5e0d8] bg-white px-2 py-1.5 text-sm font-medium text-[#2a2520] focus:border-[#c9a227] focus:outline-none focus:ring-2 focus:ring-[#c9a227]/15"
+          />
+        </label>
+      </div>
+
+      <div className="mt-3 flex flex-wrap items-center gap-2">
+        <button
+          type="button"
+          onClick={handleConfirmRange}
+          disabled={!validRange}
+          className="rounded-full bg-[#2a2520] px-3.5 py-1.5 text-xs font-semibold text-white transition hover:bg-[#1a1510] disabled:cursor-not-allowed disabled:bg-[#cdc6bc]"
+        >
+          {validRange
+            ? `Use ${formatLongDate(start)} → ${formatLongDate(end)} · ${nights}n`
+            : 'Pick start and end'}
+        </button>
+        <button
+          type="button"
+          onClick={() => setFlexibleOpen((value) => !value)}
+          className="rounded-full border border-[#e5e0d8] bg-white px-3 py-1.5 text-xs font-semibold text-[#6a6459] hover:border-[#c9a227]/40 hover:text-[#2a2520]"
+        >
+          {flexibleOpen ? 'Hide flexible options' : 'Flexible month instead'}
+        </button>
+      </div>
+
+      {flexibleOpen && (
+        <div className="mt-3 border-t border-[#f0ece3] pt-3">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#8a8578]">
+            Or pick a month
+          </p>
+          <div className="mt-1.5 flex flex-wrap gap-1.5">
+            {upcomingMonths.map(({ month, year }) => (
+              <button
+                key={`${month}-${year}`}
+                type="button"
+                onClick={() => handlePickMonth(month, year)}
+                className="rounded-full border border-[#e5e0d8] bg-[#faf8f5] px-2.5 py-1 text-[11px] font-semibold text-[#4a4540] hover:border-[#c9a227]/50 hover:bg-white"
+              >
+                {month} {year}
+              </button>
+            ))}
+            <button
+              type="button"
+              onClick={() => onFlexible?.()}
+              className="rounded-full border border-dashed border-[#d5d0c8] px-2.5 py-1 text-[11px] font-semibold text-[#8a8578] hover:border-[#8a8578] hover:text-[#2a2520]"
+            >
+              I&apos;m fully flexible
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── Main component ───────────────────────────────────────────────
 export default function CompactMessageList({
   messages,
   isStreaming,
   pendingInput,
+  interaction,
   trip,
   onOptionSelect,
   onCitySelect,
-  onDaysChange,
-  onDateSelect,
+  onRoutePresetSelect,
+  onDatesPick,
+  onFlexibleMonth,
+  onFlexible,
   onParsedItineraryConfirm,
   onParsedItineraryRefine,
   scrollContainerRef: externalScrollRef,
 }) {
   const bottomRef = useRef(null);
   const userScrolledUpRef = useRef(false);
+  const mentionCities = buildMentionCities(trip);
 
   // Track if user has manually scrolled up
   useEffect(() => {
@@ -165,15 +528,19 @@ export default function CompactMessageList({
     return () => container.removeEventListener('scroll', handleScroll);
   }, [externalScrollRef]);
 
-  // Auto-scroll to bottom when messages change (unless user scrolled up)
+  // Auto-scroll to bottom when messages or streaming state change
+  // (unless the user has scrolled up to read earlier messages).
   useEffect(() => {
-    if (!userScrolledUpRef.current) {
-      // Use requestAnimationFrame to ensure DOM has updated
-      requestAnimationFrame(() => {
-        bottomRef.current?.scrollIntoView({ behavior: messages.length <= 2 ? 'instant' : 'smooth', block: 'end' });
+    if (userScrolledUpRef.current) return;
+    // Use requestAnimationFrame to ensure DOM has updated.
+    // 'auto' is the spec-defined instant option; 'instant' is non-standard.
+    requestAnimationFrame(() => {
+      bottomRef.current?.scrollIntoView({
+        behavior: messages.length <= 2 ? 'auto' : 'smooth',
+        block: 'end',
       });
-    }
-  }, [messages, pendingInput]);
+    });
+  }, [messages, pendingInput, isStreaming]);
 
   const scrollToBottom = useCallback(() => {
     userScrolledUpRef.current = false;
@@ -182,10 +549,12 @@ export default function CompactMessageList({
 
   const renderPendingInput = () => {
     if (!pendingInput) return null;
+    const activeWidget = interaction?.activeWidget || 'none';
 
     switch (pendingInput.type) {
       case 'render_options':
       case 'show_options':
+        if (activeWidget !== 'route_options') return null;
         return (
           <PlannerOptions
             options={pendingInput.data.options}
@@ -193,31 +562,62 @@ export default function CompactMessageList({
           />
         );
       case 'render_city_picker':
-      case 'show_city_search':
-        return (
-          <div className="py-1">
-            <CitySearchInput
-              purpose={pendingInput.data.purpose}
-              suggestions={pendingInput.data.suggestions}
-              onSelect={onCitySelect}
-            />
-          </div>
+      case 'show_city_search': {
+        if (activeWidget !== 'city_picker') return null;
+        const hasSuggestions = (pendingInput.data?.suggestions || []).length > 0;
+        const brief = trip?.brief || {};
+        const hasBriefSignal = Boolean(
+          brief.intent ||
+          (brief.targetRegions || []).length ||
+          (brief.intentSignals || []).length ||
+          (brief.hardConstraints || []).length ||
+          (brief.negativeConstraints || []).length ||
+          (brief.notes || []).length
         );
+        const isColdStart =
+          pendingInput.data?.purpose === 'suggest_stops' &&
+          !trip?.startCity &&
+          !(trip?.stops || []).length &&
+          !trip?.endCity &&
+          !hasSuggestions &&
+          !hasBriefSignal;
+        if (isColdStart) {
+          return (
+            <RoutePresetCards onSelect={onRoutePresetSelect} />
+          );
+        }
+        return (
+          <PendingCityPicker
+            pendingInput={pendingInput}
+            onCitySelect={onCitySelect}
+          />
+        );
+      }
       case 'show_city_cards':
         return (
           <HeaderHint label="Tap a day in the trip schedule above and pick the city you want." />
         );
       case 'render_nights_allocator':
       case 'show_days_allocation':
-        return (
-          <HeaderHint label="Use the +/- nights buttons in the schedule header above to allocate days." />
-        );
+        // Night allocator widget is rendered at the top of the planner;
+        // no inline chat hint needed.
+        return null;
       case 'render_date_picker':
       case 'show_date_picker':
+        if (activeWidget !== 'date_picker') return null;
         return (
-          <HeaderHint label="Pick your dates in the trip schedule header above, or tell me when you want to travel." />
+          <div className="py-1">
+            <InlineDatePicker
+              pendingInput={pendingInput}
+              currentDates={trip?.dates || null}
+              onDatesPick={onDatesPick}
+              onFlexibleMonth={onFlexibleMonth}
+              onFlexible={onFlexible}
+            />
+          </div>
         );
       case 'show_route_summary':
+        if (activeWidget !== 'route_review') return null;
         return (
           <div className="py-1">
             <RouteSummaryWithData
@@ -231,6 +631,7 @@ export default function CompactMessageList({
           </div>
         );
       case 'parse_itinerary':
+        if (activeWidget !== 'route_review') return null;
         return (
           <div className="py-1">
             <ParsedItineraryCard
@@ -241,6 +642,7 @@ export default function CompactMessageList({
           </div>
         );
       case 'confirm_changes':
+        if (activeWidget !== 'route_review') return null;
         return (
           <div className="py-1 space-y-2">
             <div className="px-3 py-2.5 rounded-xl border border-amber-200 bg-amber-50">
@@ -272,6 +674,7 @@ export default function CompactMessageList({
           </div>
         );
       case 'render_trip_card':
+        if (activeWidget !== 'route_review') return null;
         return (
           <div className="py-1 px-3 rounded-xl border border-[#e5e0d8] bg-[#faf8f5] text-[12px] text-[#4a4540]">
             <p className="font-medium text-[#2a2520] mb-1">Trip updated</p>
@@ -306,11 +709,11 @@ export default function CompactMessageList({
             >
               {shouldShowDivider(message, prevMsg) && <StepDivider label="" />}
               {message.role === 'assistant' ? (
-                <CompactAIMessage content={message.content} />
+                <CompactAIMessage content={message.content} mentionCities={mentionCities} />
               ) : message.role === 'system_event' ? (
-                <CompactSystemEvent content={message.content} />
+                <CompactSystemEvent content={message.content} mentionCities={mentionCities} />
               ) : (
-                <CompactUserMessage content={message.content} />
+                <CompactUserMessage content={message.content} mentionCities={mentionCities} />
               )}
             </motion.div>
           );

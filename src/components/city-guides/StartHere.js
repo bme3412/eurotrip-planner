@@ -60,9 +60,8 @@ export default function StartHere({ cityName, cityData }) {
             setSelectedAirport(data.airports[0].code);
           }
         }
-      } catch (error) {
+      } catch {
         // Silently fail - city doesn't have getting-in.json yet
-        console.log(`No getting-in.json for ${cityKey}`);
       }
     };
 

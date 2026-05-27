@@ -9,7 +9,7 @@
     "build:scores": "node scripts/generateMonthlyScores.mjs",
     "start": "next start",
     "lint": "next lint",
-    "test": "node --test tests/*.test.mjs",
+    "test": "node --import ./tests/_support/register.mjs --test tests/*.test.mjs",
     "analyze": "ANALYZE=true next build",
     "prepare": "husky",
     "build:data": "node scripts/generateMonthlyIndex.mjs",

@@ -8,6 +8,7 @@ export default function AuthButton({ className = '' }) {
   const { user, loading, signInWithGoogle, signOut, isSupabaseConfigured } = useAuth();
   const [showMenu, setShowMenu] = useState(false);
   const [isSigningIn, setIsSigningIn] = useState(false);
+  const [authError, setAuthError] = useState(null);
   const menuRef = useRef(null);
 
   // Close menu when clicking outside
@@ -23,11 +24,14 @@ export default function AuthButton({ className = '' }) {
 
   const handleSignIn = async () => {
     setIsSigningIn(true);
+    setAuthError(null);
     setShowMenu(false);
     try {
-      await signInWithGoogle();
+      const { error } = await signInWithGoogle({ next: '/saved-trips' });
+      if (error) throw error;
     } catch (error) {
       console.error('Sign in error:', error);
+      setAuthError(error.message || 'Unable to start sign in.');
       setIsSigningIn(false);
     }
   };
@@ -179,6 +183,11 @@ export default function AuthButton({ className = '' }) {
               </button>
             </div>
           )}
+        </div>
+      )}
+      {authError && (
+        <div className="absolute right-0 mt-2 w-64 rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-700 shadow-sm">
+          {authError}
         </div>
       )}
     </div>

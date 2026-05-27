@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getPlacePhotoUrl, getPlaceDetails } from '../../../lib/google-places/index.js';
+import { classifyGoogleApiError } from '../../../lib/google-places/client.js';
 
 export const runtime = 'nodejs';
 
@@ -12,20 +13,33 @@ export async function GET(request) {
   const { searchParams } = new URL(request.url);
   let photoName = searchParams.get('name');
   const placeId = searchParams.get('placeId');
-  const width = parseInt(searchParams.get('w') || '800', 10);
-  const height = searchParams.get('h') ? parseInt(searchParams.get('h'), 10) : undefined;
+  const width = Math.min(1600, Math.max(100, parseInt(searchParams.get('w') || '800', 10) || 800));
+  const heightParam = searchParams.get('h');
+  const height = heightParam ? Math.min(1600, Math.max(100, parseInt(heightParam, 10) || 0)) : undefined;
 
   if (!photoName && placeId) {
     try {
       const details = await getPlaceDetails(placeId, 'photos');
       photoName = details?.photos?.[0]?.name;
     } catch (err) {
-      console.error('[google-photos] placeId resolution failed:', err.message);
+      const diagnostic = err?.diagnostic || classifyGoogleApiError({ status: err?.status, body: err?.body, message: err?.message });
+      console.error('[google-photos] placeId resolution failed:', diagnostic, err.message);
+      return NextResponse.json(
+        {
+          error: 'Photo lookup failed',
+          diagnostic,
+          status: err?.status || null,
+        },
+        { status: err?.status === 429 ? 429 : 502 }
+      );
     }
   }
 
   if (!photoName) {
-    return NextResponse.json({ error: 'No photo available' }, { status: 404 });
+    return NextResponse.json(
+      { error: 'No photo available', diagnostic: 'no_photo_available' },
+      { status: 404 }
+    );
   }
 
   try {
@@ -39,7 +53,15 @@ export async function GET(request) {
       },
     });
   } catch (err) {
-    console.error('[google-photos]', err.message);
-    return NextResponse.json({ error: 'Photo fetch failed' }, { status: 502 });
+    const diagnostic = err?.diagnostic || classifyGoogleApiError({ status: err?.status, body: err?.body, message: err?.message });
+    console.error('[google-photos]', diagnostic, err.message);
+    return NextResponse.json(
+      {
+        error: 'Photo fetch failed',
+        diagnostic,
+        status: err?.status || null,
+      },
+      { status: err?.status === 429 ? 429 : 502 }
+    );
   }
 }

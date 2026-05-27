@@ -42,16 +42,20 @@ function writeCache(key, items) {
  * @param {object} opts
  * @param {number} [opts.limit=5] - How many cities to return.
  * @param {number} [opts.windowDays=30] - Forward window for the score.
+ * @param {Array}  [opts.initialItems] - Server-fetched items. When provided,
+ *   the hook seeds state with these and skips the client fetch entirely.
  */
-export function useBestNow({ limit = 5, windowDays = 30 } = {}) {
-  // Always start with loading=true to avoid hydration mismatch
-  // (server has no sessionStorage, client may have cached data)
-  const [items, setItems] = useState(null);
-  const [loading, setLoading] = useState(true);
+export function useBestNow({ limit = 5, windowDays = 30, initialItems = null } = {}) {
+  const seeded = Array.isArray(initialItems) && initialItems.length > 0;
+  const [items, setItems] = useState(seeded ? initialItems.slice(0, limit) : null);
+  const [loading, setLoading] = useState(!seeded);
   const [error, setError] = useState(null);
   const [dates] = useState(() => ({ start: todayPlus(0), end: todayPlus(windowDays) }));
 
   useEffect(() => {
+    // Already have server-provided items — no need to fetch.
+    if (seeded) return;
+
     const cacheKey = `${windowDays}-${limit}`;
     const cached = readCache(cacheKey);
     if (cached && cached.length > 0) {
@@ -96,7 +100,7 @@ export function useBestNow({ limit = 5, windowDays = 30 } = {}) {
     return () => {
       cancelled = true;
     };
-  }, [limit, windowDays, dates]);
+  }, [limit, windowDays, dates, seeded]);
 
   return { items, loading, error, dates };
 }

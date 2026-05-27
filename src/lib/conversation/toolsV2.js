@@ -7,7 +7,9 @@
 
 const extract_trip_data = {
   name: 'extract_trip_data',
-  description: `Extract ALL recognizable trip data from the user's message. Parse cities, dates, durations, transport bookings, budget, traveler details, and preferences. Extract everything — do not wait for confirmation. Call this on EVERY user message with trip info.`,
+  description: `Extract HIGH-confidence trip data from the user's message: cities they explicitly named, concrete dates, transport bookings they pasted, durations and traveler counts they stated. Call this on every user message that contains specific trip info.
+
+Do NOT include MEDIUM-confidence extractions here — for phrases like "maybe Nice" or "possibly 4 nights", use confirm_changes first. Do NOT include LOW-confidence mentions (e.g. "I've heard good things about Lyon"). When in doubt, leave the field out and clarify in text.`,
   input_schema: {
     type: 'object',
     properties: {
@@ -83,6 +85,40 @@ const extract_trip_data = {
           weatherTolerance: { type: 'string', enum: ['any', 'warm_only', 'avoid_rain'] },
         },
       },
+      tripIntent: {
+        type: 'string',
+        description: 'The user’s overall trip purpose or vibe, e.g. "first Europe trip", "romantic food trip", "family-friendly rail adventure".',
+      },
+      targetRegions: {
+        type: 'array',
+        items: { type: 'string' },
+        description: 'Countries, regions, or broad destination areas the user wants considered but has not yet converted into specific city stops, e.g. "Albania", "Romania", "the Balkans". Do not put these in cities unless a specific city is named.',
+      },
+      intentSignals: {
+        type: 'array',
+        items: { type: 'string' },
+        description: 'Natural-language signals about what the trip should feel like or optimize for.',
+      },
+      hardConstraints: {
+        type: 'array',
+        items: { type: 'string' },
+        description: 'Non-negotiable requirements, e.g. "must be in Paris on June 12", "no flights", "needs wheelchair access".',
+      },
+      negativeConstraints: {
+        type: 'array',
+        items: { type: 'string' },
+        description: 'Things the user wants to avoid, e.g. "no early mornings", "avoid museums", "avoid extreme heat".',
+      },
+      assumptions: {
+        type: 'array',
+        items: { type: 'string' },
+        description: 'Useful assumptions explicitly stated by the user or clearly implied by their wording.',
+      },
+      notes: {
+        type: 'array',
+        items: { type: 'string' },
+        description: 'Other relevant planning notes that should remain visible in the travel brief.',
+      },
     },
   },
 };
@@ -116,17 +152,18 @@ const get_route_options = {
 
 const suggest_cities = {
   name: 'suggest_cities',
-  description: 'Get scored city suggestions between two cities or from a starting city.',
+  description: 'Get scored city suggestions near a starting city, optionally bounded by a destination. Use when the user asks "where should I go?" or wants stops between two cities.',
   input_schema: {
     type: 'object',
     properties: {
       fromCityId: { type: 'string' },
       toCityId: { type: 'string' },
+      startDate: { type: 'string', description: 'YYYY-MM-DD start date for ranking context' },
+      endDate: { type: 'string', description: 'YYYY-MM-DD end date for ranking context' },
       interests: { type: 'array', items: { type: 'string' } },
       budget: { type: 'string' },
+      pace: { type: 'string' },
       maxResults: { type: 'number' },
-      gapStart: { type: 'string', description: 'YYYY-MM-DD start of gap period (optional)' },
-      gapEnd: { type: 'string', description: 'YYYY-MM-DD end of gap period (optional)' },
     },
     required: ['fromCityId'],
   },
@@ -134,12 +171,11 @@ const suggest_cities = {
 
 const get_city_info = {
   name: 'get_city_info',
-  description: 'Get weather, events, and attractions summary for a city during specific dates.',
+  description: 'Get the canonical description, country, region, and tourism categories for a city in the database. Useful for justifying a suggestion or answering "what is this city like?". Does NOT return live weather or events.',
   input_schema: {
     type: 'object',
     properties: {
       cityId: { type: 'string' },
-      month: { type: 'string' },
     },
     required: ['cityId'],
   },
@@ -176,7 +212,7 @@ const render_trip_card = {
 
 const render_city_picker = {
   name: 'render_city_picker',
-  description: 'Display a city picker with optional suggestions.',
+  description: 'Display a city picker with optional suggestions. Use only when the user explicitly needs to add, replace, or choose a city. If assistant prose asks the user to choose specific cities, call this tool with those same suggestions so the UI can show preview map pins. For broad regions, include regionFocus and routeRole so the UI can show whether a city is a gateway, coastal base, castle base, etc. Do not use this when asking about trip vibe, interests, pace, budget, dates, or whether to draft.',
   input_schema: {
     type: 'object',
     properties: {
@@ -190,8 +226,14 @@ const render_city_picker = {
             name: { type: 'string' },
             country: { type: 'string' },
             highlight: { type: 'string' },
+            reason: { type: 'string' },
+            regionFocus: { type: 'string', description: 'Broad region this city helps satisfy, e.g. "Albanian Riviera" or "Romania".' },
+            routeRole: { type: 'string', description: 'Role in the route, e.g. "coastal base", "flight gateway", "castle base", "arrival hub".' },
+            nextStep: { type: 'string', description: 'What the planner should guide after selection, e.g. "assign coast nights" or "compare flights".' },
+            transportNote: { type: 'string', description: 'Brief transport implication to show or preserve after selection.' },
             travelTime: { type: 'string' },
             score: { type: 'number' },
+            rank: { type: 'number' },
           },
         },
       },
@@ -203,7 +245,7 @@ const render_city_picker = {
 
 const render_options = {
   name: 'render_options',
-  description: 'Display clickable option buttons for quick choices.',
+  description: 'Display clickable option buttons for quick non-city choices. Use for actual interaction points only, such as route style, transport preference, or draft/refine decisions.',
   input_schema: {
     type: 'object',
     properties: {
@@ -228,7 +270,7 @@ const render_options = {
 
 const render_date_picker = {
   name: 'render_date_picker',
-  description: 'Display a calendar date picker.',
+  description: 'Display a calendar date picker only when the next interaction is selecting dates or a flexible travel window.',
   input_schema: {
     type: 'object',
     properties: {
@@ -242,7 +284,7 @@ const render_date_picker = {
 
 const render_nights_allocator = {
   name: 'render_nights_allocator',
-  description: 'Display a per-city nights allocation widget.',
+  description: 'Display a per-city nights allocation widget only for already-confirmed cities. Do not use it for choosing new suggested stops.',
   input_schema: {
     type: 'object',
     properties: {

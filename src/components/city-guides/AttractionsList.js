@@ -84,6 +84,14 @@ const capitalizeCity = (name) => {
   return name.charAt(0).toUpperCase() + name.slice(1);
 };
 
+const normalizePlaceName = (value) => String(value || '')
+  .toLowerCase()
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .replace(/&/g, 'and')
+  .replace(/[^a-z0-9]+/g, ' ')
+  .trim();
+
 const AttractionsList = ({ attractions, categories, cityName, monthlyData, experiencesUrl = null, limit = Infinity }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [dateFilterType, setDateFilterType] = useState('none');
@@ -167,11 +175,15 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
       .then(r => r.ok ? r.json() : null)
       .then(data => {
         if (cancelled || !data?.attractions?.sites?.length) return;
-        googleMapRef.current = new Map(
-          data.attractions.sites
-            .filter(s => s.googlePlaceId)
-            .map(s => [s.name, s])
-        );
+        const nextMap = new Map();
+        data.attractions.sites
+          .filter(s => s.googlePlaceId)
+          .forEach((site) => {
+            if (site.name) nextMap.set(site.name, site);
+            const normalized = normalizePlaceName(site.name);
+            if (normalized) nextMap.set(normalized, site);
+          });
+        googleMapRef.current = nextMap;
         // Trigger a re-render so dataSource picks up the new map
         setEnrichedAttractions([]);
       })
@@ -185,18 +197,21 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
     const gMap = googleMapRef.current;
     if (!gMap || !items?.length) return items;
     return items.map(a => {
-      const g = gMap.get(a.name);
+      const g = gMap.get(a.name) || gMap.get(normalizePlaceName(a.name));
       if (!g) return a;
       return {
         ...a,
-        googlePlaceId: g.googlePlaceId,
-        googleRating: g.googleRating,
-        googleReviewCount: g.googleReviewCount,
-        googlePhotos: g.googlePhotos,
-        currentlyOpen: g.currentlyOpen,
-        googleOpeningHours: g.googleOpeningHours,
-        googleUrl: g.googleUrl,
-        googleEditorialSummary: g.googleEditorialSummary,
+        googlePlaceId: a.googlePlaceId || g.googlePlaceId,
+        googlePlaceName: a.googlePlaceName || g.googlePlaceName,
+        googleRating: a.googleRating ?? g.googleRating,
+        googleReviewCount: a.googleReviewCount ?? g.googleReviewCount,
+        googlePhotos: a.googlePhotos?.length ? a.googlePhotos : g.googlePhotos,
+        currentlyOpen: a.currentlyOpen ?? g.currentlyOpen,
+        googleOpeningHours: a.googleOpeningHours || g.googleOpeningHours,
+        googleUrl: a.googleUrl || g.googleUrl,
+        googleWebsite: a.googleWebsite || g.googleWebsite,
+        googleEditorialSummary: a.googleEditorialSummary || g.googleEditorialSummary,
+        googleLocation: a.googleLocation || g.googleLocation,
       };
     });
   }, []);
@@ -376,6 +391,17 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
             if (item?.googlePlaceKey) {
               const placeData = experiencePlaceIds[item.googlePlaceKey] || cityPlaceIds[item.googlePlaceKey];
               googlePlaceId = placeData?.placeId || null;
+            }
+            if (!googlePlaceId && item?.name) {
+              const exactPlaceData = cityPlaceIds[item.name];
+              if (exactPlaceData?.placeId) {
+                googlePlaceId = exactPlaceData.placeId;
+              } else {
+                const normalizedName = normalizePlaceName(item.name);
+                const normalizedMatch = Object.entries(cityPlaceIds)
+                  .find(([name]) => normalizePlaceName(name) === normalizedName);
+                googlePlaceId = normalizedMatch?.[1]?.placeId || null;
+              }
             }
 
             out.push({

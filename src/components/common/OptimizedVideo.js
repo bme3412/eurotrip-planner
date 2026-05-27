@@ -32,8 +32,8 @@ const OptimizedVideo = ({
     if (video && video.paused) {
       try {
         await video.play();
-      } catch (error) {
-        console.log('Autoplay prevented:', error);
+      } catch {
+        // Browser autoplay policy blocked the play
         setAutoplayBlocked(true);
       }
     }
@@ -45,8 +45,8 @@ const OptimizedVideo = ({
       try {
         await video.play();
         setAutoplayBlocked(false);
-      } catch (error) {
-        console.log('Play failed:', error);
+      } catch {
+        // Play failed (e.g. media error); leave UI state as-is
       }
     }
   };

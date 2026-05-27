@@ -12,6 +12,7 @@ import { calculateEaseScores, batchGetConnectionsToCity } from './easeScoreCalcu
 import { suggestDaysForCity } from './gapAnalyzer';
 import { batchGetDateScores, getScoreBadges } from './dateScorer';
 import { generateVisitDescription, generateShortTagline } from './generateVisitDescription';
+import { normalizeRankedCandidate } from '@/lib/discovery/rankedCandidate';
 import cityTraitsData from '@/lib/planning/config/cityTraits.json';
 import citiesData from '@/generated/cities.json';
 
@@ -528,8 +529,20 @@ export async function getSuggestionsForGap({
     };
   });
 
-  // Sort by total score
-  return suggestions.sort((a, b) => b.score - a.score);
+  // Sort by total score and attach the same ranked-candidate contract used by discovery.
+  return suggestions
+    .sort((a, b) => b.score - a.score)
+    .map((suggestion, index) => ({
+      ...suggestion,
+      rankedCandidate: normalizeRankedCandidate({
+        ...suggestion,
+        reason: suggestion.visitDescription || suggestion.shortTagline,
+      }, {
+        rank: index + 1,
+        startDate: gapStart,
+        endDate: gapEnd,
+      }),
+    }));
 }
 
 /**
@@ -579,55 +592,3 @@ export function getTopSuggestions(suggestions, count = 3, exclude = []) {
     .slice(0, count);
 }
 
-/**
- * Enrich suggestions with date-specific scores (weather, crowds, events)
- *
- * NOTE: With the new date-first scoring, this is now a fallback/no-op.
- * Date scores are fetched in getSuggestionsForGap() and used in primary scoring.
- * This function is kept for backward compatibility but simply returns
- * the already-enriched suggestions.
- *
- * @param {Array} suggestions - List of suggestions from getSuggestionsForGap
- * @param {string} gapStart - Start date (YYYY-MM-DD)
- * @param {string} gapEnd - End date (YYYY-MM-DD)
- * @returns {Promise<Array>} Suggestions (already enriched by getSuggestionsForGap)
- */
-export async function enrichSuggestionsWithDateScores(suggestions, gapStart, gapEnd) {
-  // With date-first scoring, suggestions are already enriched
-  // Just return as-is (no double-enrichment)
-  if (!suggestions.length || suggestions[0]?.dateEnriched) {
-    return suggestions;
-  }
-
-  // Fallback: If somehow not enriched, try to enrich now
-  try {
-    const requests = suggestions.map(s => ({
-      cityId: s.id,
-      startDate: gapStart,
-      endDate: gapEnd,
-    }));
-
-    const dateScores = await batchGetDateScores(requests);
-
-    return suggestions.map(suggestion => {
-      const dateScore = dateScores.get(suggestion.id);
-      if (!dateScore) return suggestion;
-
-      const badges = getScoreBadges(dateScore);
-
-      return {
-        ...suggestion,
-        dateScore: {
-          overall: dateScore.overall,
-          weather: badges.weather,
-          crowds: badges.crowds,
-          events: badges.events,
-        },
-        dateEnriched: true,
-      };
-    });
-  } catch (error) {
-    console.warn('[gapSuggester] Fallback enrichment failed:', error);
-    return suggestions;
-  }
-}
