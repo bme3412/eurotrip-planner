@@ -35,19 +35,17 @@ Save cities and trips, with cloud sync for logged-in users and localStorage for 
 
 ## Supporting Infrastructure
 
-### Custom Hooks (16)
+### Custom Hooks (14)
 - `useAgentContext` - Access agent conversation state
 - `useAgentStream` - Stream agent responses
 - `useAsyncData` - Async data loading pattern
 - `useBestNow` - Real-time best cities
 - `useDirectManipulation` - Direct trip manipulation
-- `useFilterState` - Map filter state management
 - `useHeroImage` - Hero image loading
 - `useItineraryGeneration` - Itinerary generation flow
 - `useMessages` - Conversation messages
 - `useMonthlyData` - Monthly city data loading
 - `usePerformanceOptimization` - Performance tracking
-- `useTransportAnimation` - Transport animation
 - `useTripDates` - Trip date management
 - `useTripPlannerAgent` - Agent-based planning
 - `useTripState` - Trip state management
@@ -82,10 +80,10 @@ Save cities and trips, with cloud sync for logged-in users and localStorage for 
 | Category | Count |
 |----------|-------|
 | Pages/Routes | 43 |
-| API Routes | 13 |
+| API Routes | 12 |
 | React Components | 158 |
-| Custom Hooks | 16 |
+| Custom Hooks | 14 |
 | Contexts | 3 |
 | Lib Modules | 70+ |
 | Utils | 8 |
-| **Total** | **~320** |
+| **Total** | **~317** |
