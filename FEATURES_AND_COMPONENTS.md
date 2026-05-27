@@ -9,29 +9,25 @@ Score 220 European cities based on your travel dates using a 6-factor algorithm 
 Detailed guides for all 220 cities with attractions, neighborhoods, food, weather, events, and transport.
 - **Key components:** `CityPageClient`, `CityOverview`, `AttractionsList`, `MonthlyVisitGuide`, `FoodDrinkGuide`, `NeighborhoodsList`, `TransportConnections`, `PhotoSpots`
 
-## 3. Trip Planning V1 (Wizard)
-Step-by-step wizard: pick city → set dates → customize preferences → generate itinerary.
-- **Key components:** `DateSelectionStep`, `CitySelectionStep`, `TripCustomizationStep`, `TravelFilterBox`
-
-## 4. Trip Planning V2 (Agentic / Conversational)
+## 3. Trip Planning (Agentic / Conversational)
 Natural language chat interface where an AI agent builds your trip interactively in a 3-column layout.
 - **Key components:** `ThreeColumnPlanner`, `PlannerColumn`, `CompactChatInput`, `CompactMessageList`, `RouteMapColumn`, `TripScheduleHeader`, `PlannerProgressBar`
 - **Backend:** `/api/plan/agent`, `/api/conversation` with 40+ tool definitions
 
-## 5. Generated Itineraries
+## 4. Generated Itineraries
 Day-by-day itineraries with time blocks, activities, restaurants, and opening hours.
 - **Key components:** `ItineraryClient`, `DayCard`, `DayNavigation`, `GenericTimeBlock`, `ItineraryMap`
 - **Export:** Google Calendar, iCal, PDF, shareable links
 
-## 6. Interactive Map Explorer
+## 5. Interactive Map Explorer
 Full-screen Mapbox map with all 220 cities, filterable by region/country/interest/tier.
 - **Key components:** `OptimizedMapComponent`, `FilterContainer`, `RankedListPanel`, `CityDetailsPopup`
 
-## 7. Auth & Accounts
+## 6. Auth & Accounts
 Supabase Auth with Google OAuth and email/password. Syncs wishlists and trips across devices.
 - **Key components:** `AuthButton`, `AuthContext`
 
-## 8. Wishlists & Saved Trips
+## 7. Wishlists & Saved Trips
 Save cities and trips, with cloud sync for logged-in users and localStorage for guests.
 - **Key components:** `SaveToTrips`, `TravelDataProvider`
 
@@ -87,9 +83,9 @@ Save cities and trips, with cloud sync for logged-in users and localStorage for 
 |----------|-------|
 | Pages/Routes | 43 |
 | API Routes | 13 |
-| React Components | 175 |
+| React Components | 158 |
 | Custom Hooks | 16 |
 | Contexts | 3 |
 | Lib Modules | 70+ |
 | Utils | 8 |
-| **Total** | **~340** |
+| **Total** | **~320** |

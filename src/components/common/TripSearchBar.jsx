@@ -395,23 +395,23 @@ export default function TripSearchBar({ value, onChange, onSubmit, className = "
         break;
 
       case "roundtrip":
-        // Navigate to trip planner with same start/end
+        // Navigate to chat planner with same start/end
         if (startCity) {
           params.set("start", startCity.id);
           params.set("end", startCity.id);
         }
         if (value?.start) params.set("startDate", value.start);
         if (value?.end) params.set("endDate", value.end);
-        router.push(`/plan?mode=wizard&${params.toString()}`);
+        router.push(`/plan?${params.toString()}`);
         break;
 
       case "openjaw":
-        // Navigate to trip planner with start/end pre-filled
+        // Navigate to chat planner with start/end pre-filled
         if (startCity) params.set("start", startCity.id);
         if (endCity) params.set("end", endCity.id);
         if (value?.start) params.set("startDate", value.start);
         if (value?.end) params.set("endDate", value.end);
-        router.push(`/plan?mode=wizard&${params.toString()}`);
+        router.push(`/plan?${params.toString()}`);
         break;
 
       default:
