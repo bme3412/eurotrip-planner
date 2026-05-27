@@ -87,7 +87,10 @@ export async function runPlannerLoop({
         hasDataTools = true;
         const result = await executeToolCall(block.name, block.input, tripState);
 
-        if (block.name === 'extract_trip_data' && result?.updatedState) {
+        if (
+          (block.name === 'extract_trip_data' || block.name === 'remove_cities') &&
+          result?.updatedState
+        ) {
           tripState = result.updatedState;
           send({ type: 'state_update', state: tripState });
         }

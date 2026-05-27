@@ -123,6 +123,29 @@ Do NOT include MEDIUM-confidence extractions here — for phrases like "maybe Ni
   },
 };
 
+const remove_cities = {
+  name: 'remove_cities',
+  description: `Remove one or more cities from the current route. Use this whenever the user drops, swaps, or replaces a city — do NOT simply omit dropped cities from extract_trip_data (extract_trip_data is additive and cannot remove cities).
+
+Examples of when to call remove_cities:
+- "actually skip Menton" → remove_cities({ cities: ["menton"] })
+- "replace Berlin with Prague" → remove_cities({ cities: ["berlin"] }) THEN extract_trip_data with Prague
+- "just Paris and Nice, drop the rest" → remove_cities for every other city currently on the route
+
+Pass canonical city ids when known, otherwise the city name. Matching is case-insensitive and tries id first, then name.`,
+  input_schema: {
+    type: 'object',
+    properties: {
+      cities: {
+        type: 'array',
+        items: { type: 'string' },
+        description: 'City ids or names to remove from route.cities.',
+      },
+    },
+    required: ['cities'],
+  },
+};
+
 const resolve_cities = {
   name: 'resolve_cities',
   description: 'Resolve city name strings to canonical IDs from the 220-city European database. Returns IDs, coordinates, country, and description.',
@@ -346,6 +369,7 @@ const confirm_changes = {
 export const TOOLS_V2 = [
   // Extraction
   extract_trip_data,
+  remove_cities,
   resolve_cities,
   // Data retrieval
   get_route_options,
@@ -366,6 +390,7 @@ export const TOOLS_V2 = [
 // (Claude needs to see the result to formulate the next response)
 export const DATA_TOOLS = new Set([
   'extract_trip_data',
+  'remove_cities',
   'resolve_cities',
   'get_route_options',
   'suggest_cities',

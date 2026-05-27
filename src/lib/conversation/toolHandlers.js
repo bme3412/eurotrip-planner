@@ -4,7 +4,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { mergeTripData } from './tripState';
+import { mergeTripData, removeCities } from './tripState';
 
 // Load cities data once at module level
 let _citiesData = null;
@@ -145,6 +145,27 @@ export function handleExtractTripData(input, tripState) {
   }
 
   return { updatedState: newState, extracted: normalizedInput };
+}
+
+/**
+ * Handle remove_cities tool call.
+ * Drops the named cities from route.cities and reflows order/roles/dates.
+ */
+export function handleRemoveCities(input, tripState) {
+  const refs = Array.isArray(input?.cities) ? input.cities : [];
+  const updatedState = removeCities(tripState, refs);
+  const removed = refs.filter((ref) => {
+    const norm = typeof ref === 'string' ? ref.trim().toLowerCase() : '';
+    if (!norm) return false;
+    return !updatedState.route.cities.some(
+      (c) => c.id?.toLowerCase() === norm || c.name?.toLowerCase() === norm,
+    );
+  });
+  return {
+    updatedState,
+    removed,
+    remaining: updatedState.route.cities.map((c) => ({ id: c.id, name: c.name })),
+  };
 }
 
 /**
@@ -361,6 +382,9 @@ export async function executeToolCall(toolName, toolInput, tripState) {
   switch (toolName) {
     case 'extract_trip_data':
       return handleExtractTripData(toolInput, tripState);
+
+    case 'remove_cities':
+      return handleRemoveCities(toolInput, tripState);
 
     case 'resolve_cities':
       return handleResolveCities(toolInput);

@@ -335,3 +335,92 @@ export function mergeTripData(current, extracted) {
 
   return next;
 }
+
+/**
+ * Remove one or more cities from the route.
+ *
+ * Matches by id first, then by case-insensitive name. Any city not found is
+ * silently ignored. After removal:
+ *  - Remaining cities are re-numbered with sequential `order`.
+ *  - First remaining city becomes role='start', last becomes role='end' (or
+ *    'start' alone if only one remains). Intermediate roles become 'stop'.
+ *  - If trip start date is known, arrival/departure dates are re-derived from
+ *    the new nights sequence so the day strip and itinerary stay consistent.
+ *  - Transport bookings whose fromCity/toCity referenced a removed city are
+ *    cleared (their direction inference no longer applies).
+ *
+ * Pure: returns a new tripState; never mutates input.
+ *
+ * @param {Object} current
+ * @param {Array<string>} cityRefs - city ids or names to remove
+ * @returns {Object} new tripState
+ */
+export function removeCities(current, cityRefs) {
+  if (!Array.isArray(cityRefs) || cityRefs.length === 0) return current;
+
+  const next = JSON.parse(JSON.stringify(current));
+  next.route ||= { cities: [] };
+  next.route.cities ||= [];
+
+  const norm = (s) => (typeof s === 'string' ? s.trim().toLowerCase() : '');
+  const refSet = new Set(cityRefs.map(norm).filter(Boolean));
+
+  const removed = new Set();
+  next.route.cities = next.route.cities.filter((c) => {
+    const id = norm(c.id);
+    const name = norm(c.name);
+    const match = (id && refSet.has(id)) || (name && refSet.has(name));
+    if (match) {
+      if (id) removed.add(id);
+      if (name) removed.add(name);
+      return false;
+    }
+    return true;
+  });
+
+  // Re-number order and re-derive start/stop/end roles.
+  next.route.cities.forEach((c, i) => {
+    c.order = i;
+    if (next.route.cities.length === 1) c.role = 'start';
+    else if (i === 0) c.role = 'start';
+    else if (i === next.route.cities.length - 1) c.role = 'end';
+    else c.role = 'stop';
+  });
+
+  // Re-derive arrival/departure dates from the trip start + remaining nights.
+  const startStr = next.dates?.startDate;
+  if (startStr) {
+    const start = new Date(`${startStr}T00:00:00`);
+    if (!Number.isNaN(start.getTime())) {
+      let cursor = 0;
+      const pad = (n) => String(n).padStart(2, '0');
+      const toIso = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+      for (const c of next.route.cities) {
+        const n = Number.isFinite(c.nights) && c.nights > 0 ? c.nights : 0;
+        if (n === 0) {
+          c.arrivalDate = null;
+          c.departureDate = null;
+          continue;
+        }
+        const arr = new Date(start.getTime());
+        arr.setDate(arr.getDate() + cursor);
+        const dep = new Date(start.getTime());
+        dep.setDate(dep.getDate() + cursor + n);
+        c.arrivalDate = toIso(arr);
+        c.departureDate = toIso(dep);
+        cursor += n;
+      }
+    }
+  }
+
+  // Drop transport bookings whose endpoints reference a removed city.
+  if (Array.isArray(next.transport?.bookings) && removed.size > 0) {
+    next.transport.bookings = next.transport.bookings.filter((b) => {
+      const from = norm(b?.fromCity);
+      const to = norm(b?.toCity);
+      return !(removed.has(from) || removed.has(to));
+    });
+  }
+
+  return next;
+}
