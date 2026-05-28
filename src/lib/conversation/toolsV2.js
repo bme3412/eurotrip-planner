@@ -146,6 +146,37 @@ Pass canonical city ids when known, otherwise the city name. Matching is case-in
   },
 };
 
+const set_accommodation = {
+  name: 'set_accommodation',
+  description: `Record or update accommodation/lodging for one city already on the route. Use when the user states or pastes lodging info: hotel name, address, check-in/out dates, confirmation number, or notes about the stay.
+
+Only set the fields the user actually mentioned. Passing an empty string or null clears that field. To clear all accommodation, pass null for every known field.
+
+Examples:
+- "I booked the Hotel Ritz in Paris from June 12 to June 15" →
+  set_accommodation({ cityRef: "paris", name: "Hotel Ritz", checkIn: "2025-06-12", checkOut: "2025-06-15" })
+- "the Barcelona Airbnb is on Carrer de Mallorca, confirmation BCN-9931" →
+  set_accommodation({ cityRef: "barcelona", address: "Carrer de Mallorca", confirmationNumber: "BCN-9931" })
+
+Match cityRef by canonical id when known, otherwise the city name. The city must already be on the route — if it is not, call extract_trip_data first.`,
+  input_schema: {
+    type: 'object',
+    properties: {
+      cityRef: {
+        type: 'string',
+        description: 'City id or name. Must reference a city already on route.cities.',
+      },
+      name: { type: 'string', description: 'Hotel / lodging name. Empty string clears.' },
+      address: { type: 'string', description: 'Street address. Empty string clears.' },
+      checkIn: { type: 'string', description: 'Check-in date YYYY-MM-DD. Empty string clears.' },
+      checkOut: { type: 'string', description: 'Check-out date YYYY-MM-DD. Empty string clears.' },
+      confirmationNumber: { type: 'string', description: 'Booking confirmation. Empty string clears.' },
+      notes: { type: 'string', description: 'Free-form notes about the stay. Empty string clears.' },
+    },
+    required: ['cityRef'],
+  },
+};
+
 const resolve_cities = {
   name: 'resolve_cities',
   description: 'Resolve city name strings to canonical IDs from the 220-city European database. Returns IDs, coordinates, country, and description.',
@@ -370,6 +401,7 @@ export const TOOLS_V2 = [
   // Extraction
   extract_trip_data,
   remove_cities,
+  set_accommodation,
   resolve_cities,
   // Data retrieval
   get_route_options,
@@ -391,6 +423,7 @@ export const TOOLS_V2 = [
 export const DATA_TOOLS = new Set([
   'extract_trip_data',
   'remove_cities',
+  'set_accommodation',
   'resolve_cities',
   'get_route_options',
   'suggest_cities',

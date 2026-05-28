@@ -97,7 +97,9 @@ export async function runPlannerLoop({
         const result = await executeToolCall(block.name, block.input, tripState);
 
         if (
-          (block.name === 'extract_trip_data' || block.name === 'remove_cities') &&
+          (block.name === 'extract_trip_data' ||
+            block.name === 'remove_cities' ||
+            block.name === 'set_accommodation') &&
           result?.updatedState
         ) {
           const stepDiff = diffRoute(tripState, result.updatedState);

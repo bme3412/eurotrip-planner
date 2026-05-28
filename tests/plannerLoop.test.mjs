@@ -430,6 +430,87 @@ test('no state-changes block is appended when no data tool mutated state', async
     'a read-only tool call must not synthesize a state-changes block');
 });
 
+test('set_accommodation: updates state and emits state_update', async () => {
+  const startState = {
+    route: {
+      cities: [
+        { id: 'paris', name: 'Paris', order: 0, role: 'start', nights: 3 },
+      ],
+    },
+    dates: {},
+    transport: { bookings: [] },
+    budget: {},
+    travelers: {},
+    preferences: { interests: [] },
+    brief: { intent: '', targetRegions: [], intentSignals: [], hardConstraints: [], negativeConstraints: [], assumptions: [], notes: [] },
+  };
+  const afterState = {
+    ...startState,
+    route: {
+      cities: [
+        {
+          id: 'paris',
+          name: 'Paris',
+          order: 0,
+          role: 'start',
+          nights: 3,
+          accommodation: { name: 'Hotel Ritz', checkIn: '2025-06-12', checkOut: '2025-06-15' },
+        },
+      ],
+    },
+  };
+
+  const client = makeClient([
+    {
+      content: [
+        {
+          type: 'tool_use',
+          id: 'sa1',
+          name: 'set_accommodation',
+          input: {
+            cityRef: 'paris',
+            name: 'Hotel Ritz',
+            checkIn: '2025-06-12',
+            checkOut: '2025-06-15',
+          },
+        },
+      ],
+      stop_reason: 'tool_use',
+    },
+    {
+      textDeltas: ['Saved.'],
+      content: [{ type: 'text', text: 'Saved.' }],
+      stop_reason: 'end_turn',
+    },
+  ]);
+  const { events, send } = collectSend();
+
+  const fakeExecute = async (name, input, state) => {
+    assert.equal(name, 'set_accommodation');
+    assert.equal(input.name, 'Hotel Ritz');
+    assert.equal(state.route.cities[0].id, 'paris');
+    return { applied: true, updatedState: afterState, cityRef: 'paris', accommodation: afterState.route.cities[0].accommodation };
+  };
+
+  const result = await runPlannerLoop({
+    client,
+    initialMessages: [{ role: 'user', content: 'I booked Hotel Ritz in Paris June 12-15' }],
+    tripState: startState,
+    send,
+    executeToolCall: fakeExecute,
+  });
+
+  assert.equal(result.tripState.route.cities[0].accommodation.name, 'Hotel Ritz');
+  const stateUpdates = events.filter((e) => e.type === 'state_update');
+  assert.equal(stateUpdates.length, 1);
+  assert.equal(stateUpdates[0].state.route.cities[0].accommodation.name, 'Hotel Ritz');
+
+  // The next call's Route: line must include the hotel so the agent can
+  // confirm or edit by reading the brief.
+  const secondDynamic = client.calls[1].params.system[1].text;
+  assert.match(secondDynamic, /Route:.*Paris.*Hotel Ritz/);
+});
+
 test('UI tool (confirm_changes) emits synthetic tool_result and continues', async () => {
   const client = makeClient([
     {
