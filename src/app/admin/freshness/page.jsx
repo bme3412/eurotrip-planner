@@ -8,16 +8,32 @@
  * The page returns 404 in production so it never ships to users. To enable
  * locally, run `npm run dev` and visit /admin/freshness.
  */
+import { promises as fs } from 'node:fs';
+import path from 'node:path';
 import { notFound } from 'next/navigation';
-import freshness from '@/generated/freshness.json';
 import FreshnessTable from './FreshnessTable';
 
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Admin · Freshness' };
 
-export default function FreshnessPage() {
+async function loadFreshness() {
+  try {
+    const file = await fs.readFile(
+      path.join(process.cwd(), 'src', 'generated', 'freshness.json'),
+      'utf-8'
+    );
+    return JSON.parse(file);
+  } catch {
+    // File is produced by `npm run build:content`; absence (e.g. CI builds
+    // that skip the content stage) should not fail the build.
+    return {};
+  }
+}
+
+export default async function FreshnessPage() {
   if (process.env.NODE_ENV === 'production') notFound();
 
+  const freshness = await loadFreshness();
   const rows = Object.entries(freshness)
     .map(([citySlug, value]) => ({
       citySlug,
