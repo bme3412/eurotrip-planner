@@ -304,6 +304,132 @@ test('abort: throws bubble up to caller (simulated via callWithRetry)', async ()
   assert.ok(!events.some((e) => e.type === 'done'));
 });
 
+test('remove_cities surfaces a Recent State Changes block on the next call', async () => {
+  // Regression for the false-removal failure mode: the model previously had
+  // to rely on prose ("look at the Route: line"). Now, when remove_cities
+  // mutates state, the server appends a "Recent State Changes" block to
+  // the system prompt so the model cannot hallucinate a removal that did
+  // not happen.
+  const startState = {
+    route: {
+      cities: [
+        { id: 'paris', name: 'Paris', order: 0, role: 'start', nights: 3 },
+        { id: 'menton', name: 'Menton', order: 1, role: 'stop', nights: 2 },
+      ],
+    },
+    dates: {},
+    transport: { bookings: [] },
+    budget: {},
+    travelers: {},
+    preferences: { interests: [] },
+    brief: { intent: '', targetRegions: [], intentSignals: [], hardConstraints: [], negativeConstraints: [], assumptions: [], notes: [] },
+  };
+  const afterRemoveState = {
+    ...startState,
+    route: {
+      cities: [
+        { id: 'paris', name: 'Paris', order: 0, role: 'start', nights: 3 },
+      ],
+    },
+  };
+
+  const client = makeClient([
+    {
+      content: [
+        {
+          type: 'tool_use',
+          id: 'rm1',
+          name: 'remove_cities',
+          input: { cities: ['Menton'] },
+        },
+      ],
+      stop_reason: 'tool_use',
+    },
+    {
+      textDeltas: ['Menton is off the route.'],
+      content: [{ type: 'text', text: 'Menton is off the route.' }],
+      stop_reason: 'end_turn',
+    },
+  ]);
+  const { events, send } = collectSend();
+
+  const fakeExecute = async (name) => {
+    assert.equal(name, 'remove_cities');
+    return { updatedState: afterRemoveState, removed: ['Menton'], remaining: [{ id: 'paris', name: 'Paris' }] };
+  };
+
+  await runPlannerLoop({
+    client,
+    initialMessages: [{ role: 'user', content: 'drop Menton' }],
+    tripState: startState,
+    send,
+    executeToolCall: fakeExecute,
+  });
+
+  // The dynamic block is index 1 in the system content array. The first
+  // call must not contain a state-changes section; the second must.
+  const firstDynamic = client.calls[0].params.system[1].text;
+  assert.ok(!firstDynamic.includes('## Recent State Changes'),
+    'first turn must not yet contain a state-changes block');
+
+  const secondDynamic = client.calls[1].params.system[1].text;
+  assert.match(secondDynamic, /## Recent State Changes/);
+  assert.match(secondDynamic, /Menton/);
+  assert.match(secondDynamic, /server-derived/);
+
+  // And state_update was emitted so the client UI knows about the removal.
+  assert.ok(events.some((e) => e.type === 'state_update'));
+});
+
+test('no state-changes block is appended when no data tool mutated state', async () => {
+  // UI-only / read-only tool turns must not produce a spurious changes block.
+  const startState = {
+    route: {
+      cities: [
+        { id: 'paris', name: 'Paris', order: 0, role: 'start', nights: 3 },
+      ],
+    },
+    dates: {},
+    transport: { bookings: [] },
+    budget: {},
+    travelers: {},
+    preferences: { interests: [] },
+    brief: { intent: '', targetRegions: [], intentSignals: [], hardConstraints: [], negativeConstraints: [], assumptions: [], notes: [] },
+  };
+
+  const client = makeClient([
+    {
+      content: [
+        {
+          type: 'tool_use',
+          id: 'ci',
+          name: 'get_city_info',
+          input: { cityId: 'paris' },
+        },
+      ],
+      stop_reason: 'tool_use',
+    },
+    {
+      textDeltas: ['ok'],
+      content: [{ type: 'text', text: 'ok' }],
+      stop_reason: 'end_turn',
+    },
+  ]);
+  const { send } = collectSend();
+
+  await runPlannerLoop({
+    client,
+    initialMessages: [{ role: 'user', content: 'tell me about paris' }],
+    tripState: startState,
+    send,
+    executeToolCall: async () => ({ description: 'Paris is...' }),
+  });
+
+  const secondDynamic = client.calls[1].params.system[1].text;
+  assert.ok(!secondDynamic.includes('## Recent State Changes'),
+    'a read-only tool call must not synthesize a state-changes block');
+});
+
 test('UI tool (confirm_changes) emits synthetic tool_result and continues', async () => {
   const client = makeClient([
     {

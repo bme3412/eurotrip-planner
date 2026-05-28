@@ -44,7 +44,7 @@ When suggesting concrete cities, keep prose short: explain the route logic and w
 - extract_trip_data: On EVERY user message with trip info, but ONLY include HIGH-confidence fields. Include tripIntent, intentSignals, hardConstraints, negativeConstraints, assumptions, and notes when the user clearly gives them. For medium-confidence, use confirm_changes first. NOTE: extract_trip_data is additive — it can add and update cities but never removes them. To drop a city from the route, call remove_cities.
 - remove_cities: Call this WHENEVER the user drops, skips, swaps out, or replaces a city. Omitting a city from extract_trip_data does NOT remove it from the route. Examples: "skip Menton", "actually drop Berlin", "just Paris and Nice, lose the rest", "replace Berlin with Prague" (call remove_cities for Berlin, then extract_trip_data for Prague). Pass city ids when known, otherwise names.
 
-  CRITICAL: Before claiming any city has been removed, look at the "Route:" line in the Living Travel Brief context for this turn. If the city is listed there, it is STILL on the route regardless of what you said in any earlier turn. Earlier prose about removal does not modify trip state. The ONLY way to remove a city is to call remove_cities on the current turn. If the user asks to drop a city that you previously claimed to have removed but it is still in the Route line, call remove_cities now and acknowledge that the earlier removal did not actually go through.
+  Ground truth: the "Route:" line and the "Recent State Changes" block (when present) are server-derived. They override anything you said in earlier prose. If a city is still in the Route line, it has NOT been removed — call remove_cities now.
 - Countries and broad regions are intent, not route stops. Put "Albania", "Romania", "Balkans", etc. in targetRegions or notes unless the user names a specific city. Only put concrete cities such as Tirana, Bucharest, Brasov, Paris, or Rome in cities.
 - resolve_cities: Only if extract_trip_data failed to resolve a city to an id (e.g. ambiguous or unusual spelling). extract_trip_data already auto-resolves known cities — don't call resolve_cities just to double-check.
 - suggest_cities: When the user asks "where should I go?" or wants stops between cities.
@@ -176,25 +176,28 @@ Never call finalize_trip without user confirmation.`;
  * Build the full system prompt with current trip context.
  * Returns a plain string — convenient for logs and tests.
  */
-export function buildFullPrompt(tripState) {
+export function buildFullPrompt(tripState, stateChangesBlock = '') {
   const context = buildAgentContext(tripState);
-  return `${SYSTEM_PROMPT_V2}\n\n${context}`;
+  const extra = stateChangesBlock ? `\n\n${stateChangesBlock}` : '';
+  return `${SYSTEM_PROMPT_V2}\n\n${context}${extra}`;
 }
 
 /**
  * Build the system prompt as an array of content blocks suitable for
  * Anthropic's prompt-caching API. The static block is marked cacheable;
- * the dynamic block (per-trip context + tool history) is not.
+ * the dynamic block (per-trip context + tool history + state changes) is not.
  *
  * This typically saves 40-70% of input cost per turn on long conversations.
  *
  * @param {object} tripState
  * @param {string} [toolHistoryBlock] optional appended recent-tool-history text
+ * @param {string} [stateChangesBlock] optional server-derived diff summary
  * @returns {Array<{type: 'text', text: string, cache_control?: object}>}
  */
-export function buildFullPromptBlocks(tripState, toolHistoryBlock = '') {
-  const dynamic = buildAgentContext(tripState) +
-    (toolHistoryBlock ? `\n\n${toolHistoryBlock}` : '');
+export function buildFullPromptBlocks(tripState, toolHistoryBlock = '', stateChangesBlock = '') {
+  const parts = [buildAgentContext(tripState)];
+  if (toolHistoryBlock) parts.push(toolHistoryBlock);
+  if (stateChangesBlock) parts.push(stateChangesBlock);
   return [
     {
       type: 'text',
@@ -203,7 +206,7 @@ export function buildFullPromptBlocks(tripState, toolHistoryBlock = '') {
     },
     {
       type: 'text',
-      text: dynamic,
+      text: parts.join('\n\n'),
     },
   ];
 }
