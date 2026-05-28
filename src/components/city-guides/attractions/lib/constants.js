@@ -30,7 +30,7 @@ export const SORT_OPTIONS = [
 
 export const CURATED_FILTERS = [
   { id: 'all', label: 'All', icon: '✨', description: 'Show all experiences' },
-  { id: 'must-do', label: 'Must Do', icon: '⭐', description: 'Essential Paris experiences' },
+  { id: 'must-do', label: 'Must Do', icon: '⭐', description: 'Essential experiences' },
   { id: 'free', label: 'Free', icon: '🆓', description: 'No cost to enjoy' },
   { id: 'summer', label: 'Best in Summer', icon: '☀️', description: 'Perfect for warm weather' },
   { id: 'winter', label: 'Best in Winter', icon: '❄️', description: 'Cozy indoor activities' },
@@ -39,7 +39,7 @@ export const CURATED_FILTERS = [
 ];
 
 export const SCORE_FACTORS = [
-  { key: 'uniqueness_to_paris', label: 'Uniqueness to Paris', weight: 15, icon: '✨' },
+  { key: 'uniqueness', label: 'Uniqueness to {city}', weight: 15, icon: '✨' },
   { key: 'visitor_experience_quality', label: 'Experience Quality', weight: 15, icon: '⭐' },
   { key: 'cultural_historical_significance', label: 'Cultural Significance', weight: 12, icon: '🏛️' },
   { key: 'value_for_money', label: 'Value for Money', weight: 12, icon: '💰' },

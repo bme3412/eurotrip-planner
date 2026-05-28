@@ -49,6 +49,11 @@ export function useExperienceData({ experiencesUrl, cityName, limit = Infinity }
           arr.forEach((item, idx) => {
             const total = item?.scores?.total_score ?? 0;
             const { total_score, ...factors } = item?.scores || {};
+            const uniquenessKey = Object.keys(factors).find((k) => k.startsWith('uniqueness_to_'));
+            if (uniquenessKey && factors.uniqueness == null) {
+              factors.uniqueness = factors[uniquenessKey];
+              delete factors[uniquenessKey];
+            }
             const factorScores = factors;
             const themes = Array.isArray(item?.themes)
               ? item.themes.filter(Boolean).map((t) => String(t).toLowerCase())

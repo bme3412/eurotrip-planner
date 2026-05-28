@@ -250,6 +250,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
                 indexForPriority={index}
                 isFavorite={isFavorite}
                 onToggleFavorite={toggleFavorite}
+                cityName={displayCityName}
               />
             ))}
           </div>
@@ -295,6 +296,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
                   indexForPriority={highlightAttractions.length + index}
                   isFavorite={isFavorite}
                   onToggleFavorite={toggleFavorite}
+                  cityName={displayCityName}
                 />
               ))}
             </div>

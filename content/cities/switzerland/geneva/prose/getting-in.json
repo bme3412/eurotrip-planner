@@ -1,0 +1,304 @@
+{
+  "city": "geneva",
+  "cityCenter": {
+    "name": "Central Geneva",
+    "coordinates": [
+      6.1432,
+      46.2044
+    ],
+    "description": "Geneva harbour and Old Town around Pont du Mont-Blanc and Place du Molard"
+  },
+  "airports": [
+    {
+      "code": "GVA",
+      "name": "Genève Aéroport",
+      "fullName": "Geneva Airport (Cointrin)",
+      "coordinates": [
+        6.1090,
+        46.2381
+      ],
+      "distanceKm": 4,
+      "terminals": "T1 (Main), T2 (charter/winter overflow)",
+      "routes": [
+        {
+          "id": "gva-leman-express",
+          "type": "train",
+          "name": "Léman Express / CFF",
+          "icon": "train",
+          "color": "#E2001A",
+          "duration": {
+            "min": 7,
+            "max": 10
+          },
+          "frequency": "Every 10-15 min",
+          "price": {
+            "amount": 3.0,
+            "currency": "CHF",
+            "note": "Free with the complimentary 80-min TPG/CFF ticket from the machine in baggage claim"
+          },
+          "destination": "Gare de Genève-Cornavin",
+          "operatingHours": "5:00am - 12:30am",
+          "tips": "Pick up a free Geneva Transport Unireso ticket from the red machine just before baggage claim — valid 80 minutes on all TPG buses, trams, trains, and Mouettes within the city. Hotel guests also get the free 'Geneva Transport Card' for the whole stay.",
+          "pros": [
+            "Fastest option (7 minutes)",
+            "Free with airport voucher",
+            "Connects to all Léman Express lines"
+          ],
+          "cons": [
+            "Cornavin is 1km from the Old Town — short walk or onward tram",
+            "Crowded at rush hours and with skis"
+          ],
+          "waypoints": [
+            [
+              6.1090,
+              46.2381
+            ],
+            [
+              6.1422,
+              46.2099
+            ]
+          ]
+        },
+        {
+          "id": "gva-tpg-bus-5",
+          "type": "bus",
+          "name": "TPG Bus 5",
+          "icon": "bus",
+          "color": "#F26522",
+          "duration": {
+            "min": 20,
+            "max": 30
+          },
+          "frequency": "Every 10 min",
+          "price": {
+            "amount": 3.0,
+            "currency": "CHF",
+            "note": "Free with airport Unireso voucher / Geneva Transport Card"
+          },
+          "destination": "Place de Neuve / Hôpital",
+          "operatingHours": "5:00am - 12:30am",
+          "tips": "Useful if your hotel is in Pâquis, Place des Nations, or near the UN — bus 5 runs the full lakefront diagonal across the city.",
+          "pros": [
+            "Direct to Pâquis and UN quarter",
+            "Free with airport voucher",
+            "Stops near many hotels"
+          ],
+          "cons": [
+            "Slower than the train",
+            "Subject to traffic"
+          ],
+          "waypoints": [
+            [
+              6.1090,
+              46.2381
+            ],
+            [
+              6.1369,
+              46.2179
+            ],
+            [
+              6.1419,
+              46.2017
+            ]
+          ]
+        },
+        {
+          "id": "gva-tpg-bus-10",
+          "type": "bus",
+          "name": "TPG Bus 10",
+          "icon": "bus",
+          "color": "#F26522",
+          "duration": {
+            "min": 25,
+            "max": 35
+          },
+          "frequency": "Every 10-12 min",
+          "price": {
+            "amount": 3.0,
+            "currency": "CHF",
+            "note": "Free with airport Unireso voucher / Geneva Transport Card"
+          },
+          "destination": "Rive (Old Town gateway) / Gare Cornavin",
+          "operatingHours": "5:00am - 12:30am",
+          "tips": "Best for travellers heading to Old Town or Eaux-Vives — bus 10 crosses the Rhône via Pont du Mont-Blanc and stops at Rive.",
+          "pros": [
+            "Direct to Old Town edge (Rive)",
+            "Free with airport voucher",
+            "Frequent service"
+          ],
+          "cons": [
+            "Slower than train",
+            "Traffic on Pont du Mont-Blanc at rush hour"
+          ],
+          "waypoints": [
+            [
+              6.1090,
+              46.2381
+            ],
+            [
+              6.1462,
+              46.2103
+            ],
+            [
+              6.1530,
+              46.2027
+            ]
+          ]
+        },
+        {
+          "id": "gva-taxi",
+          "type": "taxi",
+          "name": "Taxi",
+          "icon": "car",
+          "color": "#F59E0B",
+          "duration": {
+            "min": 12,
+            "max": 25
+          },
+          "frequency": "On demand",
+          "price": {
+            "amount": 35,
+            "amountMax": 50,
+            "currency": "CHF",
+            "note": "Metered. Typical city centre fare CHF 35-50; supplements for luggage and night service"
+          },
+          "destination": "Any address in Geneva",
+          "operatingHours": "24/7",
+          "tips": "Official ranks at the Arrivals level. Taxis run on a meter — Geneva taxis are among the more expensive in Europe. Larger MPV taxis available for ski groups.",
+          "pros": [
+            "Door-to-door",
+            "Useful with skis or large luggage",
+            "Always available"
+          ],
+          "cons": [
+            "Expensive vs. the 7-minute free train",
+            "Heavy traffic on Route de Meyrin at rush hour"
+          ],
+          "waypoints": [
+            [
+              6.1090,
+              46.2381
+            ],
+            [
+              6.1432,
+              46.2044
+            ]
+          ]
+        },
+        {
+          "id": "gva-uber",
+          "type": "rideshare",
+          "name": "Uber",
+          "icon": "smartphone",
+          "color": "#000000",
+          "duration": {
+            "min": 12,
+            "max": 25
+          },
+          "frequency": "On demand",
+          "price": {
+            "amount": 25,
+            "amountMax": 45,
+            "currency": "CHF",
+            "note": "Variable; Uber Black available for premium pickups"
+          },
+          "destination": "Any address in Geneva",
+          "operatingHours": "24/7",
+          "tips": "Pickup zone is on Level -1 (Arrivals) — follow rideshare signs from baggage claim. Bolt does not operate in Geneva; Uber is the main app option.",
+          "pros": [
+            "Typically cheaper than metered taxis",
+            "Pay via app",
+            "Track your ride"
+          ],
+          "cons": [
+            "Surge pricing during events and ski-day weekends",
+            "Pickup zone can be congested"
+          ],
+          "waypoints": [
+            [
+              6.1090,
+              46.2381
+            ],
+            [
+              6.1432,
+              46.2044
+            ]
+          ]
+        },
+        {
+          "id": "gva-ski-shuttle",
+          "type": "shuttle",
+          "name": "Ski Shuttle (AlpyBus, Mountain Drop-Offs)",
+          "icon": "bus",
+          "color": "#0EA5E9",
+          "duration": {
+            "min": 70,
+            "max": 120
+          },
+          "frequency": "On demand or scheduled in ski season",
+          "price": {
+            "amount": 40,
+            "amountMax": 90,
+            "currency": "EUR",
+            "note": "Per person to Chamonix; private transfers higher"
+          },
+          "destination": "Chamonix, Verbier, Les Portes du Soleil, Megève",
+          "operatingHours": "Ski season (Dec-Apr), variable",
+          "tips": "Most travellers heading to French Alpine resorts use a dedicated shuttle rather than entering Geneva itself. Book in advance for Saturday transfers.",
+          "pros": [
+            "Door-to-door from airport to resort",
+            "Skis and boards included",
+            "No need to enter Geneva city"
+          ],
+          "cons": [
+            "Only relevant for ski-bound travellers",
+            "Saturday traffic on the Mont Blanc tunnel route"
+          ],
+          "waypoints": [
+            [
+              6.1090,
+              46.2381
+            ],
+            [
+              6.8694,
+              45.9237
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "trainStations": [
+    {
+      "code": "GE",
+      "name": "Genève-Cornavin",
+      "fullName": "Gare de Genève-Cornavin",
+      "coordinates": [
+        6.1422,
+        46.2099
+      ],
+      "distanceKm": 1,
+      "description": "Geneva's main rail hub — Swiss intercity (IC/IR) and TGV Lyria to Paris, plus all Léman Express suburban lines and the SBB connection to the airport."
+    },
+    {
+      "code": "GEV",
+      "name": "Genève-Eaux-Vives",
+      "fullName": "Gare des Eaux-Vives",
+      "coordinates": [
+        6.1665,
+        46.1990
+      ],
+      "distanceKm": 2,
+      "description": "Cross-border Léman Express hub — fast service to Annemasse, Annecy, Évian, and connections deeper into Haute-Savoie."
+    }
+  ],
+  "generalTips": [
+    "Pick up the FREE Unireso transit ticket from the red machine in baggage claim — valid 80 minutes on TPG buses, trams, Mouettes water buses, and CFF/Léman Express trains within Geneva. This alone makes a taxi or Uber from the airport unnecessary for most travellers.",
+    "All hotels and registered accommodations issue a complimentary Geneva Transport Card on check-in, covering local public transport for the entire stay.",
+    "The airport-to-city train takes only 7 minutes and runs every 10-15 minutes — the fastest airport-to-centre link in Europe.",
+    "Bring your passport: the Léman Express crosses into France at multiple points, and many day trips (Chamonix, Annecy, Lavaux is Swiss but check) involve a French-side journey.",
+    "Geneva taxis are expensive (CHF 35-50 from the airport, CHF 50+ within the city). Public transport is excellent and free for tourists — use it.",
+    "For ski trips to French resorts, dedicated airport-to-resort shuttles are cheaper and easier than entering Geneva.",
+    "Avoid renting a car for a city-only visit — parking is expensive and the centre is largely pedestrianised. A car only makes sense for Alpine excursions."
+  ]
+}

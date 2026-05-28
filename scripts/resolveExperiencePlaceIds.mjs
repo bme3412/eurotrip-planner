@@ -68,6 +68,11 @@ const CITY_CONFIG = {
     directoryName: 'barcelona',
     searchSuffix: 'Barcelona, Spain',
   },
+  geneva: {
+    country: 'Switzerland',
+    directoryName: 'geneva',
+    searchSuffix: 'Geneva, Switzerland',
+  },
   // Add other cities as needed
 };
 
@@ -294,8 +299,11 @@ async function main() {
       continue;
     }
 
-    // Extract venue name for search
-    const searchTerm = extractVenueName(name, exp.address);
+    // Extract venue name for search. Honor a pre-set googlePlaceKey when forcing
+    // a re-resolve so curated keys (e.g. business names) survive a --force run.
+    const searchTerm = (FORCE && exp.googlePlaceKey)
+      ? exp.googlePlaceKey
+      : extractVenueName(name, exp.address);
 
     // Check if already resolved
     if (placeIds[experienceKey][searchTerm] && !FORCE) {

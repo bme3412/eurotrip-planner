@@ -10,16 +10,18 @@ import { formatCost, formatDuration, getTypeIcon, generateTips } from './lib/dis
 /**
  * 6-factor score grid shown under each card.
  */
-function ScoreDisplay({ factorScores }) {
+function ScoreDisplay({ factorScores, cityName }) {
+  const cityLabel = cityName || 'this city';
   return (
     <div className="pt-4 border-t border-gray-100">
       <div className="grid grid-cols-2 gap-x-6 gap-y-2.5">
         {SCORE_FACTORS.slice(0, 6).map(({ key, label, icon }) => {
           const value = factorScores?.[key] ?? 0;
+          const resolvedLabel = label.replace('{city}', cityLabel);
           return (
             <div key={key} className="flex items-center gap-2">
               <span className="text-lg shrink-0">{icon}</span>
-              <span className="text-sm text-gray-700 flex-1">{label}</span>
+              <span className="text-sm text-gray-700 flex-1">{resolvedLabel}</span>
               <span className="text-sm font-bold text-gray-900">{value}/10</span>
             </div>
           );
@@ -156,7 +158,7 @@ function AttractionPhoto({ attraction, priority, sizes }) {
  *   • isFavorite       — (item) => boolean
  *   • onToggleFavorite — (item) => void
  */
-export default function AttractionCard({ attraction, indexForPriority, isFavorite, onToggleFavorite }) {
+export default function AttractionCard({ attraction, indexForPriority, isFavorite, onToggleFavorite, cityName }) {
   if (!attraction) return null;
   const tips = generateTips(attraction);
   const isFav = isFavorite(attraction);
@@ -221,7 +223,7 @@ export default function AttractionCard({ attraction, indexForPriority, isFavorit
           </div>
 
           {(attraction.factorScores || attraction.scores) && (
-            <ScoreDisplay factorScores={attraction.factorScores || attraction.scores} />
+            <ScoreDisplay factorScores={attraction.factorScores || attraction.scores} cityName={cityName} />
           )}
 
           {attraction.website && (

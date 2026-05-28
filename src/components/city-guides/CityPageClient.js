@@ -593,7 +593,7 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
         imagePositionClass={isParis ? 'object-[62%_35%]' : 'object-center md:object-[62%_50%]'}
         darkOverlayOpacity={isParis ? 'bg-black/25' : 'bg-black/35'}
         showImageOverlays={!isParis}
-        eyebrow="Paris city guide"
+        eyebrow={`${displayName} city guide`}
         title={getCityDisplayName(cityData, cityName) || cityName || 'City'}
         subtitle={heroSubtitle}
         description={heroDescription}
