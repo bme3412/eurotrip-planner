@@ -6,11 +6,9 @@ import React, {
   useEffect,
   useMemo,
   useCallback,
-  useRef,
 } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import InlineDateControl from '@/components/InlineDateControl';
 import { parseDatesFromParams } from '@/hooks/useTripDates';
 import UnifiedFilter from '@/components/city-guides/UnifiedFilter';
 import CityCard from '@/components/city-guides/CityCard';
@@ -19,6 +17,11 @@ import PopularCitiesSection from '@/components/city-guides/PopularCitiesSection'
 import { getCitiesData as getStaticCityData } from '@/generated/cityIndex';
 import { COASTAL_CITY_IDS as COASTAL_CITY_IDS_CURATED } from '@/components/city-guides/coastalCityIds';
 import { getFlagForCountry } from '@/utils/countryFlags';
+import {
+  CityGuidesFiltersProvider,
+  useCityGuidesFilters,
+} from '@/contexts/CityGuidesFiltersContext';
+import { FILTER_TYPES, ALL_REGIONS, ALL_EXPERIENCES } from '@/lib/filters/cityGuidesFilters';
 // AuthButton removed — now in global Navbar
 
 // Build a map of city descriptions from static data for fallback
@@ -86,39 +89,35 @@ const INITIAL_COUNTRIES = [
 ].sort();
 
 function CityGuidesContent() {
-  /* ───────── state ───────── */
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedRegion, setSelectedRegion] = useState('All Regions');
-  const [selectedCountries, setSelectedCountries] = useState([]);
+  /* ───────── filter state via context ───────── */
+  const {
+    state: filtersState,
+    hasActiveFilters,
+    setSearchTerm,
+    setRegion,
+    toggleCountry,
+    setFilterType,
+    setTripDates,
+    clearFilters,
+  } = useCityGuidesFilters();
+  const { searchTerm, selectedRegion, selectedCountries, activeFilterType } = filtersState;
+
+  /* ───────── static & UI state ───────── */
   const [cities] = useState(INITIAL_CITIES);
   const [loading] = useState(false);
   const [allCountries] = useState(INITIAL_COUNTRIES);
   const [error] = useState(null);
-  const [activeFilterType, setActiveFilterType] = useState('euro-region');
-
   const [displayed, setDisplayed] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  /* ───────── date init from URL ───────── */
+  /* ───────── URL → tripDates sync ───────── */
   const searchParams = useSearchParams();
-  const router = useRouter();
-  const [tripDates, setTripDates] = useState(() => parseDatesFromParams(searchParams));
 
   useEffect(() => {
     const parsed = parseDatesFromParams(searchParams);
     if (parsed) setTripDates(parsed);
-  }, [searchParams]);
-
-  const updateDates = useCallback((next) => {
-    setTripDates(next);
-    const p = new URLSearchParams();
-    if (next?.mode) p.set('mode', next.mode);
-    if (next?.start) p.set('start', next.start);
-    if (next?.end) p.set('end', next.end);
-    if (next?.month) p.set('month', next.month);
-    router.replace(`/city-guides?${p.toString()}`);
-  }, [router]);
+  }, [searchParams, setTripDates]);
 
   /* ───────── filtering ───────── */
   const filtered = useMemo(() => {
@@ -133,7 +132,7 @@ function CityGuidesContent() {
         selectedCountries.length === 0 || selectedCountries.includes(city.country);
 
       let matchesRegion = true;
-      if (activeFilterType === 'euro-region' && selectedRegion && selectedRegion !== 'All Regions') {
+      if (activeFilterType === FILTER_TYPES.EURO_REGION && selectedRegion && selectedRegion !== ALL_REGIONS) {
         if (selectedRegion === 'Historic Capitals') {
           matchesRegion = HISTORIC_CAPITALS.has(city.id);
         } else if (selectedRegion === 'Beach Destinations') {
@@ -143,7 +142,7 @@ function CityGuidesContent() {
           const countries = EURO_REGION_GROUPS[selectedRegion] || [];
           matchesRegion = countries.includes(city.country);
         }
-      } else if (activeFilterType === 'travel-experience' && selectedRegion && selectedRegion !== 'All Experiences') {
+      } else if (activeFilterType === FILTER_TYPES.TRAVEL_EXPERIENCE && selectedRegion && selectedRegion !== ALL_EXPERIENCES) {
         // Filter by tourism categories from city data
         const staticCityData = getStaticCityData();
         const cityData = staticCityData.find(c => c.id === city.id);
@@ -187,39 +186,7 @@ function CityGuidesContent() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [sorted]);
 
-  /* ───────── UI handlers ───────── */
-  const handleRegionChange = (region, type) => {
-    setSelectedRegion(region);
-    if (type) setActiveFilterType(type);
-  };
-
-  const handleCountryChange = (c) => {
-    if (c === 'clear-all') {
-      setSelectedCountries([]);
-    } else {
-      setSelectedCountries((prev) =>
-        prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c],
-      );
-    }
-  };
-
-  const clearFilters = () => {
-    setSearchTerm('');
-    setSelectedRegion('All Regions');
-    setSelectedCountries([]);
-  };
-
-  const handleSearchChange = (value) => {
-    setSearchTerm(value);
-  };
-
   /* ───────── dynamic heading ───────── */
-  const hasActiveFilters = useMemo(() => {
-    return (selectedRegion !== 'All Regions' && selectedRegion !== 'All Experiences') || 
-           selectedCountries.length > 0 || 
-           searchTerm;
-  }, [selectedRegion, selectedCountries, searchTerm]);
-
   const getResultsHeading = () => {
     const count = sorted.length;
     
@@ -236,8 +203,8 @@ function CityGuidesContent() {
     
     parts.push(`${count} ${count === 1 ? 'city' : 'cities'}`);
     
-    if (selectedRegion !== 'All Regions' && selectedRegion !== 'All Experiences') {
-      if (activeFilterType === 'euro-region') {
+    if (selectedRegion !== ALL_REGIONS && selectedRegion !== ALL_EXPERIENCES) {
+      if (activeFilterType === FILTER_TYPES.EURO_REGION) {
         parts.push(`in ${selectedRegion}`);
       } else {
         parts.push(`for ${selectedRegion}`);
@@ -290,15 +257,15 @@ function CityGuidesContent() {
           <UnifiedFilter
             selectedRegion={selectedRegion}
             selectedCountries={selectedCountries}
-            handleRegionChange={handleRegionChange}
-            handleCountryChange={handleCountryChange}
+            handleRegionChange={setRegion}
+            handleCountryChange={toggleCountry}
             countries={allCountries}
             cities={cities}
             searchTerm={searchTerm}
-            onSearchChange={handleSearchChange}
+            onSearchChange={setSearchTerm}
             onClearFilters={clearFilters}
             activeFilterType={activeFilterType}
-            onFilterTypeChange={setActiveFilterType}
+            onFilterTypeChange={setFilterType}
           />
         </div>
 
@@ -644,10 +611,27 @@ function LoadingSpinner() {
   );
 }
 
+function CityGuidesContentWithProvider() {
+  const searchParams = useSearchParams();
+  // Compute the initial tripDates exactly once from the URL so the reducer
+  // owns it from the first render. Subsequent URL changes are pushed in
+  // via the effect inside CityGuidesContent.
+  const initialTripDates = useMemo(
+    () => parseDatesFromParams(searchParams),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  );
+  return (
+    <CityGuidesFiltersProvider initialTripDates={initialTripDates}>
+      <CityGuidesContent />
+    </CityGuidesFiltersProvider>
+  );
+}
+
 export default function CityGuidesPage() {
   return (
     <Suspense fallback={<LoadingSpinner />}>
-      <CityGuidesContent />
+      <CityGuidesContentWithProvider />
     </Suspense>
   );
 }
