@@ -103,7 +103,7 @@ function readCalendar(slug) {
   const calPath = path.join(
     process.cwd(), 'public', 'data',
     entry.country, entry.directoryName,
-    `${slug}-visit-calendar.json`
+    'sections', 'visit-calendar.json'
   );
 
   try {

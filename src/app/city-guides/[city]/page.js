@@ -183,19 +183,18 @@ async function getCityData(cityName) {
     return null;
   };
 
-  const citySlug = cityName.toLowerCase();
-
   try {
-    // Load all file types in parallel
+    // Load all file types in parallel. Phase D: read from the canonical
+    // per-section files emitted by the content build under sections/.
     const [overview, attractions, neighborhoods, culinaryGuide, connections, seasonalActivities, summary, visitCalendar] = await Promise.all([
-      loadFileWithFallbacks([`${citySlug}-overview.json`, `${citySlug}_overview.json`, 'overview.json', 'city_overview.json']),
-      loadFileWithFallbacks([`${citySlug}_attractions.json`, 'attractions.json', 'sites.json']),
-      loadFileWithFallbacks([`${citySlug}_neighborhoods.json`, 'neighborhoods.json', 'areas.json']),
-      loadFileWithFallbacks([`${citySlug}_culinary_guide.json`, 'culinary_guide.json', 'food.json']),
-      loadFileWithFallbacks([`${citySlug}_connections.json`, 'connections.json', 'transport.json']),
-      loadFileWithFallbacks([`${citySlug}_seasonal_activities.json`, 'seasonal_activities.json', 'activities.json']),
-      loadFileWithFallbacks(['summary.json', 'visit_summary.json']),
-      loadFileWithFallbacks([`${citySlug}-visit-calendar.json`, 'visit-calendar.json'])
+      loadFileWithFallbacks(['sections/overview.json']),
+      loadFileWithFallbacks(['sections/attractions.json']),
+      loadFileWithFallbacks(['sections/neighborhoods.json']),
+      loadFileWithFallbacks(['sections/culinary.json']),
+      loadFileWithFallbacks(['sections/connections.json']),
+      loadFileWithFallbacks(['sections/seasonal-activities.json']),
+      loadFileWithFallbacks(['summary.json']),
+      loadFileWithFallbacks(['sections/visit-calendar.json']),
     ]);
 
     // Load priority months (current and next) in parallel

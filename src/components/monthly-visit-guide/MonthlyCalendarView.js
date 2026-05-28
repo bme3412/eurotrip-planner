@@ -58,7 +58,7 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
       setIsLoadingData(true);
       try {
         const normalizedCity = city.toLowerCase();
-        const url = `/data/${country}/${normalizedCity}/${normalizedCity}-visit-calendar.json`;
+        const url = `/data/${country}/${normalizedCity}/sections/visit-calendar.json`;
         const response = await fetch(url);
         if (response.ok) {
           const data = await response.json();

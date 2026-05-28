@@ -34,7 +34,8 @@ function loadCityAttractions(cityId, country) {
       'data',
       country,
       cityId,
-      `${cityId}_attractions.json`
+      'sections',
+      'attractions.json'
     );
 
     const fileContent = fs.readFileSync(filePath, 'utf-8');

@@ -67,31 +67,18 @@ async function buildCityIndex(country, cityDir) {
   if (!(await pathExists(baseDir))) return false;
   const citySlug = cityDir.toLowerCase();
 
+  // Phase D: read from the canonical per-section files emitted by the
+  // content build under sections/. The legacy `{slug}_*.json` files have
+  // been removed; summary.json remains at the city root.
   const fieldLoaders = [
-    readWithFallbacks(baseDir, citySlug, [
-      `${citySlug}-overview.json`, `${citySlug}_overview.json`, 'overview.json', 'city_overview.json'
-    ]),
-    readWithFallbacks(baseDir, citySlug, [
-      `${citySlug}_attractions.json`, 'attractions.json', 'sites.json'
-    ]),
-    readWithFallbacks(baseDir, citySlug, [
-      `${citySlug}_neighborhoods.json`, 'neighborhoods.json', 'areas.json'
-    ]),
-    readWithFallbacks(baseDir, citySlug, [
-      `${citySlug}_culinary_guide.json`, 'culinary_guide.json', 'food.json'
-    ]),
-    readWithFallbacks(baseDir, citySlug, [
-      `${citySlug}_connections.json`, 'connections.json', 'transport.json'
-    ]),
-    readWithFallbacks(baseDir, citySlug, [
-      `${citySlug}_seasonal_activities.json`, 'seasonal_activities.json', 'activities.json'
-    ]),
-    readWithFallbacks(baseDir, citySlug, [
-      'summary.json', 'visit_summary.json'
-    ]),
-    readWithFallbacks(baseDir, citySlug, [
-      `${citySlug}-visit-calendar.json`, 'visit-calendar.json'
-    ]),
+    readWithFallbacks(baseDir, citySlug, ['sections/overview.json']),
+    readWithFallbacks(baseDir, citySlug, ['sections/attractions.json']),
+    readWithFallbacks(baseDir, citySlug, ['sections/neighborhoods.json']),
+    readWithFallbacks(baseDir, citySlug, ['sections/culinary.json']),
+    readWithFallbacks(baseDir, citySlug, ['sections/connections.json']),
+    readWithFallbacks(baseDir, citySlug, ['sections/seasonal-activities.json']),
+    readWithFallbacks(baseDir, citySlug, ['summary.json']),
+    readWithFallbacks(baseDir, citySlug, ['sections/visit-calendar.json']),
     includeMonthly ? loadMonthlyData(baseDir) : Promise.resolve(null),
   ];
 

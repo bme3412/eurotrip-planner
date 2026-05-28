@@ -1,0 +1,261 @@
+{
+  "destinations": [
+    {
+      "city": "Glasgow",
+      "country": "United Kingdom",
+      "whyGo": "Scotland's largest city offers world-class music venues, Charles Rennie Mackintosh architecture, and energetic nightlife.",
+      "domesticTrain": {
+        "stationInEdinburgh": "Edinburgh Waverley",
+        "journeyTime": "0h50m",
+        "frequency": "Every 15 minutes",
+        "trainOperators": [
+          "ScotRail"
+        ],
+        "priceRange": "£10-£25"
+      },
+      "coach": {
+        "operator": "Citylink",
+        "departurePoint": "Edinburgh Bus Station",
+        "journeyTime": "1h15m",
+        "frequency": "Every 30 minutes",
+        "priceRange": "£7-£15"
+      }
+    },
+    {
+      "city": "Inverness",
+      "country": "United Kingdom",
+      "whyGo": "Gateway to the Highlands with access to Loch Ness, Culloden Battlefield, and whisky trails.",
+      "domesticTrain": {
+        "stationInEdinburgh": "Edinburgh Waverley",
+        "journeyTime": "3h30m",
+        "frequency": "Every 2 hours",
+        "trainOperators": [
+          "ScotRail"
+        ],
+        "priceRange": "£28-£80"
+      },
+      "coach": {
+        "operator": "Megabus",
+        "departurePoint": "Edinburgh Bus Station",
+        "journeyTime": "4h00m",
+        "frequency": "Every 2-3 hours",
+        "priceRange": "£12-£35"
+      }
+    },
+    {
+      "city": "Aberdeen",
+      "country": "United Kingdom",
+      "whyGo": "Granite architecture, North Sea seafood, and ferries to the Northern Isles.",
+      "domesticTrain": {
+        "stationInEdinburgh": "Edinburgh Waverley",
+        "journeyTime": "2h20m",
+        "frequency": "Hourly",
+        "trainOperators": [
+          "ScotRail",
+          "LNER"
+        ],
+        "priceRange": "£20-£70"
+      },
+      "coach": {
+        "operator": "Citylink",
+        "departurePoint": "Edinburgh Bus Station",
+        "journeyTime": "3h00m",
+        "frequency": "Every hour",
+        "priceRange": "£12-£30"
+      }
+    },
+    {
+      "city": "St Andrews",
+      "country": "United Kingdom",
+      "whyGo": "Historic university town famed for its Old Course golf links and medieval cathedral ruins.",
+      "coach": {
+        "operator": "Stagecoach",
+        "departurePoint": "Edinburgh Bus Station",
+        "journeyTime": "1h45m",
+        "frequency": "Every 30 minutes",
+        "priceRange": "£8-£16"
+      },
+      "trainPlusBus": {
+        "trainTo": "Leuchars",
+        "journeyTime": "1h05m",
+        "connectingBus": "10 minutes",
+        "priceRange": "£12-£25"
+      }
+    },
+    {
+      "city": "Stirling",
+      "country": "United Kingdom",
+      "whyGo": "Stirling Castle, Wallace Monument, and battlefields that shaped Scotland's history.",
+      "domesticTrain": {
+        "stationInEdinburgh": "Edinburgh Waverley",
+        "journeyTime": "0h50m",
+        "frequency": "Every 30 minutes",
+        "trainOperators": [
+          "ScotRail"
+        ],
+        "priceRange": "£9-£20"
+      },
+      "coach": {
+        "operator": "Citylink",
+        "departurePoint": "Edinburgh Bus Station",
+        "journeyTime": "1h10m",
+        "frequency": "Every hour",
+        "priceRange": "£7-£15"
+      }
+    },
+    {
+      "city": "York",
+      "country": "United Kingdom",
+      "whyGo": "Viking heritage, soaring York Minster, and atmospheric medieval walls.",
+      "domesticTrain": {
+        "stationInEdinburgh": "Edinburgh Waverley",
+        "journeyTime": "2h30m",
+        "frequency": "Hourly",
+        "trainOperators": [
+          "LNER"
+        ],
+        "priceRange": "£25-£95"
+      }
+    },
+    {
+      "city": "London",
+      "country": "United Kingdom",
+      "whyGo": "Connect to the UK's capital for West End theatre, national museums, and onward international flights.",
+      "domesticTrain": {
+        "stationInEdinburgh": "Edinburgh Waverley",
+        "journeyTime": "4h20m",
+        "frequency": "Hourly",
+        "trainOperators": [
+          "LNER",
+          "Lumo"
+        ],
+        "priceRange": "£35-£180"
+      },
+      "domesticFlight": {
+        "airportsInEdinburgh": [
+          "Edinburgh (EDI)"
+        ],
+        "approxFlightTime": "1h20m",
+        "frequency": "Every 60 minutes",
+        "priceRange": "£45-£220"
+      }
+    },
+    {
+      "city": "Isle of Skye",
+      "country": "United Kingdom",
+      "whyGo": "Dramatic landscapes, fairy pools, and rugged coastal scenery on Scotland's most famous island.",
+      "coach": {
+        "operator": "Citylink",
+        "departurePoint": "Edinburgh Bus Station",
+        "journeyTime": "6h30m",
+        "frequency": "Twice daily",
+        "priceRange": "£35-£65"
+      },
+      "selfDrive": {
+        "route": "A9 to Inverness then A87",
+        "journeyTime": "5h30m",
+        "notes": "Best combined with overnight stay; car hire available at EDI."
+      }
+    },
+    {
+      "city": "Oban",
+      "country": "United Kingdom",
+      "whyGo": "Seafood capital of Scotland and ferry gateway to the Hebrides.",
+      "domesticTrain": {
+        "stationInEdinburgh": "Haymarket",
+        "journeyTime": "3h30m (change at Glasgow Queen Street)",
+        "frequency": "Every 2 hours",
+        "trainOperators": [
+          "ScotRail"
+        ],
+        "priceRange": "£20-£60"
+      },
+      "coach": {
+        "operator": "Citylink",
+        "departurePoint": "Edinburgh Bus Station",
+        "journeyTime": "4h30m",
+        "frequency": "Every 2-3 hours",
+        "priceRange": "£18-£40"
+      }
+    },
+    {
+      "city": "Belfast",
+      "country": "United Kingdom",
+      "whyGo": "Titanic heritage, vibrant food scene, and murals exploring Northern Ireland's history.",
+      "domesticFlight": {
+        "airportsInEdinburgh": [
+          "Edinburgh (EDI)"
+        ],
+        "approxFlightTime": "0h55m",
+        "frequency": "Every 1-2 hours",
+        "priceRange": "£35-£140"
+      },
+      "ferry": {
+        "portsInScotland": [
+          "Cairnryan"
+        ],
+        "journeyTime": "2h15m",
+        "frequency": "Multiple daily",
+        "priceRange": "£30-£80"
+      }
+    },
+    {
+      "city": "Dublin",
+      "country": "Ireland",
+      "whyGo": "Literary history, Georgian architecture, and lively pub culture just across the Irish Sea.",
+      "intraEuropeFlight": {
+        "airportsInEdinburgh": [
+          "Edinburgh (EDI)"
+        ],
+        "approxFlightTime": "1h10m",
+        "frequency": "Every 1-2 hours",
+        "priceRange": "£40-£160"
+      },
+      "ferry": {
+        "via": "Train to Glasgow then bus to Cairnryan",
+        "journeyTime": "6h30m",
+        "frequency": "Daily",
+        "priceRange": "£45-£120"
+      }
+    },
+    {
+      "city": "Amsterdam",
+      "country": "Netherlands",
+      "whyGo": "Canals, world-class museums, and effortless cycling culture.",
+      "intraEuropeFlight": {
+        "airportsInEdinburgh": [
+          "Edinburgh (EDI)"
+        ],
+        "approxFlightTime": "1h40m",
+        "frequency": "Every 2-3 hours",
+        "priceRange": "£60-£220"
+      }
+    },
+    {
+      "city": "Copenhagen",
+      "country": "Denmark",
+      "whyGo": "Scandi design, Michelin dining, and waterfront hygge.",
+      "intraEuropeFlight": {
+        "airportsInEdinburgh": [
+          "Edinburgh (EDI)"
+        ],
+        "approxFlightTime": "1h55m",
+        "frequency": "Daily",
+        "priceRange": "£80-£260"
+      }
+    },
+    {
+      "city": "Reykjavik",
+      "country": "Iceland",
+      "whyGo": "Northern lights, geothermal lagoons, and dramatic volcanic landscapes.",
+      "intraEuropeFlight": {
+        "airportsInEdinburgh": [
+          "Edinburgh (EDI)"
+        ],
+        "approxFlightTime": "2h25m",
+        "frequency": "Several weekly",
+        "priceRange": "£90-£320"
+      }
+    }
+  ]
+}

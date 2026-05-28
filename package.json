@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run generate-cities && npm run build:data && npm run build:cities && npm run build:scores && next build",
+    "build": "npm run generate-cities && npm run build:data && npm run build:cities && npm run build:scores && npm run build:content && next build",
     "generate-cities": "node scripts/generateCityList.mjs",
     "build:scores": "node scripts/generateMonthlyScores.mjs",
     "start": "next start",
@@ -18,7 +18,8 @@
     "convert-png-to-jpeg": "node scripts/convertPngToJpeg.mjs",
     "move-thumbnails": "node scripts/moveThumbnails.mjs",
     "replace-thumbnails": "node scripts/replaceThumbnails.mjs",
-    "validate-data": "node scripts/validateCityData.mjs",
+    "build:content": "node scripts/content/build.mjs",
+    "refresh": "node scripts/refresh/index.mjs",
     "pipeline:validate": "node scripts/pipeline/validate.mjs",
     "pipeline:validate:ci": "node scripts/pipeline/validate.mjs",
     "pipeline:manifest": "node scripts/pipeline/manifest.mjs",

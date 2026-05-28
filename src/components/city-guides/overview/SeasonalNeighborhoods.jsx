@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { fetchCityDataUrl, getCityPaths } from '@/lib/city-data';
+import { useCitySection } from '@/hooks/useCitySection';
 
 const DEFAULT_SEASONAL_NEIGHBORHOODS = [
   { season: 'Spring', neighborhood: 'Historic center', reason: 'best balance of walking weather and classic sights' },
@@ -18,22 +18,14 @@ const DEFAULT_SEASONAL_NEIGHBORHOODS = [
  * `seasonal-prose.json` file SeasonalProse uses (HTTP cache dedupes the
  * request).
  */
-export default function SeasonalNeighborhoods({ cityName, country }) {
-  const [items, setItems] = useState(DEFAULT_SEASONAL_NEIGHBORHOODS);
-
-  useEffect(() => {
-    if (!cityName) return;
-    let cancelled = false;
-    const { seasonalProse } = getCityPaths(country, cityName);
-    fetchCityDataUrl(seasonalProse, { cache: 'force-cache' })
-      .then((json) => {
-        if (!cancelled && Array.isArray(json?.seasonalNeighborhoods) && json.seasonalNeighborhoods.length) {
-          setItems(json.seasonalNeighborhoods);
-        }
-      })
-      .catch(() => { /* keep defaults */ });
-    return () => { cancelled = true; };
-  }, [cityName, country]);
+export default function SeasonalNeighborhoods({ cityName, country: _country }) {
+  const { data: items } = useCitySection(cityName, 'prose.seasonal', {
+    defaultValue: DEFAULT_SEASONAL_NEIGHBORHOODS,
+    transform: (json) =>
+      Array.isArray(json?.seasonalNeighborhoods) && json.seasonalNeighborhoods.length
+        ? json.seasonalNeighborhoods
+        : DEFAULT_SEASONAL_NEIGHBORHOODS,
+  });
 
   return (
     <div className="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-5">

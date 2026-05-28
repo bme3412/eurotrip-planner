@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { getImageUrl, isCDNEnabled } from '../../utils/cdnUtils';
 import { getFlagForCountry } from '../../utils/countryFlags';
+import { legacyCountryFolder } from '@/lib/city-data/resolver';
 
 // Tiny 10x10 blurred placeholder SVG (generic gray gradient)
 const DEFAULT_BLUR_DATA_URL =
@@ -44,20 +45,11 @@ const CityCard = ({ city, priority = false, blurDataUrl = null, lazyRoot = null 
   
   const getFlagEmoji = (country) => getFlagForCountry(country);
 
-  // Map country names to folder names (some folders use different naming)
-  const getCountryFolder = (country) => {
-    const folderMap = {
-      'United Kingdom': 'UK',
-      'Czech Republic': 'Czechia',
-    };
-    return folderMap[country] || country;
-  };
-
   // Build a prioritized list of possible image sources
   const fallbacks = useMemo(() => {
     const id = city.id;
     const sources = [];
-    const countryFolder = city.country ? getCountryFolder(city.country) : null;
+    const countryFolder = city.country ? legacyCountryFolder(city.country) : null;
     
     // 1. Custom thumbnail if specified
     if (city.thumbnail) sources.push(city.thumbnail);
@@ -121,7 +113,7 @@ const CityCard = ({ city, priority = false, blurDataUrl = null, lazyRoot = null 
       /* no-op: prefetch is best-effort */
     }
     if (city.country) {
-      const folder = getCountryFolder(city.country);
+      const folder = legacyCountryFolder(city.country);
       const url = `/data/${folder}/${city.id}/index.json`;
       try {
         fetch(url, { cache: 'force-cache', priority: 'low' }).catch(() => {});

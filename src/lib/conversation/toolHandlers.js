@@ -271,7 +271,7 @@ export function handleGetRouteOptions(input) {
       const connPath = path.join(
         process.cwd(), 'public', 'data',
         cityInfo.country, cityInfo.directoryName,
-        `${cityInfo.directoryName}_connections.json`
+        'sections', 'connections.json'
       );
 
       if (fs.existsSync(connPath)) {

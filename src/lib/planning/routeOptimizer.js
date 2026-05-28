@@ -33,7 +33,8 @@ function loadCityConnections(cityId, country) {
       'data',
       country,
       cityId,
-      `${cityId}_connections.json`
+      'sections',
+      'connections.json'
     );
 
     const fileContent = fs.readFileSync(filePath, 'utf-8');

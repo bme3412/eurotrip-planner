@@ -1,37 +1,29 @@
-import { useEffect, useState } from 'react';
-import { fetchCityDataUrl, getCityPaths } from '@/lib/city-data';
+import { useMemo } from 'react';
+import { useCitySection } from '@/hooks/useCitySection';
 import { DEFAULT_FOOD_DATA } from '../lib/constants';
 
 /**
  * Lazy-load per-city food-guide.json (intro, sections, highlights).
  * Defaults render immediately; JSON swaps in once fetched.
+ *
+ * Phase A: delegates to `useCitySection`. The `country` argument is accepted
+ * for backwards compatibility but is no longer used.
  */
-export function useFoodGuideData(cityKey, country) {
-  const [foodData, setFoodData] = useState(DEFAULT_FOOD_DATA);
-
-  useEffect(() => {
-    if (!cityKey) return undefined;
-    let cancelled = false;
-    const { foodGuide } = getCityPaths(country, cityKey);
-    fetchCityDataUrl(foodGuide, { cache: 'force-cache' })
-      .then((json) => {
-        if (cancelled || !json) return;
-        setFoodData({
-          intro: json.intro || DEFAULT_FOOD_DATA.intro,
-          sections:
-            Array.isArray(json.sections) && json.sections.length
-              ? json.sections
-              : DEFAULT_FOOD_DATA.sections,
-          highlights: Array.isArray(json.highlights) ? json.highlights : [],
-        });
-      })
-      .catch(() => {
-        /* keep defaults */
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [cityKey, country]);
-
-  return foodData;
+export function useFoodGuideData(cityKey, _country) {
+  const transform = useMemo(
+    () => (json) => ({
+      intro: json?.intro || DEFAULT_FOOD_DATA.intro,
+      sections:
+        Array.isArray(json?.sections) && json.sections.length
+          ? json.sections
+          : DEFAULT_FOOD_DATA.sections,
+      highlights: Array.isArray(json?.highlights) ? json.highlights : [],
+    }),
+    []
+  );
+  const { data } = useCitySection(cityKey, 'prose.foodGuide', {
+    defaultValue: DEFAULT_FOOD_DATA,
+    transform,
+  });
+  return data;
 }

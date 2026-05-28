@@ -35,15 +35,17 @@ const FEATURED_CITIES = [
   ['UK', 'london'],
 ];
 
-const FILES = ['start-here.json', 'food-guide.json', 'seasonal-prose.json'];
+// Canonical prose section files live under sections/prose/. The seasonal
+// prose was renamed from `seasonal-prose.json` to `seasonal.json` in Phase B.
+const FILES = ['start-here.json', 'food-guide.json', 'seasonal.json'];
 
 function readJson(country, city, file) {
-  const p = path.join(DATA_ROOT, country, city, file);
+  const p = path.join(DATA_ROOT, country, city, 'sections', 'prose', file);
   return JSON.parse(readFileSync(p, 'utf8'));
 }
 
 function fileExists(country, city, file) {
-  return existsSync(path.join(DATA_ROOT, country, city, file));
+  return existsSync(path.join(DATA_ROOT, country, city, 'sections', 'prose', file));
 }
 
 function isNonEmptyString(v) {
@@ -115,8 +117,8 @@ const SEASONAL_NARRATIVE_KEYS = ['springFall', 'summer', 'winter', 'march'];
 const VALID_SEASONS = new Set(['Spring', 'Summer', 'Fall', 'Winter']);
 
 for (const [country, city] of FEATURED_CITIES) {
-  test(`seasonal-prose.json (${country}/${city}): narrative.{${SEASONAL_NARRATIVE_KEYS.join(',')}} + 4 seasonalNeighborhoods`, () => {
-    const data = readJson(country, city, 'seasonal-prose.json');
+  test(`seasonal.json (${country}/${city}): narrative.{${SEASONAL_NARRATIVE_KEYS.join(',')}} + 4 seasonalNeighborhoods`, () => {
+    const data = readJson(country, city, 'seasonal.json');
 
     assert.ok(data.narrative && typeof data.narrative === 'object', 'narrative object');
     for (const key of SEASONAL_NARRATIVE_KEYS) {
@@ -165,7 +167,8 @@ test('all-or-nothing: any city that has 1 of the 3 featured files must have all 
       try { isDir = statSync(cityPath).isDirectory(); } catch { continue; }
       if (!isDir) continue;
 
-      const present = FILES.filter((f) => existsSync(path.join(cityPath, f)));
+      const proseDir = path.join(cityPath, 'sections', 'prose');
+      const present = FILES.filter((f) => existsSync(path.join(proseDir, f)));
       if (present.length > 0 && present.length < FILES.length) {
         const missing = FILES.filter((f) => !present.includes(f));
         halfMigrated.push(`${country}/${city} → missing ${missing.join(', ')}`);

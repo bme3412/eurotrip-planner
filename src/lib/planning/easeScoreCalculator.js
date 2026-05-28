@@ -189,7 +189,7 @@ async function loadConnections(cityId) {
 
   if (country) {
     try {
-      const res = await fetch(`/data/${country}/${slug}/${slug}_connections.json`);
+      const res = await fetch(`/data/${country}/${slug}/sections/connections.json`);
       if (res.ok) return await res.json();
     } catch (_) { /* fall through */ }
   }
@@ -198,7 +198,7 @@ async function loadConnections(cityId) {
   for (const c of Object.keys(citiesIndex)) {
     if (c === country) continue;
     try {
-      const res = await fetch(`/data/${c}/${slug}/${slug}_connections.json`);
+      const res = await fetch(`/data/${c}/${slug}/sections/connections.json`);
       if (res.ok) return await res.json();
     } catch (_) { continue; }
   }

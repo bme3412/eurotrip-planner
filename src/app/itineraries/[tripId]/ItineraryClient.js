@@ -81,7 +81,7 @@ export default function ItineraryClient({
     const cityPath = citySlug.toLowerCase();
 
     if (!weather) {
-      fetch(`/data/${countryPath}/${cityPath}/${cityPath}-visit-calendar.json`)
+      fetch(`/data/${countryPath}/${cityPath}/sections/visit-calendar.json`)
         .then(r => r.ok ? r.json() : null)
         .then(data => {
           if (data?.months) {

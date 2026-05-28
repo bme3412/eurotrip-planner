@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { fetchCityDataUrl, getCityPaths } from '@/lib/city-data';
+import React from 'react';
+import { useCitySection } from '@/hooks/useCitySection';
 
 const DEFAULT_SEASONAL_NARRATIVE = {
   springFall: `<strong>April through June</strong> and <strong>September through October</strong> typically offer the most pleasant weather for exploring. Temperatures are comfortable, crowds are manageable, and you'll enjoy longer days without peak-season prices.`,
@@ -30,20 +30,11 @@ function renderSeasonalText(htmlString) {
  * "Season by Season" prose block — four short paragraphs lazy-loaded
  * from /data/{Country}/{slug}/seasonal-prose.json with a generic fallback.
  */
-export default function SeasonalProse({ cityName, country }) {
-  const [content, setContent] = useState(DEFAULT_SEASONAL_NARRATIVE);
-
-  useEffect(() => {
-    if (!cityName) return;
-    let cancelled = false;
-    const { seasonalProse } = getCityPaths(country, cityName);
-    fetchCityDataUrl(seasonalProse, { cache: 'force-cache' })
-      .then((json) => {
-        if (!cancelled && json?.narrative) setContent(json.narrative);
-      })
-      .catch(() => { /* keep defaults */ });
-    return () => { cancelled = true; };
-  }, [cityName, country]);
+export default function SeasonalProse({ cityName, country: _country }) {
+  const { data: content } = useCitySection(cityName, 'prose.seasonal', {
+    defaultValue: DEFAULT_SEASONAL_NARRATIVE,
+    transform: (json) => (json?.narrative ? json.narrative : DEFAULT_SEASONAL_NARRATIVE),
+  });
 
   return (
     <div className="mt-6 pt-6 border-t border-gray-100">

@@ -44,7 +44,7 @@ async function loadVisitCalendar(cityId) {
   }
 
   try {
-    const response = await fetch(`/data/${country}/${cityId}/${cityId}-visit-calendar.json`);
+    const response = await fetch(`/data/${country}/${cityId}/sections/visit-calendar.json`);
     if (!response.ok) return null;
     const data = await response.json();
     dataCache.set(cacheKey, data);

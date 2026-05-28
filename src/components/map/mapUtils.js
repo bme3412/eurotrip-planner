@@ -12,7 +12,7 @@ export const getCityRatingForDateRange = async (city, startDate, endDate) => {
   try {
     const cityName = city.title.toLowerCase();
     const countryName = city.country;
-    const calendarPath = `/data/${countryName}/${cityName}/${cityName}-visit-calendar.json`;
+    const calendarPath = `/data/${countryName}/${cityName}/sections/visit-calendar.json`;
     
     // Use cached fetch for calendar data
     const cacheKey = generateCacheKey('calendar', cityName, countryName);
@@ -189,7 +189,7 @@ export const getCityRatingForMonths = async (city, selectedMonths) => {
     
     const cityName = city.title.toLowerCase();
     const countryName = city.country;
-    const calendarPath = `/data/${countryName}/${cityName}/${cityName}-visit-calendar.json`;
+    const calendarPath = `/data/${countryName}/${cityName}/sections/visit-calendar.json`;
     
     // Use cached fetch for calendar data
     const cacheKey = generateCacheKey('calendar', cityName, countryName);
@@ -301,7 +301,7 @@ export const getCityCalendarInfo = async (city, startDate, endDate, useFlexibleD
   try {
     const cityName = city.title.toLowerCase();
     const countryName = city.country;
-    const calendarPath = `/data/${countryName}/${cityName}/${cityName}-visit-calendar.json`;
+    const calendarPath = `/data/${countryName}/${cityName}/sections/visit-calendar.json`;
     
     // Use cached fetch for calendar data
     const cacheKey = generateCacheKey('calendar', cityName, countryName);

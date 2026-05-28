@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { getCityDisplayName, getCityNickname, getCityDescription } from '@/utils/cityDataUtils';
-import { fetchCityDataUrl, getCityPaths } from '@/lib/city-data';
+import { fetchCityDataUrl } from '@/lib/city-data';
+import { legacyCountryFolder } from '@/lib/city-data/resolver';
 
 import {
   buildCalendarData,
@@ -59,7 +60,11 @@ const CityOverview = ({
   });
 
   const cityPaths = useMemo(
-    () => getCityPaths(overview?.country, cityName),
+    () => {
+      const folder = legacyCountryFolder(overview?.country);
+      const slug = (cityName || '').trim().toLowerCase();
+      return { monthlyTaglines: `/data/${folder}/${slug}/monthly/monthly-taglines.json` };
+    },
     [overview?.country, cityName],
   );
 

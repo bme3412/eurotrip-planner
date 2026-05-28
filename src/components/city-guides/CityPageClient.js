@@ -6,7 +6,8 @@ import Image from 'next/image';
 import { getCityHeaderInfo, getCityDisplayName, getCityNickname, getCityDescription, getCityHeroImage } from "@/utils/cityDataUtils";
 import { useMonthlyData } from '@/hooks/useMonthlyData';
 import { useUIState } from '@/hooks/useUIState';
-import { getCityPaths, getCountryFolder } from '@/lib/city-data';
+import { getCityIndex } from '@/lib/city-data';
+import { legacyCountryFolder } from '@/lib/city-data/resolver';
 import Hero from '@/components/common/Hero';
 import SaveToTrips from '@/components/common/SaveToTrips';
 import AuthButton from '@/components/auth/AuthButton';
@@ -108,15 +109,10 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
       return;
     }
 
-    const controller = new AbortController();
-    const folder = getCountryFolder(country);
-    const slug = cityName.toLowerCase();
-    const url = `/data/${folder}/${slug}/index.json`;
-
-    fetch(url, { signal: controller.signal, cache: 'force-cache' })
-      .then((r) => (r.ok ? r.json() : null))
+    let cancelled = false;
+    getCityIndex(cityName)
       .then((idx) => {
-        if (!idx) return;
+        if (cancelled || !idx) return;
         setCityData((prev) => ({
           ...prev,
           attractions: idx.attractions ?? null,
@@ -131,15 +127,14 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
         setExtendedDataLoaded(true);
       })
       .catch((err) => {
-        if (err?.name !== 'AbortError') {
-          console.error(`Failed to load extended city data for ${cityName}:`, err);
-          // Don't block the UI forever — mark as loaded so tabs can render
-          // whatever empty-state UX they already have.
-          setExtendedDataLoaded(true);
-        }
+        if (cancelled) return;
+        console.error(`Failed to load extended city data for ${cityName}:`, err);
+        // Don't block the UI forever — mark as loaded so tabs can render
+        // whatever empty-state UX they already have.
+        setExtendedDataLoaded(true);
       });
 
-    return () => controller.abort();
+    return () => { cancelled = true; };
   }, [cityName, initialCityData]);
 
   // Auto-load when SSR/index didn't include monthly data (slim-index mode).
@@ -349,7 +344,11 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
     safeMonthlyEvents
   }), [safeAttractions, safeCategories, safeNeighborhoods, safeMonthlyEvents]);
 
-  const cityPaths = useMemo(() => getCityPaths(cityData?.country, cityName), [cityData?.country, cityName]);
+  const cityPaths = useMemo(() => {
+    const folder = legacyCountryFolder(cityData?.country);
+    const slug = (cityName || '').trim().toLowerCase();
+    return { experiences: `/data/${folder}/${slug}/${slug}-experiences.json` };
+  }, [cityData?.country, cityName]);
   const isParis = cityName?.toLowerCase() === 'paris';
   const heroDescription = isParis
     ? 'Art, cafe terraces, Seine-side walks, grand boulevards, and golden-hour views over the rooftops.'

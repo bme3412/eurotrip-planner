@@ -1,30 +1,24 @@
-import { useEffect, useState } from 'react';
-import { fetchCityDataUrl, getCityPaths } from '@/lib/city-data';
+import { useMemo } from 'react';
+import { useCitySection } from '@/hooks/useCitySection';
 import { DEFAULT_FAQS } from '../lib/defaults';
 
 /**
  * Lazy-load FAQs from start-here.json (was previously bundled).
  * Defaults render immediately; JSON swaps in once fetched.
+ *
+ * Phase A: now delegates to `useCitySection`. The `country` argument is
+ * accepted for backwards compatibility but is no longer used — country is
+ * resolved internally from the city slug.
  */
-export function useStartHereData(cityKey, country) {
-  const [faqs, setFaqs] = useState(DEFAULT_FAQS);
-
-  useEffect(() => {
-    if (!cityKey) return undefined;
-    let cancelled = false;
-    const { startHere } = getCityPaths(country, cityKey);
-    fetchCityDataUrl(startHere, { cache: 'force-cache' })
-      .then((json) => {
-        if (cancelled || !json) return;
-        if (Array.isArray(json.faqs) && json.faqs.length) setFaqs(json.faqs);
-      })
-      .catch(() => {
-        /* keep defaults */
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [cityKey, country]);
-
-  return faqs;
+export function useStartHereData(cityKey, _country) {
+  const transform = useMemo(
+    () => (json) =>
+      Array.isArray(json?.faqs) && json.faqs.length ? json.faqs : DEFAULT_FAQS,
+    []
+  );
+  const { data } = useCitySection(cityKey, 'prose.startHere', {
+    defaultValue: DEFAULT_FAQS,
+    transform,
+  });
+  return data;
 }

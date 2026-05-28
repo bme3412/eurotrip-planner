@@ -1,36 +1,34 @@
 import { useEffect, useMemo, useState } from 'react';
-import { getCountryFolder } from '@/lib/city-data';
+import { getCitySection } from '@/lib/city-data';
 
 /**
- * Fetch /data/<country>/<city>/getting-in.json and manage airport / route
- * selection state. Returns null gettingInData if the city has no file yet.
+ * Fetch getting-in.json for a city and manage airport / route selection state.
+ * Returns null gettingInData if the city has no file yet.
+ *
+ * Phase A: `country` is accepted for backwards compatibility and ignored —
+ * the loader resolves it from the city slug.
  */
-export function useGettingInData(cityKey, country) {
+export function useGettingInData(cityKey, _country) {
   const [gettingInData, setGettingInData] = useState(null);
   const [selectedAirport, setSelectedAirport] = useState(null);
   const [selectedRouteId, setSelectedRouteId] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      if (!country || !cityKey) return;
-      try {
-        const countryFolder = getCountryFolder(country);
-        const response = await fetch(
-          `/data/${countryFolder}/${cityKey}/getting-in.json`,
-        );
-        if (response.ok) {
-          const data = await response.json();
-          setGettingInData(data);
-          if (data.airports?.length > 0) {
-            setSelectedAirport(data.airports[0].code);
-          }
+    if (!cityKey) return;
+    let cancelled = false;
+    getCitySection(cityKey, 'prose.gettingIn')
+      .then((data) => {
+        if (cancelled || !data) return;
+        setGettingInData(data);
+        if (data.airports?.length > 0) {
+          setSelectedAirport(data.airports[0].code);
         }
-      } catch {
+      })
+      .catch(() => {
         // Silently fail - city doesn't have getting-in.json yet
-      }
-    };
-    fetchData();
-  }, [cityKey, country]);
+      });
+    return () => { cancelled = true; };
+  }, [cityKey]);
 
   const selectedAirportData = useMemo(() => {
     if (!gettingInData || !selectedAirport) return null;
