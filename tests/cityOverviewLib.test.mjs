@@ -2,7 +2,6 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
 import { getCityIcon } from '../src/components/city-guides/overview/lib/cityIcon.js';
-import { getSeasonalNeighborhoods } from '../src/components/city-guides/overview/lib/seasonalNeighborhoods.js';
 import {
   MONTH_NAMES,
   RATING_COLORS,
@@ -35,49 +34,10 @@ test('getCityIcon: falls back to ✨ for unknown cities', () => {
   assert.equal(getCityIcon(undefined), '✨');
 });
 
-// ---------- getSeasonalNeighborhoods ----------
-
-test('getSeasonalNeighborhoods: returns 4 seasons for Paris', () => {
-  const result = getSeasonalNeighborhoods('Paris');
-  assert.equal(result.length, 4);
-  assert.deepEqual(
-    result.map((r) => r.season),
-    ['Spring', 'Summer', 'Fall', 'Winter'],
-  );
-});
-
-test('getSeasonalNeighborhoods: Paris recommendations mention Paris-specific neighborhoods', () => {
-  const result = getSeasonalNeighborhoods('Paris');
-  const allText = result.map((r) => r.neighborhood).join(' ');
-  assert.ok(allText.includes('Saint-Germain'));
-  assert.ok(allText.includes('Marais'));
-  assert.ok(allText.includes('Montmartre'));
-});
-
-test('getSeasonalNeighborhoods: returns generic defaults for unknown cities', () => {
-  const result = getSeasonalNeighborhoods('Atlantis');
-  assert.equal(result.length, 4);
-  assert.equal(result[0].neighborhood, 'Historic center');
-});
-
-test('getSeasonalNeighborhoods: each entry has season, neighborhood, reason', () => {
-  const result = getSeasonalNeighborhoods('Paris');
-  result.forEach((item) => {
-    assert.equal(typeof item.season, 'string');
-    assert.equal(typeof item.neighborhood, 'string');
-    assert.equal(typeof item.reason, 'string');
-    assert.ok(item.season.length > 0);
-    assert.ok(item.neighborhood.length > 0);
-    assert.ok(item.reason.length > 0);
-  });
-});
-
-test('getSeasonalNeighborhoods: handles null/undefined city gracefully', () => {
-  const fromNull = getSeasonalNeighborhoods(null);
-  const fromUndefined = getSeasonalNeighborhoods(undefined);
-  assert.equal(fromNull.length, 4);
-  assert.equal(fromUndefined.length, 4);
-});
+// NOTE: getSeasonalNeighborhoods() helper was removed when seasonal-neighborhood
+// data moved into per-city `seasonal-prose.json`. Tests for that helper were
+// removed with the source. Component-level coverage of the new lazy-fetched
+// data is a follow-up (see AUDIT.md §6).
 
 // ---------- constants ----------
 

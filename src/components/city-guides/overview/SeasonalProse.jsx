@@ -1,7 +1,14 @@
 'use client';
 
-import React from 'react';
-import { CITY_SEASONAL_NARRATIVES, DEFAULT_SEASONAL_NARRATIVE } from '../_data/seasonalNarratives';
+import React, { useEffect, useState } from 'react';
+import { fetchCityDataUrl, getCityPaths } from '@/lib/city-data';
+
+const DEFAULT_SEASONAL_NARRATIVE = {
+  springFall: `<strong>April through June</strong> and <strong>September through October</strong> typically offer the most pleasant weather for exploring. Temperatures are comfortable, crowds are manageable, and you'll enjoy longer days without peak-season prices.`,
+  summer: `<strong>July and August</strong> bring the warmest weather and longest days, perfect for outdoor activities. Expect peak tourist crowds and higher prices. Book popular attractions in advance.`,
+  winter: `<strong>November through February</strong> offers a quieter experience with lower prices. While weather can be challenging, you'll find shorter queues and a more authentic local atmosphere.`,
+  march: `<strong>March</strong> marks the transition to spring. Weather can be unpredictable, but this shoulder season offers good value and fewer crowds.`,
+};
 
 /**
  * Renders an HTML-like string containing <strong> tags as React elements.
@@ -20,12 +27,23 @@ function renderSeasonalText(htmlString) {
 }
 
 /**
- * "Season by Season" prose block — four short paragraphs sourced from
- * the per-city seasonal-narratives data file.
+ * "Season by Season" prose block — four short paragraphs lazy-loaded
+ * from /data/{Country}/{slug}/seasonal-prose.json with a generic fallback.
  */
-export default function SeasonalProse({ cityName }) {
-  const cityKey = cityName?.toLowerCase() || '';
-  const content = CITY_SEASONAL_NARRATIVES[cityKey] || DEFAULT_SEASONAL_NARRATIVE;
+export default function SeasonalProse({ cityName, country }) {
+  const [content, setContent] = useState(DEFAULT_SEASONAL_NARRATIVE);
+
+  useEffect(() => {
+    if (!cityName) return;
+    let cancelled = false;
+    const { seasonalProse } = getCityPaths(country, cityName);
+    fetchCityDataUrl(seasonalProse, { cache: 'force-cache' })
+      .then((json) => {
+        if (!cancelled && json?.narrative) setContent(json.narrative);
+      })
+      .catch(() => { /* keep defaults */ });
+    return () => { cancelled = true; };
+  }, [cityName, country]);
 
   return (
     <div className="mt-6 pt-6 border-t border-gray-100">

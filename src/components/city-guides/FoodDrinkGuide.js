@@ -1,9 +1,18 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { ChevronDown, ChevronRight, MapPin, Clock, Star, Utensils, Wine, Coffee, ShoppingBag, ChefHat } from 'lucide-react';
-import { CITY_FOOD_DATA, DEFAULT_FOOD_DATA } from "./_data/cityFood";
+import { fetchCityDataUrl, getCityPaths } from '@/lib/city-data';
+
+const DEFAULT_FOOD_DATA = {
+  intro: `Every great city has its own food culture. Here's how to eat and drink like a local.`,
+  sections: [
+    { title: "Getting Started", content: `Research local specialties before you arrive. Ask locals for recommendations—hotel staff, taxi drivers, and shopkeepers often know the best spots. Avoid restaurants with photos on the menu or aggressive hosts outside.` },
+    { title: "Dining Tips", content: `Learn local meal times—they vary widely across cultures. Lunch is often the best value for quality dining. Make reservations for popular spots. Don't be afraid to eat where you don't see other tourists.` },
+  ],
+  highlights: [],
+};
 
 
 // Category definitions for restaurant filtering
@@ -115,7 +124,6 @@ function RestaurantCard({ restaurant, category }) {
 
 export default function FoodDrinkGuide({ cityName, cityData }) {
   const cityKey = cityName?.toLowerCase();
-  const foodData = CITY_FOOD_DATA[cityKey] || DEFAULT_FOOD_DATA;
   const displayName = cityName?.charAt(0).toUpperCase() + cityName?.slice(1) || 'This City';
 
   // Get culinary guide from cityData
@@ -125,6 +133,29 @@ export default function FoodDrinkGuide({ cityName, cityData }) {
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [priceFilter, setPriceFilter] = useState('all');
   const [showAllRestaurants, setShowAllRestaurants] = useState(false);
+
+  // Lazy-loaded per-city food guide content (intro, sections, highlights).
+  // Defaults render immediately; JSON swaps in once fetched.
+  const [foodData, setFoodData] = useState(DEFAULT_FOOD_DATA);
+
+  useEffect(() => {
+    if (!cityKey) return;
+    let cancelled = false;
+    const { foodGuide } = getCityPaths(cityData?.country, cityKey);
+    fetchCityDataUrl(foodGuide, { cache: 'force-cache' })
+      .then((json) => {
+        if (cancelled || !json) return;
+        setFoodData({
+          intro: json.intro || DEFAULT_FOOD_DATA.intro,
+          sections: Array.isArray(json.sections) && json.sections.length
+            ? json.sections
+            : DEFAULT_FOOD_DATA.sections,
+          highlights: Array.isArray(json.highlights) ? json.highlights : [],
+        });
+      })
+      .catch(() => { /* keep defaults */ });
+    return () => { cancelled = true; };
+  }, [cityKey, cityData?.country]);
 
   // Flatten and filter restaurants
   const allRestaurants = useMemo(() => {

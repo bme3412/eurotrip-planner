@@ -14,9 +14,25 @@ export type CityDataPaths = {
   monthlyThingsToDo: string;
   monthlyIndex: string;
   photos: string;
+  startHere: string;
+  foodGuide: string;
+  seasonalProse: string;
 };
 
-const normalizeCountry = (value?: string) => (value || 'unknown').trim() || 'unknown';
+// Country → public/data folder mapping. Some folders use different casing
+// than the canonical country name.
+export const COUNTRY_FOLDER_MAP: Record<string, string> = {
+  'United Kingdom': 'UK',
+  'Czech Republic': 'Czechia',
+};
+
+export const getCountryFolder = (country?: string): string =>
+  (country && COUNTRY_FOLDER_MAP[country]) || country || 'unknown';
+
+const normalizeCountry = (value?: string) => {
+  const trimmed = (value || 'unknown').trim() || 'unknown';
+  return getCountryFolder(trimmed);
+};
 const normalizeCity = (value?: string) =>
   (value || 'unknown')
     .trim()
@@ -41,7 +57,10 @@ export function getCityPaths(country?: CountrySlug, city?: CitySlug): CityDataPa
     monthlyTaglines: `${monthlyBase}/monthly-taglines.json`,
     monthlyThingsToDo: `${monthlyBase}/things-to-do.json`,
     monthlyIndex: `${monthlyBase}/index.json`,
-    photos: `${base}/photos.json`
+    photos: `${base}/photos.json`,
+    startHere: `${base}/start-here.json`,
+    foodGuide: `${base}/food-guide.json`,
+    seasonalProse: `${base}/seasonal-prose.json`
   };
 }
 

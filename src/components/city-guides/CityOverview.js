@@ -12,7 +12,6 @@ import {
   computeTripFitRecommendations,
 } from './overview/lib/derived';
 import { getCityIcon } from './overview/lib/cityIcon';
-import { getSeasonalNeighborhoods } from './overview/lib/seasonalNeighborhoods';
 
 import MonthlyCalendar from './overview/MonthlyCalendar';
 import BestTimeKpiCards from './overview/BestTimeKpiCards';
@@ -101,7 +100,6 @@ const CityOverview = ({
   const description = getCityDescription({ overview }, cityName);
 
   const cityIcon = useMemo(() => getCityIcon(cityName), [cityName]);
-  const seasonalNeighborhoods = useMemo(() => getSeasonalNeighborhoods(cityName), [cityName]);
 
   const bestMonthsOverall = visitCalendar?.bestTimeRecommendations?.overall?.best || [];
   const avoidMonthsOverall = visitCalendar?.bestTimeRecommendations?.overall?.avoid || [];
@@ -280,10 +278,10 @@ const CityOverview = ({
       {/* Season-by-season narrative + neighborhood recommendations */}
       {visitCalendar && (
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8">
-          <SeasonalProse cityName={cityName} />
+          <SeasonalProse cityName={cityName} country={overview?.country} />
           <SeasonalNeighborhoods
             cityName={cityName}
-            seasonalNeighborhoods={seasonalNeighborhoods}
+            country={overview?.country}
           />
         </div>
       )}

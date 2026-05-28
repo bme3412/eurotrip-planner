@@ -13,8 +13,43 @@ import {
   MapPin
 } from 'lucide-react';
 import { TransportOptionList } from './TransportOptionCard';
-import { CITY_FAQS, DEFAULT_FAQS } from "./_data/cityFaqs";
-import { CITY_NARRATIVES, DEFAULT_NARRATIVE } from "./_data/cityNarratives";
+import { fetchCityDataUrl, getCityPaths, getCountryFolder } from '@/lib/city-data';
+
+const DEFAULT_NARRATIVE = {
+  intro: `You've just arrived. Here's everything you need to know to navigate the city like you've been here before—no stress, no confusion, just practical knowledge.`,
+  arrival: {
+    title: "From the Airport",
+    content: `Most major European cities offer multiple ways to reach the center from the airport. Public transit (trains, buses, or metro connections) typically offers the best value, while taxis and rideshares provide door-to-door convenience at a premium. Look for official transport desks in the arrivals hall, and be wary of anyone approaching you offering rides inside the terminal.`
+  },
+  gettingAround: {
+    title: "Getting Around",
+    content: `European cities generally have excellent public transit. Metro, tram, and bus networks are clean, safe, and efficient. Pick up a transit card at any station—it's almost always cheaper than buying single tickets. Rideshare apps like Uber and Bolt operate in most major cities, and taxis can be found at designated stands or hailed on the street.`
+  },
+  money: {
+    title: "Money & Payments",
+    content: `Credit and debit cards are widely accepted across Europe, with contactless payments increasingly the norm. Visa and Mastercard work almost everywhere; American Express is more limited. Keep a small amount of cash for markets, small vendors, and the occasional cash-only spot. ATMs are readily available.`
+  },
+  connectivity: {
+    title: "Staying Connected",
+    content: `WiFi is widely available in hotels, cafés, and many public spaces. EU SIM cards work across the continent under roaming agreements. Local prepaid SIMs offer the best rates for extended stays. European outlets use Type C/E plugs at 230V—bring an adapter if you're coming from outside Europe.`
+  },
+  timing: {
+    title: "Local Rhythms",
+    content: `Shop hours and dining times vary by country and culture. Many European countries still observe a slower pace on Sundays, with limited retail hours. Research local customs around lunch breaks, late dinners, and seasonal closures before you go.`
+  },
+  quickWins: {
+    title: "Insider Moves",
+    content: `Learn a few key phrases in the local language—greetings go a long way. Research tipping customs (it varies wildly). Keep your voice down in public spaces. And don't forget to actually look up from your phone occasionally—you're in one of the world's great cities.`
+  }
+};
+
+const DEFAULT_FAQS = [
+  { question: "Is this city safe for tourists?", answer: "Generally yes. Like any major destination, stay aware of your surroundings, watch for pickpockets in crowded areas, and keep valuables secure. Research specific neighborhoods before your visit." },
+  { question: "How much should I budget per day?", answer: "Budget varies by city and travel style. Research average costs for accommodation, food, and attractions. A mid-range budget typically covers comfortable hotels, nice meals, and key sights." },
+  { question: "Do I need to learn the local language?", answer: "Learning basic phrases is always appreciated and helpful. 'Hello,' 'Thank you,' 'Please,' and 'Do you speak English?' will cover most situations. Many tourist areas have English speakers, but making an effort goes a long way." },
+  { question: "What's the best area to stay?", answer: "Look for neighborhoods near public transit with good access to attractions. Research different areas for their character—some are more lively, others quieter. Check recent reviews and avoid locations too far from the center." },
+  { question: "Should I book attractions in advance?", answer: "For popular museums and landmarks, advance booking is often required or strongly recommended. Timed-entry tickets help you skip queues and guarantee access, especially during peak season." },
+];
 
 // Dynamically import the map component to avoid SSR issues
 const AirportRouteMap = dynamic(() => import('./AirportRouteMap'), {
@@ -32,14 +67,14 @@ const AirportRouteMap = dynamic(() => import('./AirportRouteMap'), {
 
 export default function StartHere({ cityName, cityData }) {
   const cityKey = cityName?.toLowerCase();
-  const narrative = CITY_NARRATIVES[cityKey] || DEFAULT_NARRATIVE;
-  const faqs = CITY_FAQS[cityKey] || DEFAULT_FAQS;
   const displayName = cityName?.charAt(0).toUpperCase() + cityName?.slice(1) || 'This City';
 
   const [openFaq, setOpenFaq] = useState(null);
   const [gettingInData, setGettingInData] = useState(null);
   const [selectedAirport, setSelectedAirport] = useState(null);
   const [selectedRouteId, setSelectedRouteId] = useState(null);
+  const [narrative, setNarrative] = useState(DEFAULT_NARRATIVE);
+  const [faqs, setFaqs] = useState(DEFAULT_FAQS);
 
   // Fetch getting-in.json data for the city
   useEffect(() => {
@@ -47,10 +82,7 @@ export default function StartHere({ cityName, cityData }) {
       if (!cityData?.country || !cityKey) return;
 
       try {
-        const countryFolder = cityData.country === 'United Kingdom' ? 'UK'
-          : cityData.country === 'Czech Republic' ? 'Czechia'
-          : cityData.country;
-
+        const countryFolder = getCountryFolder(cityData.country);
         const response = await fetch(`/data/${countryFolder}/${cityKey}/getting-in.json`);
         if (response.ok) {
           const data = await response.json();
@@ -66,6 +98,21 @@ export default function StartHere({ cityName, cityData }) {
     };
 
     fetchGettingInData();
+  }, [cityKey, cityData?.country]);
+
+  // Lazy-load narrative + FAQs from start-here.json (was previously bundled).
+  useEffect(() => {
+    if (!cityKey) return;
+    let cancelled = false;
+    const { startHere } = getCityPaths(cityData?.country, cityKey);
+    fetchCityDataUrl(startHere, { cache: 'force-cache' })
+      .then((json) => {
+        if (cancelled || !json) return;
+        if (json.narrative) setNarrative(json.narrative);
+        if (Array.isArray(json.faqs) && json.faqs.length) setFaqs(json.faqs);
+      })
+      .catch(() => { /* keep defaults */ });
+    return () => { cancelled = true; };
   }, [cityKey, cityData?.country]);
 
   // Get routes for selected airport
