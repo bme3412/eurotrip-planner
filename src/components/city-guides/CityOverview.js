@@ -1,12 +1,19 @@
 'use client';
 import { CITY_SEASONAL_NARRATIVES, DEFAULT_SEASONAL_NARRATIVE } from "./_data/seasonalNarratives";
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { getCityDisplayName, getCityNickname, getCityDescription } from '@/utils/cityDataUtils';
 import { Chip } from '@/components/common/Primitives';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Star, Sun, Snowflake, Umbrella, Heart, Medal, ChevronLeft, ChevronRight, Clock, MapPin, CalendarDays, Wand2, Bookmark, Plus, Eye, Sunrise, Sunset, X, Check, ExternalLink } from 'lucide-react';
 import { fetchCityDataUrl, getCityPaths } from '@/lib/city-data';
+import { useFavorites } from '@/hooks/useFavorites';
+import { makeIdOf } from '@/lib/savedItems/favoritesStore';
+
+// CityOverview historically preferred `activity` > `title` > `name` because
+// its data comes from the "things to do" JSON, where `activity` is the
+// canonical label.
+const cityOverviewIdOf = makeIdOf(['activity', 'title', 'name']);
 
 const MONTH_NAMES = [
   'January', 'February', 'March', 'April', 'May', 'June',
@@ -93,50 +100,22 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
   // Quick View Modal state
   const [quickViewItem, setQuickViewItem] = useState(null);
   
-  // Favorites state
-  const [favorites, setFavorites] = useState([]);
+  // Favorites — unified hook syncs to Supabase for signed-in users, falls
+  // back to localStorage for guests. Replaces the legacy localStorage-only
+  // logic (which silently dropped favorites for authenticated users).
+  const { isFavorite, toggle: toggleFavoriteHook } = useFavorites(cityName, { idOf: cityOverviewIdOf });
   const [toastMessage, setToastMessage] = useState(null);
-  
-  // Load favorites from localStorage on mount
-  useEffect(() => {
-    const stored = localStorage.getItem(`favorites-${cityName}`);
-    if (stored) {
-      try {
-        setFavorites(JSON.parse(stored));
-      } catch (e) {
-        console.error('Failed to parse favorites', e);
-      }
-    }
-  }, [cityName]);
-  
-  // Save favorites to localStorage
-  const toggleFavorite = (item) => {
-    const itemId = item.activity || item.title || item.name;
-    const isFavorite = favorites.some(f => (f.activity || f.title || f.name) === itemId);
-    
-    let newFavorites;
-    if (isFavorite) {
-      newFavorites = favorites.filter(f => (f.activity || f.title || f.name) !== itemId);
-      showToast(`Removed "${itemId}" from favorites`);
-    } else {
-      newFavorites = [...favorites, item];
-      showToast(`Saved "${itemId}" to favorites`);
-    }
-    
-    setFavorites(newFavorites);
-    localStorage.setItem(`favorites-${cityName}`, JSON.stringify(newFavorites));
-  };
-  
-  const isFavorite = (item) => {
-    const itemId = item.activity || item.title || item.name;
-    return favorites.some(f => (f.activity || f.title || f.name) === itemId);
-  };
-  
-  // Toast notification
-  const showToast = (message) => {
+
+  const showToast = useCallback((message) => {
     setToastMessage(message);
     setTimeout(() => setToastMessage(null), 3000);
-  };
+  }, []);
+
+  const toggleFavorite = useCallback(async (item) => {
+    const { action, id } = await toggleFavoriteHook(item);
+    if (action === 'added') showToast(`Saved "${id}" to favorites`);
+    else if (action === 'removed') showToast(`Removed "${id}" from favorites`);
+  }, [toggleFavoriteHook, showToast]);
 
   // Add click outside handler to close tooltip
   useEffect(() => {

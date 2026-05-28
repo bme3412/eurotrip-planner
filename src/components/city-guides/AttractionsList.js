@@ -3,10 +3,9 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import { Heart, Check, Clock, MapPin, Star, ExternalLink } from 'lucide-react';
-import { useAuth } from '@/contexts/AuthContext';
 import GooglePlacePhoto from '@/components/common/GooglePlacePhoto';
-import { getSupabaseClient } from '@/lib/supabase/client';
 import { fetchCityDataUrl } from '@/lib/city-data';
+import { useFavorites } from '@/hooks/useFavorites';
 
 const MAX_SEASONAL_SCORE = 8;
 
@@ -113,55 +112,13 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   const [showFilters, setShowFilters] = useState(false);
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [favorites, setFavorites] = useState([]);
   const [toastMessage, setToastMessage] = useState(null);
-  
-  // Auth state for Supabase
-  const { user, isSupabaseConfigured } = useAuth();
-  
+
+  // Favorites — unified hook handles Supabase / localStorage selection.
+  const { isFavorite, toggle: toggleFavoriteHook } = useFavorites(cityName);
+
   // Properly capitalize city name
   const displayCityName = capitalizeCity(cityName);
-  
-  // Load favorites from Supabase (if logged in) or localStorage
-  useEffect(() => {
-    const loadFavorites = async () => {
-      if (user && isSupabaseConfigured) {
-        // Load from Supabase
-        const supabase = getSupabaseClient();
-        if (supabase) {
-          const { data, error } = await supabase
-            .from('saved_experiences')
-            .select('*')
-            .eq('user_id', user.id)
-            .eq('city_name', cityName);
-          
-          if (!error && data) {
-            // Transform Supabase data to match local format
-            const transformed = data.map(item => ({
-              name: item.experience_name,
-              category: item.category,
-              subcategory: item.subcategory,
-              description: item.description,
-              ...(item.experience_data || {})
-            }));
-            setFavorites(transformed);
-          }
-        }
-      } else {
-        // Load from localStorage
-        const stored = localStorage.getItem(`favorites-${cityName}`);
-        if (stored) {
-          try {
-            setFavorites(JSON.parse(stored));
-          } catch (e) {
-            console.error('Failed to parse favorites', e);
-          }
-        }
-      }
-    };
-    
-    loadFavorites();
-  }, [cityName, user, isSupabaseConfigured]);
 
   // Stores name→GoogleData map so it can be applied to whichever data source is active
   const googleMapRef = useRef(null);
@@ -219,84 +176,17 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   // Use attractions prop as fallback (enriched via applyGoogleData in dataSource)
   const effectiveAttractions = attractions;
 
-  // Save/remove favorite - uses Supabase if logged in, localStorage otherwise
-  const toggleFavorite = async (item) => {
-    const itemId = item.name || item.activity || item.title;
-    const isFav = favorites.some(f => (f.name || f.activity || f.title) === itemId);
-    
-    if (user && isSupabaseConfigured) {
-      // Use Supabase
-      const supabase = getSupabaseClient();
-      if (!supabase) return;
-      
-      if (isFav) {
-        // Remove from Supabase
-        const { error } = await supabase
-          .from('saved_experiences')
-          .delete()
-          .eq('user_id', user.id)
-          .eq('city_name', cityName)
-          .eq('experience_name', itemId);
-        
-        if (!error) {
-          setFavorites(favorites.filter(f => (f.name || f.activity || f.title) !== itemId));
-          showToast(`Removed "${itemId}" from favorites`);
-        } else {
-          console.error('Error removing favorite:', error);
-        }
-      } else {
-        // Add to Supabase
-        const { error } = await supabase
-          .from('saved_experiences')
-          .insert({
-            user_id: user.id,
-            city_name: cityName,
-            experience_name: itemId,
-            category: item.category || null,
-            subcategory: item.subcategory || null,
-            description: item.description || item.shortDescription || null,
-            image: item.image || null,
-            location: item.location || item.neighborhood || null,
-            duration: item.duration || null,
-            price_level: item.priceLevel || item.cost || null,
-            rating: item.rating || null,
-            tags: item.tags || item.themes || null,
-            experience_data: item, // Store full item as JSON
-          });
-        
-        if (!error) {
-          setFavorites([...favorites, item]);
-          showToast(`Saved "${itemId}" to favorites`);
-        } else {
-          console.error('Error saving favorite:', error);
-        }
-      }
-    } else {
-      // Use localStorage
-      let newFavorites;
-      if (isFav) {
-        newFavorites = favorites.filter(f => (f.name || f.activity || f.title) !== itemId);
-        showToast(`Removed "${itemId}" from favorites`);
-      } else {
-        newFavorites = [...favorites, item];
-        showToast(`Saved "${itemId}" to favorites`);
-      }
-      
-      setFavorites(newFavorites);
-      localStorage.setItem(`favorites-${cityName}`, JSON.stringify(newFavorites));
-    }
-  };
-  
-  const isFavorite = (item) => {
-    const itemId = item.name || item.activity || item.title;
-    return favorites.some(f => (f.name || f.activity || f.title) === itemId);
-  };
-  
   // Toast notification
-  const showToast = (message) => {
+  const showToast = useCallback((message) => {
     setToastMessage(message);
     setTimeout(() => setToastMessage(null), 3000);
-  };
+  }, []);
+
+  const toggleFavorite = useCallback(async (item) => {
+    const { action, id } = await toggleFavoriteHook(item);
+    if (action === 'added') showToast(`Saved "${id}" to favorites`);
+    else if (action === 'removed') showToast(`Removed "${id}" from favorites`);
+  }, [toggleFavoriteHook, showToast]);
 
   const rankingLenses = useMemo(() => ([
     {
