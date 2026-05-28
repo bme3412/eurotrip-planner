@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { getCityHeaderInfo, getCityDisplayName, getCityNickname, getCityDescription, getCityHeroImage } from "@/utils/cityDataUtils";
 import { useMonthlyData } from '@/hooks/useMonthlyData';
 import { useUIState } from '@/hooks/useUIState';
-import { getCityPaths } from '@/lib/city-data';
+import { getCityPaths, getCountryFolder } from '@/lib/city-data';
 import Hero from '@/components/common/Hero';
 import SaveToTrips from '@/components/common/SaveToTrips';
 import AuthButton from '@/components/auth/AuthButton';
@@ -75,13 +75,6 @@ function getCityCenter(cityData, cityName) {
 
   return DEFAULT_CENTER;
 }
-
-// Country → folder-name mapping (some public/data folders use different casing)
-const COUNTRY_FOLDER_MAP = {
-  'United Kingdom': 'UK',
-  'Czech Republic': 'Czechia',
-};
-const getCountryFolder = (country) => COUNTRY_FOLDER_MAP[country] || country;
 
 function CityPageClient({ cityData: initialCityData, cityName }) {
   const [activeTab, setActiveTab] = useState('overview');

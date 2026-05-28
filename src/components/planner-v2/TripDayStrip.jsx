@@ -15,6 +15,7 @@ export default function TripDayStrip({
   cities,
   tripDates,
   onSetCityNights,
+  onSetCityAccommodation,
   onSetTripDates,
 }) {
   const [openIndex, setOpenIndex] = useState(null);
@@ -48,6 +49,7 @@ export default function TripDayStrip({
               onClick={() => setOpenIndex(isOpen ? null : day.dayIndex)}
               onClose={() => setOpenIndex(null)}
               onSetCityNights={onSetCityNights}
+              onSetCityAccommodation={onSetCityAccommodation}
               onSetTripDates={onSetTripDates}
             />
           );

@@ -1,6 +1,7 @@
 import { TOOLS_V2, DATA_TOOLS, UI_TOOLS } from '@/lib/conversation/toolsV2';
 import { buildFullPromptBlocks } from '@/lib/conversation/systemPromptV2';
 import { executeToolCall as defaultExecuteToolCall } from '@/lib/conversation/toolHandlers';
+import { diffRoute, mergeDiffs, renderStateChangesBlock } from '@/lib/conversation/routeDiff';
 
 export const MAX_LOOPS = 8;
 export const MODEL = 'claude-sonnet-4-20250514';
@@ -37,7 +38,15 @@ export async function runPlannerLoop({
   callWithRetry,
 }) {
   let tripState = initialTripState;
-  let systemForCall = buildFullPromptBlocks(tripState, buildToolHistoryBlock());
+  // Cumulative structural diff of tripState.route.cities across this user turn.
+  // Surfaced to the model as a "Recent State Changes" block so it can't
+  // falsely claim a removal that wasn't actually made via remove_cities.
+  let accumulatedRouteDiff = null;
+  let systemForCall = buildFullPromptBlocks(
+    tripState,
+    buildToolHistoryBlock(),
+    renderStateChangesBlock(accumulatedRouteDiff),
+  );
   let currentMessages = [...initialMessages];
   let continueLoop = true;
   let loopCount = 0;
@@ -87,7 +96,16 @@ export async function runPlannerLoop({
         hasDataTools = true;
         const result = await executeToolCall(block.name, block.input, tripState);
 
-        if (block.name === 'extract_trip_data' && result?.updatedState) {
+        if (
+          (block.name === 'extract_trip_data' ||
+            block.name === 'remove_cities' ||
+            block.name === 'set_accommodation') &&
+          result?.updatedState
+        ) {
+          const stepDiff = diffRoute(tripState, result.updatedState);
+          if (stepDiff.hasChanges) {
+            accumulatedRouteDiff = mergeDiffs(accumulatedRouteDiff, stepDiff);
+          }
           tripState = result.updatedState;
           send({ type: 'state_update', state: tripState });
         }
@@ -127,7 +145,11 @@ export async function runPlannerLoop({
       currentMessages.push({ role: 'assistant', content: response.content });
       currentMessages.push({ role: 'user', content: toolResults });
       if (hasDataTools) {
-        systemForCall = buildFullPromptBlocks(tripState, buildToolHistoryBlock());
+        systemForCall = buildFullPromptBlocks(
+          tripState,
+          buildToolHistoryBlock(),
+          renderStateChangesBlock(accumulatedRouteDiff),
+        );
       }
       continueLoop = true;
     }

@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useRef } from 'react';
 import { createSSEBuffer, feedSSE, flushSSE } from '@/lib/conversation/sseParser';
+import { dispatchAgentEvent } from '@/lib/conversation/agentDispatcher';
 
 /**
  * Hook for SSE streaming, tool call dispatch, and abort/cleanup.
@@ -23,81 +24,18 @@ export function useAgentStream({
   // unmount kills the initial conversation fetch before it completes.
   // Streams are cleaned up explicitly via abortStream() or reset() instead.
 
-  /** Handle a tool call from the SSE stream (client-side dispatch). */
-  const handleToolCall = useCallback((toolName, toolInput) => {
-    switch (toolName) {
-      case 'render_trip_card':
-      case 'render_city_picker':
-      case 'render_options':
-      case 'render_date_picker':
-      case 'render_nights_allocator':
-      case 'confirm_changes':
-        setPendingInput({ type: toolName, data: toolInput });
-        break;
-
-      case 'finalize_trip':
-        if (onFinalize) {
-          onFinalize(toolInput?.summary);
-        } else {
-          setIsFinalized(true);
-        }
-        break;
-
-      // Data tools are handled server-side; ignore the client event
-      case 'extract_trip_data':
-      case 'resolve_cities':
-      case 'get_route_options':
-      case 'suggest_cities':
-      case 'get_city_info':
-      case 'optimize_route':
-        break;
-
-      default:
-        console.warn('[agent] Unknown tool:', toolName);
-    }
-  }, [setPendingInput, setIsFinalized, onFinalize]);
-
   /** Dispatch a single parsed SSE data object. Returns updated fullContent. */
   const handleSSEData = useCallback((data, fullContent) => {
-    switch (data.type) {
-      case 'content':
-      case 'content_delta':
-        fullContent += data.content;
-        updateLastAssistantMessage(fullContent);
-        break;
-
-      case 'tool_use':
-        handleToolCall(data.name, data.input);
-        if (onToolCall) onToolCall(data.name, data.input);
-        break;
-
-      case 'state_update':
-        if (data.state) {
-          setTripState(data.state);
-        }
-        break;
-
-      case 'tool_result':
-      case 'tool_error':
-        // Informational; could surface in debug UI
-        break;
-
-      case 'error':
-        throw new Error(data.error || 'Server error');
-
-      case 'incomplete':
-        // Server hit MAX_LOOPS or bailed early; surface the nudge to the user.
-        if (data.message) {
-          fullContent += (fullContent ? '\n\n' : '') + data.message;
-          updateLastAssistantMessage(fullContent);
-        }
-        break;
-
-      case 'done':
-        break;
-    }
-    return fullContent;
-  }, [updateLastAssistantMessage, handleToolCall, setTripState, onToolCall]);
+    return dispatchAgentEvent(data, fullContent, {
+      updateLastAssistantMessage,
+      setTripState,
+      setPendingInput,
+      setIsFinalized,
+      onFinalize,
+      onToolCall,
+      onUnknownTool: (name) => console.warn('[agent] Unknown tool:', name),
+    });
+  }, [updateLastAssistantMessage, setTripState, setPendingInput, setIsFinalized, onFinalize, onToolCall]);
 
   /** Process an SSE response stream from /api/conversation. */
   const processStream = useCallback(async (response) => {

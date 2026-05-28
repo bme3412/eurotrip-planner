@@ -11,7 +11,7 @@ Detailed guides for all 220 cities with attractions, neighborhoods, food, weathe
 
 ## 3. Trip Planning (Agentic / Conversational)
 Natural language chat interface where an AI agent builds your trip interactively in a 3-column layout.
-- **Key components:** `ThreeColumnPlanner`, `PlannerColumn`, `CompactChatInput`, `CompactMessageList`, `RouteMapColumn`, `TripScheduleHeader`, `PlannerProgressBar`
+- **Key components:** `ThreeColumnPlanner`, `PlannerColumn`, `CompactChatInput`, `CompactMessageList`, `RouteMapColumn`, `TripDayStrip`, `PlannerProgressBar`
 - **Backend:** `/api/plan/agent`, `/api/conversation` with 40+ tool definitions
 
 ## 4. Generated Itineraries
@@ -35,17 +35,14 @@ Save cities and trips, with cloud sync for logged-in users and localStorage for 
 
 ## Supporting Infrastructure
 
-### Custom Hooks (14)
-- `useAgentContext` - Access agent conversation state
+### Custom Hooks (11)
 - `useAgentStream` - Stream agent responses
-- `useAsyncData` - Async data loading pattern
 - `useBestNow` - Real-time best cities
 - `useDirectManipulation` - Direct trip manipulation
 - `useHeroImage` - Hero image loading
 - `useItineraryGeneration` - Itinerary generation flow
 - `useMessages` - Conversation messages
 - `useMonthlyData` - Monthly city data loading
-- `usePerformanceOptimization` - Performance tracking
 - `useTripDates` - Trip date management
 - `useTripPlannerAgent` - Agent-based planning
 - `useTripState` - Trip state management
@@ -56,15 +53,15 @@ Save cities and trips, with cloud sync for logged-in users and localStorage for 
 - **TravelDataProvider** - Travel data management (wishlists, saved trips)
 - **MapDataContext** - Map and city data (ratings, calendar, filters, loading states)
 
-### Lib Modules (70+)
+### Lib Modules (60+)
 - **Scoring** (`src/lib/scoring/v4/`) - 6-factor scoring engine with dynamic weights
 - **Planning** (`src/lib/planning/`) - Itinerary generation, route optimization, day allocation
 - **Conversation** (`src/lib/conversation/`) - Agentic system prompt, planner loop, tool handlers
 - **Caching** (`src/lib/cache/`, `src/lib/enrichment/`) - Redis-compatible caching, enrichment data
 - **External APIs** - Google Places, Google Routes, Supabase, Mapbox
 
-### Utilities (8)
-- `cityDataUtils`, `monthlyDataLoader`, `travelUtils`, `countryFlags`, `chunkOptimization`, `cdnUtils`, `performanceUtils`, `lineInterpolation`
+### Utilities (5)
+- `cityDataUtils`, `monthlyDataLoader`, `countryFlags`, `chunkOptimization`, `cdnUtils`
 
 ### Tech Stack
 - **Framework:** Next.js 15 (App Router)
@@ -81,9 +78,9 @@ Save cities and trips, with cloud sync for logged-in users and localStorage for 
 |----------|-------|
 | Pages/Routes | 43 |
 | API Routes | 12 |
-| React Components | 158 |
-| Custom Hooks | 14 |
+| React Components | 103 |
+| Custom Hooks | 11 |
 | Contexts | 3 |
-| Lib Modules | 70+ |
-| Utils | 8 |
-| **Total** | **~317** |
+| Lib Modules | 60+ |
+| Utils | 5 |
+| **Total** | **~249** |

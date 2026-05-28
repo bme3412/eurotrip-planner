@@ -15,7 +15,6 @@
     "build:data": "node scripts/generateMonthlyIndex.mjs",
     "build:cities": "node scripts/generateCityIndex.mjs",
     "compress-images": "node scripts/compressImages.mjs",
-    "compress-images-simple": "node scripts/compressImagesSimple.mjs",
     "convert-png-to-jpeg": "node scripts/convertPngToJpeg.mjs",
     "move-thumbnails": "node scripts/moveThumbnails.mjs",
     "replace-thumbnails": "node scripts/replaceThumbnails.mjs",
@@ -24,7 +23,9 @@
     "pipeline:validate:ci": "node scripts/pipeline/validate.mjs",
     "pipeline:manifest": "node scripts/pipeline/manifest.mjs",
     "pipeline:audit": "node scripts/pipeline/audit.mjs",
-    "pipeline:quality-check": "node scripts/pipeline/audit.mjs --threshold 40"
+    "pipeline:quality-check": "node scripts/pipeline/audit.mjs --threshold 40",
+    "pipeline:enrich": "node scripts/pipeline/enrich.mjs",
+    "rebuild:all": "npm run pipeline:manifest && npm run generate-cities && npm run build:data && npm run build:cities && npm run build:scores"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,mjs}": [

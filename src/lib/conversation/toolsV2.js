@@ -123,6 +123,60 @@ Do NOT include MEDIUM-confidence extractions here — for phrases like "maybe Ni
   },
 };
 
+const remove_cities = {
+  name: 'remove_cities',
+  description: `Remove one or more cities from the current route. Use this whenever the user drops, swaps, or replaces a city — do NOT simply omit dropped cities from extract_trip_data (extract_trip_data is additive and cannot remove cities).
+
+Examples of when to call remove_cities:
+- "actually skip Menton" → remove_cities({ cities: ["menton"] })
+- "replace Berlin with Prague" → remove_cities({ cities: ["berlin"] }) THEN extract_trip_data with Prague
+- "just Paris and Nice, drop the rest" → remove_cities for every other city currently on the route
+
+Pass canonical city ids when known, otherwise the city name. Matching is case-insensitive and tries id first, then name.`,
+  input_schema: {
+    type: 'object',
+    properties: {
+      cities: {
+        type: 'array',
+        items: { type: 'string' },
+        description: 'City ids or names to remove from route.cities.',
+      },
+    },
+    required: ['cities'],
+  },
+};
+
+const set_accommodation = {
+  name: 'set_accommodation',
+  description: `Record or update accommodation/lodging for one city already on the route. Use when the user states or pastes lodging info: hotel name, address, check-in/out dates, confirmation number, or notes about the stay.
+
+Only set the fields the user actually mentioned. Passing an empty string or null clears that field. To clear all accommodation, pass null for every known field.
+
+Examples:
+- "I booked the Hotel Ritz in Paris from June 12 to June 15" →
+  set_accommodation({ cityRef: "paris", name: "Hotel Ritz", checkIn: "2025-06-12", checkOut: "2025-06-15" })
+- "the Barcelona Airbnb is on Carrer de Mallorca, confirmation BCN-9931" →
+  set_accommodation({ cityRef: "barcelona", address: "Carrer de Mallorca", confirmationNumber: "BCN-9931" })
+
+Match cityRef by canonical id when known, otherwise the city name. The city must already be on the route — if it is not, call extract_trip_data first.`,
+  input_schema: {
+    type: 'object',
+    properties: {
+      cityRef: {
+        type: 'string',
+        description: 'City id or name. Must reference a city already on route.cities.',
+      },
+      name: { type: 'string', description: 'Hotel / lodging name. Empty string clears.' },
+      address: { type: 'string', description: 'Street address. Empty string clears.' },
+      checkIn: { type: 'string', description: 'Check-in date YYYY-MM-DD. Empty string clears.' },
+      checkOut: { type: 'string', description: 'Check-out date YYYY-MM-DD. Empty string clears.' },
+      confirmationNumber: { type: 'string', description: 'Booking confirmation. Empty string clears.' },
+      notes: { type: 'string', description: 'Free-form notes about the stay. Empty string clears.' },
+    },
+    required: ['cityRef'],
+  },
+};
+
 const resolve_cities = {
   name: 'resolve_cities',
   description: 'Resolve city name strings to canonical IDs from the 220-city European database. Returns IDs, coordinates, country, and description.',
@@ -346,6 +400,8 @@ const confirm_changes = {
 export const TOOLS_V2 = [
   // Extraction
   extract_trip_data,
+  remove_cities,
+  set_accommodation,
   resolve_cities,
   // Data retrieval
   get_route_options,
@@ -366,6 +422,8 @@ export const TOOLS_V2 = [
 // (Claude needs to see the result to formulate the next response)
 export const DATA_TOOLS = new Set([
   'extract_trip_data',
+  'remove_cities',
+  'set_accommodation',
   'resolve_cities',
   'get_route_options',
   'suggest_cities',

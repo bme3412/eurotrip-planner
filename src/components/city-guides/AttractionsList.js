@@ -1,949 +1,105 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
-import Image from 'next/image';
-import { Heart, Check, Clock, MapPin, Star, ExternalLink } from 'lucide-react';
-import { useAuth } from '@/contexts/AuthContext';
-import GooglePlacePhoto from '@/components/common/GooglePlacePhoto';
-import { getSupabaseClient } from '@/lib/supabase/client';
-import { fetchCityDataUrl } from '@/lib/city-data';
+import React, { useCallback, useMemo, useState } from 'react';
+import { Check } from 'lucide-react';
+import { useFavorites } from '@/hooks/useFavorites';
+import AttractionCard from './attractions/AttractionCard';
+import CuratedFilters from './attractions/CuratedFilters';
+import LoadingSkeleton from './attractions/LoadingSkeleton';
+import { useExperienceData } from './attractions/hooks/useExperienceData';
+import { useGoogleEnrichment } from './attractions/hooks/useGoogleEnrichment';
+import { usePagination } from './attractions/hooks/usePagination';
+import { MONTHS } from './attractions/lib/constants';
+import { capitalizeCity } from './attractions/lib/display';
+import {
+  computeScoringBounds,
+  getLensScore,
+  getMonthFromDate,
+  getSeasonalScore,
+  isDateInRange,
+  matchesCuratedFilter,
+} from './attractions/lib/scoring';
 
-const MAX_SEASONAL_SCORE = 8;
-
-const clamp01 = (value) => Math.min(1, Math.max(0, value));
-
-const normalizeValue = (value, bounds) => {
-  if (typeof value !== 'number' || Number.isNaN(value) || !bounds) return null;
-  const { min, max } = bounds;
-  if (!Number.isFinite(min) || !Number.isFinite(max)) return null;
-  if (Math.abs(max - min) < 1e-6) return 0.5;
-  return clamp01((value - min) / (max - min));
-};
-
-const CATEGORY_MULTIPLIERS = {
-  hiddencorners: 0.86,
-  daytrips_seasonal: 0.92,
-  fooddrink: 0.95,
-  parkgardens: 0.96,
-  latenight: 0.97,
-  afternoon: 1.02,
-  evening: 1.03
-};
-
-const THEME_ADJUSTMENTS = {
-  hidden_gem: -0.08,
-  neighborhoods: -0.04,
-  day_trip: -0.06,
-  parks: -0.02,
-  art: 0.02,
-  history: 0.05,
-  views: 0.05,
-  nightlife: 0.02,
-  food: 0.02
-};
-
-const ICONIC_KEYWORDS = [
-  'eiffel',
-  'louvre',
-  'notre-dame',
-  'arc de triomphe',
-  'versailles',
-  'sainte-chapelle',
-  'sacre',
-  'musée d\'orsay',
-  'musee d\'orsay',
-  'montmartre',
-  'pompidou',
-  'palace of versailles',
-  'seine river cruise'
-];
-
-const SORT_OPTIONS = [
-  { id: 'score-desc', label: 'Score: High to Low' },
-  { id: 'score-asc', label: 'Score: Low to High' },
-  { id: 'name-asc', label: 'Name: A → Z' },
-  { id: 'name-desc', label: 'Name: Z → A' },
-  { id: 'category-asc', label: 'Category A → Z' },
-  { id: 'category-desc', label: 'Category Z → A' }
-];
-
-// Curated filter definitions
-const CURATED_FILTERS = [
-  { id: 'all', label: 'All', icon: '✨', description: 'Show all experiences' },
-  { id: 'must-do', label: 'Must Do', icon: '⭐', description: 'Essential Paris experiences' },
-  { id: 'free', label: 'Free', icon: '🆓', description: 'No cost to enjoy' },
-  { id: 'summer', label: 'Best in Summer', icon: '☀️', description: 'Perfect for warm weather' },
-  { id: 'winter', label: 'Best in Winter', icon: '❄️', description: 'Cozy indoor activities' },
-  { id: 'rainy', label: 'Rainy Day', icon: '🌧️', description: 'Weather-proof options' },
-  { id: 'family', label: 'Family Friendly', icon: '👨‍👩‍👧', description: 'Great for kids' },
-];
-
-// Helper to capitalize city name
-const capitalizeCity = (name) => {
-  if (!name) return '';
-  return name.charAt(0).toUpperCase() + name.slice(1);
-};
-
-const normalizePlaceName = (value) => String(value || '')
-  .toLowerCase()
-  .normalize('NFD')
-  .replace(/[\u0300-\u036f]/g, '')
-  .replace(/&/g, 'and')
-  .replace(/[^a-z0-9]+/g, ' ')
-  .trim();
-
+/**
+ * AttractionsList — orchestrates the per-city "Things to do" tab.
+ *
+ * Responsibilities kept here:
+ *   • UI state (search, curated filter, date filter, active categories)
+ *   • Composition of the data-loading + Google-enrichment hooks
+ *   • Filter / sort pipeline that produces `filteredAttractions`
+ *
+ * Everything else (cards, filter pills, pagination, scoring math, loading
+ * skeleton) lives in `./attractions/`.
+ */
 const AttractionsList = ({ attractions, categories, cityName, monthlyData, experiencesUrl = null, limit = Infinity }) => {
+  // UI state
   const [searchTerm, setSearchTerm] = useState('');
   const [dateFilterType, setDateFilterType] = useState('none');
-  const [selectedDate, setSelectedDate] = useState('');
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
+  const [selectedDate] = useState('');
+  const [startDate] = useState('');
+  const [endDate] = useState('');
   const [selectedMonth, setSelectedMonth] = useState('all');
-  const [experiences, setExperiences] = useState(null);
   const [quickFilters, setQuickFilters] = useState({ indoorOnly: false, outdoorOnly: false, freeOnly: false, shortVisitsOnly: false, budgetOnly: false });
   const [sortOption] = useState('score-desc');
   const [activeCategories, setActiveCategories] = useState([]);
   const [curatedFilter, setCuratedFilter] = useState('all');
-
-  // Google Places enriched data — fetched lazily when this tab mounts
-  const [enrichedAttractions, setEnrichedAttractions] = useState(null);
-  const [googleLoading, setGoogleLoading] = useState(false);
-  
-  // New state for UI improvements
-  const [showFilters, setShowFilters] = useState(false);
-  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [favorites, setFavorites] = useState([]);
+  const [rankingLens] = useState('overall');
   const [toastMessage, setToastMessage] = useState(null);
-  
-  // Auth state for Supabase
-  const { user, isSupabaseConfigured } = useAuth();
-  
-  // Properly capitalize city name
+
+  // Favorites — unified hook handles Supabase / localStorage selection.
+  const { isFavorite, toggle: toggleFavoriteHook } = useFavorites(cityName);
+
+  // Data
+  const { experiences, isLoading } = useExperienceData({ experiencesUrl, cityName, limit });
+  const { applyGoogleData, googleLoading, enrichedTick } = useGoogleEnrichment(cityName);
+
   const displayCityName = capitalizeCity(cityName);
-  
-  // Load favorites from Supabase (if logged in) or localStorage
-  useEffect(() => {
-    const loadFavorites = async () => {
-      if (user && isSupabaseConfigured) {
-        // Load from Supabase
-        const supabase = getSupabaseClient();
-        if (supabase) {
-          const { data, error } = await supabase
-            .from('saved_experiences')
-            .select('*')
-            .eq('user_id', user.id)
-            .eq('city_name', cityName);
-          
-          if (!error && data) {
-            // Transform Supabase data to match local format
-            const transformed = data.map(item => ({
-              name: item.experience_name,
-              category: item.category,
-              subcategory: item.subcategory,
-              description: item.description,
-              ...(item.experience_data || {})
-            }));
-            setFavorites(transformed);
-          }
-        }
-      } else {
-        // Load from localStorage
-        const stored = localStorage.getItem(`favorites-${cityName}`);
-        if (stored) {
-          try {
-            setFavorites(JSON.parse(stored));
-          } catch (e) {
-            console.error('Failed to parse favorites', e);
-          }
-        }
-      }
-    };
-    
-    loadFavorites();
-  }, [cityName, user, isSupabaseConfigured]);
 
-  // Stores name→GoogleData map so it can be applied to whichever data source is active
-  const googleMapRef = useRef(null);
-
-  // Lazy-load Google Places enrichment when this tab mounts
-  useEffect(() => {
-    if (!cityName) return;
-    let cancelled = false;
-    setGoogleLoading(true);
-    fetch(`/api/cities/${encodeURIComponent(cityName.toLowerCase())}?enrich=true`)
-      .then(r => r.ok ? r.json() : null)
-      .then(data => {
-        if (cancelled || !data?.attractions?.sites?.length) return;
-        const nextMap = new Map();
-        data.attractions.sites
-          .filter(s => s.googlePlaceId)
-          .forEach((site) => {
-            if (site.name) nextMap.set(site.name, site);
-            const normalized = normalizePlaceName(site.name);
-            if (normalized) nextMap.set(normalized, site);
-          });
-        googleMapRef.current = nextMap;
-        // Trigger a re-render so dataSource picks up the new map
-        setEnrichedAttractions([]);
-      })
-      .catch(() => {})
-      .finally(() => { if (!cancelled) setGoogleLoading(false); });
-    return () => { cancelled = true; };
-  }, [cityName]);
-
-  // Helper: merge Google fields into any array of attraction-like objects by name
-  const applyGoogleData = useCallback((items) => {
-    const gMap = googleMapRef.current;
-    if (!gMap || !items?.length) return items;
-    return items.map(a => {
-      const g = gMap.get(a.name) || gMap.get(normalizePlaceName(a.name));
-      if (!g) return a;
-      return {
-        ...a,
-        googlePlaceId: a.googlePlaceId || g.googlePlaceId,
-        googlePlaceName: a.googlePlaceName || g.googlePlaceName,
-        googleRating: a.googleRating ?? g.googleRating,
-        googleReviewCount: a.googleReviewCount ?? g.googleReviewCount,
-        googlePhotos: a.googlePhotos?.length ? a.googlePhotos : g.googlePhotos,
-        currentlyOpen: a.currentlyOpen ?? g.currentlyOpen,
-        googleOpeningHours: a.googleOpeningHours || g.googleOpeningHours,
-        googleUrl: a.googleUrl || g.googleUrl,
-        googleWebsite: a.googleWebsite || g.googleWebsite,
-        googleEditorialSummary: a.googleEditorialSummary || g.googleEditorialSummary,
-        googleLocation: a.googleLocation || g.googleLocation,
-      };
-    });
-  }, []);
-
-  // Use attractions prop as fallback (enriched via applyGoogleData in dataSource)
-  const effectiveAttractions = attractions;
-
-  // Save/remove favorite - uses Supabase if logged in, localStorage otherwise
-  const toggleFavorite = async (item) => {
-    const itemId = item.name || item.activity || item.title;
-    const isFav = favorites.some(f => (f.name || f.activity || f.title) === itemId);
-    
-    if (user && isSupabaseConfigured) {
-      // Use Supabase
-      const supabase = getSupabaseClient();
-      if (!supabase) return;
-      
-      if (isFav) {
-        // Remove from Supabase
-        const { error } = await supabase
-          .from('saved_experiences')
-          .delete()
-          .eq('user_id', user.id)
-          .eq('city_name', cityName)
-          .eq('experience_name', itemId);
-        
-        if (!error) {
-          setFavorites(favorites.filter(f => (f.name || f.activity || f.title) !== itemId));
-          showToast(`Removed "${itemId}" from favorites`);
-        } else {
-          console.error('Error removing favorite:', error);
-        }
-      } else {
-        // Add to Supabase
-        const { error } = await supabase
-          .from('saved_experiences')
-          .insert({
-            user_id: user.id,
-            city_name: cityName,
-            experience_name: itemId,
-            category: item.category || null,
-            subcategory: item.subcategory || null,
-            description: item.description || item.shortDescription || null,
-            image: item.image || null,
-            location: item.location || item.neighborhood || null,
-            duration: item.duration || null,
-            price_level: item.priceLevel || item.cost || null,
-            rating: item.rating || null,
-            tags: item.tags || item.themes || null,
-            experience_data: item, // Store full item as JSON
-          });
-        
-        if (!error) {
-          setFavorites([...favorites, item]);
-          showToast(`Saved "${itemId}" to favorites`);
-        } else {
-          console.error('Error saving favorite:', error);
-        }
-      }
-    } else {
-      // Use localStorage
-      let newFavorites;
-      if (isFav) {
-        newFavorites = favorites.filter(f => (f.name || f.activity || f.title) !== itemId);
-        showToast(`Removed "${itemId}" from favorites`);
-      } else {
-        newFavorites = [...favorites, item];
-        showToast(`Saved "${itemId}" to favorites`);
-      }
-      
-      setFavorites(newFavorites);
-      localStorage.setItem(`favorites-${cityName}`, JSON.stringify(newFavorites));
-    }
-  };
-  
-  const isFavorite = (item) => {
-    const itemId = item.name || item.activity || item.title;
-    return favorites.some(f => (f.name || f.activity || f.title) === itemId);
-  };
-  
-  // Toast notification
-  const showToast = (message) => {
+  const showToast = useCallback((message) => {
     setToastMessage(message);
     setTimeout(() => setToastMessage(null), 3000);
-  };
-
-  const rankingLenses = useMemo(() => ([
-    {
-      id: 'overall',
-      label: 'Balanced',
-      description: 'Blend of cultural impact, experience quality, and practical ease'
-    },
-    {
-      id: 'cultural',
-      label: 'Cultural Icons',
-      description: 'Places with standout heritage, storytelling, and wow-factor moments'
-    },
-    {
-      id: 'experience',
-      label: 'Immersive Moments',
-      description: 'Experiences with strong on-the-ground vibes and visit quality'
-    },
-    {
-      id: 'practical',
-      label: 'Easy Wins',
-      description: 'Great value, easy logistics, and weather-resistant picks'
-    }
-  ]), []);
-  const [rankingLens, setRankingLens] = useState('overall');
-
-  const months = [
-    { value: 'all', label: 'All Year', icon: '📅' },
-    { value: 'january', label: 'January', icon: '❄️' },
-    { value: 'february', label: 'February', icon: '❄️' },
-    { value: 'march', label: 'March', icon: '🌸' },
-    { value: 'april', label: 'April', icon: '🌸' },
-    { value: 'may', label: 'May', icon: '🌺' },
-    { value: 'june', label: 'June', icon: '☀️' },
-    { value: 'july', label: 'July', icon: '☀️' },
-    { value: 'august', label: 'August', icon: '☀️' },
-    { value: 'september', label: 'September', icon: '🍂' },
-    { value: 'october', label: 'October', icon: '🍂' },
-    { value: 'november', label: 'November', icon: '🍁' },
-    { value: 'december', label: 'December', icon: '❄️' }
-  ];
-
-  const computeAggregateFactors = useCallback((factors) => {
-    if (!factors || typeof factors !== 'object') return null;
-    const get = (k) => (typeof factors[k] === 'number' ? factors[k] : null);
-    const avg = (keys) => {
-      const vals = keys.map(get).filter((v) => typeof v === 'number');
-      if (vals.length === 0) return null;
-      return vals.reduce((a, b) => a + b, 0) / vals.length;
-    };
-    return {
-      culturalValue: avg(['cultural_historical_significance', 'uniqueness_to_paris', 'educational_value']),
-      experienceQuality: avg(['visitor_experience_quality', 'crowd_management', 'family_friendliness', 'photo_instagram_appeal']),
-      practicalEase: avg(['accessibility', 'weather_independence', 'value_for_money'])
-    };
   }, []);
 
-  useEffect(() => {
-    let cancelled = false;
-    setIsLoading(true);
-    async function load() {
-      if (!experiencesUrl) {
-        setIsLoading(false);
-        return;
-      }
-      try {
-        // Load experiences and place IDs in parallel
-        const [json, placeIdsData] = await Promise.all([
-          fetchCityDataUrl(experiencesUrl, { cache: 'no-store' }),
-          fetch('/data/google-place-ids.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : {}).catch(() => ({}))
-        ]);
+  const toggleFavorite = useCallback(async (item) => {
+    const { action, id } = await toggleFavoriteHook(item);
+    if (action === 'added') showToast(`Saved "${id}" to favorites`);
+    else if (action === 'removed') showToast(`Removed "${id}" from favorites`);
+  }, [toggleFavoriteHook, showToast]);
 
-        const cats = json?.categories || {};
-        const out = [];
-        const slugify = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-
-        // Get experience-specific place IDs (e.g., "paris-experiences")
-        const citySlug = cityName?.toLowerCase() || '';
-        const experiencePlaceIds = placeIdsData[`${citySlug}-experiences`] || {};
-        // Also check regular city place IDs as fallback
-        const cityPlaceIds = placeIdsData[citySlug] || {};
-
-        Object.keys(cats).forEach((key) => {
-          const arr = Array.isArray(cats[key]) ? cats[key] : [];
-          arr.forEach((item, idx) => {
-            const total = item?.scores?.total_score ?? 0;
-            const { total_score, ...factors } = item?.scores || {};
-            const factorScores = factors;
-            const themes = Array.isArray(item?.themes) ? item.themes.filter(Boolean).map((t) => String(t).toLowerCase()) : [];
-
-            // Look up Google Place ID from googlePlaceKey
-            let googlePlaceId = null;
-            if (item?.googlePlaceKey) {
-              const placeData = experiencePlaceIds[item.googlePlaceKey] || cityPlaceIds[item.googlePlaceKey];
-              googlePlaceId = placeData?.placeId || null;
-            }
-            if (!googlePlaceId && item?.name) {
-              const exactPlaceData = cityPlaceIds[item.name];
-              if (exactPlaceData?.placeId) {
-                googlePlaceId = exactPlaceData.placeId;
-              } else {
-                const normalizedName = normalizePlaceName(item.name);
-                const normalizedMatch = Object.entries(cityPlaceIds)
-                  .find(([name]) => normalizePlaceName(name) === normalizedName);
-                googlePlaceId = normalizedMatch?.[1]?.placeId || null;
-              }
-            }
-
-            out.push({
-              id: `${slugify(item?.name)}-${idx}`,
-              name: item?.name,
-              description: item?.description,
-              image: item?.image || item?.image_url || item?.photo || item?.photo_url || null,
-              type: (item?.themes && item.themes[0]) || 'activity',
-              category: key,
-              themes,
-              latitude: item?.lat,
-              longitude: item?.lon,
-              website: item?.booking_url || null,
-              price_range: item?.pricing_tier || null,
-              tips: item?.tips || null,
-              best_time: item?.best_time || null,
-              estimated_cost_eur: item?.estimated_cost_eur || null,
-              pricing_tier: item?.pricing_tier || null,
-              arrondissement: item?.arrondissement || null,
-              duration_minutes: item?.duration_minutes || null,
-              googlePlaceKey: item?.googlePlaceKey || null,
-              googlePlaceId,
-              ratings: {
-                cultural_significance: item?.scores?.cultural_historical_significance || null,
-                suggested_duration_hours: item?.duration_minutes ? item.duration_minutes / 60 : null,
-                cost_estimate: item?.estimated_cost_eur || null,
-              },
-              compositeScore: typeof total === 'number' ? Number(total) : 0,
-              factorScores,
-              scores: item?.scores || null,
-              aggregates: computeAggregateFactors(factorScores)
-            });
-          });
-        });
-        out.sort((a, b) => (b.compositeScore || 0) - (a.compositeScore || 0));
-        const top = out.slice(0, limit);
-        if (!cancelled) {
-          setExperiences(top);
-          setIsLoading(false);
-        }
-      } catch (_) {
-        if (!cancelled) setIsLoading(false);
-      }
-    }
-    load();
-    return () => {
-      cancelled = true;
-    };
-  }, [experiencesUrl, limit, computeAggregateFactors, cityName]);
-
+  // Choose experiences from JSON when present, fall back to the prop, then
+  // merge Google Places data on top.
   const dataSource = useMemo(() => {
-    const base = Array.isArray(experiences) && experiences.length > 0
-      ? experiences
-      : effectiveAttractions;
+    const base = Array.isArray(experiences) && experiences.length > 0 ? experiences : attractions;
     return applyGoogleData(base) ?? base;
-  }, [experiences, effectiveAttractions, applyGoogleData, enrichedAttractions]); // enrichedAttractions triggers re-compute when Google data arrives
-
-  const categoryFilters = useMemo(() => {
-    const collected = new Set();
-    if (Array.isArray(categories)) {
-      categories.forEach((cat) => {
-        if (typeof cat === 'string' && cat.trim()) {
-          collected.add(cat.trim());
-        }
-      });
-    }
-    if (collected.size === 0 && Array.isArray(dataSource)) {
-      dataSource.forEach((item) => {
-        if (item?.category && typeof item.category === 'string' && item.category.trim()) {
-          collected.add(item.category.trim());
-        }
-      });
-    }
-    return Array.from(collected)
-      .map((label) => ({
-        id: label.toLowerCase(),
-        label
-      }))
-      .sort((a, b) => a.label.localeCompare(b.label));
-  }, [categories, dataSource]);
+    // enrichedTick triggers re-compute when Google data lands
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [experiences, attractions, applyGoogleData, enrichedTick]);
 
   const activeCategorySet = useMemo(() => new Set(activeCategories), [activeCategories]);
 
-  const getMonthFromDate = useCallback((dateString) => {
-    if (!dateString) return null;
-    const date = new Date(dateString);
-    const monthNames = [
-      'january', 'february', 'march', 'april', 'may', 'june',
-      'july', 'august', 'september', 'october', 'november', 'december'
-    ];
-    return monthNames[date.getMonth()];
-  }, []);
-
-  const isDateInRange = (dateString, start, end) => {
-    if (!dateString || !start || !end) return false;
-    const date = new Date(dateString);
-    const startDate = new Date(start);
-    const endDate = new Date(end);
-    return date >= startDate && date <= endDate;
-  };
-
-  const getSeasonalScore = useCallback((attraction, month) => {
-    if (month === 'all') return 0;
-    const monthData = monthlyData?.[month.charAt(0).toUpperCase() + month.slice(1)];
-    if (!monthData) return 0;
-
-    let score = 0;
-    if (attraction.indoor === false) {
-      const weather = monthData.first_half?.weather || monthData.second_half?.weather;
-      if (weather?.average_temperature) {
-        const temp = weather.average_temperature;
-        const highTemp = temp.high_celsius || parseInt(temp.high, 10);
-        const lowTemp = temp.low_celsius || parseInt(temp.low, 10);
-        if (Number.isFinite(highTemp) && Number.isFinite(lowTemp)) {
-          const avgTemp = (highTemp + lowTemp) / 2;
-          if (avgTemp >= 15 && avgTemp <= 25) score += 3;
-          else if (avgTemp >= 10 && avgTemp <= 30) score += 2;
-          else if (avgTemp >= 5 && avgTemp <= 35) score += 1;
-        }
-      }
-    }
-
-    const seasonalNotes = monthData.first_half?.seasonal_notes || monthData.second_half?.seasonal_notes || '';
-    if (seasonalNotes.toLowerCase().includes((attraction.name || '').toLowerCase())) {
-      score += 2;
-    }
-
-    if (attraction.seasonal_notes) {
-      const attractionSeasonalNotes = attraction.seasonal_notes.toLowerCase();
-      const monthKeywords = {
-        january: ['winter', 'cold', 'snow'],
-        february: ['winter', 'cold', 'snow'],
-        march: ['spring', 'bloom', 'mild'],
-        april: ['spring', 'bloom', 'cherry', 'mild'],
-        may: ['spring', 'bloom', 'warm'],
-        june: ['summer', 'warm', 'sunny'],
-        july: ['summer', 'hot', 'peak'],
-        august: ['summer', 'hot', 'peak'],
-        september: ['autumn', 'fall', 'mild'],
-        october: ['autumn', 'fall', 'cool'],
-        november: ['autumn', 'fall', 'cold'],
-        december: ['winter', 'cold', 'christmas']
-      };
-      (monthKeywords[month] || []).forEach((keyword) => {
-        if (attractionSeasonalNotes.includes(keyword)) {
-          score += 1;
-        }
-      });
-    }
-
-    return score;
-  }, [monthlyData]);
-
-  const overallScoreClass = (score) => {
-    if (typeof score !== 'number') return 'bg-gray-100 text-gray-800';
-    if (score >= 9) return 'bg-emerald-100 text-emerald-800';
-    if (score >= 8) return 'bg-blue-100 text-blue-800';
-    if (score >= 7) return 'bg-indigo-100 text-indigo-800';
-    return 'bg-gray-100 text-gray-800';
-  };
-
   const getEffectiveMonth = useCallback(() => {
-    if (dateFilterType === 'exact' && selectedDate) {
-      return getMonthFromDate(selectedDate);
-    }
-    if (dateFilterType === 'range' && startDate && endDate) {
-      return getMonthFromDate(startDate);
-    }
-    if (dateFilterType === 'month') {
-      return selectedMonth;
-    }
+    if (dateFilterType === 'exact' && selectedDate) return getMonthFromDate(selectedDate);
+    if (dateFilterType === 'range' && startDate && endDate) return getMonthFromDate(startDate);
+    if (dateFilterType === 'month') return selectedMonth;
     return 'all';
-  }, [dateFilterType, selectedDate, startDate, endDate, selectedMonth, getMonthFromDate]);
+  }, [dateFilterType, selectedDate, startDate, endDate, selectedMonth]);
 
-  const getPriceIcon = (priceRange) => {
-    if (!priceRange) return '€€';
-    const value = String(priceRange).toLowerCase();
-    if (value.includes('free')) return '🆓';
-    if (value.includes('budget') || value.includes('low')) return '€';
-    if (value.includes('moderate')) return '€€';
-    if (value.includes('expensive') || value.includes('premium') || value.includes('high')) return '€€€';
-    return '€€';
-  };
-
-  const getTypeIcon = (type) => {
-    switch (String(type || '').toLowerCase()) {
-      case 'monument':
-      case 'monument / tower':
-      case 'tower':
-      case 'government building':
-        return '🏛️';
-      case 'museum':
-        return '🖼️';
-      case 'cathedral':
-      case 'basilica':
-      case 'chapel':
-        return '⛪';
-      case 'park':
-      case 'garden':
-        return '🌳';
-      case 'square':
-      case 'plaza':
-        return '🏙️';
-      case 'district':
-      case 'neighborhood':
-        return '🏘️';
-      case 'street':
-        return '🛣️';
-      case 'activity':
-      case 'experience':
-        return '🎯';
-      case 'historical site':
-      case 'historical district':
-        return '🏺';
-      case 'opera house':
-      case 'concert hall':
-        return '🎭';
-      case 'cemetery':
-        return '⚰️';
-      case 'harbor':
-        return '⚓';
-      case 'zoo':
-        return '🦁';
-      case 'lake':
-        return '🌊';
-      case 'entertainment district':
-        return '🎪';
-      case 'architecture':
-        return '🏢';
-      default:
-        return '📍';
-    }
-  };
-
-  const getSignificanceColor = (significance) => {
-    if (!significance) return 'bg-gray-100 text-gray-800';
-    if (significance >= 9) return 'bg-green-100 text-green-800';
-    if (significance >= 8) return 'bg-blue-100 text-blue-800';
-    if (significance >= 7) return 'bg-indigo-100 text-indigo-800';
-    return 'bg-gray-100 text-gray-800';
-  };
-
-  const getSeasonalScoreColor = (score) => {
-    if (score >= 5) return 'bg-green-100 text-green-800';
-    if (score >= 3) return 'bg-blue-100 text-blue-800';
-    if (score >= 1) return 'bg-yellow-100 text-yellow-800';
-    return 'bg-gray-100 text-gray-600';
-  };
-
-  const formatDuration = (durationHours) => {
-    const numeric = Number(durationHours);
-    if (!Number.isFinite(numeric) || numeric <= 0) return 'Flexible';
-    if (numeric < 1) return `${Math.round(numeric * 60)} mins`;
-    if (Number.isInteger(numeric)) return `${numeric}h`;
-    return `${numeric.toFixed(1)}h`;
-  };
-
-  const formatCost = (attraction) => {
-    // Check for free experiences first
-    if (attraction?.estimated_cost_eur === 0 || attraction?.pricing_tier === 'free') {
-      return 'Free';
-    }
-    // Check estimated cost from data
-    if (attraction?.estimated_cost_eur && attraction.estimated_cost_eur > 0) {
-      return `~€${Math.round(attraction.estimated_cost_eur)}`;
-    }
-    const estimate = Number(attraction?.ratings?.cost_estimate);
-    if (Number.isFinite(estimate) && estimate > 0) {
-      return `~€${Math.round(estimate)}`;
-    }
-    if (Number.isFinite(estimate) && estimate === 0) {
-      return 'Free';
-    }
-    if (attraction?.price_range) {
-      const label = String(attraction.price_range);
-      if (label.toLowerCase().includes('free')) return 'Free';
-      if (label.length > 28) {
-        return `${label.slice(0, 25).trimEnd()}…`;
-      }
-      return label;
-    }
-    return 'Varies';
-  };
-
-  const getPriceRangeScore = useCallback((priceRange) => {
-    if (!priceRange) return 5;
-    const normalized = String(priceRange).toLowerCase();
-    if (normalized.includes('free')) return 9;
-    if (normalized.includes('budget') || normalized.includes('low')) return 7.5;
-    if (normalized.includes('moderate')) return 6;
-    if (normalized.includes('premium') || normalized.includes('high') || normalized.includes('expensive')) return 4.5;
-    return 5;
-  }, []);
-
-  const getRawMetrics = useCallback((attraction) => {
-    if (!attraction || typeof attraction !== 'object') {
-      return {
-        cultural: null,
-        experience: null,
-        practical: null,
-        composite: null
-      };
-    }
-
-    const composites = typeof attraction?.compositeScore === 'number' ? attraction.compositeScore : null;
-    const culturalAggregate = typeof attraction?.aggregates?.culturalValue === 'number' ? attraction.aggregates.culturalValue : null;
-    const culturalFallback =
-      typeof attraction?.ratings?.cultural_significance === 'number'
-        ? attraction.ratings.cultural_significance
-        : typeof attraction?.factorScores?.cultural_historical_significance === 'number'
-          ? attraction.factorScores.cultural_historical_significance
-          : null;
-
-    const experienceAggregate = typeof attraction?.aggregates?.experienceQuality === 'number' ? attraction.aggregates.experienceQuality : null;
-    const experienceFallbackCandidates = [
-      typeof attraction?.factorScores?.visitor_experience_quality === 'number' ? attraction.factorScores.visitor_experience_quality : null,
-      typeof attraction?.factorScores?.crowd_management === 'number' ? attraction.factorScores.crowd_management : null,
-      typeof attraction?.factorScores?.family_friendliness === 'number' ? attraction.factorScores.family_friendliness : null,
-      typeof attraction?.factorScores?.photo_instagram_appeal === 'number' ? attraction.factorScores.photo_instagram_appeal : null
-    ].filter((v) => typeof v === 'number' && !Number.isNaN(v));
-
-    const practicalAggregate = typeof attraction?.aggregates?.practicalEase === 'number' ? attraction.aggregates.practicalEase : null;
-
-    const priceScore = getPriceRangeScore(attraction?.price_range);
-    const duration = Number(attraction?.ratings?.suggested_duration_hours);
-    let durationScore = null;
-    if (Number.isFinite(duration)) {
-      if (duration <= 1) durationScore = 9;
-      else if (duration <= 1.5) durationScore = 8;
-      else if (duration <= 2.5) durationScore = 7;
-      else if (duration <= 4) durationScore = 6;
-      else durationScore = Math.max(3, 10 - duration);
-    }
-    const indoorScore =
-      attraction.indoor === true ? 8
-        : attraction.indoor === false ? 6
-          : 7;
-
-    const practicalCandidates = [
-      practicalAggregate,
-      priceScore,
-      durationScore,
-      indoorScore
-    ].filter((v) => typeof v === 'number' && !Number.isNaN(v));
-
-    const average = (values) => {
-      if (!values || values.length === 0) return null;
-      return values.reduce((sum, value) => sum + value, 0) / values.length;
-    };
-
-    return {
-      cultural: culturalAggregate ?? culturalFallback ?? composites,
-      experience: experienceAggregate ?? average(experienceFallbackCandidates) ?? composites,
-      practical: practicalAggregate ?? average(practicalCandidates) ?? composites,
-      composite: composites
-    };
-  }, [getPriceRangeScore]);
-
-  const scoringBounds = useMemo(() => {
-    if (!Array.isArray(dataSource) || dataSource.length === 0) {
-      return {
-        cultural: null,
-        experience: null,
-        practical: null,
-        composite: null
-      };
-    }
-    const metrics = dataSource.map(getRawMetrics);
-    const computeBounds = (key) => {
-      const values = metrics
-        .map((metric) => metric[key])
-        .filter((value) => typeof value === 'number' && !Number.isNaN(value));
-      if (values.length === 0) return null;
-      const min = Math.min(...values);
-      const max = Math.max(...values);
-      return {
-        min,
-        max
-      };
-    };
-    return {
-      cultural: computeBounds('cultural'),
-      experience: computeBounds('experience'),
-      practical: computeBounds('practical'),
-      composite: computeBounds('composite')
-    };
-  }, [dataSource, getRawMetrics]);
-
-  const getLensScore = useCallback((attraction, seasonalScore = 0) => {
-    if (!attraction || typeof attraction !== 'object') return 0;
-
-    const metrics = getRawMetrics(attraction);
-
-    const culturalNorm = normalizeValue(metrics.cultural, scoringBounds.cultural);
-    const experienceNorm = normalizeValue(metrics.experience, scoringBounds.experience);
-    const practicalNorm = normalizeValue(metrics.practical, scoringBounds.practical);
-    const compositeNorm = normalizeValue(metrics.composite, scoringBounds.composite);
-    const fallbackNorm = compositeNorm ?? 0.5;
-    const resolve = (value) => (value == null ? fallbackNorm : value);
-
-    const balanced =
-      resolve(culturalNorm) * 0.4 +
-      resolve(experienceNorm) * 0.35 +
-      resolve(practicalNorm) * 0.25;
-
-    let lensNormalized;
-    switch (rankingLens) {
-      case 'cultural':
-        lensNormalized = resolve(culturalNorm);
-        break;
-      case 'experience':
-        lensNormalized = resolve(experienceNorm);
-        break;
-      case 'practical':
-        lensNormalized = resolve(practicalNorm);
-        break;
-      default:
-        lensNormalized = balanced;
-        break;
-    }
-
-    lensNormalized = clamp01(lensNormalized);
-
-    const categoryKey = typeof attraction.category === 'string'
-      ? attraction.category.toLowerCase()
-      : null;
-    const categoryMultiplier = categoryKey && CATEGORY_MULTIPLIERS[categoryKey] ? CATEGORY_MULTIPLIERS[categoryKey] : 1;
-    lensNormalized = clamp01(lensNormalized * categoryMultiplier);
-
-    let themeList = [];
-    if (Array.isArray(attraction.themes) && attraction.themes.length > 0) {
-      themeList = attraction.themes;
-    } else if (attraction.type) {
-      themeList = [String(attraction.type).toLowerCase()];
-    }
-    const themeAdjustment = themeList.reduce((acc, theme) => acc + (THEME_ADJUSTMENTS[theme] || 0), 0);
-    lensNormalized = clamp01(lensNormalized + themeAdjustment);
-
-    const name = String(attraction.name || '').toLowerCase();
-    if (ICONIC_KEYWORDS.some((keyword) => name.includes(keyword))) {
-      lensNormalized = clamp01(lensNormalized + 0.08);
-    }
-
-    if (dateFilterType !== 'none') {
-      const seasonalNormalized = clamp01((seasonalScore || 0) / MAX_SEASONAL_SCORE);
-      const combined = lensNormalized * 0.7 + seasonalNormalized * 0.3;
-      return clamp01(combined) * 10;
-    }
-
-    return lensNormalized * 10;
-  }, [dateFilterType, rankingLens, getRawMetrics, scoringBounds]);
-
-  const getDateFilterDisplay = () => {
-    switch (dateFilterType) {
-      case 'exact':
-        return selectedDate ? `📅 ${new Date(selectedDate).toLocaleDateString()}` : '📅 Select Date';
-      case 'range':
-        return (startDate && endDate) ? `📅 ${new Date(startDate).toLocaleDateString()} - ${new Date(endDate).toLocaleDateString()}` : '📅 Select Date Range';
-      case 'month': {
-        const month = months.find((m) => m.value === selectedMonth);
-        return month ? `${month.icon} ${month.label}` : '📅 Select Month';
-      }
-      default:
-        return '📅 No Date Filter';
-    }
-  };
-
-  // Curated filter matching function
-  const matchesCuratedFilter = useCallback((attraction, filter) => {
-    if (filter === 'all') return true;
-    
-    const scores = attraction.factorScores || attraction.scores || {};
-    const name = (attraction.name || '').toLowerCase();
-    const totalScore = attraction.compositeScore || scores.total_score || 0;
-    const weatherIndependence = scores.weather_independence ?? 5;
-    const familyFriendliness = scores.family_friendliness ?? 5;
-    
-    switch (filter) {
-      case 'must-do':
-        // High score (≥8) OR iconic landmark
-        const isIconic = ICONIC_KEYWORDS.some(keyword => name.includes(keyword));
-        return totalScore >= 8 || isIconic;
-      
-      case 'free':
-        // Free experiences
-        const isFreeExperience = attraction.estimated_cost_eur === 0 || 
-          attraction.pricing_tier === 'free' ||
-          String(attraction.price_range || '').toLowerCase().includes('free');
-        return isFreeExperience;
-        
-      case 'summer':
-        // Outdoor activities, lower weather independence (outdoor), good for warm weather
-        // Also include parks, views, outdoor themes
-        const isSummerTheme = (attraction.themes || []).some(t => 
-          ['views', 'parks', 'neighborhoods', 'gardens'].includes(t?.toLowerCase())
-        );
-        const isOutdoor = weatherIndependence <= 6;
-        const summerCategory = ['morning', 'afternoon', 'parkgardens'].includes(
-          (attraction.category || '').toLowerCase()
-        );
-        return isOutdoor || isSummerTheme || summerCategory;
-        
-      case 'winter':
-        // Indoor activities, high weather independence, or cozy indoor experiences
-        const isIndoor = weatherIndependence >= 7;
-        const winterTheme = (attraction.themes || []).some(t => 
-          ['art', 'history', 'food', 'museums'].includes(t?.toLowerCase())
-        );
-        const winterCategory = ['afternoon', 'evening', 'latenight', 'fooddrink'].includes(
-          (attraction.category || '').toLowerCase()
-        );
-        return isIndoor || winterTheme || winterCategory;
-        
-      case 'rainy':
-        // Weather-independent activities (score >= 7)
-        return weatherIndependence >= 7;
-        
-      case 'family':
-        // Family-friendly activities (score >= 7)
-        return familyFriendliness >= 7;
-        
-      default:
-        return true;
-    }
-  }, []);
+  const scoringBounds = useMemo(() => computeScoringBounds(dataSource), [dataSource]);
 
   const filteredAttractions = useMemo(() => {
     const effectiveMonth = getEffectiveMonth();
+    if (!Array.isArray(dataSource)) return [];
+
     return dataSource
       .filter((attraction) => {
-        // Curated filter check
-        if (curatedFilter !== 'all' && !matchesCuratedFilter(attraction, curatedFilter)) {
-          return false;
-        }
-        
-        const normalizedCategory = typeof attraction.category === 'string' ? attraction.category.trim().toLowerCase() : '';
-        if (activeCategorySet.size > 0 && !activeCategorySet.has(normalizedCategory)) {
-          return false;
-        }
+        if (curatedFilter !== 'all' && !matchesCuratedFilter(attraction, curatedFilter)) return false;
 
-        if (searchTerm && !attraction.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-          !attraction.description?.toLowerCase().includes(searchTerm.toLowerCase())) {
+        const normalizedCategory = typeof attraction.category === 'string' ? attraction.category.trim().toLowerCase() : '';
+        if (activeCategorySet.size > 0 && !activeCategorySet.has(normalizedCategory)) return false;
+
+        if (searchTerm
+          && !attraction.name?.toLowerCase().includes(searchTerm.toLowerCase())
+          && !attraction.description?.toLowerCase().includes(searchTerm.toLowerCase())) {
           return false;
         }
 
@@ -958,24 +114,15 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
         } else if (dateFilterType === 'range' && startDate && endDate) {
           if (attraction.available_dates && !attraction.available_dates.some((date) => isDateInRange(date, startDate, endDate))) return false;
         } else if (dateFilterType === 'month' && selectedMonth !== 'all') {
-          if (attraction.available_dates && !attraction.available_dates.some((date) => {
-            const month = getMonthFromDate(date);
-            return month === selectedMonth;
-          })) {
-            return false;
-          }
+          if (attraction.available_dates && !attraction.available_dates.some((date) => getMonthFromDate(date) === selectedMonth)) return false;
         }
 
         return true;
       })
       .map((attraction) => {
-        const seasonalScore = getSeasonalScore(attraction, effectiveMonth);
-        const lensScore = getLensScore(attraction, seasonalScore);
-        return {
-          ...attraction,
-          seasonalScore,
-          lensScore
-        };
+        const seasonalScore = getSeasonalScore(attraction, effectiveMonth, monthlyData);
+        const lensScore = getLensScore(attraction, { rankingLens, scoringBounds, dateFilterType, seasonalScore });
+        return { ...attraction, seasonalScore, lensScore };
       })
       .sort((a, b) => {
         const lensDiffDesc = (b.lensScore || 0) - (a.lensScore || 0);
@@ -1023,475 +170,40 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
             return culturalDiffDesc;
         }
       });
-  }, [dataSource, searchTerm, quickFilters, dateFilterType, selectedDate, startDate, endDate, selectedMonth, getEffectiveMonth, getSeasonalScore, getLensScore, getMonthFromDate, activeCategorySet, sortOption, curatedFilter, matchesCuratedFilter]);
+  }, [dataSource, searchTerm, quickFilters, dateFilterType, selectedDate, startDate, endDate, selectedMonth, getEffectiveMonth, activeCategorySet, sortOption, curatedFilter, monthlyData, rankingLens, scoringBounds]);
 
   const highlightAttractions = useMemo(() => filteredAttractions.slice(0, 4), [filteredAttractions]);
   const remainingAttractions = useMemo(() => filteredAttractions.slice(4), [filteredAttractions]);
-  const activeLens = useMemo(() => rankingLenses.find((lens) => lens.id === rankingLens) || rankingLenses[0], [rankingLens, rankingLenses]);
+
   const hasActiveQuickFilters = useMemo(
-    () => Object.values(quickFilters).some(Boolean) || searchTerm.trim() !== '' || dateFilterType !== 'none' || activeCategories.length > 0 || curatedFilter !== 'all',
-    [quickFilters, searchTerm, dateFilterType, activeCategories, curatedFilter]
+    () => Object.values(quickFilters).some(Boolean)
+      || searchTerm.trim() !== ''
+      || dateFilterType !== 'none'
+      || activeCategories.length > 0
+      || curatedFilter !== 'all',
+    [quickFilters, searchTerm, dateFilterType, activeCategories, curatedFilter],
   );
 
-  const [visibleCount, setVisibleCount] = useState(100);
-  const containerRef = useRef(null);
+  const { visibleCount, containerRef } = usePagination({ total: remainingAttractions.length });
 
-  const handleCategoryToggle = useCallback((categoryId) => {
-    setActiveCategories((prev) => {
-      if (prev.includes(categoryId)) {
-        return prev.filter((id) => id !== categoryId);
+  const getDateFilterDisplay = () => {
+    switch (dateFilterType) {
+      case 'exact':
+        return selectedDate ? `📅 ${new Date(selectedDate).toLocaleDateString()}` : '📅 Select Date';
+      case 'range':
+        return (startDate && endDate) ? `📅 ${new Date(startDate).toLocaleDateString()} - ${new Date(endDate).toLocaleDateString()}` : '📅 Select Date Range';
+      case 'month': {
+        const month = MONTHS.find((m) => m.value === selectedMonth);
+        return month ? `${month.icon} ${month.label}` : '📅 Select Month';
       }
-      return [...prev, categoryId];
-    });
-  }, []);
-
-  const clearCategoryFilters = useCallback(() => {
-    setActiveCategories([]);
-  }, []);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const el = containerRef.current;
-      if (!el) return;
-      if (el.getBoundingClientRect().bottom < window.innerHeight + 800) {
-        setVisibleCount((n) => Math.min(n + 24, remainingAttractions.length));
-      }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [remainingAttractions.length]);
-
-  useEffect(() => {
-    setVisibleCount(100);
-  }, [remainingAttractions.length]);
-
-  // Score factors for display
-  const scoreFactors = [
-    { key: 'uniqueness_to_paris', label: 'Uniqueness to Paris', weight: 15, icon: '✨' },
-    { key: 'visitor_experience_quality', label: 'Experience Quality', weight: 15, icon: '⭐' },
-    { key: 'cultural_historical_significance', label: 'Cultural Significance', weight: 12, icon: '🏛️' },
-    { key: 'value_for_money', label: 'Value for Money', weight: 12, icon: '💰' },
-    { key: 'photo_instagram_appeal', label: 'Photo Appeal', weight: 10, icon: '📸' },
-    { key: 'accessibility', label: 'Accessibility', weight: 10, icon: '♿' },
-    { key: 'crowd_management', label: 'Crowd Levels', weight: 8, icon: '👥' },
-    { key: 'weather_independence', label: 'Weather Proof', weight: 8, icon: '🌧️' },
-    { key: 'family_friendliness', label: 'Family Friendly', weight: 5, icon: '👨‍👩‍👧' },
-    { key: 'educational_value', label: 'Educational Value', weight: 5, icon: '📚' },
-  ];
-
-  // Score display component - simple grid, larger text
-  const ScoreDisplay = ({ factorScores }) => (
-    <div className="pt-4 border-t border-gray-100">
-      <div className="grid grid-cols-2 gap-x-6 gap-y-2.5">
-        {scoreFactors.slice(0, 6).map(({ key, label, icon }) => {
-          const value = factorScores?.[key] ?? 0;
-          return (
-            <div key={key} className="flex items-center gap-2">
-              <span className="text-lg shrink-0">{icon}</span>
-              <span className="text-sm text-gray-700 flex-1">{label}</span>
-              <span className="text-sm font-bold text-gray-900">{value}/10</span>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-  
-  // Google Places data badges
-  const GoogleBadges = ({ attraction }) => {
-    const hasGoogleData = attraction.googleRating || attraction.currentlyOpen !== undefined || attraction.googleUrl;
-    if (!hasGoogleData) return null;
-
-    return (
-      <div className="flex flex-wrap items-center gap-2">
-        {attraction.googleRating && (
-          <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-800">
-            <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
-            {attraction.googleRating.toFixed(1)}
-            {attraction.googleReviewCount && (
-              <span className="text-amber-600 ml-0.5">({attraction.googleReviewCount.toLocaleString()})</span>
-            )}
-          </span>
-        )}
-        {attraction.currentlyOpen !== undefined && (
-          <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium ${
-            attraction.currentlyOpen
-              ? 'bg-green-50 text-green-700'
-              : 'bg-red-50 text-red-700'
-          }`}>
-            <span className={`h-1.5 w-1.5 rounded-full ${attraction.currentlyOpen ? 'bg-green-500' : 'bg-red-500'}`} />
-            {attraction.currentlyOpen ? 'Open now' : 'Closed'}
-          </span>
-        )}
-        {attraction.googleUrl && (
-          <a
-            href={attraction.googleUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2.5 py-1 text-xs font-medium text-blue-700 hover:bg-blue-100 transition-colors"
-          >
-            <ExternalLink className="h-3 w-3" />
-            Google Maps
-          </a>
-        )}
-      </div>
-    );
+      default:
+        return '📅 No Date Filter';
+    }
   };
-
-  // Tips overlay component - shows on photo hover
-  const TipsOverlay = ({ tips }) => {
-    if (!tips || tips.length === 0) return null;
-    return (
-      <div className="absolute inset-0 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        <div className="bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-xl border border-gray-100 w-full">
-          <ul className="space-y-1.5">
-            {tips.map((tip, i) => (
-              <li key={i} className="text-sm text-gray-700 leading-relaxed flex items-start gap-2">
-                <span className="text-amber-500 mt-0.5">💡</span>
-                <span>{tip}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    );
-  };
-  
-  // Generate practical tips - reads from JSON data first, falls back to generic tips
-  const generateTips = (attraction) => {
-    // First, check if tips are provided in the JSON data
-    if (attraction.tips && Array.isArray(attraction.tips) && attraction.tips.length > 0) {
-      return attraction.tips.slice(0, 2); // Return max 2 tips from data
-    }
-    
-    // Fallback: generate generic tips based on scores
-    const tips = [];
-    const scores = attraction.factorScores || attraction.scores || {};
-    const weatherScore = scores.weatherIndependence || scores.weather_independence;
-    const accessScore = scores.accessibility;
-    const crowdScore = scores.crowdManagement || scores.crowd_management;
-    
-    // Weather/timing tips
-    if (attraction.best_time === 'morning') {
-      tips.push('Morning visits offer the best experience—softer light and smaller crowds before 10am.');
-    } else if (attraction.best_time === 'evening' || attraction.best_time === 'sunset') {
-      tips.push('Plan to arrive 30–45 minutes before sunset for the magical golden hour atmosphere.');
-    }
-    
-    // Weather independence
-    if (weatherScore && weatherScore <= 5) {
-      tips.push('This is an outdoor experience—check the forecast and have a covered backup nearby.');
-    } else if (weatherScore && weatherScore >= 8) {
-      tips.push('Mostly indoors, making it a reliable option for rainy days.');
-    }
-    
-    // Accessibility with practical alternatives
-    if (accessScore && accessScore <= 5) {
-      tips.push('Involves significant stairs or walking—check if elevator access is available before visiting.');
-    }
-    
-    // Cost tips with context
-    if (attraction.estimated_cost_eur === 0 || attraction.pricing_tier === 'free') {
-      tips.push('Free to visit—bring a blanket or snacks to make the most of your time here.');
-    } else if (attraction.estimated_cost_eur && attraction.estimated_cost_eur > 15) {
-      tips.push(`Entry is around €${attraction.estimated_cost_eur}—book online to save time and sometimes get a discount.`);
-    }
-    
-    // Crowd management
-    if (crowdScore && crowdScore <= 5) {
-      tips.push('Can get very crowded—weekday mornings or the last hour before closing are typically quieter.');
-    }
-    
-    return tips.slice(0, 2); // Return max 2 tips
-  };
-
-  const renderHighlightCard = (attraction, index) => {
-    if (!attraction) return null;
-    const attractionId = attraction.id || `highlight-${index}`;
-
-    return (
-      <div
-        key={`highlight-${attractionId}`}
-        className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
-      >
-        {/* Image Section - Tall format for maximum photo visibility */}
-        <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
-          {attraction.googlePhotos?.[0]?.name ? (
-            <GooglePlacePhoto
-              photoName={attraction.googlePhotos[0].name}
-              maxWidth={800}
-              alt={attraction.name}
-              fill
-              sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 95vw"
-              className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
-              priority={index < 4}
-              fallback={attraction.image ? (
-                <Image src={attraction.image} alt={attraction.name} fill sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 95vw" className="object-cover object-center" />
-              ) : null}
-            />
-          ) : attraction.googlePlaceId ? (
-            <GooglePlacePhoto
-              placeId={attraction.googlePlaceId}
-              maxWidth={800}
-              alt={attraction.name}
-              fill
-              sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 95vw"
-              className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
-              priority={index < 4}
-              fallback={attraction.image ? (
-                <Image src={attraction.image} alt={attraction.name} fill sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 95vw" className="object-cover object-center" />
-              ) : null}
-            />
-          ) : attraction.image ? (
-            <Image
-              src={attraction.image}
-              alt={attraction.name}
-              fill
-              sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 95vw"
-              className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
-            />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center text-4xl text-gray-300">
-              {getTypeIcon(attraction.type)}
-            </div>
-          )}
-          
-          {/* Top Badge */}
-          <div className="absolute left-3 top-3 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-2.5 py-1 text-xs font-bold text-white shadow-sm z-10">
-            #{index + 1} Top Pick
-          </div>
-          
-          {/* Favorite button - always visible */}
-          <button 
-            onClick={(e) => { e.stopPropagation(); toggleFavorite(attraction); }}
-            className={`absolute top-3 right-3 z-10 h-8 w-8 rounded-full backdrop-blur-sm border shadow-sm flex items-center justify-center transition-colors ${
-              isFavorite(attraction) 
-                ? 'bg-rose-500 border-rose-600 text-white' 
-                : 'bg-white/95 border-gray-200 hover:bg-rose-50 hover:border-rose-300'
-            }`}
-            aria-label={isFavorite(attraction) ? "Remove from favorites" : "Save to favorites"}
-          >
-            <Heart className={`h-4 w-4 ${isFavorite(attraction) ? 'fill-white text-white' : 'text-gray-600'}`} />
-          </button>
-          
-          {/* Tips Overlay on hover */}
-          <TipsOverlay tips={generateTips(attraction)} />
-        </div>
-        
-        {/* Content Section */}
-        <div className="p-4 space-y-3">
-          <div>
-            <h3 className="text-base font-semibold text-gray-900 leading-snug">{attraction.name}</h3>
-            {attraction.category && (
-              <p className="text-xs text-gray-500 mt-1">{attraction.category}</p>
-            )}
-          </div>
-
-          {attraction.description && (
-            <p className="text-sm text-gray-600">{attraction.description}</p>
-          )}
-
-          {/* Google Places badges */}
-          <GoogleBadges attraction={attraction} />
-
-          {/* Info Row - without redundant location */}
-          <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500">
-            <span className="inline-flex items-center gap-1">
-              <Clock className="h-3.5 w-3.5 text-gray-400" />
-              {formatDuration(attraction?.ratings?.suggested_duration_hours || attraction?.duration_minutes / 60)}
-            </span>
-            {attraction.arrondissement && (
-              <span className="inline-flex items-center gap-1">
-                <MapPin className="h-3.5 w-3.5 text-gray-400" />
-                {attraction.arrondissement} arr.
-              </span>
-            )}
-          </div>
-          
-          {/* Scores inline */}
-          {(attraction.factorScores || attraction.scores) && (
-            <ScoreDisplay factorScores={attraction.factorScores || attraction.scores} />
-          )}
-          
-          {/* Cost & Website */}
-          <div className="flex items-center justify-between pt-2 border-t border-gray-100">
-            <span className="text-sm font-medium text-gray-900">{formatCost(attraction)}</span>
-            {attraction.website && (
-              <a
-                href={attraction.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-blue-600 hover:text-blue-700"
-              >
-                Book / Visit →
-              </a>
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const renderExperienceCard = (attraction, index, offset = 0) => {
-    if (!attraction) return null;
-    const attractionId = attraction.id || `experience-${offset + index}`;
-    const tips = generateTips(attraction);
-
-    return (
-      <div
-        key={attractionId}
-        className="group rounded-2xl border border-gray-100 bg-white/95 shadow-md transition-all duration-300 hover:shadow-lg overflow-hidden"
-      >
-        <div className="flex flex-col sm:flex-row">
-          {/* Image - Large tall format for maximum photo visibility */}
-          <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100 sm:w-80 shrink-0">
-            {attraction.googlePhotos?.[0]?.name ? (
-              <GooglePlacePhoto
-                photoName={attraction.googlePhotos[0].name}
-                maxWidth={640}
-                alt={attraction.name}
-                fill
-                sizes="(min-width: 1280px) 320px, (min-width: 768px) 280px, 100vw"
-                className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
-                priority={offset + index < 4}
-                fallback={attraction.image ? (
-                  <Image src={attraction.image} alt={attraction.name} fill sizes="(min-width: 1280px) 320px, (min-width: 768px) 280px, 100vw" className="object-cover object-center" />
-                ) : null}
-              />
-            ) : attraction.googlePlaceId ? (
-              <GooglePlacePhoto
-                placeId={attraction.googlePlaceId}
-                maxWidth={640}
-                alt={attraction.name}
-                fill
-                sizes="(min-width: 1280px) 320px, (min-width: 768px) 280px, 100vw"
-                className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
-                priority={offset + index < 4}
-                fallback={attraction.image ? (
-                  <Image src={attraction.image} alt={attraction.name} fill sizes="(min-width: 1280px) 320px, (min-width: 768px) 280px, 100vw" className="object-cover object-center" />
-                ) : null}
-              />
-            ) : attraction.image ? (
-              <Image
-                src={attraction.image}
-                alt={attraction.name}
-                fill
-                sizes="(min-width: 1280px) 320px, (min-width: 768px) 280px, 100vw"
-                className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
-              />
-            ) : (
-              <div className="flex h-full w-full items-center justify-center text-4xl text-gray-300">
-                {getTypeIcon(attraction.type)}
-              </div>
-            )}
-            
-            {/* Favorite button - always visible */}
-            <button 
-              onClick={(e) => { e.stopPropagation(); toggleFavorite(attraction); }}
-              className={`absolute top-3 right-3 z-10 h-8 w-8 rounded-full backdrop-blur-sm border shadow-sm flex items-center justify-center transition-colors ${
-                isFavorite(attraction) 
-                  ? 'bg-rose-500 border-rose-600 text-white' 
-                  : 'bg-white/95 border-gray-200 hover:bg-rose-50'
-              }`}
-            >
-              <Heart className={`h-4 w-4 ${isFavorite(attraction) ? 'fill-white' : 'text-gray-600'}`} />
-            </button>
-            
-            {/* Tips Overlay on hover */}
-            <TipsOverlay tips={tips} />
-          </div>
-
-          {/* Content */}
-          <div className="flex-1 min-w-0 p-5 space-y-3">
-            <div className="flex items-start justify-between gap-3">
-              <div className="min-w-0">
-                <h3 className="text-lg font-semibold text-gray-900 leading-snug">{attraction.name}</h3>
-                <p className="text-sm text-gray-500 mt-0.5">{attraction.category}</p>
-              </div>
-              <div className="shrink-0 text-right">
-                <span className="text-base font-semibold text-gray-900">{formatCost(attraction)}</span>
-              </div>
-            </div>
-
-            {attraction.description && (
-              <p className="text-sm text-gray-700 leading-relaxed">{attraction.description}</p>
-            )}
-
-            {/* Google Places badges */}
-            <GoogleBadges attraction={attraction} />
-
-            {/* Info Row - without redundant location */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
-              <span className="inline-flex items-center gap-1.5">
-                <Clock className="h-4 w-4 text-gray-400" />
-                {formatDuration(attraction?.ratings?.suggested_duration_hours || attraction?.duration_minutes / 60)}
-              </span>
-              {attraction.arrondissement && (
-                <span className="inline-flex items-center gap-1.5">
-                  <MapPin className="h-4 w-4 text-gray-400" />
-                  {attraction.arrondissement} arr.
-                </span>
-              )}
-            </div>
-            
-            {/* Scores inline */}
-            {(attraction.factorScores || attraction.scores) && (
-              <ScoreDisplay factorScores={attraction.factorScores || attraction.scores} />
-            )}
-
-            {/* Website link if available */}
-            {attraction.website && (
-              <div className="pt-2">
-                <a
-                  href={attraction.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700"
-                >
-                  Book / Visit site →
-                </a>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  // Loading skeleton component
-  const LoadingSkeleton = () => (
-    <div className="space-y-6 animate-pulse">
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="rounded-2xl border border-gray-200 bg-white overflow-hidden">
-            <div className="h-32 bg-gray-200" />
-            <div className="p-4 space-y-3">
-              <div className="h-4 bg-gray-200 rounded w-3/4" />
-              <div className="h-3 bg-gray-100 rounded w-1/2" />
-              <div className="h-3 bg-gray-100 rounded w-full" />
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="space-y-4">
-        {[1, 2, 3, 4, 5, 6].map((i) => (
-          <div key={i} className="rounded-2xl border border-gray-200 bg-white p-5 flex gap-4">
-            <div className="h-36 w-44 bg-gray-200 rounded-xl shrink-0" />
-            <div className="flex-1 space-y-3">
-              <div className="h-5 bg-gray-200 rounded w-1/3" />
-              <div className="h-4 bg-gray-100 rounded w-1/4" />
-              <div className="h-3 bg-gray-100 rounded w-full" />
-              <div className="h-3 bg-gray-100 rounded w-2/3" />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
 
   return (
     <div className="p-4 sm:p-6 space-y-6">
-      {/* Simplified Header */}
+      {/* Header */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
@@ -1522,38 +234,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
       </div>
 
       {/* Curated Collection Filters */}
-      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
-        {/* Filter Pills */}
-        <div className="flex flex-wrap gap-2">
-          {CURATED_FILTERS.map(filter => (
-            <button
-              key={filter.id}
-              onClick={() => setCuratedFilter(filter.id)}
-              className={`group flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
-                curatedFilter === filter.id
-                  ? 'bg-gray-900 text-white shadow-sm'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-              title={filter.description}
-            >
-              <span className={`text-base transition-transform duration-200 ${curatedFilter === filter.id ? 'scale-110' : 'group-hover:scale-110'}`}>
-                {filter.icon}
-              </span>
-              <span>{filter.label}</span>
-            </button>
-          ))}
-        </div>
-        
-        {/* Active filter info */}
-        {curatedFilter !== 'all' && (
-          <div className="mt-4 pt-4 border-t border-gray-100 flex flex-wrap items-center gap-3">
-            <div className="flex items-center gap-2 text-sm text-gray-600">
-              <span className="text-lg">{CURATED_FILTERS.find(f => f.id === curatedFilter)?.icon}</span>
-              <span>{CURATED_FILTERS.find(f => f.id === curatedFilter)?.description}</span>
-            </div>
-          </div>
-        )}
-      </div>
+      <CuratedFilters active={curatedFilter} onSelect={setCuratedFilter} />
 
       {/* Loading State */}
       {isLoading ? (
@@ -1562,7 +243,15 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
         <section className="space-y-4">
           <h2 className="text-xl font-semibold text-slate-900">Spotlight picks</h2>
           <div className="space-y-4">
-            {highlightAttractions.map((attraction, index) => renderExperienceCard(attraction, index, 0))}
+            {highlightAttractions.map((attraction, index) => (
+              <AttractionCard
+                key={attraction.id || `highlight-${index}`}
+                attraction={attraction}
+                indexForPriority={index}
+                isFavorite={isFavorite}
+                onToggleFavorite={toggleFavorite}
+              />
+            ))}
           </div>
         </section>
       )}
@@ -1599,9 +288,15 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
 
           {remainingAttractions.length > 0 ? (
             <div className="space-y-4">
-              {remainingAttractions.slice(0, visibleCount).map((attraction, index) =>
-                renderExperienceCard(attraction, index, highlightAttractions.length)
-              )}
+              {remainingAttractions.slice(0, visibleCount).map((attraction, index) => (
+                <AttractionCard
+                  key={attraction.id || `experience-${highlightAttractions.length + index}`}
+                  attraction={attraction}
+                  indexForPriority={highlightAttractions.length + index}
+                  isFavorite={isFavorite}
+                  onToggleFavorite={toggleFavorite}
+                />
+              ))}
             </div>
           ) : (
             highlightAttractions.length > 0 && (

@@ -432,7 +432,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
   }, [persistDraft, postSystemEvent]);
 
   const {
-    assignDaysToCity, unassignDays, setCityNights, setTripDates, undoLastReflow, addCity, acceptSuggestedAllocation,
+    assignDaysToCity, unassignDays, setCityNights, setCityAccommodation, setTripDates, undoLastReflow, addCity, acceptSuggestedAllocation,
   } = useDirectManipulation({ tripStateRef, setTripState, onPlannerAction: handlePlannerAction });
 
   useEffect(() => {
@@ -661,6 +661,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     assignDaysToCity,
     unassignDays,
     setCityNights,
+    setCityAccommodation,
     addCity,
     acceptSuggestedAllocation,
     setTripDates,

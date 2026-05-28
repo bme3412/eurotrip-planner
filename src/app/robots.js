@@ -4,7 +4,7 @@ export default function robots() {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/preview/', '/auth/'],
+        disallow: ['/api/', '/auth/'],
       },
     ],
     sitemap: 'https://eurotrip-planner.vercel.app/sitemap.xml',

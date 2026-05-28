@@ -7,6 +7,34 @@
  */
 
 /**
+ * Compact, model-readable summary of one city's stay on the Route: line.
+ * Includes nights and any accommodation info the user has provided so the
+ * agent can confirm or edit a hotel by reading the brief, not by guessing.
+ *
+ * Example outputs:
+ *   "Paris"
+ *   "Paris (3n)"
+ *   "Paris (3n, Hotel Ritz, Apr 12 → Apr 15)"
+ *   "Paris (3n, Hotel Ritz, conf ABC123)"
+ */
+export function formatRouteEntry(city) {
+  if (!city) return '';
+  const parts = [];
+  if (Number.isFinite(city.nights) && city.nights > 0) parts.push(`${city.nights}n`);
+
+  const acc = city.accommodation;
+  if (acc && typeof acc === 'object') {
+    if (acc.name) parts.push(acc.name);
+    if (acc.checkIn || acc.checkOut) {
+      parts.push(`${acc.checkIn || '?'} → ${acc.checkOut || '?'}`);
+    }
+    if (acc.confirmationNumber) parts.push(`conf ${acc.confirmationNumber}`);
+  }
+
+  return parts.length > 0 ? `${city.name} (${parts.join(', ')})` : city.name;
+}
+
+/**
  * Smart defaults for anything the user hasn't specified.
  */
 export function getSmartDefaults(tripState) {
@@ -451,11 +479,7 @@ export function buildAgentContext(tripState) {
 
   // Route
   if (r.cities.length > 0) {
-    const routeStr = r.cities.map(c => {
-      let s = c.name;
-      if (c.nights) s += ` (${c.nights}n)`;
-      return s;
-    }).join(' → ');
+    const routeStr = r.cities.map(c => formatRouteEntry(c)).join(' → ');
     lines.push(`Route: ${routeStr}`);
   } else {
     lines.push('Route: not set');

@@ -4,7 +4,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { mergeTripData } from './tripState';
+import { mergeTripData, removeCities, setCityAccommodation, ACCOMMODATION_FIELDS } from './tripState';
 
 // Load cities data once at module level
 let _citiesData = null;
@@ -145,6 +145,66 @@ export function handleExtractTripData(input, tripState) {
   }
 
   return { updatedState: newState, extracted: normalizedInput };
+}
+
+/**
+ * Handle remove_cities tool call.
+ * Drops the named cities from route.cities and reflows order/roles/dates.
+ */
+export function handleRemoveCities(input, tripState) {
+  const refs = Array.isArray(input?.cities) ? input.cities : [];
+  const updatedState = removeCities(tripState, refs);
+  const removed = refs.filter((ref) => {
+    const norm = typeof ref === 'string' ? ref.trim().toLowerCase() : '';
+    if (!norm) return false;
+    return !updatedState.route.cities.some(
+      (c) => c.id?.toLowerCase() === norm || c.name?.toLowerCase() === norm,
+    );
+  });
+  return {
+    updatedState,
+    removed,
+    remaining: updatedState.route.cities.map((c) => ({ id: c.id, name: c.name })),
+  };
+}
+
+/**
+ * Handle set_accommodation tool call.
+ * Records lodging info (name, address, dates, conf #, notes) for one city
+ * already on the route. Returns `applied: false` when the city is not on
+ * the route so the agent can correct itself instead of silently no-oping.
+ */
+export function handleSetAccommodation(input, tripState) {
+  const cityRef = typeof input?.cityRef === 'string' ? input.cityRef.trim() : '';
+  if (!cityRef) {
+    return { applied: false, reason: 'missing cityRef' };
+  }
+
+  const patch = {};
+  for (const key of ACCOMMODATION_FIELDS) {
+    if (key in (input || {})) patch[key] = input[key];
+  }
+  if (Object.keys(patch).length === 0) {
+    return { applied: false, reason: 'no accommodation fields provided' };
+  }
+
+  const updatedState = setCityAccommodation(tripState, cityRef, patch);
+  if (updatedState === tripState) {
+    return { applied: false, reason: `city not on route: ${cityRef}` };
+  }
+
+  const norm = (s) => (typeof s === 'string' ? s.trim().toLowerCase() : '');
+  const ref = norm(cityRef);
+  const city = updatedState.route.cities.find(
+    (c) => norm(c.id) === ref || norm(c.name) === ref,
+  );
+
+  return {
+    applied: true,
+    updatedState,
+    cityRef,
+    accommodation: city?.accommodation || null,
+  };
 }
 
 /**
@@ -361,6 +421,12 @@ export async function executeToolCall(toolName, toolInput, tripState) {
   switch (toolName) {
     case 'extract_trip_data':
       return handleExtractTripData(toolInput, tripState);
+
+    case 'remove_cities':
+      return handleRemoveCities(toolInput, tripState);
+
+    case 'set_accommodation':
+      return handleSetAccommodation(toolInput, tripState);
 
     case 'resolve_cities':
       return handleResolveCities(toolInput);

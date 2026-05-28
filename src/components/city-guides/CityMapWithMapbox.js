@@ -1,139 +1,77 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import { CATEGORY_MAPPING, MAIN_CATEGORY_COLORS, getStandardCategory, getCategoryColor, computeTopIconicList, getMarkerSize } from '@/components/map/helpers';
+import {
+  getStandardCategory,
+  getCategoryColor,
+  computeTopIconicList,
+  getMarkerSize,
+} from '@/components/map/helpers';
 import { matchesSmartFilters } from '@/components/map/filters';
-// Remove CSS import from here
-// import 'mapbox-gl/dist/mapbox-gl.css';
 
-// (formerly inline) helpers moved to '@/components/map/helpers' and '@/components/map/filters'
+import { getPriorityColor } from './citymap/lib/priority';
+import { computeIconicAttractionNames } from './citymap/lib/iconic';
+import { getAttractionCoords } from './citymap/lib/coords';
+import {
+  createMarkerElement,
+  applySelectedStyling,
+  applyUnselectedStyling,
+} from './citymap/dom/markerFactory';
+import {
+  buildAttractionPopupHtml,
+  buildSelectedPopupHtml,
+  setupExpandToggle,
+} from './citymap/dom/popupContent';
+import { buildAttractionsGeoJson } from './citymap/dom/geojson';
 
+import SmartFiltersPanel from './citymap/SmartFiltersPanel';
+import MapLegend from './citymap/MapLegend';
+import LoadingOverlay from './citymap/LoadingOverlay';
+import ErrorOverlay from './citymap/ErrorOverlay';
+import MapStyles from './citymap/MapStyles';
 
-// Enhanced priority system based on Paris data structure
-const getPriorityColor = (attraction) => {
-  const now = new Date();
-  const currentHour = now.getHours();
-  
-  // Check if attraction is currently open based on best_time
-  const isOpenNow = () => {
-    if (!attraction.best_time) return true;
-    const bestTime = attraction.best_time.toLowerCase();
-    
-    if (bestTime.includes("morning") && currentHour >= 6 && currentHour < 12) return true;
-    if (bestTime.includes("afternoon") && currentHour >= 12 && currentHour < 18) return true;
-    if (bestTime.includes("evening") && currentHour >= 18) return true;
-    if (bestTime.includes("sunset") && currentHour >= 17 && currentHour < 20) return true;
-    
-    return false;
-  };
-  
-  // Priority color system
-  if (attraction.price_range === "Free" && isOpenNow()) {
-    return "#10B981"; // Green - Free and open now
-  } else if (attraction.price_range === "Free") {
-    return "#3B82F6"; // Blue - Free but not optimal time
-  } else if (attraction.price_range === "Moderate" && isOpenNow()) {
-    return "#F59E0B"; // Yellow - Moderate cost, good timing
-  } else if (attraction.price_range === "Expensive") {
-    return "#EF4444"; // Red - Expensive
-  } else {
-    return "#6B7280"; // Gray - Default
-  }
-};
-
-// getMarkerSize imported
-
-// Get priority level for sorting
-const getPriorityLevel = (attraction) => {
-  const culturalSignificance = attraction.ratings?.cultural_significance || 3;
-  const isFree = attraction.price_range === "Free";
-  const isOpenNow = () => {
-    if (!attraction.best_time) return true;
-    const now = new Date();
-    const currentHour = now.getHours();
-    const bestTime = attraction.best_time.toLowerCase();
-    
-    if (bestTime.includes("morning") && currentHour >= 6 && currentHour < 12) return true;
-    if (bestTime.includes("afternoon") && currentHour >= 12 && currentHour < 18) return true;
-    if (bestTime.includes("evening") && currentHour >= 18) return true;
-    if (bestTime.includes("sunset") && currentHour >= 17 && currentHour < 20) return true;
-    
-    return false;
-  };
-  
-  let priority = culturalSignificance;
-  if (isFree) priority += 1;
-  if (isOpenNow()) priority += 1;
-  
-  return priority;
-};
-
-// Smart filter functions
-
-const matchesPriceFilter = (attraction, filter) => {
-  if (filter === "all") return true;
-  return attraction.price_range?.toLowerCase() === filter;
-};
-
-const matchesDurationFilter = (attraction, filter) => {
-  if (filter === "all") return true;
-  const duration = attraction.ratings?.suggested_duration_hours || 1;
-  
-  if (filter === "quick") return duration <= 1.5;
-  if (filter === "medium") return duration > 1.5 && duration <= 3;
-  if (filter === "long") return duration > 3;
-  return true;
-};
-
-const matchesIndoorFilter = (attraction, filter) => {
-  if (filter === "all") return true;
-  return attraction.indoor === (filter === "indoor");
-};
-
-// Helper to strip markdown formatting from text
-const stripMarkdown = (text) => {
-  if (!text) return '';
-  return text
-    .replace(/\*\*(.*?)\*\*/g, '$1')  // **bold**
-    .replace(/\*(.*?)\*/g, '$1')       // *italic*
-    .replace(/__(.*?)__/g, '$1')       // __bold__
-    .replace(/_(.*?)_/g, '$1')         // _italic_
-    .replace(/`(.*?)`/g, '$1');        // `code`
-};
-
-// City map component that uses Mapbox
-export default function CityMapWithMapbox({ 
-  attractions = [], 
-  categories = [], 
-  cityName = "City", 
-  center = [0, 0], 
+/**
+ * Mapbox-based interactive city map.
+ *
+ * The heavy lifting now lives in:
+ *   • citymap/lib/{priority,markdown,iconic,coords}.js — pure helpers
+ *   • citymap/dom/{markerFactory,popupContent,geojson}.js — DOM/HTML builders
+ *   • citymap/{SmartFiltersPanel,MapLegend,LoadingOverlay,ErrorOverlay,MapStyles}.jsx
+ *
+ * This file orchestrates Mapbox lifecycle: map init, marker rendering, the
+ * dedicated "selected attraction" popup, category processing, and local-time
+ * display. Selection handling is intentionally split from marker rendering so
+ * changing the selected pin doesn't recreate all markers.
+ */
+export default function CityMapWithMapbox({
+  attractions = [],
+  cityName = 'City',
+  center = [0, 0],
   zoom = 12,
   selectedAttraction = null,
   onHover = () => {},
-  onSelect = () => {}
+  onSelect = () => {},
 }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const popupRef = useRef(null);
   const markersRef = useRef([]);
-  const mapboxglRef = useRef(null); // Ref to hold the loaded mapboxgl library
+  const mapboxglRef = useRef(null);
+
   const [mapLoaded, setMapLoaded] = useState(false);
   const [styleLoaded, setStyleLoaded] = useState(false);
   const [activeCategories, setActiveCategories] = useState([]);
-  const [showCategoryFilter, setShowCategoryFilter] = useState(false);
   const [smartFilters, setSmartFilters] = useState({
-    timeFilter: "all",
-    priceFilter: "all",
-    durationFilter: "all",
-    indoorFilter: "all"
+    timeFilter: 'all',
+    priceFilter: 'all',
+    durationFilter: 'all',
+    indoorFilter: 'all',
   });
   const [mapError, setMapError] = useState(null);
   const [categoriesProcessed, setCategoriesProcessed] = useState(false);
   const [filtersCollapsed, setFiltersCollapsed] = useState(false);
   const [showingIconicOnly, setShowingIconicOnly] = useState(true);
   const [currentLocalTime, setCurrentLocalTime] = useState('');
-  const [autoOpenedHighlights, setAutoOpenedHighlights] = useState(false);
-  const ENABLE_HIGHLIGHT_TOUR = false; // disable auto-opening popups on initial load
   const [renderCue, setRenderCue] = useState(0);
   const [selectedLocal, setSelectedLocal] = useState(selectedAttraction);
 
@@ -142,7 +80,7 @@ export default function CityMapWithMapbox({
   }, [selectedAttraction]);
 
   // Keep latest hover/select handlers without re-running the marker effect when
-  // parent passes new function identities (exhaustive-deps + stale listeners).
+  // parent passes new function identities.
   const onHoverRef = useRef(onHover);
   const onSelectRef = useRef(onSelect);
   useEffect(() => {
@@ -150,250 +88,117 @@ export default function CityMapWithMapbox({
     onSelectRef.current = onSelect;
   });
 
-  // Derive a set of iconic attractions (by name) to show on first load
-  const iconicAttractionNames = useMemo(() => {
-    if (!Array.isArray(attractions) || attractions.length === 0) return new Set();
-    const typePriority = new Map([
-      ['Monument', 8], ['Landmark', 8], ['Cathedral', 7], ['Basilica', 7],
-      ['Museum', 6], ['Chapel', 6], ['Historic District', 5], ['District', 4]
-    ]);
+  const iconicAttractionNames = useMemo(
+    () => computeIconicAttractionNames(attractions, 12),
+    [attractions],
+  );
 
-    const scored = attractions.map((site, index) => {
-      const cultural = Number(site?.ratings?.cultural_significance ?? 0);
-      const type = String(site?.type || site?.category || 'Other');
-      const typeScore = typePriority.get(type) ?? 0;
-      // Slight bonus for earlier items in the list for deterministic ties
-      const totalScore = cultural * 2 + typeScore + Math.max(0, 5 - (index % 5));
-      return { name: site?.name, score: totalScore };
-    }).filter(it => it.name);
-
-    scored.sort((a, b) => b.score - a.score);
-    const top = scored.slice(0, 12).map(it => it.name);
-    return new Set(top);
-  }, [attractions]);
-  
-  // Smart filter functions
-  const matchesTimeFilter = (attraction, filter) => {
-    if (filter === "all") return true;
-    if (!attraction.best_time) return filter === "now";
-    
-    const now = new Date();
-    const currentHour = now.getHours();
-    const bestTime = attraction.best_time.toLowerCase();
-    
-    if (filter === "now") {
-      if (bestTime.includes("morning") && currentHour >= 6 && currentHour < 12) return true;
-      if (bestTime.includes("afternoon") && currentHour >= 12 && currentHour < 18) return true;
-      if (bestTime.includes("evening") && currentHour >= 18) return true;
-      if (bestTime.includes("sunset") && currentHour >= 17 && currentHour < 20) return true;
-      return false;
-    }
-    
-    return bestTime.includes(filter);
-  };
-  
-  const matchesPriceFilter = (attraction, filter) => {
-    if (filter === "all") return true;
-    return attraction.price_range?.toLowerCase() === filter;
-  };
-  
-  const matchesDurationFilter = (attraction, filter) => {
-    if (filter === "all") return true;
-    const duration = attraction.ratings?.suggested_duration_hours || 1;
-    
-    if (filter === "quick") return duration <= 1.5;
-    if (filter === "medium") return duration > 1.5 && duration <= 3;
-    if (filter === "long") return duration > 3;
-    return true;
-  };
-  
-  const matchesIndoorFilter = (attraction, filter) => {
-    if (filter === "all") return true;
-    return attraction.indoor === (filter === "indoor");
-  };
-  
   const matchesSmartFiltersLocal = useCallback(
     (attraction) => matchesSmartFilters(attraction, smartFilters),
-    [smartFilters]
+    [smartFilters],
   );
-  
-  // Track previous selection for smooth transitions
+
+  // Track previous selection for smooth transitions.
   const prevSelectedRef = useRef(null);
 
-  // Handle selected attraction animation and map focus
+  // Selection animation + map focus. Mounts a dynamic marker for the selected
+  // attraction if it's not in the current visible set.
   useEffect(() => {
     if (!map.current || !mapboxglRef.current) return;
-    
+
     const prevSelected = prevSelectedRef.current;
     prevSelectedRef.current = selectedLocal;
-    
-    // Determine if this is a switch between items (not first selection or deselection)
+
     const isSwitching = prevSelected && selectedLocal && prevSelected.name !== selectedLocal.name;
-    
-    // Check if the selected item has a marker already
+
     let selectedMarkerExists = false;
     if (selectedLocal) {
-      selectedMarkerExists = markersRef.current.some(m => 
-        m.getElement()?.getAttribute('data-attraction-name') === selectedLocal.name
+      selectedMarkerExists = markersRef.current.some(
+        (m) => m.getElement()?.getAttribute('data-attraction-name') === selectedLocal.name,
       );
     }
-    
-    // If selected item doesn't have a marker, add one dynamically
+
     if (selectedLocal && !selectedMarkerExists) {
-      const attraction = selectedLocal;
-      let lng, lat;
-      if (attraction.coordinates) {
-        lng = attraction.coordinates.longitude || attraction.coordinates.lng;
-        lat = attraction.coordinates.latitude || attraction.coordinates.lat;
-      } else {
-        lng = attraction.longitude;
-        lat = attraction.latitude;
-      }
-      
-      if (lng && lat) {
-        // Find global index
-        const globalIndex = attractions.findIndex(a => a?.name === attraction.name) + 1;
-        const category = attraction.category || attraction.type || 'Uncategorized';
-        let color = getPriorityColor(attraction);
+      const coords = getAttractionCoords(selectedLocal);
+      if (coords) {
+        const [lng, lat] = coords;
+        const globalIndex = attractions.findIndex((a) => a?.name === selectedLocal.name) + 1;
+        const category = selectedLocal.category || selectedLocal.type || 'Uncategorized';
+        let color = getPriorityColor(selectedLocal);
         if (!color || color.toLowerCase() === '#6b7280') {
           color = getCategoryColor(category) || '#2563eb';
         }
-        
-        const markerEl = document.createElement('div');
-        markerEl.className = 'custom-marker marker-selected';
-        markerEl.setAttribute('data-attraction-name', attraction.name);
-        markerEl.setAttribute('data-attraction-index', String(globalIndex));
-        markerEl.innerHTML = `
-          <div class="marker-container" style="transform: scale(1.5); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
-            <div class="marker-pin" style="background-color: ${color}; box-shadow: 0 2px 6px rgba(0,0,0,0.25); border: 2px solid white;">
-              <span class="marker-text" style="font-weight: bold; font-size: 11px; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.5);">${globalIndex}</span>
-            </div>
-            <div class="marker-pulse" style="background-color: ${color}"></div>
-            <div class="marker-label">${attraction.name || ''}</div>
-          </div>
-        `;
-        markerEl.style.zIndex = '1000';
-        markerEl.style.filter = 'drop-shadow(0 0 12px rgba(59, 130, 246, 0.8))';
-        
-        markerEl.addEventListener('mouseenter', () => onHover(attraction));
+
+        const markerEl = createMarkerElement({
+          attraction: selectedLocal,
+          globalIndex,
+          color,
+          selected: true,
+        });
+
+        markerEl.addEventListener('mouseenter', () => onHover(selectedLocal));
         markerEl.addEventListener('mouseleave', () => onHover(null));
         markerEl.addEventListener('click', () => {
-          setSelectedLocal(attraction);
-          onSelect(attraction);
+          setSelectedLocal(selectedLocal);
+          onSelect(selectedLocal);
         });
-        
+
         const marker = new mapboxglRef.current.Marker(markerEl)
           .setLngLat([lng, lat])
           .addTo(map.current);
-        
+
         markersRef.current.push(marker);
-        
-        // Pan to the new marker
+
         map.current.easeTo({
           center: [lng, lat],
           zoom: Math.max(map.current.getZoom(), 15),
           duration: 600,
-          essential: true
+          essential: true,
         });
       }
     }
-    
-    // Update existing markers
-    markersRef.current.forEach(marker => {
+
+    // Update existing markers — selected vs unselected styling.
+    markersRef.current.forEach((marker) => {
       const markerElement = marker.getElement();
       const attractionName = markerElement.getAttribute('data-attraction-name');
-      const container = markerElement.querySelector('.marker-container');
-      
+
       if (selectedLocal && attractionName === selectedLocal.name) {
-        // Add selected class to hide label
-        markerElement.classList.add('marker-selected');
-        // Animate the selected marker with smooth transition
-        if (container) {
-          container.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-          container.style.transform = 'scale(1.5)';
-        }
-        markerElement.style.zIndex = '1000';
-        markerElement.style.transition = 'filter 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-        markerElement.style.filter = 'drop-shadow(0 0 12px rgba(59, 130, 246, 0.8))';
-        
-        // Get marker coordinates and focus the map
+        applySelectedStyling(markerElement);
         const coordinates = marker.getLngLat();
         if (coordinates && selectedMarkerExists) {
-          // Use easeTo for smoother transition when switching between items
           const animationMethod = isSwitching ? 'easeTo' : 'flyTo';
           const duration = isSwitching ? 600 : 800;
-          
           map.current[animationMethod]({
             center: [coordinates.lng, coordinates.lat],
             zoom: Math.max(map.current.getZoom(), 15),
-            duration: duration,
-            essential: true
+            duration,
+            essential: true,
           });
         }
       } else {
-        // Remove selected class
-        markerElement.classList.remove('marker-selected');
-        // Reset other markers with smooth transition
-        if (container) {
-          container.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-          container.style.transform = 'scale(1)';
-        }
-        markerElement.style.zIndex = '1';
-        markerElement.style.transition = 'filter 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-        markerElement.style.filter = 'none';
+        applyUnselectedStyling(markerElement);
       }
     });
-    
-    // If no attraction is selected, zoom out to show all markers
+
+    // On deselection, frame all attractions again.
     if (!selectedLocal && prevSelected) {
-      // Calculate bounds to include all attractions
       const bounds = new mapboxglRef.current.LngLatBounds();
-      
-      attractions.forEach(attraction => {
-        let lng, lat;
-        if (attraction.coordinates) {
-          lng = attraction.coordinates.longitude || attraction.coordinates.lng;
-          lat = attraction.coordinates.latitude || attraction.coordinates.lat;
-        } else {
-          lng = attraction.longitude;
-          lat = attraction.latitude;
-        }
-        
-        if (lng && lat) {
-          bounds.extend([lng, lat]);
-        }
+      attractions.forEach((attraction) => {
+        const coords = getAttractionCoords(attraction);
+        if (coords) bounds.extend(coords);
       });
-      
       if (!bounds.isEmpty()) {
-        // Fly to the bounds with animation
-        map.current.fitBounds(bounds, {
-          padding: 50,
-          duration: 800,
-          essential: true
-        });
+        map.current.fitBounds(bounds, { padding: 50, duration: 800, essential: true });
       }
     }
   }, [selectedLocal, attractions, onHover, onSelect]);
 
-  // Dedicated popup for selected attraction - updates in place for smooth transitions
+  // Dedicated popup for the selected attraction. Updates in place when the
+  // selection changes for smooth visual transitions.
   useEffect(() => {
     if (!map.current || !mapboxglRef.current) return;
 
-    // Find coordinates helper
-    const findCoords = (attraction) => {
-      if (!attraction) return null;
-      if (attraction.coordinates) {
-        const lng = attraction.coordinates.longitude || attraction.coordinates.lng;
-        const lat = attraction.coordinates.latitude || attraction.coordinates.lat;
-        if (lng && lat) return [lng, lat];
-      }
-      if (attraction.longitude && attraction.latitude) {
-        return [attraction.longitude, attraction.latitude];
-      }
-      return null;
-    };
-
-    // If no selection, just remove popup
     if (!selectedLocal) {
       if (popupRef.current) {
         popupRef.current.remove();
@@ -402,186 +207,107 @@ export default function CityMapWithMapbox({
       return;
     }
 
-    const coords = findCoords(selectedLocal);
+    const coords = getAttractionCoords(selectedLocal);
     if (!coords) return;
 
-    // Clean text for popup display
-    const cleanName = stripMarkdown(selectedLocal.name || '');
-    const cleanDesc = stripMarkdown(selectedLocal.description || '');
-    const isLongDesc = cleanDesc.length > 180;
-    const truncatedDesc = isLongDesc ? cleanDesc.substring(0, 180) + '...' : cleanDesc;
-    const popupId = `popup-${Date.now()}`;
+    const { html, popupId, isLongDesc, cleanDesc, truncatedDesc } = buildSelectedPopupHtml(selectedLocal);
+    const wireToggle = () =>
+      setupExpandToggle({ popupId, isLongDesc, cleanDesc, truncatedDesc });
 
-    const popupHtml = `
-      <div id="${popupId}" style="width:380px;max-width:calc(100vw - 80px);max-height:calc(100vh - 200px);display:flex;flex-direction:column;">
-        <div style="font-weight:700;color:#111827;margin-bottom:12px;font-size:18px;line-height:1.35;word-wrap:break-word;flex-shrink:0;">${cleanName}</div>
-        <div id="${popupId}-desc-container" style="max-height:150px;overflow-y:auto;flex:1;transition:max-height 0.3s ease;">
-          <div id="${popupId}-desc" style="color:#374151;font-size:14px;line-height:1.7;word-wrap:break-word;white-space:pre-wrap;">${truncatedDesc}</div>
-        </div>
-        ${isLongDesc ? `
-          <button 
-            id="${popupId}-toggle" 
-            style="margin-top:12px;padding:8px 14px;background:#f3f4f6;border:1px solid #e5e7eb;border-radius:8px;color:#3b82f6;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;width:100%;flex-shrink:0;"
-            onmouseover="this.style.background='#e5e7eb';this.style.borderColor='#d1d5db'"
-            onmouseout="this.style.background='#f3f4f6';this.style.borderColor='#e5e7eb'"
-          >
-            Read more ↓
-          </button>
-        ` : ''}
-      </div>
-    `;
-
-    // Function to setup expand/collapse behavior
-    const setupExpandToggle = () => {
-      const toggle = document.getElementById(`${popupId}-toggle`);
-      const desc = document.getElementById(`${popupId}-desc`);
-      const container = document.getElementById(`${popupId}-desc-container`);
-      if (toggle && desc && container && isLongDesc) {
-        let expanded = false;
-        toggle.addEventListener('click', (e) => {
-          e.stopPropagation();
-          expanded = !expanded;
-          if (expanded) {
-            desc.textContent = cleanDesc;
-            container.style.maxHeight = '280px'; // Expanded but still fits on screen
-            container.style.overflowY = 'auto';
-            toggle.innerHTML = 'Show less ↑';
-          } else {
-            desc.textContent = truncatedDesc;
-            container.style.maxHeight = '150px';
-            toggle.innerHTML = 'Read more ↓';
-            container.scrollTop = 0; // Reset scroll position
-          }
-        });
-      }
-    };
-
-    // If popup already exists, update it in place (smooth transition)
     if (popupRef.current) {
       popupRef.current.setLngLat(coords);
-      popupRef.current.setHTML(popupHtml);
-      // Setup toggle after HTML is updated
-      setTimeout(setupExpandToggle, 50);
+      popupRef.current.setHTML(html);
+      setTimeout(wireToggle, 50);
     } else {
-      // Create new popup - anchor at top so it opens below the marker and expands downward
-      const popup = new mapboxglRef.current.Popup({ 
+      const popup = new mapboxglRef.current.Popup({
         offset: [0, 10],
-        anchor: 'top', // Opens below marker, expands downward
-        closeOnMove: false, 
-        maxWidth: '440px', 
+        anchor: 'top',
+        closeOnMove: false,
+        maxWidth: '440px',
         className: 'selected-popup',
-        closeOnClick: false
+        closeOnClick: false,
       })
         .setLngLat(coords)
-        .setHTML(popupHtml)
+        .setHTML(html)
         .addTo(map.current);
-      
       popupRef.current = popup;
-      // Setup toggle after popup is added
-      setTimeout(setupExpandToggle, 50);
+      setTimeout(wireToggle, 50);
     }
   }, [selectedLocal]);
-  
-  // Convert existing categories to standard categories - called only from useEffect
+
+  // Standardise + count categories once attractions are available.
   const processCategories = useCallback(() => {
     if (categoriesProcessed) return;
-    
-    // Get all unique standard categories from attractions
-    const uniqueCategories = [...new Set(attractions.map(attr => {
-      const origCategory = attr.category || attr.type || 'Uncategorized';
-      return getStandardCategory(origCategory);
-    }))];
-    
-    // Create standardized category objects
-    const standardizedCategories = uniqueCategories.map(cat => ({
-      category: cat,
-      sites: attractions.filter(attr => {
-        const origCategory = attr.category || attr.type || 'Uncategorized';
-        return getStandardCategory(origCategory) === cat;
-      })
-    })).sort((a, b) => b.sites.length - a.sites.length); // Sort by number of sites
-    
-    setActiveCategories(standardizedCategories.map(cat => cat.category));
-    setShowCategoryFilter(standardizedCategories.length > 1);
+
+    const uniqueCategories = [
+      ...new Set(
+        attractions.map((attr) =>
+          getStandardCategory(attr.category || attr.type || 'Uncategorized'),
+        ),
+      ),
+    ];
+
+    setActiveCategories(uniqueCategories);
     setCategoriesProcessed(true);
-    
-    return standardizedCategories;
   }, [attractions, categoriesProcessed]);
 
-  // Initialize map and process categories once
+  // Initialise the Mapbox map exactly once.
   useEffect(() => {
-    if (map.current) return; // Map already initialized
+    if (map.current) return;
 
-    // Use an async function to load Mapbox dynamically
     const initializeMap = async () => {
       try {
-        // Dynamically import mapbox-gl
         const mapboxglModule = (await import('mapbox-gl')).default;
-        mapboxglRef.current = mapboxglModule; // Store the loaded library in the ref
-
-        // Set access token *after* import, using the ref
+        mapboxglRef.current = mapboxglModule;
         mapboxglRef.current.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-        // Ensure the container is empty to avoid Mapbox warning
         try {
           if (mapContainer.current) mapContainer.current.innerHTML = '';
         } catch (_) {}
-        // Initialize map with a more vibrant style, using the ref
+
         map.current = new mapboxglRef.current.Map({
           container: mapContainer.current,
-          style: 'mapbox://styles/mapbox/streets-v12', // More colorful style
-          center: center,
-          zoom: zoom,
+          style: 'mapbox://styles/mapbox/streets-v12',
+          center,
+          zoom,
           attributionControl: false,
-          pitchWithRotate: false
+          pitchWithRotate: false,
         });
 
-        // Add navigation controls, using the ref
-        map.current.addControl(new mapboxglRef.current.NavigationControl({
-          showCompass: true,
-          visualizePitch: true
-        }), 'top-right');
-        
-        map.current.addControl(new mapboxglRef.current.FullscreenControl(), 'top-right');
-        
         map.current.addControl(
-          new mapboxglRef.current.AttributionControl({ 
+          new mapboxglRef.current.NavigationControl({ showCompass: true, visualizePitch: true }),
+          'top-right',
+        );
+        map.current.addControl(new mapboxglRef.current.FullscreenControl(), 'top-right');
+        map.current.addControl(
+          new mapboxglRef.current.AttributionControl({
             compact: true,
-            customAttribution: `© ${new Date().getFullYear()} | ${cityName} City Guide`
-          }), 
-          'bottom-right'
+            customAttribution: `© ${new Date().getFullYear()} | ${cityName} City Guide`,
+          }),
+          'bottom-right',
         );
 
-        // On map load
         map.current.on('load', () => {
           setMapLoaded(true);
-          // Process categories after map is loaded
           processCategories();
-          try { if (mapContainer.current) mapContainer.current.classList.add('labels-visible'); } catch (_) {}
-          // Nudge marker render once the map is definitively ready
+          try {
+            if (mapContainer.current) mapContainer.current.classList.add('labels-visible');
+          } catch (_) {}
           setRenderCue((c) => c + 1);
         });
 
-        // Wait for style to be fully loaded before adding data
-        map.current.on('styledata', () => {
-          setStyleLoaded(true);
-        });
+        map.current.on('styledata', () => setStyleLoaded(true));
 
-        // Toggle compact marker labels by zoom level
         map.current.on('zoom', () => {
           try {
             const z = map.current.getZoom();
             if (mapContainer.current) {
-              if (z >= 13.5) {
-                mapContainer.current.classList.add('labels-visible');
-              } else {
-                mapContainer.current.classList.remove('labels-visible');
-              }
+              if (z >= 13.5) mapContainer.current.classList.add('labels-visible');
+              else mapContainer.current.classList.remove('labels-visible');
             }
           } catch (_) {}
         });
 
-        // Handle errors
         map.current.on('error', (e) => {
           console.error('Mapbox error:', e);
           setMapError(e.error ? e.error.message : 'Unknown map error');
@@ -592,32 +318,40 @@ export default function CityMapWithMapbox({
       }
     };
 
-    initializeMap(); // Call the async function
+    initializeMap();
 
-    // Cleanup on unmount
     return () => {
       if (map.current) {
         map.current.remove();
         map.current = null;
       }
     };
-  }, [center, zoom, cityName, attractions, processCategories]); // Include attractions in dependencies
+  }, [center, zoom, cityName, attractions, processCategories]);
 
-  // Collapse filters by default on small screens
+  // Collapse filters by default on small screens.
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setFiltersCollapsed(window.innerWidth < 640);
     }
   }, []);
 
-  // Update current local time every minute (Paris timezone by default)
+  // Local time, updated every minute.
   useEffect(() => {
     const cityTzMap = { paris: 'Europe/Paris' };
-    const tz = cityName && typeof cityName === 'string' ? cityTzMap[cityName.toLowerCase()] || Intl.DateTimeFormat().resolvedOptions().timeZone : Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const tz =
+      cityName && typeof cityName === 'string'
+        ? cityTzMap[cityName.toLowerCase()] || Intl.DateTimeFormat().resolvedOptions().timeZone
+        : Intl.DateTimeFormat().resolvedOptions().timeZone;
     const update = () => {
       try {
         const now = new Date();
-        const formatted = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', hour12: false, hourCycle: 'h23', timeZone: tz }).format(now);
+        const formatted = new Intl.DateTimeFormat(undefined, {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+          hourCycle: 'h23',
+          timeZone: tz,
+        }).format(now);
         setCurrentLocalTime(formatted);
       } catch (_) {
         setCurrentLocalTime('');
@@ -628,235 +362,89 @@ export default function CityMapWithMapbox({
     return () => clearInterval(id);
   }, [cityName]);
 
-  // Track previous state for stable marker updates
+  // Track previous state so we only recreate markers on actual changes.
   const prevAttractionsRef = useRef([]);
   const prevFiltersRef = useRef({ showingIconicOnly, activeCategories: [], smartFilters: {} });
 
-  // Add markers when map is loaded and attractions data changes or filters change
-  // NOTE: Selection is handled separately - we don't recreate all markers on selection change
+  // Render DOM markers + the GeoJSON halo/circle layer when attractions or
+  // filters change. Selection is handled separately above.
   useEffect(() => {
-    // Add check for mapboxglRef.current being loaded
-    // Render DOM markers as soon as the map exists; style is only needed for layers
     if (!mapLoaded || !map.current || !mapboxglRef.current) return;
 
-    // Access mapboxgl classes via the ref
     const mapboxgl = mapboxglRef.current;
 
-    // Check if attractions array or filters actually changed
     const attractionsChanged = prevAttractionsRef.current !== attractions;
-    const filtersChanged = 
+    const filtersChanged =
       prevFiltersRef.current.showingIconicOnly !== showingIconicOnly ||
       JSON.stringify(prevFiltersRef.current.activeCategories) !== JSON.stringify(activeCategories) ||
       JSON.stringify(prevFiltersRef.current.smartFilters) !== JSON.stringify(smartFilters);
-    
+
     prevAttractionsRef.current = attractions;
-    prevFiltersRef.current = { showingIconicOnly, activeCategories: [...activeCategories], smartFilters: { ...smartFilters } };
+    prevFiltersRef.current = {
+      showingIconicOnly,
+      activeCategories: [...activeCategories],
+      smartFilters: { ...smartFilters },
+    };
 
-    // Only recreate markers if attractions or filters changed (NOT on selection change)
-    if (!attractionsChanged && !filtersChanged) {
-      return;
-    }
+    if (!attractionsChanged && !filtersChanged) return;
 
-    // Clear any existing markers
     if (markersRef.current.length > 0) {
-      markersRef.current.forEach(marker => marker.remove());
+      markersRef.current.forEach((marker) => marker.remove());
       markersRef.current = [];
     }
 
-    // Skip if no attractions
     if (!attractions || attractions.length === 0) return;
 
     try {
-      // Get visibility filter for attractions
       const isVisible = (attraction) => {
-        // First-load: only show iconic highlights
         if (showingIconicOnly) return iconicAttractionNames.has(attraction?.name);
-        // Always apply smart filters; categories are optional
         if (activeCategories.length === 0) return matchesSmartFiltersLocal(attraction);
-        
-        // Get original category from attraction
-        const origCategory = attraction.category || attraction.type || 'Uncategorized';
-        
-        // Get standardized category
-        const standardCategory = getStandardCategory(origCategory);
-        
+        const standardCategory = getStandardCategory(
+          attraction.category || attraction.type || 'Uncategorized',
+        );
         return activeCategories.includes(standardCategory) && matchesSmartFiltersLocal(attraction);
       };
 
-      // Decide final list to render (fallback if highlight filter yields none)
       const visibleList = attractions.filter(isVisible);
       const fallbackHighlights = (() => {
-        // Prefer precomputed iconic set, else compute top-N directly
-        const fromSet = attractions.filter(a => iconicAttractionNames.has(a?.name)).slice(0, 12);
+        const fromSet = attractions.filter((a) => iconicAttractionNames.has(a?.name)).slice(0, 12);
         if (fromSet.length > 0) return fromSet;
         return computeTopIconicList(attractions, 12);
       })();
-      let listToRender = (showingIconicOnly && visibleList.length === 0) ? fallbackHighlights : visibleList;
-      // Final safety fallback: if still empty but we have attractions, show first 20
+      let listToRender = showingIconicOnly && visibleList.length === 0 ? fallbackHighlights : visibleList;
       if (listToRender.length === 0 && Array.isArray(attractions) && attractions.length > 0) {
         listToRender = attractions.slice(0, Math.min(20, attractions.length));
       }
 
-      // Debug: sizes at render time
-      try {
-        if (typeof window !== 'undefined') {
-          console.debug('[Map] attractions:', attractions?.length, 'visibleList:', visibleList.length, 'fallbackHighlights:', fallbackHighlights.length);
-        }
-      } catch (_) {}
-
-      // Build a name->index map for consistent numbering across map and list
       const attractionIndexMap = new Map();
       attractions.forEach((a, idx) => {
         if (a?.name) attractionIndexMap.set(a.name, idx + 1);
       });
 
-      // Add markers for each attraction
       listToRender.forEach((attraction) => {
-        // Skip if no coordinates
-        if (!attraction.coordinates && 
-            !attraction.latitude && 
-            !attraction.longitude) return;
-        
-        // Skip if this category is not active
-        if (!isVisible(attraction)) return;
-        
-        // Get coordinates (handle different possible structures)
-        let lng, lat;
-        
-        if (attraction.coordinates) {
-          lng = attraction.coordinates.longitude || attraction.coordinates.lng;
-          lat = attraction.coordinates.latitude || attraction.coordinates.lat;
-        } else {
-          lng = attraction.longitude;
-          lat = attraction.latitude;
-        }
-        
-        if (!lng || !lat) {
-          try { console.warn('[Map] missing coords for', attraction?.name); } catch (_) {}
+        const coords = getAttractionCoords(attraction);
+        if (!coords) {
+          try {
+            console.warn('[Map] missing coords for', attraction?.name);
+          } catch (_) {}
           return;
         }
+        if (!isVisible(attraction)) return;
 
-        // Get global index for consistent numbering with the list below
+        const [lng, lat] = coords;
         const globalIndex = attractionIndexMap.get(attraction.name) || 0;
-
-        // Get attraction category
         const category = attraction.category || attraction.type || 'Uncategorized';
         const standardCategory = getStandardCategory(category);
-        
-        // Get marker color: prefer priority color; fallback to category color; avoid gray default
+
         let color = getPriorityColor(attraction);
         if (!color || color.toLowerCase() === '#6b7280') {
-          const fallback = getCategoryColor(category) || '#2563eb';
-          color = fallback;
+          color = getCategoryColor(category) || '#2563eb';
         }
-        const markerSize = getMarkerSize(attraction);
+        // Side-effect read kept to preserve marker-size dependency for future use.
+        getMarkerSize(attraction);
 
-        // Create custom marker element
-        const markerEl = document.createElement('div');
-        markerEl.className = 'custom-marker';
-        markerEl.setAttribute('data-attraction-name', attraction.name);
-        markerEl.setAttribute('data-attraction-index', String(globalIndex));
-        // Initial state is unselected; selection styling is handled by separate effect
-        markerEl.innerHTML = `
-          <div class="marker-container">
-            <div class="marker-pin"
-                style="background-color: ${color}; box-shadow: 0 2px 6px rgba(0,0,0,0.25); border: 2px solid white;">
-              <span class="marker-text" style="font-weight: bold; font-size: 11px; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.5);">${globalIndex}</span>
-            </div>
-            <div class="marker-pulse" style="background-color: ${color}"></div>
-            <div class="marker-label">${attraction.name || ''}</div>
-          </div>
-        `;
-        
-        // Create popup content with enhanced styling - strip markdown for clean display
-        const cleanName = stripMarkdown(attraction.name);
-        const cleanDesc = stripMarkdown(attraction.description || '');
-        const cleanBestTime = stripMarkdown(attraction.best_time || '');
-        
-        let popupContent = `
-          <div class="popup-container">
-            <h3 class="popup-title">${cleanName}</h3>
-            <p class="popup-category" style="color: ${color};">
-              <span>${category}</span>
-              <span class="popup-main-category">${standardCategory}</span>
-            </p>
-        `;
-        
-        // Add description if available
-        if (cleanDesc) {
-          const truncated = cleanDesc.length > 120 ? cleanDesc.substring(0, 120) + '...' : cleanDesc;
-          popupContent += `<p class="popup-description">${truncated}</p>`;
-        }
-        
-        // Create details section
-        popupContent += `<div class="popup-details">`;
-        
-        // Add address if available
-        if (attraction.address) {
-          popupContent += `
-            <div class="popup-detail-item">
-              <span class="popup-detail-icon">📍</span>
-              <span class="popup-detail-text">${attraction.address}</span>
-            </div>`;
-        }
-        
-        // Add hours if available
-        if (attraction.hours) {
-          popupContent += `
-            <div class="popup-detail-item">
-              <span class="popup-detail-icon">🕒</span>
-              <span class="popup-detail-text">${stripMarkdown(attraction.hours)}</span>
-            </div>`;
-        } else if (cleanBestTime) {
-          // If no hours but best_time is available
-          popupContent += `
-            <div class="popup-detail-item">
-              <span class="popup-detail-icon">🕒</span>
-              <span class="popup-detail-text">Best: ${cleanBestTime}</span>
-            </div>`;
-        }
-        
-        // Add price if available
-        if (attraction.ticket_price || attraction.price_range || attraction.price) {
-          const priceInfo = attraction.ticket_price || attraction.price_range || attraction.price;
-          popupContent += `
-            <div class="popup-detail-item">
-              <span class="popup-detail-icon">💰</span>
-              <span class="popup-detail-text">${priceInfo}</span>
-            </div>`;
-        }
-        
-        // Add ratings if available
-        if (attraction.ratings) {
-          let ratingInfo = '';
-          
-          // Handle different rating structures
-          if (typeof attraction.ratings === 'object') {
-            if (attraction.ratings.score) {
-              ratingInfo = attraction.ratings.score;
-            }
-            
-            if (attraction.ratings.suggested_duration_hours) {
-              ratingInfo += ratingInfo ? ` (${attraction.ratings.suggested_duration_hours} hrs)` : 
-                            `${attraction.ratings.suggested_duration_hours} hrs`;
-            }
-          } else {
-            ratingInfo = attraction.ratings;
-          }
-            
-          if (ratingInfo) {
-            popupContent += `
-              <div class="popup-detail-item">
-                <span class="popup-detail-icon">⭐</span>
-                <span class="popup-detail-text">${ratingInfo}</span>
-              </div>`;
-          }
-        }
-        
-        // Close details div and popup container
-        popupContent += `</div></div>`;
-        
-        // Wire hover/select to parent consumers
+        const markerEl = createMarkerElement({ attraction, globalIndex, color });
+
         markerEl.addEventListener('mouseenter', () => onHoverRef.current(attraction));
         markerEl.addEventListener('mouseleave', () => onHoverRef.current(null));
         markerEl.addEventListener('click', () => {
@@ -864,89 +452,34 @@ export default function CityMapWithMapbox({
           onSelectRef.current(attraction);
         });
 
-        // Create popup with improved styling, using ref
-        const popup = new mapboxgl.Popup({ 
-          offset: 35, 
+        const popup = new mapboxgl.Popup({
+          offset: 35,
           closeButton: true,
           closeOnClick: false,
           maxWidth: '320px',
-          className: 'custom-popup'
-        }).setHTML(popupContent);
-        
-        // Create and store the marker, using ref
+          className: 'custom-popup',
+        }).setHTML(buildAttractionPopupHtml({ attraction, category, standardCategory, color }));
+
         const marker = new mapboxgl.Marker(markerEl)
           .setLngLat([lng, lat])
           .setPopup(popup)
           .addTo(map.current);
-        
+
         markersRef.current.push(marker);
       });
-      
-      // Add a map layer with all attraction points for easier visibility
+
       if (listToRender.length > 0 && map.current.isStyleLoaded()) {
-        // Remove existing layers if they exist to prevent duplicates
         if (map.current.getSource('attractions')) {
           map.current.removeLayer('attractions-layer');
           map.current.removeLayer('attractions-halo');
           map.current.removeSource('attractions');
         }
-        
-        // Only include visible attractions
-        const visibleAttractions = listToRender;
-        
-        // Skip if no visible attractions
-        if (visibleAttractions.length === 0) return;
-        
-        const geojson = {
-          type: 'FeatureCollection',
-          features: visibleAttractions
-            .filter(attr => {
-              // Check for coordinates
-              if (attr.coordinates) {
-                return attr.coordinates.longitude || attr.coordinates.lng || 
-                      attr.coordinates.latitude || attr.coordinates.lat;
-              }
-              return attr.latitude && attr.longitude;
-            })
-            .map(attr => {
-              // Get coordinates
-              let lng, lat;
-              if (attr.coordinates) {
-                lng = attr.coordinates.longitude || attr.coordinates.lng;
-                lat = attr.coordinates.latitude || attr.coordinates.lat;
-              } else {
-                lng = attr.longitude;
-                lat = attr.latitude;
-              }
-              
-              // Get category
-              const category = attr.category || attr.type || 'Uncategorized';
-              const standardCategory = getStandardCategory(category);
-              
-              return {
-                type: 'Feature',
-                geometry: {
-                  type: 'Point',
-                  coordinates: [lng, lat]
-                },
-                properties: {
-                  name: attr.name,
-                  category: category,
-                  standardCategory: standardCategory,
-                  description: attr.description || '',
-                  color: getCategoryColor(category)
-                }
-              };
-            })
-        };
-        
-        // Add the data source
-        map.current.addSource('attractions', {
-          type: 'geojson',
-          data: geojson
-        });
-        
-        // Add glow halo effect
+
+        const geojson = buildAttractionsGeoJson(listToRender);
+        if (geojson.features.length === 0) return;
+
+        map.current.addSource('attractions', { type: 'geojson', data: geojson });
+
         map.current.addLayer({
           id: 'attractions-halo',
           type: 'circle',
@@ -955,11 +488,10 @@ export default function CityMapWithMapbox({
             'circle-radius': 18,
             'circle-opacity': 0.15,
             'circle-color': ['get', 'color'],
-            'circle-blur': 0.8
-          }
+            'circle-blur': 0.8,
+          },
         });
-        
-        // Add smaller circles under markers
+
         map.current.addLayer({
           id: 'attractions-layer',
           type: 'circle',
@@ -970,542 +502,63 @@ export default function CityMapWithMapbox({
             'circle-color': ['get', 'color'],
             'circle-stroke-width': 2,
             'circle-stroke-color': '#ffffff',
-            'circle-stroke-opacity': 0.9
-          }
+            'circle-stroke-opacity': 0.9,
+          },
         });
-        
-        // Fit map to visible attractions with animation, using ref
+
         const bounds = new mapboxgl.LngLatBounds();
-        
-        visibleAttractions.forEach(attr => {
-          let lng, lat;
-          if (attr.coordinates) {
-            lng = attr.coordinates.longitude || attr.coordinates.lng;
-            lat = attr.coordinates.latitude || attr.coordinates.lat;
-          } else {
-            lng = attr.longitude;
-            lat = attr.latitude;
-          }
-          
-          if (lng && lat) {
-            bounds.extend([lng, lat]);
-          }
+        listToRender.forEach((attr) => {
+          const c = getAttractionCoords(attr);
+          if (c) bounds.extend(c);
         });
-        
         if (!bounds.isEmpty()) {
           map.current.fitBounds(bounds, {
             padding: { top: 50, bottom: 50, left: 50, right: 50 },
             maxZoom: showingIconicOnly ? 13.5 : 15,
             duration: 1500,
-            essential: true
+            essential: true,
           });
         }
-      }
-
-      // On initial load, auto-open 1-2 iconic popups and frame them
-      if (ENABLE_HIGHLIGHT_TOUR && !autoOpenedHighlights && showingIconicOnly && !selectedLocal && markersRef.current.length > 0) {
-        try {
-          const preferredOrder = [
-            'Eiffel Tower',
-            'Louvre Museum',
-            'Notre-Dame Cathedral',
-            'Arc de Triomphe',
-            'Sacré-Cœur Basilica'
-          ];
-          // Build a lookup of name -> marker and coordinates
-          const nameToMarker = new Map();
-          markersRef.current.forEach(m => {
-            const el = m.getElement();
-            const nm = el?.getAttribute('data-attraction-name');
-            if (nm) nameToMarker.set(nm, m);
-          });
-
-          const chosen = [];
-          // Prefer the known list first
-          preferredOrder.forEach(nm => {
-            if (nameToMarker.has(nm) && chosen.length < 2) chosen.push(nm);
-          });
-          // Fallback to any two from iconic set
-          if (chosen.length < 2) {
-            // Try precomputed iconic names
-            for (const nm of iconicAttractionNames) {
-              if (nameToMarker.has(nm)) chosen.push(nm);
-              if (chosen.length >= 2) break;
-            }
-          }
-          if (chosen.length < 2) {
-            // As a final fallback, pick the first two visible markers
-            markersRef.current.some(m => {
-              const nm = m.getElement()?.getAttribute('data-attraction-name');
-              if (nm && !chosen.includes(nm)) chosen.push(nm);
-              return chosen.length >= 2;
-            });
-          }
-
-          if (chosen.length > 0) {
-            const b = new mapboxgl.LngLatBounds();
-            chosen.forEach((nm, idx) => {
-              const marker = nameToMarker.get(nm);
-              if (!marker) return;
-              const ll = marker.getLngLat();
-              if (ll) b.extend([ll.lng, ll.lat]);
-              setTimeout(() => {
-                try { marker.togglePopup(); } catch (_) {}
-              }, 350 * idx);
-            });
-            if (!b.isEmpty()) {
-              map.current.fitBounds(b, {
-                padding: { top: 80, bottom: 80, left: 80, right: 80 },
-                maxZoom: 13,
-                duration: 1200,
-                essential: true
-              });
-            }
-            setAutoOpenedHighlights(true);
-          }
-        } catch (_) {}
       }
     } catch (err) {
       console.error('Error adding map features:', err);
       setMapError(err.message || 'Failed to add map features');
     }
-  }, [mapLoaded, styleLoaded, attractions, activeCategories, smartFilters, showingIconicOnly, iconicAttractionNames, categoriesProcessed, processCategories, renderCue, ENABLE_HIGHLIGHT_TOUR, autoOpenedHighlights, matchesSmartFiltersLocal, selectedLocal]);
-
-  // Get the list of categories to show in filters - now memoized
-  const getFilterCategories = () => {
-    // Only return categories that have already been processed
-    if (!categoriesProcessed) return [];
-    
-    // Get all unique standard categories from attractions
-    const uniqueCategories = [...new Set(attractions.map(attr => {
-      const origCategory = attr.category || attr.type || 'Uncategorized';
-      return getStandardCategory(origCategory);
-    }))];
-    
-    // Create standardized category objects
-    return uniqueCategories.map(cat => ({
-      category: cat,
-      sites: attractions.filter(attr => {
-        const origCategory = attr.category || attr.type || 'Uncategorized';
-        return getStandardCategory(origCategory) === cat;
-      })
-    })).sort((a, b) => b.sites.length - a.sites.length);
-  };
-
-  // Get a list of categories to show in the legend - limited to main categories
-  const getLegendCategories = () => {
-    const filterCats = getFilterCategories();
-    // Always limit to a reasonable number for the legend
-    return filterCats.length <= 7 ? filterCats : filterCats.slice(0, 7);
-  };
-
-  // Toggle a category filter
-  const toggleCategory = (category) => {
-    setActiveCategories(prev => {
-      if (prev.includes(category)) {
-        return prev.filter(cat => cat !== category);
-      } else {
-        return [...prev, category];
-      }
-    });
-  };
-
-  // Select all categories
-  const selectAllCategories = () => {
-    const standardizedCategories = getFilterCategories();
-    setActiveCategories(standardizedCategories.map(cat => cat.category));
-  };
-
-  // Clear all categories
-  const clearAllCategories = () => {
-    setActiveCategories([]);
-  };
+  }, [
+    mapLoaded,
+    styleLoaded,
+    attractions,
+    activeCategories,
+    smartFilters,
+    showingIconicOnly,
+    iconicAttractionNames,
+    categoriesProcessed,
+    processCategories,
+    renderCue,
+    matchesSmartFiltersLocal,
+  ]);
 
   return (
     <div className="relative w-full h-full rounded-lg overflow-hidden">
-      {/* Map container */}
       <div ref={mapContainer} className="w-full h-full" />
-      
-      {/* Smart Filter Controls */}
-      <div className="absolute top-4 left-4 z-20 w-72 max-w-xs bg-white/95 backdrop-blur-md border border-gray-200 rounded-xl shadow-xl p-3">
-        <div className="flex items-center justify-between">
-          <h3 className="text-sm font-semibold text-gray-800">Smart Filters</h3>
-          <button
-            onClick={() => setFiltersCollapsed(!filtersCollapsed)}
-            aria-label={filtersCollapsed ? 'Expand filters' : 'Collapse filters'}
-            className="text-gray-500 hover:text-gray-700 transition-colors"
-          >
-            {filtersCollapsed ? '▾' : '▴'}
-          </button>
-        </div>
-        <div className={`${filtersCollapsed ? 'hidden' : 'block'} mt-3`}>
-          {/* Context row: local time and initial view mode */}
-          <div className="mb-3 flex items-center justify-between text-[11px] text-gray-600">
-            <span className="font-medium">Local time ({cityName ? (cityName.charAt(0).toUpperCase() + cityName.slice(1)) : 'City'}): {currentLocalTime || '—'}</span>
-            <label className="inline-flex items-center gap-1 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                checked={showingIconicOnly}
-                onChange={(e) => setShowingIconicOnly(e.target.checked)}
-                className="accent-blue-600"
-              />
-              <span>{showingIconicOnly ? 'Highlights' : 'All'}</span>
-            </label>
-          </div>
-        
-        {/* Time Filter */}
-        <div className="mb-3">
-          <label className="block text-xs font-medium text-gray-600 mb-1">Time</label>
-          <select 
-            value={smartFilters.timeFilter} 
-            onChange={(e) => setSmartFilters(prev => ({ ...prev, timeFilter: e.target.value }))}
-            className="w-full text-xs border border-gray-300 rounded-lg px-2 py-1 bg-white"
-          >
-            <option value="all">All Times</option>
-            <option value="now">Open Now</option>
-            <option value="morning">Morning</option>
-            <option value="afternoon">Afternoon</option>
-            <option value="evening">Evening</option>
-          </select>
-        </div>
-        
-        {/* Price Filter */}
-        <div className="mb-3">
-          <label className="block text-xs font-medium text-gray-600 mb-1">Price</label>
-          <select 
-            value={smartFilters.priceFilter} 
-            onChange={(e) => setSmartFilters(prev => ({ ...prev, priceFilter: e.target.value }))}
-            className="w-full text-xs border border-gray-300 rounded-lg px-2 py-1 bg-white"
-          >
-            <option value="all">All Prices</option>
-            <option value="free">Free</option>
-            <option value="moderate">Moderate</option>
-            <option value="expensive">Expensive</option>
-          </select>
-        </div>
-        
-        {/* Duration Filter */}
-        <div className="mb-3">
-          <label className="block text-xs font-medium text-gray-600 mb-1">Duration</label>
-          <select 
-            value={smartFilters.durationFilter} 
-            onChange={(e) => setSmartFilters(prev => ({ ...prev, durationFilter: e.target.value }))}
-            className="w-full text-xs border border-gray-300 rounded-lg px-2 py-1 bg-white"
-          >
-            <option value="all">Any Duration</option>
-            <option value="quick">Quick (≤1.5h)</option>
-            <option value="medium">Medium (1.5-3h)</option>
-            <option value="long">Long (&gt;3h)</option>
-          </select>
-        </div>
-        
-        {/* Indoor/Outdoor Filter */}
-        <div className="mb-3">
-          <label className="block text-xs font-medium text-gray-600 mb-1">Location</label>
-          <select 
-            value={smartFilters.indoorFilter} 
-            onChange={(e) => setSmartFilters(prev => ({ ...prev, indoorFilter: e.target.value }))}
-            className="w-full text-xs border border-gray-300 rounded-lg px-2 py-1 bg-white"
-          >
-            <option value="all">All Locations</option>
-            <option value="indoor">Indoor Only</option>
-            <option value="outdoor">Outdoor Only</option>
-          </select>
-        </div>
-        
-        {/* Clear Filters Button */}
-        <button 
-          onClick={() => setSmartFilters({ timeFilter: "all", priceFilter: "all", durationFilter: "all", indoorFilter: "all" })}
-          className="w-full text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 py-1 px-2 rounded-lg transition-colors"
-        >
-          Clear All Filters
-        </button>
-        </div>
-      </div>      
-      {/* Priority Color Legend */}
-      <div className="absolute bottom-4 right-4 z-20 bg-white/95 backdrop-blur-md border border-gray-200 rounded-xl shadow-xl p-4 max-w-xs">
-        <h3 className="text-sm font-semibold text-gray-800 mb-3">Map Legend</h3>
-        <div className="space-y-2 text-xs">
-          <div className="flex items-center">
-            <div className="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
-            <span>Free & Open Now</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
-            <span>Free (Other Times)</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
-            <span>Moderate & Good Time</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
-            <span>Expensive</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-3 h-3 rounded-full bg-gray-500 mr-2"></div>
-            <span>Other</span>
-          </div>
-        </div>
-        <div className="mt-3 pt-2 border-t border-gray-200">
-          <p className="text-xs text-gray-600">Pin size = Cultural significance</p>
-      </div>
-        </div>
-      
 
-      
-      {/* Loading indicator */}
-      {(!mapLoaded || !styleLoaded) && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 bg-opacity-80 backdrop-blur-sm">
-          <div className="flex flex-col items-center">
-            <div className="h-12 w-12 rounded-full border-4 border-blue-600 border-t-transparent animate-spin mb-3"></div>
-            <div className="text-lg font-medium text-blue-600">Loading map...</div>
-          </div>
-        </div>
-      )}
-      
-      {/* Error message */}
-      {mapError && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 bg-opacity-90">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-md">
-            <h3 className="text-lg font-bold text-red-600 mb-2">Map Error</h3>
-            <p className="text-gray-700">{mapError}</p>
-            <p className="text-gray-500 mt-2 text-sm">Please refresh the page to try again.</p>
-          </div>
-        </div>
-      )}
-      
+      <SmartFiltersPanel
+        cityName={cityName}
+        currentLocalTime={currentLocalTime}
+        showingIconicOnly={showingIconicOnly}
+        onShowingIconicOnlyChange={setShowingIconicOnly}
+        smartFilters={smartFilters}
+        onSmartFiltersChange={setSmartFilters}
+        collapsed={filtersCollapsed}
+        onToggleCollapsed={() => setFiltersCollapsed((v) => !v)}
+      />
 
+      <MapLegend />
 
-      {/* Add CSS for custom markers and popups */}
-      <style jsx global>{`
-        .marker-container {
-          position: relative;
-          width: 30px;
-          height: 40px;
-          cursor: pointer;
-          transform-origin: bottom center;
-          transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        
-        .custom-marker {
-          transition: filter 0.35s ease-out, z-index 0s;
-        }
-        
-        .marker-pin {
-          width: 30px;
-          height: 30px;
-          border-radius: 50% 50% 50% 0;
-          transform: rotate(-45deg);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-        
-        .marker-pin:hover {
-          transform: rotate(-45deg) scale(1.2);
-        }
-        
-        .marker-text {
-          transform: rotate(45deg);
-          color: white;
-          font-size: 12px;
-          font-weight: bold;
-        }
-        
-        .marker-pulse {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 14px;
-          height: 14px;
-          border-radius: 50%;
-          transform: translateX(8px);
-          animation: pulse 2s infinite;
-        }
-        .marker-label {
-          position: absolute;
-          top: -18px;
-          left: 50%;
-          transform: translateX(-50%);
-          background: rgba(255,255,255,0.9);
-          color: #111827;
-          border: 1px solid rgba(0,0,0,0.08);
-          border-radius: 6px;
-          padding: 2px 6px;
-          font-size: 11px;
-          white-space: nowrap;
-          box-shadow: 0 1px 2px rgba(0,0,0,0.08);
-          display: none;
-          pointer-events: none;
-        }
-        .labels-visible .marker-label { display: block; }
-        /* Hide label when marker is selected (has popup open) */
-        .custom-marker.marker-selected .marker-label { display: none !important; }
-        
-        @keyframes pulse {
-          0% {
-            transform: translateX(8px) scale(0.5);
-            opacity: 1;
-          }
-          70% {
-            transform: translateX(8px) scale(2);
-            opacity: 0;
-          }
-          100% {
-            transform: translateX(8px) scale(0.5);
-            opacity: 0;
-          }
-        }
-        
-        /* Custom popup styling */
-        .mapboxgl-popup {
-          max-width: 450px !important;
-        }
-        .mapboxgl-popup-content {
-          padding: 18px !important;
-          overflow: visible !important;
-          border-radius: 14px !important;
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2) !important;
-          max-width: 450px !important;
-          word-wrap: break-word !important;
-          white-space: normal !important;
-        }
-        
-        .mapboxgl-popup-close-button {
-          font-size: 22px !important;
-          padding: 6px 12px !important;
-          color: #6b7280 !important;
-          top: 4px !important;
-          right: 4px !important;
-        }
-        
-        .mapboxgl-popup-close-button:hover {
-          color: #111827 !important;
-          background: transparent !important;
-        }
-        
-        /* Selected popup specific styling */
-        .selected-popup .mapboxgl-popup-content {
-          min-width: 360px;
-          max-width: 440px !important;
-          animation: popupFadeIn 0.25s ease-out;
-        }
-        
-        @keyframes popupFadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(8px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        .mapboxgl-popup-tip {
-          border-bottom-color: white !important;
-        }
-        
-        /* Ensure popup expands downward */
-        .selected-popup {
-          transform-origin: top center;
-        }
-        
-        /* Smooth popup position transitions */
-        .mapboxgl-popup {
-          transition: transform 0.3s ease-out;
-        }
-        
-        /* Scrollbar styling for popup */
-        .selected-popup .mapboxgl-popup-content ::-webkit-scrollbar {
-          width: 6px;
-        }
-        .selected-popup .mapboxgl-popup-content ::-webkit-scrollbar-track {
-          background: #f1f1f1;
-          border-radius: 3px;
-        }
-        .selected-popup .mapboxgl-popup-content ::-webkit-scrollbar-thumb {
-          background: #c1c1c1;
-          border-radius: 3px;
-        }
-        .selected-popup .mapboxgl-popup-content ::-webkit-scrollbar-thumb:hover {
-          background: #a1a1a1;
-        }
-        
-        .popup-container {
-          padding: 14px;
-          max-width: 380px;
-        }
-        
-        .popup-title {
-          font-size: 16px;
-          font-weight: 700;
-          margin-bottom: 4px;
-          line-height: 1.2;
-        }
-        
-        .popup-category {
-          font-size: 12px;
-          font-weight: 600;
-          margin-bottom: 8px;
-          display: flex;
-          justify-content: space-between;
-        }
-        
-        .popup-main-category {
-          opacity: 0.8;
-          font-style: italic;
-        }
-        
-        .popup-description {
-          font-size: 13px;
-          color: #4B5563;
-          margin-bottom: 12px;
-          line-height: 1.4;
-        }
-        
-        .popup-details {
-          background-color: #F9FAFB;
-          margin: 0 -12px -12px -12px;
-          padding: 8px 12px;
-          border-top: 1px solid #E5E7EB;
-        }
-        
-        .popup-detail-item {
-          display: flex;
-          align-items: center;
-          margin-bottom: 4px;
-          font-size: 12px;
-        }
-        
-        .popup-detail-item:last-child {
-          margin-bottom: 0;
-        }
-        
-        .popup-detail-icon {
-          margin-right: 6px;
-          flex-shrink: 0;
-        }
-        
-        .popup-detail-text {
-          color: #4B5563;
-        }
-        
-        /* Mapbox controls styling */
-        .mapboxgl-ctrl-group {
-          border-radius: 8px !important;
-          overflow: hidden;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
-        }
-        
-        .mapboxgl-ctrl button {
-          width: 32px !important;
-          height: 32px !important;
-        }
-      `}</style>
+      {(!mapLoaded || !styleLoaded) && <LoadingOverlay />}
+      {mapError && <ErrorOverlay message={mapError} />}
+
+      <MapStyles />
     </div>
   );
 }
