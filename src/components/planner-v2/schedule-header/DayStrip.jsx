@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { X, Plus } from 'lucide-react';
+import { getFlagForCountry } from '@/utils/countryFlags';
 import { parseIsoDate } from '@/lib/conversation/dayAssignments';
 
 const DOW_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -137,7 +138,9 @@ function AssignToolbar({
                 style={{ backgroundColor: color || '#2a2520' }}
                 aria-hidden="true"
               />
-              {c.name}
+              <span>
+                {c.country ? `${getFlagForCountry(c.country)} ` : ''}{c.name}
+              </span>
             </button>
           );
         })}
@@ -183,10 +186,12 @@ export default function DayStrip({
   const chipRefs = useRef(new Map());
   const scrollerRef = useRef(null);
 
-  const registerRef = (idx, el) => {
+  // Stable identity so DayChip's registration effect doesn't re-fire every
+  // time DayStrip renders.
+  const registerRef = useCallback((idx, el) => {
     if (el) chipRefs.current.set(idx, el);
     else chipRefs.current.delete(idx);
-  };
+  }, []);
 
   useEffect(() => {
     if (focusedDayIndex == null) return;

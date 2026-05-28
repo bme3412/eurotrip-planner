@@ -6,9 +6,16 @@ import { Send, Sparkles } from 'lucide-react';
 export default function CompactChatInput({ onSend, disabled = false, placeholder }) {
   const [text, setText] = useState('');
   const textareaRef = useRef(null);
+  const didInitialFocusRef = useRef(false);
 
+  // Focus once on first enable. Don't re-focus on every `disabled` transition
+  // (e.g. when streaming briefly toggles), because that rips focus off
+  // retry/dismiss buttons the user may be mid-click on.
   useEffect(() => {
-    if (!disabled) textareaRef.current?.focus();
+    if (disabled) return;
+    if (didInitialFocusRef.current) return;
+    didInitialFocusRef.current = true;
+    textareaRef.current?.focus();
   }, [disabled]);
 
   // Auto-resize textarea based on content
@@ -25,6 +32,8 @@ export default function CompactChatInput({ onSend, disabled = false, placeholder
     if (!trimmed || disabled) return;
     onSend(trimmed);
     setText('');
+    // Return focus after submitting (explicit user intent).
+    requestAnimationFrame(() => textareaRef.current?.focus());
   };
 
   const handleKeyDown = (e) => {
@@ -47,15 +56,17 @@ export default function CompactChatInput({ onSend, disabled = false, placeholder
           disabled={disabled}
           rows={1}
           placeholder={placeholder || 'Ask anything \u2014 or type a city, a mood, a season...'}
+          aria-label="Message the trip planner"
           className="flex-1 bg-transparent text-[13px] text-[#2a2520] placeholder:text-[#8a8578]/60 outline-none min-w-0 resize-none overflow-y-auto leading-snug"
           style={{ minHeight: '20px', maxHeight: '120px' }}
         />
         <button
           type="submit"
           disabled={!text.trim() || disabled}
+          aria-label="Send message"
           className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#2a2520] text-white disabled:opacity-20 transition-opacity mb-0.5"
         >
-          <Send className="w-3.5 h-3.5" />
+          <Send className="w-3.5 h-3.5" aria-hidden="true" />
         </button>
       </div>
     </form>

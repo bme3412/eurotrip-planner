@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCityData, getCityVisitCalendar, getCityExperiences } from "@/lib/data-utils";
-import { buildItinerary } from "@/lib/planning/buildItinerary";
-import { getTripWithDetails } from "@/lib/trips/tripState";
+import { buildItineraryWithRouting } from "@/lib/planning/buildItinerary";
+import { getTripWithDetails } from "@/lib/trips/tripsRepository";
 import ItineraryClient from "./ItineraryClient";
 
 // ─── Server-side helpers ────────────────────────────────────────────────
@@ -197,7 +197,7 @@ export default async function ItineraryPage({ params }) {
     getCityExperiences(citySlug),
   ]);
 
-  const plan = buildItinerary(trip, cityData);
+  const plan = await buildItineraryWithRouting(trip, cityData);
   const cityDisplay = cityData?.cityName || cityData?.name || citySlug.charAt(0).toUpperCase() + citySlug.slice(1);
   const dateRangeLabel = formatDateRange(trip.start_date, trip.end_date);
   const interestsList = trip.interests?.length ? trip.interests.join(' · ') : `${cityDisplay} essentials`;

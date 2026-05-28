@@ -1,82 +1,22 @@
 "use client";
 
-import { useState } from "react";
-import dynamic from "next/dynamic";
-import { MessageSquare, CalendarRange } from "lucide-react";
 import DescribeTripInput from "./DescribeTripInput";
 
-// Lazy-load TripSearchBar to avoid shipping ~81 KB cities.json in initial bundle
-const TripSearchBar = dynamic(() => import("@/components/common/TripSearchBar"), {
-  ssr: false,
-  loading: () => (
-    <div className="h-14 rounded-2xl bg-gray-100 animate-pulse" />
-  ),
-});
-
-const TABS = [
-  { id: "describe", label: "Describe your trip", Icon: MessageSquare },
-  { id: "structured", label: "Pick dates & route", Icon: CalendarRange },
-];
-
-export default function HeroWidget({ dates, onChangeDates, onSubmitStructured }) {
-  const [mode, setMode] = useState("describe");
-
-  // Preload TripSearchBar when user hovers on the structured tab
-  const preloadStructured = () => {
-    import("@/components/common/TripSearchBar");
-  };
-
+/**
+ * HeroWidget — single-input version.
+ *
+ * The previous two-tab UI ("Describe your trip" / "Pick dates & route") was
+ * collapsed into one input. The structured date-picker flow now lives in
+ * deeper surfaces (BestCitiesNow, /plan), and the hero focuses on the
+ * natural-language entry point that routes through the agent at /plan.
+ *
+ * Removing the lazy-loaded TripSearchBar tab also eliminates the
+ * `h-14` → ~220px skeleton swap that was the main source of hero CLS.
+ */
+export default function HeroWidget() {
   return (
     <div className="bg-white rounded-3xl p-4 md:p-5 shadow-[0_8px_40px_rgba(0,0,0,0.08)] border border-gray-100">
-      {/* Tab control */}
-      <div
-        role="tablist"
-        aria-label="How would you like to start?"
-        className="grid grid-cols-2 gap-1.5 p-1 bg-gray-100 rounded-2xl mb-4"
-      >
-        {TABS.map((tab) => {
-          const active = mode === tab.id;
-          const { Icon } = tab;
-          return (
-            <button
-              key={tab.id}
-              role="tab"
-              aria-selected={active}
-              aria-controls={`hero-pane-${tab.id}`}
-              type="button"
-              onClick={() => setMode(tab.id)}
-              onMouseEnter={tab.id === "structured" ? preloadStructured : undefined}
-              className={`relative flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                active
-                  ? "bg-white text-gray-900 shadow-sm"
-                  : "text-gray-500 hover:text-gray-800"
-              }`}
-            >
-              <Icon className={`w-4 h-4 ${active ? "text-blue-600" : "text-gray-400"}`} />
-              <span>{tab.label}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Active pane */}
-      <div
-        id={`hero-pane-${mode}`}
-        role="tabpanel"
-        aria-labelledby={`hero-tab-${mode}`}
-        className="px-1"
-      >
-        {mode === "describe" ? (
-          <DescribeTripInput value={dates} onChange={onChangeDates} />
-        ) : (
-          <TripSearchBar
-            value={dates}
-            onChange={onChangeDates}
-            onSubmit={onSubmitStructured}
-            embedded
-          />
-        )}
-      </div>
+      <DescribeTripInput />
     </div>
   );
 }

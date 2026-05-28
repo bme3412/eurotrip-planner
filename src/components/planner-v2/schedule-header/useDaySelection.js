@@ -42,6 +42,12 @@ export function useDaySelection({ totalDays = 0 } = {}) {
     setAnchor(null);
   }, []);
 
+  const selectMany = useCallback((dayIndices = []) => {
+    const next = new Set(dayIndices.filter((idx) => Number.isFinite(idx)));
+    setSelected(next);
+    setAnchor(dayIndices[0] ?? null);
+  }, []);
+
   const toggle = useCallback((dayIndex, { shift = false } = {}) => {
     setSelected((prev) => {
       const next = new Set(prev);
@@ -70,6 +76,7 @@ export function useDaySelection({ totalDays = 0 } = {}) {
     selectedIndices: indices,
     selectionCount: selected.size,
     toggle,
+    selectMany,
     clear,
   };
 }

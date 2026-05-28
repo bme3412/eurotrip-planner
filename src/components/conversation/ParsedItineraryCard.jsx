@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { Minus, Plus, ArrowUp, ArrowDown, Trash2, CheckCircle2, AlertTriangle, MapPin } from 'lucide-react';
+import { getFlagForCountry } from '@/utils/countryFlags';
 
 function totalNights(cities) {
   return cities.reduce((sum, c) => sum + (c.nights || 0), 0);
@@ -41,6 +42,11 @@ function CityRow({ city, index, isFirst, isLast, onNightsChange, onRemove, onMov
       <div className="flex-1 min-w-0">
         <div className="flex items-baseline gap-2">
           <span className="text-sm font-semibold text-slate-800 truncate">
+            {city.country && (
+              <span className="mr-1" aria-hidden="true">
+                {getFlagForCountry(city.country)}
+              </span>
+            )}
             {city.name}
           </span>
           {city.country && (

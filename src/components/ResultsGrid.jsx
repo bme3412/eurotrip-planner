@@ -4,6 +4,7 @@ import { useMemo, useState, useRef } from 'react';
 import { List, BarChart3, GitCompare } from 'lucide-react';
 import CityListRow from './discover/CityListRow';
 import CityScatterPlot from './discover/CityScatterPlot';
+import { normalizeRankedCandidate, rankedCandidateToPlannerParams } from '@/lib/discovery/rankedCandidate';
 
 /**
  * Sort options
@@ -129,9 +130,10 @@ function getTemperature(city) {
   return null;
 }
 
-export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy: externalSetSortBy, dates, onChangeDates, hideHeader = false, onCityClick }) {
+export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy: externalSetSortBy, dates, onChangeDates, hideHeader = false, onCityClick, onStartPlan }) {
   const [viewMode, setViewMode] = useState('list');
   const [internalSortBy, setInternalSortBy] = useState('score');
+  const [selectedCityIds, setSelectedCityIds] = useState(() => new Set());
 
   // Use external sort state if provided, otherwise use internal
   const sortBy = externalSortBy || internalSortBy;
@@ -177,6 +179,16 @@ export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy
 
   const dateRange = formatDateRange(dates);
   const nights = getNights(dates);
+  const ranked = useMemo(() => (
+    sorted.map((city, index) => ({
+      source: city,
+      candidate: normalizeRankedCandidate(city, {
+        rank: index + 1,
+        startDate: dates?.start,
+        endDate: dates?.end,
+      }),
+    })).filter((item) => item.candidate)
+  ), [dates?.end, dates?.start, sorted]);
 
   const handleCityClick = (cityId) => {
     if (onCityClick) {
@@ -184,6 +196,48 @@ export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy
     } else {
       window.location.href = `/city-guides/${cityId}`;
     }
+  };
+
+  const handleStartPlan = (city, rank) => {
+    const candidate = normalizeRankedCandidate(city, {
+      rank,
+      startDate: dates?.start,
+      endDate: dates?.end,
+    });
+    if (!candidate) return;
+    if (onStartPlan) {
+      onStartPlan(candidate);
+      return;
+    }
+    window.location.href = `/plan?${rankedCandidateToPlannerParams(candidate).toString()}`;
+  };
+
+  const toggleSelected = (candidate) => {
+    setSelectedCityIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(candidate.cityId)) next.delete(candidate.cityId);
+      else if (next.size < 5) next.add(candidate.cityId);
+      return next;
+    });
+  };
+
+  const selectedCandidates = ranked
+    .map((item) => item.candidate)
+    .filter((candidate) => selectedCityIds.has(candidate.cityId));
+
+  const handlePlanSelected = () => {
+    if (selectedCandidates.length === 0) return;
+    const params = new URLSearchParams();
+    params.set('mode', 'conversation');
+    params.set('cities', selectedCandidates.map((city) => city.cityId).join(','));
+    if (dates?.start) params.set('startDate', dates.start);
+    if (dates?.end) params.set('endDate', dates.end);
+    const cityNames = selectedCandidates.map((city) => city.name).join(', ');
+    const reasons = selectedCandidates
+      .map((city) => `${city.name}${city.rank ? ` (#${city.rank})` : ''}${city.reason ? `: ${city.reason}` : ''}`)
+      .join('; ');
+    params.set('q', `Build a Europe route using these ranked picks: ${cityNames}. Use the selected dates if available and explain the tradeoffs. Ranking context: ${reasons}`);
+    window.location.href = `/plan?${params.toString()}`;
   };
 
   return (
@@ -300,6 +354,7 @@ export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy
               city={city}
               rank={index}
               onClick={handleCityClick}
+              onStartPlan={() => handleStartPlan(city, index + 1)}
               startDate={dates?.start}
             />
           ))}
@@ -314,12 +369,64 @@ export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy
         />
       )}
 
-      {/* Compare view placeholder */}
+      {/* Compare view */}
       {viewMode === 'compare' && (
-        <div className="bg-gray-50 rounded-2xl p-12 text-center">
-          <GitCompare className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-lg font-semibold text-gray-700 mb-2">Compare View Coming Soon</h3>
-          <p className="text-gray-500">Side-by-side comparison of your top picks</p>
+        <div className="rounded-2xl border border-gray-200 bg-gray-50 p-5">
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <div className="flex items-center gap-2">
+                <GitCompare className="h-5 w-5 text-gray-500" />
+                <h3 className="text-lg font-semibold text-gray-800">Compare ranked picks</h3>
+              </div>
+              <p className="mt-1 text-sm text-gray-500">
+                Select up to 5 cities and turn them into a draft route.
+              </p>
+            </div>
+            <button
+              type="button"
+              disabled={selectedCandidates.length === 0}
+              onClick={handlePlanSelected}
+              className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-300"
+            >
+              Plan selected {selectedCandidates.length > 0 ? `(${selectedCandidates.length})` : ''}
+            </button>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {ranked.slice(0, 12).map(({ candidate }) => {
+              const selected = selectedCityIds.has(candidate.cityId);
+              return (
+                <button
+                  type="button"
+                  key={candidate.cityId}
+                  onClick={() => toggleSelected(candidate)}
+                  className={`rounded-2xl border bg-white p-4 text-left transition-all ${
+                    selected ? 'border-gray-900 shadow-sm ring-2 ring-gray-900/10' : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">
+                        Rank {candidate.rank}
+                      </p>
+                      <h4 className="mt-1 text-base font-bold text-gray-900">
+                        {candidate.name}
+                        {candidate.country && <span className="font-medium text-gray-400"> · {candidate.country}</span>}
+                      </h4>
+                    </div>
+                    <span className={`mt-1 h-5 w-5 rounded-full border ${selected ? 'border-gray-900 bg-gray-900' : 'border-gray-300'}`} />
+                  </div>
+                  {candidate.reason && (
+                    <p className="mt-3 line-clamp-2 text-sm text-gray-600">{candidate.reason}</p>
+                  )}
+                  <div className="mt-3 flex flex-wrap gap-2 text-xs text-gray-500">
+                    {candidate.weather?.label && <span className="rounded-full bg-amber-50 px-2 py-1 text-amber-700">{candidate.weather.label}</span>}
+                    {candidate.crowds && <span className="rounded-full bg-emerald-50 px-2 py-1 text-emerald-700">{candidate.crowds} crowds</span>}
+                    {candidate.score != null && <span className="rounded-full bg-gray-100 px-2 py-1">Score {Math.round(Number(candidate.score))}</span>}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
         </div>
       )}
     </section>

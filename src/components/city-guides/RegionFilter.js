@@ -183,7 +183,6 @@ const RegionFilter = ({
 
   // Function to handle region selection with filter type context
   const handleRegionClick = (regionId) => {
-    console.log(`Clicked region: ${regionId} with filter type: ${activeFilterType}`);
     handleRegionChange(regionId, activeFilterType);
   };
 

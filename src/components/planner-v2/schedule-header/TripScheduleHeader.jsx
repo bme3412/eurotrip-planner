@@ -2,46 +2,29 @@
 
 import { useCallback, useMemo, useState } from 'react';
 import DateRangeChip from './DateRangeChip';
-import CityScheduleCard from './CityScheduleCard';
 import DayStrip from './DayStrip';
-import Legend from './Legend';
 import { useDaySelection } from './useDaySelection';
+import { CitySearchInput } from '../../conversation/InputArea';
 import { buildDayAssignments, getTripDayCount } from '@/lib/conversation/dayAssignments';
-
-const CITY_PALETTE = [
-  '#d97706',
-  '#0d9488',
-  '#7c3aed',
-  '#db2777',
-  '#0369a1',
-  '#16a34a',
-  '#b45309',
-  '#4338ca',
-];
-
-function buildCityColors(cities) {
-  const out = {};
-  cities.forEach((c, i) => {
-    const id = c.id || c.name?.toLowerCase();
-    if (!id) return;
-    out[id] = CITY_PALETTE[i % CITY_PALETTE.length];
-  });
-  return out;
-}
+import { buildCityColors } from '@/lib/planning/cityColors';
 
 /**
- * Compact trip schedule header: date range, duration, per-city cards, day strip.
- * Not sticky — the /plan page flex column allocates height to chat + map below.
+ * Compact trip schedule controls: date range + day count + optional day strip
+ * for bulk assignment. The per-city "Route timeline" was removed because the
+ * top-bar Day Strip in /plan covers that signal without the duplication.
+ * Not sticky — the /plan page flex column allocates height to chat + map.
  */
 export default function TripScheduleHeader({
   tripState,
   setTripDates,
+  undoLastReflow,
   assignDaysToCity,
   unassignDays,
   setCityNights,
   addCity,
 }) {
-  const [focusedDayIndex, setFocusedDayIndex] = useState(null);
+  const [pendingNewCityIndices, setPendingNewCityIndices] = useState(null);
+  const [showDays, setShowDays] = useState(false);
 
   const days = useMemo(() => buildDayAssignments(tripState), [tripState]);
   const orderedCities = useMemo(() => {
@@ -70,8 +53,6 @@ export default function TripScheduleHeader({
 
   const tripDayCount = getTripDayCount(tripState);
   const totalNightsFromDates = tripState?.dates?.totalNights;
-  const hasDates =
-    !!tripState?.dates?.startDate || !!tripState?.dates?.endDate;
   const isInteractive = !!(assignDaysToCity || unassignDays || setCityNights);
 
   const {
@@ -86,23 +67,45 @@ export default function TripScheduleHeader({
     (cityIdOrNew, indices) => {
       if (!indices || indices.length === 0) return;
       if (cityIdOrNew === '__new__') {
-        const name = (typeof window !== 'undefined'
-          ? window.prompt('New city name?')
-          : ''
-        )?.trim();
-        if (!name) return;
-        const created = addCity?.({ name }) || null;
-        const newId = created?.id || name.toLowerCase();
-        if (assignDaysToCity) {
-          assignDaysToCity(newId, indices);
-        }
-      } else if (assignDaysToCity) {
+        // Open the inline city search popover; remember which day indices
+        // the user had selected so we can assign them after a city is picked.
+        setPendingNewCityIndices([...indices]);
+        return;
+      }
+      if (assignDaysToCity) {
         assignDaysToCity(cityIdOrNew, indices);
       }
       clear();
     },
-    [addCity, assignDaysToCity, clear]
+    [assignDaysToCity, clear]
   );
+
+  const handleNewCitySelect = useCallback(
+    (city) => {
+      if (!city?.name) {
+        setPendingNewCityIndices(null);
+        return;
+      }
+      const created = addCity?.({
+        name: city.name,
+        id: city.id,
+        country: city.country,
+        latitude: city.latitude,
+        longitude: city.longitude,
+      }) || null;
+      const newId = created?.id || city.id || city.name.toLowerCase();
+      if (assignDaysToCity && pendingNewCityIndices?.length) {
+        assignDaysToCity(newId, pendingNewCityIndices);
+      }
+      setPendingNewCityIndices(null);
+      clear();
+    },
+    [addCity, assignDaysToCity, clear, pendingNewCityIndices]
+  );
+
+  const handleCancelNewCity = useCallback(() => {
+    setPendingNewCityIndices(null);
+  }, []);
 
   const handleUnassign = useCallback(
     (indices) => {
@@ -113,36 +116,6 @@ export default function TripScheduleHeader({
     [unassignDays, clear]
   );
 
-  const handleIncrementNights = useCallback(
-    (city) => {
-      if (!setCityNights) return;
-      const id = city.id || city.name?.toLowerCase();
-      const next = (Number.isFinite(city.nights) ? city.nights : 0) + 1;
-      setCityNights(id, next);
-    },
-    [setCityNights]
-  );
-
-  const handleDecrementNights = useCallback(
-    (city) => {
-      if (!setCityNights) return;
-      const id = city.id || city.name?.toLowerCase();
-      const current = Number.isFinite(city.nights) ? city.nights : 0;
-      if (current <= 0) return;
-      setCityNights(id, current - 1);
-    },
-    [setCityNights]
-  );
-
-  const handleDayFocus = useCallback((dayIndex) => {
-    setFocusedDayIndex(dayIndex);
-    setTimeout(
-      () =>
-        setFocusedDayIndex((prev) => (prev === dayIndex ? null : prev)),
-      1200
-    );
-  }, []);
-
   const handleDatesChange = useCallback(
     (partial) => {
       setTripDates?.(partial);
@@ -150,29 +123,30 @@ export default function TripScheduleHeader({
     [setTripDates]
   );
 
-  const hasGaps = useMemo(() => days.some((d) => d.cityId == null), [days]);
-
-  // Empty shell: seed dates without chat.
-  if (!hasDates && orderedCities.length === 0) {
-    return (
-      <div className="z-20 max-h-[200px] shrink-0 overflow-y-auto border-b border-[#e5e0d8] bg-[#faf8f5]/95 px-4 py-2.5 backdrop-blur-sm">
-        <div className="flex flex-wrap items-center gap-2">
-          <DateRangeChip
-            startDate={tripState?.dates?.startDate}
-            endDate={tripState?.dates?.endDate}
-            onDatesChange={handleDatesChange}
-          />
-          <p className="text-xs text-[#8a8578]">
-            Pick dates or tell me where you want to go.
-          </p>
-        </div>
-      </div>
-    );
-  }
+  const reflow = tripState?.lastReflow;
+  const reflowFresh = reflow?.at && Date.now() - reflow.at < 10000;
 
   return (
-    <div className="z-20 max-h-[160px] shrink-0 overflow-y-auto border-b border-[#e5e0d8] bg-[#faf8f5]/95 backdrop-blur-sm">
-      <div className="space-y-1.5 px-3 py-2">
+    <div className="z-20 shrink-0 bg-[#faf8f5]/95 backdrop-blur-sm">
+      <div className="space-y-1 px-3 py-1.5">
+        {reflowFresh && (
+          <div className="flex items-center justify-between gap-2 rounded-xl border border-[#eadfc8] bg-[#fffaf0] px-3 py-2 text-xs text-[#6a6459] shadow-sm">
+            <span className="min-w-0 truncate">
+              <span className="font-semibold text-[#2a2520]">Reflowed.</span>{' '}
+              {reflow.summary}
+            </span>
+            {undoLastReflow && (
+              <button
+                type="button"
+                onClick={() => undoLastReflow()}
+                className="shrink-0 rounded-full border border-[#c9a227]/50 bg-white px-2.5 py-1 text-[11px] font-semibold text-[#8a6f18] hover:bg-[#fff5d8]"
+              >
+                Undo
+              </button>
+            )}
+          </div>
+        )}
+
         <div className="flex max-w-full flex-nowrap items-stretch gap-1.5 overflow-x-auto pb-0.5">
           <DateRangeChip
             startDate={tripState?.dates?.startDate}
@@ -200,20 +174,18 @@ export default function TripScheduleHeader({
               </span>
             </div>
           )}
-          {orderedCities.map((city) => (
-            <CityScheduleCard
-              key={city.id || city.name}
-              city={city}
-              days={days}
-              color={cityColors[city.id || city.name?.toLowerCase()]}
-              onIncrementNights={isInteractive ? handleIncrementNights : null}
-              onDecrementNights={isInteractive ? handleDecrementNights : null}
-              onDayFocus={handleDayFocus}
-            />
-          ))}
+          {days.length > 0 && (
+            <button
+              type="button"
+              onClick={() => setShowDays((value) => !value)}
+              className="flex shrink-0 items-center rounded-xl border border-[#e5e0d8] bg-white px-3 py-2 text-[11px] font-semibold text-[#6a6459] shadow-sm hover:bg-[#f5f0e8] hover:text-[#2a2520]"
+            >
+              {showDays ? 'Hide fine tune' : 'Fine tune days'}
+            </button>
+          )}
         </div>
 
-        {days.length > 0 && (
+        {days.length > 0 && showDays && (
           <DayStrip
             days={days}
             cityColors={cityColors}
@@ -225,11 +197,28 @@ export default function TripScheduleHeader({
             onClearSelection={clear}
             onAssignSelectionToCity={isInteractive ? handleAssign : undefined}
             onUnassignSelection={isInteractive ? handleUnassign : undefined}
-            focusedDayIndex={focusedDayIndex}
+            focusedDayIndex={null}
           />
         )}
 
-        {/* Legend removed — city colors are visible on the day chips */}
+        {pendingNewCityIndices && (
+          <div className="rounded-xl border border-[#e5e0d8] bg-white p-2 shadow-sm">
+            <div className="mb-1.5 flex items-center justify-between">
+              <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-[#8a8578]">
+                Pick a city for the selected {pendingNewCityIndices.length}{' '}
+                {pendingNewCityIndices.length === 1 ? 'day' : 'days'}
+              </span>
+              <button
+                type="button"
+                onClick={handleCancelNewCity}
+                className="text-[10px] uppercase tracking-[0.1em] text-[#8a8578] hover:text-[#2a2520]"
+              >
+                Cancel
+              </button>
+            </div>
+            <CitySearchInput purpose="stop" onSelect={handleNewCitySelect} />
+          </div>
+        )}
       </div>
     </div>
   );

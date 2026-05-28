@@ -1,5 +1,7 @@
 'use client';
 
+import { getFlagForCountry } from '@/utils/countryFlags';
+
 /**
  * Legend swatch row for the trip schedule strip.
  * Renders one dot + label per assigned city, plus an "Unassigned" pill
@@ -18,7 +20,7 @@ export default function Legend({ cities = [], hasGaps = false }) {
             aria-hidden="true"
           />
           <span className="font-medium text-[#6a6459] normal-case tracking-normal">
-            {c.name}
+            {c.country ? `${getFlagForCountry(c.country)} ` : ''}{c.name}
           </span>
         </span>
       ))}

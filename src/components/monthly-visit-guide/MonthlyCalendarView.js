@@ -59,7 +59,6 @@ const MonthlyCalendarView = ({ monthlyData = {}, initialMonth = new Date().getMo
       try {
         const normalizedCity = city.toLowerCase();
         const url = `/data/${country}/${normalizedCity}/${normalizedCity}-visit-calendar.json`;
-        console.log('Fetching detailed calendar data from:', url);
         const response = await fetch(url);
         if (response.ok) {
           const data = await response.json();

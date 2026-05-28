@@ -8,8 +8,70 @@ import Link from 'next/link';
 import { Star, Sun, Snowflake, Umbrella, Heart, Medal, ChevronLeft, ChevronRight, Clock, MapPin, CalendarDays, Wand2, Bookmark, Plus, Eye, Sunrise, Sunset, X, Check, ExternalLink } from 'lucide-react';
 import { fetchCityDataUrl, getCityPaths } from '@/lib/city-data';
 
+const MONTH_NAMES = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
 
-const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntroHero = false }) => {
+const RATING_COLORS = {
+  5: '#10b981',
+  4: '#34d399',
+  3: '#fbbf24',
+  2: '#fb923c',
+  1: '#ef4444'
+};
+
+const RATING_LABELS = {
+  5: 'Excellent',
+  4: 'Good',
+  3: 'Average',
+  2: 'Below Avg',
+  1: 'Avoid'
+};
+
+const TRAVELER_LABELS = {
+  all: 'Everyone',
+  families: 'Families',
+  couples: 'Couples',
+  solo: 'Solo travelers',
+  budget: 'Budget travelers',
+  luxury: 'Luxury travelers'
+};
+
+const mostFrequent = (items) => {
+  const counts = items.filter(Boolean).reduce((acc, item) => {
+    acc[item] = (acc[item] || 0) + 1;
+    return acc;
+  }, {});
+
+  return Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
+};
+
+const formatMonthList = (months, fallback = 'See calendar') => {
+  if (!months?.length) return fallback;
+  return months.slice(0, 2).join(' / ');
+};
+
+const getSeasonalNeighborhoods = (cityName) => {
+  const cityKey = cityName?.toLowerCase() || '';
+  if (cityKey.includes('paris')) {
+    return [
+      { season: 'Spring', neighborhood: 'Saint-Germain + Luxembourg Gardens', reason: 'cafe terraces, garden blooms, and easy museum pairing' },
+      { season: 'Summer', neighborhood: 'Canal Saint-Martin + the Seine', reason: 'waterside evenings, picnics, and open-air pop-ups' },
+      { season: 'Fall', neighborhood: 'Le Marais + covered passages', reason: 'gallery hopping, boutiques, and rain-friendly wandering' },
+      { season: 'Winter', neighborhood: 'Montmartre + Palais-Royal', reason: 'cozy bistros, holiday lights, and atmospheric walks' }
+    ];
+  }
+
+  return [
+    { season: 'Spring', neighborhood: 'Historic center', reason: 'best balance of walking weather and classic sights' },
+    { season: 'Summer', neighborhood: 'Parks + waterfront areas', reason: 'long evenings and outdoor dining' },
+    { season: 'Fall', neighborhood: 'Museum districts', reason: 'culture-heavy days when weather turns mixed' },
+    { season: 'Winter', neighborhood: 'Old town + covered markets', reason: 'cozy indoor stops and seasonal food' }
+  ];
+};
+
+const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntroHero = false, onOpenMonthlyGuide }) => {
   const [activeTooltip, setActiveTooltip] = useState(null);
   const [activeTier, setActiveTier] = useState('All');
   const [showFreeOnly, setShowFreeOnly] = useState(false);
@@ -20,6 +82,12 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
   const [selectedCalendarMonth, setSelectedCalendarMonth] = useState(null);
   const [travelerTypeFilter, setTravelerTypeFilter] = useState('all');
   const [hoveredModalDay, setHoveredModalDay] = useState(null);
+  const [compareMonths, setCompareMonths] = useState(['April', 'September']);
+  const [tripFit, setTripFit] = useState({
+    traveler: 'couples',
+    budget: 'mid',
+    crowd: 'balanced'
+  });
   const cityPaths = useMemo(() => getCityPaths(overview?.country, cityName), [overview?.country, cityName]);
   
   // Quick View Modal state
@@ -370,14 +438,8 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
   const calendarData = useMemo(() => {
     if (!visitCalendar?.months) return null;
 
-    const months = ['January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'];
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth();
-
-    const RATING_COLORS = {
-      5: '#10b981', 4: '#34d399', 3: '#fbbf24', 2: '#fb923c', 1: '#ef4444'
-    };
 
     const getDayDetails = (day, monthData, filter) => {
       if (!monthData?.ranges) return null;
@@ -408,7 +470,7 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
       };
     };
 
-    return months.map((monthName, monthIndex) => {
+    return MONTH_NAMES.map((monthName, monthIndex) => {
       const monthData = visitCalendar.months[monthName.toLowerCase()];
       const daysInMonth = new Date(currentYear, monthIndex + 1, 0).getDate();
       const firstDayOfMonth = new Date(currentYear, monthIndex, 1).getDay();
@@ -442,6 +504,138 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
       return { monthName, monthIndex, days, isCurrentMonth, specialEventsCount };
     });
   }, [visitCalendar, travelerTypeFilter]);
+
+  const monthInsights = useMemo(() => {
+    if (!calendarData?.length) return [];
+
+    return calendarData.map((month) => {
+      const monthData = visitCalendar?.months?.[month.monthName.toLowerCase()] || {};
+      const days = month.days.filter((day) => day.type === 'day');
+      const scoredDays = days.filter((day) => !day.isPlaceholder);
+      const scoreSource = scoredDays.length > 0 ? scoredDays : days;
+      const averageScore = scoreSource.length
+        ? scoreSource.reduce((sum, day) => sum + (day.rating || 3), 0) / scoreSource.length
+        : 3;
+      const weatherDetails = monthData.weatherDetails || {};
+      const crowdLevel = monthData.crowdLevel || mostFrequent(days.map((day) => day.crowdLevel));
+      const priceLevel = monthData.priceLevel || mostFrequent(days.map((day) => day.price));
+
+      return {
+        ...month,
+        averageScore,
+        rating: Math.max(1, Math.min(5, Math.round(averageScore))),
+        weatherLabel: weatherDetails.lowC !== undefined && weatherDetails.highC !== undefined
+          ? `${weatherDetails.lowC}-${weatherDetails.highC}°C`
+          : null,
+        daylightLabel: weatherDetails.daylightHours ? `${weatherDetails.daylightHours}h daylight` : null,
+        crowdLevel,
+        priceLevel,
+        monthData
+      };
+    });
+  }, [calendarData, visitCalendar]);
+
+  const bestTravelerMonth = useMemo(() => {
+    if (travelerTypeFilter === 'all' || !visitCalendar?.months) return null;
+
+    const rankedMonths = MONTH_NAMES.map((monthName) => {
+      const ranges = visitCalendar.months?.[monthName.toLowerCase()]?.ranges || [];
+      const travelerScores = ranges
+        .map((range) => range.travelerTypes?.[travelerTypeFilter])
+        .filter((score) => typeof score === 'number');
+
+      if (!travelerScores.length) return null;
+
+      return {
+        monthName,
+        score: travelerScores.reduce((sum, score) => sum + score, 0) / travelerScores.length
+      };
+    }).filter(Boolean);
+
+    return rankedMonths.sort((a, b) => b.score - a.score)[0]?.monthName || null;
+  }, [travelerTypeFilter, visitCalendar]);
+
+  const valueMonths = useMemo(() => {
+    const valueCandidates = monthInsights
+      .map((month) => {
+        const priceText = String(month.priceLevel || '').toLowerCase();
+        const crowdText = String(month.crowdLevel || '').toLowerCase();
+        const valueBonus = priceText.includes('low') || priceText.includes('value') ? 0.6 : 0;
+        const crowdBonus = crowdText.includes('low') || crowdText.includes('moderate') ? 0.3 : 0;
+        return { monthName: month.monthName, score: month.averageScore + valueBonus + crowdBonus };
+      })
+      .sort((a, b) => b.score - a.score);
+
+    return valueCandidates.slice(0, 2).map((month) => month.monthName);
+  }, [monthInsights]);
+
+  const tripFitRecommendations = useMemo(() => {
+    const crowdPenalty = {
+      quiet: ['very high', 'high'],
+      balanced: ['very high'],
+      lively: []
+    }[tripFit.crowd] || [];
+
+    return monthInsights
+      .map((month) => {
+        const priceText = String(month.priceLevel || '').toLowerCase();
+        const crowdText = String(month.crowdLevel || '').toLowerCase();
+        let score = month.averageScore;
+
+        if (tripFit.budget === 'budget' && (priceText.includes('low') || priceText.includes('value'))) score += 0.7;
+        if (tripFit.budget === 'luxury' && month.specialEventsCount > 0) score += 0.35;
+        if (crowdPenalty.some((term) => crowdText.includes(term))) score -= 0.8;
+
+        const ranges = month.monthData?.ranges || [];
+        const travelerScores = ranges
+          .map((range) => range.travelerTypes?.[tripFit.traveler])
+          .filter((value) => typeof value === 'number');
+        if (travelerScores.length) {
+          score += (travelerScores.reduce((sum, value) => sum + value, 0) / travelerScores.length - 3) * 0.35;
+        }
+
+        return { ...month, fitScore: score };
+      })
+      .sort((a, b) => b.fitScore - a.fitScore)
+      .slice(0, 3);
+  }, [monthInsights, tripFit]);
+
+  const comparisonInsights = useMemo(
+    () => compareMonths
+      .map((monthName) => monthInsights.find((month) => month.monthName === monthName))
+      .filter(Boolean),
+    [compareMonths, monthInsights]
+  );
+
+  const updateCompareMonth = (index, monthName) => {
+    setCompareMonths((current) => {
+      const next = [...current];
+      next[index] = monthName;
+      return next;
+    });
+  };
+
+  const openMonthlyGuide = (monthName) => {
+    if (onOpenMonthlyGuide) {
+      onOpenMonthlyGuide(monthName);
+      setSelectedCalendarMonth(null);
+      setHoveredModalDay(null);
+    }
+  };
+
+  const planMonthHref = (monthName, eventName = null) => {
+    const citySlug = encodeURIComponent(cityName?.toLowerCase() || 'paris');
+    const params = new URLSearchParams({
+      city: cityName || 'Paris',
+      month: monthName
+    });
+
+    if (eventName) params.set('event', eventName);
+
+    return `/plan/${citySlug}?${params.toString()}`;
+  };
+
+  const seasonalNeighborhoods = useMemo(() => getSeasonalNeighborhoods(cityName), [cityName]);
 
   return (
     <div className="max-w-6xl mx-auto space-y-8">
@@ -477,10 +671,15 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
           <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-sky-500"></div>
           <div className="p-4 md:p-5 space-y-3">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-gray-900 tracking-tight">When to Visit</h2>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">Interactive date calendar</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
+                  Best Time to Visit {displayName}
+                </h2>
+              </div>
               {visitCalendar?.bestTimeRecommendations?.overall && (
                 <span className="text-sm px-3 py-1.5 bg-emerald-100 text-emerald-700 rounded-full font-medium hidden sm:inline-flex items-center gap-1.5">
-                  <span>✨</span> Peak season: {visitCalendar.bestTimeRecommendations.overall.best?.[0] || 'April-June'}
+                  <span>✨</span> Best overall: {visitCalendar.bestTimeRecommendations.overall.best?.[0] || 'April-June'}
                 </span>
               )}
             </div>
@@ -507,6 +706,50 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
               </p>
             )}
 
+            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+              {[
+                {
+                  label: 'Best overall',
+                  value: formatMonthList(bestMonthsOverall, monthInsights[0]?.monthName || 'April-June'),
+                  detail: 'Prime weather and classic Paris atmosphere',
+                  tone: 'emerald'
+                },
+                {
+                  label: 'Best value',
+                  value: formatMonthList(valueMonths, 'November-February'),
+                  detail: 'Good scores with lighter crowds or softer pricing',
+                  tone: 'blue'
+                },
+                {
+                  label: 'Plan around',
+                  value: formatMonthList(avoidMonthsOverall, 'August peak closures'),
+                  detail: 'Higher friction from crowds, closures, or weather',
+                  tone: 'rose'
+                },
+                {
+                  label: `Best for ${TRAVELER_LABELS[travelerTypeFilter]?.toLowerCase() || 'your style'}`,
+                  value: bestTravelerMonth || formatMonthList(bestMonthsOverall),
+                  detail: 'Updates when you change traveler type below',
+                  tone: 'violet'
+                }
+              ].map((card) => {
+                const toneClasses = {
+                  emerald: 'bg-emerald-50 border-emerald-100 text-emerald-800',
+                  blue: 'bg-blue-50 border-blue-100 text-blue-800',
+                  rose: 'bg-rose-50 border-rose-100 text-rose-800',
+                  violet: 'bg-violet-50 border-violet-100 text-violet-800'
+                };
+
+                return (
+                  <div key={card.label} className={`rounded-xl border p-4 ${toneClasses[card.tone]}`}>
+                    <div className="text-xs font-semibold uppercase tracking-wide opacity-75">{card.label}</div>
+                    <div className="mt-1 text-lg font-bold text-gray-950">{card.value}</div>
+                    <p className="mt-1 text-sm leading-snug text-gray-600">{card.detail}</p>
+                  </div>
+                );
+              })}
+            </div>
+
             {/* Traveler Type Filter - "Best for" */}
             {visitCalendar?.travelerTypes && (
               <div className="flex flex-wrap items-center gap-2 py-1.5">
@@ -530,6 +773,169 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
                 ))}
               </div>
             )}
+
+            {monthInsights.length > 0 && (
+              <div className="grid gap-4 lg:grid-cols-[1fr_1.15fr]">
+                <div className="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900">Compare months</h3>
+                      <p className="text-sm text-gray-600">Choose two windows and compare weather, crowds, events, and value.</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                    {[0, 1].map((index) => (
+                      <select
+                        key={`compare-select-${index}`}
+                        value={compareMonths[index]}
+                        onChange={(event) => updateCompareMonth(index, event.target.value)}
+                        className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-800"
+                        aria-label={`Compare month ${index + 1}`}
+                      >
+                        {MONTH_NAMES.map((monthName) => (
+                          <option key={monthName} value={monthName}>{monthName}</option>
+                        ))}
+                      </select>
+                    ))}
+                  </div>
+
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                    {comparisonInsights.map((month) => (
+                      <div key={`compare-${month.monthName}`} className="rounded-lg bg-white p-3 ring-1 ring-gray-200">
+                        <div className="flex items-center justify-between">
+                          <span className="font-semibold text-gray-900">{month.monthName}</span>
+                          <span
+                            className="rounded-full px-2 py-0.5 text-xs font-semibold text-white"
+                            style={{ backgroundColor: RATING_COLORS[month.rating] }}
+                          >
+                            {RATING_LABELS[month.rating]}
+                          </span>
+                        </div>
+                        <dl className="mt-3 space-y-1 text-sm text-gray-600">
+                          <div className="flex justify-between gap-3">
+                            <dt>Weather</dt>
+                            <dd className="font-medium text-gray-800">{month.weatherLabel || 'Mixed'}</dd>
+                          </div>
+                          <div className="flex justify-between gap-3">
+                            <dt>Crowds</dt>
+                            <dd className="font-medium text-gray-800">{month.crowdLevel || 'Moderate'}</dd>
+                          </div>
+                          <div className="flex justify-between gap-3">
+                            <dt>Events</dt>
+                            <dd className="font-medium text-gray-800">{month.specialEventsCount}</dd>
+                          </div>
+                        </dl>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-xl border border-blue-100 bg-blue-50 p-4">
+                  <h3 className="text-lg font-bold text-gray-900">Find your best trip window</h3>
+                  <p className="text-sm text-gray-600">Tune the calendar around how you like to travel.</p>
+
+                  <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                    <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                      Style
+                      <select
+                        value={tripFit.traveler}
+                        onChange={(event) => setTripFit((current) => ({ ...current, traveler: event.target.value }))}
+                        className="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm normal-case tracking-normal text-gray-800"
+                      >
+                        {['families', 'couples', 'solo', 'budget', 'luxury'].map((type) => (
+                          <option key={type} value={type}>{TRAVELER_LABELS[type]}</option>
+                        ))}
+                      </select>
+                    </label>
+
+                    <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                      Budget
+                      <select
+                        value={tripFit.budget}
+                        onChange={(event) => setTripFit((current) => ({ ...current, budget: event.target.value }))}
+                        className="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm normal-case tracking-normal text-gray-800"
+                      >
+                        <option value="budget">Value</option>
+                        <option value="mid">Balanced</option>
+                        <option value="luxury">Splurge-worthy</option>
+                      </select>
+                    </label>
+
+                    <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                      Crowds
+                      <select
+                        value={tripFit.crowd}
+                        onChange={(event) => setTripFit((current) => ({ ...current, crowd: event.target.value }))}
+                        className="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm normal-case tracking-normal text-gray-800"
+                      >
+                        <option value="quiet">Prefer quiet</option>
+                        <option value="balanced">Balanced</option>
+                        <option value="lively">Love energy</option>
+                      </select>
+                    </label>
+                  </div>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {tripFitRecommendations.map((month) => (
+                      <button
+                        key={`fit-${month.monthName}`}
+                        type="button"
+                        onClick={() => setSelectedCalendarMonth(month.monthName)}
+                        className="rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-blue-700 ring-1 ring-blue-200 hover:bg-blue-100"
+                      >
+                        {month.monthName} · {RATING_LABELS[month.rating]}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {selectedCalendarMonth && (() => {
+              const selectedInsight = monthInsights.find((month) => month.monthName === selectedCalendarMonth);
+              if (!selectedInsight) return null;
+
+              return (
+                <div className="rounded-xl border border-blue-200 bg-white p-4 shadow-sm">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-600">Selected month</p>
+                      <h3 className="text-xl font-bold text-gray-900">
+                        {selectedCalendarMonth} looks {RATING_LABELS[selectedInsight.rating]?.toLowerCase() || 'promising'}
+                      </h3>
+                      <p className="mt-1 text-sm text-gray-600">
+                        {selectedInsight.weatherLabel || 'Seasonal weather'} · {selectedInsight.crowdLevel || 'moderate'} crowds · {selectedInsight.specialEventsCount} {selectedInsight.specialEventsCount === 1 ? 'highlighted event' : 'highlighted events'}
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <Link
+                        href={planMonthHref(selectedCalendarMonth)}
+                        className="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+                      >
+                        Plan {selectedCalendarMonth}
+                      </Link>
+                      {onOpenMonthlyGuide && (
+                        <button
+                          type="button"
+                          onClick={() => openMonthlyGuide(selectedCalendarMonth)}
+                          className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800"
+                        >
+                          Open {selectedCalendarMonth} guide
+                        </button>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() => setSelectedCalendarMonth(null)}
+                        className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-gray-200 hover:bg-gray-50"
+                      >
+                        Clear
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
 
             {/* 12-Month Calendar - Enhanced */}
             <div className="mt-3">
@@ -755,8 +1161,8 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
               </div>
             </div>
 
-            {/* Month Detail Modal - Split Panel Design */}
-            {selectedCalendarMonth && visitCalendar?.months?.[selectedCalendarMonth.toLowerCase()] && (
+            {/* Legacy month modal replaced by the inline selected-month panel above. */}
+            {false && selectedCalendarMonth && visitCalendar?.months?.[selectedCalendarMonth.toLowerCase()] && (
               <div 
                 className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
                 onClick={() => { setSelectedCalendarMonth(null); setHoveredModalDay(null); }}
@@ -834,19 +1240,36 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
                       <>
                         {/* Modal Header */}
                         <div className="bg-gray-50 border-b border-gray-200 px-6 py-4">
-                          <div className="flex items-center justify-between">
+                          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                             <div>
                               <h3 className="text-xl font-bold text-gray-900">{selectedCalendarMonth} {currentYear}</h3>
                               {highlight && (
                                 <p className="text-sm text-gray-500 mt-0.5">{highlight}</p>
                               )}
                             </div>
-                            <button 
-                              onClick={() => { setSelectedCalendarMonth(null); setHoveredModalDay(null); }}
-                              className="p-2 hover:bg-gray-200 rounded-full transition-colors text-gray-500 hover:text-gray-700"
-                            >
-                              <X className="h-5 w-5" />
-                            </button>
+                            <div className="flex items-center gap-2">
+                              <Link
+                                href={planMonthHref(selectedCalendarMonth)}
+                                className="rounded-full bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-700"
+                              >
+                                Plan this month
+                              </Link>
+                              {onOpenMonthlyGuide && (
+                                <button
+                                  type="button"
+                                  onClick={() => openMonthlyGuide(selectedCalendarMonth)}
+                                  className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-gray-700 ring-1 ring-gray-200 hover:bg-gray-100"
+                                >
+                                  Open monthly guide
+                                </button>
+                              )}
+                              <button 
+                                onClick={() => { setSelectedCalendarMonth(null); setHoveredModalDay(null); }}
+                                className="p-2 hover:bg-gray-200 rounded-full transition-colors text-gray-500 hover:text-gray-700"
+                              >
+                                <X className="h-5 w-5" />
+                              </button>
+                            </div>
                           </div>
                         </div>
                         
@@ -920,12 +1343,31 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
                                 
                                 {/* Special Event */}
                                 {hoveredDetails.special && hoveredDetails.event && (
-                                  <p className="text-base font-semibold text-gray-900 mb-3">
-                                    {hoveredDetails.event}
-                                    {hoveredDetails.location && (
-                                      <span className="font-normal text-gray-500"> — {hoveredDetails.location}</span>
-                                    )}
-                                  </p>
+                                  <div className="mb-4 rounded-xl bg-amber-50 p-4 ring-1 ring-amber-100">
+                                    <p className="text-base font-semibold text-gray-900">
+                                      {hoveredDetails.event}
+                                      {hoveredDetails.location && (
+                                        <span className="font-normal text-gray-500"> — {hoveredDetails.location}</span>
+                                      )}
+                                    </p>
+                                    <div className="mt-3 flex flex-wrap gap-2">
+                                      <Link
+                                        href={planMonthHref(selectedCalendarMonth, hoveredDetails.event)}
+                                        className="rounded-full bg-amber-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-700"
+                                      >
+                                        Plan around this event
+                                      </Link>
+                                      {onOpenMonthlyGuide && (
+                                        <button
+                                          type="button"
+                                          onClick={() => openMonthlyGuide(selectedCalendarMonth)}
+                                          className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-amber-800 ring-1 ring-amber-200 hover:bg-amber-100"
+                                        >
+                                          See nearby events
+                                        </button>
+                                      )}
+                                    </div>
+                                  </div>
                                 )}
                                 
                                 {/* Integrated prose: notes + weather + crowds + tips */}
@@ -971,6 +1413,13 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
                                     and {monthData.priceLevel?.toLowerCase() || 'standard'} prices. 
                                     Plan for around {weatherDetails.rainDays ?? '?'} rainy days this month.
                                   </p>
+
+                                  <div className="rounded-xl bg-blue-50 p-4 ring-1 ring-blue-100">
+                                    <h5 className="font-semibold text-gray-900">Booking and packing notes</h5>
+                                    <p className="mt-2 text-sm text-gray-700">
+                                      Reserve major museums and signature restaurants ahead when events or peak weekends overlap. Pack light layers, comfortable walking shoes, and a rain shell if the month has frequent showers.
+                                    </p>
+                                  </div>
                                 </div>
                               </div>
                             )}
@@ -1040,6 +1489,31 @@ const CityOverview = ({ overview, cityName, visitCalendar, monthlyData, hideIntr
                 </div>
               );
             })()}
+
+            <div className="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-5">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">Neighborhood by season</p>
+                  <h3 className="text-xl font-bold text-gray-900">Where to base your days after you choose dates</h3>
+                </div>
+                <Link
+                  href={`/plan/${encodeURIComponent(cityName?.toLowerCase() || 'paris')}`}
+                  className="text-sm font-semibold text-blue-700 hover:text-blue-800"
+                >
+                  Turn this into a trip
+                </Link>
+              </div>
+
+              <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+                {seasonalNeighborhoods.map((item) => (
+                  <div key={item.season} className="rounded-lg bg-white p-4 ring-1 ring-gray-200">
+                    <div className="text-sm font-semibold text-blue-700">{item.season}</div>
+                    <div className="mt-1 font-bold text-gray-900">{item.neighborhood}</div>
+                    <p className="mt-2 text-sm leading-snug text-gray-600">{item.reason}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       )}

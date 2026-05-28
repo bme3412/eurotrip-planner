@@ -167,9 +167,9 @@ export default function AgentSidecar({
             }
 
             switch (event.type) {
-              case 'delta':
+              case 'content_delta':
               case 'content':
-                updateAssistant(assistantText + (event.text || event.content || ''));
+                updateAssistant(assistantText + (event.content || event.text || ''));
                 break;
               case 'tool_use':
                 // Tool calls are handled by the API, we just show progress

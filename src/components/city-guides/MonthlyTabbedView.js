@@ -195,9 +195,12 @@ function buildEventMapForMonth(monthIndex, monthJson) {
   return eventMap;
 }
 
-export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName, countryName }) {
+export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName, countryName, selectedMonth = null }) {
   const nowIdx = new Date().getMonth();
-  const [selectedIdx, setSelectedIdx] = useState(nowIdx);
+  const initialSelectedIdx = selectedMonth
+    ? Math.max(0, MONTHS.findIndex((month) => month.toLowerCase() === selectedMonth.toLowerCase()))
+    : nowIdx;
+  const [selectedIdx, setSelectedIdx] = useState(initialSelectedIdx);
   const [taglines, setTaglines] = useState(null);
   const [extraMonths, setExtraMonths] = useState({});
   const fetchedMonthsRef = useRef(new Set());
@@ -227,6 +230,12 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
     loadTaglines();
     return () => { isMounted = false; };
   }, [cityName, countryName]);
+
+  useEffect(() => {
+    if (!selectedMonth) return;
+    const nextIdx = MONTHS.findIndex((month) => month.toLowerCase() === selectedMonth.toLowerCase());
+    if (nextIdx >= 0) setSelectedIdx(nextIdx);
+  }, [selectedMonth]);
 
   const months = useMemo(() => MONTHS.map((_, idx) => {
     const raw = getMonthData(visitCalendar, idx);

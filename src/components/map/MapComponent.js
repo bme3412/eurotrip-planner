@@ -68,21 +68,18 @@ function MapComponent({ viewState, onViewStateChange, destinations, onMarkerClic
     mapInitialized.current = true; // Mark as initialized
 
     const setupMap = async () => {
-      console.log("[MapComponent] Attempting map initialization...");
       try {
         const { map, mapboxgl, isMoving: movingState } = await initializeMap(
-          mapContainer.current, 
-          viewState, 
+          mapContainer.current,
+          viewState,
           onViewStateChange
         );
-        
-        console.log("[MapComponent] Map initialized successfully.");
+
         mapInstance.current = map;
         mapboxGLRef.current = mapboxgl;
         isMoving.current = movingState;
-        
+
         map.once('load', async () => {
-          console.log("[MapComponent] Map 'load' event fired.");
           await updateMarkers();
         });
       } catch (error) {

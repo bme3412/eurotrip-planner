@@ -32,7 +32,7 @@ export function DayCard({ day, index, weather, experienceScores }) {
         <div className="min-w-0 flex-1 pt-1.5">
           <div className="flex flex-wrap items-baseline gap-2.5">
             <h3 className="text-base font-semibold text-white">
-              {formatDayDate(day.date) || day.date}
+              {day.dateLabel || formatDayDate(day.date) || day.date}
             </h3>
             {day.theme && (
               <span className="text-[11px] font-medium text-zinc-500 uppercase tracking-wide">{day.theme}</span>

@@ -10,12 +10,29 @@
  */
 
 import Anthropic from '@anthropic-ai/sdk';
+import crypto from 'crypto';
+import { getCachedLLMDescriptions, cacheLLMDescriptions } from '../../../cache/suggestions.js';
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
 const MODEL = 'claude-sonnet-4-20250514'; // Fast and capable for short generations
+
+// In-memory fallback when Redis is unavailable
+const memoryLLMCache = new Map();
+const MAX_LLM_CACHE_ENTRIES = 30;
+
+/**
+ * Build a hash key from tier structure + dates for caching.
+ */
+function buildTierHash(startDate, endDate, tiers) {
+  const tierSummary = Object.entries(tiers)
+    .filter(([, t]) => t.cities?.length > 0)
+    .map(([key, t]) => `${key}:${t.cities.map(c => c.cityId).sort().join(',')}`)
+    .join('|');
+  return crypto.createHash('md5').update(`${startDate}:${endDate}:${tierSummary}`).digest('hex');
+}
 
 /**
  * Build the system prompt for description generation.
@@ -170,18 +187,47 @@ export async function generateDescriptions({ startDate, endDate, tiers }) {
     return null;
   }
 
+  // Check cache before calling Claude
+  const tierHash = buildTierHash(startDate, endDate, tiers);
+
+  // L1: in-memory cache
+  const memCached = memoryLLMCache.get(tierHash);
+  if (memCached) {
+    return memCached;
+  }
+
+  // L2: Redis cache
+  try {
+    const redisCached = await getCachedLLMDescriptions(tierHash);
+    if (redisCached) {
+      memoryLLMCache.set(tierHash, redisCached.data);
+      return redisCached.data;
+    }
+  } catch (e) {
+    // Redis unavailable, continue to LLM call
+  }
+
   try {
     const systemPrompt = buildSystemPrompt();
     const userPrompt = buildUserPrompt({ startDate, endDate, tiers });
 
-    const response = await anthropic.messages.create({
-      model: MODEL,
-      max_tokens: 4000,
-      messages: [
-        { role: 'user', content: userPrompt },
-      ],
-      system: systemPrompt,
-    });
+    // Add timeout to prevent hanging requests
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10_000);
+
+    let response;
+    try {
+      response = await anthropic.messages.create({
+        model: MODEL,
+        max_tokens: 4000,
+        messages: [
+          { role: 'user', content: userPrompt },
+        ],
+        system: systemPrompt,
+      });
+    } finally {
+      clearTimeout(timeout);
+    }
 
     const content = response.content[0]?.text;
     if (!content) {
@@ -203,16 +249,18 @@ export async function generateDescriptions({ startDate, endDate, tiers }) {
     }
 
     const parsed = JSON.parse(jsonStr);
-    console.log('[LLMDescriptionGenerator] Successfully generated descriptions for',
-      Object.keys(parsed.tiers || {}).length, 'tiers and',
-      Object.keys(parsed.cities || {}).length, 'cities');
+
+    // Cache the result
+    if (memoryLLMCache.size >= MAX_LLM_CACHE_ENTRIES) {
+      const firstKey = memoryLLMCache.keys().next().value;
+      memoryLLMCache.delete(firstKey);
+    }
+    memoryLLMCache.set(tierHash, parsed);
+    cacheLLMDescriptions(tierHash, parsed).catch(() => {});
+
     return parsed;
   } catch (error) {
     console.error('[LLMDescriptionGenerator] Error generating descriptions:', error.message);
-    // Log truncated response for debugging
-    if (error.message.includes('JSON')) {
-      console.error('[LLMDescriptionGenerator] Response length:', content?.length || 0);
-    }
     return null;
   }
 }

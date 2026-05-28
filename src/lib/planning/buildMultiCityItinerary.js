@@ -1,4 +1,4 @@
-import { buildItinerary } from './buildItinerary.js';
+import { buildItineraryWithRouting } from './buildItinerary.js';
 import { allocateDays } from './dayAllocator.js';
 import { getConnectionBetweenCities } from './routeOptimizer.js';
 import { getCityData } from '../data-utils.js';
@@ -66,7 +66,8 @@ function createTravelDay(dayNumber, date, transfer) {
 
   return {
     dayNumber,
-    date: format(date, 'EEE, MMM d'),
+    date: format(date, 'yyyy-MM-dd'),
+    dateLabel: format(date, 'EEE, MMM d'),
     city: null,
     country: null,
     isTravelDay: true,
@@ -138,7 +139,8 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
   const {
     dayAllocation = null,
     useAI = false,
-    includeTransfers = true
+    includeTransfers = true,
+    routeOptimization = true,
   } = options;
 
   if (!cities || cities.length === 0) {
@@ -177,9 +179,20 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
     );
   }
 
-  console.log('Day allocation:', allocation);
+  // Step 2: Pre-load all city data in parallel
+  const cityDataMap = new Map();
+  await Promise.all(
+    cities.map(async (city) => {
+      try {
+        const data = await getCityData(city.id);
+        if (data) cityDataMap.set(city.id, data);
+      } catch (e) {
+        console.error(`Failed to load city data for ${city.id}:`, e.message);
+      }
+    })
+  );
 
-  // Step 2: Build itinerary for each city
+  // Step 3: Build itinerary for each city (sequential — order matters for transfers)
   const allDays = [];
   const citySegments = [];
   const transfers = [];
@@ -196,12 +209,10 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
       continue;
     }
 
-    // Load city data
-    console.log(`Loading city data for ${city.id}...`);
-    const cityData = await getCityData(city.id);
+    const cityData = cityDataMap.get(city.id);
 
     if (!cityData) {
-      console.error(`Failed to load city data for ${city.id}`);
+      console.error(`No city data available for ${city.id}, skipping`);
       continue;
     }
 
@@ -214,19 +225,25 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
     };
 
     // Build itinerary for this city
-    console.log(`Building itinerary for ${city.id} (${cityAlloc.days} days)...`);
-    const cityItinerary = buildItinerary(cityTrip, cityData);
+    const cityItinerary = await buildItineraryWithRouting(cityTrip, cityData, {
+      routeOptimization,
+      travelMode: 'WALK',
+    });
 
     // Add city metadata to each day
-    const cityDays = cityItinerary.days.map((day, idx) => ({
-      ...day,
-      dayNumber: currentDayNumber + idx,
-      date: format(addDays(currentDate, idx), 'EEE, MMM d'),
-      city: city.id,
-      cityName: city.name,
-      country: city.country,
-      isTravelDay: false
-    }));
+    const cityDays = cityItinerary.days.map((day, idx) => {
+      const dayDate = addDays(currentDate, idx);
+      return {
+        ...day,
+        dayNumber: currentDayNumber + idx,
+        date: format(dayDate, 'yyyy-MM-dd'),
+        dateLabel: format(dayDate, 'EEE, MMM d'),
+        city: city.id,
+        cityName: city.name,
+        country: city.country,
+        isTravelDay: false
+      };
+    });
 
     allDays.push(...cityDays);
 
@@ -237,7 +254,8 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
       days: cityAlloc.days,
       dayRange: `${currentDayNumber}-${currentDayNumber + cityAlloc.days - 1}`,
       rationale: cityAlloc.rationale,
-      summary: cityItinerary.summary
+      summary: cityItinerary.summary,
+      routing: cityItinerary.routing || null
     });
 
     currentDayNumber += cityAlloc.days;
@@ -312,5 +330,5 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
  * @returns {Object} Single-city itinerary
  */
 export async function buildSingleCityItinerary(trip, cityData) {
-  return buildItinerary(trip, cityData);
+  return buildItineraryWithRouting(trip, cityData);
 }

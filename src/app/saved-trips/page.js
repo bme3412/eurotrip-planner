@@ -1,335 +1,314 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect, useMemo } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useAuth } from '@/contexts/AuthContext';
-import { getSupabaseClient } from '@/lib/supabase/client';
-import AuthButton from '@/components/auth/AuthButton';
-import { HeartIcon } from '@heroicons/react/24/outline';
-import { HeartIcon as HeartSolid } from '@heroicons/react/24/solid';
+import { useCallback, useEffect, useState } from "react";
+import Link from "next/link";
+import AuthButton from "@/components/auth/AuthButton";
+import { SavedTripsList } from "@/components/common/SaveToTrips";
+import { useAuth } from "@/contexts/AuthContext";
+import { getSupabaseAuthHeaders } from "@/lib/supabase/authHeaders";
+import { migrateLegacyWizardItineraries, readLocalTripDrafts, removeLocalTripDraft } from "@/lib/trips/localTripDrafts";
+import { getFlagForCountry } from "@/utils/countryFlags";
 
-export default function SavedTripsPage() {
-  const { user, loading: authLoading } = useAuth();
-  const [activeTab, setActiveTab] = useState('cities');
-  const [savedCities, setSavedCities] = useState([]);
-  const [savedExperiences, setSavedExperiences] = useState([]);
-  const [loading, setLoading] = useState(true);
+const STATUS_LABELS = {
+  draft: "Draft",
+  planning: "Planning",
+  itinerary_generated: "Itinerary ready",
+  shared: "Shared",
+  active: "Active",
+  completed: "Completed",
+  archived: "Archived",
+  cancelled: "Cancelled",
+};
+
+function formatDate(value) {
+  if (!value) return null;
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return null;
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+function tripDateLabel(trip) {
+  if (trip.start_date && trip.end_date) {
+    return `${formatDate(trip.start_date)} - ${formatDate(trip.end_date)}`;
+  }
+
+  const timeRange = trip.time_range || {};
+  if (timeRange.flexibleMonth) return `Flexible in ${timeRange.flexibleMonth}`;
+  if (timeRange.totalNights) return `${timeRange.totalNights} nights`;
+  return "Dates not set";
+}
+
+function formatUpdatedAt(value) {
+  if (!value) return "Not saved yet";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "Not saved yet";
+  return `Last edited ${date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  })}`;
+}
+
+function tripCitiesLabel(trip) {
+  if (Array.isArray(trip.cities) && trip.cities.length > 0) {
+    return trip.cities
+      .map((city) => {
+        const name = city.name || city.id;
+        if (!name) return null;
+        return city.country ? `${getFlagForCountry(city.country)} ${name}` : name;
+      })
+      .filter(Boolean)
+      .join(" -> ");
+  }
+
+  if (trip.city) {
+    return trip.country ? `${getFlagForCountry(trip.country)} ${trip.city}, ${trip.country}` : trip.city;
+  }
+  return "Route in progress";
+}
+
+function TripCard({ trip, isLocal = false, onRemove = null }) {
+  const isGenerated = Boolean(trip.itinerary_generated_at || trip.generated_itinerary);
+  const statusLabel = isLocal
+    ? isGenerated ? "Generated locally" : "Saved locally"
+    : STATUS_LABELS[trip.status] || "Trip";
+  const primaryHref = isGenerated && !isLocal
+    ? `/itineraries/${trip.id}`
+    : `/plan?${isLocal ? "localTripId" : "tripId"}=${trip.id}`;
+
+  return (
+    <article className={`rounded-2xl border p-5 shadow-sm ${isLocal ? "border-amber-200 bg-amber-50/70" : "border-gray-200 bg-white"}`}>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className={`text-xs font-semibold uppercase tracking-[0.2em] ${isLocal ? "text-amber-700" : "text-gray-400"}`}>
+            {statusLabel}
+          </p>
+          <h2 className="mt-1 text-xl font-semibold text-gray-950">
+            {trip.title || "Untitled Europe Trip"}
+          </h2>
+          <p className="mt-1 text-xs text-gray-500">{formatUpdatedAt(trip.updated_at || trip.created_at)}</p>
+        </div>
+        <span className={`rounded-full px-3 py-1 text-xs font-semibold ${isGenerated ? "bg-emerald-100 text-emerald-700" : isLocal ? "bg-white text-amber-700" : "bg-gray-100 text-gray-600"}`}>
+          {isGenerated ? "Itinerary ready" : isLocal ? "Device only" : "Draft"}
+        </span>
+      </div>
+
+      <p className="mt-3 text-sm text-gray-700">{tripCitiesLabel(trip)}</p>
+      <p className="mt-1 text-sm text-gray-500">{tripDateLabel(trip)}</p>
+
+      <div className="mt-5 flex flex-wrap gap-2">
+        <Link
+          href={primaryHref}
+          className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800"
+        >
+          {isGenerated && !isLocal ? "View itinerary" : "Continue planning"}
+        </Link>
+        {!isLocal && (
+          <>
+            <Link
+              href={`/plan?tripId=${trip.id}`}
+              className="rounded-full border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 hover:border-gray-300"
+            >
+              Edit route
+            </Link>
+            {isGenerated && (
+              <Link
+                href={`/itineraries/${trip.id}`}
+                className="rounded-full border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 hover:border-gray-300"
+              >
+                Edit itinerary
+              </Link>
+            )}
+          </>
+        )}
+        {isLocal && onRemove && (
+          <button
+            type="button"
+            onClick={() => onRemove(trip.id)}
+            className="rounded-full border border-amber-300 bg-white px-4 py-2 text-sm font-semibold text-amber-800 hover:border-amber-400"
+          >
+            Remove
+          </button>
+        )}
+      </div>
+    </article>
+  );
+}
+
+function TripDraftsSection() {
+  const { user, session, loading: authLoading, isSupabaseConfigured } = useAuth();
+  const [trips, setTrips] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const loadTrips = useCallback(async () => {
+    if (!user || !session?.access_token) {
+      setTrips([]);
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/trips", {
+        headers: getSupabaseAuthHeaders(session),
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const data = await res.json();
+      setTrips(Array.isArray(data.trips) ? data.trips : []);
+    } catch (err) {
+      console.error("[saved-trips] Failed to load trips:", err);
+      setError("Unable to load your trip drafts right now.");
+    } finally {
+      setLoading(false);
+    }
+  }, [session, user]);
 
   useEffect(() => {
     if (authLoading) return;
-    loadSavedItems();
-  }, [user, authLoading]);
+    loadTrips();
+  }, [authLoading, loadTrips]);
 
-  const loadSavedItems = async () => {
-    setLoading(true);
+  if (authLoading || loading) {
+    return (
+      <div className="grid gap-4 md:grid-cols-2">
+        {[0, 1].map((item) => (
+          <div key={item} className="h-44 animate-pulse rounded-2xl bg-gray-200" />
+        ))}
+      </div>
+    );
+  }
 
-    if (user) {
-      const supabase = getSupabaseClient();
-      if (supabase) {
-        // Load saved cities
-        const { data: cities } = await supabase
-          .from('saved_trips')
-          .select('*')
-          .eq('user_id', user.id)
-          .order('created_at', { ascending: false });
-        
-        if (cities) setSavedCities(cities);
+  if (!user) {
+    return (
+      <div className="rounded-2xl border border-amber-200 bg-amber-50 px-5 py-5">
+        <h2 className="text-lg font-semibold text-amber-950">Sign in to sync trip drafts</h2>
+        <p className="mt-1 text-sm text-amber-800">
+          Planner drafts are saved to your account once you sign in. Local wishlists still appear below.
+        </p>
+        {isSupabaseConfigured && <div className="mt-4"><AuthButton /></div>}
+      </div>
+    );
+  }
 
-        // Load saved experiences
-        const { data: experiences } = await supabase
-          .from('saved_experiences')
-          .select('*')
-          .eq('user_id', user.id)
-          .order('created_at', { ascending: false });
-        
-        if (experiences) setSavedExperiences(experiences);
-      }
-    } else {
-      // Load from localStorage
-      try {
-        const saved = localStorage.getItem('savedTrips');
-        setSavedCities(saved ? JSON.parse(saved) : []);
-      } catch (e) {
-        console.error('Error loading saved trips:', e);
-      }
-    }
+  if (error) {
+    return (
+      <div className="rounded-2xl border border-red-200 bg-red-50 px-5 py-5">
+        <p className="text-sm font-medium text-red-800">{error}</p>
+        <button
+          type="button"
+          onClick={loadTrips}
+          className="mt-3 rounded-full bg-white px-4 py-2 text-sm font-semibold text-red-700 shadow-sm"
+        >
+          Try again
+        </button>
+      </div>
+    );
+  }
 
-    setLoading(false);
-  };
-
-  const removeSavedCity = async (city) => {
-    if (user) {
-      const supabase = getSupabaseClient();
-      if (supabase) {
-        await supabase
-          .from('saved_trips')
-          .delete()
-          .eq('id', city.id);
-      }
-    } else {
-      const updated = savedCities.filter(c => c.city_name !== city.city_name);
-      localStorage.setItem('savedTrips', JSON.stringify(updated));
-    }
-    setSavedCities(savedCities.filter(c => c.id !== city.id && c.city_name !== city.city_name));
-  };
-
-  const removeSavedExperience = async (exp) => {
-    if (user) {
-      const supabase = getSupabaseClient();
-      if (supabase) {
-        await supabase
-          .from('saved_experiences')
-          .delete()
-          .eq('id', exp.id);
-      }
-    }
-    setSavedExperiences(savedExperiences.filter(e => e.id !== exp.id));
-  };
-
-  // Group experiences by city — memoized to avoid recomputing on every render
-  const experiencesByCity = useMemo(() => {
-    return savedExperiences.reduce((acc, exp) => {
-      const city = exp.city_name || 'Unknown';
-      if (!acc[city]) acc[city] = [];
-      acc[city].push(exp);
-      return acc;
-    }, {});
-  }, [savedExperiences]);
-
-  const totalSaved = savedCities.length + savedExperiences.length;
+  if (trips.length === 0) {
+    return (
+      <div className="rounded-2xl border border-dashed border-gray-300 bg-white px-5 py-8 text-center">
+        <h2 className="text-lg font-semibold text-gray-900">No trip drafts yet</h2>
+        <p className="mt-1 text-sm text-gray-600">
+          Start a conversation with the planner and your route will appear here once it has a city and dates.
+        </p>
+        <Link
+          href="/plan"
+          className="mt-4 inline-flex rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-gray-800"
+        >
+          Plan a trip
+        </Link>
+      </div>
+    );
+  }
 
   return (
+    <div className="grid gap-4 md:grid-cols-2">
+      {trips.map((trip) => (
+        <TripCard key={trip.id} trip={trip} />
+      ))}
+    </div>
+  );
+}
+
+function LocalTripDraftsSection() {
+  const [drafts, setDrafts] = useState([]);
+
+  const loadDrafts = useCallback(() => {
+    migrateLegacyWizardItineraries();
+    setDrafts(readLocalTripDrafts());
+  }, []);
+
+  useEffect(() => {
+    loadDrafts();
+    window.addEventListener("storage", loadDrafts);
+    return () => window.removeEventListener("storage", loadDrafts);
+  }, [loadDrafts]);
+
+  const handleRemove = useCallback((id) => {
+    removeLocalTripDraft(id);
+    loadDrafts();
+  }, [loadDrafts]);
+
+  if (drafts.length === 0) return null;
+
+  return (
+    <section>
+      <div className="mb-4">
+        <h2 className="text-lg font-semibold text-gray-950">Saved on this device</h2>
+        <p className="text-sm text-gray-600">Local planner drafts you can reopen from this browser.</p>
+      </div>
+      <div className="grid gap-4 md:grid-cols-2">
+        {drafts.map((trip) => (
+          <TripCard key={trip.id} trip={trip} isLocal onRemove={handleRemove} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export default function SavedTripsPage() {
+  return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Link 
-                href="/"
-                className="text-gray-500 hover:text-gray-700 transition-colors"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-              </Link>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                  <HeartSolid className="w-5 h-5 text-rose-500" />
-                  Wishlists
-                </h1>
-              </div>
-            </div>
-            <AuthButton />
+      <header className="border-b border-gray-200 bg-white">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gray-400">Account</p>
+            <h1 className="mt-1 text-2xl font-bold text-gray-950">My Trips</h1>
           </div>
+          <AuthButton />
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
-        {/* Account Status Banner - Compact */}
-        {!authLoading && (
-          <div className={`mb-6 px-4 py-3 rounded-xl flex items-center justify-between ${
-            user 
-              ? 'bg-green-50 border border-green-200' 
-              : 'bg-amber-50 border border-amber-200'
-          }`}>
-            <div className="flex items-center gap-3">
-              <span className="text-lg">{user ? '✅' : '☁️'}</span>
-              <span className={`text-sm font-medium ${user ? 'text-green-800' : 'text-amber-800'}`}>
-                {user 
-                  ? `Synced as ${user.email}` 
-                  : 'Saved locally only'}
-              </span>
+      <main className="mx-auto max-w-6xl space-y-10 px-4 py-8 sm:px-6">
+        <section>
+          <div className="mb-4 flex items-end justify-between gap-4">
+            <div>
+              <h2 className="text-lg font-semibold text-gray-950">Trip drafts</h2>
+              <p className="text-sm text-gray-600">Routes and itineraries saved from the conversational planner.</p>
             </div>
-            {!user && <AuthButton />}
-          </div>
-        )}
-
-        {/* Tabs */}
-        <div className="flex gap-1 mb-6 bg-gray-100 p-1 rounded-xl w-fit">
-          <button
-            onClick={() => setActiveTab('cities')}
-            className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-              activeTab === 'cities'
-                ? 'bg-white text-gray-900 shadow-sm'
-                : 'text-gray-600 hover:text-gray-900'
-            }`}
-          >
-            🏙️ Cities ({savedCities.length})
-          </button>
-          <button
-            onClick={() => setActiveTab('experiences')}
-            className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-              activeTab === 'experiences'
-                ? 'bg-white text-gray-900 shadow-sm'
-                : 'text-gray-600 hover:text-gray-900'
-            }`}
-          >
-            ⭐ Experiences ({savedExperiences.length})
-          </button>
-        </div>
-
-        {/* Loading State */}
-        {loading && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[1, 2, 3].map(i => (
-              <div key={i} className="animate-pulse bg-gray-200 rounded-2xl h-56" />
-            ))}
-          </div>
-        )}
-
-        {/* Cities Tab */}
-        {!loading && activeTab === 'cities' && (
-          <>
-            {savedCities.length === 0 ? (
-              <div className="text-center py-16">
-                <HeartIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                <h3 className="text-lg font-medium text-gray-900 mb-2">No saved cities yet</h3>
-                <p className="text-gray-600 mb-6">Explore city guides and save your favorites!</p>
-                <Link
-                  href="/city-guides"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-rose-500 text-white font-medium rounded-full hover:bg-rose-600 transition-colors shadow-sm"
-                >
-                  Browse City Guides
-                </Link>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {savedCities.map((city) => (
-                  <div 
-                    key={city.id || city.city_name} 
-                    className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow group"
-                  >
-                    <div className="relative h-40 bg-gradient-to-br from-rose-100 to-pink-100">
-                      {city.image && (
-                        <Image
-                          src={city.image}
-                          alt={city.display_name || city.city_name}
-                          fill
-                          className="object-cover"
-                        />
-                      )}
-                      <button
-                        onClick={() => removeSavedCity(city)}
-                        className="absolute top-3 right-3 p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-sm hover:bg-white transition-colors"
-                        title="Remove from wishlist"
-                      >
-                        <HeartSolid className="w-5 h-5 text-rose-500" />
-                      </button>
-                    </div>
-                    <div className="p-4">
-                      <h3 className="font-semibold text-gray-900 text-lg">{city.display_name || city.city_name}</h3>
-                      <p className="text-sm text-gray-500 mb-3">{city.country}</p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs text-gray-400">
-                          Saved {new Date(city.created_at || city.savedAt).toLocaleDateString()}
-                        </span>
-                        <Link
-                          href={`/city-guides/${(city.city_name || city.cityName || '').toLowerCase()}`}
-                          className="text-sm font-medium text-rose-600 hover:text-rose-700"
-                        >
-                          View Guide →
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </>
-        )}
-
-        {/* Experiences Tab */}
-        {!loading && activeTab === 'experiences' && (
-          <>
-            {savedExperiences.length === 0 ? (
-              <div className="text-center py-16">
-                <span className="text-5xl mb-4 block">⭐</span>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">No saved experiences yet</h3>
-                <p className="text-gray-600 mb-6">
-                  Visit a city guide and save attractions you want to visit!
-                </p>
-                <Link
-                  href="/city-guides"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-rose-500 text-white font-medium rounded-full hover:bg-rose-600 transition-colors shadow-sm"
-                >
-                  Browse City Guides
-                </Link>
-              </div>
-            ) : (
-              <div className="space-y-8">
-                {Object.entries(experiencesByCity).map(([cityName, experiences]) => (
-                  <div key={cityName}>
-                    <div className="flex items-center gap-2 mb-4">
-                      <h2 className="text-lg font-semibold text-gray-900 capitalize">{cityName}</h2>
-                      <span className="text-sm text-gray-400">({experiences.length})</span>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {experiences.map((exp) => (
-                        <div 
-                          key={exp.id}
-                          className="bg-white rounded-xl border border-gray-200 p-4 hover:shadow-md transition-shadow"
-                        >
-                          <div className="flex items-start justify-between mb-2">
-                            <div className="flex-1 min-w-0">
-                              <h3 className="font-medium text-gray-900 truncate">
-                                {exp.experience_name}
-                              </h3>
-                              {exp.category && (
-                                <span className="inline-block mt-1 px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded-full">
-                                  {exp.category}
-                                </span>
-                              )}
-                            </div>
-                            <button
-                              onClick={() => removeSavedExperience(exp)}
-                              className="p-1.5 hover:bg-rose-50 rounded-full transition-colors flex-shrink-0"
-                              title="Remove from wishlist"
-                            >
-                              <HeartSolid className="w-5 h-5 text-rose-500" />
-                            </button>
-                          </div>
-                          {exp.description && (
-                            <p className="text-sm text-gray-600 line-clamp-2 mb-3">
-                              {exp.description}
-                            </p>
-                          )}
-                          <div className="flex items-center justify-between text-xs text-gray-400">
-                            <span>Saved {new Date(exp.created_at).toLocaleDateString()}</span>
-                            <Link
-                              href={`/city-guides/${cityName.toLowerCase()}`}
-                              className="text-rose-600 hover:text-rose-700 font-medium"
-                            >
-                              View in guide →
-                            </Link>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </>
-        )}
-
-        {/* Quick Links */}
-        {!loading && totalSaved > 0 && (
-          <div className="mt-12 pt-8 border-t border-gray-200 text-center">
-            <p className="text-gray-500 mb-4">Discover more destinations</p>
-            <Link
-              href="/city-guides"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white font-medium rounded-full hover:bg-gray-800 transition-colors"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-              Browse All City Guides
+            <Link href="/plan" className="text-sm font-semibold text-rose-600 hover:text-rose-700">
+              New trip
             </Link>
           </div>
-        )}
+          <TripDraftsSection />
+        </section>
+
+        <LocalTripDraftsSection />
+
+        <section>
+          <div className="mb-4">
+            <h2 className="text-lg font-semibold text-gray-950">Wishlists</h2>
+            <p className="text-sm text-gray-600">Cities and experiences saved while browsing guides.</p>
+          </div>
+          <SavedTripsList />
+        </section>
       </main>
     </div>
   );

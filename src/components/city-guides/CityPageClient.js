@@ -84,7 +84,8 @@ const COUNTRY_FOLDER_MAP = {
 const getCountryFolder = (country) => COUNTRY_FOLDER_MAP[country] || country;
 
 function CityPageClient({ cityData: initialCityData, cityName }) {
-  const [activeTab, setActiveTab] = useState('gettingin');
+  const [activeTab, setActiveTab] = useState('overview');
+  const [selectedMonthlyMonth, setSelectedMonthlyMonth] = useState(null);
   const [isTabTransitioning, setIsTabTransitioning] = useState(false);
   const [componentLoaded, setComponentLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -203,8 +204,8 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
   );
 
   const tabs = useMemo(() => [
-    { id: 'gettingin', label: 'Getting In', icon: '✈️' },
     { id: 'overview', label: 'Best Time to Go', icon: '📆' },
+    { id: 'gettingin', label: 'Getting In', icon: '✈️' },
     { id: 'map', label: 'Interactive Map', icon: '🗺️' },
     { id: 'monthly', label: monthlyDataLoading ? 'Monthly Guide...' : 'Monthly Guide', icon: monthlyDataLoading ? '⏳' : monthlyDataError ? '⚠️' : '📅' },
     { id: 'attractions', label: 'Experiences', icon: '🎯' },
@@ -215,10 +216,10 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
 
   useEffect(() => {
     setComponentLoaded(true);
-    // Eager preload the default tab component to reduce perceived latency
-    import('@/components/city-guides/StartHere');
-    // Also preload CityOverview since it's commonly accessed
+    // Eager preload the default decision-making tab to reduce perceived latency.
     import('@/components/city-guides/CityOverview');
+    // Also preload logistics since it is commonly accessed after timing.
+    import('@/components/city-guides/StartHere');
   }, []);
 
   // Breadcrumb & sticky tab bar scroll behavior (throttled with requestAnimationFrame)
@@ -283,6 +284,26 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
     }, 150);
   }, [activeTab, tabs]);
 
+  const handleOpenMonthlyGuide = useCallback((monthName) => {
+    setSelectedMonthlyMonth(monthName || null);
+    setSlideDirection('left');
+    setIsTabTransitioning(true);
+    setTimeout(() => {
+      setActiveTab('monthly');
+      setTimeout(() => setIsTabTransitioning(false), 50);
+    }, 150);
+  }, []);
+
+  const handleExploreBestDates = useCallback(() => {
+    if (activeTab !== 'overview') {
+      handleTabSwitch('overview');
+    }
+
+    setTimeout(() => {
+      tabBarRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, activeTab === 'overview' ? 0 : 220);
+  }, [activeTab, handleTabSwitch]);
+
   // Print/PDF handler
   const handlePrint = useCallback(() => {
     window.print();
@@ -336,6 +357,23 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
   }), [safeAttractions, safeCategories, safeNeighborhoods, safeMonthlyEvents]);
 
   const cityPaths = useMemo(() => getCityPaths(cityData?.country, cityName), [cityData?.country, cityName]);
+  const isParis = cityName?.toLowerCase() === 'paris';
+  const heroDescription = isParis
+    ? 'Art, cafe terraces, Seine-side walks, grand boulevards, and golden-hour views over the rooftops.'
+    : description;
+  const heroSubtitle = isParis
+    ? 'The City of Light'
+    : headerInfo?.subtitle || "A City to Explore";
+  const heroMetaItems = isParis
+    ? [
+        { label: 'Country', value: 'France' },
+        { label: 'River', value: 'Seine' },
+        { label: 'Known for', value: 'Art, cafes, architecture' }
+      ]
+    : [
+        { label: 'Ideal stay', value: headerInfo.avgVisit || '4-5 days' },
+        { label: 'Country', value: country }
+      ];
 
   // Safety check - ensure cityName is a string
   if (!cityName || typeof cityName !== 'string') {
@@ -405,7 +443,14 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
       case 'overview':
         return (
           <Suspense fallback={<SkeletonOverview />}>
-            <LazyCityOverview overview={overview} cityName={cityName} visitCalendar={visitCalendar} monthlyData={memoizedData.safeMonthlyEvents} hideIntroHero={cityName?.toLowerCase() === 'paris'} />
+            <LazyCityOverview
+              overview={overview}
+              cityName={cityName}
+              visitCalendar={visitCalendar}
+              monthlyData={memoizedData.safeMonthlyEvents}
+              hideIntroHero={cityName?.toLowerCase() === 'paris'}
+              onOpenMonthlyGuide={handleOpenMonthlyGuide}
+            />
           </Suspense>
         );
       case 'map':
@@ -440,7 +485,14 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
         }
         return (
           <Suspense fallback={<SkeletonTabContent />}>
-            <LazyMonthlyGuideSection monthlyData={memoizedData.safeMonthlyEvents} cityName={cityName} city={cityName} visitCalendar={visitCalendar} countryName={country} />
+            <LazyMonthlyGuideSection
+              monthlyData={memoizedData.safeMonthlyEvents}
+              cityName={cityName}
+              city={cityName}
+              visitCalendar={visitCalendar}
+              countryName={country}
+              selectedMonth={selectedMonthlyMonth}
+            />
           </Suspense>
         );
       case 'attractions':
@@ -543,11 +595,20 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
       <Hero
         cityName={cityName && typeof cityName === 'string' ? cityName.toLowerCase() : undefined}
         country={cityData?.country}
+        backgroundImageSrc={isParis ? '/images/city-page/France/paris-montmartre-hero-2x.jpeg' : undefined}
         backgroundAlt={`${cityData?.displayName || cityName || 'City'} cityscape`}
+        heightClass="min-h-[430px] lg:min-h-[520px]"
+        imagePositionClass={isParis ? 'object-[62%_35%]' : 'object-center md:object-[62%_50%]'}
+        darkOverlayOpacity={isParis ? 'bg-black/25' : 'bg-black/35'}
+        showImageOverlays={!isParis}
+        eyebrow="Paris city guide"
         title={getCityDisplayName(cityData, cityName) || cityName || 'City'}
-        subtitle={getCityHeaderInfo(cityData)?.subtitle || "A City to Explore"}
-        description={description}
-        actionElement={<SaveToTrips cityName={cityName} cityData={cityData} showLabel={false} variant="hero" />}
+        subtitle={heroSubtitle}
+        description={heroDescription}
+        metaItems={heroMetaItems}
+        primaryCta={{ label: `Plan a ${displayName} Trip`, href: `/plan/${encodeURIComponent(cityName.toLowerCase())}` }}
+        secondaryCta={{ label: 'Explore Best Dates', onClick: handleExploreBestDates, variant: 'outline' }}
+        actionElement={<SaveToTrips cityName={cityName} cityData={cityData} showLabel={false} variant="hero" className="px-3 py-2" />}
       />
 
       {/* Tabs + Actions - Sticky when scrolled */}
@@ -589,12 +650,12 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
       {isTabBarSticky && <div className="h-24" />}
 
       {/* Content */}
-      <div className="mx-auto max-w-7xl px-3 sm:px-4 py-4 sm:py-6 pb-24 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-3 sm:px-4 py-4 sm:py-6 pb-24 overflow-visible">
         <div
           className={`transition-all duration-200 ease-out ${
             isTabTransitioning
               ? `opacity-0 ${slideDirection === 'left' ? '-translate-x-4' : 'translate-x-4'}`
-              : 'opacity-100 translate-x-0'
+              : 'opacity-100 transform-none'
           }`}
         >
           {isTabTransitioning ? (

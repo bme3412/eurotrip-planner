@@ -2,9 +2,9 @@
 
 import { NextResponse } from "next/server";
 import { getCityData } from "../../../lib/data-utils.js";
-import { buildItinerary } from "../../../lib/planning/buildItinerary.js";
-import { createTripWithDays } from "../../../lib/trips/tripState.js";
-import { getSupabaseAdmin } from "../../../lib/supabase/server";
+import { buildItineraryWithRouting } from "../../../lib/planning/buildItinerary.js";
+import { createTripWithDays, listTripsForUser } from "../../../lib/trips/tripsRepository.js";
+import { getRequesterFromAuthHeader } from "../../../lib/supabase/requestAuth";
 
 function normalizeTripPayload(input) {
   const errors = [];
@@ -18,14 +18,6 @@ function normalizeTripPayload(input) {
   const hotelLocation =
     typeof input.hotel_location === "string" && input.hotel_location.trim().length > 0
       ? input.hotel_location.trim()
-      : null;
-  const userEmail =
-    typeof input.user_email === "string" && input.user_email.trim().length > 0
-      ? input.user_email.trim()
-      : null;
-  const userId =
-    typeof input.user_id === "string" && input.user_id.trim().length > 0
-      ? input.user_id.trim()
       : null;
 
   if (!city) errors.push("City is required.");
@@ -44,8 +36,8 @@ function normalizeTripPayload(input) {
       : {};
 
   const payload = {
-    user_email: userEmail,
-    user_id: userId,
+    user_email: null,
+    user_id: null,
     city,
     start_date: startDate,
     end_date: endDate,
@@ -59,7 +51,29 @@ function normalizeTripPayload(input) {
   return { payload };
 }
 
+export async function GET(request) {
+  const { requester, response } = await getRequesterFromAuthHeader(request);
+  if (response) return response;
+
+  try {
+    const trips = await listTripsForUser({
+      userId: requester.userId,
+      userEmail: requester.userEmail,
+    });
+    return NextResponse.json({ trips }, { status: 200 });
+  } catch (error) {
+    console.error("Failed to list trips", error);
+    return NextResponse.json(
+      { error: "Unable to load trips at this time." },
+      { status: 500 }
+    );
+  }
+}
+
 export async function POST(request) {
+  const { requester, response } = await getRequesterFromAuthHeader(request);
+  if (response) return response;
+
   let body;
 
   try {
@@ -78,8 +92,10 @@ export async function POST(request) {
     const citySlug = payload.city.toLowerCase();
     const cityData = await getCityData(citySlug);
 
-    const itinerary = buildItinerary(payload, cityData);
+    const itinerary = await buildItineraryWithRouting(payload, cityData);
 
+    payload.user_id = requester.userId;
+    payload.user_email = requester.userEmail;
     payload.initial_plan = itinerary;
 
     const trip = await createTripWithDays(payload, itinerary);

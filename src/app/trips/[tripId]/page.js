@@ -1,8 +1,8 @@
 "use server";
 
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { getTripWithDetails } from "@/lib/trips/tripState";
+import { notFound, redirect } from "next/navigation";
+import { getTripWithDetails } from "@/lib/trips/tripsRepository";
 
 function capitalize(s) {
   if (!s) return '';
@@ -57,6 +57,10 @@ export default async function SharedTripPage({ params }) {
   }
 
   if (!trip) notFound();
+
+  if (trip.itinerary_generated_at || trip.days?.length > 0) {
+    redirect(`/itineraries/${tripId}`);
+  }
 
   const cityName = capitalize(trip.city);
   const hasDays = trip.days?.length > 0;

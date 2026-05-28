@@ -274,7 +274,6 @@ export default async function CityPage({ params, searchParams }) {
   const cityData = await getCityData(cityName);
 
   if (!cityData) {
-    console.log(`City data returned null for param: ${cityName}. Triggering notFound().`);
     notFound();
   }
 
