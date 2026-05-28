@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import { useState, useCallback, useMemo, useRef } from 'react';
 import PlannerColumn from './PlannerColumn';
 import PlannerMapWorkspace from './PlannerMapWorkspace';
 import RouteGapAllocator from './RouteGapAllocator';
@@ -10,14 +10,18 @@ import { derivePlannerInteraction } from '@/lib/conversation/plannerInteraction'
 import { buildDayAssignments } from '@/lib/conversation/dayAssignments';
 import { buildCityColors } from '@/lib/planning/cityColors';
 
+import { buildLegacyTrip } from './threeColumn/buildLegacyTrip';
+import { useChatWidth } from './threeColumn/useChatWidth';
+import { useRegisterPlannerHandles } from './threeColumn/useRegisterPlannerHandles';
+import { useTripIdUrlSync } from './threeColumn/useTripIdUrlSync';
+import { useInitialMessageSeed } from './threeColumn/useInitialMessageSeed';
+import { usePlannerStateSnapshot } from './threeColumn/usePlannerStateSnapshot';
+import ChatMapDivider from './threeColumn/ChatMapDivider';
+import { useStartConversationOnce } from './threeColumn/useStartConversationOnce';
+
 /**
  * Agentic /plan layout: compact TripScheduleHeader + chat + map.
  */
-const DEFAULT_CHAT_WIDTH = 60;
-const ROUTE_CHAT_WIDTH = 42;
-const MIN_CHAT_WIDTH = 34;
-const MAX_CHAT_WIDTH = 76;
-
 export default function ThreeColumnPlanner({
   initialUserMessage = null,
   initialTripId = null,
@@ -30,10 +34,7 @@ export default function ThreeColumnPlanner({
   registerApplyTripState = null,
 }) {
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
-  const [chatWidthPct, setChatWidthPct] = useState(DEFAULT_CHAT_WIDTH);
-  const seededRef = useRef(false);
   const splitPaneRef = useRef(null);
-  const hasCustomChatWidthRef = useRef(false);
 
   const {
     messages,
@@ -63,14 +64,12 @@ export default function ThreeColumnPlanner({
     applyRoutePreset,
     dismissError,
     assignDaysToCity,
-    unassignDays,
     setCityNights,
     setCityAccommodation,
     setTripState,
     addCity,
     acceptSuggestedAllocation,
     setTripDates,
-    undoLastReflow,
     confirmGeneration,
     cancelFinalization,
     retryGeneration,
@@ -98,85 +97,41 @@ export default function ThreeColumnPlanner({
     [tripState?.route?.cities]
   );
 
-  // Emit a read-only snapshot of trip state to the parent so it can render
-  // the top-bar Day Strip alongside the Describe / Step by step toggle.
-  // NOTE: `interaction` is recomputed every render (its `gaps` input is a fresh
-  // object each pass), so we deliberately depend only on tripState-derived
-  // primitives plus a stable signature for the brief/next action.
   const briefSignature = interaction?.briefCompleteness
     ? `${interaction.briefCompleteness.completionRatio}|${interaction.nextAction?.id || ''}|${interaction.nextAction?.label || ''}`
     : '';
-  useEffect(() => {
-    if (!onPlannerStateChange) return;
-    onPlannerStateChange({
-      tripState,
-      days: dayAssignments,
-      cities: tripState?.route?.cities || [],
-      cityColors,
-      hasCities: tripHasCities,
-      briefCompleteness: interaction?.briefCompleteness || null,
-      nextAction: interaction?.nextAction || null,
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [onPlannerStateChange, tripState, dayAssignments, cityColors, tripHasCities, briefSignature]);
 
-  // Expose setCityNights upward so the top-bar Day Strip popover can adjust
-  // nights without lifting the entire planner state.
-  useEffect(() => {
-    if (!registerSetCityNights) return;
-    registerSetCityNights(setCityNights);
-    return () => registerSetCityNights(null);
-  }, [registerSetCityNights, setCityNights]);
+  usePlannerStateSnapshot({
+    onPlannerStateChange,
+    tripState,
+    dayAssignments,
+    cityColors,
+    tripHasCities,
+    briefCompleteness: interaction?.briefCompleteness,
+    nextAction: interaction?.nextAction,
+    briefSignature,
+  });
 
-  useEffect(() => {
-    if (!registerSetTripDates) return;
-    registerSetTripDates(setTripDates);
-    return () => registerSetTripDates(null);
-  }, [registerSetTripDates, setTripDates]);
+  useRegisterPlannerHandles({
+    registerSetCityNights,
+    setCityNights,
+    registerSetTripDates,
+    setTripDates,
+    registerSetCityAccommodation,
+    setCityAccommodation,
+    registerApplyTripState,
+    setTripState,
+  });
 
-  useEffect(() => {
-    if (!registerSetCityAccommodation) return;
-    registerSetCityAccommodation(setCityAccommodation);
-    return () => registerSetCityAccommodation(null);
-  }, [registerSetCityAccommodation, setCityAccommodation]);
-
-  useEffect(() => {
-    if (!registerApplyTripState) return;
-    registerApplyTripState(setTripState);
-    return () => registerApplyTripState(null);
-  }, [registerApplyTripState, setTripState]);
-
-  useEffect(() => {
-    if (!hasStarted) {
-      startConversation();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hasStarted]);
-
-  useEffect(() => {
-    if (!savedTripId || initialTripId) return;
-    const url = new URL(window.location.href);
-    url.searchParams.set('tripId', savedTripId);
-    window.history.replaceState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
-  }, [initialTripId, savedTripId]);
-
-  useEffect(() => {
-    if (!localTripId || savedTripId || initialTripId || initialLocalTripId) return;
-    const url = new URL(window.location.href);
-    url.searchParams.delete('tripId');
-    url.searchParams.set('localTripId', localTripId);
-    window.history.replaceState({}, '', `${url.pathname}?${url.searchParams.toString()}`);
-  }, [initialLocalTripId, initialTripId, localTripId, savedTripId]);
-
-  useEffect(() => {
-    if (!initialUserMessage) return;
-    if (seededRef.current) return;
-    if (!hasStarted) return;
-    if (isStreaming) return;
-    if (messages.length === 0) return;
-    seededRef.current = true;
-    sendMessage(initialUserMessage);
-  }, [initialUserMessage, hasStarted, isStreaming, messages.length, sendMessage]);
+  useStartConversationOnce({ hasStarted, startConversation });
+  useTripIdUrlSync({ savedTripId, localTripId, initialTripId, initialLocalTripId });
+  useInitialMessageSeed({
+    initialUserMessage,
+    hasStarted,
+    isStreaming,
+    messagesLength: messages.length,
+    sendMessage,
+  });
 
   const handleSendMessage = useCallback((text) => {
     sendMessage(text);
@@ -194,77 +149,12 @@ export default function ThreeColumnPlanner({
     handleCitySelect(city, purpose);
   }, [handleCitySelect]);
 
-  const legacyTrip = {
-    startCity: tripState.route.cities.find(c => c.role === 'start') || tripState.route.cities[0] || null,
-    endCity: tripState.route.cities.find(c => c.role === 'end') || null,
-    stops: tripState.route.cities.filter(c => c.role === 'stop'),
-    daysPerCity: Object.fromEntries(
-      tripState.route.cities.filter(c => c.nights).map(c => [c.id, c.nights])
-    ),
-    dates: tripState.dates,
-    totalDays: tripState.dates.totalNights,
-  };
+  const legacyTrip = useMemo(() => buildLegacyTrip(tripState), [tripState]);
 
-  useEffect(() => {
-    const stored = Number(window.localStorage.getItem('plannerChatWidthPct'));
-    if (Number.isFinite(stored)) {
-      hasCustomChatWidthRef.current = true;
-      setChatWidthPct(Math.min(MAX_CHAT_WIDTH, Math.max(MIN_CHAT_WIDTH, stored)));
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!tripHasCities || hasCustomChatWidthRef.current) return;
-    setChatWidthPct(ROUTE_CHAT_WIDTH);
-  }, [tripHasCities]);
-
-  const commitChatWidth = useCallback((nextWidth) => {
-    const bounded = Math.min(MAX_CHAT_WIDTH, Math.max(MIN_CHAT_WIDTH, nextWidth));
-    hasCustomChatWidthRef.current = true;
-    setChatWidthPct(bounded);
-    window.localStorage.setItem('plannerChatWidthPct', String(Math.round(bounded)));
-  }, []);
-
-  const handleDividerPointerDown = useCallback((event) => {
-    event.preventDefault();
-    const container = splitPaneRef.current;
-    if (!container) return;
-
-    const rect = container.getBoundingClientRect();
-    document.body.style.cursor = 'col-resize';
-    document.body.style.userSelect = 'none';
-
-    const handlePointerMove = (moveEvent) => {
-      const next = ((moveEvent.clientX - rect.left) / rect.width) * 100;
-      commitChatWidth(next);
-    };
-
-    const handlePointerUp = () => {
-      document.body.style.cursor = '';
-      document.body.style.userSelect = '';
-      window.removeEventListener('pointermove', handlePointerMove);
-      window.removeEventListener('pointerup', handlePointerUp);
-    };
-
-    window.addEventListener('pointermove', handlePointerMove);
-    window.addEventListener('pointerup', handlePointerUp);
-  }, [commitChatWidth]);
-
-  const handleDividerKeyDown = useCallback((event) => {
-    if (event.key === 'ArrowLeft') {
-      event.preventDefault();
-      commitChatWidth(chatWidthPct - 5);
-    } else if (event.key === 'ArrowRight') {
-      event.preventDefault();
-      commitChatWidth(chatWidthPct + 5);
-    } else if (event.key === 'Home') {
-      event.preventDefault();
-      commitChatWidth(MIN_CHAT_WIDTH);
-    } else if (event.key === 'End') {
-      event.preventDefault();
-      commitChatWidth(MAX_CHAT_WIDTH);
-    }
-  }, [chatWidthPct, commitChatWidth]);
+  const { chatWidthPct, handleDividerPointerDown, handleDividerKeyDown } = useChatWidth({
+    tripHasCities,
+    splitPaneRef,
+  });
 
   return (
     <div className="flex h-full min-h-0 flex-col">
@@ -323,20 +213,11 @@ export default function ThreeColumnPlanner({
           />
         </div>
 
-        <button
-          type="button"
-          role="separator"
-          aria-orientation="vertical"
-          aria-label="Resize chat and map panels"
-          aria-valuemin={MIN_CHAT_WIDTH}
-          aria-valuemax={MAX_CHAT_WIDTH}
-          aria-valuenow={Math.round(chatWidthPct)}
+        <ChatMapDivider
+          chatWidthPct={chatWidthPct}
           onPointerDown={handleDividerPointerDown}
           onKeyDown={handleDividerKeyDown}
-          className="group hidden w-2 shrink-0 cursor-col-resize items-center justify-center bg-[#efe9de] outline-none transition-colors hover:bg-[#dfd3c0] focus-visible:bg-[#dfd3c0] lg:flex"
-        >
-          <span className="h-14 w-1 rounded-full bg-[#c8bba7] transition-colors group-hover:bg-[#8a765c] group-focus-visible:bg-[#8a765c]" />
-        </button>
+        />
 
         <div
           className="hidden min-w-0 min-h-0 flex-col lg:flex"
