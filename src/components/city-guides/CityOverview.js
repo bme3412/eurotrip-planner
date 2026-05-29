@@ -8,17 +8,13 @@ import { legacyCountryFolder } from '@/lib/city-data/resolver';
 import {
   buildCalendarData,
   buildMonthInsights,
-  computeBestTravelerMonth,
-  computeValueMonths,
 } from './overview/lib/derived';
 import { getCityIcon } from './overview/lib/cityIcon';
 
 import MonthlyCalendar from './overview/MonthlyCalendar';
-import BestTimeKpiCards from './overview/BestTimeKpiCards';
 import TravelerFilter from './overview/TravelerFilter';
 import SelectedMonthPanel from './overview/SelectedMonthPanel';
 import SeasonalProse from './overview/SeasonalProse';
-import SeasonalNeighborhoods from './overview/SeasonalNeighborhoods';
 import MobileEventModal from './overview/MobileEventModal';
 
 /**
@@ -28,11 +24,9 @@ import MobileEventModal from './overview/MobileEventModal';
  *   • overview/lib/derived.js               — pure calendar/insights helpers
  *   • overview/lib/{cityIcon,seasonalNeighborhoods,constants}.js
  *   • overview/MonthlyCalendar.jsx           — 12-month grid + tooltips
- *   • overview/BestTimeKpiCards.jsx          — four KPI cards
  *   • overview/TravelerFilter.jsx            — "Best time for" pills
  *   • overview/SelectedMonthPanel.jsx        — inline selected-month CTA
  *   • overview/SeasonalProse.jsx             — "Season by Season" narrative
- *   • overview/SeasonalNeighborhoods.jsx     — neighborhood-by-season grid
  *   • overview/MobileEventModal.jsx          — small-screen event modal
  */
 const CityOverview = ({
@@ -95,9 +89,6 @@ const CityOverview = ({
 
   const cityIcon = useMemo(() => getCityIcon(cityName), [cityName]);
 
-  const bestMonthsOverall = visitCalendar?.bestTimeRecommendations?.overall?.best || [];
-  const avoidMonthsOverall = visitCalendar?.bestTimeRecommendations?.overall?.avoid || [];
-
   const enhancedDescription = overview?.brief_description
     || description
     || `${cityName} is a beautiful city waiting to be discovered. With its rich history, vibrant culture, and welcoming atmosphere, it offers visitors an unforgettable experience.`;
@@ -111,13 +102,6 @@ const CityOverview = ({
     () => buildMonthInsights(calendarData, visitCalendar),
     [calendarData, visitCalendar],
   );
-
-  const bestTravelerMonth = useMemo(
-    () => computeBestTravelerMonth(visitCalendar, travelerTypeFilter),
-    [visitCalendar, travelerTypeFilter],
-  );
-
-  const valueMonths = useMemo(() => computeValueMonths(monthInsights), [monthInsights]);
 
   const selectedInsight = useMemo(
     () => (selectedCalendarMonth
@@ -160,87 +144,59 @@ const CityOverview = ({
       {(overviewParagraph || visitCalendar) && (
         <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow duration-200">
           <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-sky-500" />
-          <div className="p-4 md:p-5 space-y-3">
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
-                  Interactive date calendar
-                </p>
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
-                  Best Time to Visit {displayName}
-                </h2>
-              </div>
-              {visitCalendar?.bestTimeRecommendations?.overall && (
-                <span className="text-sm px-3 py-1.5 bg-emerald-100 text-emerald-700 rounded-full font-medium hidden sm:inline-flex items-center gap-1.5">
-                  <span>✨</span> Best overall: {visitCalendar.bestTimeRecommendations.overall.best?.[0] || 'April-June'}
-                </span>
-              )}
-            </div>
+          <div className="p-5 md:p-6">
+            {/* Header — eyebrow + title as a single, tight unit */}
+            <header className="mb-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-600 mb-1.5">
+                Interactive date calendar
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
+                Best Time to Visit {displayName}
+              </h2>
+            </header>
 
-            {(bestMonthsOverall.length > 0 || avoidMonthsOverall.length > 0) && (
-              <div className="flex flex-wrap gap-2 text-sm">
-                {bestMonthsOverall.slice(0, 3).map((m) => (
-                  <span key={`best-${m}`} className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">
-                    🌿 Best: {m}
-                  </span>
-                ))}
-                {avoidMonthsOverall.slice(0, 2).map((m) => (
-                  <span key={`avoid-${m}`} className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-100">
-                    ⚠️ Skip: {m}
-                  </span>
-                ))}
-              </div>
-            )}
-
+            {/* Prose — readable body copy with a comfortable line length */}
             {overviewParagraph && (
-              <p className="text-xl md:text-2xl text-gray-800 leading-relaxed font-medium max-w-4xl">
+              <p className="text-base md:text-[17px] text-slate-700 leading-[1.75] max-w-[65ch] mb-6">
                 {overviewParagraph}
               </p>
             )}
 
-            <BestTimeKpiCards
-              bestMonthsOverall={bestMonthsOverall}
-              valueMonths={valueMonths}
-              avoidMonthsOverall={avoidMonthsOverall}
-              bestTravelerMonth={bestTravelerMonth}
-              travelerTypeFilter={travelerTypeFilter}
-              fallbackBestMonth={monthInsights[0]?.monthName || 'April-June'}
-            />
-
             {visitCalendar?.travelerTypes && (
-              <TravelerFilter
-                active={travelerTypeFilter}
-                onChange={setTravelerTypeFilter}
-              />
+              <div className="mb-4">
+                <TravelerFilter
+                  active={travelerTypeFilter}
+                  onChange={setTravelerTypeFilter}
+                />
+              </div>
             )}
 
-            <SelectedMonthPanel
-              cityName={cityName}
-              selectedCalendarMonth={selectedCalendarMonth}
-              selectedInsight={selectedInsight}
-              onOpenMonthlyGuide={onOpenMonthlyGuide ? handleOpenMonthlyGuide : null}
-              onClear={() => setSelectedCalendarMonth(null)}
-            />
+            {selectedCalendarMonth && (
+              <div className="mb-3">
+                <SelectedMonthPanel
+                  cityName={cityName}
+                  selectedCalendarMonth={selectedCalendarMonth}
+                  selectedInsight={selectedInsight}
+                  onOpenMonthlyGuide={onOpenMonthlyGuide ? handleOpenMonthlyGuide : null}
+                  onClear={() => setSelectedCalendarMonth(null)}
+                />
+              </div>
+            )}
 
             <MonthlyCalendar
               calendarData={calendarData}
               activeTooltip={activeTooltip}
               onTooltipChange={setActiveTooltip}
               onSelectMonth={setSelectedCalendarMonth}
-              onSelectDay={(monthName) => setSelectedCalendarMonth(monthName)}
             />
           </div>
         </div>
       )}
 
-      {/* Season-by-season narrative + neighborhood recommendations */}
+      {/* Season-by-season narrative */}
       {visitCalendar && (
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8">
           <SeasonalProse cityName={cityName} country={overview?.country} />
-          <SeasonalNeighborhoods
-            cityName={cityName}
-            country={overview?.country}
-          />
         </div>
       )}
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, useRef, useCallback, Suspense } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback, useTransition, Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getCityHeaderInfo, getCityDisplayName, getCityNickname, getCityDescription, getCityHeroImage } from "@/utils/cityDataUtils";
@@ -111,12 +111,15 @@ function getCityCenter(cityData, cityName) {
 function CityPageClient({ cityData: initialCityData, cityName }) {
   const [activeTab, setActiveTab] = useState('overview');
   const [selectedMonthlyMonth, setSelectedMonthlyMonth] = useState(null);
-  const [isTabTransitioning, setIsTabTransitioning] = useState(false);
+  // `useTransition` lets React keep the previously-rendered tab visible while
+  // the new tab's lazy chunk / suspended data is in-flight. No artificial
+  // setTimeout delay needed — cached chunks switch instantly, slow ones keep
+  // the old UI usable + show a top progress bar.
+  const [isTabPending, startTabTransition] = useTransition();
   const [componentLoaded, setComponentLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showBreadcrumb, setShowBreadcrumb] = useState(true);
   const [isTabBarSticky, setIsTabBarSticky] = useState(false);
-  const [slideDirection, setSlideDirection] = useState('right');
   const tabBarRef = useRef(null);
   const tabBarOriginalTop = useRef(null);
   const lastScrollY = useRef(0);
@@ -305,30 +308,23 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
 
   const handleTabSwitch = useCallback((tabId) => {
     if (tabId === activeTab) return;
-    
-    // Determine slide direction based on tab order
-    const currentIndex = tabs.findIndex(t => t.id === activeTab);
-    const newIndex = tabs.findIndex(t => t.id === tabId);
-    setSlideDirection(newIndex > currentIndex ? 'left' : 'right');
-    
-    setIsTabTransitioning(true);
-    // Brief delay for exit animation
-    setTimeout(() => {
+    // Kick off any required data fetches synchronously so they start as soon
+    // as the click registers, in parallel with the lazy-chunk download.
+    (TAB_SECTIONS[tabId] || []).forEach(loadSection);
+    // Mark the tab change as a transition so React keeps the current tab
+    // rendered while the new one suspends. No artificial timeout.
+    startTabTransition(() => {
       setActiveTab(tabId);
-      // Small delay for enter animation
-      setTimeout(() => setIsTabTransitioning(false), 50);
-    }, 150);
-  }, [activeTab, tabs]);
+    });
+  }, [activeTab, loadSection]);
 
   const handleOpenMonthlyGuide = useCallback((monthName) => {
     setSelectedMonthlyMonth(monthName || null);
-    setSlideDirection('left');
-    setIsTabTransitioning(true);
-    setTimeout(() => {
+    (TAB_SECTIONS.monthly || []).forEach(loadSection);
+    startTabTransition(() => {
       setActiveTab('monthly');
-      setTimeout(() => setIsTabTransitioning(false), 50);
-    }, 150);
-  }, []);
+    });
+  }, [loadSection]);
 
   const handleExploreBestDates = useCallback(() => {
     if (activeTab !== 'overview') {
@@ -688,27 +684,33 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
       {/* Spacer when tab bar is sticky */}
       {isTabBarSticky && <div className="h-24" />}
 
+      {/* Thin top progress bar — shown only while a tab transition is in flight.
+          Replaces the old full-content skeleton swap, so cached tabs feel
+          instant and slow ones keep the previous tab usable. */}
+      {isTabPending && (
+        <div
+          aria-hidden
+          className="fixed top-0 left-0 right-0 h-[2px] z-[60] overflow-hidden bg-blue-100"
+        >
+          <div className="h-full w-1/3 bg-blue-500 rounded-full animate-[tabloader_1.1s_ease-in-out_infinite]" />
+          <style>{`
+            @keyframes tabloader {
+              0%   { transform: translateX(-100%); }
+              100% { transform: translateX(400%); }
+            }
+          `}</style>
+        </div>
+      )}
+
       {/* Content */}
       <div className="mx-auto max-w-7xl px-3 sm:px-4 py-4 sm:py-6 pb-24 overflow-visible">
         <div
-          className={`transition-all duration-200 ease-out ${
-            isTabTransitioning
-              ? `opacity-0 ${slideDirection === 'left' ? '-translate-x-4' : 'translate-x-4'}`
-              : 'opacity-100 transform-none'
+          aria-busy={isTabPending}
+          className={`transition-opacity duration-150 ${
+            isTabPending ? 'opacity-60' : 'opacity-100'
           }`}
         >
-          {isTabTransitioning ? (
-            <div className="animate-pulse space-y-6">
-              <div className="h-8 bg-gray-200 rounded w-48"></div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {[1,2,3,4,5,6].map(i => (
-                  <div key={i} className="bg-gray-100 rounded-xl h-64"></div>
-                ))}
-              </div>
-            </div>
-          ) : (
-            renderTabContent()
-          )}
+          {renderTabContent()}
         </div>
       </div>
 
