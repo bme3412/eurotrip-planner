@@ -183,44 +183,6 @@ export const computeValueMonths = (monthInsights) => {
   return candidates.slice(0, 2).map((month) => month.monthName);
 };
 
-const CROWD_PENALTIES = {
-  quiet: ['very high', 'high'],
-  balanced: ['very high'],
-  lively: [],
-};
-
-/**
- * Score every month for "fit" against a trip-fit object (traveler /
- * budget / crowd) and return the top 3.
- */
-export const computeTripFitRecommendations = (monthInsights, tripFit) => {
-  if (!Array.isArray(monthInsights) || !tripFit) return [];
-  const crowdPenalty = CROWD_PENALTIES[tripFit.crowd] || [];
-
-  return monthInsights
-    .map((month) => {
-      const priceText = String(month.priceLevel || '').toLowerCase();
-      const crowdText = String(month.crowdLevel || '').toLowerCase();
-      let score = month.averageScore;
-
-      if (tripFit.budget === 'budget' && (priceText.includes('low') || priceText.includes('value'))) score += 0.7;
-      if (tripFit.budget === 'luxury' && month.specialEventsCount > 0) score += 0.35;
-      if (crowdPenalty.some((term) => crowdText.includes(term))) score -= 0.8;
-
-      const ranges = month.monthData?.ranges || [];
-      const travelerScores = ranges
-        .map((range) => range.travelerTypes?.[tripFit.traveler])
-        .filter((value) => typeof value === 'number');
-      if (travelerScores.length) {
-        score += (travelerScores.reduce((sum, value) => sum + value, 0) / travelerScores.length - 3) * 0.35;
-      }
-
-      return { ...month, fitScore: score };
-    })
-    .sort((a, b) => b.fitScore - a.fitScore)
-    .slice(0, 3);
-};
-
 /**
  * Build the URL to the planner pre-filled with a city and month
  * (and optionally a specific event).

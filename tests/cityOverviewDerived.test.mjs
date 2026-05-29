@@ -8,7 +8,6 @@ import {
   buildMonthInsights,
   computeBestTravelerMonth,
   computeValueMonths,
-  computeTripFitRecommendations,
   planMonthHref,
   buildTooltipData,
 } from '../src/components/city-guides/overview/lib/derived.js';
@@ -225,45 +224,6 @@ test('computeValueMonths: rewards low-priced, lower-crowd months', () => {
   assert.equal(result.length, 2);
   // November has "Low value" pricing + "Low" crowds → gets +0.6 +0.3 bonuses.
   assert.ok(result.includes('November'), 'November in top value months');
-});
-
-// ---------- computeTripFitRecommendations ----------
-
-test('computeTripFitRecommendations: returns [] for empty input', () => {
-  assert.deepEqual(computeTripFitRecommendations([], { traveler: 'couples' }), []);
-  assert.deepEqual(computeTripFitRecommendations(null, { traveler: 'couples' }), []);
-});
-
-test('computeTripFitRecommendations: returns at most 3 months sorted by fit', () => {
-  const calendar = buildCalendarData(sampleVisitCalendar);
-  const insights = buildMonthInsights(calendar, sampleVisitCalendar);
-  const result = computeTripFitRecommendations(insights, {
-    traveler: 'couples',
-    budget: 'budget',
-    crowd: 'quiet',
-  });
-  assert.equal(result.length, 3);
-  // Each entry carries a fitScore.
-  result.forEach((m) => assert.equal(typeof m.fitScore, 'number'));
-  // Sorted descending.
-  for (let i = 1; i < result.length; i++) {
-    assert.ok(result[i - 1].fitScore >= result[i].fitScore, 'sorted desc');
-  }
-});
-
-test('computeTripFitRecommendations: penalises high-crowd months for "quiet"', () => {
-  const calendar = buildCalendarData(sampleVisitCalendar);
-  const insights = buildMonthInsights(calendar, sampleVisitCalendar);
-  const result = computeTripFitRecommendations(insights, {
-    traveler: 'couples',
-    budget: 'mid',
-    crowd: 'quiet',
-  });
-  // August has "Very high" crowds → should be penalised hard.
-  const august = result.find((m) => m.monthName === 'August');
-  if (august) {
-    assert.ok(august.fitScore < (insights.find((m) => m.monthName === 'August').averageScore));
-  }
 });
 
 // ---------- planMonthHref ----------

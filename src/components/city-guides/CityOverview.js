@@ -10,15 +10,12 @@ import {
   buildMonthInsights,
   computeBestTravelerMonth,
   computeValueMonths,
-  computeTripFitRecommendations,
 } from './overview/lib/derived';
 import { getCityIcon } from './overview/lib/cityIcon';
 
 import MonthlyCalendar from './overview/MonthlyCalendar';
 import BestTimeKpiCards from './overview/BestTimeKpiCards';
 import TravelerFilter from './overview/TravelerFilter';
-import CompareMonthsPanel from './overview/CompareMonthsPanel';
-import TripFitPanel from './overview/TripFitPanel';
 import SelectedMonthPanel from './overview/SelectedMonthPanel';
 import SeasonalProse from './overview/SeasonalProse';
 import SeasonalNeighborhoods from './overview/SeasonalNeighborhoods';
@@ -33,8 +30,6 @@ import MobileEventModal from './overview/MobileEventModal';
  *   • overview/MonthlyCalendar.jsx           — 12-month grid + tooltips
  *   • overview/BestTimeKpiCards.jsx          — four KPI cards
  *   • overview/TravelerFilter.jsx            — "Best time for" pills
- *   • overview/CompareMonthsPanel.jsx        — compare-two-months panel
- *   • overview/TripFitPanel.jsx              — style/budget/crowd panel
  *   • overview/SelectedMonthPanel.jsx        — inline selected-month CTA
  *   • overview/SeasonalProse.jsx             — "Season by Season" narrative
  *   • overview/SeasonalNeighborhoods.jsx     — neighborhood-by-season grid
@@ -52,12 +47,6 @@ const CityOverview = ({
   const [overviewParagraph, setOverviewParagraph] = useState(null);
   const [selectedCalendarMonth, setSelectedCalendarMonth] = useState(null);
   const [travelerTypeFilter, setTravelerTypeFilter] = useState('all');
-  const [compareMonths, setCompareMonths] = useState(['April', 'September']);
-  const [tripFit, setTripFit] = useState({
-    traveler: 'couples',
-    budget: 'mid',
-    crowd: 'balanced',
-  });
 
   const cityPaths = useMemo(
     () => {
@@ -130,32 +119,12 @@ const CityOverview = ({
 
   const valueMonths = useMemo(() => computeValueMonths(monthInsights), [monthInsights]);
 
-  const tripFitRecommendations = useMemo(
-    () => computeTripFitRecommendations(monthInsights, tripFit),
-    [monthInsights, tripFit],
-  );
-
-  const comparisonInsights = useMemo(
-    () => compareMonths
-      .map((monthName) => monthInsights.find((month) => month.monthName === monthName))
-      .filter(Boolean),
-    [compareMonths, monthInsights],
-  );
-
   const selectedInsight = useMemo(
     () => (selectedCalendarMonth
       ? monthInsights.find((month) => month.monthName === selectedCalendarMonth) || null
       : null),
     [selectedCalendarMonth, monthInsights],
   );
-
-  const updateCompareMonth = useCallback((index, monthName) => {
-    setCompareMonths((current) => {
-      const next = [...current];
-      next[index] = monthName;
-      return next;
-    });
-  }, []);
 
   const handleOpenMonthlyGuide = useCallback((monthName) => {
     if (!onOpenMonthlyGuide) return;
@@ -243,22 +212,6 @@ const CityOverview = ({
                 active={travelerTypeFilter}
                 onChange={setTravelerTypeFilter}
               />
-            )}
-
-            {monthInsights.length > 0 && (
-              <div className="grid gap-4 lg:grid-cols-[1fr_1.15fr]">
-                <CompareMonthsPanel
-                  compareMonths={compareMonths}
-                  comparisonInsights={comparisonInsights}
-                  onUpdateCompareMonth={updateCompareMonth}
-                />
-                <TripFitPanel
-                  tripFit={tripFit}
-                  tripFitRecommendations={tripFitRecommendations}
-                  onUpdateTripFit={setTripFit}
-                  onSelectMonth={setSelectedCalendarMonth}
-                />
-              </div>
             )}
 
             <SelectedMonthPanel
