@@ -4,13 +4,17 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { getSupabaseClient } from '@/lib/supabase/client';
 import {
+  clearLocalWishlist,
   fromSupabaseRow,
   isWishlisted,
+  markMigratedFor,
   readLocalWishlist,
   toSupabaseInsert,
   toggleWishlist,
+  wasMigratedFor,
   writeLocalWishlist,
 } from '@/lib/savedItems/wishlistStore';
+import { migrateLocalToSupabase } from '@/lib/savedItems/wishlistMigration';
 
 function getBrowserStorage() {
   if (typeof window === 'undefined') return null;
@@ -23,22 +27,59 @@ function getBrowserStorage() {
  * Authenticated users sync to the `saved_trips` Supabase table; guests use
  * the `savedTrips` localStorage key. Same surface either way.
  *
+ * On first sign-in we migrate any guest-saved cities from localStorage into
+ * `saved_trips`, then clear the local copy so there is one source of truth.
+ *
  * @returns {{
  *   isSaved: boolean,
  *   loading: boolean,
  *   toggle: () => Promise<{ action: 'added'|'removed'|'noop' }>,
+ *   isGuest: boolean,
  * }}
  */
 export function useWishlist(cityName, cityData) {
-  const { user, isSupabaseConfigured } = useAuth();
+  const { user, isSupabaseConfigured, loading: authLoading } = useAuth();
   const [isSaved, setIsSaved] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [migrationTick, setMigrationTick] = useState(0);
   const isSavedRef = useRef(false);
   isSavedRef.current = isSaved;
 
   const useSupabase = !!(user && isSupabaseConfigured);
+  const isGuest = !user && isSupabaseConfigured;
+
+  // One-shot migration of localStorage wishlist into Supabase on first sign-in
+  // for this user. Keyed by user id so a different account triggers it again.
+  useEffect(() => {
+    if (authLoading || !useSupabase) return;
+    const storage = getBrowserStorage();
+    if (wasMigratedFor(user.id, storage)) return;
+
+    let cancelled = false;
+    (async () => {
+      const localList = readLocalWishlist(storage);
+      const supabase = getSupabaseClient();
+      const { error } = await migrateLocalToSupabase({
+        supabase,
+        userId: user.id,
+        localList,
+      });
+      if (cancelled) return;
+      if (error) {
+        console.error('[useWishlist] migration failed', error);
+        return; // leave local intact; we'll retry on next mount
+      }
+      clearLocalWishlist(storage);
+      markMigratedFor(user.id, storage);
+      // Force the load effect to re-fetch so any migrated rows appear.
+      setMigrationTick((n) => n + 1);
+    })();
+
+    return () => { cancelled = true; };
+  }, [authLoading, useSupabase, user?.id]);
 
   useEffect(() => {
+    if (authLoading) return;
     let cancelled = false;
     setLoading(true);
 
@@ -64,9 +105,12 @@ export function useWishlist(cityName, cityData) {
     })();
 
     return () => { cancelled = true; };
-  }, [cityName, useSupabase, user?.id]);
+  }, [cityName, useSupabase, user?.id, authLoading, migrationTick]);
 
   const toggle = useCallback(async () => {
+    // Avoid writing to the wrong store while auth is still resolving.
+    if (authLoading) return { action: 'noop' };
+
     const wasSaved = isSavedRef.current;
     // Optimistic flip.
     setIsSaved(!wasSaved);
@@ -102,9 +146,9 @@ export function useWishlist(cityName, cityData) {
     const { next, action } = toggleWishlist(list, { cityName, cityData });
     if (action !== 'noop') writeLocalWishlist(next, getBrowserStorage());
     return { action };
-  }, [cityName, cityData, useSupabase, user?.id]);
+  }, [cityName, cityData, useSupabase, user?.id, authLoading]);
 
-  return { isSaved, loading, toggle };
+  return { isSaved, loading: loading || authLoading, toggle, isGuest };
 }
 
 /**

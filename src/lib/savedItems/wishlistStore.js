@@ -6,6 +6,7 @@
  */
 
 export const WISHLIST_STORAGE_KEY = 'savedTrips';
+export const WISHLIST_MIGRATION_KEY = 'eurotrip.wishlist.migratedFor';
 
 /** True when `cityName` is present in `list`. Case-sensitive. */
 export function isWishlisted(list, cityName) {
@@ -92,6 +93,36 @@ export function writeLocalWishlist(list, storage) {
   if (!storage) return;
   try {
     storage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(list));
+  } catch {
+    // Fail quietly.
+  }
+}
+
+/** Whether we've already migrated the local wishlist into Supabase for this user. */
+export function wasMigratedFor(userId, storage) {
+  if (!storage || !userId) return false;
+  try {
+    return storage.getItem(WISHLIST_MIGRATION_KEY) === userId;
+  } catch {
+    return false;
+  }
+}
+
+/** Mark the local wishlist as migrated for `userId` so we don't repeat the work. */
+export function markMigratedFor(userId, storage) {
+  if (!storage || !userId) return;
+  try {
+    storage.setItem(WISHLIST_MIGRATION_KEY, userId);
+  } catch {
+    // Fail quietly.
+  }
+}
+
+/** Drop the local wishlist after a successful migration to the server. */
+export function clearLocalWishlist(storage) {
+  if (!storage) return;
+  try {
+    storage.removeItem(WISHLIST_STORAGE_KEY);
   } catch {
     // Fail quietly.
   }
