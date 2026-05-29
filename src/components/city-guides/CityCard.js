@@ -45,59 +45,21 @@ const CityCard = ({ city, priority = false, blurDataUrl = null, lazyRoot = null 
   
   const getFlagEmoji = (country) => getFlagForCountry(country);
 
-  // Build a prioritized list of possible image sources
+  // Build the image source chain. The generator (generateCityList.mjs) already
+  // resolves `city.thumbnail` to a path that exists on disk, or leaves it empty
+  // when nothing is available — so the only real fallbacks left are the optional
+  // CDN copy and the local placeholder. This keeps the common case to a single
+  // next/image request instead of cascading through ~9 guaranteed-404 paths.
   const fallbacks = useMemo(() => {
-    const id = city.id;
     const sources = [];
-    const countryFolder = city.country ? legacyCountryFolder(city.country) : null;
-    
-    // 1. Custom thumbnail if specified
+
     if (city.thumbnail) sources.push(city.thumbnail);
 
-    // 2. New canonical per-city layout
-    if (countryFolder) {
-      sources.push(`/images/cities/${countryFolder}/${id}/thumbnail.jpeg`);
-    }
-    if (city.country && city.country !== countryFolder) {
-      sources.push(`/images/cities/${city.country}/${id}/thumbnail.jpeg`);
-    }
-
-    // 3. Legacy country-specific thumbnail
-    if (countryFolder) {
-      sources.push(`/images/city-thumbnail/${countryFolder}/${id}-thumbnail.jpeg`);
-      sources.push(`/images/city-thumbnail/${countryFolder}/${id}-thumbnail.jpg`);
-    }
-
-    // 4. Also try with original country name (legacy)
-    if (city.country && city.country !== countryFolder) {
-      sources.push(`/images/city-thumbnail/${city.country}/${id}-thumbnail.jpeg`);
-      sources.push(`/images/city-thumbnail/${city.country}/${id}-thumbnail.jpg`);
-    }
-    
-    // 4. Local city page hero images (country-specific)
-    if (countryFolder) {
-      sources.push(`/images/city-page/${countryFolder}/${id}-hero.jpeg`);
-    }
-    
-    // 5. Local city page images (root directory)
-    sources.push(`/images/city-page/${id}.jpeg`);
-    
-    // 6. Local optimized JPEG
-    sources.push(`/images/optimized/${id}.jpeg`);
-    
-    // 7. Legacy local thumbnail naming
-    sources.push(`/images/${id}-thumbnail.jpeg`);
-    
-    // 8. Generic city thumbnail directory
-    sources.push(`/images/city-thumbnail/${id}-thumbnail.jpeg`);
-    
-    // 9. CDN mapped city thumbnail (only if CDN is working)
-    const cdnSource = getImageUrl(`/images/${id}.jpeg`);
+    const cdnSource = getImageUrl(`/images/${city.id}.jpeg`);
     if (isCDNEnabled() && cdnSource) sources.push(cdnSource);
-    
-    // 10. Final placeholder
+
     sources.push('/images/city-placeholder.svg');
-    
+
     return sources;
   }, [city]);
 

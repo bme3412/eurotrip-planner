@@ -103,20 +103,19 @@ for (const [slug, entry] of Object.entries(citiesMap)) {
   // ── Thumbnail ──
   // Preferred:  /images/cities/{Country}/{slug}/thumbnail.jpeg  (new per-city layout)
   // Legacy:     /images/city-thumbnail/{Country}/{slug}-thumbnail.{jpeg,jpg}
+  // Resolve to a path that actually exists on disk. If none do, leave it empty
+  // so consumers fall straight to the CDN/placeholder instead of firing (and
+  // failing) a next/image optimizer request for a file that isn't there.
   let thumbnail = bridge.thumbnail || '';
   if (!thumbnail) {
-    const newPath = path.join(ROOT, 'public', 'images', 'cities', country, slug, 'thumbnail.jpeg');
-    const legacyJpeg = path.join(ROOT, 'public', 'images', 'city-thumbnail', country, `${slug}-thumbnail.jpeg`);
-    const legacyJpg = path.join(ROOT, 'public', 'images', 'city-thumbnail', country, `${slug}-thumbnail.jpg`);
-    if (fs.existsSync(newPath)) {
-      thumbnail = `/images/cities/${country}/${slug}/thumbnail.jpeg`;
-    } else if (fs.existsSync(legacyJpeg)) {
-      thumbnail = `/images/city-thumbnail/${country}/${slug}-thumbnail.jpeg`;
-    } else if (fs.existsSync(legacyJpg)) {
-      thumbnail = `/images/city-thumbnail/${country}/${slug}-thumbnail.jpg`;
-    } else {
-      thumbnail = `/images/cities/${country}/${slug}/thumbnail.jpeg`;
-    }
+    const candidates = [
+      [`/images/cities/${country}/${slug}/thumbnail.jpeg`, path.join(ROOT, 'public', 'images', 'cities', country, slug, 'thumbnail.jpeg')],
+      [`/images/city-thumbnail/${country}/${slug}-thumbnail.jpeg`, path.join(ROOT, 'public', 'images', 'city-thumbnail', country, `${slug}-thumbnail.jpeg`)],
+      [`/images/city-thumbnail/${country}/${slug}-thumbnail.jpg`, path.join(ROOT, 'public', 'images', 'city-thumbnail', country, `${slug}-thumbnail.jpg`)],
+      [`/images/city-page/${country}/${slug}-hero.jpeg`, path.join(ROOT, 'public', 'images', 'city-page', country, `${slug}-hero.jpeg`)],
+    ];
+    const hit = candidates.find(([, abs]) => fs.existsSync(abs));
+    thumbnail = hit ? hit[0] : '';
   }
 
   // ── Categories ──
