@@ -20,6 +20,7 @@ flowchart TB
         Monthly["Monthly Guide"]
         Experiences["Experiences"]
         FoodDrink["Food + Drink"]
+        PhotoSpots["Photo Spots"]
     end
 
     subgraph Data["Public Data (static JSON)"]
@@ -94,8 +95,17 @@ Create `.env.local` with:
 
 ```env
 GOOGLE_PLACES_API_KEY=your_key_here
-# ... other keys (see .env.example if available)
+
+# Supabase (auth + saved trips / wishlist persistence)
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key_here
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
+
+# Optional: CDN for static assets and city data
+NEXT_PUBLIC_CDN_URL=https://your-distribution.cloudfront.net
 ```
+
+See `.env.example` for the full set.
 
 ## Features
 
@@ -104,13 +114,15 @@ GOOGLE_PLACES_API_KEY=your_key_here
 Comprehensive guides for 220+ European cities with:
 
 - **Getting In** - Airport transport options with interactive route map, prose summaries, and transport cards showing price/duration
-- **Best Time to Go** - Seasonal recommendations and visit calendar
+- **Best Time to Go** - 12-month visit calendar with traveler-type filters, click-to-pin day tooltips (viewport-aware, Escape to close), and season-by-season narrative
 - **Interactive Map** - Mapbox-powered map with attractions and neighborhoods
 - **Monthly Guide** - What's happening each month, events, and seasonal tips
 - **Experiences** - Curated activities across time-of-day categories
 - **Food + Drink** - Restaurant recommendations with filtering by category and price
-- **Photo Spots** - Instagram-worthy locations
+- **Photo Spots** - Iconic and hidden-corner shot locations with filters
 - **Neighborhoods** - District overviews and local tips
+
+Tab switches use React 18 `useTransition` with a thin top progress bar instead of a full-content skeleton swap, so the previous tab stays visible while the next one warms up. Per-section JSON is fetched lazily on the first tab open via `useCitySection()`.
 
 ### Discover (`/discover`)
 
@@ -286,10 +298,15 @@ src/
 │   └── ...
 ├── components/
 │   ├── city-guides/       # City guide components
-│   │   ├── AttractionsList.js
-│   │   ├── FoodDrinkGuide.js
+│   │   ├── CityPageClient.js         # Tab orchestrator (useTransition)
+│   │   ├── CityOverview.js           # Best-Time-to-Visit tab
+│   │   ├── overview/                 # Calendar grid + tooltip + helpers
+│   │   ├── foodDrinkGuide/           # Food + Drink tab
+│   │   ├── photoSpots/               # Photo Spots tab
+│   │   ├── monthlyTabbedView/        # Monthly Guide tab
 │   │   └── ...
 │   └── common/
+│       ├── LazyComponents.js         # React.lazy() tab wrappers
 │       └── GooglePlacePhoto.js
 ├── lib/
 │   └── scoring/           # City scoring algorithms
@@ -389,6 +406,8 @@ const path = getCityPath('paris'); // /path/to/public/data/France/paris
 - **Throttled scroll handlers** - Uses `requestAnimationFrame` to avoid excessive re-renders
 - **Memoized calendar data** - Pre-computes 365 days of visit calendar data once
 - **Smart data loading** - Checks if SSR data exists before making client fetches
+- **Lazy section fetches** - `useCitySection()` pulls individual JSON sections on first tab open instead of shipping a full `index.json`
+- **Non-blocking tab swaps** - `useTransition` keeps the previous tab interactive while the next one renders; a 2px progress bar at the top of the viewport signals pending work
 - **Eager component preloading** - Preloads StartHere and CityOverview on mount
 
 ### Key Performance Files
@@ -416,8 +435,9 @@ A Husky `pre-commit` hook runs `eslint --fix` against staged source files via
 
 ## Tech Stack
 
-- **Framework**: Next.js 15 (App Router)
+- **Framework**: Next.js 15 (App Router), React 18 (`useTransition` for tab navigation)
 - **Styling**: Tailwind CSS
 - **Maps**: Mapbox GL
 - **APIs**: Google Places (New), OpenAI/Anthropic
-- **Database**: PostgreSQL (via Vercel)
+- **Auth + Database**: Supabase (auth, saved trips, wishlist)
+- **Hosting**: Vercel
