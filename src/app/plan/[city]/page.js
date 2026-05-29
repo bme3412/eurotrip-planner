@@ -8,7 +8,7 @@ import { useTripDates } from '@/hooks/useTripDates';
 import { getTravelStyleForPace } from '@/lib/planning/travelStyles';
 import { useAuth } from '@/contexts/AuthContext';
 import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
-import { cityById } from '@/generated/cityIndex';
+import { getCitySection, getCityIndex } from '@/lib/city-data';
 
 // ── Pace options (replaces slider) ───────────────────────────────────
 const PACE_CARDS = [
@@ -90,24 +90,31 @@ export default function PlanCityPage() {
 
   const [topAttractions, setTopAttractions] = useState([]);
   useEffect(() => {
-    // Fetch directly from static file instead of API — reuses warm cache from CityCard hover
-    const cityInfo = cityById[citySlug];
-    const country = cityInfo?.country?.toLowerCase() || 'france';
-    fetch(`/data/${country}/${citySlug}/index.json`)
-      .then(r => r.ok ? r.json() : null)
-      .then(data => {
-        const sites = data?.attractions?.sites || data?.attractions || [];
-        setTopAttractions(
-          sites
-            .sort((a, b) => (b.ratings?.cultural_significance || 3) - (a.ratings?.cultural_significance || 3))
-            .slice(0, 8)
-        );
+    let cancelled = false;
+
+    const pickTop = (sites) =>
+      (Array.isArray(sites) ? sites : [])
+        .slice()
+        .sort((a, b) => (b.ratings?.cultural_significance || 3) - (a.ratings?.cultural_significance || 3))
+        .slice(0, 8);
+
+    // Fetch only the attractions section (~20-35KB) instead of the whole
+    // ~200-380KB index.json. Falls back to the consolidated index for any
+    // city missing the per-section file.
+    getCitySection(citySlug, 'attractions')
+      .then(async (attractions) => {
+        let sites = attractions?.sites ?? attractions;
+        if (sites == null) {
+          const idx = await getCityIndex(citySlug).catch(() => null);
+          sites = idx?.attractions?.sites ?? idx?.attractions ?? [];
+        }
+        if (!cancelled) setTopAttractions(pickTop(sites));
       })
       .catch((err) => {
-        if (err?.name !== 'AbortError') {
-          console.error(`Failed to load attractions for ${citySlug}:`, err);
-        }
+        console.error(`Failed to load attractions for ${citySlug}:`, err);
       });
+
+    return () => { cancelled = true; };
   }, [citySlug]);
 
   const selectedBudget = BUDGET_OPTIONS.find(b => b.id === budget) || BUDGET_OPTIONS[1];
