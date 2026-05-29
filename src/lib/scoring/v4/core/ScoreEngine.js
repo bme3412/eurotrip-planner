@@ -13,6 +13,7 @@
 
 import config from '../config/scoringConfig.json' with { type: 'json' };
 import { getCountryFlag, clamp } from '../utils/index.js';
+import { titleCaseFromSlug } from '../../../text.js';
 import { DynamicWeightCalculator } from './DynamicWeightCalculator.js';
 import { TierLabelGenerator } from './TierLabelGenerator.js';
 import { generateDescriptions, applyDescriptions } from './LLMDescriptionGenerator.js';
@@ -132,22 +133,19 @@ export class ScoreEngine {
    * Format a single result in the desired output format.
    * Example: "Barcelona ES — 88 (culture 9, beach 8, timing 9, crowds 6, value 6, logistics 9)"
    */
+  formatCityName(cityId) {
+    return titleCaseFromSlug(cityId);
+  }
+
   formatResult(cityId, country, finalScore, breakdown) {
     const flag = getCountryFlag(country);
-    const cityName = this.formatCityName(cityId);
+    const cityName = titleCaseFromSlug(cityId);
 
     const factorStr = Object.entries(breakdown)
       .map(([name, result]) => `${name} ${Math.round(result.score)}`)
       .join(', ');
 
     return `${cityName} ${flag} — ${finalScore} (${factorStr})`;
-  }
-
-  formatCityName(cityId) {
-    return cityId
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
   }
 
   /**
@@ -548,14 +546,18 @@ export class ScoreEngine {
       lowC: breakdown.timing?.details?.weatherLowC,
     };
 
-    // Base response (no numerical scores exposed)
+    // Base response — `score` (0-100) and `tier` are INTERNAL ordering values.
+    // They drive sorting/ranking only and must NOT be rendered as raw numbers in
+    // the UI (false precision). Surface them qualitatively via
+    // src/lib/scoring/qualitative.js (scoreToBand / tierToBand).
     const response = {
       id: cityId,
       cityId,
-      title: this.formatCityName(cityId),
+      title: titleCaseFromSlug(cityId),
       image: cityData?.thumbnail || `/images/city-thumbnail/${country}/${cityId}-thumbnail.jpeg`,
       country,
       tier,
+      score: Math.round(finalScore),
       weather,
       crowdLevel: breakdown.crowds?.details?.crowdLevel || 'Moderate',
       highlights,

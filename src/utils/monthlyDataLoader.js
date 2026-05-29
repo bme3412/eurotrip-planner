@@ -1,5 +1,7 @@
 'use client';
 import { getDataUrl } from '@/utils/cdnUtils';
+import { MONTHS_LOWER } from '@/lib/constants/months';
+import { capitalize } from '@/lib/text';
 
 /**
  * Monthly data loader utility
@@ -30,7 +32,7 @@ export const loadMonthlyDataCached = async (country, cityName) => {
   try {
     // Build candidate directory casings to handle mixed-case folders in data
     const normalizedCity = cityName.toLowerCase();
-    const capitalizedCity = cityName.charAt(0).toUpperCase() + cityName.slice(1);
+    const capitalizedCity = capitalize(cityName);
     const candidates = Array.from(new Set([
       normalizedCity,
       cityName, // as provided (slug)
@@ -65,10 +67,7 @@ export const loadMonthlyDataCached = async (country, cityName) => {
       }
 
       // Fallback: load each month individually
-      const months = [
-        'january', 'february', 'march', 'april', 'may', 'june',
-        'july', 'august', 'september', 'october', 'november', 'december'
-      ];
+      const months = MONTHS_LOWER;
 
       const monthlyData = {};
       let loadedCount = 0;

@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { getImageUrl, isCDNEnabled } from '../utils/cdnUtils';
 import { getManifest, getCityMeta, getCityPath as getManifestCityPath } from './manifest';
+import { titleCaseFromSlug } from './text';
 
 /**
  * Unified city data structure interface
@@ -152,7 +153,7 @@ export async function getAllCities() {
           
           const cityData = {
             id: cityDir.name,
-            name: formatCityName(cityDir.name),
+            name: titleCaseFromSlug(cityDir.name),
             country: country.name,
             slug: cityDir.name,
             region: getRegionForCountry(country.name),
@@ -217,7 +218,7 @@ export async function getCityData(cityId) {
     const country = path.basename(path.dirname(cityPath));
     const cityData = {
       id: cityId,
-      name: formatCityName(cityId),
+      name: titleCaseFromSlug(cityId),
       country,
       region: getRegionForCountry(country),
       thumbnail: generateThumbnailPath(cityId, country),
@@ -333,16 +334,6 @@ async function loadMonthlyData(cityPath) {
   } catch {
     return {};
   }
-}
-
-/**
- * Format city name from slug
- */
-function formatCityName(slug) {
-  return slug
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
 }
 
 /**

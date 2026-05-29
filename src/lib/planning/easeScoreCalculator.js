@@ -9,6 +9,8 @@
  * - Data completeness (10%)
  */
 
+import { titleCaseFromSlug } from '../text.js';
+
 let manifestCache = null;
 let citiesCache = null;
 let generatedCitiesCache = null;
@@ -354,10 +356,7 @@ export async function getAllCities() {
 
   for (const [country, cities] of Object.entries(citiesIndex)) {
     for (const slug of cities) {
-      const name = slug
-        .split('-')
-        .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-        .join(' ');
+      const name = titleCaseFromSlug(slug);
       const coords = getCityCoordinates(slug, generatedLookup);
       result.push({
         id: slug,

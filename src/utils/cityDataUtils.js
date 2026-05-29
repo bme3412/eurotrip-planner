@@ -1,4 +1,5 @@
 // Utility functions for extracting dynamic city information
+import { capitalize } from '@/lib/text';
 
 export function getCityHeaderInfo(cityData) {
   if (!cityData) {
@@ -59,12 +60,12 @@ export function getCityDisplayName(cityData, cityName) {
   
   // If cityName is provided and is a string, format it
   if (cityName && typeof cityName === 'string') {
-    return cityName.charAt(0).toUpperCase() + cityName.slice(1);
+    return capitalize(cityName);
   }
-  
+
   // If cityData has a name property, use it
   if (cityData?.name && typeof cityData.name === 'string') {
-    return cityData.name.charAt(0).toUpperCase() + cityData.name.slice(1);
+    return capitalize(cityData.name);
   }
   
   // Fallback
@@ -99,7 +100,7 @@ export function getCityDescription(cityData, cityName) {
   
   // If cityName is provided and is a string, create a generic description
   if (cityName && typeof cityName === 'string') {
-    return `${cityName.charAt(0).toUpperCase() + cityName.slice(1)} is a beautiful city waiting to be discovered. With its rich history, vibrant culture, and welcoming atmosphere, it offers visitors an unforgettable experience.`;
+    return `${capitalize(cityName)} is a beautiful city waiting to be discovered. With its rich history, vibrant culture, and welcoming atmosphere, it offers visitors an unforgettable experience.`;
   }
   
   // Fallback

@@ -21,6 +21,7 @@ import {
   generateMockCrowdLevel,
   generateMockPricing,
 } from '../enrichment/mockDataGenerators.js';
+import { MONTHS_LOWER as MONTH_NAMES } from '@/lib/constants/months';
 
 // ── Configuration ────────────────────────────────────────────────────
 
@@ -32,11 +33,6 @@ const SCORING_WEIGHTS = {
   pricing: 0.10,
   personalization: 0.10,
 };
-
-const MONTH_NAMES = [
-  'january', 'february', 'march', 'april', 'may', 'june',
-  'july', 'august', 'september', 'october', 'november', 'december',
-];
 
 const CROWD_ORDER = ['Very Low', 'Low', 'Moderate', 'High', 'Very High', 'Extreme'];
 

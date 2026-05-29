@@ -12,6 +12,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 import crypto from 'crypto';
 import { getCachedLLMDescriptions, cacheLLMDescriptions } from '../../../cache/suggestions.js';
+import { titleCaseFromSlug } from '../../../text.js';
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
@@ -119,7 +120,7 @@ function buildUserPrompt({ startDate, endDate, tiers }) {
       // Build city-level data for LLM (limit total cities)
       if (totalCities < maxCitiesTotal) {
         cityDetails[cityId] = {
-          name: formatCityName(cityId),
+          name: titleCaseFromSlug(cityId),
           country: city.country,
           temp: temp ? `${temp}°C` : null,
           daylightHours: daylightHours ? `${Math.round(daylightHours)}h` : null,
@@ -308,12 +309,6 @@ export function applyDescriptions(tiers, descriptions) {
 }
 
 // Helper functions
-function formatCityName(cityId) {
-  return cityId
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-}
 
 function formatDate(date) {
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
