@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { ChevronDown, ChevronUp, Sun, Users, DollarSign, Calendar, Sparkles } from "lucide-react";
+import { scoreToBand } from "@/lib/scoring/qualitative";
 
 const COLUMNS = [
   { key: "rank", label: "#", sortable: false, width: "w-10" },
@@ -159,8 +160,8 @@ export default function ScoreboardTable({ cities = [], initialLimit = 5 }) {
               {/* Match score */}
               <td className="py-3 px-2">
                 <div className="flex items-center gap-2">
-                  <span className="font-bold text-hero-ink tabular-nums">
-                    {city.score}
+                  <span className={`text-xs font-bold rounded-full px-2 py-0.5 ${scoreToBand(city.score).bg} ${scoreToBand(city.score).text}`}>
+                    {scoreToBand(city.score).label}
                   </span>
                   <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden max-w-[60px]">
                     <div

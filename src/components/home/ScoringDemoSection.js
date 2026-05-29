@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 // Full Barcelona visit calendar data derived from barcelona-visit-calendar.json
 const BARCELONA_DATA = {
@@ -45,12 +45,20 @@ const SCORE_COLORS = {
 };
 
 const LEGEND = [
-  { label: 'Excellent (5)', color: 'bg-emerald-400' },
-  { label: 'Good (4)',      color: 'bg-emerald-200' },
-  { label: 'Average (3)',   color: 'bg-yellow-200'  },
-  { label: 'Below Avg (2)', color: 'bg-orange-300'  },
-  { label: 'Avoid (1)',     color: 'bg-red-400'     },
+  { label: 'Excellent', color: 'bg-emerald-400' },
+  { label: 'Good',      color: 'bg-emerald-200' },
+  { label: 'Average',   color: 'bg-yellow-200'  },
+  { label: 'Below Avg', color: 'bg-orange-300'  },
+  { label: 'Avoid',     color: 'bg-red-400'     },
 ];
+
+const SCORE_LABEL = {
+  5: 'Excellent',
+  4: 'Good',
+  3: 'Average',
+  2: 'Below average',
+  1: 'Avoid',
+};
 
 function getDaysInMonth(month0, year) {
   return new Date(year, month0 + 1, 0).getDate();
@@ -60,7 +68,7 @@ function getFirstDayOfWeek(month0, year) {
   return new Date(year, month0, 1).getDay(); // 0=Sun
 }
 
-function MonthCalendar({ monthIdx, year, dayMap, currentMonthIdx }) {
+function MonthCalendar({ monthIdx, year, dayMap, currentMonthIdx, onHoverDay, activeKey }) {
   const isCurrent = monthIdx === currentMonthIdx;
   const daysInMonth = getDaysInMonth(monthIdx, year);
   const firstDow = getFirstDayOfWeek(monthIdx, year);
@@ -88,17 +96,23 @@ function MonthCalendar({ monthIdx, year, dayMap, currentMonthIdx }) {
           const info = dayMap[day];
           const scoreKey = info?.score ?? 0;
           const colors = SCORE_COLORS[scoreKey] || { bg: 'bg-gray-700', dot: '' };
+          const key = `${monthIdx}-${day}`;
+          const isActive = key === activeKey;
+          const payload = { monthIdx, day, score: scoreKey, event: info?.event || null };
           return (
-            <div
+            <button
               key={day}
-              title={info?.event ? `${info.event}` : undefined}
-              className={`relative aspect-square flex items-center justify-center rounded-sm text-[8px] font-medium ${colors.bg} text-gray-900 cursor-default`}
+              type="button"
+              onMouseEnter={() => onHoverDay(payload)}
+              onFocus={() => onHoverDay(payload)}
+              onClick={() => onHoverDay(payload)}
+              className={`relative aspect-square flex items-center justify-center rounded-sm text-[8px] font-medium ${colors.bg} text-gray-900 transition-transform hover:scale-125 hover:z-10 focus:outline-none focus:scale-125 ${isActive ? 'ring-2 ring-white scale-125 z-10' : ''}`}
             >
               {day}
               {info?.special && (
                 <span className={`absolute bottom-0 right-0 w-1 h-1 rounded-full ${colors.dot}`} />
               )}
-            </div>
+            </button>
           );
         })}
       </div>
@@ -112,6 +126,11 @@ export default function ScoringDemoSection({ onScrollToDatePicker }) {
   const currentMonthIdx = now.getMonth();
 
   const dayMaps = MONTH_KEYS.map(k => buildDayMap(BARCELONA_DATA[k].ranges));
+
+  const [hovered, setHovered] = useState(null);
+  const onHoverDay = useCallback((payload) => setHovered(payload), []);
+  const activeKey = hovered ? `${hovered.monthIdx}-${hovered.day}` : null;
+  const hoveredColors = hovered ? SCORE_COLORS[hovered.score] : null;
 
   return (
     <section className="px-6 py-20 bg-gray-950 text-white overflow-hidden">
@@ -146,11 +165,28 @@ export default function ScoringDemoSection({ onScrollToDatePicker }) {
           </div>
         </div>
 
-        {/* City label */}
-        <div className="flex items-center gap-2 mb-6">
+        {/* City label + interactive day readout */}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6 min-h-[2rem]">
           <span className="text-base">🇪🇸</span>
           <span className="font-bold text-white">Barcelona, Spain</span>
-          <span className="text-gray-500 text-sm">— {currentYear} visit calendar</span>
+          {hovered ? (
+            <span className="inline-flex items-center gap-2 rounded-full bg-gray-800 border border-gray-700 pl-2 pr-3 py-1 text-sm">
+              <span className={`w-3 h-3 rounded-sm ${hoveredColors?.bg || 'bg-gray-600'}`} />
+              <span className="font-semibold text-white">
+                {MONTH_NAMES[hovered.monthIdx]} {hovered.day}
+              </span>
+              <span className="text-gray-500">·</span>
+              <span className="text-gray-300">{SCORE_LABEL[hovered.score] || '—'}</span>
+              {hovered.event && (
+                <>
+                  <span className="text-gray-500">·</span>
+                  <span className="text-amber-300 font-medium">{hovered.event}</span>
+                </>
+              )}
+            </span>
+          ) : (
+            <span className="text-gray-500 text-sm">— {currentYear} visit calendar · hover any day to see its score</span>
+          )}
         </div>
 
         {/* 12-month calendar grid */}
@@ -162,6 +198,8 @@ export default function ScoringDemoSection({ onScrollToDatePicker }) {
               year={currentYear}
               dayMap={dayMaps[idx]}
               currentMonthIdx={currentMonthIdx}
+              onHoverDay={onHoverDay}
+              activeKey={activeKey}
             />
           ))}
         </div>

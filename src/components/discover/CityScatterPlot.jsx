@@ -84,11 +84,20 @@ export default function CityScatterPlot({ cities, onCityClick }) {
     yTicks.push(s);
   }
 
+  // Qualitative band-zone labels (no raw numbers shown to the user).
+  // Each marker is positioned at a representative score within its band.
+  const bandMarkers = [
+    { v: 90, label: 'Top Pick' },
+    { v: 75, label: 'Great' },
+    { v: 65, label: 'Good' },
+    { v: 50, label: 'Fair' },
+  ].filter((b) => b.v >= minScore && b.v <= maxScore);
+
   return (
     <div className="bg-white rounded-2xl p-6 border border-gray-200">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h3 className="text-lg font-semibold text-gray-900">Temperature vs Score</h3>
+          <h3 className="text-lg font-semibold text-gray-900">Temperature vs Fit</h3>
           <p className="text-sm text-gray-500">Bubble color = crowd level (green = quieter, red = busier)</p>
         </div>
         <div className="flex items-center gap-4 text-xs">
@@ -163,16 +172,16 @@ export default function CityScatterPlot({ cities, onCityClick }) {
           </text>
         ))}
 
-        {/* Y-axis labels */}
-        {yTicks.map(s => (
+        {/* Y-axis band-zone labels (qualitative, no raw numbers) */}
+        {bandMarkers.map(b => (
           <text
-            key={`yl-${s}`}
-            x={padding.left - 15}
-            y={yScale(s) + 4}
+            key={`yl-${b.label}`}
+            x={padding.left - 12}
+            y={yScale(b.v) + 4}
             textAnchor="end"
-            className="text-xs fill-gray-500"
+            className="text-[10px] fill-gray-500 font-medium"
           >
-            {s}
+            {b.label}
           </text>
         ))}
 
@@ -192,7 +201,7 @@ export default function CityScatterPlot({ cities, onCityClick }) {
           transform={`rotate(-90, 15, ${height / 2})`}
           className="text-sm fill-gray-700 font-medium"
         >
-          Score
+          Match
         </text>
 
         {/* City dots */}

@@ -5,6 +5,7 @@ import { List, BarChart3, GitCompare } from 'lucide-react';
 import CityListRow from './discover/CityListRow';
 import CityScatterPlot from './discover/CityScatterPlot';
 import { normalizeRankedCandidate, rankedCandidateToPlannerParams } from '@/lib/discovery/rankedCandidate';
+import { scoreToBand, tierToBand } from '@/lib/scoring/qualitative';
 
 /**
  * Sort options
@@ -421,7 +422,10 @@ export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy
                   <div className="mt-3 flex flex-wrap gap-2 text-xs text-gray-500">
                     {candidate.weather?.label && <span className="rounded-full bg-amber-50 px-2 py-1 text-amber-700">{candidate.weather.label}</span>}
                     {candidate.crowds && <span className="rounded-full bg-emerald-50 px-2 py-1 text-emerald-700">{candidate.crowds} crowds</span>}
-                    {candidate.score != null && <span className="rounded-full bg-gray-100 px-2 py-1">Score {Math.round(Number(candidate.score))}</span>}
+                    {(candidate.tier != null || candidate.score != null) && (() => {
+                      const band = candidate.tier ? tierToBand(candidate.tier) : scoreToBand(candidate.score);
+                      return <span className={`rounded-full px-2 py-1 ${band.bg} ${band.text}`}>{band.label}</span>;
+                    })()}
                   </div>
                 </button>
               );
