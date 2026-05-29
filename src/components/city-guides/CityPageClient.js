@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { getCityHeaderInfo, getCityDisplayName, getCityNickname, getCityDescription, getCityHeroImage } from "@/utils/cityDataUtils";
 import { useMonthlyData } from '@/hooks/useMonthlyData';
 import { useUIState } from '@/hooks/useUIState';
-import { getCityIndex } from '@/lib/city-data';
+import { getCityIndex, getCitySection } from '@/lib/city-data';
 import { legacyCountryFolder } from '@/lib/city-data/resolver';
 import Hero from '@/components/common/Hero';
 import SaveToTrips from '@/components/common/SaveToTrips';
@@ -37,6 +37,37 @@ import {
 
 // Central Europe fallback for cities with no coordinates
 const DEFAULT_CENTER = [9.19, 48.66];
+
+// ── Per-section lazy loading ─────────────────────────────────────────────
+// Each tab declares the heavy data sections it needs. Sections are fetched
+// from /data/{country}/{slug}/sections/*.json on demand (when the tab is
+// opened or hovered) instead of pulling the whole consolidated index.json.
+const TAB_SECTIONS = {
+  overview: ['visitCalendar'],
+  map: ['attractions'],
+  attractions: ['attractions'],
+  neighborhoods: ['neighborhoods'],
+  food: ['culinary'],
+  monthly: ['visitCalendar'], // monthly events load via useMonthlyData
+  gettingin: [], // StartHere self-fetches its prose sections
+  photos: [], // PhotoSpots uses static module data
+};
+
+// Section key (getCitySection) -> cityData state field.
+const SECTION_TO_FIELD = {
+  visitCalendar: 'visitCalendar',
+  attractions: 'attractions',
+  neighborhoods: 'neighborhoods',
+  culinary: 'culinaryGuide',
+};
+
+// Section key -> key inside the consolidated index.json (fallback path).
+const SECTION_TO_INDEX_KEY = {
+  visitCalendar: 'visitCalendar',
+  attractions: 'attractions',
+  neighborhoods: 'neighborhoods',
+  culinary: 'culinaryGuide',
+};
 
 /**
  * Extract map center coordinates from city data.
@@ -92,50 +123,71 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
   const scrollTicking = useRef(false);
 
   // The server only ships a small "shell" ({ cityName, country, overview }).
-  // Heavy sections (attractions, neighborhoods, culinary, connections, seasonal,
-  // visit calendar, monthly) are hydrated client-side from the CDN-cached
-  // /data/{country}/{slug}/index.json. This keeps the initial RSC payload tiny.
+  // Heavy sections (attractions, neighborhoods, culinary, visit calendar) are
+  // fetched lazily per tab from /data/{country}/{slug}/sections/*.json, so the
+  // browser only downloads the ~20-35KB a tab actually needs instead of the
+  // full ~200-380KB consolidated index.json.
   const [cityData, setCityData] = useState(initialCityData);
-  const [extendedDataLoaded, setExtendedDataLoaded] = useState(false);
+  const [loadingSections, setLoadingSections] = useState(() => new Set());
 
-  useEffect(() => {
-    const country = initialCityData?.country;
-    if (!country || !cityName) return;
-
-    // If the shell already happens to include heavy fields (e.g. local dev
-    // with the old full-object payload), skip the fetch.
-    if (initialCityData?.attractions || initialCityData?.neighborhoods) {
-      setExtendedDataLoaded(true);
-      return;
+  // Sections we've already started loading (dedupe). Pre-seed with any heavy
+  // fields the shell already shipped (e.g. local dev with a full payload).
+  const requestedRef = useRef(null);
+  if (requestedRef.current === null) {
+    const seed = new Set();
+    for (const [section, field] of Object.entries(SECTION_TO_FIELD)) {
+      if (initialCityData?.[field] != null) seed.add(section);
     }
+    requestedRef.current = seed;
+  }
 
-    let cancelled = false;
-    getCityIndex(cityName)
-      .then((idx) => {
-        if (cancelled || !idx) return;
-        setCityData((prev) => ({
-          ...prev,
-          attractions: idx.attractions ?? null,
-          neighborhoods: idx.neighborhoods ?? null,
-          culinaryGuide: idx.culinaryGuide ?? null,
-          connections: idx.connections ?? null,
-          seasonalActivities: idx.seasonalActivities ?? null,
-          visitCalendar: idx.visitCalendar ?? null,
-          monthlyEvents: idx.monthly ?? {},
-          summary: idx.summary ?? null,
-        }));
-        setExtendedDataLoaded(true);
+  // Lazily fetch the consolidated index.json once, as a fallback for cities
+  // that are missing an individual section file.
+  const indexFallbackRef = useRef(null);
+  const loadIndexFallback = useCallback(() => {
+    if (!indexFallbackRef.current) {
+      indexFallbackRef.current = getCityIndex(cityName).catch(() => null);
+    }
+    return indexFallbackRef.current;
+  }, [cityName]);
+
+  const loadSection = useCallback((section) => {
+    const field = SECTION_TO_FIELD[section];
+    if (!field || !cityName) return;
+    if (requestedRef.current.has(section)) return;
+    requestedRef.current.add(section);
+    setLoadingSections((prev) => new Set(prev).add(section));
+
+    getCitySection(cityName, section)
+      .then(async (data) => {
+        if (data != null) {
+          setCityData((prev) => ({ ...prev, [field]: data }));
+          return;
+        }
+        // Section file missing — fall back to the consolidated index.
+        const idx = await loadIndexFallback();
+        if (idx) {
+          const idxKey = SECTION_TO_INDEX_KEY[section];
+          setCityData((prev) => ({ ...prev, [field]: idx[idxKey] ?? null }));
+        }
       })
       .catch((err) => {
-        if (cancelled) return;
-        console.error(`Failed to load extended city data for ${cityName}:`, err);
-        // Don't block the UI forever — mark as loaded so tabs can render
-        // whatever empty-state UX they already have.
-        setExtendedDataLoaded(true);
+        console.error(`Failed to load section "${section}" for ${cityName}:`, err);
+      })
+      .finally(() => {
+        setLoadingSections((prev) => {
+          const next = new Set(prev);
+          next.delete(section);
+          return next;
+        });
       });
+  }, [cityName, loadIndexFallback]);
 
-    return () => { cancelled = true; };
-  }, [cityName, initialCityData]);
+  // Load the data the active tab needs whenever it changes (includes the
+  // default 'overview' tab on mount).
+  useEffect(() => {
+    (TAB_SECTIONS[activeTab] || []).forEach(loadSection);
+  }, [activeTab, loadSection]);
 
   // Auto-load when SSR/index didn't include monthly data (slim-index mode).
   const monthlyEventsKeys = cityData?.monthlyEvents ? Object.keys(cityData.monthlyEvents).length : 0;
@@ -151,10 +203,6 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
     overview = {},
     attractions = null,
     neighborhoods = null,
-    culinaryGuide = {},
-    connections = {},
-    seasonalActivities = {},
-    summary = {},
     visitCalendar = {},
     country = 'Unknown'
   } = cityData || {};
@@ -298,6 +346,9 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
   }, []);
 
   const preloadTab = (tabId) => {
+    // Warm the data section(s) this tab needs so they're ready by click.
+    (TAB_SECTIONS[tabId] || []).forEach(loadSection);
+
     switch (tabId) {
       case 'gettingin':
         import('@/components/city-guides/StartHere');
@@ -411,17 +462,13 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
     );
   }
 
-  // Tabs that depend on the heavy data sections need to wait for the
-  // client-side hydration fetch before they can render meaningfully.
-  const needsExtendedData = (tabId) =>
-    tabId === 'overview' ||
-    tabId === 'map' ||
-    tabId === 'attractions' ||
-    tabId === 'neighborhoods' ||
-    tabId === 'food';
-
   const renderTabContent = () => {
-    if (needsExtendedData(activeTab) && !extendedDataLoaded) {
+    // Show a skeleton while the active tab's section(s) are still loading
+    // (either in flight, or not yet requested for this newly-selected tab).
+    const activeTabPending = (TAB_SECTIONS[activeTab] || []).some(
+      (section) => loadingSections.has(section) || !requestedRef.current.has(section)
+    );
+    if (activeTabPending) {
       return activeTab === 'map' ? <SkeletonMapLoader /> : <SkeletonTabContent />;
     }
 

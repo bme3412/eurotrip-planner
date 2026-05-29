@@ -119,16 +119,10 @@ export async function generateMetadata({ params }) {
   };
 }
 
-async function readJsonFile(filePath) {
-  try {
-    const fileContent = await fsPromises.readFile(filePath, "utf8");
-    return JSON.parse(fileContent);
-  } catch (error) {
-    console.error(`Error reading file ${filePath}:`, error);
-    return null;
-  }
-}
-
+// Loads only the lightweight "overview" shell needed for SSR (hero, header,
+// breadcrumbs, metadata and structured data). All heavy sections are fetched
+// client-side per tab from `/data/{country}/{slug}/sections/*.json`, so the
+// server intentionally ships only `{ cityName, country, overview }`.
 async function getCityData(cityName) {
   const manifest = await getManifest();
   if (!manifest?.cities) {
@@ -143,98 +137,30 @@ async function getCityData(cityName) {
   }
 
   const baseDir = path.join(process.cwd(), 'public', 'data', cityMeta.country, cityMeta.directoryName);
-  const consolidatedPath = path.join(baseDir, 'index.json');
 
-  // FAST PATH: Read consolidated index.json directly (no existence check - just try to read)
-  try {
-    const idx = JSON.parse(await fsPromises.readFile(consolidatedPath, 'utf8'));
-
-    // If index.json has the required fields, return immediately (skip all fallbacks)
-    if (idx.overview && idx.attractions) {
-      return {
-        cityName: capitalize(cityName),
-        country: idx.country ?? cityMeta.country,
-        overview: { ...idx.overview, dataCountry: cityMeta.country },
-        attractions: idx.attractions,
-        neighborhoods: idx.neighborhoods ?? null,
-        culinaryGuide: idx.culinaryGuide ?? null,
-        connections: idx.connections ?? null,
-        seasonalActivities: idx.seasonalActivities ?? null,
-        monthlyEvents: idx.monthly ?? {},
-        summary: idx.summary ?? null,
-        visitCalendar: idx.visitCalendar ?? null
-      };
+  // Quiet read: missing section files are expected (we fall back to index.json),
+  // so don't log them as errors the way readJsonFile would.
+  const readJsonQuiet = async (filePath) => {
+    try {
+      return JSON.parse(await fsPromises.readFile(filePath, 'utf8'));
+    } catch {
+      return null;
     }
-  } catch {
-    // index.json doesn't exist or is incomplete - fall through to legacy loading
-  }
-
-  // SLOW PATH: Fallback for cities without complete index.json
-  const monthlyDir = path.join(baseDir, 'monthly');
-  const monthNames = ['january', 'february', 'march', 'april', 'may', 'june',
-    'july', 'august', 'september', 'october', 'november', 'december'];
-
-  // Parallel fallback loading for all file types at once
-  const loadFileWithFallbacks = async (filenames) => {
-    for (const filename of filenames) {
-      try {
-        return JSON.parse(await fsPromises.readFile(path.join(baseDir, filename), 'utf8'));
-      } catch {
-        continue;
-      }
-    }
-    return null;
   };
 
-  try {
-    // Load all file types in parallel. Phase D: read from the canonical
-    // per-section files emitted by the content build under sections/.
-    const [overview, attractions, neighborhoods, culinaryGuide, connections, seasonalActivities, summary, visitCalendar] = await Promise.all([
-      loadFileWithFallbacks(['sections/overview.json']),
-      loadFileWithFallbacks(['sections/attractions.json']),
-      loadFileWithFallbacks(['sections/neighborhoods.json']),
-      loadFileWithFallbacks(['sections/culinary.json']),
-      loadFileWithFallbacks(['sections/connections.json']),
-      loadFileWithFallbacks(['sections/seasonal-activities.json']),
-      loadFileWithFallbacks(['summary.json']),
-      loadFileWithFallbacks(['sections/visit-calendar.json']),
-    ]);
-
-    // Load priority months (current and next) in parallel
-    const currentMonth = new Date().getMonth();
-    const priorityMonths = [monthNames[currentMonth], monthNames[(currentMonth + 1) % 12]];
-
-    const monthlyResults = await Promise.all(
-      priorityMonths.map(async (monthName) => {
-        try {
-          const data = JSON.parse(await fsPromises.readFile(path.join(monthlyDir, `${monthName}.json`), 'utf8'));
-          const monthKey = Object.keys(data)[0];
-          return monthKey ? [monthKey.toLowerCase(), data[monthKey]] : null;
-        } catch {
-          return null;
-        }
-      })
-    );
-
-    const monthlyData = Object.fromEntries(monthlyResults.filter(Boolean));
-
-    return {
-      cityName: capitalize(cityName),
-      country: cityMeta.country,
-      overview: overview ? { ...overview, dataCountry: cityMeta.country } : null,
-      attractions,
-      neighborhoods,
-      culinaryGuide,
-      connections,
-      seasonalActivities,
-      monthlyEvents: monthlyData,
-      summary,
-      visitCalendar
-    };
-  } catch (error) {
-    console.error(`Error loading data for ${cityName}:`, error);
-    return null;
+  // Prefer the small canonical per-section file; fall back to the overview key
+  // of the consolidated index.json for cities that predate the split.
+  let overview = await readJsonQuiet(path.join(baseDir, 'sections', 'overview.json'));
+  if (!overview) {
+    const idx = await readJsonQuiet(path.join(baseDir, 'index.json'));
+    overview = idx?.overview ?? null;
   }
+
+  return {
+    cityName: capitalize(cityName),
+    country: cityMeta.country,
+    overview: overview ? { ...overview, dataCountry: cityMeta.country } : null,
+  };
 }
 
 function CityJsonLd({ cityData, citySlug }) {
@@ -280,12 +206,12 @@ export default async function CityPage({ params, searchParams }) {
   }
 
   // Ship only the "shell" needed for the hero, header, breadcrumbs and the
-  // default "Getting In" tab. The heavy fields (attractions, neighborhoods,
-  // culinary, connections, seasonal, visit calendar, monthly) are fetched
-  // client-side from `/data/{country}/{slug}/index.json`, which is served
-  // with `Cache-Control: public, max-age=31536000, immutable` (see next.config).
-  // This keeps the RSC payload small on navigation (~20KB vs ~500KB for Paris)
-  // without duplicating data — the browser reuses the exact same JSON file.
+  // default tab. The heavy fields (attractions, neighborhoods, culinary,
+  // visit calendar, monthly) are fetched client-side per tab from
+  // `/data/{country}/{slug}/sections/*.json`, each served with
+  // `Cache-Control: public, max-age=31536000, immutable` (see next.config).
+  // This keeps the RSC payload small (~20KB vs ~500KB for Paris) and means a
+  // tab only downloads the section it actually needs.
   const shellCityData = {
     cityName: cityData.cityName,
     country: cityData.country,
