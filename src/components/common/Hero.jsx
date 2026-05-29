@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useHeroImage } from '@/hooks/useHeroImage';
@@ -58,7 +58,27 @@ export default function Hero({
         };
 
   const currentImageSrc = finalImageData.currentImageSrc;
+  const currentImageSrc2x = finalImageData.currentImageSrc2x || null;
   const hasValidImage = currentImageSrc && currentImageSrc !== '/images/city-placeholder.svg';
+
+  // DPR-aware source pick: on retina (>1.5x) prefer the 2x companion *if* it
+  // actually exists. We probe via `new Image()`; if it 404s we stay on 1x.
+  // Swapping blindly to a non-existent 2x file would fire <Image>'s onError
+  // and cascade the whole fallback chain past a perfectly good 1x source.
+  const [resolvedSrc, setResolvedSrc] = useState(currentImageSrc);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    setResolvedSrc(currentImageSrc);
+    const dpr = window.devicePixelRatio || 1;
+    if (!currentImageSrc2x || dpr <= 1.5) return;
+
+    let cancelled = false;
+    const probe = new window.Image();
+    probe.onload = () => { if (!cancelled) setResolvedSrc(currentImageSrc2x); };
+    probe.onerror = () => { /* keep 1x */ };
+    probe.src = currentImageSrc2x;
+    return () => { cancelled = true; };
+  }, [currentImageSrc, currentImageSrc2x]);
 
   // Ensure we have valid text content
   const safeTitle = title || 'City';
@@ -88,13 +108,14 @@ export default function Hero({
   return (
     <div className={`relative ${heightClass} w-full overflow-hidden rounded-none`}>
       {currentImageSrc && (
-        <Image 
-          src={currentImageSrc} 
-          alt={backgroundAlt} 
-          fill 
+        <Image
+          src={resolvedSrc}
+          alt={backgroundAlt}
+          fill
           sizes="100vw"
           className={`object-cover ${imagePositionClass}`}
-          priority 
+          priority
+          quality={90}
           onError={finalImageData.handleImageError}
           onLoad={finalImageData.handleImageLoad}
         />

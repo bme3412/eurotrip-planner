@@ -15,13 +15,16 @@ export const useHeroImage = (cityName, country) => {
   const isValidCityName = cityName && typeof cityName === 'string';
   const isValidCountry = country && typeof country === 'string';
 
-  // Generate image sources with priority order
+  // Generate image sources with priority order.
+  // Canonical:  /images/cities/{Country}/{slug}/hero.jpeg  (new per-city layout)
+  // Legacy fallbacks kept so any unmigrated city still renders.
   const imageSources = useMemo(() => {
     if (!isValidCityName || !isValidCountry) {
       return ['/images/city-placeholder.svg'];
     }
 
     return [
+      `/images/cities/${country}/${cityName}/hero.jpeg`,
       `/images/city-page/${country}/${cityName}-hero.jpeg`,
       `/images/city-page/${cityName}-hero.jpeg`,
       `/images/city-page/${country}/${cityName}.jpeg`,
@@ -31,6 +34,12 @@ export const useHeroImage = (cityName, country) => {
   }, [cityName, country, isValidCityName, isValidCountry]);
 
   const currentImageSrc = imageSources[currentImageIndex];
+  // When the current source is the canonical per-city hero, expose the 2x companion
+  // for DPR-aware rendering. Null for legacy / placeholder paths.
+  const currentImageSrc2x = currentImageSrc.endsWith('/hero.jpeg')
+    && currentImageSrc.startsWith('/images/cities/')
+    ? currentImageSrc.replace(/\/hero\.jpeg$/, '/hero-2x.jpeg')
+    : null;
 
   // Preload next image in the fallback chain
   useEffect(() => {
@@ -63,6 +72,7 @@ export const useHeroImage = (cityName, country) => {
 
   return {
     currentImageSrc,
+    currentImageSrc2x,
     imageSources,
     isLoading,
     hasError,

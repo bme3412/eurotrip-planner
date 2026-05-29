@@ -53,14 +53,22 @@ const CityCard = ({ city, priority = false, blurDataUrl = null, lazyRoot = null 
     
     // 1. Custom thumbnail if specified
     if (city.thumbnail) sources.push(city.thumbnail);
-    
-    // 2. Local country-specific thumbnail (highest priority for local files)
+
+    // 2. New canonical per-city layout
+    if (countryFolder) {
+      sources.push(`/images/cities/${countryFolder}/${id}/thumbnail.jpeg`);
+    }
+    if (city.country && city.country !== countryFolder) {
+      sources.push(`/images/cities/${city.country}/${id}/thumbnail.jpeg`);
+    }
+
+    // 3. Legacy country-specific thumbnail
     if (countryFolder) {
       sources.push(`/images/city-thumbnail/${countryFolder}/${id}-thumbnail.jpeg`);
       sources.push(`/images/city-thumbnail/${countryFolder}/${id}-thumbnail.jpg`);
     }
-    
-    // 3. Also try with original country name
+
+    // 4. Also try with original country name (legacy)
     if (city.country && city.country !== countryFolder) {
       sources.push(`/images/city-thumbnail/${city.country}/${id}-thumbnail.jpeg`);
       sources.push(`/images/city-thumbnail/${city.country}/${id}-thumbnail.jpg`);

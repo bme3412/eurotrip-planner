@@ -80,8 +80,11 @@ export async function generateMetadata({ params }) {
     ? rawDescription.substring(0, 152) + '...'
     : rawDescription;
 
-  // Try to find an OG image for this city
+  // Try to find an OG image for this city. Prefer the new per-city layout,
+  // fall back to the legacy split trees.
   const ogImageCandidates = [
+    `/images/cities/${country}/${city}/hero.jpeg`,
+    `/images/cities/${country}/${city}/thumbnail.jpeg`,
     `/images/city-page/${country}/${city}-hero.jpeg`,
     `/images/city-thumbnail/${country}/${city}-thumbnail.jpeg`,
   ];

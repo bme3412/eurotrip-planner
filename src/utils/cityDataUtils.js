@@ -116,13 +116,10 @@ export const getCityHeroImage = (cityName, country) => {
   if (!cityName || !country || typeof cityName !== 'string' || typeof country !== 'string') {
     return '/images/city-placeholder.svg';
   }
-  
-  // Try country-specific hero image first
-  const countryHeroPath = `/images/city-page/${country}/${cityName}-hero.jpeg`;
-  
-  // For development, you could check if file exists
-  // For production, just return the path and let Next.js handle 404s
-  return countryHeroPath;
+
+  // Prefer the new per-city layout; runtime <Image> onError will walk the
+  // fallback chain from getCityHeroImageFallbacks if this 404s.
+  return `/images/cities/${country}/${cityName}/hero.jpeg`;
 };
 
 /**
@@ -137,10 +134,11 @@ export const getCityHeroImageFallbacks = (cityName, country) => {
   }
   
   return [
+    `/images/cities/${country}/${cityName}/hero.jpeg`,
     `/images/city-page/${country}/${cityName}-hero.jpeg`,
     `/images/city-page/${cityName}-hero.jpeg`,
     `/images/city-page/${country}/${cityName}.jpeg`,
     `/images/city-page/${cityName}.jpeg`,
     '/images/city-placeholder.svg'
   ];
-}; 
+};

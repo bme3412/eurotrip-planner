@@ -101,18 +101,21 @@ for (const [slug, entry] of Object.entries(citiesMap)) {
   const region = bridge.region || COUNTRY_TO_REGION[country] || 'Other';
 
   // ── Thumbnail ──
-  // Convention: /images/city-thumbnail/{Country}/{slug}-thumbnail.jpeg (or .jpg)
-  // Check which extension actually exists on disk
+  // Preferred:  /images/cities/{Country}/{slug}/thumbnail.jpeg  (new per-city layout)
+  // Legacy:     /images/city-thumbnail/{Country}/{slug}-thumbnail.{jpeg,jpg}
   let thumbnail = bridge.thumbnail || '';
   if (!thumbnail) {
-    const jpegPath = path.join(ROOT, 'public', 'images', 'city-thumbnail', country, `${slug}-thumbnail.jpeg`);
-    const jpgPath = path.join(ROOT, 'public', 'images', 'city-thumbnail', country, `${slug}-thumbnail.jpg`);
-    if (fs.existsSync(jpegPath)) {
+    const newPath = path.join(ROOT, 'public', 'images', 'cities', country, slug, 'thumbnail.jpeg');
+    const legacyJpeg = path.join(ROOT, 'public', 'images', 'city-thumbnail', country, `${slug}-thumbnail.jpeg`);
+    const legacyJpg = path.join(ROOT, 'public', 'images', 'city-thumbnail', country, `${slug}-thumbnail.jpg`);
+    if (fs.existsSync(newPath)) {
+      thumbnail = `/images/cities/${country}/${slug}/thumbnail.jpeg`;
+    } else if (fs.existsSync(legacyJpeg)) {
       thumbnail = `/images/city-thumbnail/${country}/${slug}-thumbnail.jpeg`;
-    } else if (fs.existsSync(jpgPath)) {
+    } else if (fs.existsSync(legacyJpg)) {
       thumbnail = `/images/city-thumbnail/${country}/${slug}-thumbnail.jpg`;
     } else {
-      thumbnail = `/images/city-thumbnail/${country}/${slug}-thumbnail.jpeg`;
+      thumbnail = `/images/cities/${country}/${slug}/thumbnail.jpeg`;
     }
   }
 
