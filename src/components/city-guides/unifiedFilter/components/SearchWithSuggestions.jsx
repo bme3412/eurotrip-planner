@@ -1,8 +1,10 @@
 'use client';
 
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useRef, useCallback, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { getFlagForCountry } from '@/utils/countryFlags';
+import { legacyCountryFolder } from '@/lib/city-data/resolver';
 
 const SearchWithSuggestions = forwardRef(function SearchWithSuggestions(
   {
@@ -18,6 +20,43 @@ const SearchWithSuggestions = forwardRef(function SearchWithSuggestions(
   },
   ref
 ) {
+  const router = useRouter();
+  const warmedRef = useRef(new Set());
+
+  // Prewarm a suggestion's route (RSC payload) + data JSON so the eventual
+  // click navigates instantly. Best-effort and deduped per city id. In dev
+  // this also triggers on-demand route compilation ahead of the click.
+  const warmCity = useCallback(
+    (city) => {
+      if (!city || warmedRef.current.has(city.id)) return;
+      warmedRef.current.add(city.id);
+      try {
+        router.prefetch(`/city-guides/${city.id}`);
+      } catch {
+        /* no-op: prefetch is best-effort */
+      }
+      if (city.country) {
+        const folder = legacyCountryFolder(city.country);
+        try {
+          fetch(`/data/${folder}/${city.id}/index.json`, {
+            cache: 'force-cache',
+            priority: 'low',
+          }).catch(() => {});
+        } catch {
+          /* no-op */
+        }
+      }
+    },
+    [router]
+  );
+
+  // Warm the keyboard-highlighted suggestion as the user arrows through.
+  useEffect(() => {
+    if (selectedSuggestionIndex >= 0 && suggestions[selectedSuggestionIndex]) {
+      warmCity(suggestions[selectedSuggestionIndex]);
+    }
+  }, [selectedSuggestionIndex, suggestions, warmCity]);
+
   return (
     <div className="flex-1 relative" ref={ref}>
       <div className="relative">
@@ -73,6 +112,9 @@ const SearchWithSuggestions = forwardRef(function SearchWithSuggestions(
               <Link
                 key={city.id}
                 href={`/city-guides/${city.id}`}
+                onMouseEnter={() => warmCity(city)}
+                onFocus={() => warmCity(city)}
+                onTouchStart={() => warmCity(city)}
                 onClick={() => onSuggestionClick(city)}
                 className={`
                   flex items-center gap-3 px-4 py-2.5 transition-colors

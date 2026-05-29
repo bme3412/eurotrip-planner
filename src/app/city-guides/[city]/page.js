@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { cache } from "react";
 import fsPromises from "fs/promises";
 import path from "path";
 import CityPageClient from "@/components/city-guides/CityPageClient";
@@ -32,7 +33,7 @@ async function pathExists(filePath) {
 }
 
 // Cached manifest loader - avoids re-reading manifest on every request
-async function getManifest() {
+const getManifest = cache(async function getManifest() {
   if (manifestCache) return manifestCache;
 
   const manifestPath = path.join(process.cwd(), 'public', 'data', 'manifest.json');
@@ -44,7 +45,7 @@ async function getManifest() {
     console.error(`Error reading manifest.json:`, error);
     return null;
   }
-}
+});
 
 export async function generateStaticParams() {
   const manifest = await getManifest();
@@ -88,14 +89,17 @@ export async function generateMetadata({ params }) {
     `/images/city-page/${country}/${city}-hero.jpeg`,
     `/images/city-thumbnail/${country}/${city}-thumbnail.jpeg`,
   ];
-  let ogImage = null;
-  for (const candidate of ogImageCandidates) {
-    const fullPath = path.join(process.cwd(), 'public', candidate);
-    if (await pathExists(fullPath)) {
-      ogImage = `https://eurotrip-planner.vercel.app${candidate}`;
-      break;
-    }
-  }
+  // Check all candidates in parallel, then pick the first existing one in
+  // priority order (avoids sequential fs round-trips during SSR).
+  const candidateExists = await Promise.all(
+    ogImageCandidates.map((candidate) =>
+      pathExists(path.join(process.cwd(), 'public', candidate))
+    )
+  );
+  const firstMatch = ogImageCandidates.find((_, i) => candidateExists[i]);
+  const ogImage = firstMatch
+    ? `https://eurotrip-planner.vercel.app${firstMatch}`
+    : null;
 
   return {
     title: `${cityName}, ${country} — Travel Guide & Best Time to Visit`,  // template appends " | EuroTrip Planner"
@@ -119,11 +123,26 @@ export async function generateMetadata({ params }) {
   };
 }
 
+// Detects whether a consolidated index.json carries any real guide content.
+// Used to distinguish legacy cities that have full sections but a null
+// `overview` (which must still render) from genuinely-empty stub folders
+// (which should show the "Coming Soon" placeholder).
+function indexHasContent(idx) {
+  if (!idx) return false;
+  const sites = idx.attractions?.sites;
+  if (Array.isArray(sites) && sites.length > 0) return true;
+  const neighborhoods = idx.neighborhoods?.neighborhoods;
+  if (Array.isArray(neighborhoods) && neighborhoods.length > 0) return true;
+  if (idx.culinaryGuide && Object.keys(idx.culinaryGuide).length > 0) return true;
+  if (idx.monthly && Object.keys(idx.monthly).length > 0) return true;
+  return false;
+}
+
 // Loads only the lightweight "overview" shell needed for SSR (hero, header,
 // breadcrumbs, metadata and structured data). All heavy sections are fetched
 // client-side per tab from `/data/{country}/{slug}/sections/*.json`, so the
-// server intentionally ships only `{ cityName, country, overview }`.
-async function getCityData(cityName) {
+// server intentionally ships only `{ cityName, country, overview, hasContent }`.
+const getCityData = cache(async function getCityData(cityName) {
   const manifest = await getManifest();
   if (!manifest?.cities) {
     console.error('No manifest or cities found');
@@ -151,17 +170,23 @@ async function getCityData(cityName) {
   // Prefer the small canonical per-section file; fall back to the overview key
   // of the consolidated index.json for cities that predate the split.
   let overview = await readJsonQuiet(path.join(baseDir, 'sections', 'overview.json'));
+  let hasContent = Boolean(overview);
   if (!overview) {
     const idx = await readJsonQuiet(path.join(baseDir, 'index.json'));
     overview = idx?.overview ?? null;
+    // Legacy cities can have a null overview but full attractions/
+    // neighborhoods/culinary/monthly content loaded lazily per tab. Flag
+    // them so the client doesn't mistake them for empty stubs.
+    hasContent = Boolean(overview) || indexHasContent(idx);
   }
 
   return {
     cityName: capitalize(cityName),
     country: cityMeta.country,
     overview: overview ? { ...overview, dataCountry: cityMeta.country } : null,
+    hasContent,
   };
-}
+});
 
 function CityJsonLd({ cityData, citySlug }) {
   const structuredData = {
@@ -216,6 +241,7 @@ export default async function CityPage({ params, searchParams }) {
     cityName: cityData.cityName,
     country: cityData.country,
     overview: cityData.overview,
+    hasContent: cityData.hasContent,
   };
 
   const tripStart = resolvedSearch?.start ?? null;

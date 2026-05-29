@@ -6,6 +6,7 @@ import React, {
   useEffect,
   useMemo,
   useCallback,
+  useDeferredValue,
 } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
@@ -82,7 +83,10 @@ const INITIAL_CITIES = getStaticCityData().map((c) => ({
   country: normalizeCountry(c.country),
   thumbnail: c.thumbnail,
   region: c.region,
-  description: c.description,
+  // Resolve the description fallback once at build time so each city object is
+  // referentially stable across renders — this keeps React.memo(CityCard)
+  // effective and avoids per-render object spreads in the grid.
+  description: c.description || staticCityDescriptions[c.id],
 }));
 const INITIAL_COUNTRIES = [
   ...new Set(INITIAL_CITIES.map((x) => x.country).filter(Boolean)),
@@ -92,7 +96,6 @@ function CityGuidesContent() {
   /* ───────── filter state via context ───────── */
   const {
     state: filtersState,
-    hasActiveFilters,
     setSearchTerm,
     setRegion,
     toggleCountry,
@@ -101,6 +104,11 @@ function CityGuidesContent() {
     clearFilters,
   } = useCityGuidesFilters();
   const { searchTerm, selectedRegion, selectedCountries, activeFilterType } = filtersState;
+
+  // The immediate `searchTerm` drives the input + suggestions (snappy), while
+  // the deferred value drives the heavy card grid. React keeps the input
+  // responsive and renders the expensive grid update at a lower priority.
+  const deferredSearchTerm = useDeferredValue(searchTerm);
 
   /* ───────── static & UI state ───────── */
   const [cities] = useState(INITIAL_CITIES);
@@ -123,10 +131,10 @@ function CityGuidesContent() {
   const filtered = useMemo(() => {
     return cities.filter((city) => {
       const matchesSearch =
-        !searchTerm ||
-        city.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (city.country && city.country.toLowerCase().includes(searchTerm.toLowerCase())) ||
-        (city.description && city.description.toLowerCase().includes(searchTerm.toLowerCase()));
+        !deferredSearchTerm ||
+        city.name.toLowerCase().includes(deferredSearchTerm.toLowerCase()) ||
+        (city.country && city.country.toLowerCase().includes(deferredSearchTerm.toLowerCase())) ||
+        (city.description && city.description.toLowerCase().includes(deferredSearchTerm.toLowerCase()));
 
       const matchesCountry =
         selectedCountries.length === 0 || selectedCountries.includes(city.country);
@@ -156,7 +164,7 @@ function CityGuidesContent() {
 
       return matchesSearch && matchesCountry && matchesRegion;
     });
-  }, [cities, searchTerm, selectedCountries, selectedRegion, activeFilterType]);
+  }, [cities, deferredSearchTerm, selectedCountries, selectedRegion, activeFilterType]);
 
   // Sort by country, then by city name
   const sorted = useMemo(() => {
@@ -167,6 +175,14 @@ function CityGuidesContent() {
     });
     return arr;
   }, [filtered]);
+
+  // Mirror of the context `hasActiveFilters` selector, but keyed off the
+  // deferred search term so the heavy grid branch swap (browse-all ⇄ filtered)
+  // is deprioritized alongside the grid render — keeping the input responsive.
+  const gridHasActiveFilters =
+    (selectedRegion !== ALL_REGIONS && selectedRegion !== ALL_EXPERIENCES) ||
+    selectedCountries.length > 0 ||
+    Boolean(deferredSearchTerm);
 
   /* ───────── pagination ───────── */
   useEffect(() => {
@@ -189,8 +205,8 @@ function CityGuidesContent() {
   /* ───────── dynamic heading ───────── */
   const getResultsHeading = () => {
     const count = sorted.length;
-    
-    if (!hasActiveFilters) {
+
+    if (!gridHasActiveFilters) {
       return 'All Destinations';
     }
     
@@ -217,8 +233,8 @@ function CityGuidesContent() {
       parts.push(`in ${selectedCountries.length} countries`);
     }
     
-    if (searchTerm) {
-      parts.push(`matching "${searchTerm}"`);
+    if (deferredSearchTerm) {
+      parts.push(`matching "${deferredSearchTerm}"`);
     }
     
     return parts.join(' ');
@@ -270,12 +286,12 @@ function CityGuidesContent() {
         </div>
 
         {/* Popular Cities Section - Lazy loaded with blur placeholders */}
-        {!hasActiveFilters && !loading && cities.length > 0 && (
+        {!gridHasActiveFilters && !loading && cities.length > 0 && (
           <PopularCitiesSection cities={cities} />
         )}
 
         {/* Browse by Country Section with TOC */}
-        {!hasActiveFilters && !loading && cities.length > 0 && (
+        {!gridHasActiveFilters && !loading && cities.length > 0 && (
           <div className="mt-10" id="browse-by-country">
             {/* Subtle divider with label */}
             <div className="relative mb-6 scroll-mt-4">
@@ -316,7 +332,7 @@ function CityGuidesContent() {
         )}
 
         {/* When filters active, show filtered results grouped by country */}
-        {hasActiveFilters && !loading && sorted.length > 0 && (
+        {gridHasActiveFilters && !loading && sorted.length > 0 && (
           <>
             <div className="mb-4 flex items-center justify-between gap-3">
               <h2 className="text-lg font-semibold text-gray-900">{getResultsHeading()}</h2>
@@ -338,23 +354,18 @@ function CityGuidesContent() {
                     
                     {/* Cities Grid */}
                     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                      {countryCities.map((city, cityIndex) => {
-                        const cityWithDescription = city.description 
-                          ? city 
-                          : { ...city, description: staticCityDescriptions[city.id] };
-                        return (
-                          <div 
-                            key={city.id}
-                            className="animate-in fade-in duration-300"
-                            style={{ animationDelay: `${cityIndex * 40}ms`, animationFillMode: 'both' }}
-                          >
-                            <CityCard 
-                              city={cityWithDescription}
-                              priority={cityIndex < 4}
-                            />
-                          </div>
-                        );
-                      })}
+                      {countryCities.map((city, cityIndex) => (
+                        <div
+                          key={city.id}
+                          className="animate-in fade-in duration-300"
+                          style={{ animationDelay: `${cityIndex * 40}ms`, animationFillMode: 'both' }}
+                        >
+                          <CityCard
+                            city={city}
+                            priority={cityIndex < 4}
+                          />
+                        </div>
+                      ))}
                     </div>
                   </div>
                 );
@@ -364,7 +375,7 @@ function CityGuidesContent() {
         )}
 
         {/* When no filters, show cities grouped by country */}
-        {!hasActiveFilters && !loading && cities.length > 0 && (
+        {!gridHasActiveFilters && !loading && cities.length > 0 && (
           <div className="space-y-10">
             {allCountries.map((country, countryIndex) => {
               const countryCities = sorted.filter(c => c.country === country);
@@ -384,24 +395,18 @@ function CityGuidesContent() {
                   
                   {/* Cities Grid */}
                   <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    {countryCities.map((city, cityIndex) => {
-                      // Ensure city has description from static data if not from API
-                      const cityWithDescription = city.description 
-                        ? city 
-                        : { ...city, description: staticCityDescriptions[city.id] };
-                      return (
-                        <div 
-                          key={city.id}
-                          className="animate-in fade-in duration-300"
-                          style={{ animationDelay: `${cityIndex * 50}ms`, animationFillMode: 'both' }}
-                        >
-                          <CityCard 
-                            city={cityWithDescription}
-                            priority={countryIndex < 2 && cityIndex < 4}
-                          />
-                        </div>
-                      );
-                    })}
+                    {countryCities.map((city, cityIndex) => (
+                      <div
+                        key={city.id}
+                        className="animate-in fade-in duration-300"
+                        style={{ animationDelay: `${cityIndex * 50}ms`, animationFillMode: 'both' }}
+                      >
+                        <CityCard
+                          city={city}
+                          priority={countryIndex < 2 && cityIndex < 4}
+                        />
+                      </div>
+                    ))}
                   </div>
                   
                   {/* Back to Index Link */}
@@ -428,7 +433,7 @@ function CityGuidesContent() {
         )}
 
         {/* Pagination - only show when filters are active */}
-        {hasActiveFilters && sorted.length > INITIAL_LOAD && (
+        {gridHasActiveFilters && sorted.length > INITIAL_LOAD && (
           <div className="mt-8 flex flex-col items-center gap-4">
             <div className="flex items-center gap-2">
               <button

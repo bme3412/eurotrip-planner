@@ -213,4 +213,7 @@ const CityCard = ({ city, priority = false, blurDataUrl = null, lazyRoot = null 
   );
 };
 
-export default CityCard;
+// Memoized: the city-guides grid re-renders on every search keystroke. With
+// referentially-stable `city` objects (built once in the page), memo keeps
+// unchanged cards from re-rendering and re-running their image/observer setup.
+export default React.memo(CityCard);
