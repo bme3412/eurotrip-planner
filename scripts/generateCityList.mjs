@@ -163,12 +163,47 @@ export { cities };
   'utf-8'
 );
 
+// ── Lite list ───────────────────────────────────────────────────────
+// A field-trimmed copy for client components that only render the city
+// listing (id, name, country, thumbnail, region, description, tourism
+// categories). Dropping latitude/longitude/linguisticCategories keeps the
+// client chunk smaller for routes that never touch coordinates.
+const citiesLite = cities.map((c) => ({
+  id: c.id,
+  name: c.name,
+  country: c.country,
+  description: c.description,
+  thumbnail: c.thumbnail,
+  region: c.region,
+  tourismCategories: c.tourismCategories,
+}));
+
+fs.writeFileSync(
+  path.join(OUT_DIR, 'citiesLite.json'),
+  JSON.stringify(citiesLite, null, 0),  // minified
+  'utf-8'
+);
+
+fs.writeFileSync(
+  path.join(OUT_DIR, 'cityListLite.js'),
+  `// Auto-generated — do not edit manually
+// Run: node scripts/generateCityList.mjs
+// Field-trimmed city list for listing-only client components.
+import cities from './citiesLite.json';
+export default cities;
+export function getCitiesLite() { return cities; }
+export { cities };
+`,
+  'utf-8'
+);
+
 // ── Report ──────────────────────────────────────────────────────────
 const withCoords = cities.filter(c => c.latitude && c.longitude).length;
 const withDesc = cities.filter(c => c.description.length > 10).length;
 const fileSize = fs.statSync(path.join(OUT_DIR, 'cities.json')).size;
+const liteSize = fs.statSync(path.join(OUT_DIR, 'citiesLite.json')).size;
 
 console.log(`\n✅ Generated ${cities.length} cities → src/generated/cities.json`);
-console.log(`   File size: ${(fileSize / 1024).toFixed(1)} KB`);
+console.log(`   File size: ${(fileSize / 1024).toFixed(1)} KB (lite: ${(liteSize / 1024).toFixed(1)} KB)`);
 console.log(`   With coordinates: ${withCoords}/${cities.length}`);
 console.log(`   With descriptions: ${withDesc}/${cities.length}\n`);

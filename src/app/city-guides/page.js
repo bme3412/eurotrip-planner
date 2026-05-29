@@ -14,7 +14,7 @@ import UnifiedFilter from '@/components/city-guides/UnifiedFilter';
 import CityCard from '@/components/city-guides/CityCard';
 import CityCardSkeleton from '@/components/city-guides/CityCardSkeleton';
 import PopularCitiesSection from '@/components/city-guides/PopularCitiesSection';
-import { getCitiesData as getStaticCityData } from '@/generated/cityIndex';
+import { getCitiesLite as getStaticCityData } from '@/generated/cityListLite';
 import { COASTAL_CITY_IDS as COASTAL_CITY_IDS_CURATED } from '@/components/city-guides/coastalCityIds';
 import { getFlagForCountry } from '@/utils/countryFlags';
 import {

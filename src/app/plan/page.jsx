@@ -4,7 +4,7 @@ import { Suspense, useState, useCallback, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import TripDayStrip from '@/components/planner-v2/TripDayStrip';
-import citiesData from '@/generated/cities.json';
+import citiesData from '@/generated/citiesLite.json';
 
 const cityNameById = new Map(citiesData.map((c) => [c.id, c.name]));
 

@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createPortal } from 'react-dom';
-import { getCitiesData } from '@/generated/cityIndex';
+import { getCitiesLite as getCitiesData } from '@/generated/cityListLite';
 import { getFlagForCountry } from '@/utils/countryFlags';
 
 function searchCities(query, cities, limit = 6) {
