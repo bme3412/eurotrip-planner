@@ -213,33 +213,40 @@ export function MapDataProvider({ children }) {
     }
   }, [isSubscribed]);
 
+  // Actions must have stable identity across state changes. Consumers
+  // (e.g. MapComponent's rating-fetch effect) put `actions` and
+  // `actions.setLoadingState` in their dep arrays; if those identities
+  // changed every time the reducer ran, the effect would re-dispatch,
+  // re-render, and loop forever.
+  const actions = useMemo(() => ({
+    setCityRatings: (ratings) =>
+      dispatch({ type: ACTIONS.SET_CITY_RATINGS, payload: ratings }),
+
+    setCalendarData: (key, data) =>
+      dispatch({ type: ACTIONS.SET_CALENDAR_DATA, payload: { key, data } }),
+
+    setCityDetails: (cityName, data) =>
+      dispatch({ type: ACTIONS.SET_CITY_DETAILS, payload: { cityName, data } }),
+
+    setFilters: (filters) =>
+      dispatch({ type: ACTIONS.SET_FILTERS, payload: filters }),
+
+    setLoadingState: (type, loading) =>
+      dispatch({ type: ACTIONS.SET_LOADING_STATE, payload: { type, loading } }),
+
+    clearCache: (pattern) =>
+      dispatch({ type: ACTIONS.CLEAR_CACHE, payload: { pattern } }),
+
+    updatePerformance: (performance) =>
+      dispatch({ type: ACTIONS.UPDATE_PERFORMANCE, payload: performance })
+  }), []);
+
   const value = useMemo(() => ({
     state,
     dispatch,
     subscribe,
-    actions: {
-      setCityRatings: (ratings) =>
-        dispatch({ type: ACTIONS.SET_CITY_RATINGS, payload: ratings }),
-
-      setCalendarData: (key, data) =>
-        dispatch({ type: ACTIONS.SET_CALENDAR_DATA, payload: { key, data } }),
-
-      setCityDetails: (cityName, data) =>
-        dispatch({ type: ACTIONS.SET_CITY_DETAILS, payload: { cityName, data } }),
-
-      setFilters: (filters) =>
-        dispatch({ type: ACTIONS.SET_FILTERS, payload: filters }),
-
-      setLoadingState: (type, loading) =>
-        dispatch({ type: ACTIONS.SET_LOADING_STATE, payload: { type, loading } }),
-
-      clearCache: (pattern) =>
-        dispatch({ type: ACTIONS.CLEAR_CACHE, payload: { pattern } }),
-
-      updatePerformance: (performance) =>
-        dispatch({ type: ACTIONS.UPDATE_PERFORMANCE, payload: performance })
-    }
-  }), [state, subscribe]);
+    actions,
+  }), [state, subscribe, actions]);
 
   return (
     <MapDataContext.Provider value={value}>
@@ -254,10 +261,15 @@ export function useMapData() {
     throw new Error('useMapData must be used within a MapDataProvider');
   }
 
-  // Auto-subscribe so side-effects (localStorage, perf monitoring) only run when consumed
+  // Auto-subscribe so side-effects (localStorage, perf monitoring) only run when consumed.
+  // Depend on the stable `subscribe` function — not the whole `context` — otherwise every
+  // state update rebuilds `value`, which would tear down and re-attach this subscription on
+  // every render and bounce `subscriberCount` between 0 and N, retriggering the perf/persist
+  // effects in an infinite loop.
+  const { subscribe } = context;
   useEffect(() => {
-    return context.subscribe();
-  }, [context]);
+    return subscribe();
+  }, [subscribe]);
 
   return context;
 }

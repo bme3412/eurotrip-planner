@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { getCitiesData } from "@/generated/cityIndex";
 import ExploreMap from "./ExploreMap";
 
@@ -17,27 +15,17 @@ export default function ExplorePage() {
     latitude: city.latitude,
     longitude: city.longitude,
     description: city.description,
+    thumbnail: city.thumbnail,
   }));
 
+  // Phase 3: the floating top-right "City Guides" / "Start Planning" CTAs
+  // were removed. The map is the page. Per-city actions live in the
+  // selected-city card; the shortlist tray (phase 5) will own the
+  // persistent "start planning" affordance.
   return (
     <div className="h-screen w-full flex flex-col">
       <main className="flex-grow relative">
         <ExploreMap destinations={destinations} />
-
-        <div className="absolute top-4 right-4 z-10 flex gap-2">
-          <Link
-            href="/city-guides"
-            className="bg-white px-4 py-2 rounded-full shadow-md text-blue-600 font-medium hover:bg-blue-50 transition-colors"
-          >
-            City Guides
-          </Link>
-          <Link
-            href="/plan"
-            className="bg-white px-4 py-2 rounded-full shadow-md text-blue-600 font-medium hover:bg-blue-50 transition-colors"
-          >
-            Start Planning
-          </Link>
-        </div>
       </main>
     </div>
   );

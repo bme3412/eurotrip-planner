@@ -2,7 +2,9 @@
 
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import SelectedCityCard from "@/components/map/SelectedCityCard";
+import ShortlistTray from "@/components/map/ShortlistTray";
+import useShortlist from "@/hooks/useShortlist";
 
 const LazyMapComponentWrapper = dynamic(
   () => import("@/components/map/LazyMapComponent"),
@@ -29,56 +31,64 @@ export default function ExploreMap({ destinations }) {
     bearing: 0,
   });
 
+  // Phase 5: shortlist is the bridge from Explore → /plan. The hook is
+  // localStorage-only (no auth coupling) per the plan decision.
+  const shortlist = useShortlist();
+
   const handleMarkerClick = (city) => {
     setSelectedCity(city);
   };
 
+  const handleAddToShortlist = (city) => {
+    if (!city) return;
+    shortlist.add({
+      id: city.id,
+      title: city.title,
+      country: city.country,
+    });
+  };
+
+  // Disable the add affordance once the city is already in the tray so
+  // SelectedCityCard can render the button as a satisfied "added" state.
+  const addHandlerForCard =
+    selectedCity && shortlist.has(selectedCity) ? null : handleAddToShortlist;
+
   return (
     <div className="relative h-full w-full">
+      {/*
+        Phase 4: the React SelectedCityCard is now the source of truth
+        for the selected-city UI. Tell MapComponent to skip the Mapbox
+        HTML popup so we never render both at once. The popup code in
+        mapPopup.js stays in place as a fallback / future reuse path.
+      */}
       <LazyMapComponentWrapper
         viewState={viewState}
         onViewStateChange={setViewState}
         destinations={destinations}
         onMarkerClick={handleMarkerClick}
+        suppressHtmlPopup
       />
 
       {selectedCity && (
-        <div className="absolute bottom-4 left-4 z-20 w-[min(360px,calc(100%-2rem))] rounded-3xl border border-slate-200 bg-white/95 p-5 shadow-xl backdrop-blur">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-            Selected city
-          </p>
-          <h2 className="mt-1 text-2xl font-bold text-slate-950">{selectedCity.title}</h2>
-          {selectedCity.country && (
-            <p className="mt-1 text-sm text-slate-500">{selectedCity.country}</p>
-          )}
-          {selectedCity.description && (
-            <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-600">
-              {selectedCity.description}
-            </p>
-          )}
-          <div className="mt-4 flex flex-wrap gap-2">
-            <Link
-              href={`/city-guides/${selectedCity.id || selectedCity.title?.toLowerCase().replace(/\s+/g, '-')}`}
-              className="rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
-            >
-              View guide
-            </Link>
-            <Link
-              href={`/plan?city=${selectedCity.id || ''}&cityName=${encodeURIComponent(selectedCity.title || '')}`}
-              className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:border-slate-300"
-            >
-              Start plan
-            </Link>
-            <button
-              type="button"
-              onClick={() => setSelectedCity(null)}
-              className="rounded-full px-3 py-2 text-sm font-semibold text-slate-400 hover:text-slate-700"
-            >
-              Close
-            </button>
-          </div>
-        </div>
+        <SelectedCityCard
+          city={selectedCity}
+          onClose={() => setSelectedCity(null)}
+          onAddToShortlist={
+            addHandlerForCard ? () => addHandlerForCard(selectedCity) : null
+          }
+          alreadyShortlisted={shortlist.has(selectedCity)}
+        />
       )}
+
+      {/* Phase 6: on mobile the tray needs to lift above the
+          SelectedCityCard (which docks to bottom: 0). On desktop the
+          card is a corner card and the tray uses its default bottom-4. */}
+      <ShortlistTray
+        items={shortlist.items}
+        onRemove={shortlist.remove}
+        onClear={shortlist.clear}
+        liftAboveCard={Boolean(selectedCity)}
+      />
     </div>
   );
 }

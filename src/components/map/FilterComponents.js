@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { MONTH_NAMES_SHORT } from './constants';
 
 /**
@@ -139,73 +139,8 @@ export const DateFilter = ({ dateFilters, onDateTypeToggle, onDateChange, onMont
     { name: 'Fall', months: [8, 9, 10] },   // Sep, Oct, Nov
   ];
 
-  // Add custom styles to improve date picker arrows
-  useEffect(() => {
-    // Add custom CSS to document head
-    const style = document.createElement('style');
-    style.textContent = `
-      /* Hide default calendar icon and customize our own */
-      input[type="date"]::-webkit-calendar-picker-indicator {
-        opacity: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-      }
-      
-      /* Better date inputs in Firefox */
-      input[type="date"] {
-        position: relative;
-        appearance: none;
-        -moz-appearance: none;
-      }
-      
-      /* Make calendar clickable across the entire input */
-      .date-input-wrapper {
-        position: relative;
-      }
-      
-      .calendar-icon {
-        position: absolute;
-        right: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        pointer-events: none;
-        z-index: 1;
-      }
-      
-      /* Better month navigation arrows */
-      .react-datepicker__navigation {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 32px;
-        width: 32px;
-        border-radius: 4px;
-        background-color: #f3f4f6;
-        border: 1px solid #d1d5db;
-      }
-      
-      .react-datepicker__navigation:hover {
-        background-color: #e5e7eb;
-      }
-      
-      .react-datepicker__navigation-icon {
-        position: relative;
-        top: 0;
-        display: block;
-        width: 0;
-        border-color: #6b7280;
-      }
-    `;
-    document.head.appendChild(style);
-    
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
+  // Phase 3: the date-picker CSS that used to be injected here at runtime
+  // now lives in src/app/globals.css. No effect needed.
 
   const handleSeasonToggle = (seasonMonths) => {
     // If all months in the season are already selected, deselect them
@@ -474,22 +409,52 @@ export const RatingFilter = ({ minRating, disabled, loading, onRatingChange, dat
         )}
       </div>
       
-      <div className="relative">
-        <select 
-          className={`w-full p-2 border ${dateFiltersMissing ? 'border-gray-200 bg-gray-50' : 'border-gray-300 bg-white'} rounded-md transition-colors appearance-none pr-8`}
-          value={minRating}
-          onChange={(e) => onRatingChange(e.target.value)}
-          disabled={disabled || dateFiltersMissing}
-        >
-          <option value="0">All Destinations</option>
-          <option value="3">3+ (Good)</option>
-          <option value="4">4+ (Very Good)</option>
-        </select>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-          </svg>
-        </div>
+      {/* Phase 3: segmented control (Any / Good / Great) replaces the
+          previous <select>. Buttons stay disabled, with a tooltip,
+          until a date selection exists. */}
+      <div
+        role="radiogroup"
+        aria-label="Minimum destination rating"
+        className={`inline-flex w-full rounded-lg border p-1 transition-colors ${
+          dateFiltersMissing ? 'border-gray-200 bg-gray-50' : 'border-gray-300 bg-white'
+        }`}
+      >
+        {[
+          { value: 0, label: 'Any' },
+          { value: 3, label: 'Good' },
+          { value: 4, label: 'Great' },
+        ].map((opt) => {
+          const active = parseInt(minRating) === opt.value;
+          const isDisabled = disabled || dateFiltersMissing;
+          return (
+            <button
+              key={opt.value}
+              type="button"
+              role="radio"
+              aria-checked={active}
+              disabled={isDisabled}
+              onClick={() => onRatingChange(opt.value)}
+              title={
+                dateFiltersMissing
+                  ? 'Pick a date range or month to enable rating filters'
+                  : opt.label === 'Any'
+                  ? 'Show every city'
+                  : opt.label === 'Good'
+                  ? 'Cities scoring 3 or higher for your dates'
+                  : 'Cities scoring 4 or higher for your dates'
+              }
+              className={`flex-1 text-sm px-3 py-1.5 rounded-md transition-colors ${
+                isDisabled
+                  ? 'text-gray-400 cursor-not-allowed'
+                  : active
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'text-gray-700 hover:bg-gray-100'
+              }`}
+            >
+              {opt.label}
+            </button>
+          );
+        })}
       </div>
       
       {dateFiltersMissing ? (

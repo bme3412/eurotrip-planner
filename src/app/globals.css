@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Explore filter — date input styling (moved from runtime injection in DateFilter, phase 3). */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+input[type="date"] {
+  position: relative;
+  appearance: none;
+  -moz-appearance: none;
+}
+
+.date-input-wrapper {
+  position: relative;
+}
+
+.calendar-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* Trip Roulette shimmer animation */
 @keyframes shimmer {
   0% {
@@ -10,6 +40,20 @@
   100% {
     transform: translateX(100%);
   }
+}
+
+/* Explore map — indeterminate top progress bar (phase 6, MapProgressBar). */
+@keyframes mapProgressSlide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+.map-progress-bar-indicator {
+  animation: mapProgressSlide 1.4s ease-in-out infinite;
 }
 
 /* Global design tokens */

@@ -50,3 +50,9 @@ export const COUNTRY_COLORS = {
     useFlexibleDates: false,
     selectedMonths: []
   };
+
+  // Phase 1 feature flag (see plan: lovely-baking-piglet.md).
+  // When true, the Explore map renders all destinations via a single
+  // GeoJSON source + clustered native layers (fast). When false, the
+  // legacy per-city DOM marker path is used (kept for safe rollback).
+  export const MAP_USE_CLUSTERS = true;

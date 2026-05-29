@@ -1,3 +1,5 @@
+import { COUNTRY_COLORS, MAJOR_CITIES } from './constants';
+
 /**
  * Initialize the map
  * @param {Object} container - Map container element
@@ -181,6 +183,107 @@ export const initializeMap = async (container, viewState, onViewStateChange) => 
     return popup;
   };
   
+  // -------------------------------------------------------------
+  // Phase 1: GeoJSON source + clustered layers (see lovely-baking-piglet.md)
+  // -------------------------------------------------------------
+
+  const isCapitalLike = (city) =>
+    Array.isArray(city.landmarks) && city.landmarks.some((l) =>
+      /Capital|Palace|Parliament|Royal/.test(l)
+    );
+
+  /**
+   * Build a GeoJSON FeatureCollection from the destinations array.
+   * Each feature carries enough properties for cluster styling
+   * and downstream lookups.
+   * @param {Array<Object>} cities
+   * @returns {Object} GeoJSON FeatureCollection
+   */
+  export const buildCitiesGeoJSON = (cities) => ({
+    type: 'FeatureCollection',
+    features: (cities || [])
+      .filter((c) => Number.isFinite(c.longitude) && Number.isFinite(c.latitude))
+      .map((c) => ({
+        type: 'Feature',
+        id: c.id || c.title,
+        geometry: {
+          type: 'Point',
+          coordinates: [c.longitude, c.latitude],
+        },
+        properties: {
+          id: c.id || c.title,
+          title: c.title,
+          country: c.country,
+          isCapital: isCapitalLike(c),
+          isMajor: MAJOR_CITIES.includes(c.title),
+          rating: 0,
+        },
+      })),
+  });
+
+  /**
+   * Build a Mapbox style expression that maps a feature's
+   * `country` property to its brand color.
+   * @returns {Array}
+   */
+  export const buildCountryColorExpression = () => {
+    const expr = ['match', ['get', 'country']];
+    for (const [country, color] of Object.entries(COUNTRY_COLORS)) {
+      expr.push(country, color);
+    }
+    expr.push('#d63631'); // fallback
+    return expr;
+  };
+
+  /**
+   * Idempotently add the `cities` source and the three layers
+   * (clusters, cluster-count, unclustered-point).
+   * @param {Object} map - Mapbox map instance
+   * @param {Object} geojson - FeatureCollection
+   */
+  export const addCitiesSourceAndLayers = (map, geojson) => {
+    if (!map || map.getSource('cities')) return;
+
+    map.addSource('cities', {
+      type: 'geojson',
+      data: geojson,
+      // Clustering disabled per user preference: every city is rendered
+      // as its own dot at all zoom levels. We keep the GeoJSON-source
+      // perf win — filtering still happens via setData / setFilter, not
+      // by destroying DOM markers.
+      cluster: false,
+    });
+
+    map.addLayer({
+      id: 'unclustered-point',
+      type: 'circle',
+      source: 'cities',
+      paint: {
+        'circle-color': buildCountryColorExpression(),
+        'circle-radius': [
+          'case',
+          ['any', ['get', 'isCapital'], ['get', 'isMajor']],
+          8,
+          6,
+        ],
+        'circle-stroke-width': 2,
+        'circle-stroke-color': '#ffffff',
+      },
+    });
+  };
+
+  /**
+   * Replace the data backing the `cities` source.
+   * Cluster regeneration happens automatically.
+   * @param {Object} map
+   * @param {Object} geojson
+   */
+  export const setCitiesData = (map, geojson) => {
+    if (!map) return;
+    const src = map.getSource('cities');
+    if (src) src.setData(geojson);
+  };
+
   /**
    * Center popup in view
    * @param {Object} map - Map instance
