@@ -1,11 +1,32 @@
 'use client';
 
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
-import { HeartIcon as HeartOutline } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { ArrowRightIcon, HeartIcon as HeartOutline, MapPinIcon } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartSolid } from '@heroicons/react/24/solid';
 import { useAuth } from '@/contexts/AuthContext';
 import { useWishlist, useWishlistList } from '@/hooks/useWishlist';
+import { getFlagForCountry } from '@/utils/countryFlags';
+
+const GUEST_NUDGE_SESSION_KEY = 'eurotrip.wishlist.guestNudgeShown';
+
+function getSessionStorage() {
+  if (typeof window === 'undefined') return null;
+  try { return window.sessionStorage; } catch { return null; }
+}
+
+function shouldShowGuestNudge() {
+  const storage = getSessionStorage();
+  if (!storage) return false;
+  try { return storage.getItem(GUEST_NUDGE_SESSION_KEY) !== '1'; } catch { return false; }
+}
+
+function markGuestNudgeShown() {
+  const storage = getSessionStorage();
+  if (!storage) return;
+  try { storage.setItem(GUEST_NUDGE_SESSION_KEY, '1'); } catch {}
+}
 
 export default function SaveToTrips({
   cityName,
@@ -14,20 +35,42 @@ export default function SaveToTrips({
   showLabel = true,
   variant = 'default', // 'default' | 'hero'
 }) {
-  const { isSaved, loading, toggle } = useWishlist(cityName, cityData);
+  const { isSaved, loading, toggle, isGuest } = useWishlist(cityName, cityData);
+  const { signInWithGoogle } = useAuth();
   const [notification, setNotification] = useState(null);
 
-  const showNotificationMessage = useCallback((message) => {
-    setNotification(message);
-    setTimeout(() => setNotification(null), 3000);
+  const showNotificationMessage = useCallback((value) => {
+    setNotification(value);
+    setTimeout(() => setNotification(null), value?.cta ? 6000 : 3000);
   }, []);
 
   const handleSaveToggle = useCallback(async () => {
     const { action } = await toggle();
-    if (action === 'added') showNotificationMessage('Added to wishlists!');
-    else if (action === 'removed') showNotificationMessage('Removed from wishlists');
-    else if (action === 'noop') showNotificationMessage('Error saving');
-  }, [toggle, showNotificationMessage]);
+    if (action === 'added') {
+      if (isGuest && shouldShowGuestNudge()) {
+        markGuestNudgeShown();
+        showNotificationMessage({
+          text: 'Saved — sign in to keep these across devices',
+          cta: 'signIn',
+        });
+      } else {
+        showNotificationMessage('Added to wishlists!');
+      }
+    } else if (action === 'removed') {
+      showNotificationMessage('Removed from wishlists');
+    } else if (action === 'noop') {
+      showNotificationMessage('Error saving');
+    }
+  }, [toggle, showNotificationMessage, isGuest]);
+
+  const handleNudgeSignIn = useCallback(async () => {
+    setNotification(null);
+    try {
+      await signInWithGoogle();
+    } catch (err) {
+      console.error('[SaveToTrips] sign-in failed', err);
+    }
+  }, [signInWithGoogle]);
 
   // Style variants
   const getButtonStyles = () => {
@@ -68,7 +111,16 @@ export default function SaveToTrips({
             ) : (
               <HeartOutline className="w-5 h-5 text-gray-400" />
             )}
-            <span>{notification}</span>
+            <span>{typeof notification === 'string' ? notification : notification.text}</span>
+            {typeof notification === 'object' && notification.cta === 'signIn' && (
+              <button
+                type="button"
+                onClick={handleNudgeSignIn}
+                className="ml-2 px-3 py-1 rounded-full bg-rose-500 text-white text-xs font-semibold hover:bg-rose-600 transition-colors"
+              >
+                Sign in
+              </button>
+            )}
           </div>
         </div>
       )}
@@ -77,15 +129,30 @@ export default function SaveToTrips({
 }
 
 // Component to view saved trips - works with both Supabase and localStorage
-export function SavedTripsList() {
+export function SavedTripsList({ onCount }) {
   const { user } = useAuth();
   const { savedTrips, loading, remove } = useWishlistList();
+
+  useEffect(() => {
+    if (typeof onCount === 'function') onCount(savedTrips.length);
+  }, [savedTrips.length, onCount]);
 
   if (loading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[1, 2, 3].map((i) => (
-          <div key={i} className="animate-pulse bg-gray-200 rounded-xl h-64" />
+        {[0, 1, 2].map((i) => (
+          <div
+            key={i}
+            className="overflow-hidden rounded-2xl bg-white ring-1 ring-gray-200/80 shadow-soft"
+            style={{ animationDelay: `${i * 100}ms`, animationFillMode: 'both' }}
+          >
+            <div className="h-52 animate-pulse bg-gray-200/80" />
+            <div className="p-5 space-y-3">
+              <div className="h-4 w-2/3 animate-pulse rounded bg-gray-200/80" />
+              <div className="h-3 w-full animate-pulse rounded bg-gray-200/60" />
+              <div className="h-3 w-3/4 animate-pulse rounded bg-gray-200/60" />
+            </div>
+          </div>
         ))}
       </div>
     );
@@ -93,60 +160,100 @@ export function SavedTripsList() {
 
   if (savedTrips.length === 0) {
     return (
-      <div className="text-center py-12">
-        <HeartOutline className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-        <h3 className="text-lg font-medium text-gray-900 mb-2">No saved cities yet</h3>
-        <p className="text-gray-600">
+      <div className="rounded-2xl bg-white px-6 py-12 text-center ring-1 ring-gray-200">
+        <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-rose-50 text-rose-500">
+          <HeartOutline className="size-6" aria-hidden="true" />
+        </div>
+        <h3 className="mt-4 font-display text-xl text-gray-950">No saved cities yet</h3>
+        <p className="mx-auto mt-1 max-w-md text-sm text-gray-600">
           {user
-            ? 'Start exploring cities and save them to plan your trip!'
-            : 'Sign in to sync your wishlists across devices, or browse as a guest!'}
+            ? 'Tap the heart on any city guide to save it here for trip planning.'
+            : 'Sign in to sync your wishlists across devices — or save cities as a guest and we will remember them on this browser.'}
         </p>
+        <div className="mt-5 flex justify-center">
+          <Link
+            href="/city-guides"
+            className="inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-gray-800"
+          >
+            Browse city guides
+            <ArrowRightIcon className="size-4" aria-hidden="true" />
+          </Link>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {savedTrips.map((trip) => (
-        <div key={trip.cityName} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow group">
-          <div className="relative">
-            {trip.image && (
-              <Image
-                src={trip.image}
-                alt={trip.displayName}
-                width={400}
-                height={192}
-                className="w-full h-48 object-cover"
-              />
-            )}
-            <button
-              onClick={() => remove(trip)}
-              className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm hover:bg-white transition-colors"
-              title="Remove from wishlists"
-            >
-              <HeartSolid className="w-5 h-5 text-rose-500" />
-            </button>
-          </div>
-          <div className="p-4">
-            <h3 className="font-semibold text-lg text-gray-900 mb-1">{trip.displayName}</h3>
-            <p className="text-sm text-gray-600 mb-3">{trip.country}</p>
-            {trip.description && (
-              <p className="text-sm text-gray-700 line-clamp-2 mb-4">{trip.description}</p>
-            )}
-            <div className="flex gap-2">
-              <a
-                href={`/city-guides/${trip.cityName.toLowerCase()}`}
-                className="flex-1 text-center px-4 py-2.5 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors text-sm font-medium"
+      {savedTrips.map((trip) => {
+        const flag = trip.country ? getFlagForCountry(trip.country) : null;
+        const guideHref = `/city-guides/${trip.cityName.toLowerCase()}`;
+        return (
+          <article
+            key={trip.cityName}
+            className="group relative overflow-hidden rounded-2xl bg-white ring-1 ring-gray-200/80 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+          >
+            <Link href={guideHref} className="absolute inset-0 z-10" aria-label={`View guide for ${trip.displayName}`} />
+
+            <div className="relative h-52 overflow-hidden bg-gray-100">
+              {trip.image ? (
+                <Image
+                  src={trip.image}
+                  alt={trip.displayName}
+                  width={600}
+                  height={400}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center text-gray-300">
+                  <MapPinIcon className="size-12" aria-hidden="true" />
+                </div>
+              )}
+
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+              {flag && (
+                <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-white/85 px-2.5 py-1 text-[11px] font-semibold text-gray-800 ring-1 ring-white/60 backdrop-blur-sm">
+                  <span aria-hidden="true">{flag}</span>
+                  <span>{trip.country}</span>
+                </span>
+              )}
+
+              <button
+                type="button"
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); remove(trip); }}
+                className="absolute top-3 right-3 z-20 inline-flex size-9 items-center justify-center rounded-full bg-white/85 ring-1 ring-white/70 shadow-sm backdrop-blur-sm transition-colors hover:bg-white"
+                title="Remove from wishlists"
+                aria-label={`Remove ${trip.displayName} from wishlists`}
               >
-                View Guide
-              </a>
+                <HeartSolid className="size-5 text-rose-500" />
+              </button>
+
+              <h3 className="absolute left-4 right-4 bottom-3 font-display text-2xl text-white drop-shadow-sm">
+                {trip.displayName}
+              </h3>
             </div>
-            <p className="text-xs text-gray-500 mt-3">
-              Saved {new Date(trip.savedAt).toLocaleDateString()}
-            </p>
-          </div>
-        </div>
-      ))}
+
+            <div className="p-5">
+              {trip.description ? (
+                <p className="text-sm text-gray-600 line-clamp-2">{trip.description}</p>
+              ) : (
+                <p className="text-sm italic text-gray-400">Saved for a future trip.</p>
+              )}
+
+              <div className="mt-4 flex items-center justify-between">
+                <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-gray-400">
+                  Saved {new Date(trip.savedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                </span>
+                <span className="inline-flex items-center gap-1 text-sm font-semibold text-rose-600 transition-colors group-hover:text-rose-700">
+                  View guide
+                  <ArrowRightIcon className="size-3.5" aria-hidden="true" />
+                </span>
+              </div>
+            </div>
+          </article>
+        );
+      })}
     </div>
   );
 }

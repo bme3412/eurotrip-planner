@@ -2,6 +2,16 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import {
+  ArrowLongRightIcon,
+  ArrowRightIcon,
+  CalendarDaysIcon,
+  ClockIcon,
+  ExclamationTriangleIcon,
+  PlusIcon,
+  SparklesIcon,
+  UserCircleIcon,
+} from "@heroicons/react/24/outline";
 import AuthButton from "@/components/auth/AuthButton";
 import { SavedTripsList } from "@/components/common/SaveToTrips";
 import { useAuth } from "@/contexts/AuthContext";
@@ -31,15 +41,14 @@ function formatDate(value) {
   });
 }
 
-function tripDateLabel(trip) {
+function tripDateInfo(trip) {
   if (trip.start_date && trip.end_date) {
-    return `${formatDate(trip.start_date)} - ${formatDate(trip.end_date)}`;
+    return { kind: "range", label: `${formatDate(trip.start_date)} – ${formatDate(trip.end_date)}` };
   }
-
   const timeRange = trip.time_range || {};
-  if (timeRange.flexibleMonth) return `Flexible in ${timeRange.flexibleMonth}`;
-  if (timeRange.totalNights) return `${timeRange.totalNights} nights`;
-  return "Dates not set";
+  if (timeRange.flexibleMonth) return { kind: "soft", label: `Flexible in ${timeRange.flexibleMonth}` };
+  if (timeRange.totalNights) return { kind: "soft", label: `${timeRange.totalNights} nights` };
+  return { kind: "empty", label: "Dates not set" };
 }
 
 function formatUpdatedAt(value) {
@@ -53,22 +62,104 @@ function formatUpdatedAt(value) {
   })}`;
 }
 
-function tripCitiesLabel(trip) {
+function tripCityChips(trip) {
   if (Array.isArray(trip.cities) && trip.cities.length > 0) {
     return trip.cities
       .map((city) => {
         const name = city.name || city.id;
         if (!name) return null;
-        return city.country ? `${getFlagForCountry(city.country)} ${name}` : name;
+        return { name, flag: city.country ? getFlagForCountry(city.country) : null };
       })
-      .filter(Boolean)
-      .join(" -> ");
+      .filter(Boolean);
   }
-
   if (trip.city) {
-    return trip.country ? `${getFlagForCountry(trip.country)} ${trip.city}, ${trip.country}` : trip.city;
+    return [{ name: trip.city, flag: trip.country ? getFlagForCountry(trip.country) : null }];
   }
-  return "Route in progress";
+  return [];
+}
+
+function CityChips({ chips }) {
+  if (chips.length === 0) {
+    return <p className="text-sm italic text-gray-500">Route in progress</p>;
+  }
+  return (
+    <div className="flex flex-wrap items-center gap-1.5">
+      {chips.map((chip, idx) => (
+        <span key={`${chip.name}-${idx}`} className="contents">
+          <span className="inline-flex items-center gap-1 rounded-full bg-gray-50 px-2.5 py-1 text-xs font-medium text-gray-800 ring-1 ring-gray-200">
+            {chip.flag && <span aria-hidden="true">{chip.flag}</span>}
+            <span>{chip.name}</span>
+          </span>
+          {idx < chips.length - 1 && (
+            <ArrowLongRightIcon className="size-3.5 text-gray-300" aria-hidden="true" />
+          )}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function StatusDot({ tone = "gray" }) {
+  const map = {
+    emerald: "bg-emerald-500",
+    amber: "bg-amber-500",
+    gray: "bg-gray-400",
+  };
+  return <span className={`size-1.5 rounded-full ${map[tone] || map.gray}`} aria-hidden="true" />;
+}
+
+function StatPill({ count, label, tone = "rose" }) {
+  const dotTone = tone === "amber" ? "bg-amber-500" : tone === "emerald" ? "bg-emerald-500" : "bg-rose-400";
+  return (
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-1 text-xs font-medium text-gray-700 ring-1 ring-gray-200/80 backdrop-blur-sm">
+      <span className={`size-1.5 rounded-full ${dotTone}`} aria-hidden="true" />
+      <span className="font-semibold text-gray-900">{count}</span>
+      <span className="text-gray-500">{label}</span>
+    </span>
+  );
+}
+
+function SectionHeader({ eyebrow, title, subtitle, action, dotTone = "rose" }) {
+  const dotMap = {
+    rose: "bg-rose-400",
+    amber: "bg-amber-500",
+    emerald: "bg-emerald-500",
+  };
+  return (
+    <div className="mb-5">
+      <div className="flex items-end justify-between gap-4">
+        <div>
+          <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-rose-500/80">
+            <span className={`size-1.5 rounded-full ${dotMap[dotTone] || dotMap.rose}`} aria-hidden="true" />
+            {eyebrow}
+          </p>
+          <h2 className="mt-2 font-display text-2xl text-gray-950">{title}</h2>
+          {subtitle && <p className="mt-1 text-sm text-gray-500">{subtitle}</p>}
+        </div>
+        {action}
+      </div>
+      <div className="mt-4 h-px bg-gradient-to-r from-gray-200 via-gray-200/40 to-transparent" />
+    </div>
+  );
+}
+
+function EmptyCard({ icon: Icon, tone = "rose", title, body, cta }) {
+  const toneMap = {
+    rose: { wrap: "ring-gray-200 bg-white", badge: "bg-rose-50 text-rose-500" },
+    amber: { wrap: "ring-amber-200 bg-amber-50/70", badge: "bg-amber-100 text-amber-700" },
+    red: { wrap: "ring-red-200 bg-red-50/70", badge: "bg-red-100 text-red-600" },
+  };
+  const styles = toneMap[tone] || toneMap.rose;
+  return (
+    <div className={`rounded-2xl border border-dashed px-6 py-10 text-center ring-1 ${styles.wrap}`} style={{ borderColor: "transparent" }}>
+      <div className={`mx-auto flex size-12 items-center justify-center rounded-full ${styles.badge}`}>
+        <Icon className="size-6" aria-hidden="true" />
+      </div>
+      <h3 className="mt-4 font-display text-xl text-gray-950">{title}</h3>
+      {body && <p className="mx-auto mt-1 max-w-md text-sm text-gray-600">{body}</p>}
+      {cta && <div className="mt-5 flex justify-center">{cta}</div>}
+    </div>
+  );
 }
 
 function TripCard({ trip, isLocal = false, onRemove = null }) {
@@ -80,45 +171,84 @@ function TripCard({ trip, isLocal = false, onRemove = null }) {
     ? `/itineraries/${trip.id}`
     : `/plan?${isLocal ? "localTripId" : "tripId"}=${trip.id}`;
 
+  const dotTone = isGenerated ? "emerald" : isLocal ? "amber" : "gray";
+  const badgeTone = isGenerated
+    ? "bg-emerald-50 text-emerald-700 ring-emerald-100"
+    : isLocal
+      ? "bg-white text-amber-700 ring-amber-200"
+      : "bg-gray-50 text-gray-600 ring-gray-200";
+  const badgeLabel = isGenerated ? "Itinerary ready" : isLocal ? "Device only" : "Draft";
+
+  const chips = tripCityChips(trip);
+  const dateInfo = tripDateInfo(trip);
+
+  const containerBase = "group rounded-2xl p-5 md:p-6 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ring-1";
+  const containerVariant = isLocal
+    ? "bg-gradient-to-br from-amber-50/80 to-white ring-amber-200"
+    : "bg-white ring-gray-200/80";
+
   return (
-    <article className={`rounded-2xl border p-5 shadow-sm ${isLocal ? "border-amber-200 bg-amber-50/70" : "border-gray-200 bg-white"}`}>
+    <article className={`${containerBase} ${containerVariant}`}>
       <div className="flex items-start justify-between gap-4">
-        <div>
-          <p className={`text-xs font-semibold uppercase tracking-[0.2em] ${isLocal ? "text-amber-700" : "text-gray-400"}`}>
+        <div className="min-w-0">
+          <p className={`flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] ${isLocal ? "text-amber-700" : "text-gray-400"}`}>
+            <StatusDot tone={dotTone} />
             {statusLabel}
           </p>
-          <h2 className="mt-1 text-xl font-semibold text-gray-950">
+          <h3 className="mt-2 font-display text-xl md:text-2xl text-gray-950 transition-colors group-hover:text-rose-600">
             {trip.title || "Untitled Europe Trip"}
-          </h2>
-          <p className="mt-1 text-xs text-gray-500">{formatUpdatedAt(trip.updated_at || trip.created_at)}</p>
+          </h3>
+          <p className="mt-1.5 inline-flex items-center gap-1.5 text-xs text-gray-500">
+            <ClockIcon className="size-3.5" aria-hidden="true" />
+            {formatUpdatedAt(trip.updated_at || trip.created_at)}
+          </p>
         </div>
-        <span className={`rounded-full px-3 py-1 text-xs font-semibold ${isGenerated ? "bg-emerald-100 text-emerald-700" : isLocal ? "bg-white text-amber-700" : "bg-gray-100 text-gray-600"}`}>
-          {isGenerated ? "Itinerary ready" : isLocal ? "Device only" : "Draft"}
+        <span className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ring-1 ${badgeTone}`}>
+          <StatusDot tone={dotTone} />
+          {badgeLabel}
         </span>
       </div>
 
-      <p className="mt-3 text-sm text-gray-700">{tripCitiesLabel(trip)}</p>
-      <p className="mt-1 text-sm text-gray-500">{tripDateLabel(trip)}</p>
+      <div className="mt-4">
+        <CityChips chips={chips} />
+      </div>
+
+      <div className="mt-3">
+        {dateInfo.kind === "range" ? (
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-50 px-3 py-1 text-xs font-medium text-rose-700 ring-1 ring-rose-100">
+            <CalendarDaysIcon className="size-3.5" aria-hidden="true" />
+            {dateInfo.label}
+          </span>
+        ) : dateInfo.kind === "soft" ? (
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-gray-50 px-3 py-1 text-xs font-medium text-gray-700 ring-1 ring-gray-200">
+            <CalendarDaysIcon className="size-3.5" aria-hidden="true" />
+            {dateInfo.label}
+          </span>
+        ) : (
+          <p className="text-xs italic text-gray-400">{dateInfo.label}</p>
+        )}
+      </div>
 
       <div className="mt-5 flex flex-wrap gap-2">
         <Link
           href={primaryHref}
-          className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800"
+          className="inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
         >
           {isGenerated && !isLocal ? "View itinerary" : "Continue planning"}
+          <ArrowRightIcon className="size-4" aria-hidden="true" />
         </Link>
         {!isLocal && (
           <>
             <Link
               href={`/plan?tripId=${trip.id}`}
-              className="rounded-full border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 hover:border-gray-300"
+              className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-gray-200 transition-all hover:bg-gray-50 hover:ring-gray-300"
             >
               Edit route
             </Link>
             {isGenerated && (
               <Link
                 href={`/itineraries/${trip.id}`}
-                className="rounded-full border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 hover:border-gray-300"
+                className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-gray-200 transition-all hover:bg-gray-50 hover:ring-gray-300"
               >
                 Edit itinerary
               </Link>
@@ -129,7 +259,7 @@ function TripCard({ trip, isLocal = false, onRemove = null }) {
           <button
             type="button"
             onClick={() => onRemove(trip.id)}
-            className="rounded-full border border-amber-300 bg-white px-4 py-2 text-sm font-semibold text-amber-800 hover:border-amber-400"
+            className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-amber-700 ring-1 ring-amber-200 transition-all hover:text-amber-900 hover:ring-amber-300"
           >
             Remove
           </button>
@@ -139,7 +269,7 @@ function TripCard({ trip, isLocal = false, onRemove = null }) {
   );
 }
 
-function TripDraftsSection() {
+function TripDraftsSection({ onCount }) {
   const { user, session, loading: authLoading, isSupabaseConfigured } = useAuth();
   const [trips, setTrips] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -174,11 +304,19 @@ function TripDraftsSection() {
     loadTrips();
   }, [authLoading, loadTrips]);
 
+  useEffect(() => {
+    if (typeof onCount === "function") onCount(trips.length);
+  }, [trips.length, onCount]);
+
   if (authLoading || loading) {
     return (
       <div className="grid gap-4 md:grid-cols-2">
         {[0, 1].map((item) => (
-          <div key={item} className="h-44 animate-pulse rounded-2xl bg-gray-200" />
+          <div
+            key={item}
+            className="h-48 animate-pulse rounded-2xl bg-gray-200/70"
+            style={{ animationDelay: `${item * 100}ms`, animationFillMode: "both" }}
+          />
         ))}
       </div>
     );
@@ -186,45 +324,53 @@ function TripDraftsSection() {
 
   if (!user) {
     return (
-      <div className="rounded-2xl border border-amber-200 bg-amber-50 px-5 py-5">
-        <h2 className="text-lg font-semibold text-amber-950">Sign in to sync trip drafts</h2>
-        <p className="mt-1 text-sm text-amber-800">
-          Planner drafts are saved to your account once you sign in. Local wishlists still appear below.
-        </p>
-        {isSupabaseConfigured && <div className="mt-4"><AuthButton /></div>}
-      </div>
+      <EmptyCard
+        icon={UserCircleIcon}
+        tone="amber"
+        title="Sign in to sync trip drafts"
+        body="Planner drafts are saved to your account once you sign in. Local wishlists still appear below."
+        cta={isSupabaseConfigured ? <AuthButton /> : null}
+      />
     );
   }
 
   if (error) {
     return (
-      <div className="rounded-2xl border border-red-200 bg-red-50 px-5 py-5">
-        <p className="text-sm font-medium text-red-800">{error}</p>
-        <button
-          type="button"
-          onClick={loadTrips}
-          className="mt-3 rounded-full bg-white px-4 py-2 text-sm font-semibold text-red-700 shadow-sm"
-        >
-          Try again
-        </button>
-      </div>
+      <EmptyCard
+        icon={ExclamationTriangleIcon}
+        tone="red"
+        title="Something went wrong"
+        body={error}
+        cta={
+          <button
+            type="button"
+            onClick={loadTrips}
+            className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800"
+          >
+            Try again
+          </button>
+        }
+      />
     );
   }
 
   if (trips.length === 0) {
     return (
-      <div className="rounded-2xl border border-dashed border-gray-300 bg-white px-5 py-8 text-center">
-        <h2 className="text-lg font-semibold text-gray-900">No trip drafts yet</h2>
-        <p className="mt-1 text-sm text-gray-600">
-          Start a conversation with the planner and your route will appear here once it has a city and dates.
-        </p>
-        <Link
-          href="/plan"
-          className="mt-4 inline-flex rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-gray-800"
-        >
-          Plan a trip
-        </Link>
-      </div>
+      <EmptyCard
+        icon={SparklesIcon}
+        tone="rose"
+        title="No trip drafts yet"
+        body="Start a conversation with the planner and your route will appear here once it has a city and dates."
+        cta={
+          <Link
+            href="/plan"
+            className="inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-gray-800"
+          >
+            Plan a trip
+            <ArrowRightIcon className="size-4" aria-hidden="true" />
+          </Link>
+        }
+      />
     );
   }
 
@@ -237,7 +383,7 @@ function TripDraftsSection() {
   );
 }
 
-function LocalTripDraftsSection() {
+function LocalTripDraftsSection({ onCount }) {
   const [drafts, setDrafts] = useState([]);
 
   const loadDrafts = useCallback(() => {
@@ -251,6 +397,10 @@ function LocalTripDraftsSection() {
     return () => window.removeEventListener("storage", loadDrafts);
   }, [loadDrafts]);
 
+  useEffect(() => {
+    if (typeof onCount === "function") onCount(drafts.length);
+  }, [drafts.length, onCount]);
+
   const handleRemove = useCallback((id) => {
     removeLocalTripDraft(id);
     loadDrafts();
@@ -259,11 +409,13 @@ function LocalTripDraftsSection() {
   if (drafts.length === 0) return null;
 
   return (
-    <section>
-      <div className="mb-4">
-        <h2 className="text-lg font-semibold text-gray-950">Saved on this device</h2>
-        <p className="text-sm text-gray-600">Local planner drafts you can reopen from this browser.</p>
-      </div>
+    <section aria-labelledby="local-drafts-heading">
+      <SectionHeader
+        eyebrow="02 · This device"
+        title="Saved on this device"
+        subtitle="Local planner drafts you can reopen from this browser."
+        dotTone="amber"
+      />
       <div className="grid gap-4 md:grid-cols-2">
         {drafts.map((trip) => (
           <TripCard key={trip.id} trip={trip} isLocal onRemove={handleRemove} />
@@ -274,40 +426,77 @@ function LocalTripDraftsSection() {
 }
 
 export default function SavedTripsPage() {
+  const [draftCount, setDraftCount] = useState(0);
+  const [localCount, setLocalCount] = useState(0);
+  const [wishlistCount, setWishlistCount] = useState(0);
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="border-b border-gray-200 bg-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gray-400">Account</p>
-            <h1 className="mt-1 text-2xl font-bold text-gray-950">My Trips</h1>
+    <div className="min-h-screen bg-[#fafaf7]">
+      <header className="relative overflow-hidden border-b border-gray-200/70 bg-gradient-to-b from-rose-50/60 via-white to-[#fafaf7]">
+        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
+          <div className="flex flex-wrap items-start justify-between gap-6">
+            <div className="min-w-0">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-rose-500/80">Account</p>
+              <h1 className="mt-2 font-display text-4xl font-semibold tracking-tight text-gray-950 md:text-5xl">
+                My Trips
+              </h1>
+              <p className="mt-3 max-w-xl text-sm text-gray-600">
+                Your planner drafts, generated itineraries, and saved cities — all in one place.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                <StatPill count={draftCount} label={draftCount === 1 ? "draft" : "drafts"} tone="rose" />
+                {localCount > 0 && (
+                  <StatPill count={localCount} label={localCount === 1 ? "on this device" : "on this device"} tone="amber" />
+                )}
+                <StatPill count={wishlistCount} label={wishlistCount === 1 ? "saved city" : "saved cities"} tone="emerald" />
+              </div>
+            </div>
+            <div className="shrink-0">
+              <AuthButton />
+            </div>
           </div>
-          <AuthButton />
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl space-y-10 px-4 py-8 sm:px-6">
-        <section>
-          <div className="mb-4 flex items-end justify-between gap-4">
-            <div>
-              <h2 className="text-lg font-semibold text-gray-950">Trip drafts</h2>
-              <p className="text-sm text-gray-600">Routes and itineraries saved from the conversational planner.</p>
-            </div>
-            <Link href="/plan" className="text-sm font-semibold text-rose-600 hover:text-rose-700">
-              New trip
-            </Link>
-          </div>
-          <TripDraftsSection />
+      <main className="mx-auto max-w-6xl space-y-12 px-4 py-10 sm:px-6">
+        <section aria-labelledby="drafts-heading">
+          <SectionHeader
+            eyebrow="01 · Drafts"
+            title="Trip drafts"
+            subtitle="Routes and itineraries saved from the conversational planner."
+            dotTone="rose"
+            action={
+              <Link
+                href="/plan"
+                className="inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-gray-800"
+              >
+                <PlusIcon className="size-3.5" aria-hidden="true" />
+                New trip
+              </Link>
+            }
+          />
+          <TripDraftsSection onCount={setDraftCount} />
         </section>
 
-        <LocalTripDraftsSection />
+        <LocalTripDraftsSection onCount={setLocalCount} />
 
-        <section>
-          <div className="mb-4">
-            <h2 className="text-lg font-semibold text-gray-950">Wishlists</h2>
-            <p className="text-sm text-gray-600">Cities and experiences saved while browsing guides.</p>
-          </div>
-          <SavedTripsList />
+        <section aria-labelledby="wishlists-heading">
+          <SectionHeader
+            eyebrow="03 · Wishlists"
+            title="Wishlists"
+            subtitle="Cities and experiences saved while browsing guides."
+            dotTone="emerald"
+            action={
+              <Link
+                href="/city-guides"
+                className="inline-flex items-center gap-1 text-xs font-semibold text-rose-600 transition-colors hover:text-rose-700"
+              >
+                Browse guides
+                <ArrowRightIcon className="size-3.5" aria-hidden="true" />
+              </Link>
+            }
+          />
+          <SavedTripsList onCount={setWishlistCount} />
         </section>
       </main>
     </div>
