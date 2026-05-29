@@ -5,7 +5,6 @@ import { getPhotoData } from './lib/photoData';
 import { usePhotoFilters } from './hooks/usePhotoFilters';
 import PhotoFilterBar from './components/PhotoFilterBar';
 import PhotoCard from './components/PhotoCard';
-import PhotoTips from './components/PhotoTips';
 import SpotDetailModal from './components/SpotDetailModal';
 import PhotoBreadcrumb from './components/PhotoBreadcrumb';
 
@@ -37,9 +36,6 @@ export default function PhotoSpots({ cityName }) {
           <PhotoCard key={i} spot={spot} onClick={() => setSelectedSpot(spot)} />
         ))}
       </div>
-
-      {/* Photo Tips */}
-      <PhotoTips tips={photoData.tips} />
 
       {/* Spot Detail Modal */}
       <SpotDetailModal spot={selectedSpot} onClose={() => setSelectedSpot(null)} />

@@ -3,7 +3,6 @@
 import React from 'react';
 import IntroSections from './components/IntroSections';
 import RestaurantSection from './components/RestaurantSection';
-import HighlightsSection from './components/HighlightsSection';
 import FoodFooter from './components/FoodFooter';
 import { useFoodGuideData } from './hooks/useFoodGuideData';
 import { useFlattenedRestaurants } from './hooks/useRestaurantList';
@@ -24,8 +23,6 @@ export default function FoodDrinkGuide({ cityName, cityData }) {
       {culinaryGuide && allRestaurants.length > 0 && (
         <RestaurantSection allRestaurants={allRestaurants} />
       )}
-
-      <HighlightsSection highlights={foodData.highlights} />
 
       <FoodFooter cityName={cityName} displayName={displayName} />
     </div>
