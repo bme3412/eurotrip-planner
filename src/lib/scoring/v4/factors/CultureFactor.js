@@ -24,11 +24,11 @@ const CULTURE_ATTRACTION_TYPES = [
 export class CultureFactor extends BaseFactor {
   hasRequiredData(input) {
     const { cityData } = input;
-    return !!(
-      cityData?.tourismCategories ||
-      cityData?.attractions ||
-      cityData?.highlights
-    );
+    // Gate on real content (attractions/highlights), NOT the curated
+    // tourismCategories field — otherwise merely having a catalog entry would
+    // flip a city from fallback to computed, biasing the ranking toward
+    // catalogued cities.
+    return !!(cityData?.attractions || cityData?.highlights);
   }
 
   calculate(input) {
@@ -164,7 +164,7 @@ export class CultureFactor extends BaseFactor {
   calculateConfidence(cityData) {
     let confidence = 0.5;
 
-    if (cityData.tourismCategories?.length >= 3) confidence += 0.15;
+    if (inferCategories(cityData).length >= 3) confidence += 0.15;
 
     // Handle both array format and object format with .sites
     let attractions = cityData.attractions || [];

@@ -103,8 +103,9 @@ export class BeachFactor extends BaseFactor {
       score = 9;
     }
 
-    // Check category strength
-    const categories = cityData.tourismCategories || [];
+    // Check category strength (attraction-derived, so the curated tourismCategories
+    // field does not bias scoring — see inferCategories docs).
+    const categories = inferCategories(cityData);
     for (const category of categories) {
       const lower = category.toLowerCase();
       if (lower.includes('beach') || lower.includes('coastal')) {

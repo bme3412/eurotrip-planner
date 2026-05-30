@@ -47,7 +47,15 @@ There are **two tiers of cities**:
 
 ## 2. The vehicle: refresh generators
 
-Build every backfill as a refresh generator — that path is content-sourced, versioned, and
+> ⚠️ **Phase A reality (verified):** the content build (`scripts/content/build.mjs` →
+> `writeCanonical.mjs`) only writes `public/data/.../sections/*.json` + `_meta.json`. It
+> deliberately does **not** own `index.json` ("must NOT modify any file the running site reads").
+> **V4 scoring reads `index.json`.** So until Phase B switches the loader to canonical URLs, a
+> backfill that must reach scoring has to **patch `index.json` directly** (as `enrichCoordinates.mjs`,
+> `pipeline/enrich.mjs`, and the P0 script below already do). Refresh generators are still the right
+> vehicle for the *content* layer; just don't assume a refresh → build reaches `index.json` yet.
+
+Build content-layer backfills as refresh generators — that path is content-sourced, versioned, and
 survives a rebuild. (`generateCityData.mjs`, `upgradeVisitCalendars.mjs`, and the Python
 `scripts/enrich/` are useful **prior art to copy logic from** — concurrency, retries, API calls —
 but don't fork a parallel pipeline.)
@@ -124,7 +132,7 @@ Don't add bare scalars. Wrap every enriched field so provenance and role travel 
 
 | Phase | Work | Vehicle | Effort | Cost |
 |---|---|---|---|---|
-| **P0** | Wire `cityMetadata.json` → `tourismCategories`, `region`, `lat`/`lng` into `city.json` | script generator (`geo` / `categories`) | ½ day | $0 |
+| **P0** ✅ done | Wire `cityMetadata.json` → `tourismCategories`, `region`, `coordinates` into **`index.json`** (222 cities) | `scripts/backfillCityMetadata.mjs` (`npm run backfill:metadata`) | ½ day | $0 |
 | **P1** | Weather normals → `weatherHighC/Low` (+ precip, sunshine) per month, via Open-Meteo by lat/lng | script generator (`weather`) | 1 day | free |
 | **P2** | Derive `tourismLevel`, `highlights[]`, real daylight from data already present | script generator | ½ day | ~$0 |
 | **P3** | `connections` (Google Routes), `priceRange`/cost components (Numbeo or Expedia MCP), then re-enable Value | script + API generators | 1–2 days | low $ |

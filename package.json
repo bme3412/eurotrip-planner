@@ -20,6 +20,7 @@
     "replace-thumbnails": "node scripts/replaceThumbnails.mjs",
     "build:content": "node scripts/content/build.mjs && npm run backfill:sections",
     "backfill:sections": "node scripts/content/backfillSections.mjs",
+    "backfill:metadata": "node scripts/backfillCityMetadata.mjs",
     "refresh": "node scripts/refresh/index.mjs",
     "pipeline:validate": "node scripts/pipeline/validate.mjs",
     "pipeline:validate:ci": "node scripts/pipeline/validate.mjs",

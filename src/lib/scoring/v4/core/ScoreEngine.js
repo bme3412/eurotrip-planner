@@ -564,9 +564,13 @@ export class ScoreEngine {
     // Build expanded "why" description (2-3 sentences)
     const whyExpanded = this.buildExpandedWhyString(breakdown, cityData, rangeData);
 
-    // Build tags from tourism categories (inferred from attractions when the data
-    // file omits them — which is currently every city).
-    const tags = inferCategories(cityData).slice(0, 4);
+    // Build display tags: prefer the curated tourismCategories (from cityMetadata,
+    // human-friendly: "Romance", "Food & Wine"); fall back to attraction-derived
+    // categories. Scoring uses inferCategories directly, not these tags.
+    const tags = (Array.isArray(cityData?.tourismCategories) && cityData.tourismCategories.length
+      ? cityData.tourismCategories
+      : inferCategories(cityData)
+    ).slice(0, 4);
 
     // Tier assignment
     const tierConfig = this.config.tiers || {};

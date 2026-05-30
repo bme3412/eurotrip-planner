@@ -152,18 +152,19 @@ const CATEGORY_KEYWORDS = [
 ];
 
 /**
- * Infer tourism categories from a city's attractions when the data file does not
- * provide `tourismCategories` (true for 100% of current city data). Returns a
- * de-duplicated, frequency-ordered list of normalized category strings.
+ * Derive normalized, attraction-TYPE tourism categories from a city's attractions
+ * (Museums, Historical, Beach & Coastal, …). Returns a de-duplicated,
+ * frequency-ordered list.
+ *
+ * This is intentionally NOT the same axis as the curated `cityData.tourismCategories`
+ * from cityMetadata.json, which mixes attraction types with audience/vibe tags
+ * (Romance, Family, Relaxation). Scoring uses THIS consistent attraction-derived
+ * signal across every city; the curated list is used only for display (`tags`).
  *
  * @param {Object} cityData
  * @returns {string[]}
  */
 export function inferCategories(cityData) {
-  if (Array.isArray(cityData?.tourismCategories) && cityData.tourismCategories.length) {
-    return cityData.tourismCategories;
-  }
-
   let sites = cityData?.attractions?.sites || cityData?.attractions || [];
   if (!Array.isArray(sites)) sites = sites.sites || [];
   if (!sites.length) return [];
