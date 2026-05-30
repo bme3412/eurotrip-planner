@@ -9,8 +9,14 @@ import { getNeighborhoodIcon } from '../lib/icons.js';
 export default function SpotlightCard({ neighborhood, reason, onClick }) {
   return (
     <div
-      className="group relative bg-gradient-to-br from-purple-600 to-indigo-700 rounded-2xl p-6 text-white overflow-hidden cursor-pointer hover:scale-[1.02] transition-transform"
+      role="button"
+      tabIndex={0}
+      aria-label={`View ${neighborhood.name} guide — ${reason}`}
+      className="group relative bg-gradient-to-br from-purple-600 to-indigo-700 rounded-2xl p-6 text-white overflow-hidden cursor-pointer hover:scale-[1.02] transition-transform focus:outline-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2"
       onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick?.(); }
+      }}
     >
       <div
         className="absolute inset-0 opacity-10"

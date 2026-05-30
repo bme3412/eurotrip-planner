@@ -5,9 +5,10 @@ import { Scale, Sparkles, Users, X } from 'lucide-react';
 
 import ComparisonModal from './components/ComparisonModal.jsx';
 import NeighborhoodCard from './components/NeighborhoodCard.jsx';
+import NeighborhoodDetailModal from './components/NeighborhoodDetailModal.jsx';
 import SpotlightCard from './components/SpotlightCard.jsx';
 import useNeighborhoodFilters from './hooks/useNeighborhoodFilters.js';
-import { EDITORS_PICKS, NEIGHBORHOOD_CONNECTIONS, PERSONAS } from './lib/constants.js';
+import { EDITORS_PICKS, NEIGHBORHOOD_SORTS, PERSONAS } from './lib/constants.js';
 
 /**
  * Orchestrator for the "Neighborhoods" tab of a city guide.
@@ -18,15 +19,25 @@ import { EDITORS_PICKS, NEIGHBORHOOD_CONNECTIONS, PERSONAS } from './lib/constan
 export default function NeighborhoodsList({ neighborhoods, cityName }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedPersona, setSelectedPersona] = useState(null);
+  const [sortBy, setSortBy] = useState('recommended');
   const [isCompareMode, setIsCompareMode] = useState(false);
   const [selectedForCompare, setSelectedForCompare] = useState([]);
   const [showComparison, setShowComparison] = useState(false);
+  const [detailNeighborhood, setDetailNeighborhood] = useState(null);
 
   const { uniqueNeighborhoods, filteredNeighborhoods } = useNeighborhoodFilters({
     neighborhoods,
     searchTerm,
     selectedPersona,
+    sortBy,
   });
+
+  const openByName = useCallback((name) => {
+    const match = uniqueNeighborhoods.find((n) => n.name === name);
+    if (match) setDetailNeighborhood(match);
+  }, [uniqueNeighborhoods]);
+
+  const closeDetail = useCallback(() => setDetailNeighborhood(null), []);
 
   const editorsPicks = useMemo(() => {
     return EDITORS_PICKS.map((pick) => ({
@@ -44,10 +55,6 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
     });
   }, []);
 
-  const getConnections = useCallback((neighborhoodName) => {
-    return NEIGHBORHOOD_CONNECTIONS[neighborhoodName] || [];
-  }, []);
-
   const clearFilters = useCallback(() => {
     setSearchTerm('');
     setSelectedPersona(null);
@@ -63,6 +70,18 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
         </div>
 
         <div className="flex items-center gap-3">
+          <label className="sr-only" htmlFor="neighborhood-sort">Sort neighborhoods</label>
+          <select
+            id="neighborhood-sort"
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500"
+          >
+            {NEIGHBORHOOD_SORTS.map((opt) => (
+              <option key={opt.id} value={opt.id}>{opt.id === 'recommended' ? 'Sort: Recommended' : opt.label}</option>
+            ))}
+          </select>
+
           <button
             onClick={() => {
               setIsCompareMode(!isCompareMode);
@@ -156,10 +175,7 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
                 key={i}
                 neighborhood={pick.neighborhood}
                 reason={pick.reason}
-                onClick={() => {
-                  const id = `neighborhood-${pick.neighborhood.name.replace(/\s+/g, '-').toLowerCase()}`;
-                  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }}
+                onClick={() => setDetailNeighborhood(pick.neighborhood)}
               />
             ))}
           </div>
@@ -185,7 +201,9 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
               isSelected={selectedForCompare.some((n) => n.name === neighborhood.name)}
               onToggleSelect={() => toggleCompareSelect(neighborhood)}
               isCompareMode={isCompareMode}
-              connections={getConnections(neighborhood.name)}
+              onOpenDetail={setDetailNeighborhood}
+              onOpenByName={openByName}
+              allNeighborhoods={uniqueNeighborhoods}
             />
           </div>
         ))}
@@ -208,6 +226,16 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
 
       {showComparison && (
         <ComparisonModal neighborhoods={selectedForCompare} onClose={() => setShowComparison(false)} />
+      )}
+
+      {detailNeighborhood && (
+        <NeighborhoodDetailModal
+          neighborhood={detailNeighborhood}
+          allNeighborhoods={uniqueNeighborhoods}
+          onClose={closeDetail}
+          onOpenByName={openByName}
+          cityName={cityName}
+        />
       )}
     </div>
   );

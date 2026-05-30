@@ -78,25 +78,88 @@ export const NEIGHBORHOOD_CONNECTIONS = {
   ],
 };
 
-// Build the 3-tip "insider tips" overlay shown on neighborhood card hover.
-// Combines authored `insider_tips` with synthesised tips from practical_info.
-export function getInsiderTips(neighborhood) {
+// Build the "insider tips" list for a neighborhood. Combines authored
+// `insider_tips` with synthesised tips from practical_info. `limit` caps the
+// list (the card teaser/tab use a small cap; the detail modal passes Infinity).
+export function getInsiderTips(neighborhood, limit = 3) {
   const tips = [];
 
-  if (neighborhood.insider_tips && neighborhood.insider_tips.length > 0) {
+  if (neighborhood?.insider_tips && neighborhood.insider_tips.length > 0) {
     tips.push(...neighborhood.insider_tips);
   }
 
-  if (neighborhood.practical_info?.best_time_to_visit) {
+  if (neighborhood?.practical_info?.best_time_to_visit) {
     tips.push(`Best time: ${neighborhood.practical_info.best_time_to_visit}`);
   }
 
   if (
-    neighborhood.practical_info?.safety &&
+    neighborhood?.practical_info?.safety &&
     neighborhood.practical_info.safety.toLowerCase().includes('pickpocket')
   ) {
     tips.push('Keep valuables secure - popular area for pickpockets');
   }
 
-  return tips.slice(0, 3);
+  return Number.isFinite(limit) ? tips.slice(0, limit) : tips;
+}
+
+// Sort options for the neighborhood grid, computed from the 1–5 category scores.
+export const NEIGHBORHOOD_SORTS = [
+  { id: 'recommended', label: 'Recommended' },
+  { id: 'central', label: 'Central first' },
+  { id: 'liveliest', label: 'Liveliest' },
+  { id: 'cultural', label: 'Most cultural' },
+  { id: 'quietest', label: 'Quietest' },
+  { id: 'green', label: 'Greenest' },
+];
+
+/**
+ * Return a sorted copy of `list` for the given sort id. 'recommended' keeps the
+ * source (editorial) order. Pure — no mutation of the input.
+ */
+export function sortNeighborhoods(list, sortBy = 'recommended') {
+  const arr = Array.isArray(list) ? [...list] : [];
+  const cat = (n, k) => n?.categories?.[k] ?? 0;
+  switch (sortBy) {
+    case 'central':
+      return arr.sort((a, b) => (b.location?.central ? 1 : 0) - (a.location?.central ? 1 : 0));
+    case 'liveliest':
+      return arr.sort((a, b) => (cat(b, 'nightlife') + cat(b, 'dining')) - (cat(a, 'nightlife') + cat(a, 'dining')));
+    case 'cultural':
+      return arr.sort((a, b) => (cat(b, 'cultural') + cat(b, 'historic')) - (cat(a, 'cultural') + cat(a, 'historic')));
+    case 'quietest':
+      return arr.sort((a, b) => (cat(a, 'nightlife') + cat(a, 'touristy')) - (cat(b, 'nightlife') + cat(b, 'touristy')));
+    case 'green':
+      return arr.sort((a, b) => cat(b, 'green_spaces') - cat(a, 'green_spaces'));
+    default:
+      return arr;
+  }
+}
+
+/**
+ * Data-driven "nearby neighborhoods" from `location.borders`. Works for any
+ * city (not just Paris's hardcoded table). Each border is resolved against the
+ * full list so the UI knows whether it can deep-link to it, and enriched with a
+ * walk time / metro from NEIGHBORHOOD_CONNECTIONS when that pair is known.
+ *
+ * Returns [{ name, resolved: neighborhood|null, walkTime: number|null, metro: string|null }].
+ */
+export function getNearbyNeighborhoods(neighborhood, allNeighborhoods = []) {
+  const borders = Array.isArray(neighborhood?.location?.borders) ? neighborhood.location.borders : [];
+  const byName = new Map((allNeighborhoods || []).map((n) => [String(n?.name || '').toLowerCase(), n]));
+  // Case-insensitive connection lookup so accent/casing drift between the data
+  // and NEIGHBORHOOD_CONNECTIONS keys can't silently drop walk times.
+  const nameLower = String(neighborhood?.name || '').toLowerCase();
+  const connKey = Object.keys(NEIGHBORHOOD_CONNECTIONS).find((k) => k.toLowerCase() === nameLower);
+  const conns = (connKey && NEIGHBORHOOD_CONNECTIONS[connKey]) || [];
+  const connByName = new Map(conns.map((c) => [String(c.to).toLowerCase(), c]));
+  return borders.map((name) => {
+    const key = String(name).toLowerCase();
+    const conn = connByName.get(key);
+    return {
+      name,
+      resolved: byName.get(key) || null,
+      walkTime: conn?.walkTime ?? null,
+      metro: conn?.metro ?? null,
+    };
+  });
 }
