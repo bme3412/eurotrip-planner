@@ -8,22 +8,8 @@
  */
 
 import { BaseFactor } from '../core/BaseFactor.js';
-import { getMonthName } from '../utils/index.js';
-
-const BEACH_CATEGORIES = [
-  'beach', 'coastal', 'seaside', 'island', 'mediterranean',
-  'riviera', 'resort', 'waterfront'
-];
-
-const BEACH_CITIES = [
-  // Known beach destinations (hardcoded for reliability)
-  'barcelona', 'nice', 'marseille', 'cannes', 'amalfi', 'rimini',
-  'santorini', 'rhodes', 'heraklion', 'dubrovnik', 'split', 'zadar',
-  'lisbon', 'porto', 'faro', 'funchal', 'malaga', 'valencia',
-  'palma', 'alicante', 'vigo', 'gijon', 'santander', 'san-sebastian',
-  'naples', 'bari', 'catania', 'palermo', 'genoa', 'trieste',
-  'valletta', 'sliema', 'limassol', 'nicosia', 'kotor', 'ajaccio'
-];
+import { getMonthName, getMonthIndex, inferCategories } from '../utils/index.js';
+import { BEACH_CATEGORIES, BEACH_CITIES } from '../config/beachCities.js';
 
 // Beach season months (good weather for beaches in Europe)
 const BEACH_SEASON = [4, 5, 6, 7, 8, 9]; // May through October (0-indexed)
@@ -82,8 +68,8 @@ export class BeachFactor extends BaseFactor {
       return true;
     }
 
-    // Check tourism categories
-    const categories = cityData.tourismCategories || [];
+    // Check tourism categories (inferred from attractions when absent in data)
+    const categories = inferCategories(cityData);
     for (const category of categories) {
       const lower = category.toLowerCase();
       if (BEACH_CATEGORIES.some(bc => lower.includes(bc))) {
@@ -137,8 +123,7 @@ export class BeachFactor extends BaseFactor {
   getSeasonalMultiplier(startDate, cityData) {
     if (!startDate) return 0.7; // Unknown date, moderate penalty
 
-    const date = new Date(startDate);
-    const month = date.getMonth();
+    const month = getMonthIndex(startDate);
 
     // Check visit calendar for weather info
     const monthName = getMonthName(startDate);

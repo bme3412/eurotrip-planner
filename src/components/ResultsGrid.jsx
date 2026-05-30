@@ -6,6 +6,8 @@ import CityListRow from './discover/CityListRow';
 import CityScatterPlot from './discover/CityScatterPlot';
 import { normalizeRankedCandidate, rankedCandidateToPlannerParams } from '@/lib/discovery/rankedCandidate';
 import { scoreToBand, tierToBand } from '@/lib/scoring/qualitative';
+import { formatDateRange, getNights, getLocalMonthIndex } from '@/lib/utils/dates';
+import { getDaylightHours } from '@/lib/daylight';
 
 /**
  * Sort options
@@ -25,19 +27,6 @@ const VIEW_MODES = [
   { id: 'plot', label: 'Plot', icon: BarChart3 },
   { id: 'compare', label: 'Compare', icon: GitCompare },
 ];
-
-function formatDateRange(dates) {
-  if (!dates?.start || !dates?.end) return null;
-  const fmt = (d) =>
-    new Date(d + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-  return `${fmt(dates.start)} – ${fmt(dates.end)}`;
-}
-
-function getNights(dates) {
-  if (!dates?.start || !dates?.end) return null;
-  const diff = new Date(dates.end) - new Date(dates.start);
-  return Math.ceil(diff / (1000 * 60 * 60 * 24));
-}
 
 function CalendarIcon({ className = 'w-3.5 h-3.5' }) {
   return (
@@ -76,13 +65,13 @@ function EventStrip({ results, dateRange }) {
   };
 
   return (
-    <div className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3">
+    <div className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 overflow-hidden">
       <p className="text-xs font-bold text-amber-700 mb-2.5 uppercase tracking-wide">
-        During {dateRange} across Europe
+        What&apos;s on during {dateRange}
       </p>
       <div
         ref={scrollRef}
-        className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide -mx-1 px-1"
+        className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide -mx-4 px-4"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {pills.slice(0, 12).map((p, i) => (
@@ -92,8 +81,12 @@ function EventStrip({ results, dateRange }) {
             className="flex items-center gap-1.5 shrink-0 px-3 py-1.5 rounded-full bg-white border border-amber-200 hover:border-amber-400 hover:bg-amber-100 transition-colors group text-left"
           >
             <CalendarIcon className="w-3 h-3 text-amber-500 shrink-0" />
-            <span className="text-[11px] font-bold text-amber-700 whitespace-nowrap">{p.date}</span>
-            <span className="text-amber-300 text-[11px]">·</span>
+            {p.date && (
+              <>
+                <span className="text-[11px] font-bold text-amber-700 whitespace-nowrap">{p.date}</span>
+                <span className="text-amber-300 text-[11px]">·</span>
+              </>
+            )}
             <span className="text-[11px] font-semibold text-gray-700 whitespace-nowrap group-hover:text-gray-900">{p.name}</span>
             <span className="text-gray-300 text-[11px]">·</span>
             <span className="text-[11px] text-gray-500 whitespace-nowrap">{p.cityName}</span>
@@ -140,46 +133,43 @@ export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy
   const sortBy = externalSortBy || internalSortBy;
   const setSortBy = externalSetSortBy || setInternalSortBy;
 
+  const travelMonth = getLocalMonthIndex(dates?.start);
+
   const sorted = useMemo(() => {
     const items = [...results];
 
     switch (sortBy) {
-      case 'warmest':
-        return items.sort((a, b) => {
-          const tempA = getTemperature(a) ?? -100;
-          const tempB = getTemperature(b) ?? -100;
-          return tempB - tempA;
-        });
+      case 'warmest': {
+        // Cities without temperature data sort to the MIDDLE (median of known
+        // temps), not dead last — we don't know they're cold, just unknown.
+        const temps = items.map(getTemperature).filter((t) => t != null).sort((a, b) => a - b);
+        const median = temps.length ? temps[Math.floor(temps.length / 2)] : 15;
+        return items.sort((a, b) => (getTemperature(b) ?? median) - (getTemperature(a) ?? median));
+      }
 
       case 'quietest':
-        return items.sort((a, b) => {
-          const crowdA = crowdLevelToNumber(a.crowdLevel);
-          const crowdB = crowdLevelToNumber(b.crowdLevel);
-          return crowdA - crowdB;
-        });
+        return items.sort((a, b) => crowdLevelToNumber(a.crowdLevel) - crowdLevelToNumber(b.crowdLevel));
 
       case 'daylight':
-        return items.sort((a, b) => {
-          const northernCountries = ['Norway', 'Sweden', 'Finland', 'Iceland', 'Estonia', 'Latvia', 'Lithuania', 'Denmark', 'UK', 'Ireland'];
-          const scoreA = northernCountries.includes(a.country) ? 1 : 0;
-          const scoreB = northernCountries.includes(b.country) ? 1 : 0;
-          return scoreB - scoreA;
-        });
+        // Use the same coarse daylight estimate the rows display, so the sort
+        // matches the numbers shown (previously a crude binary northern check).
+        return items.sort((a, b) =>
+          (getDaylightHours(travelMonth ?? new Date(), b.country) ?? 0) -
+          (getDaylightHours(travelMonth ?? new Date(), a.country) ?? 0)
+        );
 
       case 'score':
       case 'popularity':
       case 'value':
       default:
-        return items.sort((a, b) => {
-          const scoreA = a.v4?.finalScore ?? (a.score || 0) * 20;
-          const scoreB = b.v4?.finalScore ?? (b.score || 0) * 20;
-          return scoreB - scoreA;
-        });
+        return items.sort((a, b) =>
+          (b.v4?.finalScore ?? b.score ?? 0) - (a.v4?.finalScore ?? a.score ?? 0)
+        );
     }
-  }, [results, sortBy]);
+  }, [results, sortBy, travelMonth]);
 
-  const dateRange = formatDateRange(dates);
-  const nights = getNights(dates);
+  const dateRange = formatDateRange(dates?.start, dates?.end);
+  const nights = getNights(dates?.start, dates?.end);
   const ranked = useMemo(() => (
     sorted.map((city, index) => ({
       source: city,
@@ -278,7 +268,7 @@ export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy
                   <span className="text-amber-600">{dateRange}</span>
                 </h2>
                 <p className="text-gray-500">
-                  {nights} nights · ranked by weather, crowds & events across Europe
+                  {nights} nights · ranked by season, crowds & events across Europe
                 </p>
               </>
             ) : (

@@ -1,14 +1,14 @@
 {
-  "version": "4.1.0",
-  "description": "Dynamic 6-factor scoring system with contextual tier labels",
+  "version": "4.2.0",
+  "description": "Dynamic 6-factor scoring system with contextual tier labels. Contributions are confidence-weighted; the value factor is disabled until price data exists.",
   "outputScale": {
     "factor": { "min": 0, "max": 10 },
     "final": { "min": 0, "max": 100 }
   },
   "tiers": {
-    "tier1": { "minScore": 80, "maxCities": 8, "fallbackLabel": "Top Picks" },
-    "tier2": { "minScore": 70, "maxCities": 10, "fallbackLabel": "Great Options" },
-    "tier3": { "minScore": 60, "maxCities": 12, "fallbackLabel": "Good Options" },
+    "tier1": { "minScore": 73, "maxCities": 8, "fallbackLabel": "Top Picks" },
+    "tier2": { "minScore": 64, "maxCities": 10, "fallbackLabel": "Great Options" },
+    "tier3": { "minScore": 55, "maxCities": 12, "fallbackLabel": "Good Options" },
     "tier4": { "minScore": 0, "maxCities": 15, "fallbackLabel": "Worth Considering" }
   },
   "dynamicWeights": {
@@ -20,17 +20,17 @@
       "cold": 10
     },
     "baseWeights": {
-      "culture": 0.20,
+      "culture": 0.25,
       "beach": 0.10,
-      "timing": 0.25,
-      "crowds": 0.15,
-      "value": 0.15,
-      "logistics": 0.15
+      "timing": 0.30,
+      "crowds": 0.22,
+      "value": 0.0,
+      "logistics": 0.13
     }
   },
   "factors": {
     "culture": {
-      "weight": 0.20,
+      "weight": 0.25,
       "enabled": true,
       "fallbackScore": 5,
       "description": "Museums, history, art, architecture richness",
@@ -45,7 +45,7 @@
       "categories": ["Beach & Coastal", "Seaside", "Islands"]
     },
     "timing": {
-      "weight": 0.25,
+      "weight": 0.30,
       "enabled": true,
       "fallbackScore": 5,
       "description": "How good are the dates for visiting (weather + events + seasonality)",
@@ -56,7 +56,7 @@
       }
     },
     "crowds": {
-      "weight": 0.15,
+      "weight": 0.22,
       "enabled": true,
       "fallbackScore": 5,
       "description": "Tourist crowd levels (higher = fewer crowds)",
@@ -70,10 +70,10 @@
       }
     },
     "value": {
-      "weight": 0.15,
-      "enabled": true,
+      "weight": 0.0,
+      "enabled": false,
       "fallbackScore": 5,
-      "description": "Value for money (higher = better value)",
+      "description": "Value for money (higher = better value). DISABLED: no city currently carries price data, so this factor only ever returned a constant fallback. Re-enable once priceRange/costLevel is backfilled.",
       "priceLevels": {
         "budget": 9,
         "moderate": 7,
@@ -82,10 +82,10 @@
       }
     },
     "logistics": {
-      "weight": 0.15,
+      "weight": 0.13,
       "enabled": true,
       "fallbackScore": 5,
-      "description": "Ease of getting there and around",
+      "description": "Connectivity / ease of getting there (origin-aware only when an origin city is provided; otherwise scores general connectivity)",
       "durationScores": {
         "under1h": 10,
         "1to2h": 9,

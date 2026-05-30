@@ -124,7 +124,7 @@ export default function HomeClient() {
           <p className="mt-6 text-sm text-gray-500 font-medium">
             Free · No signup · Scoring{" "}
             <span className="font-semibold text-gray-700">220 cities</span> across 41
-            countries on weather, crowds, events &amp; value — updated hourly.
+            countries on weather, crowds &amp; events — updated hourly.
           </p>
 
           {/* Tertiary: browse all */}

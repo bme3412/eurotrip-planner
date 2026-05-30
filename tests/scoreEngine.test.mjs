@@ -53,8 +53,10 @@ test('calculateScore returns the documented shape for a culture-rich city', () =
   assert.equal(typeof result.finalScore, 'number');
   assert.ok(result.finalScore >= 0 && result.finalScore <= 100, 'finalScore in 0..100');
 
-  // All 6 factors must be present in the breakdown.
-  for (const name of ['culture', 'beach', 'timing', 'crowds', 'value', 'logistics']) {
+  // All ENABLED factors must be present in the breakdown. `value` is disabled
+  // in scoringConfig.json (no city carries price data, so it only ever returned
+  // a constant fallback), so it is intentionally absent.
+  for (const name of ['culture', 'beach', 'timing', 'crowds', 'logistics']) {
     assert.ok(result.breakdown[name], `breakdown.${name} present`);
     const f = result.breakdown[name];
     assert.equal(typeof f.score, 'number');
@@ -119,7 +121,7 @@ test('calculateScore: missing data falls back without crashing', () => {
   // Engine must still produce a finalScore in range and full breakdown.
   assert.ok(Number.isFinite(result.finalScore));
   assert.ok(result.finalScore >= 0 && result.finalScore <= 100);
-  for (const name of ['culture', 'beach', 'timing', 'crowds', 'value', 'logistics']) {
+  for (const name of ['culture', 'beach', 'timing', 'crowds', 'logistics']) {
     assert.ok(result.breakdown[name], `breakdown.${name} present even on empty city`);
   }
 });
@@ -143,8 +145,9 @@ test('formatResult emits "City flag — N (factor n, ...)" shape', () => {
     startDate: '2025-06-15',
     endDate: '2025-06-20',
   });
-  // e.g. "Paris 🇫🇷 — 72 (culture 8, beach 0, timing 5, crowds 5, value 5, logistics 5)"
-  assert.match(result.formatted, /^Paris .* — \d+ \(culture \d+, beach \d+, timing \d+, crowds \d+, value \d+, logistics \d+\)$/);
+  // e.g. "Paris 🇫🇷 — 50 (culture 8, beach 0, timing 5, crowds 5, logistics 5)"
+  // (value factor is disabled, so it does not appear in the breakdown string)
+  assert.match(result.formatted, /^Paris .* — \d+ \(culture \d+, beach \d+, timing \d+, crowds \d+, logistics \d+\)$/);
 });
 
 // ---------------------------------------------------------------------------
@@ -168,8 +171,10 @@ function syntheticResult(cityId, finalScore) {
   };
 }
 
-test('groupIntoTiers respects min-score thresholds (80/70/60)', () => {
+test('groupIntoTiers respects min-score thresholds (73/64/55)', () => {
   const engine = makeEngine();
+  // Default thresholds come from scoringConfig.json: tier1 >= 73, tier2 >= 64,
+  // tier3 >= 55, tier4 >= 0 (recalibrated to the real score distribution).
   const tiers = engine.groupIntoTiers([
     syntheticResult('a', 95),
     syntheticResult('b', 82),
@@ -178,10 +183,10 @@ test('groupIntoTiers respects min-score thresholds (80/70/60)', () => {
     syntheticResult('e', 50),
   ]);
 
-  assert.deepEqual(tiers.tier1.cities.map((c) => c.cityId), ['a', 'b']);
-  assert.deepEqual(tiers.tier2.cities.map((c) => c.cityId), ['c']);
-  assert.deepEqual(tiers.tier3.cities.map((c) => c.cityId), ['d']);
-  assert.deepEqual(tiers.tier4.cities.map((c) => c.cityId), ['e']);
+  assert.deepEqual(tiers.tier1.cities.map((c) => c.cityId), ['a', 'b', 'c']); // all >= 73
+  assert.deepEqual(tiers.tier2.cities.map((c) => c.cityId), ['d']);          // 65 >= 64
+  assert.deepEqual(tiers.tier3.cities.map((c) => c.cityId), []);             // none in 55..63
+  assert.deepEqual(tiers.tier4.cities.map((c) => c.cityId), ['e']);          // 50 < 55
 });
 
 test('groupIntoTiers respects maxPerTier count caps and overflows downward', () => {

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
-import { TierIndicator } from '../common/TierBadge';
+import { getDaylightHours } from '@/lib/daylight';
 
 /**
  * Country code to flag emoji mapping
@@ -87,46 +87,9 @@ function CrowdBars({ level }) {
   );
 }
 
-// ScoreCircle removed - using TierIndicator from TierBadge instead
-
-/**
- * Calculate approximate daylight hours based on month and latitude
- */
-function getDaylightHours(month, country) {
-  // Approximate daylight hours by month for mid-European latitudes
-  const baseDaylight = {
-    0: 8.5,   // January
-    1: 10,    // February
-    2: 12,    // March
-    3: 14,    // April
-    4: 15.5,  // May
-    5: 16.5,  // June
-    6: 16,    // July
-    7: 14.5,  // August
-    8: 12.5,  // September
-    9: 10.5,  // October
-    10: 9,    // November
-    11: 8,    // December
-  };
-
-  // Latitude adjustments by country (rough approximation)
-  const latitudeAdjust = {
-    'Norway': 2, 'Sweden': 1.5, 'Finland': 2, 'Iceland': 2.5,
-    'Denmark': 0.5, 'UK': 0.3, 'Ireland': 0.3, 'Estonia': 1,
-    'Latvia': 0.8, 'Lithuania': 0.5, 'Poland': 0.2,
-    'Spain': -0.5, 'Portugal': -0.5, 'Italy': -0.3, 'Greece': -0.5,
-    'Malta': -0.7, 'Cyprus': -0.7,
-  };
-
-  const base = baseDaylight[month] || 12;
-  const adjust = latitudeAdjust[country] || 0;
-
-  // In summer, northern countries get more light; in winter, less
-  const isSummer = month >= 4 && month <= 8;
-  const adjusted = isSummer ? base + adjust : base - (adjust * 0.5);
-
-  return Math.round(adjusted * 2) / 2; // Round to nearest 0.5
-}
+// ScoreCircle / TierIndicator removed: on the results list every visible row is
+// already a top pick, so a per-row tier badge was identical across rows and
+// redundant with the rank number. Daylight now comes from the shared helper.
 
 export default function CityListRow({ city, rank, onClick, onStartPlan, startDate }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -159,30 +122,44 @@ export default function CityListRow({ city, rank, onClick, onStartPlan, startDat
   // Get description/why text - prefer expanded description if available
   const description = city.whyExpanded || city.why || city.highlights?.[0]?.description || '';
 
-  // Calculate daylight hours based on travel date
-  const travelMonth = startDate ? new Date(startDate).getMonth() : new Date().getMonth();
-  const daylightHours = getDaylightHours(travelMonth, country);
+  // Daylight hours for the travel month. Parsed in local time (the shared helper
+  // avoids the UTC month-shift bug) and shown as whole hours — it's a coarse
+  // latitude estimate, so 0.5h precision was misleading.
+  const daylightHours = getDaylightHours(startDate || new Date(), country);
 
   // Sidebar color based on rank
   const sidebarColor = SIDEBAR_COLORS[rank % SIDEBAR_COLORS.length];
 
+  const cityHref = city.cityId || city.id;
+  const handleActivate = () => onClick(cityHref);
+
   return (
     <div
-      onClick={() => onClick(city.cityId || city.id)}
+      id={`city-${cityHref}`}
+      role="button"
+      tabIndex={0}
+      aria-label={`View ${cityName}${country ? `, ${country}` : ''} guide`}
+      onClick={handleActivate}
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          handleActivate();
+        }
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`flex bg-white rounded-xl overflow-hidden cursor-pointer transition-all duration-200 shadow-sm hover:shadow-md ${
-        isHovered ? 'scale-[1.01]' : ''
+      className={`flex flex-col sm:flex-row bg-white rounded-xl overflow-hidden cursor-pointer transition-shadow duration-200 shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+        isHovered ? 'sm:shadow-md' : ''
       }`}
     >
       {/* Image with overlay containing rank, flag, city name */}
-      <div className="relative w-48 h-32 flex-shrink-0">
+      <div className="relative w-full h-36 sm:w-44 sm:h-auto sm:min-h-[8.5rem] flex-shrink-0">
         <Image
           src={imageSrc}
           alt={cityName}
           fill
           className="object-cover"
-          sizes="192px"
+          sizes="(max-width: 640px) 100vw, 176px"
           onError={() => setImgError(true)}
           unoptimized={imageSrc.endsWith('.svg')}
         />
@@ -208,17 +185,14 @@ export default function CityListRow({ city, rank, onClick, onStartPlan, startDat
       </div>
 
       {/* Main content area */}
-      <div className="flex-1 p-4 flex items-center gap-4">
-        {/* Tier indicator */}
-        <TierIndicator tier={city.tier || 2} size="md" />
-
+      <div className="flex-1 p-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 min-w-0">
         {/* City info */}
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1">
-            <h3 className="font-bold text-gray-900 text-lg">
+          <div className="flex items-baseline gap-2 mb-1">
+            <h3 className="font-bold text-gray-900 text-lg truncate">
               {cityName}
             </h3>
-            <span className="text-gray-400 text-sm">{country}</span>
+            <span className="text-gray-400 text-sm shrink-0">{country}</span>
           </div>
 
           {description && (
@@ -228,23 +202,30 @@ export default function CityListRow({ city, rank, onClick, onStartPlan, startDat
           )}
         </div>
 
-        {/* Weather + Crowds + Daylight */}
-        <div className="flex items-center gap-4 flex-shrink-0">
+        {/* Weather + Crowds + Daylight + action */}
+        <div className="flex items-center gap-4 flex-shrink-0 flex-wrap sm:flex-nowrap">
           {/* Temperature */}
           {tempNum !== null && (
-            <div className="flex items-center gap-1">
-              <span className="text-lg">{getWeatherIcon(tempNum)}</span>
+            <div className="flex items-center gap-1" title="Average daytime high">
+              <span className="text-lg" aria-hidden="true">{getWeatherIcon(tempNum)}</span>
               <span className="text-sm font-medium text-gray-700">{tempNum}°</span>
             </div>
           )}
 
           {/* Crowd bars */}
-          <CrowdBars level={crowdLevel} />
+          <div title={`${crowdLevel} crowds`} aria-label={`${crowdLevel} crowds`}>
+            <CrowdBars level={crowdLevel} />
+          </div>
 
           {/* Daylight hours */}
-          <div className="bg-amber-50 text-amber-700 px-2 py-1 rounded-lg text-xs font-semibold">
-            {daylightHours}h
-          </div>
+          {daylightHours != null && (
+            <div
+              className="bg-amber-50 text-amber-700 px-2 py-1 rounded-lg text-xs font-semibold"
+              title="Approx. daylight hours"
+            >
+              {daylightHours}h
+            </div>
+          )}
 
           <button
             type="button"
@@ -252,13 +233,13 @@ export default function CityListRow({ city, rank, onClick, onStartPlan, startDat
               event.stopPropagation();
               onStartPlan?.();
             }}
-            className="rounded-full bg-gray-900 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-gray-800"
+            className="ml-auto sm:ml-0 rounded-full bg-gray-900 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
           >
             Start itinerary
           </button>
 
           {/* Arrow */}
-          <ChevronRight className={`w-5 h-5 text-gray-400 transition-transform ${isHovered ? 'translate-x-1' : ''}`} />
+          <ChevronRight className={`hidden sm:block w-5 h-5 text-gray-400 transition-transform ${isHovered ? 'translate-x-1' : ''}`} aria-hidden="true" />
         </div>
       </div>
     </div>

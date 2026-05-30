@@ -13,6 +13,8 @@
  * - "Mediterranean Sun + Festival Season" (Summer, beach cities with events)
  */
 
+import { getMonthIndex } from '../utils/index.js';
+
 // Category detection patterns
 const CATEGORY_PATTERNS = {
   beach: ['beach', 'coastal', 'seaside', 'island', 'mediterranean', 'riviera'],
@@ -81,7 +83,7 @@ export class TierLabelGenerator {
       return { ...this.getDefaultLabel(tierNumber, startDate), paragraph: '' };
     }
 
-    const month = startDate ? new Date(startDate).getMonth() : new Date().getMonth();
+    const month = startDate ? getMonthIndex(startDate) : new Date().getMonth();
     const season = this.getSeason(month);
 
     // Analyze the cities in this tier
@@ -456,7 +458,7 @@ export class TierLabelGenerator {
    * Get default label for a tier when no cities to analyze.
    */
   getDefaultLabel(tierNumber, startDate) {
-    const month = startDate ? new Date(startDate).getMonth() : new Date().getMonth();
+    const month = startDate ? getMonthIndex(startDate) : new Date().getMonth();
     const season = this.getSeason(month);
 
     const defaultLabels = {

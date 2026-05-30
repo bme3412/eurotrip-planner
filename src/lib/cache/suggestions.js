@@ -49,13 +49,20 @@ export function buildCacheKey(params) {
     budget = 'moderate',
     originCity = '',
     version = 'v4',
+    // Response SHAPE differs between the flat list and the tiered object. They
+    // MUST NOT share a key — otherwise a flat request can read back a cached
+    // tiered payload (or vice versa), leaving `data.items` undefined → an empty
+    // "0 best cities" result. Only the tiered branch writes the cache today, so
+    // this collision was real.
+    flat = false,
   } = params;
 
   // Normalize dates to YYYY-MM-DD format
   const start = typeof startDate === 'string' ? startDate : startDate?.toISOString?.()?.split('T')[0];
   const end = typeof endDate === 'string' ? endDate : endDate?.toISOString?.()?.split('T')[0];
 
-  return `suggestions:${version}:${start}:${end}:${travelerType}:${budget}:${originCity}`;
+  const shape = flat ? 'flat' : 'tiered';
+  return `suggestions:${version}:${shape}:${start}:${end}:${travelerType}:${budget}:${originCity}`;
 }
 
 /**

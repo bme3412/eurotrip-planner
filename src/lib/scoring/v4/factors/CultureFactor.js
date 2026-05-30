@@ -8,6 +8,7 @@
  */
 
 import { BaseFactor } from '../core/BaseFactor.js';
+import { inferCategories } from '../utils/index.js';
 
 const CULTURE_CATEGORIES = [
   'museums', 'historical', 'art', 'architecture', 'cultural',
@@ -69,7 +70,7 @@ export class CultureFactor extends BaseFactor {
   }
 
   calculateCategoryScore(cityData) {
-    const categories = cityData.tourismCategories || [];
+    const categories = inferCategories(cityData);
     if (categories.length === 0) return 4; // Neutral
 
     let score = 4;

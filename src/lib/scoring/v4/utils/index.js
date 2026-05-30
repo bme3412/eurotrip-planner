@@ -28,6 +28,14 @@ export function from10To100(value) {
 export function parseDate(dateInput) {
   if (!dateInput) return null;
   if (dateInput instanceof Date) return dateInput;
+  if (typeof dateInput === 'string') {
+    // Parse bare YYYY-MM-DD as LOCAL midnight. `new Date("2026-06-01")` is parsed
+    // as UTC midnight, which rolls back to the previous day/month in any timezone
+    // behind UTC (e.g. the Americas) — that shifted getMonth() by one for every
+    // US-timezone user, corrupting weather/season/daylight lookups.
+    const m = dateInput.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (m) return new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+  }
   return new Date(dateInput);
 }
 
@@ -126,6 +134,53 @@ export function normalizePriceLevel(raw) {
   if (euroCount >= 4) return 'luxury';
 
   return 'moderate';
+}
+
+// ============ Category Inference ============
+
+// Maps an attraction type/category keyword to a normalized tourism category.
+const CATEGORY_KEYWORDS = [
+  [['museum', 'gallery'], 'Museums'],
+  [['cathedral', 'church', 'basilica', 'monastery', 'temple', 'synagogue', 'mosque'], 'Religious Heritage'],
+  [['castle', 'fortress', 'palace', 'citadel'], 'Historical'],
+  [['ruin', 'archaeolog', 'roman', 'ancient', 'unesco', 'monument', 'old town', 'historic'], 'Historical'],
+  [['beach', 'coast', 'seaside', 'bay', 'lido', 'promenade'], 'Beach & Coastal'],
+  [['park', 'garden', 'mountain', 'lake', 'forest', 'nature', 'hike', 'trail', 'falls', 'fjord'], 'Nature & Outdoors'],
+  [['opera', 'theater', 'theatre', 'concert', 'philharmon'], 'Arts & Culture'],
+  [['market', 'food', 'wine', 'culinary', 'brewery', 'vineyard'], 'Food & Drink'],
+  [['bridge', 'tower', 'square', 'architecture'], 'Architecture'],
+];
+
+/**
+ * Infer tourism categories from a city's attractions when the data file does not
+ * provide `tourismCategories` (true for 100% of current city data). Returns a
+ * de-duplicated, frequency-ordered list of normalized category strings.
+ *
+ * @param {Object} cityData
+ * @returns {string[]}
+ */
+export function inferCategories(cityData) {
+  if (Array.isArray(cityData?.tourismCategories) && cityData.tourismCategories.length) {
+    return cityData.tourismCategories;
+  }
+
+  let sites = cityData?.attractions?.sites || cityData?.attractions || [];
+  if (!Array.isArray(sites)) sites = sites.sites || [];
+  if (!sites.length) return [];
+
+  const counts = new Map();
+  for (const site of sites) {
+    const text = `${site?.name || ''} ${site?.type || ''} ${site?.category || ''} ${site?.description || ''}`.toLowerCase();
+    for (const [keywords, label] of CATEGORY_KEYWORDS) {
+      if (keywords.some((kw) => text.includes(kw))) {
+        counts.set(label, (counts.get(label) || 0) + 1);
+      }
+    }
+  }
+
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([label]) => label);
 }
 
 // ============ Country Flag ============
