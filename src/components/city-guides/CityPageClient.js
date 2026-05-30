@@ -427,8 +427,12 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
     );
   }
 
-  // Check for cities with incomplete data (e.g., data contamination was removed)
-  const hasMinimalData = overview?.city_name || overview?.brief_description || safeAttractions.length > 0;
+  // Check for cities with incomplete data (e.g., data contamination was removed).
+  // `cityData.hasContent` is set by the server for legacy cities that ship a
+  // null overview shell but have full sections (attractions, neighborhoods,
+  // culinary, monthly) loaded lazily per tab — they must render, not show
+  // the "Coming Soon" placeholder reserved for genuinely-empty stubs.
+  const hasMinimalData = overview?.city_name || overview?.brief_description || safeAttractions.length > 0 || cityData?.hasContent;
   if (!hasMinimalData) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-[#f3f7ff] to-white">

@@ -167,7 +167,6 @@ export default function CitySearchInput({
               className="rounded-full border border-blue-100 bg-blue-50 px-2.5 py-1 text-sm font-medium text-blue-700 hover:border-blue-200 hover:bg-blue-100"
             >
               {city.rank ? `#${city.rank} ` : ''}{city.name}
-              {city.score != null ? ` · ${Math.round(Number(city.score))}` : ''}
             </button>
           ))}
         </div>

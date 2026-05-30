@@ -1,10 +1,9 @@
+import { MONTHS_CAPITALIZED } from '@/lib/constants/months';
+
 // Original calendar palette: maps a 1-5 visit-quality score to a hex color.
 export const RATING_COLORS = { 5: '#10b981', 4: '#34d399', 3: '#fbbf24', 2: '#fb923c', 1: '#ef4444' };
 
-export const MONTHS = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December',
-];
+export const MONTHS = MONTHS_CAPITALIZED;
 
 // Month name (any common abbreviation) → 0-based index.
 export const MONTH_NAME_TO_INDEX = {

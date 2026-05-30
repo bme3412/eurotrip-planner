@@ -1,13 +1,12 @@
 /**
  * Shared constants for the CityOverview family.
  *
- * Pure data, no React, no imports.
+ * Pure data, no React.
  */
 
-export const MONTH_NAMES = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December',
-];
+import { MONTHS_CAPITALIZED } from '@/lib/constants/months';
+
+export const MONTH_NAMES = MONTHS_CAPITALIZED;
 
 export const RATING_COLORS = {
   5: '#10b981',

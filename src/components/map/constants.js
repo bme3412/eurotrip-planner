@@ -1,5 +1,7 @@
 // Map-related constants
 
+import { MONTHS_LOWER, MONTHS_SHORT } from '@/lib/constants/months';
+
 export const COUNTRY_COLORS = {
     'France': '#1E88E5',
     'Germany': '#D81B60',
@@ -27,12 +29,9 @@ export const COUNTRY_COLORS = {
     'Slovakia': '#FFA000'
   };
   
-  export const MONTH_NAMES = [
-    'january', 'february', 'march', 'april', 'may', 'june',
-    'july', 'august', 'september', 'october', 'november', 'december'
-  ];
-  
-  export const MONTH_NAMES_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  export const MONTH_NAMES = MONTHS_LOWER;
+
+  export const MONTH_NAMES_SHORT = MONTHS_SHORT;
   
   export const MAJOR_CITIES = [
     'Paris', 'Rome', 'London', 'Berlin', 'Madrid', 'Amsterdam', 

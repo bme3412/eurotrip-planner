@@ -37,7 +37,6 @@ function SuggestedStopsPanel({ suggestions = [], selectedDayCount = 0, onSelectC
             city.regionFocus || null,
             city.routeRole || null,
             city.rank ? `#${city.rank}` : null,
-            Number.isFinite(city.score) ? `${Math.round(city.score)} fit` : null,
             city.travelTime || city.duration || null,
           ].filter(Boolean);
 
