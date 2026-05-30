@@ -12,6 +12,10 @@ import Hero from '@/components/common/Hero';
 import SaveToTrips from '@/components/common/SaveToTrips';
 import AuthButton from '@/components/auth/AuthButton';
 import BookActivities from '@/components/city-guides/BookActivities';
+import CityShortlistBar from '@/components/city-guides/CityShortlistBar';
+import ShareGuideButton from '@/components/city-guides/ShareGuideButton';
+import { useFavorites } from '@/hooks/useFavorites';
+import { readTabFromUrl, writeTabToUrl } from '@/components/city-guides/tabUrl';
 import { 
   SkeletonOverview, 
   SkeletonMapLoader, 
@@ -20,12 +24,12 @@ import {
 
 // Lazy imports for better code splitting
 import {
-  LazyCityOverview,
+  LazyOverviewStartHere,
+  LazyWhenToGo,
   LazyStartHere,
   LazyAttractionsList,
   LazyNeighborhoodsList,
   LazySeasonalActivities,
-  LazyMonthlyGuideSection,
   LazyMapSection,
   LazyFoodDrinkGuide,
   LazyPhotoSpots,
@@ -43,12 +47,12 @@ const DEFAULT_CENTER = [9.19, 48.66];
 // from /data/{country}/{slug}/sections/*.json on demand (when the tab is
 // opened or hovered) instead of pulling the whole consolidated index.json.
 const TAB_SECTIONS = {
-  overview: ['visitCalendar'],
+  overview: ['visitCalendar'], // landing's "right now" verdict needs the calendar
+  when: ['visitCalendar'], // merged calendar + monthly view
   map: ['attractions'],
   attractions: ['attractions'],
   neighborhoods: ['neighborhoods'],
   food: ['culinary'],
-  monthly: ['visitCalendar'], // monthly events load via useMonthlyData
   gettingin: [], // StartHere self-fetches its prose sections
   photos: [], // PhotoSpots uses static module data
 };
@@ -109,8 +113,10 @@ function getCityCenter(cityData, cityName) {
 }
 
 function CityPageClient({ cityData: initialCityData, cityName }) {
-  const [activeTab, setActiveTab] = useState('overview');
-  const [selectedMonthlyMonth, setSelectedMonthlyMonth] = useState(null);
+  // Initialise from the URL (?tab=) so a guide tab is deep-linkable and
+  // survives refresh. Safe: first paint is the `componentLoaded` spinner, so
+  // this window read never runs on the server path. See tabUrl.js.
+  const [activeTab, setActiveTab] = useState(() => readTabFromUrl('overview'));
   // `useTransition` lets React keep the previously-rendered tab visible while
   // the new tab's lazy chunk / suspended data is in-flight. No artificial
   // setTimeout delay needed — cached chunks switch instantly, slow ones keep
@@ -121,6 +127,7 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
   const [showBreadcrumb, setShowBreadcrumb] = useState(true);
   const [isTabBarSticky, setIsTabBarSticky] = useState(false);
   const tabBarRef = useRef(null);
+  const tabScrollerRef = useRef(null);
   const tabBarOriginalTop = useRef(null);
   const lastScrollY = useRef(0);
   const scrollTicking = useRef(false);
@@ -202,6 +209,10 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
   );
   const { actions: uiActions } = useUIState();
 
+  // Favorites are lifted here (single instance) so the Experiences cards and
+  // the shortlist bar share one source of truth. The shortlist IS this array.
+  const { favorites, isFavorite, toggle: toggleFavorite } = useFavorites(cityName);
+
   const {
     overview = {},
     attractions = null,
@@ -243,21 +254,21 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
   );
 
   const tabs = useMemo(() => [
-    { id: 'overview', label: 'Best Time to Go', icon: '📆' },
+    { id: 'overview', label: 'Overview', icon: '✨' },
+    { id: 'when', label: 'When to Go', icon: monthlyDataError ? '⚠️' : '📆' },
     { id: 'gettingin', label: 'Getting In', icon: '✈️' },
     { id: 'map', label: 'Interactive Map', icon: '🗺️' },
-    { id: 'monthly', label: monthlyDataLoading ? 'Monthly Guide...' : 'Monthly Guide', icon: monthlyDataLoading ? '⏳' : monthlyDataError ? '⚠️' : '📅' },
     { id: 'attractions', label: 'Experiences', icon: '🎯' },
     { id: 'food', label: 'Food + Drink', icon: '🍽️' },
     { id: 'photos', label: 'Photo Spots', icon: '📸' },
     { id: 'neighborhoods', label: 'Neighborhoods', icon: '🏘️' }
-  ], [monthlyDataLoading, monthlyDataError]);
+  ], [monthlyDataError]);
 
   useEffect(() => {
     setComponentLoaded(true);
-    // Eager preload the default decision-making tab to reduce perceived latency.
-    import('@/components/city-guides/CityOverview');
-    // Also preload logistics since it is commonly accessed after timing.
+    // Eager preload the default landing view to reduce perceived latency.
+    import('@/components/city-guides/overview/OverviewStartHere');
+    // Also preload logistics since it is commonly accessed early.
     import('@/components/city-guides/StartHere');
   }, []);
 
@@ -311,6 +322,9 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
     // Kick off any required data fetches synchronously so they start as soon
     // as the click registers, in parallel with the lazy-chunk download.
     (TAB_SECTIONS[tabId] || []).forEach(loadSection);
+    // Reflect the tab in the URL immediately (outside the transition, which
+    // can defer) so deep links / Share capture the right tab.
+    writeTabToUrl(tabId);
     // Mark the tab change as a transition so React keeps the current tab
     // rendered while the new one suspends. No artificial timeout.
     startTabTransition(() => {
@@ -318,22 +332,14 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
     });
   }, [activeTab, loadSection]);
 
-  const handleOpenMonthlyGuide = useCallback((monthName) => {
-    setSelectedMonthlyMonth(monthName || null);
-    (TAB_SECTIONS.monthly || []).forEach(loadSection);
-    startTabTransition(() => {
-      setActiveTab('monthly');
-    });
-  }, [loadSection]);
-
   const handleExploreBestDates = useCallback(() => {
-    if (activeTab !== 'overview') {
-      handleTabSwitch('overview');
+    if (activeTab !== 'when') {
+      handleTabSwitch('when');
     }
 
     setTimeout(() => {
       tabBarRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, activeTab === 'overview' ? 0 : 220);
+    }, activeTab === 'when' ? 0 : 220);
   }, [activeTab, handleTabSwitch]);
 
   // Print/PDF handler
@@ -350,15 +356,15 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
         import('@/components/city-guides/StartHere');
         break;
       case 'overview':
-        import('@/components/city-guides/CityOverview');
+        import('@/components/city-guides/overview/OverviewStartHere');
+        break;
+      case 'when':
+        import('@/components/city-guides/WhenToGo');
+        // Hint monthly data fetch early on hover (the month-by-month sub-view).
+        loadAllMonthly();
         break;
       case 'map':
         import('@/components/city-guides/MapSection');
-        break;
-      case 'monthly':
-        import('@/components/city-guides/MonthlyGuideSection');
-        // Hint data fetch early on hover
-        loadAllMonthly();
         break;
       case 'attractions':
         import('@/components/city-guides/AttractionsList');
@@ -377,12 +383,22 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
     }
   };
 
-  // On first open of Monthly tab, fetch full monthly index (if not already loaded)
+  // On first open of the "When to Go" tab, fetch full monthly index (if not
+  // already loaded) — the month-by-month sub-view needs it.
   useEffect(() => {
-    if (activeTab === 'monthly') {
+    if (activeTab === 'when') {
       loadAllMonthly();
     }
   }, [activeTab, loadAllMonthly]);
+
+  // Keep the active tab visible within the horizontal scroller — needed when a
+  // deep link (?tab=neighborhoods) lands on a tab that's off-screen on mobile.
+  useEffect(() => {
+    const scroller = tabScrollerRef.current;
+    if (!scroller) return;
+    const activeBtn = scroller.querySelector('[aria-current="page"]');
+    activeBtn?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }, [activeTab]);
 
   const memoizedData = useMemo(() => ({
     safeAttractions,
@@ -482,13 +498,27 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
       case 'overview':
         return (
           <Suspense fallback={<SkeletonOverview />}>
-            <LazyCityOverview
+            <LazyOverviewStartHere
               overview={overview}
               cityName={cityName}
               visitCalendar={visitCalendar}
+              experiencesUrl={cityPaths.experiences}
+              onOpenTab={handleTabSwitch}
+            />
+          </Suspense>
+        );
+      case 'when':
+        return (
+          <Suspense fallback={<SkeletonOverview />}>
+            <LazyWhenToGo
+              overview={overview}
+              cityName={cityName}
+              country={country}
+              visitCalendar={visitCalendar}
               monthlyData={memoizedData.safeMonthlyEvents}
-              hideIntroHero={cityName?.toLowerCase() === 'paris'}
-              onOpenMonthlyGuide={handleOpenMonthlyGuide}
+              monthlyDataLoading={monthlyDataLoading}
+              monthlyDataError={monthlyDataError}
+              hideCalendarIntroHero={cityName?.toLowerCase() === 'paris'}
             />
           </Suspense>
         );
@@ -506,34 +536,6 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
             />
           </MapSuspenseWrapper>
         );
-      case 'monthly':
-        if (monthlyDataLoading) {
-          return <SkeletonTabContent />;
-        }
-        if (monthlyDataError) {
-          return (
-            <div className="flex items-center justify-center py-16">
-              <div className="text-center">
-                <div className="text-yellow-600 text-4xl mb-4">⚠️</div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">Monthly Guide Unavailable</h3>
-                <p className="text-gray-600 mb-4">We couldn&apos;t load the monthly guide for {cityName} at this time.</p>
-                <p className="text-sm text-gray-500">You can still explore other sections like attractions and neighborhoods.</p>
-              </div>
-            </div>
-          );
-        }
-        return (
-          <Suspense fallback={<SkeletonTabContent />}>
-            <LazyMonthlyGuideSection
-              monthlyData={memoizedData.safeMonthlyEvents}
-              cityName={cityName}
-              city={cityName}
-              visitCalendar={visitCalendar}
-              countryName={country}
-              selectedMonth={selectedMonthlyMonth}
-            />
-          </Suspense>
-        );
       case 'attractions':
         return (
           <>
@@ -546,6 +548,8 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
                 experiencesUrl={cityPaths.experiences}
                 limit={Infinity}
                 forceList
+                isFavorite={isFavorite}
+                toggle={toggleFavorite}
               />
             </Suspense>
             <div className="mt-8">
@@ -574,7 +578,13 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
       default:
         return (
           <Suspense fallback={<SkeletonOverview />}>
-            <LazyCityOverview overview={overview} cityName={cityName} />
+            <LazyOverviewStartHere
+              overview={overview}
+              cityName={cityName}
+              visitCalendar={visitCalendar}
+              experiencesUrl={cityPaths.experiences}
+              onOpenTab={handleTabSwitch}
+            />
           </Suspense>
         );
     }
@@ -623,8 +633,9 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
             <span className="text-white font-semibold">{displayName}</span>
           </nav>
           
-          {/* Right: Auth button */}
-          <div className="flex items-center">
+          {/* Right: Share / Print + Auth */}
+          <div className="flex items-center gap-2">
+            <ShareGuideButton title={`${displayName} travel guide`} onPrint={handlePrint} />
             <AuthButton />
           </div>
         </div>
@@ -662,7 +673,11 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
         <div className={`bg-white/95 rounded-2xl shadow-sm border border-gray-100 ${isTabBarSticky ? 'max-w-7xl mx-auto' : ''}`}>
           <div className="flex items-center justify-between gap-3 p-3">
             {/* Tab buttons */}
-            <div className="flex overflow-x-auto gap-2 scrollbar-hide tab-navigation snap-x flex-1">
+            <div className="relative min-w-0 flex-1">
+              <div
+                ref={tabScrollerRef}
+                className="flex overflow-x-auto gap-2 scrollbar-hide tab-navigation snap-x"
+              >
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
@@ -680,6 +695,9 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
                   <span className="hidden xs:inline sm:inline">{tab.label}</span>
                 </button>
               ))}
+              </div>
+              {/* Edge fade hints there are more tabs to scroll on small screens */}
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-white to-transparent" aria-hidden />
             </div>
           </div>
         </div>
@@ -718,20 +736,14 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
         </div>
       </div>
 
-      {/* Sticky bottom CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 bg-white/90 backdrop-blur-lg border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] print:hidden">
-        <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between gap-4">
-          <div className="hidden sm:block text-sm text-gray-600">
-            Ready to visit <span className="font-semibold text-gray-900">{displayName}</span>?
-          </div>
-          <Link
-            href={`/plan/${encodeURIComponent(cityName.toLowerCase())}`}
-            className="ml-auto px-6 py-2.5 bg-blue-600 text-white font-semibold text-sm rounded-full hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20"
-          >
-            Plan a Trip to {displayName}
-          </Link>
-        </div>
-      </div>
+      {/* Sticky bottom bar — the "Plan a Trip" CTA when nothing is shortlisted,
+          and a shortlist tray once the visitor has saved experiences. */}
+      <CityShortlistBar
+        cityName={cityName}
+        displayName={displayName}
+        favorites={favorites}
+        onRemove={toggleFavorite}
+      />
 
     </div>
   );

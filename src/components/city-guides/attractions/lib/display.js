@@ -160,3 +160,49 @@ export const generateTips = (attraction) => {
 
   return tips.slice(0, 2);
 };
+
+/**
+ * Full insider-tips list for the detail view. Unlike generateTips (which is
+ * capped at 2 for the compact card teaser), this returns every data-supplied
+ * tip, falling back to the generated heuristics when the item has none.
+ */
+export const getAllTips = (attraction) => {
+  if (Array.isArray(attraction?.tips) && attraction.tips.length > 0) {
+    return attraction.tips.filter(Boolean);
+  }
+  return generateTips(attraction);
+};
+
+/**
+ * Overall quality score (0–10) — the mean of an item's per-factor scores
+ * (excluding the composite `total_score`). Returns null when no scores exist.
+ * Used for the single at-a-glance badge on the card.
+ */
+export const getOverallScore = (attraction) => {
+  const scores = attraction?.factorScores || attraction?.scores;
+  if (!scores || typeof scores !== 'object') return null;
+  const values = Object.entries(scores)
+    .filter(([key, value]) => key !== 'total_score' && typeof value === 'number' && !Number.isNaN(value))
+    // Clamp to the expected 0–10 scale so a stray out-of-range value can't
+    // skew the badge color thresholds (overallScoreClass keys off 7/8/9).
+    .map(([, value]) => Math.max(0, Math.min(10, value)));
+  if (values.length === 0) return null;
+  const mean = values.reduce((sum, v) => sum + v, 0) / values.length;
+  return Math.round(mean * 10) / 10;
+};
+
+/**
+ * Build a Google Maps "directions to" URL for an experience. Prefers exact
+ * coordinates; otherwise falls back to the name (+ address / city) as a query.
+ * Returns null when there's nothing to route to.
+ */
+export const buildDirectionsUrl = (attraction, cityName) => {
+  const lat = Number(attraction?.latitude);
+  const lon = Number(attraction?.longitude);
+  if (Number.isFinite(lat) && Number.isFinite(lon)) {
+    return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`;
+  }
+  const query = [attraction?.name, attraction?.address, cityName].filter(Boolean).join(', ');
+  if (!query) return null;
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(query)}`;
+};
