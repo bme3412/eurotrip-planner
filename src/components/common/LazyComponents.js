@@ -13,6 +13,8 @@ export const LazyMapComponent = lazy(() => import('../map/MapComponent'));
 export const LazyAttractionsList = lazy(() => import('../city-guides/AttractionsList'));
 export const LazyNeighborhoodsList = lazy(() => import('../city-guides/NeighborhoodsList'));
 export const LazyMonthlyGuideSection = lazy(() => import('../city-guides/MonthlyGuideSection'));
+// "When to Go" merges the calendar + monthly views behind a sub-view toggle.
+export const LazyWhenToGo = lazy(() => import('../city-guides/WhenToGo'));
 
 // =================
 // MEDIUM COMPONENTS
@@ -28,6 +30,7 @@ export const LazyEnhancedVisitCalendar = lazy(() => import('../city-guides/Enhan
 // LIGHTWEIGHT COMPONENTS - Can be lazy loaded for organization
 // =================
 export const LazyCityOverview = lazy(() => import('../city-guides/CityOverview'));
+export const LazyOverviewStartHere = lazy(() => import('../city-guides/overview/OverviewStartHere'));
 export const LazySingleMonthView = lazy(() => import('../city-guides/SingleMonthView'));
 export const LazyStartHere = lazy(() => import('../city-guides/StartHere'));
 export const LazyFoodDrinkGuide = lazy(() => import('../city-guides/FoodDrinkGuide'));

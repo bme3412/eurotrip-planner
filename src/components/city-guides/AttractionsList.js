@@ -2,8 +2,8 @@
 
 import React, { useCallback, useMemo, useState } from 'react';
 import { Check } from 'lucide-react';
-import { useFavorites } from '@/hooks/useFavorites';
 import AttractionCard from './attractions/AttractionCard';
+import ExperienceDetailModal from './attractions/ExperienceDetailModal';
 import CuratedFilters from './attractions/CuratedFilters';
 import LoadingSkeleton from './attractions/LoadingSkeleton';
 import { useExperienceData } from './attractions/hooks/useExperienceData';
@@ -31,7 +31,7 @@ import {
  * Everything else (cards, filter pills, pagination, scoring math, loading
  * skeleton) lives in `./attractions/`.
  */
-const AttractionsList = ({ attractions, categories, cityName, monthlyData, experiencesUrl = null, limit = Infinity }) => {
+const AttractionsList = ({ attractions, categories, cityName, monthlyData, experiencesUrl = null, limit = Infinity, isFavorite: providedIsFavorite, toggle: providedToggle }) => {
   // UI state
   const [searchTerm, setSearchTerm] = useState('');
   const [dateFilterType, setDateFilterType] = useState('none');
@@ -45,9 +45,16 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   const [curatedFilter, setCuratedFilter] = useState('all');
   const [rankingLens] = useState('overall');
   const [toastMessage, setToastMessage] = useState(null);
+  const [detailExperience, setDetailExperience] = useState(null);
 
-  // Favorites — unified hook handles Supabase / localStorage selection.
-  const { isFavorite, toggle: toggleFavoriteHook } = useFavorites(cityName);
+  // Favorites come from the instance lifted to CityPageClient (single source of
+  // truth shared with the shortlist bar). Memoized no-op fallbacks keep this
+  // usable — and identity-stable — if it's ever rendered without the props.
+  const isFavorite = useMemo(() => providedIsFavorite || (() => false), [providedIsFavorite]);
+  const toggleFavoriteHook = useMemo(
+    () => providedToggle || (async () => ({ action: 'noop', id: null })),
+    [providedToggle],
+  );
 
   // Data
   const { experiences, isLoading } = useExperienceData({ experiencesUrl, cityName, limit });
@@ -250,6 +257,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
                 indexForPriority={index}
                 isFavorite={isFavorite}
                 onToggleFavorite={toggleFavorite}
+                onOpenDetail={setDetailExperience}
                 cityName={displayCityName}
               />
             ))}
@@ -296,6 +304,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
                   indexForPriority={highlightAttractions.length + index}
                   isFavorite={isFavorite}
                   onToggleFavorite={toggleFavorite}
+                  onOpenDetail={setDetailExperience}
                   cityName={displayCityName}
                 />
               ))}
@@ -319,6 +328,15 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
           </div>
         </div>
       )}
+
+      {/* Full experience detail */}
+      <ExperienceDetailModal
+        experience={detailExperience}
+        onClose={() => setDetailExperience(null)}
+        isFavorite={isFavorite}
+        onToggleFavorite={toggleFavorite}
+        cityName={displayCityName}
+      />
     </div>
   );
 };

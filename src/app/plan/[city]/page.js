@@ -70,6 +70,33 @@ function formatDateRange(start, end) {
   return `${nights} night${nights !== 1 ? 's' : ''} · ${fmt(s)}–${fmt(e)}`;
 }
 
+// Read the comma-separated must-see slugs handed off from the city-guide
+// shortlist (`/plan/{city}?seed=a,b,c`). Read from window.location rather than
+// useSearchParams to avoid an App-Router CSR bailout on this client page.
+function readSeedSlugs() {
+  if (typeof window === 'undefined') return [];
+  try {
+    const seed = new URL(window.location.href).searchParams.get('seed');
+    if (!seed) return [];
+    return seed.split(',').map((s) => decodeURIComponent(s).trim()).filter(Boolean);
+  } catch {
+    return [];
+  }
+}
+
+// Best-effort readable label from a must-see slug ("seine-cruise" → "Seine
+// Cruise"). Capitalizes the first letter of each word via split/map rather than
+// a \b\w regex, which mis-fires on accented characters (é, è, ü…).
+function deslug(slug) {
+  return String(slug || '')
+    .replace(/-+/g, ' ')
+    .split(' ')
+    .map((w) => (w ? w.charAt(0).toUpperCase() + w.slice(1) : w))
+    .join(' ');
+}
+
+const toSlug = (name) => String(name || '').toLowerCase().replace(/\s+/g, '-');
+
 export default function PlanCityPage() {
   const params = useParams();
   const router = useRouter();
@@ -82,7 +109,11 @@ export default function PlanCityPage() {
   const [pace, setPace] = useState(PACE_CARDS[1].pace);
   const [paceId, setPaceId] = useState('balanced');
   const [budget, setBudget] = useState('moderate');
-  const [mustSee, setMustSee] = useState([]);
+  // Seed must-sees from the city-guide shortlist handoff (?seed=). `seedSlugs`
+  // is the immutable initial seed, used to render the "From your shortlist"
+  // group; `mustSee` then evolves as the user toggles items.
+  const [seedSlugs] = useState(readSeedSlugs);
+  const [mustSee, setMustSee] = useState(readSeedSlugs);
   const [stepIndex, setStepIndex] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
@@ -138,9 +169,22 @@ export default function PlanCityPage() {
   };
 
   const toggleMustSee = useCallback((name) => {
-    const slug = name.toLowerCase().replace(/\s+/g, '-');
+    const slug = toSlug(name);
     setMustSee(prev => prev.includes(slug) ? prev.filter(x => x !== slug) : [...prev, slug]);
   }, []);
+
+  // Toggle a raw slug directly (used by the "From your shortlist" group, whose
+  // items are slugs carried over from the guide rather than landmark names).
+  const toggleMustSeeSlug = useCallback((slug) => {
+    setMustSee(prev => prev.includes(slug) ? prev.filter(x => x !== slug) : [...prev, slug]);
+  }, []);
+
+  // Shortlist items that aren't already covered by the wizard's own top-8
+  // landmark checkboxes (those render pre-checked in the Must-see list).
+  const extraShortlistSlugs = useMemo(
+    () => seedSlugs.filter((slug) => !topAttractions.some((att) => toSlug(att.name) === slug)),
+    [seedSlugs, topAttractions],
+  );
 
   // Memoize steps to avoid recreating on every keystroke — only update when deps change
   const steps = useMemo(() => [
@@ -258,6 +302,39 @@ export default function PlanCityPage() {
             <p className="mt-2.5 text-sm text-slate-500 text-center">{selectedBudget.description}</p>
           </div>
 
+          {/* From your shortlist — items carried over from the city guide that
+              aren't already in the wizard's own top-8 list below. */}
+          {extraShortlistSlugs.length > 0 && (
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">
+                From your shortlist
+              </label>
+              <div className="space-y-1.5">
+                {extraShortlistSlugs.map((slug) => {
+                  const checked = mustSee.includes(slug);
+                  return (
+                    <label
+                      key={slug}
+                      className={`flex items-center gap-3 rounded-xl border px-4 py-3 cursor-pointer transition-all ${
+                        checked ? 'border-slate-900 bg-slate-50' : 'border-slate-200 bg-white hover:border-slate-300'
+                      }`}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={() => toggleMustSeeSlug(slug)}
+                        className="rounded border-slate-300 text-slate-900 focus:ring-slate-900"
+                      />
+                      <span className={`text-sm font-medium ${checked ? 'text-slate-900' : 'text-slate-700'}`}>
+                        {deslug(slug)}
+                      </span>
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           {/* Must-see */}
           {topAttractions.length > 0 && (
             <div>
@@ -341,7 +418,7 @@ export default function PlanCityPage() {
         </div>
       ),
     },
-  ], [cityDisplay, dateRange, dates, setDates, nightsLabel, paceId, selectPace, interests, toggleInterest, budget, setBudget, selectedBudget, topAttractions, mustSee, toggleMustSee]);
+  ], [cityDisplay, dateRange, dates, setDates, nightsLabel, paceId, selectPace, interests, toggleInterest, budget, setBudget, selectedBudget, topAttractions, mustSee, toggleMustSee, extraShortlistSlugs, toggleMustSeeSlug]);
 
   const handleNext = () => {
     const currentStep = steps[stepIndex];
