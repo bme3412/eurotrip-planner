@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Sun, Cloud, Sunrise } from 'lucide-react';
 import { getDaylightHours } from '@/lib/daylight';
 
 /**
@@ -23,7 +23,8 @@ const COUNTRY_FLAGS = {
 };
 
 /**
- * Color palette for city sidebar - cycles through earthy/muted tones
+ * Color palette for the rank standing-bar — cycles through earthy/muted tones.
+ * The palette is meaningful (a per-rank colour cue) rather than a vestigial tick.
  */
 const SIDEBAR_COLORS = [
   'bg-[#2d4a3e]', // forest green
@@ -39,15 +40,13 @@ const SIDEBAR_COLORS = [
 ];
 
 /**
- * Get weather icon based on temperature
+ * Weather icon (lucide) + tone based on temperature
  */
-function getWeatherIcon(temp) {
-  if (temp === null || temp === undefined) return '🌡️';
-  if (temp >= 28) return '☀️';
-  if (temp >= 20) return '🌤️';
-  if (temp >= 12) return '⛅';
-  if (temp >= 5) return '🌥️';
-  return '❄️';
+function weatherDescriptor(temp) {
+  if (temp === null || temp === undefined) return { Icon: Cloud, tone: 'text-gray-400' };
+  if (temp >= 20) return { Icon: Sun, tone: 'text-amber-500' };
+  if (temp >= 12) return { Icon: Sun, tone: 'text-amber-400' };
+  return { Icon: Cloud, tone: 'text-slate-400' };
 }
 
 /**
@@ -65,19 +64,19 @@ function CrowdBars({ level }) {
 
   const count = levelMap[level] || 3;
   const colorMap = {
-    1: 'bg-emerald-400',
-    2: 'bg-green-400',
+    1: 'bg-emerald-500',
+    2: 'bg-emerald-400',
     3: 'bg-amber-400',
     4: 'bg-orange-400',
     5: 'bg-red-400',
   };
 
   return (
-    <div className="flex items-end gap-0.5 h-4">
+    <div className="flex items-end gap-[3px] h-3.5">
       {[1, 2, 3, 4, 5].map((i) => (
         <div
           key={i}
-          className={`w-1 rounded-sm transition-all ${
+          className={`w-1 rounded-[1px] transition-all ${
             i <= count ? colorMap[count] : 'bg-gray-200'
           }`}
           style={{ height: `${40 + i * 12}%` }}
@@ -127,14 +126,16 @@ export default function CityListRow({ city, rank, onClick, onStartPlan, startDat
   // latitude estimate, so 0.5h precision was misleading.
   const daylightHours = getDaylightHours(startDate || new Date(), country);
 
-  // Sidebar color based on rank
+  // Standing-bar colour based on rank
   const sidebarColor = SIDEBAR_COLORS[rank % SIDEBAR_COLORS.length];
 
   const cityHref = city.cityId || city.id;
   const handleActivate = () => onClick(cityHref);
 
+  const { Icon: WeatherIcon, tone: weatherTone } = weatherDescriptor(tempNum);
+
   return (
-    <div
+    <article
       id={`city-${cityHref}`}
       role="button"
       tabIndex={0}
@@ -148,100 +149,118 @@ export default function CityListRow({ city, rank, onClick, onStartPlan, startDat
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`flex flex-col sm:flex-row bg-white rounded-xl overflow-hidden cursor-pointer transition-shadow duration-200 shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
-        isHovered ? 'sm:shadow-md' : ''
-      }`}
+      className="group relative grid grid-cols-[1.75rem_minmax(0,1fr)] sm:grid-cols-[3rem_minmax(0,1fr)] gap-3 sm:gap-5 bg-white py-4 sm:py-5 cursor-pointer rounded-sm transition-colors hover:bg-gray-50/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-hero-accent focus-visible:ring-offset-2"
     >
-      {/* Image with overlay containing rank, flag, city name */}
-      <div className="relative w-full h-36 sm:w-44 sm:h-auto sm:min-h-[8.5rem] flex-shrink-0">
-        <Image
-          src={imageSrc}
-          alt={cityName}
-          fill
-          className="object-cover"
-          sizes="(max-width: 640px) 100vw, 176px"
-          onError={() => setImgError(true)}
-          unoptimized={imageSrc.endsWith('.svg')}
-        />
-        {/* Dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-
-        {/* Rank badge - top left */}
-        <div className="absolute top-2 left-2">
-          <span className={`${sidebarColor} text-white text-xs font-bold px-2 py-0.5 rounded`}>
-            {rank + 1}
-          </span>
-        </div>
-
-        {/* Flag + city name - bottom */}
-        <div className="absolute bottom-2 left-2 right-2">
-          <div className="flex items-center gap-1.5">
-            <span className="text-lg">{flag}</span>
-            <span className="text-white text-xs font-semibold uppercase tracking-wide truncate">
-              {cityName}
-            </span>
-          </div>
-        </div>
+      {/* Editorial rank numeral — left margin index. */}
+      <div className="flex flex-col items-center pt-1">
+        <span className="font-display text-2xl sm:text-4xl font-semibold leading-none text-hero-ink tabular-nums">
+          {rank + 1}
+        </span>
+        {/* Standing bar: width scales inversely with rank so the list reads as a
+            ranked leaderboard without inventing a noisy numeric score. */}
+        <span className="mt-2 h-[3px] w-6 rounded-full bg-hero-line overflow-hidden" aria-hidden="true">
+          <span
+            className={`block h-full ${sidebarColor} opacity-80`}
+            style={{ width: `${Math.max(20, 100 - rank * 5)}%` }}
+          />
+        </span>
       </div>
 
-      {/* Main content area */}
-      <div className="flex-1 p-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 min-w-0">
-        {/* City info */}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-baseline gap-2 mb-1">
-            <h3 className="font-bold text-gray-900 text-lg truncate">
+      {/* Entry body — single horizontal row on sm+, stacked on mobile. The
+          flexible name/dek block absorbs the slack so the ledger + CTA sit
+          together on the right with no empty mid-row gap. */}
+      <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
+        {/* Framed image */}
+        <div className="relative h-40 w-full flex-shrink-0 overflow-hidden rounded-md ring-1 ring-hero-line sm:h-[5.5rem] sm:w-36">
+          <Image
+            src={imageSrc}
+            alt={cityName}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 640px) 100vw, 144px"
+            onError={() => setImgError(true)}
+            unoptimized={imageSrc.endsWith('.svg')}
+          />
+          <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-md" aria-hidden="true" />
+        </div>
+
+        {/* Name + dek */}
+        <div className="min-w-0 sm:flex-1">
+          <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-hero-ink-muted">
+            {flag && <span className="text-sm leading-none">{flag}</span>}
+            <span className="truncate">{country}</span>
+          </div>
+          <div className="flex items-baseline gap-2">
+            <h3 className="mt-0.5 truncate font-display text-xl sm:text-2xl font-semibold leading-tight text-hero-ink">
               {cityName}
             </h3>
-            <span className="text-gray-400 text-sm shrink-0">{country}</span>
+            <ChevronRight
+              className={`hidden sm:block h-4 w-4 shrink-0 text-hero-line transition-transform ${isHovered ? 'translate-x-0.5 text-hero-ink-muted' : ''}`}
+              aria-hidden="true"
+            />
           </div>
-
           {description && (
-            <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
+            <p className="mt-1 text-sm leading-relaxed text-hero-ink-muted line-clamp-2">
               {description}
             </p>
           )}
         </div>
 
-        {/* Weather + Crowds + Daylight + action */}
-        <div className="flex items-center gap-4 flex-shrink-0 flex-wrap sm:flex-nowrap">
-          {/* Temperature */}
-          {tempNum !== null && (
-            <div className="flex items-center gap-1" title="Average daytime high">
-              <span className="text-lg" aria-hidden="true">{getWeatherIcon(tempNum)}</span>
-              <span className="text-sm font-medium text-gray-700">{tempNum}°</span>
-            </div>
-          )}
-
-          {/* Crowd bars */}
-          <div title={`${crowdLevel} crowds`} aria-label={`${crowdLevel} crowds`}>
-            <CrowdBars level={crowdLevel} />
+        {/* Stat ledger — captioned, hairline-divided cells. Equal-width on mobile
+            (flex-1) so it fills the card; content-width on desktop (sm:flex-none)
+            so it tucks neatly beside the CTA. */}
+        <dl className="flex w-auto flex-shrink-0 divide-x divide-hero-line overflow-hidden rounded-md border border-hero-line">
+          <div className="flex flex-col gap-0.5 px-3 py-1.5 sm:px-4">
+            <dt className="text-[10px] font-semibold uppercase tracking-[0.14em] text-hero-ink-muted">Temp</dt>
+            <dd className="flex h-5 items-center gap-1.5">
+              {tempNum !== null ? (
+                <>
+                  <WeatherIcon className={`h-4 w-4 ${weatherTone}`} aria-hidden="true" />
+                  <span className="font-display text-base font-semibold text-hero-ink tabular-nums">{tempNum}°</span>
+                </>
+              ) : (
+                <span className="text-sm text-hero-ink-muted">—</span>
+              )}
+            </dd>
           </div>
 
-          {/* Daylight hours */}
-          {daylightHours != null && (
-            <div
-              className="bg-amber-50 text-amber-700 px-2 py-1 rounded-lg text-xs font-semibold"
-              title="Approx. daylight hours"
-            >
-              {daylightHours}h
-            </div>
-          )}
+          <div className="flex flex-col gap-0.5 px-3 py-1.5 sm:px-4">
+            <dt className="text-[10px] font-semibold uppercase tracking-[0.14em] text-hero-ink-muted">Crowds</dt>
+            <dd className="flex h-5 min-w-0 items-center gap-1.5" aria-label={`${crowdLevel} crowds`}>
+              <CrowdBars level={crowdLevel} />
+              <span className="min-w-0 truncate text-xs font-medium text-hero-ink">{crowdLevel}</span>
+            </dd>
+          </div>
 
-          <button
-            type="button"
-            onClick={(event) => {
-              event.stopPropagation();
-              onStartPlan?.();
-            }}
-            className="ml-auto sm:ml-0 rounded-full bg-gray-900 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-          >
-            Start itinerary
-          </button>
+          <div className="flex flex-col gap-0.5 px-3 py-1.5 sm:px-4">
+            <dt className="text-[10px] font-semibold uppercase tracking-[0.14em] text-hero-ink-muted">Daylight</dt>
+            <dd className="flex h-5 items-center gap-1.5">
+              {daylightHours != null ? (
+                <>
+                  <Sunrise className="h-4 w-4 text-amber-500" aria-hidden="true" />
+                  <span className="font-display text-base font-semibold text-hero-ink tabular-nums">{daylightHours}h</span>
+                </>
+              ) : (
+                <span className="text-sm text-hero-ink-muted">—</span>
+              )}
+            </dd>
+          </div>
+        </dl>
 
-          {/* Arrow */}
-          <ChevronRight className={`hidden sm:block w-5 h-5 text-gray-400 transition-transform ${isHovered ? 'translate-x-1' : ''}`} aria-hidden="true" />
-        </div>
+        {/* Primary action — refined ghost pill that fills on hover so the main
+            action is unmistakable without shouting. */}
+        <button
+          type="button"
+          onClick={(event) => {
+            event.stopPropagation();
+            onStartPlan?.();
+          }}
+          className="inline-flex shrink-0 items-center gap-1 self-start rounded-full border border-hero-ink/15 bg-white px-3.5 py-1.5 text-xs font-semibold text-hero-ink transition-colors hover:border-hero-ink hover:bg-hero-ink hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-hero-accent focus-visible:ring-offset-2 sm:self-auto"
+        >
+          Start itinerary
+          <ChevronRight className={`h-3.5 w-3.5 transition-transform ${isHovered ? 'translate-x-0.5' : ''}`} aria-hidden="true" />
+        </button>
       </div>
-    </div>
+    </article>
   );
 }
