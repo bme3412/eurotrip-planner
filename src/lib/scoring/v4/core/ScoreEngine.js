@@ -12,7 +12,7 @@
  */
 
 import config from '../config/scoringConfig.json' with { type: 'json' };
-import { getCountryFlag, clamp } from '../utils/index.js';
+import { getCountryFlag, clamp, inferCategories } from '../utils/index.js';
 import { titleCaseFromSlug } from '../../../text.js';
 import { DynamicWeightCalculator } from './DynamicWeightCalculator.js';
 import { TierLabelGenerator } from './TierLabelGenerator.js';
@@ -108,8 +108,13 @@ export class ScoreEngine {
       // Use dynamic weight instead of static weight
       const weight = dynamicWeights[name] ?? this.config.factors[name]?.weight ?? 0;
       if (result.confidence >= this.config.degradation.minConfidenceThreshold) {
-        weightedSum += result.score * weight * 10; // Convert 0-10 to weighted contribution
-        totalWeight += weight;
+        // Scale each factor's contribution by its confidence so low-confidence
+        // fallbacks (e.g. a neutral 5/10 from missing data) no longer carry the
+        // same weight as high-confidence signals. Without this, ~3 of 6 factors
+        // contributed full weight on pure guesses, clustering every city near 50.
+        const effectiveWeight = weight * result.confidence;
+        weightedSum += result.score * effectiveWeight * 10; // Convert 0-10 to weighted contribution
+        totalWeight += effectiveWeight;
       }
     }
 
@@ -149,13 +154,39 @@ export class ScoreEngine {
   }
 
   /**
+   * Clean a raw calendar event string for display: drop parenthetical filler
+   * like "(Public Holiday – date varies)" and keep only the primary event
+   * (data often crams a festival + several holidays into one comma list).
+   */
+  formatEventName(raw) {
+    if (!raw) return raw;
+    const stripped = String(raw).replace(/\s*\([^)]*\)/g, '').trim();
+    return stripped.split(',')[0].trim() || String(raw).trim();
+  }
+
+  /**
+   * Turn an event name into a grammatical sentence. Events whose name already
+   * contains a verb ("…Festival starts") become standalone clauses; others get
+   * "… draws visitors."
+   */
+  eventSentence(name) {
+    const n = this.formatEventName(name);
+    if (!n) return '';
+    if (/\b(starts?|begins?|opens?|returns?|runs?|takes place|kicks off|continues|happening)\b/i.test(n)) {
+      return `${n}.`;
+    }
+    return `${n} draws visitors.`;
+  }
+
+  /**
    * Build a compelling "why visit now" string using city-specific data.
    */
   buildWhyString(breakdown, cityData) {
     // Priority 1: Events (most compelling)
     if (breakdown.timing?.details?.event) {
       const temp = breakdown.timing?.details?.weatherHighC;
-      return temp ? `${breakdown.timing.details.event} • ${temp}°C` : breakdown.timing.details.event;
+      const event = this.formatEventName(breakdown.timing.details.event);
+      return temp ? `${event} • ${temp}°C` : event;
     }
 
     const temp = breakdown.timing?.details?.weatherHighC;
@@ -222,7 +253,7 @@ export class ScoreEngine {
 
     // Sentence 2: Event or attraction
     if (event) {
-      sentences.push(`${event} draws visitors.`);
+      sentences.push(this.eventSentence(event));
     } else if (topAttraction) {
       sentences.push(`${topAttraction} offers memorable experiences.`);
     }
@@ -291,8 +322,8 @@ export class ScoreEngine {
    * Get a short city vibe/identity descriptor.
    */
   getCityVibe(cityData) {
-    // Check tourism categories
-    const categories = cityData?.tourismCategories || [];
+    // Check tourism categories (inferred from attractions when absent in data)
+    const categories = inferCategories(cityData);
     if (categories.length > 0) {
       const vibeMap = {
         'beach': 'Beach paradise',
@@ -496,12 +527,15 @@ export class ScoreEngine {
     // Build highlights from breakdown
     const highlights = [];
 
-    // Add event highlight if present
+    // Add event highlight if present. Clean the raw event string (drop
+    // "(Public Holiday – date varies)" filler and secondary holidays) and give it
+    // a sortKey so the EventStrip can order pills by when they occur in the range.
     if (breakdown.timing?.details?.event) {
       highlights.push({
         type: 'event',
-        name: breakdown.timing.details.event,
+        name: this.formatEventName(breakdown.timing.details.event),
         description: breakdown.timing.reason,
+        sortKey: rangeData?.days?.[0] ?? 999,
       });
     }
 
@@ -530,8 +564,13 @@ export class ScoreEngine {
     // Build expanded "why" description (2-3 sentences)
     const whyExpanded = this.buildExpandedWhyString(breakdown, cityData, rangeData);
 
-    // Build tags from tourism categories
-    const tags = cityData?.tourismCategories?.slice(0, 4) || [];
+    // Build display tags: prefer the curated tourismCategories (from cityMetadata,
+    // human-friendly: "Romance", "Food & Wine"); fall back to attraction-derived
+    // categories. Scoring uses inferCategories directly, not these tags.
+    const tags = (Array.isArray(cityData?.tourismCategories) && cityData.tourismCategories.length
+      ? cityData.tourismCategories
+      : inferCategories(cityData)
+    ).slice(0, 4);
 
     // Tier assignment
     const tierConfig = this.config.tiers || {};
@@ -644,13 +683,13 @@ export class ScoreEngine {
       results.push(apiResult);
     }
 
-    // Sort by tier then by internal score
+    // Sort by tier then by score. NOTE: previously this read `a.debug?.finalScore`,
+    // which is undefined on the live path (includeDebug=false) — so the comparator
+    // collapsed to 0 and cities came back in insertion order, silently defeating the
+    // ranking. `score` is always present (set in formatForAPI), so use it.
     results.sort((a, b) => {
       if (a.tier !== b.tier) return a.tier - b.tier;
-      // Within same tier, use debug score if available, otherwise maintain order
-      const scoreA = a.debug?.finalScore || 0;
-      const scoreB = b.debug?.finalScore || 0;
-      return scoreB - scoreA;
+      return (b.score || 0) - (a.score || 0);
     });
 
     // For backwards compatibility, return flat list if requested

@@ -6,7 +6,7 @@
  */
 
 import config from '../config/scoringConfig.json' with { type: 'json' };
-import { clamp } from '../utils/index.js';
+import { clamp, parseDate } from '../utils/index.js';
 
 /**
  * @typedef {Object} FactorResult
@@ -120,7 +120,7 @@ export class BaseFactor {
   getRangeForDate(cityData, date) {
     if (!date) return null;
 
-    const d = typeof date === 'string' ? new Date(date) : date;
+    const d = parseDate(date);
     const monthNames = [
       'january', 'february', 'march', 'april', 'may', 'june',
       'july', 'august', 'september', 'october', 'november', 'december'

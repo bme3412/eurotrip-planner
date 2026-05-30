@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { scoreCitiesV2 } from '@/lib/scoring/cityScoreV2';
 import { normalizeRankedCandidate } from '@/lib/discovery/rankedCandidate';
+import scoringConfig from '@/lib/scoring/v4/config/scoringConfig.json';
 import {
   getPrecomputedMonthlyScores,
   getCachedSuggestions,
@@ -10,6 +11,11 @@ import {
 } from '@/lib/cache/suggestions';
 
 export const runtime = 'nodejs';
+
+// Bump-on-config-change cache namespace: cached suggestions are keyed by the
+// scoring config version, so regenerating scores or changing weights/thresholds
+// invalidates stale cached rankings instead of serving them for up to an hour.
+const V4_CACHE_VERSION = `v4-${scoringConfig.version}`;
 
 /**
  * GET /api/suggestions?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD&limit=20
@@ -160,8 +166,9 @@ async function scoreAndRespond(startDate, endDate, preferences, limit, version =
         }
       }
 
-      // Check Redis cache for custom queries
-      const cacheKey = buildCacheKey({ startDate, endDate, ...preferences, version: 'v4' });
+      // Check Redis cache for custom queries. `flat` is part of the key because
+      // the flat list and tiered object are different response shapes.
+      const cacheKey = buildCacheKey({ startDate, endDate, ...preferences, version: V4_CACHE_VERSION, flat });
       const cachedResult = await getCachedSuggestions(cacheKey);
       if (cachedResult && !debug) {
         return NextResponse.json(cachedResult.data, {
@@ -195,7 +202,7 @@ async function scoreAndRespond(startDate, endDate, preferences, limit, version =
             endDate,
           }),
         }));
-        return NextResponse.json({
+        const flatResponse = {
           items,
           meta: {
             startDate,
@@ -206,7 +213,12 @@ async function scoreAndRespond(startDate, endDate, preferences, limit, version =
             totalScored: items.length,
             scoringVersion,
           },
-        }, {
+        };
+        // Cache the flat response under the flat-shaped key (async, don't wait).
+        if (!debug) {
+          setCachedSuggestions(cacheKey, flatResponse).catch(() => {});
+        }
+        return NextResponse.json(flatResponse, {
           headers: {
             'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
             'Vary': 'Accept-Encoding'

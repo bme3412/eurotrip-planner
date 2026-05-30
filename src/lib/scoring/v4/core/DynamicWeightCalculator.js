@@ -9,20 +9,8 @@
  * Weights always sum to 1.0 and are rebalanced when factors are reduced.
  */
 
-// Beach destination identifiers
-const BEACH_CATEGORIES = [
-  'beach', 'coastal', 'seaside', 'island', 'mediterranean',
-  'riviera', 'resort', 'waterfront'
-];
-
-const BEACH_CITIES = [
-  'barcelona', 'nice', 'marseille', 'cannes', 'amalfi', 'rimini',
-  'santorini', 'rhodes', 'heraklion', 'dubrovnik', 'split', 'zadar',
-  'lisbon', 'porto', 'faro', 'funchal', 'malaga', 'valencia',
-  'palma', 'alicante', 'vigo', 'gijon', 'santander', 'san-sebastian',
-  'naples', 'bari', 'catania', 'palermo', 'genoa', 'trieste',
-  'valletta', 'sliema', 'limassol', 'nicosia', 'kotor', 'ajaccio'
-];
+import { getMonthIndex, inferCategories } from '../utils/index.js';
+import { BEACH_CATEGORIES, BEACH_CITIES } from '../config/beachCities.js';
 
 // Cultural hub identifiers
 const CULTURAL_CATEGORIES = [
@@ -30,14 +18,17 @@ const CULTURAL_CATEGORIES = [
   'architecture', 'gallery', 'opera', 'theater'
 ];
 
-// Base weights (default configuration)
+// Base weights (fallback when config.dynamicWeights.baseWeights is absent).
+// Keep in sync with scoringConfig.json -> dynamicWeights.baseWeights.
+// `value` is 0 because no city currently carries price data (the factor is
+// disabled in config); its weight is redistributed to higher-signal factors.
 const BASE_WEIGHTS = {
-  culture: 0.20,
+  culture: 0.25,
   beach: 0.10,
-  timing: 0.25,
-  crowds: 0.15,
-  value: 0.15,
-  logistics: 0.15,
+  timing: 0.30,
+  crowds: 0.22,
+  value: 0.0,
+  logistics: 0.13,
 };
 
 export class DynamicWeightCalculator {
@@ -70,7 +61,7 @@ export class DynamicWeightCalculator {
 
     // Get temperature and season info
     const temp = weatherData?.weatherHighC ?? rangeData?.monthData?.weatherHighC;
-    const month = startDate ? new Date(startDate).getMonth() : new Date().getMonth();
+    const month = startDate ? getMonthIndex(startDate) : new Date().getMonth();
     const season = this.getSeason(month);
 
     // 1. Beach weight adjustment
@@ -213,8 +204,8 @@ export class DynamicWeightCalculator {
       return true;
     }
 
-    // Check tourism categories
-    const categories = cityData?.tourismCategories || [];
+    // Check tourism categories (inferred from attractions when absent in data)
+    const categories = inferCategories(cityData);
     for (const category of categories) {
       const lower = category.toLowerCase();
       if (BEACH_CATEGORIES.some(bc => lower.includes(bc))) {
@@ -239,7 +230,7 @@ export class DynamicWeightCalculator {
    * Check if city is a cultural hub.
    */
   isCulturalDestination(cityData) {
-    const categories = cityData?.tourismCategories || [];
+    const categories = inferCategories(cityData);
 
     // Check for cultural categories
     for (const category of categories) {

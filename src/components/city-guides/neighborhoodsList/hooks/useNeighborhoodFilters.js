@@ -1,4 +1,5 @@
 import { useCallback, useMemo } from 'react';
+import { sortNeighborhoods } from '../lib/constants.js';
 
 // Match a neighborhood against a persona by intersecting its `appeal.best_for`
 // strings with the persona's keyword list (case-insensitive substring match).
@@ -18,7 +19,7 @@ function matchesPersona(neighborhood, persona) {
  * Returns `{ uniqueNeighborhoods, filteredNeighborhoods }` so callers can use
  * the de-duped list for things like editor's-picks lookup.
  */
-export default function useNeighborhoodFilters({ neighborhoods, searchTerm, selectedPersona }) {
+export default function useNeighborhoodFilters({ neighborhoods, searchTerm, selectedPersona, sortBy = 'recommended' }) {
   const neighborhoodsWithIds = useMemo(() => {
     const list = Array.isArray(neighborhoods) ? neighborhoods : (neighborhoods?.neighborhoods || []);
     return list.map((neighborhood, index) => ({
@@ -39,7 +40,7 @@ export default function useNeighborhoodFilters({ neighborhoods, searchTerm, sele
   const matches = useCallback(matchesPersona, []);
 
   const filteredNeighborhoods = useMemo(() => {
-    return uniqueNeighborhoods.filter((neighborhood) => {
+    const filtered = uniqueNeighborhoods.filter((neighborhood) => {
       if (searchTerm) {
         const q = searchTerm.toLowerCase();
         const nameMatch = neighborhood.name.toLowerCase().includes(q);
@@ -53,7 +54,8 @@ export default function useNeighborhoodFilters({ neighborhoods, searchTerm, sele
 
       return true;
     });
-  }, [uniqueNeighborhoods, searchTerm, selectedPersona, matches]);
+    return sortNeighborhoods(filtered, sortBy);
+  }, [uniqueNeighborhoods, searchTerm, selectedPersona, matches, sortBy]);
 
   return { uniqueNeighborhoods, filteredNeighborhoods };
 }

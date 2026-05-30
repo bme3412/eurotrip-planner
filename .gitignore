@@ -30,6 +30,10 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# weather backfill runtime artifacts
+scripts/.weather_checkpoint.json
+scripts/.weather-backfill.log
+
 # env files
 .env
 .env.local

@@ -1,11 +1,13 @@
 'use client';
 
 import { useMemo, useState, useRef } from 'react';
-import { List, BarChart3, GitCompare } from 'lucide-react';
+import { List, BarChart3, GitCompare, Calendar } from 'lucide-react';
 import CityListRow from './discover/CityListRow';
 import CityScatterPlot from './discover/CityScatterPlot';
 import { normalizeRankedCandidate, rankedCandidateToPlannerParams } from '@/lib/discovery/rankedCandidate';
 import { scoreToBand, tierToBand } from '@/lib/scoring/qualitative';
+import { formatDateRange, getNights, getLocalMonthIndex } from '@/lib/utils/dates';
+import { getDaylightHours } from '@/lib/daylight';
 
 /**
  * Sort options
@@ -25,28 +27,6 @@ const VIEW_MODES = [
   { id: 'plot', label: 'Plot', icon: BarChart3 },
   { id: 'compare', label: 'Compare', icon: GitCompare },
 ];
-
-function formatDateRange(dates) {
-  if (!dates?.start || !dates?.end) return null;
-  const fmt = (d) =>
-    new Date(d + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-  return `${fmt(dates.start)} – ${fmt(dates.end)}`;
-}
-
-function getNights(dates) {
-  if (!dates?.start || !dates?.end) return null;
-  const diff = new Date(dates.end) - new Date(dates.start);
-  return Math.ceil(diff / (1000 * 60 * 60 * 24));
-}
-
-function CalendarIcon({ className = 'w-3.5 h-3.5' }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-    </svg>
-  );
-}
 
 /**
  * Event strip showing what's happening during the trip
@@ -70,33 +50,40 @@ function EventStrip({ results, dateRange }) {
 
   if (pills.length === 0) return null;
 
+  // BUG FIX: rows render id=`city-${cityHref}`, so the lookup must match.
   const scrollToCard = (cityId) => {
-    const el = document.getElementById(cityId);
+    const el = document.getElementById(`city-${cityId}`);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
 
   return (
-    <div className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3">
-      <p className="text-xs font-bold text-amber-700 mb-2.5 uppercase tracking-wide">
-        During {dateRange} across Europe
-      </p>
+    <div className="border-t border-hero-line pt-4 mb-2">
+      <div className="flex items-center gap-2 mb-3">
+        <Calendar className="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-hero-ink-muted">
+          What&apos;s on during {dateRange}
+        </p>
+      </div>
       <div
         ref={scrollRef}
-        className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide -mx-1 px-1"
+        className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {pills.slice(0, 12).map((p, i) => (
           <button
             key={i}
             onClick={() => scrollToCard(p.cityId)}
-            className="flex items-center gap-1.5 shrink-0 px-3 py-1.5 rounded-full bg-white border border-amber-200 hover:border-amber-400 hover:bg-amber-100 transition-colors group text-left"
+            className="flex items-center gap-1.5 shrink-0 px-3 py-1.5 rounded-full bg-white border border-hero-line hover:border-amber-400 hover:bg-amber-50 transition-colors group text-left"
           >
-            <CalendarIcon className="w-3 h-3 text-amber-500 shrink-0" />
-            <span className="text-[11px] font-bold text-amber-700 whitespace-nowrap">{p.date}</span>
-            <span className="text-amber-300 text-[11px]">·</span>
-            <span className="text-[11px] font-semibold text-gray-700 whitespace-nowrap group-hover:text-gray-900">{p.name}</span>
-            <span className="text-gray-300 text-[11px]">·</span>
-            <span className="text-[11px] text-gray-500 whitespace-nowrap">{p.cityName}</span>
+            {p.date && (
+              <>
+                <span className="text-[11px] font-bold text-amber-600 whitespace-nowrap tabular-nums">{p.date}</span>
+                <span className="text-hero-line text-[11px]">·</span>
+              </>
+            )}
+            <span className="text-[11px] font-semibold text-hero-ink whitespace-nowrap">{p.name}</span>
+            <span className="text-hero-line text-[11px]">·</span>
+            <span className="text-[11px] text-hero-ink-muted whitespace-nowrap">{p.cityName}</span>
           </button>
         ))}
       </div>
@@ -140,46 +127,43 @@ export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy
   const sortBy = externalSortBy || internalSortBy;
   const setSortBy = externalSetSortBy || setInternalSortBy;
 
+  const travelMonth = getLocalMonthIndex(dates?.start);
+
   const sorted = useMemo(() => {
     const items = [...results];
 
     switch (sortBy) {
-      case 'warmest':
-        return items.sort((a, b) => {
-          const tempA = getTemperature(a) ?? -100;
-          const tempB = getTemperature(b) ?? -100;
-          return tempB - tempA;
-        });
+      case 'warmest': {
+        // Cities without temperature data sort to the MIDDLE (median of known
+        // temps), not dead last — we don't know they're cold, just unknown.
+        const temps = items.map(getTemperature).filter((t) => t != null).sort((a, b) => a - b);
+        const median = temps.length ? temps[Math.floor(temps.length / 2)] : 15;
+        return items.sort((a, b) => (getTemperature(b) ?? median) - (getTemperature(a) ?? median));
+      }
 
       case 'quietest':
-        return items.sort((a, b) => {
-          const crowdA = crowdLevelToNumber(a.crowdLevel);
-          const crowdB = crowdLevelToNumber(b.crowdLevel);
-          return crowdA - crowdB;
-        });
+        return items.sort((a, b) => crowdLevelToNumber(a.crowdLevel) - crowdLevelToNumber(b.crowdLevel));
 
       case 'daylight':
-        return items.sort((a, b) => {
-          const northernCountries = ['Norway', 'Sweden', 'Finland', 'Iceland', 'Estonia', 'Latvia', 'Lithuania', 'Denmark', 'UK', 'Ireland'];
-          const scoreA = northernCountries.includes(a.country) ? 1 : 0;
-          const scoreB = northernCountries.includes(b.country) ? 1 : 0;
-          return scoreB - scoreA;
-        });
+        // Use the same coarse daylight estimate the rows display, so the sort
+        // matches the numbers shown (previously a crude binary northern check).
+        return items.sort((a, b) =>
+          (getDaylightHours(travelMonth ?? new Date(), b.country) ?? 0) -
+          (getDaylightHours(travelMonth ?? new Date(), a.country) ?? 0)
+        );
 
       case 'score':
       case 'popularity':
       case 'value':
       default:
-        return items.sort((a, b) => {
-          const scoreA = a.v4?.finalScore ?? (a.score || 0) * 20;
-          const scoreB = b.v4?.finalScore ?? (b.score || 0) * 20;
-          return scoreB - scoreA;
-        });
+        return items.sort((a, b) =>
+          (b.v4?.finalScore ?? b.score ?? 0) - (a.v4?.finalScore ?? a.score ?? 0)
+        );
     }
-  }, [results, sortBy]);
+  }, [results, sortBy, travelMonth]);
 
-  const dateRange = formatDateRange(dates);
-  const nights = getNights(dates);
+  const dateRange = formatDateRange(dates?.start, dates?.end);
+  const nights = getNights(dates?.start, dates?.end);
   const ranked = useMemo(() => (
     sorted.map((city, index) => ({
       source: city,
@@ -242,60 +226,59 @@ export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy
   };
 
   return (
-    <section className="mx-auto max-w-5xl">
-      {/* View mode toggle */}
-      <div className="flex justify-center mb-6">
-        <div className="inline-flex bg-gray-100 rounded-full p-1">
-          {VIEW_MODES.map((mode) => {
-            const Icon = mode.icon;
-            const isActive = viewMode === mode.id;
-            return (
-              <button
-                key={mode.id}
-                onClick={() => setViewMode(mode.id)}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  isActive
-                    ? 'bg-gray-800 text-white shadow-sm'
-                    : 'text-gray-600 hover:text-gray-800'
-                }`}
-              >
-                <Icon className="w-4 h-4" />
-                {mode.label}
-              </button>
-            );
-          })}
-        </div>
+    <section className="w-full">
+      {/* Editorial segmented tabs — left-aligned, hairline underline */}
+      <div className="flex items-center gap-6 border-b border-hero-line">
+        {VIEW_MODES.map((mode) => {
+          const Icon = mode.icon;
+          const isActive = viewMode === mode.id;
+          return (
+            <button
+              key={mode.id}
+              onClick={() => setViewMode(mode.id)}
+              className={`flex items-center gap-1.5 -mb-px border-b-2 pb-2.5 pt-1 text-sm font-medium transition-colors ${
+                isActive
+                  ? 'border-hero-ink text-hero-ink'
+                  : 'border-transparent text-hero-ink-muted hover:text-hero-ink'
+              }`}
+            >
+              <Icon className="w-4 h-4" />
+              {mode.label}
+            </button>
+          );
+        })}
       </div>
 
-      {/* Header */}
+      {/* Header (standalone / non-modal) */}
       {!hideHeader && (
-        <div className="mb-6">
+        <div className="pt-6 mb-6">
           <div className="space-y-1 mb-4">
             {dateRange ? (
               <>
-                <h2 className="text-3xl font-bold text-gray-900">
+                <h2 className="font-display text-4xl font-semibold text-hero-ink leading-tight">
                   {results.length} cities for{' '}
                   <span className="text-amber-600">{dateRange}</span>
                 </h2>
-                <p className="text-gray-500">
-                  {nights} nights · ranked by weather, crowds & events across Europe
+                <p className="text-hero-ink-muted">
+                  {nights} nights · ranked by season, crowds &amp; events across Europe
                 </p>
               </>
             ) : (
-              <h2 className="text-2xl font-bold text-gray-900">Your curated picks</h2>
+              <h2 className="font-display text-3xl font-semibold text-hero-ink">Your curated picks</h2>
             )}
           </div>
 
           {/* Sort filter pills */}
           <div className="flex flex-wrap items-center gap-2">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-hero-ink-muted mr-1">Sort</span>
             {SORT_OPTIONS.map((option) => (
               <button
                 key={option.id}
                 onClick={() => setSortBy(option.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`px-3.5 py-1.5 rounded-full text-sm font-medium transition-all ${
                   sortBy === option.id
-                    ? 'bg-gray-800 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-hero-ink text-white'
+                    : 'bg-white border border-hero-line text-hero-ink hover:border-hero-ink/40'
                 }`}
               >
                 {option.label}
@@ -305,7 +288,7 @@ export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy
             {onChangeDates && dateRange && (
               <button
                 onClick={onChangeDates}
-                className="ml-auto text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
+                className="ml-auto text-sm font-medium text-hero-accent hover:text-blue-700 transition-colors"
               >
                 ← Change dates
               </button>
@@ -314,41 +297,40 @@ export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy
         </div>
       )}
 
-      {/* Modal header (when hideHeader) */}
+      {/* Sort row (modal mode) — aligned to the same column */}
       {hideHeader && (
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-wrap items-center gap-2 pt-5 mb-1">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-hero-ink-muted mr-1">Sort</span>
+          {SORT_OPTIONS.map((option) => (
+            <button
+              key={option.id}
+              onClick={() => setSortBy(option.id)}
+              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                sortBy === option.id
+                  ? 'bg-hero-ink text-white'
+                  : 'bg-white border border-hero-line text-hero-ink hover:border-hero-ink/40'
+              }`}
+            >
+              {option.label}
+            </button>
+          ))}
           {onChangeDates && (
             <button
               onClick={onChangeDates}
-              className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
+              className="ml-auto text-sm font-medium text-hero-accent hover:text-blue-700 transition-colors"
             >
               ← Change dates
             </button>
           )}
-          <div className="flex flex-wrap gap-2 ml-auto">
-            {SORT_OPTIONS.map((option) => (
-              <button
-                key={option.id}
-                onClick={() => setSortBy(option.id)}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-                  sortBy === option.id
-                    ? 'bg-gray-800 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {option.label}
-              </button>
-            ))}
-          </div>
         </div>
       )}
 
       {/* Event strip */}
       {dateRange && <EventStrip results={results} dateRange={dateRange} />}
 
-      {/* List view */}
+      {/* List view — editorial index, hairline-divided entries */}
       {viewMode === 'list' && (
-        <div className="space-y-3">
+        <div className="divide-y divide-hero-line border-t border-hero-line">
           {sorted.slice(0, 30).map((city, index) => (
             <CityListRow
               key={city.id || city.cityId || index}
@@ -364,22 +346,24 @@ export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy
 
       {/* Plot view - Scatter plot */}
       {viewMode === 'plot' && (
-        <CityScatterPlot
-          cities={sorted.slice(0, 30)}
-          onCityClick={handleCityClick}
-        />
+        <div className="pt-6">
+          <CityScatterPlot
+            cities={sorted.slice(0, 30)}
+            onCityClick={handleCityClick}
+          />
+        </div>
       )}
 
       {/* Compare view */}
       {viewMode === 'compare' && (
-        <div className="rounded-2xl border border-gray-200 bg-gray-50 p-5">
+        <div className="mt-6 rounded-2xl border border-hero-line bg-gray-50 p-5">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
             <div>
               <div className="flex items-center gap-2">
-                <GitCompare className="h-5 w-5 text-gray-500" />
-                <h3 className="text-lg font-semibold text-gray-800">Compare ranked picks</h3>
+                <GitCompare className="h-5 w-5 text-hero-ink-muted" />
+                <h3 className="font-display text-xl font-semibold text-hero-ink">Compare ranked picks</h3>
               </div>
-              <p className="mt-1 text-sm text-gray-500">
+              <p className="mt-1 text-sm text-hero-ink-muted">
                 Select up to 5 cities and turn them into a draft route.
               </p>
             </div>
@@ -387,7 +371,7 @@ export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy
               type="button"
               disabled={selectedCandidates.length === 0}
               onClick={handlePlanSelected}
-              className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-300"
+              className="rounded-full bg-hero-ink px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-300"
             >
               Plan selected {selectedCandidates.length > 0 ? `(${selectedCandidates.length})` : ''}
             </button>
@@ -401,25 +385,25 @@ export default function ResultsGrid({ results, sortBy: externalSortBy, setSortBy
                   key={candidate.cityId}
                   onClick={() => toggleSelected(candidate)}
                   className={`rounded-2xl border bg-white p-4 text-left transition-all ${
-                    selected ? 'border-gray-900 shadow-sm ring-2 ring-gray-900/10' : 'border-gray-200 hover:border-gray-300'
+                    selected ? 'border-hero-ink shadow-sm ring-2 ring-hero-ink/10' : 'border-hero-line hover:border-gray-300'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-hero-ink-muted">
                         Rank {candidate.rank}
                       </p>
-                      <h4 className="mt-1 text-base font-bold text-gray-900">
+                      <h4 className="mt-1 font-display text-lg font-semibold text-hero-ink">
                         {candidate.name}
-                        {candidate.country && <span className="font-medium text-gray-400"> · {candidate.country}</span>}
+                        {candidate.country && <span className="font-sans text-sm font-medium text-hero-ink-muted"> · {candidate.country}</span>}
                       </h4>
                     </div>
-                    <span className={`mt-1 h-5 w-5 rounded-full border ${selected ? 'border-gray-900 bg-gray-900' : 'border-gray-300'}`} />
+                    <span className={`mt-1 h-5 w-5 rounded-full border ${selected ? 'border-hero-ink bg-hero-ink' : 'border-gray-300'}`} />
                   </div>
                   {candidate.reason && (
-                    <p className="mt-3 line-clamp-2 text-sm text-gray-600">{candidate.reason}</p>
+                    <p className="mt-3 line-clamp-2 text-sm text-hero-ink-muted">{candidate.reason}</p>
                   )}
-                  <div className="mt-3 flex flex-wrap gap-2 text-xs text-gray-500">
+                  <div className="mt-3 flex flex-wrap gap-2 text-xs text-hero-ink-muted">
                     {candidate.weather?.label && <span className="rounded-full bg-amber-50 px-2 py-1 text-amber-700">{candidate.weather.label}</span>}
                     {candidate.crowds && <span className="rounded-full bg-emerald-50 px-2 py-1 text-emerald-700">{candidate.crowds} crowds</span>}
                     {(candidate.tier != null || candidate.score != null) && (() => {

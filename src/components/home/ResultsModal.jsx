@@ -3,21 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
 import ResultsGrid from "../ResultsGrid";
-
-function formatDateRange(d) {
-  if (!d?.start || !d?.end) return null;
-  const fmt = (s) =>
-    new Date(s + "T00:00:00").toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-    });
-  return `${fmt(d.start)} – ${fmt(d.end)}`;
-}
-
-function getNights(d) {
-  if (!d?.start || !d?.end) return null;
-  return Math.ceil((new Date(d.end) - new Date(d.start)) / 86400000);
-}
+import { formatDateRange, getNights } from "@/lib/utils/dates";
 
 function LoadingState() {
   const cards = Array.from({ length: 6 });
@@ -55,9 +41,22 @@ export default function ResultsModal({
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
   const scrollRef = useRef(null);
+  const closeBtnRef = useRef(null);
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  // Focus management: move focus into the dialog on open, restore it on close.
+  useEffect(() => {
+    const previouslyFocused = typeof document !== "undefined" ? document.activeElement : null;
+    const id = requestAnimationFrame(() => closeBtnRef.current?.focus());
+    return () => {
+      cancelAnimationFrame(id);
+      if (previouslyFocused && typeof previouslyFocused.focus === "function") {
+        previouslyFocused.focus();
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -84,13 +83,16 @@ export default function ResultsModal({
     setTimeout(onClose, 300);
   };
 
-  const dateRange = formatDateRange(dates);
-  const nights = getNights(dates);
+  const dateRange = formatDateRange(dates?.start, dates?.end);
+  const nights = getNights(dates?.start, dates?.end);
 
   if (!mounted) return null;
 
   return createPortal(
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="results-modal-title"
       className={`fixed inset-0 z-[8000] flex flex-col transition-opacity duration-300 ${
         visible ? "opacity-100" : "opacity-0"
       }`}
@@ -113,58 +115,66 @@ export default function ResultsModal({
           <div className="w-10 h-1 rounded-full bg-gray-200" />
         </div>
 
-        {/* Header */}
-        <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100 shrink-0">
-          <div>
-            {loading ? (
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full border-2 border-blue-600 border-t-transparent animate-spin" />
-                <span className="text-sm font-semibold text-gray-600">
-                  Scoring all 220 cities…
-                </span>
-              </div>
-            ) : (
-              <>
-                <h2 className="text-base font-bold text-gray-900">
-                  {results.length} best cities
-                  {dateRange && (
-                    <span className="text-gray-500 font-normal"> for {dateRange}</span>
-                  )}
-                  {nights && (
-                    <span className="text-gray-400 font-normal"> · {nights} nights</span>
-                  )}
-                </h2>
-                <p className="text-xs text-gray-400 mt-0.5">
-                  Ranked by weather, crowds, events & value for your exact dates
-                </p>
-              </>
-            )}
-          </div>
-          <button
-            onClick={handleClose}
-            className="p-2 rounded-full hover:bg-gray-100 text-gray-400 hover:text-gray-700 transition-colors"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        {/* Header — shares the body's centered max-w column so the title, tabs,
+            event strip and cards all sit on one left edge at a comfortable
+            reading width (no centered gutter, no over-stretched rows). */}
+        <div className="px-4 md:px-6 py-4 border-b border-hero-line shrink-0">
+          <div className="mx-auto w-full max-w-5xl flex items-start justify-between gap-4">
+            <div className="flex-1 min-w-0">
+              {loading ? (
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full border-2 border-hero-accent border-t-transparent animate-spin" />
+                  <span className="text-sm font-semibold text-hero-ink-muted">
+                    Finding your best matches…
+                  </span>
+                </div>
+              ) : (
+                <>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-600 mb-1">
+                    Curated for your dates
+                  </p>
+                  <h2 id="results-modal-title" className="font-display text-2xl md:text-3xl font-semibold leading-tight text-hero-ink">
+                    <span className="tabular-nums">{results.length}</span> best cities
+                    {dateRange && (
+                      <span className="text-hero-ink-muted font-normal"> for {dateRange}</span>
+                    )}
+                  </h2>
+                  <p className="text-sm text-hero-ink-muted mt-1">
+                    {nights != null && (<span className="tabular-nums">{nights} nights · </span>)}
+                    Ranked by season, crowds &amp; events
+                  </p>
+                </>
+              )}
+            </div>
+            <button
+              ref={closeBtnRef}
+              onClick={handleClose}
+              aria-label="Close results"
+              className="shrink-0 p-2 rounded-full hover:bg-gray-100 text-hero-ink-muted hover:text-hero-ink transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-hero-accent"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2.5}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        {/* Body — scrollable */}
+        {/* Body — scrollable; inner column matches the header max-w */}
         <div
           ref={scrollRef}
-          className="flex-1 overflow-y-auto overscroll-contain px-4 md:px-6 pb-10"
+          className="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain px-4 md:px-6 pb-10"
         >
+          <div className="mx-auto w-full max-w-5xl">
           {loading ? (
             <LoadingState />
           ) : error ? (
@@ -179,7 +189,7 @@ export default function ResultsModal({
               </button>
             </div>
           ) : (
-            <div className="pt-6">
+            <div className="pt-2">
               <ResultsGrid
                 results={results}
                 sortBy={sortBy}
@@ -190,6 +200,7 @@ export default function ResultsModal({
               />
             </div>
           )}
+          </div>
         </div>
       </div>
     </div>,
