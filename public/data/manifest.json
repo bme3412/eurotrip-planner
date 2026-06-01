@@ -1,22 +1,22 @@
 {
   "manifestVersion": "2.0.0",
-  "dataVersion": "2026.05",
-  "generatedAt": "2026-05-29T23:21:12.476Z",
+  "dataVersion": "2026.06",
+  "generatedAt": "2026-06-01T01:07:27.861Z",
   "stats": {
     "totalCities": 327,
-    "citiesComplete": 127,
-    "citiesPartial": 28,
-    "citiesEmpty": 172,
-    "avgQualityScore": 41,
+    "citiesComplete": 128,
+    "citiesPartial": 93,
+    "citiesEmpty": 106,
+    "avgQualityScore": 46,
     "qualityDistribution": {
-      "excellent": 31,
-      "good": 96,
+      "excellent": 121,
+      "good": 7,
       "fair": 2,
-      "poor": 92,
+      "poor": 91,
       "minimal": 106
     },
     "dataFreshness": {
-      "static": "2026-05-29"
+      "static": "2026-06-01"
     }
   },
   "cities": {
@@ -26,15 +26,15 @@
       "displayName": "durres",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 59,
-        "contentHash": null,
+        "qualityScore": 69,
+        "contentHash": "sha256:3c76080a6917",
         "completeness": {
           "attractions": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -50,16 +50,16 @@
       "displayName": "tirana",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 77,
-        "contentHash": null,
+        "qualityScore": 87,
+        "contentHash": "sha256:3bd2e7ba6587",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -76,7 +76,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:a32ac546963f",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -99,16 +99,16 @@
       "displayName": "graz",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:917cf3a97945",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -125,7 +125,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:a265ab22a623",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -148,16 +148,16 @@
       "displayName": "innsbruck",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:00577f4494d8",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -174,7 +174,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:04c7a372ea4d",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -197,16 +197,16 @@
       "displayName": "linz",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 71,
-        "contentHash": null,
+        "qualityScore": 81,
+        "contentHash": "sha256:070d0c7bb473",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -222,16 +222,16 @@
       "displayName": "salzburg",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:a1566ff54cf9",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -247,16 +247,16 @@
       "displayName": "vienna",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:af92870ddc4d",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -272,16 +272,16 @@
       "displayName": "antwerp",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:aa85ee8ed792",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -297,16 +297,16 @@
       "displayName": "bruges",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:06fbf02f777d",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -322,16 +322,16 @@
       "displayName": "brussels",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:1c127d450188",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -347,16 +347,16 @@
       "displayName": "ghent",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 75,
-        "contentHash": null,
+        "qualityScore": 85,
+        "contentHash": "sha256:2e57009d8e21",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -372,16 +372,16 @@
       "displayName": "liege",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:ad21daeb78ae",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -397,16 +397,16 @@
       "displayName": "mostar",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 38,
+        "contentHash": "sha256:c75efc4b5d89",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -422,16 +422,16 @@
       "displayName": "sarajevo",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 39,
+        "contentHash": "sha256:ea17cda19878",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -447,16 +447,16 @@
       "displayName": "plovdiv",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 39,
+        "contentHash": "sha256:11177c352112",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -472,16 +472,16 @@
       "displayName": "sofia",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 40,
+        "contentHash": "sha256:bc85e6396679",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -497,16 +497,16 @@
       "displayName": "varna",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 39,
+        "contentHash": "sha256:a3a5e820bb9e",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -522,16 +522,16 @@
       "displayName": "dubrovnik",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 75,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:33281c45c047",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -548,7 +548,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:62ade6bc0504",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -572,7 +572,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:0c37f9210a46",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -596,7 +596,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:de90e1559863",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -619,16 +619,16 @@
       "displayName": "rijeka",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 75,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:5bfb17afb2d0",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -644,16 +644,16 @@
       "displayName": "split",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 75,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:b593d1815ff0",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -670,7 +670,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:04b2f5a57ad2",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -693,16 +693,16 @@
       "displayName": "zadar",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 75,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:47f601bc75ba",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -718,16 +718,16 @@
       "displayName": "zagreb",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 75,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:17c7adb83ca1",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -743,14 +743,14 @@
       "displayName": "limassol",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:0b900c009746",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -768,14 +768,14 @@
       "displayName": "nicosia",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:6020b1f6fd5c",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -794,7 +794,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:e35098c6fa70",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -818,7 +818,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:33804922cec0",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -841,16 +841,16 @@
       "displayName": "brno",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 71,
-        "contentHash": null,
+        "qualityScore": 81,
+        "contentHash": "sha256:38cf398b2305",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -866,16 +866,16 @@
       "displayName": "cesky-krumlov",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 67,
-        "contentHash": null,
+        "qualityScore": 75,
+        "contentHash": "sha256:28f5647236d6",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -891,16 +891,16 @@
       "displayName": "hradec-kralove",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:41fbffbb5813",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -917,7 +917,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:056267308625",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -940,16 +940,16 @@
       "displayName": "liberec",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:ffb93b21bd7b",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -965,16 +965,16 @@
       "displayName": "olomouc",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:b9a88b9e4e66",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -990,16 +990,16 @@
       "displayName": "ostrava",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:1cb41fbde7b6",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1015,14 +1015,14 @@
       "displayName": "plzen",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 81,
+        "contentHash": "sha256:79863faa1048",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -1040,16 +1040,16 @@
       "displayName": "prague",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 89,
+        "contentHash": "sha256:0d63aa8d58d6",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1066,7 +1066,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:f5d272c9338d",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -1089,16 +1089,16 @@
       "displayName": "aarhus",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 84,
+        "contentHash": "sha256:2fb431616420",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1114,16 +1114,16 @@
       "displayName": "copenhagen",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:7efc37973d17",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1139,16 +1139,16 @@
       "displayName": "odense",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 84,
+        "contentHash": "sha256:9afeb42fea31",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1164,16 +1164,16 @@
       "displayName": "tallinn",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 38,
+        "contentHash": "sha256:887aa13cf93a",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1189,16 +1189,16 @@
       "displayName": "tartu",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 36,
+        "contentHash": "sha256:a68ca08312ae",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1215,7 +1215,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:e39452c10983",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -1238,16 +1238,16 @@
       "displayName": "helsinki",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 75,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:382a1370ae56",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1263,16 +1263,16 @@
       "displayName": "rovaniemi",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 66,
-        "contentHash": null,
+        "qualityScore": 74,
+        "contentHash": "sha256:cf9234ef2346",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1288,16 +1288,16 @@
       "displayName": "tampere",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 81,
+        "contentHash": "sha256:cb6d1adf30f8",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1313,16 +1313,16 @@
       "displayName": "turku",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 71,
-        "contentHash": null,
+        "qualityScore": 79,
+        "contentHash": "sha256:d90aaab30b5e",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1339,7 +1339,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:7d0b4b2a4907",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -1362,14 +1362,14 @@
       "displayName": "ajaccio",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:c2f970219ac7",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -1387,14 +1387,14 @@
       "displayName": "angers",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:36cf877b0287",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -1412,14 +1412,14 @@
       "displayName": "annecy",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:80482ec18bd0",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -1437,14 +1437,14 @@
       "displayName": "avignon",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:d96419f3ad78",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -1463,7 +1463,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:3c14d3ed0e4b",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -1487,7 +1487,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:a4e5c6c411f2",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -1510,16 +1510,16 @@
       "displayName": "bordeaux",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 78,
-        "contentHash": null,
+        "qualityScore": 88,
+        "contentHash": "sha256:21c03c1b56d0",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1535,16 +1535,16 @@
       "displayName": "cannes",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:34740c148324",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1561,7 +1561,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:5c4664700f84",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -1585,7 +1585,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:64da79d672a2",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -1608,14 +1608,14 @@
       "displayName": "clermont-ferrand",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 77,
-        "contentHash": null,
+        "qualityScore": 82,
+        "contentHash": "sha256:9d80210104be",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -1634,7 +1634,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:3ea8f0bdece8",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -1657,14 +1657,14 @@
       "displayName": "dijon",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 77,
-        "contentHash": null,
+        "qualityScore": 82,
+        "contentHash": "sha256:88f669911bbb",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -1682,14 +1682,14 @@
       "displayName": "grenoble",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 77,
-        "contentHash": null,
+        "qualityScore": 82,
+        "contentHash": "sha256:ee58ae65a9ea",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -1708,7 +1708,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:14d4402f09fd",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -1732,7 +1732,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:b54d34f8c48e",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -1755,14 +1755,14 @@
       "displayName": "le-havre",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 77,
-        "contentHash": null,
+        "qualityScore": 82,
+        "contentHash": "sha256:48da8708f74e",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -1780,16 +1780,16 @@
       "displayName": "lille",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 77,
-        "contentHash": null,
+        "qualityScore": 87,
+        "contentHash": "sha256:906411f48330",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1805,14 +1805,14 @@
       "displayName": "limoges",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 77,
-        "contentHash": null,
+        "qualityScore": 82,
+        "contentHash": "sha256:1af0d30a398e",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -1830,16 +1830,16 @@
       "displayName": "lyon",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:6c6de99f5a49",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1855,16 +1855,16 @@
       "displayName": "marseille",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:c6cbad9d609c",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1881,7 +1881,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:95ea2057e510",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -1905,7 +1905,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:0b0845a41e79",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -1928,16 +1928,16 @@
       "displayName": "montpellier",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:1b24b48efab5",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1953,16 +1953,16 @@
       "displayName": "nantes",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:a6244de18ff0",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -1978,16 +1978,16 @@
       "displayName": "nice",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:7677b4d21316",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2003,14 +2003,14 @@
       "displayName": "nimes",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:fa417cab54d9",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -2028,16 +2028,16 @@
       "displayName": "paris",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:6916a6ce58f9",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2054,7 +2054,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:66ce6e96c7d6",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -2077,14 +2077,14 @@
       "displayName": "reims",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:2c7c9bff8933",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -2102,14 +2102,14 @@
       "displayName": "rennes",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:7c2e205bb4c8",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -2128,7 +2128,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:4b2866b63e7d",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -2152,7 +2152,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:af46f0e09a7e",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -2175,16 +2175,16 @@
       "displayName": "strasbourg",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:568be1791585",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2200,16 +2200,16 @@
       "displayName": "toulouse",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:d234c2b8e49f",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2225,14 +2225,14 @@
       "displayName": "tours",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:2107c13cfc66",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -2251,7 +2251,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:4e6fdfaf5b97",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -2274,14 +2274,14 @@
       "displayName": "aachen",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:79bd69245e28",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -2300,7 +2300,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:ac77fad2c700",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -2323,16 +2323,16 @@
       "displayName": "berlin",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:8e56e175a7d0",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2348,14 +2348,14 @@
       "displayName": "bonn",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:ce3785ca56b6",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -2373,16 +2373,16 @@
       "displayName": "bremen",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:5a3792ebba0b",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2398,16 +2398,16 @@
       "displayName": "cologne",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:5af75a352c79",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2423,16 +2423,16 @@
       "displayName": "dresden",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:744cf28907c2",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2448,16 +2448,16 @@
       "displayName": "dusseldorf",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:bfe92e5051a1",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2474,7 +2474,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:5444bd695110",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -2497,16 +2497,16 @@
       "displayName": "frankfurt",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 75,
-        "contentHash": null,
+        "qualityScore": 85,
+        "contentHash": "sha256:b6311050e36c",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2523,7 +2523,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:394eecfc4be3",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -2546,16 +2546,16 @@
       "displayName": "hamburg",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:af896525aea9",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2571,16 +2571,16 @@
       "displayName": "hannover",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:36b48387d9e6",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2596,16 +2596,16 @@
       "displayName": "heidelberg",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:ecd6224d9bce",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2621,16 +2621,16 @@
       "displayName": "leipzig",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:4fbd3c01a192",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2647,7 +2647,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:3e16ce3a6bb4",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -2671,7 +2671,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:1a84725344f1",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -2694,16 +2694,16 @@
       "displayName": "munich",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:4da2efd3397b",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2719,16 +2719,16 @@
       "displayName": "nuremberg",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:2fcdb19224d4",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2745,7 +2745,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:3968413a278f",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -2768,14 +2768,14 @@
       "displayName": "regensburg",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:37370c6e33f9",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -2793,14 +2793,14 @@
       "displayName": "rostock",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:a78d447398d2",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -2819,7 +2819,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:9706d1b77735",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -2842,16 +2842,16 @@
       "displayName": "stuttgart",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:b1a38ed4ba0e",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2868,7 +2868,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:49aed1ebb8e4",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -2892,7 +2892,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:f324468f8297",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -2915,14 +2915,14 @@
       "displayName": "wurzburg",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:3ea9e3fca0ce",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -2940,16 +2940,16 @@
       "displayName": "athens",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 75,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:5659f2b1c146",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -2966,7 +2966,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:d19129c0bffd",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -2990,7 +2990,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:99bc013e0d17",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3014,7 +3014,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:d54a6272d4f4",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3037,16 +3037,16 @@
       "displayName": "heraklion",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 81,
+        "contentHash": "sha256:be1068dc432c",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -3063,7 +3063,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:43bb454bf0dd",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3087,7 +3087,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:0762fc17df2b",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3111,7 +3111,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:6e900bd644ff",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3135,7 +3135,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:3957eecbb950",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3159,7 +3159,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:5302ede61424",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3183,7 +3183,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:a8f44a0f387d",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3206,16 +3206,16 @@
       "displayName": "rhodes",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 81,
+        "contentHash": "sha256:12c2a22afe5b",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -3232,7 +3232,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:8d93d1c7d84b",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3255,16 +3255,16 @@
       "displayName": "santorini",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 75,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:67e6adbbdeb0",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -3280,16 +3280,16 @@
       "displayName": "thessaloniki",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 84,
+        "contentHash": "sha256:c9fe43c6b828",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -3306,7 +3306,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:78793a8a4369",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3329,16 +3329,16 @@
       "displayName": "budapest",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 38,
+        "contentHash": "sha256:a9389ecd7b2e",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -3354,16 +3354,16 @@
       "displayName": "debrecen",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 37,
+        "contentHash": "sha256:00ce73ba38c2",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -3379,14 +3379,14 @@
       "displayName": "gyor",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:a8b3550bda7f",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -3404,14 +3404,14 @@
       "displayName": "miskolc",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:c7f35dec4906",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -3429,14 +3429,14 @@
       "displayName": "nyiregyhaza",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:84a6b7a4af7f",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -3454,14 +3454,14 @@
       "displayName": "pecs",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:63f8197860d2",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -3479,16 +3479,16 @@
       "displayName": "szeged",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 37,
+        "contentHash": "sha256:d0024fdcdf2c",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -3505,7 +3505,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:794107f213db",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3528,16 +3528,16 @@
       "displayName": "reykjavik",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:f3b62c042c82",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -3553,16 +3553,16 @@
       "displayName": "cork",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 81,
+        "contentHash": "sha256:ccb8854464f0",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -3578,16 +3578,16 @@
       "displayName": "dublin",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 84,
+        "contentHash": "sha256:658c3bd9370c",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -3603,16 +3603,16 @@
       "displayName": "galway",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 84,
+        "contentHash": "sha256:6d00e1ca78ba",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -3629,7 +3629,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:50f9f67a1835",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3652,16 +3652,16 @@
       "displayName": "limerick",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 84,
+        "contentHash": "sha256:48da92bbcfb2",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -3678,7 +3678,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:783f45555e17",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3702,7 +3702,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:4f16facaee1c",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3725,14 +3725,14 @@
       "displayName": "amalfi",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:a16c11136acf",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -3751,7 +3751,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:523af0a687ca",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3774,16 +3774,16 @@
       "displayName": "bari",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 71,
-        "contentHash": null,
+        "qualityScore": 81,
+        "contentHash": "sha256:682468f1ff8c",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -3800,7 +3800,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:e4f4d24f2a4e",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3823,16 +3823,16 @@
       "displayName": "bologna",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 78,
-        "contentHash": null,
+        "qualityScore": 88,
+        "contentHash": "sha256:715cebf5d0aa",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -3849,7 +3849,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:65d90e446b48",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3873,7 +3873,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:3f09d6edfdb7",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3896,14 +3896,14 @@
       "displayName": "catania",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 78,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:312ca5af3704",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -3922,7 +3922,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:405d23692b3f",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3946,7 +3946,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:6f40ef37eaab",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -3969,16 +3969,16 @@
       "displayName": "florence",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:afbd1da97e50",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -3994,14 +3994,14 @@
       "displayName": "genoa",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:55d34c4df32d",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -4020,7 +4020,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:fac34436181a",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -4044,7 +4044,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:aae3ec4240af",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -4068,7 +4068,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:f66df56b9dd9",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -4091,16 +4091,16 @@
       "displayName": "milan",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:7233fee8fdae",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -4116,16 +4116,16 @@
       "displayName": "naples",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:f6d97fbeb9ef",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -4142,7 +4142,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:63f4bfe13f88",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -4165,16 +4165,16 @@
       "displayName": "palermo",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:9ec61c1e18d8",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -4191,7 +4191,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:3ff896a453f3",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -4214,14 +4214,14 @@
       "displayName": "perugia",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:98142fc9dc38",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -4239,14 +4239,14 @@
       "displayName": "pisa",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:fd586099d0fc",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -4265,7 +4265,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:4abefb2b9fcb",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -4289,7 +4289,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:c1f4c3f41db7",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -4312,14 +4312,14 @@
       "displayName": "rimini",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:7557a39d3511",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -4337,16 +4337,16 @@
       "displayName": "rome",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:9c2d28d21843",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -4362,14 +4362,14 @@
       "displayName": "siena",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:880f312968fb",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -4388,7 +4388,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:3604997e270b",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -4412,7 +4412,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:d7519ac5768a",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -4436,7 +4436,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:22aa90258fa4",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -4459,14 +4459,14 @@
       "displayName": "trieste",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:917d3fea22ca",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -4484,16 +4484,16 @@
       "displayName": "turin",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:e6a4f5b3b4b2",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -4509,16 +4509,16 @@
       "displayName": "venice",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:94162bfa7125",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -4534,16 +4534,16 @@
       "displayName": "verona",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:113518666063",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -4559,14 +4559,14 @@
       "displayName": "pristina",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:98964ad55cac",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -4584,14 +4584,14 @@
       "displayName": "daugavpils",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:b7a665fb2e4c",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -4609,16 +4609,16 @@
       "displayName": "riga",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 37,
+        "contentHash": "sha256:cee696a0fc87",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -4635,7 +4635,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:dffa9abed5a4",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -4658,14 +4658,14 @@
       "displayName": "vaduz",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:ec7134d746b6",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -4683,16 +4683,16 @@
       "displayName": "kaunas",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 38,
+        "contentHash": "sha256:a4f7c19c5e21",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -4708,16 +4708,16 @@
       "displayName": "vilnius",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 37,
+        "contentHash": "sha256:05025f22a361",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -4733,15 +4733,15 @@
       "displayName": "klaipeda",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 8,
-        "contentHash": null,
+        "qualityScore": 16,
+        "contentHash": "sha256:41bf035c75df",
         "completeness": {
           "attractions": false,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -4757,14 +4757,14 @@
       "displayName": "luxembourg-city",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:2ca717193634",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -4782,14 +4782,14 @@
       "displayName": "sliema",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:c52487497299",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -4807,14 +4807,14 @@
       "displayName": "valletta",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:00091742111d",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -4833,7 +4833,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:b6853bc6258a",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -4857,7 +4857,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:72668c5b4b68",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -4880,14 +4880,14 @@
       "displayName": "monaco",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:837fe4498eda",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -4905,14 +4905,14 @@
       "displayName": "kotor",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:094e5a3ae608",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -4930,14 +4930,14 @@
       "displayName": "podgorica",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:5fadbfe9c200",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -4956,7 +4956,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:0bb6f875ea08",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -4979,16 +4979,16 @@
       "displayName": "amsterdam",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:3d9983a56e35",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5004,14 +5004,14 @@
       "displayName": "breda",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:7d8e9a3ef205",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -5029,16 +5029,16 @@
       "displayName": "delft",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 65,
-        "contentHash": null,
+        "qualityScore": 75,
+        "contentHash": "sha256:d0db6a5737c9",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5054,16 +5054,16 @@
       "displayName": "eindhoven",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:e5be62920576",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5079,16 +5079,16 @@
       "displayName": "groningen",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 69,
-        "contentHash": null,
+        "qualityScore": 79,
+        "contentHash": "sha256:b7b16f8d179b",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5104,16 +5104,16 @@
       "displayName": "haarlem",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 71,
-        "contentHash": null,
+        "qualityScore": 81,
+        "contentHash": "sha256:b1b059d1b24f",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5129,14 +5129,14 @@
       "displayName": "leiden",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:4f0fcd918568",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -5154,16 +5154,16 @@
       "displayName": "maastricht",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:922bf061af09",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5179,14 +5179,14 @@
       "displayName": "nijmegen",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:889c6ce160f1",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -5204,16 +5204,16 @@
       "displayName": "rotterdam",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:55f2b1a51b3c",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5229,14 +5229,14 @@
       "displayName": "tilburg",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 27,
-        "contentHash": null,
+        "qualityScore": 32,
+        "contentHash": "sha256:58ac966a2498",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -5254,16 +5254,16 @@
       "displayName": "utrecht",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:861509ed8f20",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5279,14 +5279,14 @@
       "displayName": "ohrid",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:d0b37c4eeca6",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -5304,14 +5304,14 @@
       "displayName": "skopje",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:31a8dab3fcac",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -5329,16 +5329,16 @@
       "displayName": "bergen",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 75,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:fcae00909492",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5354,16 +5354,16 @@
       "displayName": "oslo",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 75,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:e89c23dc46aa",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5379,16 +5379,16 @@
       "displayName": "stavanger",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 72,
-        "contentHash": null,
+        "qualityScore": 80,
+        "contentHash": "sha256:49baf537f884",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5404,14 +5404,14 @@
       "displayName": "tromsø",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 27,
-        "contentHash": null,
+        "qualityScore": 32,
+        "contentHash": "sha256:c7b38dd395d3",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -5429,16 +5429,16 @@
       "displayName": "trondheim",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 71,
-        "contentHash": null,
+        "qualityScore": 79,
+        "contentHash": "sha256:a6cf87cc054a",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5454,14 +5454,14 @@
       "displayName": "bydgoszcz",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:a799e8ecdcb9",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -5479,16 +5479,16 @@
       "displayName": "gdansk",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 37,
+        "contentHash": "sha256:0d63f502542e",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5504,14 +5504,14 @@
       "displayName": "katowice",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:1c145abea692",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -5529,16 +5529,16 @@
       "displayName": "krakow",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 37,
+        "contentHash": "sha256:d6c6caddc0fa",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5554,14 +5554,14 @@
       "displayName": "lodz",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:a045beb81185",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -5579,14 +5579,14 @@
       "displayName": "lublin",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:7d6a578f9ee6",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -5604,16 +5604,16 @@
       "displayName": "poznan",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 38,
+        "contentHash": "sha256:91d75b8341d1",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5629,14 +5629,14 @@
       "displayName": "szczecin",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:11c21c48e8ee",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -5654,14 +5654,14 @@
       "displayName": "torun",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:1a52d0d0b05b",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -5679,16 +5679,16 @@
       "displayName": "warsaw",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 38,
+        "contentHash": "sha256:734ef52749cc",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5704,16 +5704,16 @@
       "displayName": "wroclaw",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 38,
+        "contentHash": "sha256:1d133ebf00f4",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5730,7 +5730,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:eacd3ea1fe6e",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -5753,14 +5753,14 @@
       "displayName": "braga",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:9134049268d7",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -5779,7 +5779,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:5cb27e5d727a",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -5802,16 +5802,16 @@
       "displayName": "coimbra",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 84,
+        "contentHash": "sha256:54291e9a0ffa",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5828,7 +5828,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:c6ca4fede94f",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -5851,16 +5851,16 @@
       "displayName": "faro",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 81,
+        "contentHash": "sha256:811317f20727",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5876,16 +5876,16 @@
       "displayName": "funchal",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 81,
+        "contentHash": "sha256:cf16bd316111",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5902,7 +5902,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:b48fb4bbebd1",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -5926,7 +5926,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:45fedff5aa38",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -5949,16 +5949,16 @@
       "displayName": "lisbon",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 81,
+        "contentHash": "sha256:880c0ceea222",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -5975,7 +5975,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:1d451b9e4be8",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -5999,7 +5999,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:b96877627e89",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6022,16 +6022,16 @@
       "displayName": "porto",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 81,
+        "contentHash": "sha256:a41bc29c6693",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -6047,14 +6047,14 @@
       "displayName": "sintra",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 27,
-        "contentHash": null,
+        "qualityScore": 32,
+        "contentHash": "sha256:fbcd4e990add",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -6072,14 +6072,14 @@
       "displayName": "bucharest",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:eec12fba35db",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -6097,14 +6097,14 @@
       "displayName": "cluj-napoca",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:2c1e804ce7e6",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -6122,14 +6122,14 @@
       "displayName": "constanta",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:2f7d8f7eef5f",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -6147,14 +6147,14 @@
       "displayName": "timisoara",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:a87721820663",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -6172,14 +6172,14 @@
       "displayName": "san-marino",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:dad954b92b9d",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -6197,14 +6197,14 @@
       "displayName": "belgrade",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:3d38ffa35e1b",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -6222,14 +6222,14 @@
       "displayName": "novi-sad",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:3f3f95aaf53f",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -6247,16 +6247,16 @@
       "displayName": "bratislava",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 38,
+        "contentHash": "sha256:8657e5ee1718",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -6272,16 +6272,16 @@
       "displayName": "kosice",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 38,
+        "contentHash": "sha256:44938d01d93f",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -6297,16 +6297,16 @@
       "displayName": "ljubljana",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 89,
+        "contentHash": "sha256:0b43fa9c791c",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -6322,16 +6322,16 @@
       "displayName": "maribor",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 37,
+        "contentHash": "sha256:6eb1a8db29e2",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -6348,7 +6348,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:e14caf5a56ed",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6371,14 +6371,14 @@
       "displayName": "alicante",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:5ca802177686",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -6396,16 +6396,16 @@
       "displayName": "barcelona",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 91,
+        "contentHash": "sha256:8d0a453a7459",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -6421,16 +6421,16 @@
       "displayName": "bilbao",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:399cbff71d8b",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -6447,7 +6447,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:c378b0110b57",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6471,7 +6471,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:dd9947be0212",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6494,14 +6494,14 @@
       "displayName": "cordoba",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:ed7d3f48d14c",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -6520,7 +6520,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:de0702faf55d",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6543,14 +6543,14 @@
       "displayName": "gijon",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:fe8ca8b203db",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -6569,7 +6569,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:81582b4fc046",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6592,16 +6592,16 @@
       "displayName": "granada",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:e4e7dad1da75",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -6618,7 +6618,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:86ce9cd8cfa2",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6642,7 +6642,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:cbbdbaf1bbd9",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6666,7 +6666,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:cc718cf31997",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6690,7 +6690,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:a1199242584d",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6713,16 +6713,16 @@
       "displayName": "madrid",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:3e4b99981e38",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -6738,16 +6738,16 @@
       "displayName": "malaga",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 86,
+        "contentHash": "sha256:83c817446874",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -6764,7 +6764,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:2f568f3ad2a1",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6788,7 +6788,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:a52de8df3381",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6812,7 +6812,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:a7816edee45e",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6836,7 +6836,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:ba47fd99fd19",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6859,14 +6859,14 @@
       "displayName": "palma",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:efc6c25cb26a",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -6884,14 +6884,14 @@
       "displayName": "pamplona",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:25845a43d454",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -6910,7 +6910,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:eceaa51ec66a",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6934,7 +6934,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:ab88a3c0b9d1",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -6957,14 +6957,14 @@
       "displayName": "san-sebastian",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:f2c624464bc6",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -6982,14 +6982,14 @@
       "displayName": "santander",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:bc7a17638114",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -7008,7 +7008,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:d4727ff99e39",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -7032,7 +7032,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:b7877a5ece7a",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -7055,16 +7055,16 @@
       "displayName": "seville",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:9404280f13b1",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -7081,7 +7081,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:f50d46691c24",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -7105,7 +7105,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:4b69f189c32a",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -7129,7 +7129,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:476dda68e6fc",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -7152,16 +7152,16 @@
       "displayName": "toledo",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 84,
+        "contentHash": "sha256:d5a4d286eb58",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -7177,16 +7177,16 @@
       "displayName": "valencia",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 73,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:62250ff967df",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -7202,14 +7202,14 @@
       "displayName": "vigo",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:edc7cf42291f",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -7227,14 +7227,14 @@
       "displayName": "zaragoza",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 28,
-        "contentHash": null,
+        "qualityScore": 33,
+        "contentHash": "sha256:d8e1cd699eb7",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -7252,16 +7252,16 @@
       "displayName": "gothenburg",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 84,
+        "contentHash": "sha256:af0110973431",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -7277,16 +7277,16 @@
       "displayName": "malmo",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 75,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:ed2eee4b0a1e",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -7302,16 +7302,16 @@
       "displayName": "stockholm",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 84,
+        "contentHash": "sha256:298031d34b26",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -7327,16 +7327,16 @@
       "displayName": "uppsala",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 75,
-        "contentHash": null,
+        "qualityScore": 83,
+        "contentHash": "sha256:3f6eb22fd72d",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -7352,16 +7352,16 @@
       "displayName": "basel",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 37,
+        "contentHash": "sha256:3ebe1640d01b",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -7377,16 +7377,16 @@
       "displayName": "bern",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 84,
+        "contentHash": "sha256:f7179812706b",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -7402,16 +7402,16 @@
       "displayName": "geneva",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 81,
-        "contentHash": null,
+        "qualityScore": 89,
+        "contentHash": "sha256:cf972a718059",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -7427,14 +7427,14 @@
       "displayName": "interlaken",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:efae6eea2fff",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -7452,16 +7452,16 @@
       "displayName": "lausanne",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 84,
+        "contentHash": "sha256:6784ae042e2c",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -7477,16 +7477,16 @@
       "displayName": "lucerne",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 84,
+        "contentHash": "sha256:c06ff330bf30",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -7502,14 +7502,14 @@
       "displayName": "lugano",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:24ebeb00b0ca",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -7528,7 +7528,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:d274a22c7924",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -7552,7 +7552,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:41cfcf42b02c",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -7575,16 +7575,16 @@
       "displayName": "zurich",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 76,
-        "contentHash": null,
+        "qualityScore": 84,
+        "contentHash": "sha256:6a3badb32ec7",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
-          "categories": false
+          "categories": true
         },
         "source": "unknown"
       },
@@ -7600,14 +7600,14 @@
       "displayName": "bath",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:1d9210407610",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -7625,14 +7625,14 @@
       "displayName": "belfast",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:1e4f312aa904",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -7650,14 +7650,14 @@
       "displayName": "birmingham",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:162fbc00d928",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -7676,7 +7676,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:a5d72d433337",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -7699,14 +7699,14 @@
       "displayName": "bristol",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:8c34062411d7",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -7724,14 +7724,14 @@
       "displayName": "cambridge",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:d90df62f25da",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -7750,7 +7750,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:b1f5916c70a9",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -7773,14 +7773,14 @@
       "displayName": "cardiff",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:3a40903d4a1a",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -7799,7 +7799,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:536a23b06027",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -7822,14 +7822,14 @@
       "displayName": "edinburgh",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 77,
-        "contentHash": null,
+        "qualityScore": 82,
+        "contentHash": "sha256:f5ff53f7b909",
         "completeness": {
           "attractions": true,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -7847,14 +7847,14 @@
       "displayName": "glasgow",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:d17036ed1185",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -7873,7 +7873,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:1ce2b4af3390",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -7896,14 +7896,14 @@
       "displayName": "liverpool",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:5e009a01f9e7",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -7921,14 +7921,14 @@
       "displayName": "london",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 51,
-        "contentHash": null,
+        "qualityScore": 56,
+        "contentHash": "sha256:4e204cb92fe7",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": true,
           "neighborhoods": true,
-          "coordinates": false,
+          "coordinates": true,
           "description": true,
           "categories": false
         },
@@ -7946,14 +7946,14 @@
       "displayName": "manchester",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:6364cde19d79",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -7971,14 +7971,14 @@
       "displayName": "newcastle",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:e363cfc091f7",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -7997,7 +7997,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:caf2461cfe75",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -8020,14 +8020,14 @@
       "displayName": "oxford",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 29,
-        "contentHash": null,
+        "qualityScore": 34,
+        "contentHash": "sha256:4956204618e0",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
@@ -8046,7 +8046,7 @@
       "meta": {
         "dataVersion": null,
         "qualityScore": 8,
-        "contentHash": null,
+        "contentHash": "sha256:60cdfa4c1b80",
         "completeness": {
           "attractions": false,
           "connections": false,
@@ -8069,14 +8069,14 @@
       "displayName": "york",
       "meta": {
         "dataVersion": null,
-        "qualityScore": 30,
-        "contentHash": null,
+        "qualityScore": 35,
+        "contentHash": "sha256:eac88dc3cd7d",
         "completeness": {
           "attractions": false,
           "calendar": true,
           "connections": false,
           "neighborhoods": false,
-          "coordinates": false,
+          "coordinates": true,
           "description": false,
           "categories": false
         },
