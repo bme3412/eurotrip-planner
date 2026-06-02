@@ -78,8 +78,8 @@ function MonthCalendar({ monthIdx, year, dayMap, currentMonthIdx, onHoverDay, ac
   for (let d = 1; d <= daysInMonth; d++) cells.push(d);
 
   return (
-    <div className={`rounded-xl p-3 border ${isCurrent ? 'border-blue-400 ring-2 ring-blue-400/50' : 'border-gray-700'} bg-gray-800/60`}>
-      <div className={`text-center text-xs font-bold mb-2 ${isCurrent ? 'text-blue-300' : 'text-gray-300'}`}>
+    <div className={`rounded-xl p-3 border ${isCurrent ? 'border-blue-400 ring-2 ring-blue-400/40 bg-blue-50/50' : 'border-gray-200 bg-gray-50'}`}>
+      <div className={`text-center text-xs font-bold mb-2 ${isCurrent ? 'text-blue-600' : 'text-gray-700'}`}>
         {MONTH_NAMES[monthIdx]}
         {isCurrent && <span className="ml-1.5 px-1.5 py-0.5 bg-blue-500 text-white rounded text-[9px] uppercase tracking-wider">Now</span>}
       </div>
@@ -95,7 +95,7 @@ function MonthCalendar({ monthIdx, year, dayMap, currentMonthIdx, onHoverDay, ac
           if (!day) return <div key={`blank-${i}`} />;
           const info = dayMap[day];
           const scoreKey = info?.score ?? 0;
-          const colors = SCORE_COLORS[scoreKey] || { bg: 'bg-gray-700', dot: '' };
+          const colors = SCORE_COLORS[scoreKey] || { bg: 'bg-gray-100', dot: '' };
           const key = `${monthIdx}-${day}`;
           const isActive = key === activeKey;
           const payload = { monthIdx, day, score: scoreKey, event: info?.event || null };
@@ -106,7 +106,7 @@ function MonthCalendar({ monthIdx, year, dayMap, currentMonthIdx, onHoverDay, ac
               onMouseEnter={() => onHoverDay(payload)}
               onFocus={() => onHoverDay(payload)}
               onClick={() => onHoverDay(payload)}
-              className={`relative aspect-square flex items-center justify-center rounded-sm text-[8px] font-medium ${colors.bg} text-gray-900 transition-transform hover:scale-125 hover:z-10 focus:outline-none focus:scale-125 ${isActive ? 'ring-2 ring-white scale-125 z-10' : ''}`}
+              className={`relative aspect-square flex items-center justify-center rounded-sm text-[8px] font-medium ${colors.bg} text-gray-900 transition-transform hover:scale-125 hover:z-10 focus:outline-none focus:scale-125 ${isActive ? 'ring-2 ring-gray-900 scale-125 z-10' : ''}`}
             >
               {day}
               {info?.special && (
@@ -133,24 +133,24 @@ export default function ScoringDemoSection({ onScrollToDatePicker }) {
   const hoveredColors = hovered ? SCORE_COLORS[hovered.score] : null;
 
   return (
-    <section className="px-6 py-20 bg-gray-950 text-white overflow-hidden">
+    <section className="px-6 py-20 bg-white text-gray-900 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="max-w-2xl mb-10">
-          <div className="flex items-center gap-2 text-blue-400 font-bold text-xs uppercase tracking-widest mb-3">
-            <span className="w-8 h-px bg-blue-400"></span>
+          <div className="flex items-center gap-2 text-blue-600 font-bold text-xs uppercase tracking-widest mb-3">
+            <span className="w-8 h-px bg-blue-500"></span>
             The Right Time Changes Everything
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-gray-900">
             Same city. Completely different trip.
           </h2>
-          <p className="text-gray-400 text-lg leading-relaxed">
+          <p className="text-gray-600 text-lg leading-relaxed">
             Here&apos;s Barcelona&apos;s visit score, day by day, across the full year. Every one of our 220 cities has a chart like this — enter your dates to see your ranked list.
           </p>
         </div>
 
         {/* Legend */}
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-8 text-xs text-gray-300">
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-8 text-xs text-gray-600">
           {LEGEND.map(l => (
             <div key={l.label} className="flex items-center gap-1.5">
               <span className={`w-3 h-3 rounded-sm ${l.color}`} />
@@ -168,19 +168,19 @@ export default function ScoringDemoSection({ onScrollToDatePicker }) {
         {/* City label + interactive day readout */}
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6 min-h-[2rem]">
           <span className="text-base">🇪🇸</span>
-          <span className="font-bold text-white">Barcelona, Spain</span>
+          <span className="font-bold text-gray-900">Barcelona, Spain</span>
           {hovered ? (
-            <span className="inline-flex items-center gap-2 rounded-full bg-gray-800 border border-gray-700 pl-2 pr-3 py-1 text-sm">
-              <span className={`w-3 h-3 rounded-sm ${hoveredColors?.bg || 'bg-gray-600'}`} />
-              <span className="font-semibold text-white">
+            <span className="inline-flex items-center gap-2 rounded-full bg-gray-50 border border-gray-200 pl-2 pr-3 py-1 text-sm">
+              <span className={`w-3 h-3 rounded-sm ${hoveredColors?.bg || 'bg-gray-300'}`} />
+              <span className="font-semibold text-gray-900">
                 {MONTH_NAMES[hovered.monthIdx]} {hovered.day}
               </span>
-              <span className="text-gray-500">·</span>
-              <span className="text-gray-300">{SCORE_LABEL[hovered.score] || '—'}</span>
+              <span className="text-gray-400">·</span>
+              <span className="text-gray-600">{SCORE_LABEL[hovered.score] || '—'}</span>
               {hovered.event && (
                 <>
-                  <span className="text-gray-500">·</span>
-                  <span className="text-amber-300 font-medium">{hovered.event}</span>
+                  <span className="text-gray-400">·</span>
+                  <span className="text-amber-600 font-medium">{hovered.event}</span>
                 </>
               )}
             </span>
@@ -206,17 +206,17 @@ export default function ScoringDemoSection({ onScrollToDatePicker }) {
 
         {/* Callout cards */}
         <div className="grid sm:grid-cols-3 gap-4 mb-10">
-          <div className="bg-emerald-900/30 border border-emerald-800/50 rounded-2xl p-5">
-            <div className="text-emerald-400 font-bold text-sm mb-1">Apr, May, Sep, Oct — Excellent</div>
-            <p className="text-gray-400 text-sm leading-relaxed">Perfect weather, festivals in full swing, shoulder-season prices. The sweet spots most tourists miss.</p>
+          <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-5">
+            <div className="text-emerald-700 font-bold text-sm mb-1">Apr, May, Sep, Oct — Excellent</div>
+            <p className="text-gray-600 text-sm leading-relaxed">Perfect weather, festivals in full swing, shoulder-season prices. The sweet spots most tourists miss.</p>
           </div>
-          <div className="bg-yellow-900/20 border border-yellow-800/40 rounded-2xl p-5">
-            <div className="text-yellow-400 font-bold text-sm mb-1">Jul & Aug — Average to Below Avg</div>
-            <p className="text-gray-400 text-sm leading-relaxed">Scorching heat (28–29°C), extreme crowds, and peak hotel prices. Great beach weather, poor city weather.</p>
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">
+            <div className="text-amber-700 font-bold text-sm mb-1">Jul & Aug — Average to Below Avg</div>
+            <p className="text-gray-600 text-sm leading-relaxed">Scorching heat (28–29°C), extreme crowds, and peak hotel prices. Great beach weather, poor city weather.</p>
           </div>
-          <div className="bg-blue-900/20 border border-blue-800/40 rounded-2xl p-5">
-            <div className="text-blue-400 font-bold text-sm mb-1">Feb–Mar — Hidden Gems</div>
-            <p className="text-gray-400 text-sm leading-relaxed">Carnival in February, spring beginning in March. Low crowds, good prices, still warm enough to enjoy the city.</p>
+          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
+            <div className="text-blue-700 font-bold text-sm mb-1">Feb–Mar — Hidden Gems</div>
+            <p className="text-gray-600 text-sm leading-relaxed">Carnival in February, spring beginning in March. Low crowds, good prices, still warm enough to enjoy the city.</p>
           </div>
         </div>
 
@@ -224,7 +224,7 @@ export default function ScoringDemoSection({ onScrollToDatePicker }) {
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <button
             onClick={onScrollToDatePicker}
-            className="group px-8 py-4 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2"
+            className="group px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2"
           >
             See how your dates score across all 220 cities
             <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

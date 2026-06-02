@@ -62,6 +62,9 @@ export default function HomeClient({ initialDates }) {
         />
       </SplitHero>
 
+      {/* Soft gradient seam: the hero's mesh fades into the light section below */}
+      <div className="h-20 md:h-28 bg-gradient-to-b from-transparent to-white" />
+
       {/* Insight → Proof → How it works */}
       <ScoringDemoSection onScrollToDatePicker={scrollToDatePicker} />
       <RankingReshuffle onScrollToDatePicker={scrollToDatePicker} />
