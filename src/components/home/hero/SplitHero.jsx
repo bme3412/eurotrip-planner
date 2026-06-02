@@ -28,9 +28,10 @@ export default function SplitHero({ children }) {
 
   return (
     <section className="relative px-6 pt-8 md:pt-14 pb-12 md:pb-16 overflow-hidden">
-      {/* calm brand glow behind the content column */}
+      {/* calm cool-tone glows behind the content column (depth, no motion) */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-16 left-10 w-80 h-80 bg-blue-200/30 rounded-full blur-3xl" />
+        <div className="absolute -top-4 left-4 w-80 h-80 bg-sky-200/35 rounded-full blur-3xl" />
+        <div className="absolute top-40 left-44 w-72 h-72 bg-indigo-200/30 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
@@ -58,12 +59,22 @@ export default function SplitHero({ children }) {
                   alt={img.city}
                   fill
                   priority={i === 0}
+                  quality={90}
+                  placeholder="blur"
+                  blurDataURL={img.blur}
                   sizes="(max-width: 1024px) 100vw, 45vw"
-                  className="object-cover"
+                  className="object-cover saturate-[1.06] contrast-[1.04] brightness-[1.01]"
+                  style={{ objectPosition: img.pos }}
                 />
               </div>
             );
           })}
+
+          {/* soft inner vignette for cinematic depth */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ boxShadow: "inset 0 0 90px rgba(0,0,0,0.28)" }}
+          />
 
           {/* gentle bottom gradient so the caption + dots read on any photo */}
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/55 to-transparent" />

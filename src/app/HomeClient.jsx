@@ -38,7 +38,19 @@ export default function HomeClient({ initialDates }) {
   }, [dates, router, scrollToDatePicker]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-50">
+    <div
+      className="min-h-screen flex flex-col bg-[#eef4ff]"
+      style={{
+        // Richer cool-blue mesh (sky / indigo / cyan-teal / periwinkle) — more depth
+        // than a flat linear wash, but kept light so the dark hero copy stays legible.
+        backgroundImage: [
+          "radial-gradient(at 12% 18%, rgba(186,230,253,0.65) 0px, transparent 50%)", // sky-200
+          "radial-gradient(at 88% 10%, rgba(199,210,254,0.60) 0px, transparent 48%)", // indigo-200
+          "radial-gradient(at 78% 72%, rgba(165,243,252,0.45) 0px, transparent 50%)", // cyan-200
+          "radial-gradient(at 22% 82%, rgba(196,181,253,0.40) 0px, transparent 50%)", // violet-200
+        ].join(", "),
+      }}
+    >
       {/* Hero Section — editorial split with a cinematic photo panel */}
       <SplitHero>
         <HeroContent
