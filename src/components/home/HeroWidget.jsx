@@ -17,14 +17,19 @@ import DescribeTripInput from "./DescribeTripInput";
  * Natural-language planning still lives here as a secondary mode that routes
  * through the agent at /plan.
  */
-export default function HeroWidget({ value, onChange }) {
+export default function HeroWidget({ value, onChange, onSubmit, submitting }) {
   const [mode, setMode] = useState("dates");
 
   return (
     <div className="bg-white rounded-3xl p-4 md:p-5 shadow-[0_8px_40px_rgba(0,0,0,0.08)] border border-gray-100">
       {mode === "dates" ? (
         <>
-          <DateRangePopover value={value} onChange={onChange} />
+          <DateRangePopover
+            value={value}
+            onChange={onChange}
+            onSubmit={onSubmit}
+            submitting={submitting}
+          />
           <button
             type="button"
             onClick={() => setMode("describe")}

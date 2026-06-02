@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { ChevronRight, Sun, Cloud, Sunrise } from 'lucide-react';
-import { getDaylightHours } from '@/lib/daylight';
+import { ChevronRight, Sun, Cloud, Sunrise, PartyPopper } from 'lucide-react';
+import { getCityDaylightHours } from '@/lib/daylight';
 
 /**
  * Country code to flag emoji mapping
@@ -121,10 +121,16 @@ export default function CityListRow({ city, rank, onClick, onStartPlan, startDat
   // Get description/why text - prefer expanded description if available
   const description = city.whyExpanded || city.why || city.highlights?.[0]?.description || '';
 
-  // Daylight hours for the travel month. Parsed in local time (the shared helper
-  // avoids the UTC month-shift bug) and shown as whole hours — it's a coarse
-  // latitude estimate, so 0.5h precision was misleading.
-  const daylightHours = getDaylightHours(startDate || new Date(), country);
+  // Event happening during the trip window — shown as an inline chip on the row
+  // (replaces the disconnected "What's on" strip), so the event sits next to the
+  // city it belongs to.
+  const eventHighlight = city.highlights?.find((h) => h.type === 'event');
+  const eventName = eventHighlight?.name;
+
+  // Daylight hours for the travel date. Uses the city's real coordinates (sunrise
+  // equation) when available — so it varies per city instead of being identical
+  // across a whole country — and falls back to the coarse band estimate otherwise.
+  const daylightHours = getCityDaylightHours(city, startDate || new Date());
 
   // Standing-bar colour based on rank
   const sidebarColor = SIDEBAR_COLORS[rank % SIDEBAR_COLORS.length];
@@ -199,8 +205,14 @@ export default function CityListRow({ city, rank, onClick, onStartPlan, startDat
               aria-hidden="true"
             />
           </div>
+          {eventName && (
+            <span className="mt-1.5 inline-flex max-w-full items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700 ring-1 ring-amber-100">
+              <PartyPopper className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+              <span className="truncate">{eventName}</span>
+            </span>
+          )}
           {description && (
-            <p className="mt-1 text-sm leading-relaxed text-hero-ink-muted line-clamp-2">
+            <p className="mt-1.5 text-sm leading-relaxed text-hero-ink-muted line-clamp-2">
               {description}
             </p>
           )}

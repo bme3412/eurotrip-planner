@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run generate-cities && npm run build:data && npm run build:cities && npm run build:scores && npm run build:content && next build",
+    "build": "npm run generate-cities && npm run build:data && npm run build:cities && npm run build:scores && npm run build:content && npm run backfill:metadata && next build",
     "generate-cities": "node scripts/generateCityList.mjs",
     "build:scores": "node scripts/generateMonthlyScores.mjs",
     "start": "next start",

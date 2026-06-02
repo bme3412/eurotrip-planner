@@ -1,38 +1,19 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect, useMemo } from "react";
+import { useRef, useCallback, useTransition } from "react";
 import Link from "next/link";
-import { useTripDates } from "../hooks/useTripDates";
+import { useRouter } from "next/navigation";
+import { useTripDates, serializeDates } from "../hooks/useTripDates";
 import ScoringDemoSection from "../components/home/ScoringDemoSection";
 import RankingReshuffle from "../components/home/RankingReshuffle";
 import HowItWorks from "../components/home/HowItWorks";
 import HeroWidget from "../components/home/HeroWidget";
-import ResultsModal from "../components/home/ResultsModal";
 
-function getInitialDates() {
-  const today = new Date();
-  const start = new Date(today.getFullYear(), today.getMonth() + 1, 1);
-  const end = new Date(start);
-  end.setDate(end.getDate() + 7);
-  const toIso = (d) => d.toISOString().slice(0, 10);
-  return { mode: "dates", start: toIso(start), end: toIso(end) };
-}
-
-export default function HomeClient() {
-  const initialDates = useMemo(() => getInitialDates(), []);
+export default function HomeClient({ initialDates }) {
+  const router = useRouter();
   const { dates, setDates } = useTripDates(initialDates);
-  const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState([]);
-  const [error, setError] = useState(null);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [sortBy, setSortBy] = useState("score");
-  const [interests] = useState([]);
-  const [weights] = useState({ weather: 0.5, crowds: 0.5, budget: 0.5 });
+  const [isPending, startTransition] = useTransition();
   const dateSelectorRef = useRef(null);
-  const datesRef = useRef(dates);
-  useEffect(() => {
-    datesRef.current = dates;
-  }, [dates]);
 
   const scrollToDatePicker = useCallback(() => {
     dateSelectorRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -42,45 +23,19 @@ export default function HomeClient() {
     }, 2000);
   }, []);
 
-  const submit = useCallback(async () => {
-    const d = datesRef.current;
-    if (!d?.start || !d?.end) {
+  // Navigate to the server-ranked /results route. A direct callback replaces the
+  // old window CustomEvent handoff (which was silently dropped if the listener
+  // wasn't attached) and useTransition gives the button an in-place pending state
+  // while the next route streams in.
+  const submit = useCallback(() => {
+    if (!dates?.start || !dates?.end) {
       scrollToDatePicker();
       return;
     }
-    setResults([]);
-    setError(null);
-    setModalOpen(true);
-    setLoading(true);
-    try {
-      const res = await fetch("/api/suggestions", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ dates: d, interests, weights, v: 4, flat: true }),
-      });
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}`);
-      }
-      const data = await res.json();
-      setResults(data.items ?? []);
-    } catch (e) {
-      console.error(e);
-      setError("Something went wrong scoring cities. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  }, [scrollToDatePicker, interests, weights]);
-
-  // Listen for the search button event dispatched from DateRangePopover
-  useEffect(() => {
-    window.addEventListener("trip-dates-submit", submit);
-    return () => window.removeEventListener("trip-dates-submit", submit);
-  }, [submit]);
-
-  const closeModal = useCallback(() => {
-    setModalOpen(false);
-    setResults([]);
-  }, []);
+    startTransition(() => {
+      router.push(`/results?${serializeDates(dates)}`);
+    });
+  }, [dates, router, scrollToDatePicker]);
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-50">
@@ -114,6 +69,8 @@ export default function HomeClient() {
                 onChange={(next) =>
                   setDates({ mode: "dates", start: next.start, end: next.end })
                 }
+                onSubmit={submit}
+                submitting={isPending}
               />
             </div>
             {/* Background blob */}
@@ -142,19 +99,6 @@ export default function HomeClient() {
       <ScoringDemoSection onScrollToDatePicker={scrollToDatePicker} />
       <RankingReshuffle onScrollToDatePicker={scrollToDatePicker} />
       <HowItWorks onScrollToDatePicker={scrollToDatePicker} />
-
-      {/* Results Modal */}
-      {modalOpen && (
-        <ResultsModal
-          results={results}
-          loading={loading}
-          error={error}
-          dates={dates}
-          sortBy={sortBy}
-          setSortBy={setSortBy}
-          onClose={closeModal}
-        />
-      )}
 
       {/* Footer is now in layout.js */}
     </div>

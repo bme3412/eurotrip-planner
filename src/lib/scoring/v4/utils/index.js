@@ -184,6 +184,30 @@ export function inferCategories(cityData) {
     .map(([label]) => label);
 }
 
+// ============ Event Names ============
+
+/**
+ * Clean a raw calendar event string for display and for prompting the LLM.
+ *
+ * Visit-calendar `event` fields are hand/LLM-authored and noisy: filler
+ * parentheticals ("(Variable Date)", "(e.g., … prep)"), vague "Preparations"
+ * qualifiers, and packed lists ("Pentecost & Zurich Pride"). This folds them down
+ * to the primary, presentable event name. Shared by the results UI and the LLM
+ * description prompt so neither surfaces "CSD Preparations draws visitors."
+ */
+export function cleanEventName(raw) {
+  if (!raw) return raw;
+  let s = String(raw);
+  // Drop filler parentheticals; keep informative ones like "(Cologne Pride)".
+  s = s.replace(/\s*\([^)]*\b(?:variable|varies|public holiday|e\.g\.|prep\w*|approx|tbd|date)\b[^)]*\)/gi, '');
+  // Drop the vague "Preparations"/"Prep" qualifier.
+  s = s.replace(/\s*\bpreparations?\b/gi, '').replace(/\s*\bprep\b/gi, '');
+  // Collapse a packed list down to the first, primary event.
+  s = s.split(/\s*(?:,|&|\band\b)\s*/i)[0];
+  s = s.replace(/\s{2,}/g, ' ').replace(/[\s–-]+$/, '').trim();
+  return s || String(raw).trim();
+}
+
 // ============ Country Flag ============
 
 export function getCountryFlag(country) {
