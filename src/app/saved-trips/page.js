@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import {
   ArrowLongRightIcon,
@@ -10,6 +10,7 @@ import {
   ExclamationTriangleIcon,
   PlusIcon,
   SparklesIcon,
+  TrashIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import AuthButton from "@/components/auth/AuthButton";
@@ -17,18 +18,12 @@ import { SavedTripsList } from "@/components/common/SaveToTrips";
 import { useAuth } from "@/contexts/AuthContext";
 import { getSupabaseAuthHeaders } from "@/lib/supabase/authHeaders";
 import { migrateLegacyWizardItineraries, readLocalTripDrafts, removeLocalTripDraft } from "@/lib/trips/localTripDrafts";
+import { migrateLocalDraftsToAccount } from "@/lib/trips/migrateLocalDrafts";
 import { getFlagForCountry } from "@/utils/countryFlags";
 
-const STATUS_LABELS = {
-  draft: "Draft",
-  planning: "Planning",
-  itinerary_generated: "Itinerary ready",
-  shared: "Shared",
-  active: "Active",
-  completed: "Completed",
-  archived: "Archived",
-  cancelled: "Cancelled",
-};
+function isGeneratedTrip(trip) {
+  return Boolean(trip.itinerary_generated_at || trip.generated_itinerary);
+}
 
 function formatDate(value) {
   if (!value) return null;
@@ -162,11 +157,13 @@ function EmptyCard({ icon: Icon, tone = "rose", title, body, cta }) {
   );
 }
 
-function TripCard({ trip, isLocal = false, onRemove = null }) {
-  const isGenerated = Boolean(trip.itinerary_generated_at || trip.generated_itinerary);
+function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null }) {
+  const [confirmingDelete, setConfirmingDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const isGenerated = isGeneratedTrip(trip);
   const statusLabel = isLocal
-    ? isGenerated ? "Generated locally" : "Saved locally"
-    : STATUS_LABELS[trip.status] || "Trip";
+    ? isGenerated ? "Generated · not synced" : "Draft · not synced"
+    : isGenerated ? "Itinerary ready" : "Draft";
   const primaryHref = isGenerated && !isLocal
     ? `/itineraries/${trip.id}`
     : `/plan?${isLocal ? "localTripId" : "tripId"}=${trip.id}`;
@@ -177,7 +174,7 @@ function TripCard({ trip, isLocal = false, onRemove = null }) {
     : isLocal
       ? "bg-white text-amber-700 ring-amber-200"
       : "bg-gray-50 text-gray-600 ring-gray-200";
-  const badgeLabel = isGenerated ? "Itinerary ready" : isLocal ? "Device only" : "Draft";
+  const badgeLabel = isGenerated ? "Itinerary ready" : isLocal ? "Not synced" : "Draft";
 
   const chips = tripCityChips(trip);
   const dateInfo = tripDateInfo(trip);
@@ -264,171 +261,166 @@ function TripCard({ trip, isLocal = false, onRemove = null }) {
             Remove
           </button>
         )}
+        {!isLocal && onDelete && (
+          confirmingDelete ? (
+            <span className="ml-auto inline-flex items-center gap-2">
+              <span className="text-xs text-gray-500">Delete this trip?</span>
+              <button
+                type="button"
+                disabled={deleting}
+                onClick={async () => {
+                  setDeleting(true);
+                  await onDelete(trip.id);
+                }}
+                className="rounded-full bg-red-600 px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-700 disabled:opacity-60"
+              >
+                {deleting ? "Deleting…" : "Delete"}
+              </button>
+              <button
+                type="button"
+                disabled={deleting}
+                onClick={() => setConfirmingDelete(false)}
+                className="rounded-full px-3 py-2 text-sm font-semibold text-gray-500 transition-colors hover:text-gray-800"
+              >
+                Cancel
+              </button>
+            </span>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setConfirmingDelete(true)}
+              className="ml-auto inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-semibold text-gray-400 transition-colors hover:text-red-600"
+            >
+              <TrashIcon className="size-4" aria-hidden="true" />
+              Delete
+            </button>
+          )
+        )}
       </div>
     </article>
   );
 }
 
-function TripDraftsSection({ onCount }) {
-  const { user, session, loading: authLoading, isSupabaseConfigured } = useAuth();
-  const [trips, setTrips] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const loadTrips = useCallback(async () => {
-    if (!user || !session?.access_token) {
-      setTrips([]);
-      return;
-    }
-
-    setLoading(true);
-    setError(null);
-
-    try {
-      const res = await fetch("/api/trips", {
-        headers: getSupabaseAuthHeaders(session),
-      });
-      if (!res.ok) throw new Error(await res.text());
-      const data = await res.json();
-      setTrips(Array.isArray(data.trips) ? data.trips : []);
-    } catch (err) {
-      console.error("[saved-trips] Failed to load trips:", err);
-      setError("Unable to load your trip drafts right now.");
-    } finally {
-      setLoading(false);
-    }
-  }, [session, user]);
-
-  useEffect(() => {
-    if (authLoading) return;
-    loadTrips();
-  }, [authLoading, loadTrips]);
-
-  useEffect(() => {
-    if (typeof onCount === "function") onCount(trips.length);
-  }, [trips.length, onCount]);
-
-  if (authLoading || loading) {
-    return (
-      <div className="grid gap-4 md:grid-cols-2">
-        {[0, 1].map((item) => (
-          <div
-            key={item}
-            className="h-48 animate-pulse rounded-2xl bg-gray-200/70"
-            style={{ animationDelay: `${item * 100}ms`, animationFillMode: "both" }}
-          />
-        ))}
-      </div>
-    );
-  }
-
-  if (!user) {
-    return (
-      <EmptyCard
-        icon={UserCircleIcon}
-        tone="amber"
-        title="Sign in to sync trip drafts"
-        body="Planner drafts are saved to your account once you sign in. Local wishlists still appear below."
-        cta={isSupabaseConfigured ? <AuthButton /> : null}
-      />
-    );
-  }
-
-  if (error) {
-    return (
-      <EmptyCard
-        icon={ExclamationTriangleIcon}
-        tone="red"
-        title="Something went wrong"
-        body={error}
-        cta={
-          <button
-            type="button"
-            onClick={loadTrips}
-            className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800"
-          >
-            Try again
-          </button>
-        }
-      />
-    );
-  }
-
-  if (trips.length === 0) {
-    return (
-      <EmptyCard
-        icon={SparklesIcon}
-        tone="rose"
-        title="No trip drafts yet"
-        body="Start a conversation with the planner and your route will appear here once it has a city and dates."
-        cta={
-          <Link
-            href="/plan"
-            className="inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-gray-800"
-          >
-            Plan a trip
-            <ArrowRightIcon className="size-4" aria-hidden="true" />
-          </Link>
-        }
-      />
-    );
-  }
-
+function TripsSection({ eyebrow, title, subtitle, dotTone, trips, isLocal, onRemove, onDelete }) {
+  if (trips.length === 0) return null;
   return (
-    <div className="grid gap-4 md:grid-cols-2">
-      {trips.map((trip) => (
-        <TripCard key={trip.id} trip={trip} />
-      ))}
-    </div>
-  );
-}
-
-function LocalTripDraftsSection({ onCount }) {
-  const [drafts, setDrafts] = useState([]);
-
-  const loadDrafts = useCallback(() => {
-    migrateLegacyWizardItineraries();
-    setDrafts(readLocalTripDrafts());
-  }, []);
-
-  useEffect(() => {
-    loadDrafts();
-    window.addEventListener("storage", loadDrafts);
-    return () => window.removeEventListener("storage", loadDrafts);
-  }, [loadDrafts]);
-
-  useEffect(() => {
-    if (typeof onCount === "function") onCount(drafts.length);
-  }, [drafts.length, onCount]);
-
-  const handleRemove = useCallback((id) => {
-    removeLocalTripDraft(id);
-    loadDrafts();
-  }, [loadDrafts]);
-
-  if (drafts.length === 0) return null;
-
-  return (
-    <section aria-labelledby="local-drafts-heading">
-      <SectionHeader
-        eyebrow="02 · This device"
-        title="Saved on this device"
-        subtitle="Local planner drafts you can reopen from this browser."
-        dotTone="amber"
-      />
+    <section>
+      <SectionHeader eyebrow={eyebrow} title={title} subtitle={subtitle} dotTone={dotTone} />
       <div className="grid gap-4 md:grid-cols-2">
-        {drafts.map((trip) => (
-          <TripCard key={trip.id} trip={trip} isLocal onRemove={handleRemove} />
+        {trips.map((trip) => (
+          <TripCard key={trip.id} trip={trip} isLocal={isLocal} onRemove={onRemove} onDelete={onDelete} />
         ))}
       </div>
     </section>
   );
 }
 
+function TripsLoading() {
+  return <p className="py-6 text-sm text-gray-400">Loading your trips…</p>;
+}
+
 export default function SavedTripsPage() {
-  const [draftCount, setDraftCount] = useState(0);
-  const [localCount, setLocalCount] = useState(0);
+  const { user, session, loading: authLoading, isSupabaseConfigured } = useAuth();
+
+  const [trips, setTrips] = useState([]);
+  const [localDrafts, setLocalDrafts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [wishlistCount, setWishlistCount] = useState(0);
+  const migrationAttempted = useRef(false);
+
+  const loadTrips = useCallback(async () => {
+    if (!user || !session?.access_token) {
+      setTrips([]);
+      setLoading(false);
+      return;
+    }
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/trips", { headers: getSupabaseAuthHeaders(session) });
+      if (!res.ok) throw new Error(await res.text());
+      const data = await res.json();
+      setTrips(Array.isArray(data.trips) ? data.trips : []);
+    } catch (err) {
+      console.error("[saved-trips] Failed to load trips:", err);
+      setError("Unable to load your trips right now.");
+    } finally {
+      setLoading(false);
+    }
+  }, [session, user]);
+
+  // Keep local drafts in sync for the signed-out experience (and as the source
+  // for one-time migration once the user signs in).
+  const reloadLocalDrafts = useCallback(() => {
+    migrateLegacyWizardItineraries();
+    setLocalDrafts(readLocalTripDrafts());
+  }, []);
+
+  useEffect(() => {
+    reloadLocalDrafts();
+    window.addEventListener("storage", reloadLocalDrafts);
+    return () => window.removeEventListener("storage", reloadLocalDrafts);
+  }, [reloadLocalDrafts]);
+
+  useEffect(() => {
+    if (authLoading) return;
+    loadTrips();
+  }, [authLoading, loadTrips]);
+
+  // One-time bulk migration of local drafts into the account. Runs after the
+  // account's trips have loaded so we can de-duplicate against them.
+  useEffect(() => {
+    if (authLoading || loading) return;
+    if (!user || !session?.access_token) return;
+    if (migrationAttempted.current) return;
+    if (readLocalTripDrafts().length === 0) return;
+
+    migrationAttempted.current = true;
+    migrateLocalDraftsToAccount({ session, userId: user.id, existingTrips: trips }).then((res) => {
+      reloadLocalDrafts();
+      if (res.migrated > 0) loadTrips();
+    });
+  }, [authLoading, loading, user, session, trips, loadTrips, reloadLocalDrafts]);
+
+  const handleRemoveLocal = useCallback((id) => {
+    removeLocalTripDraft(id);
+    reloadLocalDrafts();
+  }, [reloadLocalDrafts]);
+
+  const handleDeleteTrip = useCallback(async (id) => {
+    if (!session?.access_token) return;
+    const snapshot = trips;
+    setError(null);
+    setTrips((current) => current.filter((trip) => trip.id !== id)); // optimistic
+    try {
+      const res = await fetch(`/api/trips/${id}`, {
+        method: "DELETE",
+        headers: getSupabaseAuthHeaders(session),
+      });
+      if (!res.ok) throw new Error(await res.text());
+    } catch (err) {
+      console.error("[saved-trips] Failed to delete trip:", err);
+      setTrips(snapshot); // rollback
+      setError("Unable to delete that trip. Please try again.");
+    }
+  }, [session, trips]);
+
+  // Signed in → account trips; signed out → local drafts (rendered as unsynced).
+  const isLocalMode = !user;
+  const displayTrips = isLocalMode ? localDrafts : trips;
+
+  const { ready, inProgress } = useMemo(() => {
+    const readyTrips = [];
+    const inProgressTrips = [];
+    for (const trip of displayTrips) {
+      (isGeneratedTrip(trip) ? readyTrips : inProgressTrips).push(trip);
+    }
+    return { ready: readyTrips, inProgress: inProgressTrips };
+  }, [displayTrips]);
+
+  const showLoading = authLoading || (user && loading);
+  const showEmptyState = !showLoading && !error && displayTrips.length === 0;
 
   return (
     <div className="min-h-screen bg-[#fafaf7]">
@@ -441,13 +433,11 @@ export default function SavedTripsPage() {
                 My Trips
               </h1>
               <p className="mt-3 max-w-xl text-sm text-gray-600">
-                Your planner drafts, generated itineraries, and saved cities — all in one place.
+                Your itineraries, planner drafts, and saved cities — all in one place.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
-                <StatPill count={draftCount} label={draftCount === 1 ? "draft" : "drafts"} tone="rose" />
-                {localCount > 0 && (
-                  <StatPill count={localCount} label={localCount === 1 ? "on this device" : "on this device"} tone="amber" />
-                )}
+                <StatPill count={ready.length} label={ready.length === 1 ? "ready" : "ready"} tone="emerald" />
+                <StatPill count={inProgress.length} label="in progress" tone="rose" />
                 <StatPill count={wishlistCount} label={wishlistCount === 1 ? "saved city" : "saved cities"} tone="emerald" />
               </div>
             </div>
@@ -459,31 +449,103 @@ export default function SavedTripsPage() {
       </header>
 
       <main className="mx-auto max-w-6xl space-y-12 px-4 py-10 sm:px-6">
-        <section aria-labelledby="drafts-heading">
-          <SectionHeader
-            eyebrow="01 · Drafts"
-            title="Trip drafts"
-            subtitle="Routes and itineraries saved from the conversational planner."
-            dotTone="rose"
-            action={
-              <Link
-                href="/plan"
-                className="inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-gray-800"
-              >
-                <PlusIcon className="size-3.5" aria-hidden="true" />
-                New trip
-              </Link>
-            }
-          />
-          <TripDraftsSection onCount={setDraftCount} />
-        </section>
+        {/* Trips lifecycle: Ready to go → In progress */}
+        <div className="space-y-12">
+          <div className="flex items-center justify-end">
+            <Link
+              href="/plan"
+              className="inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-gray-800"
+            >
+              <PlusIcon className="size-3.5" aria-hidden="true" />
+              New trip
+            </Link>
+          </div>
 
-        <LocalTripDraftsSection onCount={setLocalCount} />
+          {isLocalMode && displayTrips.length > 0 && (
+            <div className="rounded-2xl bg-amber-50/70 px-5 py-4 ring-1 ring-amber-200">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <p className="text-sm text-amber-800">
+                  These trips are saved on this browser only. Sign in to sync them to your account.
+                </p>
+                {isSupabaseConfigured && <AuthButton />}
+              </div>
+            </div>
+          )}
 
-        <section aria-labelledby="wishlists-heading">
+          {showLoading ? (
+            <TripsLoading />
+          ) : error ? (
+            <EmptyCard
+              icon={ExclamationTriangleIcon}
+              tone="red"
+              title="Something went wrong"
+              body={error}
+              cta={
+                <button
+                  type="button"
+                  onClick={loadTrips}
+                  className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800"
+                >
+                  Try again
+                </button>
+              }
+            />
+          ) : showEmptyState ? (
+            isLocalMode ? (
+              <EmptyCard
+                icon={UserCircleIcon}
+                tone="amber"
+                title="Sign in to sync your trips"
+                body="Planner drafts are saved to your account once you sign in. Saved cities still appear below."
+                cta={isSupabaseConfigured ? <AuthButton /> : null}
+              />
+            ) : (
+              <EmptyCard
+                icon={SparklesIcon}
+                tone="rose"
+                title="No trips yet"
+                body="Start a conversation with the planner and your route will appear here once it has a city and dates."
+                cta={
+                  <Link
+                    href="/plan"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-gray-800"
+                  >
+                    Plan a trip
+                    <ArrowRightIcon className="size-4" aria-hidden="true" />
+                  </Link>
+                }
+              />
+            )
+          ) : (
+            <>
+              <TripsSection
+                eyebrow="01 · Ready to go"
+                title="Ready to go"
+                subtitle="Generated itineraries you can open and refine."
+                dotTone="emerald"
+                trips={ready}
+                isLocal={isLocalMode}
+                onRemove={isLocalMode ? handleRemoveLocal : null}
+                onDelete={isLocalMode ? null : handleDeleteTrip}
+              />
+              <TripsSection
+                eyebrow="02 · In progress"
+                title="In progress"
+                subtitle="Routes still being planned in the conversational planner."
+                dotTone="rose"
+                trips={inProgress}
+                isLocal={isLocalMode}
+                onRemove={isLocalMode ? handleRemoveLocal : null}
+                onDelete={isLocalMode ? null : handleDeleteTrip}
+              />
+            </>
+          )}
+        </div>
+
+        <section>
           <SectionHeader
-            eyebrow="03 · Wishlists"
-            title="Wishlists"
+            eyebrow="03 · Wishlist"
+            title="Wishlist"
             subtitle="Cities and experiences saved while browsing guides."
             dotTone="emerald"
             action={

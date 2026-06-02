@@ -2,7 +2,7 @@
 
 import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "../../../../lib/supabase/server";
-import { getTripWithDetails, updateTripDraft } from "@/lib/trips/tripsRepository";
+import { deleteTrip, getTripWithDetails, updateTripDraft } from "@/lib/trips/tripsRepository";
 import { forbiddenResponse, getRequesterFromAuthHeader } from "@/lib/supabase/requestAuth";
 
 const ALLOWED_UPDATE_FIELDS = new Set([
@@ -201,6 +201,32 @@ export async function PUT(request, { params }) {
     console.error("Failed to update trip", error);
     return NextResponse.json(
       { error: "Unable to update trip at this time." },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(request, { params }) {
+  const { id } = await params;
+  if (!id) {
+    return NextResponse.json({ error: "Trip id is required." }, { status: 400 });
+  }
+
+  const { requester, response } = await getRequesterFromAuthHeader(request);
+  if (response) return response;
+
+  try {
+    const existing = await getTripWithDetails(id);
+    if (!existing) return notFoundResponse();
+    if (!canAccessTrip(existing, requester, { write: true })) {
+      return forbiddenResponse("You do not have access to this trip.");
+    }
+    await deleteTrip(id);
+    return NextResponse.json({ id, deleted: true }, { status: 200 });
+  } catch (error) {
+    console.error("Failed to delete trip", error);
+    return NextResponse.json(
+      { error: "Unable to delete trip at this time." },
       { status: 500 }
     );
   }
