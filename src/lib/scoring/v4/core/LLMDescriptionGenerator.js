@@ -13,12 +13,16 @@ import Anthropic from '@anthropic-ai/sdk';
 import crypto from 'crypto';
 import { getCachedLLMDescriptions, cacheLLMDescriptions } from '../../../cache/suggestions.js';
 import { titleCaseFromSlug } from '../../../text.js';
+import { cleanEventName } from '../utils/index.js';
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
 const MODEL = 'claude-sonnet-4-20250514'; // Fast and capable for short generations
+
+// Bump when the prompt/style changes so cached descriptions don't go stale.
+const PROMPT_VERSION = 'v2-stats-aware';
 
 // In-memory fallback when Redis is unavailable
 const memoryLLMCache = new Map();
@@ -32,7 +36,7 @@ function buildTierHash(startDate, endDate, tiers) {
     .filter(([, t]) => t.cities?.length > 0)
     .map(([key, t]) => `${key}:${t.cities.map(c => c.cityId).sort().join(',')}`)
     .join('|');
-  return crypto.createHash('md5').update(`${startDate}:${endDate}:${tierSummary}`).digest('hex');
+  return crypto.createHash('md5').update(`${PROMPT_VERSION}:${startDate}:${endDate}:${tierSummary}`).digest('hex');
 }
 
 /**
@@ -43,9 +47,15 @@ function buildSystemPrompt() {
 
 STYLE GUIDELINES:
 - Write in present tense, second person ("you'll find", "expect")
-- Be specific with data (temperatures, daylight hours, crowd levels)
-- Mention actual attractions, events, or seasonal highlights when provided
-- Keep descriptions concise but vivid (2-3 sentences max)
+- The app ALREADY shows temperature, daylight hours, and crowd level as separate
+  stat chips next to your text. Do NOT repeat those exact numbers or restate the
+  crowd level — instead convey how the weather/season FEELS and what it lets the
+  traveler do (long evenings, café terraces, swimmable sea, easy walking).
+- Lead with what makes the city distinctive for these dates (an attraction, the
+  season's character, or a festival), not the weather.
+- Mention actual attractions, events, or seasonal highlights when provided. Use
+  event names exactly as given — never add words like "preparations" or "lead-up".
+- Keep descriptions concise but vivid (2 sentences, ~30 words max)
 - Vary sentence structure - don't start every sentence the same way
 - Avoid clichés like "hidden gem", "must-see", or "unforgettable"
 - Be honest about trade-offs (crowds, weather limitations)
@@ -107,7 +117,7 @@ function buildUserPrompt({ startDate, endDate, tiers }) {
       const cityId = city.cityId;
       const temp = city.breakdown?.timing?.details?.weatherHighC;
       const crowdLevel = city.breakdown?.crowds?.details?.crowdLevel;
-      const event = city.breakdown?.timing?.details?.event;
+      const event = cleanEventName(city.breakdown?.timing?.details?.event);
       const topAttraction = getTopAttraction(city);
       const daylightHours = city.rangeData?.monthData?.daylightHours ||
                             city.rangeData?.monthData?.weatherDetails?.daylightHours;
@@ -161,7 +171,7 @@ ${JSON.stringify(cityDetails, null, 2)}
 
 For each TIER with cities, write 2-3 sentences describing what makes these destinations special for ${month}. Include weather/daylight if available, and note crowd expectations.
 
-For each CITY, write 2-3 sentences about visiting now. Lead with weather or a highlight, mention the top attraction if provided, and include crowd context.
+For each CITY, write 2 sentences (~30 words) about visiting now. Lead with the top attraction or what makes it distinctive this season; convey the weather's feel without repeating the exact number; only mention crowds if it changes how you'd plan. Use any event name exactly as given.
 
 Return JSON only.`;
 }

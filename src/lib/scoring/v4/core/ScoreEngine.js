@@ -12,7 +12,7 @@
  */
 
 import config from '../config/scoringConfig.json' with { type: 'json' };
-import { getCountryFlag, clamp, inferCategories } from '../utils/index.js';
+import { getCountryFlag, clamp, inferCategories, cleanEventName } from '../utils/index.js';
 import { titleCaseFromSlug } from '../../../text.js';
 import { DynamicWeightCalculator } from './DynamicWeightCalculator.js';
 import { TierLabelGenerator } from './TierLabelGenerator.js';
@@ -159,9 +159,7 @@ export class ScoreEngine {
    * (data often crams a festival + several holidays into one comma list).
    */
   formatEventName(raw) {
-    if (!raw) return raw;
-    const stripped = String(raw).replace(/\s*\([^)]*\)/g, '').trim();
-    return stripped.split(',')[0].trim() || String(raw).trim();
+    return cleanEventName(raw);
   }
 
   /**
@@ -232,41 +230,59 @@ export class ScoreEngine {
    * Includes weather, daylight, events, attractions, and crowd context.
    */
   buildExpandedWhyString(breakdown, cityData, rangeData) {
-    const sentences = [];
-
+    // The row already shows Temp / Crowds / Daylight as stat boxes and the event
+    // as a chip, so this prose must NOT restate them. It leads with the city's
+    // identity (the differentiator — why THIS city for these dates), then a
+    // number-free seasonal feel, then a crowd note only when it changes the plan.
     const temp = breakdown.timing?.details?.weatherHighC;
-    // Daylight hours can be in monthData.daylightHours or monthData.weatherDetails.daylightHours
-    const daylightHours = rangeData?.monthData?.daylightHours ||
-                          rangeData?.monthData?.weatherDetails?.daylightHours;
     const crowdLevel = breakdown.crowds?.details?.crowdLevel;
-    const event = breakdown.timing?.details?.event;
     const topAttraction = this.getTopAttraction(cityData);
+    const cityVibe = this.getCityVibe(cityData);
 
-    // Sentence 1: Weather + daylight
-    if (temp && daylightHours) {
-      const weatherDesc = this.getWeatherDescription(temp);
-      sentences.push(`${weatherDesc} at ${temp}°C with ${Math.round(daylightHours)} hours of daylight.`);
-    } else if (temp) {
-      const weatherDesc = this.getWeatherDescription(temp);
-      sentences.push(`${weatherDesc} at ${temp}°C.`);
-    }
+    const parts = [];
 
-    // Sentence 2: Event or attraction
-    if (event) {
-      sentences.push(this.eventSentence(event));
-    } else if (topAttraction) {
-      sentences.push(`${topAttraction} offers memorable experiences.`);
-    }
+    if (cityVibe && topAttraction) parts.push(`${cityVibe}, anchored by ${topAttraction}.`);
+    else if (topAttraction) parts.push(`Anchored by ${topAttraction}.`);
+    else if (cityVibe) parts.push(`${cityVibe}.`);
 
-    // Sentence 3: Crowd context
-    if (crowdLevel) {
-      const crowdSentence = this.getCrowdSentence(crowdLevel);
-      if (crowdSentence) {
-        sentences.push(crowdSentence);
-      }
-    }
+    const season = this.getSeasonPhrase(temp);
+    if (season) parts.push(season);
 
-    return sentences.slice(0, 3).join(' ');
+    const crowdNote = this.getCrowdNote(crowdLevel);
+    if (crowdNote) parts.push(crowdNote);
+
+    const text = parts.slice(0, 2).join(' ');
+    return text || breakdown.timing?.reason || 'A strong match for your dates.';
+  }
+
+  /**
+   * Qualitative season feel WITHOUT the temperature number (the row shows the
+   * number in its Temp stat box, so repeating it is noise).
+   */
+  getSeasonPhrase(temp) {
+    if (temp == null) return '';
+    if (temp >= 28) return 'Hot, beach-ready days.';
+    if (temp >= 24) return 'Warm, settled summer weather.';
+    if (temp >= 20) return 'Comfortably warm for sightseeing.';
+    if (temp >= 15) return 'Mild, easy-walking days.';
+    if (temp >= 10) return 'Cool and crisp.';
+    if (temp >= 5) return 'Chilly — pack layers.';
+    return 'A cold-weather escape.';
+  }
+
+  /**
+   * Crowd note that adds an action the Crowds stat box doesn't — only for the
+   * ends of the scale where it actually changes how you'd plan.
+   */
+  getCrowdNote(crowdLevel) {
+    const map = {
+      'Very Low': 'Crowds stay light.',
+      'Low': 'Crowds stay light.',
+      'High': 'Popular now — book ahead.',
+      'Very High': 'Peak season — reserve early.',
+      'Extreme': 'Peak season — reserve early.',
+    };
+    return map[crowdLevel] || '';
   }
 
   /**
@@ -595,6 +611,8 @@ export class ScoreEngine {
       title: titleCaseFromSlug(cityId),
       image: cityData?.thumbnail || `/images/city-thumbnail/${country}/${cityId}-thumbnail.jpeg`,
       country,
+      region: cityData?.region || null,
+      coordinates: cityData?.coordinates || null,
       tier,
       score: Math.round(finalScore),
       weather,
@@ -692,9 +710,36 @@ export class ScoreEngine {
       return (b.score || 0) - (a.score || 0);
     });
 
-    // For backwards compatibility, return flat list if requested
+    // For backwards compatibility, return flat list if requested.
     if (flatList) {
-      return results.slice(0, limit);
+      const flat = results.slice(0, limit);
+
+      // LLM prose for the flat path (used by the server-rendered, hourly-cached
+      // /results page). The generator needs the raw `result` objects (which carry
+      // `breakdown`/`cityData`), so build a single synthetic tier from them. Falls
+      // back silently to the template `whyExpanded` when no API key / on error.
+      if (useLLM) {
+        try {
+          const cities = [];
+          for (const r of flat) {
+            const raw = rawResults.find((x) => x.result.cityId === r.cityId);
+            if (raw) cities.push({ ...raw.result, cityData: raw.cityData });
+          }
+          const llmTiers = { tier1: { label: 'Top picks', cities } };
+          const descriptions = await generateDescriptions({ startDate, endDate, tiers: llmTiers });
+          if (descriptions?.cities) {
+            for (const r of flat) {
+              const desc = descriptions.cities[r.cityId];
+              if (desc) r.whyExpanded = desc;
+            }
+            this._llmUsed = true;
+          }
+        } catch (error) {
+          console.warn('[ScoreEngine] Flat LLM descriptions failed:', error.message);
+        }
+      }
+
+      return flat;
     }
 
     // Group into tiers with contextual labels

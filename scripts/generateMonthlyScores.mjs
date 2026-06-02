@@ -114,7 +114,11 @@ async function generateMonthlyScores() {
     console.log(`   📅 ${monthName.charAt(0).toUpperCase() + monthName.slice(1)} ${year}...`);
 
     try {
-      // Score all cities for this month (without LLM - too slow for build time)
+      // Score all cities for this month. LLM descriptions are baked in here (one
+      // call per month, ~12 total at build) so the /results page can serve
+      // precomputed scores instantly WITH good prose and no per-request LLM.
+      // generateDescriptions no-ops gracefully when ANTHROPIC_API_KEY is absent,
+      // falling back to the template whyExpanded.
       const results = await engine.scoreCitiesForAPI({
         cityIds,
         startDate,
@@ -124,7 +128,7 @@ async function generateMonthlyScores() {
         limit: 50, // Top 50 cities per month
         includeDebug: false,
         flatList: false,
-        useLLM: false, // Skip LLM at build time
+        useLLM: true,
       });
 
       // Extract tier labels and top cities
@@ -143,9 +147,13 @@ async function generateMonthlyScores() {
             cityId: city.cityId,
             title: city.title,
             country: city.country,
+            region: city.region,           // Region filter
+            coordinates: city.coordinates, // real per-city daylight
             tier: city.tier,
+            score: city.score,             // client-side "Best match" sort
             weather: city.weather,
             crowdLevel: city.crowdLevel,
+            highlights: city.highlights,   // event chip on the row
             why: city.why,
             whyExpanded: city.whyExpanded,
             tags: city.tags,

@@ -69,22 +69,35 @@ export function buildCacheKey(params) {
  * Check if a date range falls within a single month.
  * Used to determine if we can use pre-computed monthly scores.
  */
-export function isSingleMonthQuery(startDate, endDate) {
-  const start = new Date(startDate);
-  const end = new Date(endDate);
+/**
+ * Year + 1-based month from a date input, timezone-safe.
+ *
+ * `new Date('2026-07-01')` parses as UTC midnight, but `.getMonth()` reads local
+ * time — so on a machine behind UTC the 1st of a month rolls back to the previous
+ * month. Since the default homepage dates are the 1st of the month, that quietly
+ * broke single-month detection (and sent the most common query down the slow live
+ * path). Parse YYYY-MM-DD strings by their components instead.
+ */
+function yearAndMonth(input) {
+  if (typeof input === 'string') {
+    const m = input.match(/^(\d{4})-(\d{2})/);
+    if (m) return { year: Number(m[1]), month: Number(m[2]) };
+  }
+  const d = new Date(input);
+  return { year: d.getFullYear(), month: d.getMonth() + 1 };
+}
 
-  return (
-    start.getMonth() === end.getMonth() &&
-    start.getFullYear() === end.getFullYear()
-  );
+export function isSingleMonthQuery(startDate, endDate) {
+  const a = yearAndMonth(startDate);
+  const b = yearAndMonth(endDate);
+  return a.year === b.year && a.month === b.month;
 }
 
 /**
- * Get the month name from a date.
+ * Get the (lowercase) month name from a date input.
  */
 export function getMonthName(date) {
-  const d = new Date(date);
-  return MONTH_NAMES[d.getMonth()];
+  return MONTH_NAMES[yearAndMonth(date).month - 1];
 }
 
 // Cached monthly scores (loaded once, reused across requests)

@@ -277,6 +277,8 @@ function TransportModal({ isOpen, onClose, onSave, initialData, dateLabel, defau
 export default function DateRangePopover({
   value,
   onChange,
+  onSubmit,
+  submitting = false,
   showSearchLabelOnSelection = true,
   vertical = false,
   inline = false,
@@ -594,25 +596,37 @@ export default function DateRangePopover({
         {/* Search / submit button */}
         <button
           type="button"
+          disabled={submitting}
           onClick={() => {
             if (value?.start && value?.end) {
-              // Propagate to page submit via custom event
-              window.dispatchEvent(new CustomEvent("trip-dates-submit"));
+              // Direct callback to the page (replaces the old window CustomEvent).
+              // Falls back to dispatching the legacy event if no handler is wired.
+              if (typeof onSubmit === "function") {
+                onSubmit();
+              } else {
+                window.dispatchEvent(new CustomEvent("trip-dates-submit"));
+              }
             } else {
               setIsOpen(true);
             }
           }}
-          className={`bg-blue-600 hover:bg-blue-700 text-white font-bold transition-all duration-300 shadow-lg shadow-blue-200 hover:shadow-xl active:scale-95 flex-none ${
+          className={`bg-blue-600 hover:bg-blue-700 text-white font-bold transition-all duration-300 shadow-lg shadow-blue-200 hover:shadow-xl active:scale-95 flex-none disabled:opacity-80 disabled:cursor-wait ${
             value?.start && value?.end
               ? "h-14 md:h-16 px-5 md:px-8 rounded-2xl flex items-center gap-2 md:gap-3"
               : "w-14 md:w-16 h-14 md:h-16 rounded-2xl flex items-center justify-center"
           }`}
         >
-          <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-          </svg>
+          {submitting ? (
+            <span className="w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-white border-t-transparent animate-spin" />
+          ) : (
+            <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          )}
           {value?.start && value?.end && showSearchLabelOnSelection && (
-            <span className="text-[10px] md:text-xs uppercase tracking-widest font-black whitespace-nowrap">Plan Trip</span>
+            <span className="text-[10px] md:text-xs uppercase tracking-widest font-black whitespace-nowrap">
+              {submitting ? "Finding cities…" : "Plan Trip"}
+            </span>
           )}
         </button>
       </div>
