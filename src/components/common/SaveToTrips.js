@@ -138,24 +138,7 @@ export function SavedTripsList({ onCount }) {
   }, [savedTrips.length, onCount]);
 
   if (loading) {
-    return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[0, 1, 2].map((i) => (
-          <div
-            key={i}
-            className="overflow-hidden rounded-2xl bg-white ring-1 ring-gray-200/80 shadow-soft"
-            style={{ animationDelay: `${i * 100}ms`, animationFillMode: 'both' }}
-          >
-            <div className="h-52 animate-pulse bg-gray-200/80" />
-            <div className="p-5 space-y-3">
-              <div className="h-4 w-2/3 animate-pulse rounded bg-gray-200/80" />
-              <div className="h-3 w-full animate-pulse rounded bg-gray-200/60" />
-              <div className="h-3 w-3/4 animate-pulse rounded bg-gray-200/60" />
-            </div>
-          </div>
-        ))}
-      </div>
-    );
+    return <p className="py-6 text-sm text-gray-400">Loading saved cities…</p>;
   }
 
   if (savedTrips.length === 0) {

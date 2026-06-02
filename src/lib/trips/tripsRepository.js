@@ -157,6 +157,19 @@ export async function updateTripDraft(tripId, { tripState, title, isPublic, stat
   return data;
 }
 
+export async function deleteTrip(tripId) {
+  const supabase = await getSupabaseAdmin();
+  // trip_days / trip_activities (and other children) reference trips(id) with
+  // ON DELETE CASCADE, so removing the trip row removes the whole itinerary.
+  const { error } = await supabase
+    .from('trips')
+    .delete()
+    .eq('id', tripId);
+
+  if (error) throw error;
+  return { id: tripId };
+}
+
 export async function listTripsForUser({ userId = null, userEmail = null } = {}) {
   const supabase = await getSupabaseAdmin();
   let query = supabase
