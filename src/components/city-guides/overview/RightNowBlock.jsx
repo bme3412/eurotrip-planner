@@ -44,7 +44,7 @@ export default function RightNowBlock({
 }) {
   if (!rightNow) return null;
 
-  const { periodLabel, scoreLabel, verdict, weather, crowdLevel, events, considerations } = rightNow;
+  const { periodLabel, scoreLabel, scoreRationale, verdict, weather, crowdLevel, events, considerations } = rightNow;
   const badgeClass = (scoreLabel && SCORE_BADGE[scoreLabel]) || 'bg-slate-100 text-slate-600 ring-slate-200';
 
   return (
@@ -61,10 +61,15 @@ export default function RightNowBlock({
             </h2>
           </div>
           {scoreLabel && (
-            <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold ring-1 ${badgeClass}`}>
-              <Sparkles className="h-3.5 w-3.5" aria-hidden />
-              {scoreLabel} time to visit
-            </span>
+            <div className="flex flex-col items-start gap-1 sm:items-end">
+              <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold ring-1 ${badgeClass}`}>
+                <Sparkles className="h-3.5 w-3.5" aria-hidden />
+                {scoreLabel} time to visit
+              </span>
+              {scoreRationale && (
+                <span className="text-[11px] font-medium text-slate-400">{scoreRationale}</span>
+              )}
+            </div>
           )}
         </div>
 
