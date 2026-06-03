@@ -58,7 +58,7 @@ function ActivityRow({ block, citySlug, cityName, showPhotos, t }) {
       {/* thumbnail */}
       {showPhotos && (
         isFood ? (
-          <div className={`hidden h-16 w-24 shrink-0 items-center justify-center rounded-lg sm:flex ${t.panelSoft} border`}>
+          <div className={`flex h-14 w-20 shrink-0 items-center justify-center rounded-lg border sm:h-16 sm:w-24 ${t.panelSoft}`}>
             <Utensils className={`h-5 w-5 ${t.muted}`} />
           </div>
         ) : (
@@ -70,7 +70,7 @@ function ActivityRow({ block, citySlug, cityName, showPhotos, t }) {
             citySlug={citySlug}
             w={320}
             alt={a.name}
-            className="hidden h-16 w-24 shrink-0 rounded-lg sm:block"
+            className="h-14 w-20 shrink-0 rounded-lg sm:h-16 sm:w-24"
           />
         )
       )}
@@ -131,19 +131,37 @@ export default function ItineraryView({ itinerary, theme = 'dark', showPhotos = 
           ) : (
             <div className="absolute inset-0" style={{ background: cityGradient(firstCity?.city) }} />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/25" />
-          <div className="absolute inset-x-0 bottom-0 mx-auto max-w-6xl px-5 pb-7">
-            <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-white/75">Your trip</p>
-            <h1 className="mt-1.5 font-serif text-4xl font-light text-white md:text-5xl" style={{ letterSpacing: '-0.01em' }}>{route}</h1>
-            <p className="mt-2 text-sm text-white/85">{fmtDate(m.startDate)} – {fmtDate(m.endDate)} · {m.totalCityDays} days · {m.totalCities} {m.totalCities === 1 ? 'city' : 'cities'}</p>
-            {itinerary.intro && <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/80">{itinerary.intro}</p>}
-            {actions && <div className="mt-4 flex flex-wrap gap-2">{actions}</div>}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/25" />
+          <div className="absolute inset-x-0 bottom-0 mx-auto max-w-6xl px-5 pb-5 sm:pb-7">
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/75 sm:text-[11px]">Your trip</p>
+            <h1 className="mt-1 text-balance font-serif text-2xl font-light leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl" style={{ letterSpacing: '-0.01em' }}>{route}</h1>
+            <p className="mt-1.5 text-xs text-white/85 sm:mt-2 sm:text-sm">
+              {fmtDate(m.startDate)} – {fmtDate(m.endDate)} · {m.totalDays} days · {m.totalCities} {m.totalCities === 1 ? 'city' : 'cities'}
+            </p>
+            {itinerary.intro && <p className="mt-2 line-clamp-3 max-w-2xl text-xs leading-relaxed text-white/80 sm:text-sm">{itinerary.intro}</p>}
+            {actions && <div className="mt-3 flex flex-wrap gap-2 sm:mt-4">{actions}</div>}
           </div>
         </div>
       </header>
 
+      {/* ── Mobile day nav (no left rail below lg) ── */}
+      {cityDays.length > 1 && (
+        <nav className={`sticky top-0 z-10 flex gap-2 overflow-x-auto border-b px-4 py-2.5 lg:hidden ${t.border} ${t.railBg}`}>
+          {cityDays.map((d) => (
+            <a
+              key={d.dayNumber}
+              href={`#day-${d.dayNumber}`}
+              className={`shrink-0 rounded-full border px-3 py-1 text-xs font-semibold ${t.border} ${t.body}`}
+            >
+              Day {d.dayNumber}
+              <span className={`ml-1 font-normal ${t.muted}`}>{d.cityName}</span>
+            </a>
+          ))}
+        </nav>
+      )}
+
       {/* ── Two-pane body ── */}
-      <div className="mx-auto flex max-w-6xl gap-8 px-5 py-8">
+      <div className="mx-auto flex max-w-6xl gap-8 px-5 py-6 sm:py-8">
         <aside className="hidden w-64 shrink-0 lg:block">
           <div className="sticky top-6 space-y-5">
             <nav className="space-y-0.5">
@@ -199,7 +217,7 @@ export default function ItineraryView({ itinerary, theme = 'dark', showPhotos = 
               })()
             ) : (
               seg.days.map((d) => (
-                <article key={d.dayNumber} id={`day-${d.dayNumber}`} className={`mb-5 scroll-mt-6 rounded-2xl border ${t.panel} p-5`}>
+                <article key={d.dayNumber} id={`day-${d.dayNumber}`} className={`mb-4 scroll-mt-20 rounded-2xl border ${t.panel} p-4 sm:p-5 lg:scroll-mt-6`}>
                   <header className={`mb-4 border-b ${t.border} pb-3`}>
                     <div className="flex items-baseline gap-2.5">
                       <span className="font-serif text-3xl font-light" style={{ color: ACCENT }}>{d.dayNumber}</span>

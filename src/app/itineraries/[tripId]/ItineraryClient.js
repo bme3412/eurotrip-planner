@@ -97,8 +97,15 @@ export default function ItineraryClient({
     const cities = cityOrder.length ? cityOrder : [{ city: citySlug, name: cityDisplay, country }];
     const cityDays = days.filter((d) => !d.isTravelDay);
 
+    // Only surface a real narrative intro. The normalized-day rebuild produces a
+    // generic stats string ("14 days, 50 activities — curated for your … pace")
+    // that just duplicates the hero meta line, so drop that shape.
+    const rawIntro = localPlan.summary || '';
+    const isGenericStats = /\d+\s*days?,\s*\d+\s*activit/i.test(rawIntro);
+    const intro = rawIntro && !isGenericStats ? rawIntro : null;
+
     return {
-      intro: localPlan.summary || null,
+      intro,
       cities,
       bookImmediately: localPlan.bookImmediately || [],
       meta: {
