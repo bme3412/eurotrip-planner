@@ -1,6 +1,6 @@
 'use client';
 
-import { CalendarDays, Gauge, ListOrdered } from 'lucide-react';
+import { CalendarDays, Gauge, Route } from 'lucide-react';
 
 const STEPS = [
   {
@@ -10,21 +10,21 @@ const STEPS = [
   },
   {
     icon: Gauge,
-    title: 'We rate 220 cities',
-    body: 'Each city is rated on weather, crowds, seasonal events, and value for those specific days.',
+    title: 'See where everywhere shines',
+    body: 'Every city scored for your exact days on weather, crowds, seasonal events, and value.',
   },
   {
-    icon: ListOrdered,
-    title: 'Get your ranked shortlist',
-    body: 'See where everywhere lands for your trip, then start planning the winner in one click.',
+    icon: Route,
+    title: 'Plan it day-by-day',
+    body: 'Turn the winner into a day-by-day itinerary — attractions, timing, and logistics in one click.',
   },
 ];
 
 const STATS = [
-  { value: '220', label: 'Cities' },
-  { value: '41', label: 'Countries' },
-  { value: '365', label: 'Days analyzed' },
-  { value: '$0', label: 'No signup' },
+  { value: '327', label: 'City guides' },
+  { value: '40', label: 'Countries' },
+  { value: '365', label: 'Days scored' },
+  { value: 'Free', label: 'No signup' },
 ];
 
 export default function HowItWorks({ onScrollToDatePicker }) {
@@ -39,7 +39,7 @@ export default function HowItWorks({ onScrollToDatePicker }) {
             <span className="w-8 h-px bg-blue-600"></span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            From your dates to a ranked shortlist.
+            From your dates to a trip you can actually take.
           </h2>
         </div>
 

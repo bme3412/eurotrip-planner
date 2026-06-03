@@ -219,7 +219,7 @@ function CityNameDropdown({ activeSlug, activeName, onPick }) {
   );
 }
 
-export default function ScoringDemoSection({ onScrollToDatePicker }) {
+export default function ScoringDemoSection() {
   const now = new Date();
   const currentYear = now.getFullYear();
   const currentMonthIdx = now.getMonth();
@@ -329,7 +329,7 @@ export default function ScoringDemoSection({ onScrollToDatePicker }) {
         )}
 
         {/* 12-month calendar grid */}
-        <div className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-10 transition-opacity ${loading ? 'opacity-50' : 'opacity-100'}`}>
+        <div className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 transition-opacity ${loading ? 'opacity-50' : 'opacity-100'}`}>
           {MONTH_KEYS.map((key, idx) => (
             <MonthCalendar
               key={key}
@@ -341,20 +341,6 @@ export default function ScoringDemoSection({ onScrollToDatePicker }) {
               activeKey={activeKey}
             />
           ))}
-        </div>
-
-        {/* CTA */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <button
-            onClick={onScrollToDatePicker}
-            className="group px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2"
-          >
-            See how your dates score across all 220 cities
-            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </button>
-          <span className="text-gray-500 text-sm">Every city has a calendar like this. Enter your dates to see your ranking.</span>
         </div>
       </div>
     </section>

@@ -1,12 +1,8 @@
-import dynamic from "next/dynamic";
 import HomeClient from "./HomeClient";
 
 // ISR: re-render the home page at most once per hour. Content is static, so
 // an hour of staleness is fine.
 export const revalidate = 3600;
-
-// Hero V2 stays available behind ?v=2 — server-side gate, no client Suspense.
-const HeroV2 = dynamic(() => import("@/components/home/v2/Hero"));
 
 // Compute the default date range on the server so the value is identical on the
 // server render and on client hydration. Computing it in the client (via
@@ -22,11 +18,6 @@ function getInitialDates() {
   return { mode: "dates", start: toIso(start), end: toIso(end) };
 }
 
-export default async function Page({ searchParams }) {
-  const params = (await searchParams) || {};
-  if (params.v === "2") {
-    return <HeroV2 />;
-  }
-
+export default function Page() {
   return <HomeClient initialDates={getInitialDates()} />;
 }
