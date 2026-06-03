@@ -1,5 +1,26 @@
 import Link from 'next/link';
 
+const FEATURES = [
+  'Date-specific city rankings',
+  'Day-by-day itineraries',
+  'Weather & crowd insights',
+  'Cultural event calendar',
+];
+
+const COVERAGE = [
+  '327 city guides',
+  '220 cities scored for timing',
+  '40 countries',
+  'Transport connections',
+];
+
+const EXPLORE = [
+  { label: 'City Guides', href: '/city-guides' },
+  { label: 'Interactive Map', href: '/explore' },
+  { label: 'Plan a Trip', href: '/plan' },
+  { label: 'Saved Trips', href: '/saved-trips' },
+];
+
 export default function Footer() {
   return (
     <footer className="border-t border-black/5 bg-white/70 backdrop-blur print:hidden">
@@ -8,46 +29,36 @@ export default function Footer() {
           <div className="space-y-3">
             <h3 className="text-lg font-semibold text-zinc-900">Euro&#x2011;Trip</h3>
             <p className="text-sm text-zinc-600">
-              Plan your perfect European adventure with data-driven
-              recommendations and seasonal insights.
+              Plan your whole European trip around when you go — the right cities,
+              day-by-day itineraries, and in-depth guides for every destination.
             </p>
           </div>
           <div className="space-y-3">
             <h4 className="font-medium text-zinc-900">Features</h4>
             <ul className="space-y-2 text-sm text-zinc-600">
-              <li>Seasonal Activity Planning</li>
-              <li>Weather-Based Recommendations</li>
-              <li>City Connection Maps</li>
-              <li>Cultural Event Calendar</li>
+              {FEATURES.map((f) => (
+                <li key={f}>{f}</li>
+              ))}
             </ul>
           </div>
           <div className="space-y-3">
             <h4 className="font-medium text-zinc-900">Coverage</h4>
             <ul className="space-y-2 text-sm text-zinc-600">
-              <li>220+ European Cities</li>
-              <li>39 Countries</li>
-              <li>Monthly Activity Guides</li>
-              <li>Transport Connections</li>
+              {COVERAGE.map((c) => (
+                <li key={c}>{c}</li>
+              ))}
             </ul>
           </div>
           <div className="space-y-3">
             <h4 className="font-medium text-zinc-900">Explore</h4>
             <ul className="space-y-2 text-sm text-zinc-600">
-              <li>
-                <Link href="/city-guides" className="hover:text-indigo-600 transition-colors">
-                  City Guides
-                </Link>
-              </li>
-              <li>
-                <Link href="/explore" className="hover:text-indigo-600 transition-colors">
-                  Interactive Map
-                </Link>
-              </li>
-              <li>
-                <Link href="/plan" className="hover:text-indigo-600 transition-colors">
-                  Plan a Trip
-                </Link>
-              </li>
+              {EXPLORE.map((e) => (
+                <li key={e.href}>
+                  <Link href={e.href} className="hover:text-blue-600 transition-colors">
+                    {e.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

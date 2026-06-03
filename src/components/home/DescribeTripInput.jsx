@@ -98,7 +98,7 @@ export default function DescribeTripInput({ value, onChange }) {
       </button>
 
       <p className="mt-3 text-center text-xs text-gray-500">
-        Free · No signup · 220 cities across 41 countries
+        Free · No signup · 327 cities across 40 countries
       </p>
     </form>
   );

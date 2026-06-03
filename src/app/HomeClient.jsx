@@ -4,7 +4,7 @@ import { useRef, useCallback, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useTripDates, serializeDates } from "../hooks/useTripDates";
 import ScoringDemoSection from "../components/home/ScoringDemoSection";
-import RankingReshuffle from "../components/home/RankingReshuffle";
+import ConciergeTeaser from "../components/home/ConciergeTeaser";
 import HowItWorks from "../components/home/HowItWorks";
 import HeroContent from "../components/home/hero/HeroContent";
 import SplitHero from "../components/home/hero/SplitHero";
@@ -66,8 +66,8 @@ export default function HomeClient({ initialDates }) {
       <div className="h-20 md:h-28 bg-gradient-to-b from-transparent to-white" />
 
       {/* Insight → Proof → How it works */}
-      <ScoringDemoSection onScrollToDatePicker={scrollToDatePicker} />
-      <RankingReshuffle onScrollToDatePicker={scrollToDatePicker} />
+      <ScoringDemoSection />
+      <ConciergeTeaser onScrollToDatePicker={scrollToDatePicker} />
       <HowItWorks onScrollToDatePicker={scrollToDatePicker} />
 
       {/* Footer is now in layout.js */}
