@@ -1,5 +1,6 @@
 'use client';
 
+import 'mapbox-gl/dist/mapbox-gl.css';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { cityDisplayName } from '../lib/cityResolution.js';
 import useRouteStats from '../hooks/useRouteStats.js';
