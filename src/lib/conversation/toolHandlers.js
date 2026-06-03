@@ -318,9 +318,49 @@ export function handleGetRouteOptions(input) {
 }
 
 /**
- * Handle suggest_cities tool call.
+ * Nearest curated cities to an anchor — the last-resort suggestion list so the
+ * city picker is NEVER empty. An empty list stalls the flow: the agent narrates
+ * "let me suggest cities" but has nothing to put in render_city_picker, so no
+ * widget renders. Only cities with real coordinates are returned so their map
+ * pins resolve.
+ */
+function nearestCitiesFallback(fromCityId, toCityId, maxResults = 6) {
+  const cities = getCitiesData();
+  const from = getCityLookup().get(fromCityId);
+  const hasCoords = (c) => Number.isFinite(c.latitude) && Number.isFinite(c.longitude);
+  const exclude = new Set([fromCityId, toCityId].filter(Boolean));
+  const usable = cities.filter((c) => !exclude.has(c.id) && hasCoords(c));
+
+  if (!from || !hasCoords(from)) {
+    return usable.slice(0, maxResults).map((c) => ({ id: c.id, name: c.name, country: c.country }));
+  }
+
+  // Longitude scaled by latitude so distances aren't distorted at Europe's lat.
+  return usable
+    .map((c) => {
+      const dlat = c.latitude - from.latitude;
+      const dlon = (c.longitude - from.longitude) * Math.cos((from.latitude * Math.PI) / 180);
+      return { c, dist: Math.sqrt(dlat * dlat + dlon * dlon) };
+    })
+    .sort((a, b) => a.dist - b.dist)
+    .slice(0, maxResults)
+    .map(({ c, dist }) => ({
+      id: c.id,
+      name: c.name,
+      country: c.country,
+      score: Math.max(40, Math.round(85 - dist * 8)),
+      travelMinutes: Math.round(dist * 55),
+    }));
+}
+
+/**
+ * Handle suggest_cities tool call. Always returns a non-empty list when there
+ * is a valid anchor, so the agent can render the picker instead of stalling.
  */
 export async function handleSuggestCities(input) {
+  const maxResults = input.maxResults || 6;
+  let suggestions = [];
+
   try {
     const { getSuggestionsForGap } = await import('../planning/gapSuggester.js');
     const fallbackStart = new Date();
@@ -328,7 +368,7 @@ export async function handleSuggestCities(input) {
     const fallbackEnd = new Date(fallbackStart);
     fallbackEnd.setDate(fallbackEnd.getDate() + 4);
     const toIso = (date) => date.toISOString().slice(0, 10);
-    const suggestions = await getSuggestionsForGap({
+    suggestions = await getSuggestionsForGap({
       fromCity: input.fromCityId,
       toCity: input.toCityId || null,
       gapStart: input.startDate || input.gapStart || toIso(fallbackStart),
@@ -339,32 +379,17 @@ export async function handleSuggestCities(input) {
         paceId: input.pace || input.paceId || 'balanced',
       },
     });
-    return suggestions.slice(0, input.maxResults || 6);
   } catch (e) {
     console.warn('[toolHandlers] Suggestion failed:', e.message);
-    // Fallback: return nearby cities from database
-    const cities = getCitiesData();
-    const from = getCityLookup().get(input.fromCityId);
-    if (!from) return [];
-
-    return cities
-      .filter(c => c.id !== input.fromCityId)
-      .map(c => {
-        const dlat = c.latitude - from.latitude;
-        const dlon = c.longitude - from.longitude;
-        const dist = Math.sqrt(dlat * dlat + dlon * dlon);
-        return { ...c, dist };
-      })
-      .sort((a, b) => a.dist - b.dist)
-      .slice(0, input.maxResults || 6)
-      .map(c => ({
-        id: c.id,
-        name: c.name,
-        country: c.country,
-        score: Math.round(80 - c.dist * 10),
-        travelMinutes: Math.round(c.dist * 60),
-      }));
   }
+
+  if (Array.isArray(suggestions) && suggestions.length > 0) {
+    return suggestions.slice(0, maxResults);
+  }
+
+  // Primary suggester came up empty (e.g. a single anchor with no route "gap",
+  // or ease-score data unavailable) — fall back so the picker still renders.
+  return nearestCitiesFallback(input.fromCityId, input.toCityId, maxResults);
 }
 
 /**
