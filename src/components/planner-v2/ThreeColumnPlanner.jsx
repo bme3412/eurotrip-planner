@@ -60,6 +60,7 @@ export default function ThreeColumnPlanner({
     startConversation,
     handleOptionSelect,
     handleCitySelect,
+    handleCitiesSelect,
     handleDateSelect,
     applyRoutePreset,
     dismissError,
@@ -149,6 +150,10 @@ export default function ThreeColumnPlanner({
     handleCitySelect(city, purpose);
   }, [handleCitySelect]);
 
+  const handleCities = useCallback((cities) => {
+    handleCitiesSelect(cities);
+  }, [handleCitiesSelect]);
+
   const legacyTrip = useMemo(() => buildLegacyTrip(tripState), [tripState]);
 
   const { chatWidthPct, handleDividerPointerDown, handleDividerKeyDown } = useChatWidth({
@@ -192,6 +197,7 @@ export default function ThreeColumnPlanner({
             onSendMessage={handleSendMessage}
             onOptionSelect={handleOption}
             onCitySelect={handleCity}
+            onCitiesSelect={handleCities}
             onRoutePresetSelect={applyRoutePreset}
             onDatesPick={handleDateSelect}
             onFlexibleMonth={handleDateSelect}

@@ -41,7 +41,7 @@ function nextUnplacedCity(tripState) {
   return orderedCities(tripState).find((city) => !Number.isFinite(city.nights) || city.nights === 0);
 }
 
-export function buildPlannerAction(type, { before = null, after = null, city = null, dayIndices = [], partial = null } = {}) {
+export function buildPlannerAction(type, { before = null, after = null, city = null, cities = [], dayIndices = [], partial = null } = {}) {
   const totalNights = after?.dates?.totalNights;
   const placed = totalAssignedNights(after);
   const remaining = Number.isFinite(totalNights) ? Math.max(0, totalNights - placed) : null;
@@ -71,6 +71,16 @@ export function buildPlannerAction(type, { before = null, after = null, city = n
   } else if (type === 'add_city') {
     title = `${cityName} added`;
     confirmation = `Added ${cityName} to the route.`;
+  } else if (type === 'add_cities') {
+    const names = (cities || []).map((item) => item?.name).filter(Boolean);
+    const label =
+      names.length <= 1
+        ? names[0] || 'new stops'
+        : names.length === 2
+          ? `${names[0]} and ${names[1]}`
+          : `${names.slice(0, -1).join(', ')}, and ${names[names.length - 1]}`;
+    title = `${names.length} ${names.length === 1 ? 'stop' : 'stops'} added`;
+    confirmation = `Added ${label} to the route.`;
   } else if (type === 'unassign_days') {
     const nightLabel = `${dayIndices.length} ${dayIndices.length === 1 ? 'night' : 'nights'}`;
     title = `${nightLabel} freed`;

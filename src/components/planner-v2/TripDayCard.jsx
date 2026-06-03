@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { getFlagForCountry } from '@/utils/countryFlags';
 import { parseIsoDate } from '@/lib/conversation/dayAssignments';
 import { ACCOMMODATION_FIELDS } from '@/lib/conversation/tripState';
+import PlannerDateCalendar from './PlannerDateCalendar.jsx';
 
 const DOW_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONTH_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -316,32 +317,13 @@ export default function TripDayCard({
                 <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a8578]">
                   Trip dates
                 </p>
-                <div className="mt-2 flex items-center gap-2">
-                  <input
-                    type="date"
-                    value={tripDates?.startDate || ''}
-                    onChange={(e) =>
-                      onSetTripDates({
-                        startDate: e.target.value || null,
-                        endDate: tripDates?.endDate || null,
-                      })
+                <div className="mt-2">
+                  <PlannerDateCalendar
+                    value={{ start: tripDates?.startDate || '', end: tripDates?.endDate || '' }}
+                    onChange={({ start, end }) =>
+                      onSetTripDates({ startDate: start || null, endDate: end || null })
                     }
-                    className="min-w-0 flex-1 rounded-md border border-[#e5e0d8] bg-white px-2 py-1.5 text-xs text-[#2a2520]"
-                    aria-label="Trip start date"
-                  />
-                  <span className="text-xs text-[#b5b0a8]" aria-hidden="true">–</span>
-                  <input
-                    type="date"
-                    value={tripDates?.endDate || ''}
-                    min={tripDates?.startDate || undefined}
-                    onChange={(e) =>
-                      onSetTripDates({
-                        startDate: tripDates?.startDate || null,
-                        endDate: e.target.value || null,
-                      })
-                    }
-                    className="min-w-0 flex-1 rounded-md border border-[#e5e0d8] bg-white px-2 py-1.5 text-xs text-[#2a2520]"
-                    aria-label="Trip end date"
+                    initialMonth={tripDates?.startDate || null}
                   />
                 </div>
               </div>

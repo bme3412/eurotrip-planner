@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PlannerDateCalendar from '../../PlannerDateCalendar.jsx';
 
 // ── Inline date picker (start/end + flexible month fallback) ─────
 const MONTH_NAMES = [
@@ -22,8 +23,10 @@ export default function InlineDatePicker({ pendingInput, currentDates, onDatesPi
   const mode = data.mode || 'range';
   const minDate = todayISO();
 
-  const initialStart = data.suggestedStart || currentDates?.startDate || '';
-  const initialEnd = data.suggestedEnd || currentDates?.endDate || '';
+  // Only seed from dates the traveler has already chosen — never auto-fill a
+  // default/suggested date, so the picker doesn't land on "today" (e.g. June 1).
+  const initialStart = currentDates?.startDate || '';
+  const initialEnd = currentDates?.endDate || '';
 
   const [start, setStart] = useState(initialStart);
   const [end, setEnd] = useState(initialEnd);
@@ -69,31 +72,23 @@ export default function InlineDatePicker({ pendingInput, currentDates, onDatesPi
         Choose your start and end, or pick a flexible month and we&apos;ll refine later.
       </p>
 
-      <div className="mt-3 grid grid-cols-2 gap-2">
-        <label className="flex flex-col gap-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#8a8578]">
-          Start
-          <input
-            type="date"
-            value={start}
-            min={minDate}
-            onChange={(event) => {
-              const value = event.target.value;
-              setStart(value);
-              if (end && value && end < value) setEnd('');
-            }}
-            className="rounded-lg border border-[#e5e0d8] bg-white px-2 py-1.5 text-sm font-medium text-[#2a2520] focus:border-[#c9a227] focus:outline-none focus:ring-2 focus:ring-[#c9a227]/15"
-          />
-        </label>
-        <label className="flex flex-col gap-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#8a8578]">
-          End
-          <input
-            type="date"
-            value={end}
-            min={start || minDate}
-            onChange={(event) => setEnd(event.target.value)}
-            className="rounded-lg border border-[#e5e0d8] bg-white px-2 py-1.5 text-sm font-medium text-[#2a2520] focus:border-[#c9a227] focus:outline-none focus:ring-2 focus:ring-[#c9a227]/15"
-          />
-        </label>
+      <div className="mt-3">
+        <PlannerDateCalendar
+          value={{ start, end }}
+          onChange={({ start: nextStart, end: nextEnd }) => {
+            setStart(nextStart || '');
+            setEnd(nextEnd || '');
+          }}
+          minDate={minDate}
+          initialMonth={currentDates?.startDate || null}
+        />
+        <p className="mt-2 text-center text-[11px] text-[#8a8578]">
+          {start && !end
+            ? `${formatLongDate(start)} → pick an end date`
+            : start && end
+              ? `${formatLongDate(start)} → ${formatLongDate(end)} · ${nights}n`
+              : 'Tap a start date, then an end date'}
+        </p>
       </div>
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
