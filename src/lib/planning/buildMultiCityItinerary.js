@@ -2,6 +2,7 @@ import { buildItineraryWithRouting } from './buildItinerary.js';
 import { allocateDays } from './dayAllocator.js';
 import { getConnectionBetweenCities } from './routeOptimizer.js';
 import { getCityData } from '../data-utils.js';
+import { enrichItineraryLLM } from './enrichItineraryLLM.js';
 import { addDays, format } from 'date-fns';
 
 /**
@@ -42,6 +43,19 @@ function generateBookingUrl(transfer, travelDate) {
 
   // Generic Omio link for other transport types
   return `https://www.omio.com/search/from/${from.id}/to/${to.id}/departure/${dateStr}`;
+}
+
+/**
+ * Default transport when no curated connection data exists between two cities.
+ * Same country → train; different country → flight. Generic but honest so the
+ * itinerary always shows a travel day with bookable estimates.
+ * @param {boolean} sameCountry
+ * @returns {Object} transport descriptor matching the connections.json shape
+ */
+function defaultTransport(sameCountry) {
+  return sameCountry
+    ? { type: 'train', journeyTime: '3–5h', priceRange: '€30–80', frequency: 'Several daily', trainType: null }
+    : { type: 'flight', journeyTime: '1.5–3h', priceRange: '€60–180', frequency: 'Daily', trainType: null };
 }
 
 /**
@@ -141,14 +155,23 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
     useAI = false,
     includeTransfers = true,
     routeOptimization = true,
+    enrich = true,
   } = options;
 
   if (!cities || cities.length === 0) {
     throw new Error('At least 1 city required');
   }
 
-  const startDate = new Date(trip.start_date);
-  const endDate = new Date(trip.end_date);
+  // Parse bare YYYY-MM-DD at LOCAL midnight so day numbering and per-day dates
+  // don't drift back a day in timezones behind UTC (which also misaligns
+  // seasonal event anchoring).
+  const parseLocal = (v) => {
+    if (v instanceof Date) return v;
+    const m = typeof v === 'string' && v.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    return m ? new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3])) : new Date(v);
+  };
+  const startDate = parseLocal(trip.start_date);
+  const endDate = parseLocal(trip.end_date);
   const tripDuration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
 
   // Step 1: Allocate days across cities (or use provided allocation)
@@ -265,7 +288,9 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
     if (i < cities.length - 1 && includeTransfers) {
       const nextCity = cities[i + 1];
 
-      // Get connection details
+      // Look up curated connection details; fall back to a sensible default when
+      // a city has no connections.json so a travel day is ALWAYS inserted (and
+      // always carries real from/to names — the curated lookup omits names).
       const connection = getConnectionBetweenCities(
         city.id,
         city.country,
@@ -273,24 +298,29 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
         nextCity.country
       );
 
-      if (connection) {
-        const travelDay = createTravelDay(currentDayNumber, currentDate, connection);
-        allDays.push(travelDay);
+      const transfer = {
+        from: { id: city.id, name: city.name, country: city.country },
+        to: { id: nextCity.id, name: nextCity.name, country: nextCity.country },
+        transport: connection?.transport || defaultTransport(city.country === nextCity.country),
+        whyGo: connection?.whyGo || null,
+      };
 
-        transfers.push({
-          from: city.id,
-          to: nextCity.id,
-          fromName: city.name,
-          toName: nextCity.name,
-          dayNumber: currentDayNumber,
-          date: format(currentDate, 'yyyy-MM-dd'),
-          ...connection.transport,
-          bookingUrl: generateBookingUrl(connection, currentDate)
-        });
+      const travelDay = createTravelDay(currentDayNumber, currentDate, transfer);
+      allDays.push(travelDay);
 
-        currentDayNumber++;
-        currentDate = addDays(currentDate, 1);
-      }
+      transfers.push({
+        from: city.id,
+        to: nextCity.id,
+        fromName: city.name,
+        toName: nextCity.name,
+        dayNumber: currentDayNumber,
+        date: format(currentDate, 'yyyy-MM-dd'),
+        ...transfer.transport,
+        bookingUrl: generateBookingUrl(transfer, currentDate)
+      });
+
+      currentDayNumber++;
+      currentDate = addDays(currentDate, 1);
     }
   }
 
@@ -305,7 +335,7 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
 
   const summary = `Your ${totalDays}-day ${routeType} European adventure through ${cityNames}. ${totalCityDays} days exploring across ${totalCities} cities, ${totalTravelDays} travel day${totalTravelDays !== 1 ? 's' : ''}.`;
 
-  return {
+  const itinerary = {
     routeType,
     cities: citySegments,
     days: allDays,
@@ -321,6 +351,10 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
       allocation: allocation.allocation
     }
   };
+
+  // Optional LLM polish — narration + per-day themes. No-ops (returns the
+  // deterministic itinerary unchanged) when disabled, keyless, or on any error.
+  return enrich ? enrichItineraryLLM(itinerary, trip) : itinerary;
 }
 
 /**

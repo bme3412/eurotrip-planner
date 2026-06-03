@@ -66,10 +66,20 @@ function buildPlanFromNormalizedDays(trip) {
       ? day.theme
       : inferDayTheme(day.activities);
 
+    const cityName = day.city
+      ? String(day.city).charAt(0).toUpperCase() + String(day.city).slice(1)
+      : null;
+
     return {
       date: day.date,
       dayNumber: day.day_number,
       theme: theme || `Day ${day.day_number}`,
+      // Carry city/travel metadata so multi-city saved trips group by city and
+      // render travel days (single-city trips just leave these null).
+      city: day.city || null,
+      cityName,
+      country: day.country || null,
+      isTravelDay: Boolean(day.is_travel_day),
       timeBlocks,
       activityCount: day.activities?.length || 0,
     };

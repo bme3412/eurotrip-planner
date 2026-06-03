@@ -43,7 +43,12 @@ function loadCityConnections(cityId, country) {
     connectionsCache.set(cacheKey, data);
     return data;
   } catch (error) {
-    console.error(`Failed to load connections for ${cityId}, ${country}:`, error.message);
+    // A missing connections.json is expected for many cities — the multi-city
+    // builder falls back to a default transport. Only surface unexpected errors.
+    if (error.code !== 'ENOENT') {
+      console.error(`Failed to load connections for ${cityId}, ${country}:`, error.message);
+    }
+    connectionsCache.set(cacheKey, null);
     return null;
   }
 }

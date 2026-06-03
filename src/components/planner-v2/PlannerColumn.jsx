@@ -1,13 +1,14 @@
 'use client';
 
-import { useCallback, useMemo, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import { AlertTriangle, CheckCircle2, Cloud, CloudOff, RotateCcw, Save, X } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, Cloud, CloudOff, RotateCcw, Save, X, Map as MapIcon } from 'lucide-react';
 import CompactMessageList from './CompactMessageList';
 import CompactChatInput from './CompactChatInput';
 import PlannerProgressBar from './PlannerProgressBar';
 import PlannerNextActionBar from './PlannerNextActionBar';
 import InlineItinerary from '../conversation/InlineItinerary';
+import ItineraryOverlay from '../itinerary/ItineraryOverlay';
 import { derivePlannerInteraction } from '@/lib/conversation/plannerInteraction';
 
 const STARTER_PROMPTS = [
@@ -153,6 +154,12 @@ function GenerationPanel({
   retryGeneration,
   resetGeneration,
 }) {
+  // Full-screen rich itinerary overlay — auto-opens once generation completes.
+  const [overlayOpen, setOverlayOpen] = useState(false);
+  useEffect(() => {
+    if (generationPhase === 'complete') setOverlayOpen(true);
+  }, [generationPhase]);
+
   if (generationPhase === 'idle') return null;
 
   if (generationPhase === 'confirming') {
@@ -209,39 +216,67 @@ function GenerationPanel({
   }
 
   if (generationPhase === 'complete') {
+    const cityCount = itinerary?.meta?.totalCities || itinerary?.cities?.length || 0;
+    const dayCount = itinerary?.meta?.totalDays || itinerary?.days?.length || 0;
     return (
-      <div className="mx-3 mb-3 rounded-2xl border border-emerald-200 bg-white p-4">
-        <InlineItinerary
-          itinerary={itinerary}
-          trip={trip}
-          onStartOver={resetGeneration}
-        />
-        <div className="mt-3 flex flex-wrap justify-center gap-2">
-          {savedTripId && (
-            <Link
-              href={`/itineraries/${savedTripId}`}
-              className="rounded-full bg-[#2a2520] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#1a1510]"
+      <>
+        {/* Compact success card in the chat column */}
+        <div className="mx-3 mb-3 rounded-2xl border border-emerald-200 bg-white p-4">
+          <div className="flex items-center gap-3">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100">
+              <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+            </span>
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-[#2a2520]">Your itinerary is ready</p>
+              <p className="text-xs text-[#8a8578]">
+                {dayCount} days{cityCount ? ` · ${cityCount} ${cityCount === 1 ? 'city' : 'cities'}` : ''}
+              </p>
+            </div>
+          </div>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => setOverlayOpen(true)}
+              className="inline-flex items-center gap-1.5 rounded-full bg-[#2a2520] px-4 py-2 text-sm font-semibold text-white hover:bg-[#1a1510]"
             >
-              Open full itinerary
-            </Link>
-          )}
-          {localTripId && !savedTripId && (
-            <Link
-              href="/saved-trips"
-              className="rounded-full border border-emerald-200 bg-emerald-50 px-5 py-2.5 text-sm font-semibold text-emerald-800 hover:bg-emerald-100"
+              <MapIcon className="h-4 w-4" /> View itinerary
+            </button>
+            {savedTripId && (
+              <Link
+                href={`/itineraries/${savedTripId}`}
+                className="rounded-full border border-[#e5e0d8] bg-white px-4 py-2 text-sm font-semibold text-[#6a6459] hover:bg-[#faf8f5]"
+              >
+                Open full page
+              </Link>
+            )}
+            {localTripId && !savedTripId && (
+              <Link
+                href="/saved-trips"
+                className="rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-800 hover:bg-emerald-100"
+              >
+                Saved in My Trips
+              </Link>
+            )}
+            <button
+              type="button"
+              onClick={resetGeneration}
+              className="rounded-full border border-[#e5e0d8] bg-white px-4 py-2 text-sm font-semibold text-[#6a6459] hover:bg-[#faf8f5]"
             >
-              Saved locally in My Trips
-            </Link>
-          )}
-          <button
-            type="button"
-            onClick={resetGeneration}
-            className="rounded-full border border-[#e5e0d8] bg-white px-5 py-2.5 text-sm font-semibold text-[#6a6459] hover:bg-[#faf8f5]"
-          >
-            Keep editing route
-          </button>
+              Keep editing
+            </button>
+          </div>
         </div>
-      </div>
+
+        {overlayOpen && (
+          <ItineraryOverlay
+            itinerary={itinerary}
+            trip={trip}
+            savedTripId={savedTripId}
+            onClose={() => setOverlayOpen(false)}
+            onKeepEditing={() => { setOverlayOpen(false); resetGeneration(); }}
+          />
+        )}
+      </>
     );
   }
 

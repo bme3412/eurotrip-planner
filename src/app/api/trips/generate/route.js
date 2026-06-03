@@ -34,6 +34,10 @@ export async function POST(request) {
       budget = 'moderate',
       day_allocation = null,
       city_order = null,
+      weather_tolerance = null,
+      travelers = null,
+      dietary = [],
+      mobility = null,
     } = body;
 
     // Validation
@@ -83,6 +87,10 @@ export async function POST(request) {
       interests,
       pace,
       budget,
+      weather_tolerance,
+      travelers,
+      dietary,
+      mobility,
     };
 
     // Build the itinerary

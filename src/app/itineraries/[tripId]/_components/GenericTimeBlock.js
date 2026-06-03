@@ -54,6 +54,11 @@ export function GenericTimeBlock({ block, isLast, index, experienceScores }) {
               )}
             </p>
             <div className="flex shrink-0 items-center gap-1.5">
+              {act.isEvent && (
+                <span className="rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-400 ring-1 ring-amber-900/60">
+                  ★ Event
+                </span>
+              )}
               {act._aiUpdated && (
                 <span className="rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#c9963c] ring-1 ring-[#c9963c40]">
                   ✦ AI
@@ -84,6 +89,14 @@ export function GenericTimeBlock({ block, isLast, index, experienceScores }) {
             <div className="mt-2.5">
               <ExpandableText text={act.description} />
             </div>
+          )}
+
+          {/* Rainy-day backup for open-air stops in iffy weather */}
+          {act.weatherBackup && (
+            <p className="mt-2 flex items-start gap-1.5 rounded-lg bg-sky-950/40 px-2.5 py-1.5 text-xs text-sky-300/90 ring-1 ring-sky-900/50">
+              <svg className="mt-0.5 h-3 w-3 shrink-0" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4.5 11a3.5 3.5 0 0 1-.5-6.96A4 4 0 0 1 11.9 4.5H12a3 3 0 0 1 .3 5.98l-.6-1.04A2 2 0 0 0 12 5.5h-.96l-.13-.72A2.5 2.5 0 0 0 6 5.2l-.3.66-.72-.04A2 2 0 1 0 4.5 9.5h1l-.6 1.5H4.5Zm5 .5-1 3 2.5-2h-1.5l1-1h-1Z"/></svg>
+              <span>Rainy-day backup: {act.weatherBackup}</span>
+            </p>
           )}
 
           {/* Meta pills */}

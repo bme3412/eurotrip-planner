@@ -10,17 +10,27 @@ export default function ItineraryMap({ markers }) {
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current || !markers?.length) return;
+    if (!process.env.NEXT_PUBLIC_MAPBOX_TOKEN) return; // no token → leave the slot empty
 
     mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-    const map = new mapboxgl.Map({
-      container: containerRef.current,
-      style: 'mapbox://styles/mapbox/light-v11',
-      center: [markers[0].lng, markers[0].lat],
-      zoom: 12,
-      attributionControl: false,
-    });
+    // Map creation can throw (no WebGL support, bad token). Never let that crash
+    // the whole itinerary page — just skip the map.
+    let map;
+    try {
+      map = new mapboxgl.Map({
+        container: containerRef.current,
+        style: 'mapbox://styles/mapbox/light-v11',
+        center: [markers[0].lng, markers[0].lat],
+        zoom: 12,
+        attributionControl: false,
+      });
+    } catch (err) {
+      console.warn('[ItineraryMap] map unavailable:', err?.message || err);
+      return;
+    }
 
+    map.on('error', () => {}); // swallow tile/style errors (offline, quota)
     map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-right');
 
     const bounds = new mapboxgl.LngLatBounds();

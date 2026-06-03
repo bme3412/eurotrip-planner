@@ -281,16 +281,45 @@ async function findCityPath(cityId) {
   return null;
 }
 
+// Some logical sections are stored under a differently-named file. Map the
+// requested fileType to the on-disk basenames we should also try.
+const FILE_ALIASES = {
+  culinary_guide: ['culinary_guide', 'culinary'],
+  seasonal_activities: ['seasonal_activities', 'seasonal-activities', 'seasonal'],
+  overview: ['overview'],
+};
+
 /**
- * Load a specific data file for a city
+ * Load a specific data file for a city.
+ *
+ * The canonical content layout keeps section files in a `sections/`
+ * subdirectory (e.g. `<city>/sections/attractions.json`); older cities keep
+ * them in the city root. We search both, across name aliases and hyphen/
+ * underscore variants, so the planner reads the same rich data the city guide
+ * pages do.
  */
 async function loadCityFile(cityPath, fileType) {
   const cityName = path.basename(cityPath);
-  const possiblePaths = [
-    path.join(cityPath, `${cityName}_${fileType}.json`),
-    path.join(cityPath, `${cityName}-${fileType}.json`),
-    path.join(cityPath, `${fileType}.json`)
-  ];
+
+  // Build the set of candidate basenames (aliases + separator variants).
+  const baseNames = FILE_ALIASES[fileType] || [fileType];
+  const variants = new Set();
+  for (const b of baseNames) {
+    variants.add(b);
+    variants.add(b.replace(/_/g, '-'));
+    variants.add(b.replace(/-/g, '_'));
+  }
+
+  // Prefer the sections/ subdir (current layout), then the city root (legacy).
+  const dirs = [path.join(cityPath, 'sections'), cityPath];
+  const possiblePaths = [];
+  for (const dir of dirs) {
+    for (const v of variants) {
+      possiblePaths.push(path.join(dir, `${v}.json`));
+      possiblePaths.push(path.join(dir, `${cityName}_${v}.json`));
+      possiblePaths.push(path.join(dir, `${cityName}-${v}.json`));
+    }
+  }
 
   for (const filePath of possiblePaths) {
     try {
@@ -301,7 +330,7 @@ async function loadCityFile(cityPath, fileType) {
       // File not found, try next path
     }
   }
-  
+
   return null;
 }
 

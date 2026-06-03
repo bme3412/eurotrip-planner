@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import CityListRow from './discover/CityListRow';
+import CityDateModal from './discover/CityDateModal';
 import ResultsFilterBar from './discover/ResultsFilterBar';
 import { normalizeRankedCandidate, rankedCandidateToPlannerParams } from '@/lib/discovery/rankedCandidate';
 import { formatDateRange, getNights } from '@/lib/utils/dates';
@@ -56,6 +57,8 @@ export default function ResultsGrid({
 
   const [selectedRegions, setSelectedRegions] = useState([]);
   const [selectedVibes, setSelectedVibes] = useState([]);
+  // The city whose date-specific modal is open (with its current rank), or null.
+  const [activeCity, setActiveCity] = useState(null);
 
   // Filter options come from the result set — only offer regions/vibes actually
   // present, so the dropdowns never show a filter that returns nothing.
@@ -110,8 +113,12 @@ export default function ResultsGrid({
   const nights = getNights(dates?.start, dates?.end);
 
   const handleCityClick = (cityId) => {
-    if (onCityClick) onCityClick(cityId);
-    else window.location.href = `/city-guides/${cityId}`;
+    // Allow callers to override the default behaviour (e.g. a host page that
+    // wants to navigate). Otherwise open the date-specific modal for this city.
+    if (onCityClick) { onCityClick(cityId); return; }
+    const idx = visible.findIndex((c) => (c.cityId || c.id) === cityId);
+    if (idx === -1) return;
+    setActiveCity({ city: visible[idx], rank: idx });
   };
 
   const handleStartPlan = (city, rank) => {
@@ -183,6 +190,19 @@ export default function ResultsGrid({
             />
           ))}
         </div>
+      )}
+
+      {activeCity && (
+        <CityDateModal
+          city={activeCity.city}
+          rank={activeCity.rank}
+          dates={dates}
+          onClose={() => setActiveCity(null)}
+          onStartPlan={() => {
+            handleStartPlan(activeCity.city, activeCity.rank + 1);
+            setActiveCity(null);
+          }}
+        />
       )}
     </section>
   );
