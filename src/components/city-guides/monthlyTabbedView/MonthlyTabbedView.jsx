@@ -22,7 +22,7 @@ import { generateMonthTagline, getSeasonInfo } from './lib/monthlyMetadata.js';
  * Side-effects (taglines fetch + lazy month-body fetch) live in
  * `useMonthlyDataFetch`.
  */
-export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName, countryName, selectedMonth = null }) {
+export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName, countryName, selectedMonth = null, showFooter = true }) {
   const nowIdx = new Date().getMonth();
   const initialSelectedIdx = selectedMonth
     ? Math.max(0, MONTHS.findIndex((month) => month.toLowerCase() === selectedMonth.toLowerCase()))
@@ -160,19 +160,21 @@ export default function MonthlyTabbedView({ visitCalendar, monthlyData, cityName
         <ContentSections monthName={m.name} visitList={visitList} considerList={considerList} />
       </div>
 
-      <footer className="border-t border-gray-200 mt-12 pt-8 pb-6">
-        <div className="flex items-center justify-between">
-          <p className="text-sm font-medium text-gray-900">Plan smarter. Travel better.</p>
-          <div className="flex items-center gap-6 text-sm">
-            <Link href="/city-guides" className="text-gray-500 hover:text-gray-900 transition-colors">
-              Browse all cities
-            </Link>
-            <a href="mailto:support@eurotripplanner.com" className="text-gray-500 hover:text-gray-900 transition-colors">
-              Get support
-            </a>
+      {showFooter && (
+        <footer className="border-t border-gray-200 mt-12 pt-8 pb-6">
+          <div className="flex items-center justify-between">
+            <p className="text-sm font-medium text-gray-900">Plan smarter. Travel better.</p>
+            <div className="flex items-center gap-6 text-sm">
+              <Link href="/city-guides" className="text-gray-500 hover:text-gray-900 transition-colors">
+                Browse all cities
+              </Link>
+              <a href="mailto:support@eurotripplanner.com" className="text-gray-500 hover:text-gray-900 transition-colors">
+                Get support
+              </a>
+            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      )}
     </div>
   );
 }

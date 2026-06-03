@@ -36,6 +36,7 @@ const CityOverview = ({
   monthlyData,
   hideIntroHero = false,
   onOpenMonthlyGuide,
+  showSeasonalProse = true,
 }) => {
   const [activeTooltip, setActiveTooltip] = useState(null);
   const [overviewParagraph, setOverviewParagraph] = useState(null);
@@ -193,8 +194,9 @@ const CityOverview = ({
         </div>
       )}
 
-      {/* Season-by-season narrative */}
-      {visitCalendar && (
+      {/* Season-by-season narrative. Hidden in the unified When-to-Go view,
+          where the per-month detail below the calendar carries this content. */}
+      {showSeasonalProse && visitCalendar && (
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8">
           <SeasonalProse cityName={cityName} country={overview?.country} />
         </div>
