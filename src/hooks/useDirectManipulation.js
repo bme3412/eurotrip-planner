@@ -260,6 +260,49 @@ export function useDirectManipulation({ tripStateRef, setTripState, onPlannerAct
     [onPlannerAction, tripStateRef, setTripState]
   );
 
+  // Batch-add several cities in one state update (and one planner action), so
+  // adding N suggestions at once doesn't fan out into N saves / N agent events.
+  // Each is added as a 0-night stop; nights are allocated afterward.
+  const addCities = useCallback(
+    (cities = [], { notify = true } = {}) => {
+      const clean = (cities || [])
+        .map((c) => ({
+          name: c?.name?.trim(),
+          country: c?.country ?? null,
+          id: c?.id ?? null,
+          latitude: c?.latitude ?? null,
+          longitude: c?.longitude ?? null,
+          role: 'stop',
+          nights: 0,
+        }))
+        .filter((c) => c.name);
+      if (clean.length === 0) return [];
+
+      const before = tripStateRef.current;
+      const next = mergeTripData(before, { cities: clean });
+      setTripState(next);
+
+      const created = clean
+        .map((c) =>
+          next.route.cities.find(
+            (rc) =>
+              (c.id && rc.id === c.id) ||
+              (rc.id || rc.name?.toLowerCase()) === c.name.toLowerCase()
+          )
+        )
+        .filter(Boolean);
+
+      if (notify && created.length > 0) {
+        onPlannerAction?.(
+          buildPlannerAction('add_cities', { before, after: next, cities: created }),
+          next
+        );
+      }
+      return created;
+    },
+    [onPlannerAction, tripStateRef, setTripState]
+  );
+
   const setCityAccommodation = useCallback(
     (cityId, partial, { notify = true } = {}) => {
       if (!cityId || !partial || typeof partial !== 'object') return;
@@ -305,6 +348,7 @@ export function useDirectManipulation({ tripStateRef, setTripState, onPlannerAct
     setTripDates,
     undoLastReflow,
     addCity,
+    addCities,
     acceptSuggestedAllocation,
   };
 }

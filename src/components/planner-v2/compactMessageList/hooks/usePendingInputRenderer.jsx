@@ -20,6 +20,7 @@ export default function usePendingInputRenderer({
   trip,
   onOptionSelect,
   onCitySelect,
+  onCitiesSelect,
   onRoutePresetSelect,
   onDatesPick,
   onFlexibleMonth,
@@ -69,6 +70,7 @@ export default function usePendingInputRenderer({
         <PendingCityPicker
           pendingInput={pendingInput}
           onCitySelect={onCitySelect}
+          onCitiesSelect={onCitiesSelect}
         />
       );
     }

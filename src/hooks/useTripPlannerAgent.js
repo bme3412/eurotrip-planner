@@ -432,7 +432,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
   }, [persistDraft, postSystemEvent]);
 
   const {
-    assignDaysToCity, unassignDays, setCityNights, setCityAccommodation, setTripDates, undoLastReflow, addCity, acceptSuggestedAllocation,
+    assignDaysToCity, unassignDays, setCityNights, setCityAccommodation, setTripDates, undoLastReflow, addCity, addCities, acceptSuggestedAllocation,
   } = useDirectManipulation({ tripStateRef, setTripState, onPlannerAction: handlePlannerAction });
 
   useEffect(() => {
@@ -560,6 +560,16 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     sendMessage(buildCitySelectionMessage(city, purpose, tripStateRef.current));
   }, [sendMessage, tripStateRef]);
 
+  // Multi-select: add every chosen city as a 0-night stop in one shot (direct
+  // manipulation, no agent round-trip) and dismiss the picker. Nights/dates are
+  // allocated afterward via the schedule + night allocator.
+  const handleCitiesSelect = useCallback((cities) => {
+    const list = Array.isArray(cities) ? cities.filter(Boolean) : [];
+    if (list.length === 0) return;
+    addCities(list);
+    setPendingInput(null);
+  }, [addCities, setPendingInput]);
+
   const handleDaysChange = useCallback((daysMap) => {
     const entries = Object.entries(daysMap);
     const summary = entries.map(([, days]) => `${days}d`).join(', ');
@@ -641,6 +651,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     startConversation,
     handleOptionSelect,
     handleCitySelect,
+    handleCitiesSelect,
     handleDaysChange,
     handleDateSelect,
     applyRoutePreset,
@@ -663,6 +674,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     setCityNights,
     setCityAccommodation,
     addCity,
+    addCities,
     acceptSuggestedAllocation,
     setTripDates,
     undoLastReflow,

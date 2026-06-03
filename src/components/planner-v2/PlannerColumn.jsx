@@ -305,6 +305,7 @@ export default function PlannerColumn({
   onSendMessage,
   onOptionSelect,
   onCitySelect,
+  onCitiesSelect,
   onRoutePresetSelect,
   onDatesPick,
   onFlexibleMonth,
@@ -378,6 +379,7 @@ export default function PlannerColumn({
           trip={trip}
           onOptionSelect={onOptionSelect}
           onCitySelect={onCitySelect}
+          onCitiesSelect={onCitiesSelect}
           onRoutePresetSelect={onRoutePresetSelect}
           onDatesPick={onDatesPick}
           onFlexibleMonth={onFlexibleMonth}
