@@ -50,21 +50,45 @@ export default function DynamicItineraryMap({
     return expression;
   }, [routePoints]);
 
+  // Stable signature of the rendered point set. Changes only when a stop is
+  // actually added/removed/reordered or moved — NOT on every render or
+  // streaming token. The draw + fit-bounds effects key off this so the map is
+  // never needlessly rebuilt.
+  const pointsKey = useMemo(() => {
+    const fmt = (point) => `${point.id}:${point.lng},${point.lat}`;
+    return `${routePoints.map(fmt).join('|')}::${previewPoints.map(fmt).join('|')}`;
+  }, [routePoints, previewPoints]);
+
+  // Latest-value refs so the draw effects can depend on `pointsKey` alone while
+  // still reading current data inside marker click handlers.
+  const drawRef = useRef({});
+  drawRef.current = { routePoints, previewPoints, days, mapPoints, lineCoordinates, routeGradient, onSelectDay };
+
+  // Create the Mapbox instance exactly once, on mount. The parent only renders
+  // this component when at least one point exists, so `mapPoints` is non-empty
+  // here. Re-fitting and marker updates are handled by the effects below — this
+  // effect must NOT depend on the (per-render) point arrays, or it would tear
+  // down and rebuild the whole map on every change.
+  //
+  // The cleanup pattern (cancelled flag + markersRef/mapRef removal) is the most
+  // fragile part of this component — preserve it verbatim if you touch this.
   useEffect(() => {
-    if (!containerRef.current || mapRef.current || mapPoints.length === 0) return;
+    if (!containerRef.current || mapRef.current) return;
+    const initialPoints = drawRef.current.mapPoints;
+    if (initialPoints.length === 0) return;
 
     let cancelled = false;
     (async () => {
       const mapboxgl = (await import('mapbox-gl')).default;
-      if (cancelled || !containerRef.current) return;
+      if (cancelled || !containerRef.current || mapRef.current) return;
 
       mapboxRef.current = mapboxgl;
       mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
       mapRef.current = new mapboxgl.Map({
         container: containerRef.current,
         style: 'mapbox://styles/mapbox/streets-v12',
-        center: [mapPoints[0].lng, mapPoints[0].lat],
-        zoom: mapPoints.length > 1 ? 4 : 6,
+        center: [initialPoints[0].lng, initialPoints[0].lat],
+        zoom: initialPoints.length > 1 ? 4 : 6,
         attributionControl: false,
         interactive: true,
         pitchWithRotate: false,
@@ -79,12 +103,14 @@ export default function DynamicItineraryMap({
         new mapboxgl.AttributionControl({ compact: true }),
         'bottom-right'
       );
-      mapRef.current.on('load', () => setLoaded(true));
+      mapRef.current.on('load', () => {
+        if (!cancelled) setLoaded(true);
+      });
     })();
 
     return () => {
       cancelled = true;
-      markersRef.current.forEach((marker) => marker.remove());
+      markersRef.current.forEach((entry) => entry.marker.remove());
       markersRef.current = [];
       if (mapRef.current) {
         mapRef.current.remove();
@@ -92,14 +118,17 @@ export default function DynamicItineraryMap({
       }
       setLoaded(false);
     };
-  }, [mapPoints]);
+  }, []);
 
+  // Redraw markers + route line only when the point set actually changes.
   useEffect(() => {
     const map = mapRef.current;
     const mapboxgl = mapboxRef.current;
     if (!loaded || !map || !mapboxgl) return;
 
-    markersRef.current.forEach((marker) => marker.remove());
+    const { routePoints, previewPoints, lineCoordinates, routeGradient } = drawRef.current;
+
+    markersRef.current.forEach((entry) => entry.marker.remove());
     markersRef.current = [];
 
     if (map.getLayer('planner-route-line')) map.removeLayer('planner-route-line');
@@ -134,24 +163,24 @@ export default function DynamicItineraryMap({
       });
     }
 
-    const selectedCityId = selectedDay?.point?.id;
     routePoints.forEach((point, index) => {
       const el = document.createElement('button');
       el.type = 'button';
-      el.className = `planner-itinerary-marker ${selectedCityId === point.id ? 'selected' : ''}`;
+      el.className = 'planner-itinerary-marker';
       el.style.setProperty('--marker-color', point.color || '#2a2520');
       el.innerHTML = `
         <span class="planner-itinerary-marker-num">${index + 1}</span>
         <span class="planner-itinerary-marker-label">${cityDisplayName(point)}</span>
       `;
       el.addEventListener('click', () => {
+        const { days, onSelectDay } = drawRef.current;
         const dayForCity = days.find((day) => day.cityId === point.id);
         if (dayForCity) onSelectDay(dayForCity.dayIndex);
       });
       const marker = new mapboxgl.Marker({ element: el })
         .setLngLat([point.lng, point.lat])
         .addTo(map);
-      markersRef.current.push(marker);
+      markersRef.current.push({ id: point.id, el, marker });
     });
 
     previewPoints.forEach((point) => {
@@ -165,26 +194,47 @@ export default function DynamicItineraryMap({
       const marker = new mapboxgl.Marker({ element: el })
         .setLngLat([point.lng, point.lat])
         .addTo(map);
-      markersRef.current.push(marker);
+      markersRef.current.push({ id: point.id, el, marker });
     });
+  }, [loaded, pointsKey]);
 
+  // Re-fit the viewport only when the point set or detail-card padding changes,
+  // so selecting a day doesn't yank the whole map around.
+  useEffect(() => {
+    const map = mapRef.current;
+    const mapboxgl = mapboxRef.current;
+    if (!loaded || !map || !mapboxgl) return;
+
+    const { mapPoints } = drawRef.current;
+    if (mapPoints.length === 0) return;
+
+    if (mapPoints.length === 1) {
+      map.easeTo({ center: [mapPoints[0].lng, mapPoints[0].lat], zoom: 6, duration: 600 });
+      return;
+    }
     const bounds = new mapboxgl.LngLatBounds();
     mapPoints.forEach((point) => bounds.extend([point.lng, point.lat]));
-    if (mapPoints.length === 1) {
-      map.easeTo({ center: [mapPoints[0].lng, mapPoints[0].lat], zoom: 6, duration: 400 });
-    } else {
-      map.fitBounds(bounds, {
-        padding: {
-          top: 80,
-          right: detailMode === 'expanded' ? 420 : 80,
-          bottom: detailMode === 'hidden' ? 60 : 170,
-          left: 60,
-        },
-        maxZoom: 7,
-        duration: 500,
-      });
-    }
-  }, [days, detailMode, lineCoordinates, loaded, mapPoints, onSelectDay, previewPoints, routeGradient, routePoints, selectedDay]);
+    map.fitBounds(bounds, {
+      padding: {
+        top: 80,
+        right: detailMode === 'expanded' ? 420 : 80,
+        bottom: detailMode === 'hidden' ? 60 : 170,
+        left: 60,
+      },
+      maxZoom: 7,
+      duration: 600,
+    });
+  }, [loaded, pointsKey, detailMode]);
+
+  // Toggle the selected-stop highlight without rebuilding markers, and gently
+  // recenter on the selected stop.
+  useEffect(() => {
+    if (!loaded) return;
+    const selectedCityId = selectedDay?.point?.id;
+    markersRef.current.forEach((entry) => {
+      entry.el.classList.toggle('selected', entry.id === selectedCityId);
+    });
+  }, [loaded, pointsKey, selectedDay]);
 
   useEffect(() => {
     const map = mapRef.current;
