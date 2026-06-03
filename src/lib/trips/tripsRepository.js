@@ -172,19 +172,31 @@ export async function deleteTrip(tripId) {
 
 export async function listTripsForUser({ userId = null, userEmail = null } = {}) {
   const supabase = await getSupabaseAdmin();
-  let query = supabase
-    .from('trips')
-    .select('*')
-    .order('updated_at', { ascending: false, nullsFirst: false })
-    .order('created_at', { ascending: false });
+  if (!userId && !userEmail) return [];
 
-  if (userId) query = query.eq('user_id', userId);
-  else if (userEmail) query = query.eq('user_email', userEmail);
-  else query = query.limit(0);
+  // Ownership is stored as BOTH user_id and user_email. Match on EITHER so a
+  // trip stays visible even when the same person's user_id changes (e.g. the
+  // same email signs in via a different provider, or a new auth record is
+  // created). Matching id-only silently hid trips that are clearly the user's.
+  const select = () => supabase.from('trips').select('*');
+  const collected = [];
+  if (userId) {
+    const { data, error } = await select().eq('user_id', userId);
+    if (error) throw error;
+    collected.push(...(data || []));
+  }
+  if (userEmail) {
+    const { data, error } = await select().eq('user_email', userEmail);
+    if (error) throw error;
+    collected.push(...(data || []));
+  }
 
-  const { data, error } = await query;
-  if (error) throw error;
-  return data || [];
+  // Dedupe by id (a trip may match both filters) and sort newest-first.
+  const byId = new Map();
+  for (const trip of collected) byId.set(trip.id, trip);
+  return [...byId.values()].sort(
+    (a, b) => new Date(b.updated_at || b.created_at || 0) - new Date(a.updated_at || a.created_at || 0),
+  );
 }
 
 /**
@@ -258,6 +270,12 @@ export async function persistGeneratedItinerary(tripId, itinerary, tripState) {
   const draftPayload = buildTripDraftPayload(normalized, {
     status: TRIP_LIFECYCLE_STATUSES.ITINERARY_GENERATED,
   });
+  // CRITICAL: buildTripDraftPayload defaults owner fields to null when no
+  // userId/userEmail is passed. Never let generating an itinerary overwrite the
+  // trip's owner — that orphans the trip (invisible in "my trips", 403 on
+  // future writes). Ownership is set at creation and must be preserved here.
+  delete draftPayload.user_id;
+  delete draftPayload.user_email;
 
   await supabase.from('trip_days').delete().eq('trip_id', tripId);
 
@@ -416,6 +434,30 @@ function normalizeGeneratedDayDate(value) {
   return null;
 }
 
+// The trip_activities.time_block column only permits these values (see
+// supabase/migrations/0002_trip_activities.sql). The itinerary builder uses a
+// finer-grained set (early_morning / late_morning / late_afternoon) for display
+// and ordering, so collapse those to the persisted enum here. start_time keeps
+// the precise ordering, so nothing is lost on read-back.
+const TIME_BLOCK_TO_DB = {
+  early_morning: 'morning',
+  morning: 'morning',
+  late_morning: 'morning',
+  lunch: 'lunch',
+  noon: 'lunch',
+  afternoon: 'afternoon',
+  late_afternoon: 'evening',
+  evening: 'evening',
+  night: 'night',
+};
+
+// The values permitted by the trip_activities.time_block CHECK constraint.
+export const DB_TIME_BLOCKS = Object.freeze(['morning', 'lunch', 'afternoon', 'evening', 'night']);
+
+export function toDbTimeBlock(time) {
+  return TIME_BLOCK_TO_DB[(time || '').toLowerCase()] || 'morning';
+}
+
 /**
  * Extract activities from buildItinerary output (day.timeBlocks shape).
  */
@@ -425,7 +467,7 @@ function extractActivities(day) {
   for (const block of day.timeBlocks) {
     if (!block.activity) continue;
     activities.push({
-      timeBlock: block.time || 'morning',
+      timeBlock: toDbTimeBlock(block.time),
       startTime: block.startTime || null,
       endTime: block.endTime || null,
       name: block.activity.name,

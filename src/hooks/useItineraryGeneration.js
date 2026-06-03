@@ -72,6 +72,16 @@ export function useItineraryGeneration({
           pace: ts.preferences.pace || 'balanced',
           budget: ts.budget.style || 'moderate',
           day_allocation: dayAllocation,
+          // Previously-dormant preferences — now flow into seasonal/adaptive generation.
+          weather_tolerance: ts.preferences.weatherTolerance || null,
+          travelers: {
+            groupType: ts.travelers.groupType || null,
+            count: ts.travelers.count || null,
+            hasChildren: ts.travelers.hasChildren || false,
+            hasElderly: ts.travelers.hasElderly || false,
+          },
+          dietary: ts.travelers.dietaryRestrictions || [],
+          mobility: ts.travelers.mobilityNeeds || null,
         }),
       });
 

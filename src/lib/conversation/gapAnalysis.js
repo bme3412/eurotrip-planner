@@ -6,6 +6,8 @@
  * The AI should propose a complete picture early and let the user tweak.
  */
 
+import { getSeasonalHintFromState } from '../planning/seasonalContext.js';
+
 /**
  * Compact, model-readable summary of one city's stay on the Route: line.
  * Includes nights and any accommodation info the user has provided so the
@@ -42,6 +44,9 @@ export function getSmartDefaults(tripState) {
   const hasNights = tripState.dates.totalNights != null;
   const hasCityNights = tripState.route.cities.some(c => c.nights != null);
 
+  // Season-aware nudges (infer-first — never asked, just applied as a default).
+  const hint = getSeasonalHintFromState(tripState);
+
   return {
     nightsPerCity: 3,
     totalNights: hasNights
@@ -52,8 +57,9 @@ export function getSmartDefaults(tripState) {
     transport: 'train',
     budget: 'moderate',
     accommodation: 'hotel',
-    pace: 'balanced',
+    pace: hint?.suggestedPace || 'balanced',
     interests: ['culture', 'food', 'walking'],
+    seasonalHint: hint?.line || null,
   };
 }
 
@@ -544,6 +550,15 @@ export function buildAgentContext(tripState) {
     lines.push(`Interests: ${defaults.interests.join(', ')}`);
   }
   lines.push(`Pace: ${p.pace || defaults.pace}`);
+
+  // Seasonal context — a single relevant tradeoff for the chosen month + cities.
+  // The agent should WEAVE this into prose as context, not turn it into a
+  // question (see "Seasonal Context" guidance in the system prompt).
+  if (defaults.seasonalHint) {
+    lines.push('');
+    lines.push('## Seasonal Context (weave in once, do not interrogate)');
+    lines.push(defaults.seasonalHint);
+  }
 
   lines.push('');
   lines.push('## Next Best Move');

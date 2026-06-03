@@ -104,6 +104,16 @@ export async function POST(request, { params }) {
       interests: tripState.preferences.interests,
       pace: tripState.preferences.pace || 'balanced',
       budget: tripState.budget.style || 'moderate',
+      // Previously-dormant preferences — now flow into seasonal/adaptive generation.
+      weather_tolerance: tripState.preferences.weatherTolerance || null,
+      travelers: {
+        groupType: tripState.travelers.groupType || null,
+        count: tripState.travelers.count || null,
+        hasChildren: tripState.travelers.hasChildren || false,
+        hasElderly: tripState.travelers.hasElderly || false,
+      },
+      dietary: tripState.travelers.dietaryRestrictions || [],
+      mobility: tripState.travelers.mobilityNeeds || null,
     }, orderedCities, {
       dayAllocation,
       includeTransfers: true,

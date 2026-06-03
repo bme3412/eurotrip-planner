@@ -1,4 +1,5 @@
 import { getTravelStyleForPace } from './travelStyles.js';
+import { getSeasonalContext } from './seasonalContext.js';
 
 /**
  * Generic itinerary generator for any city.
@@ -75,6 +76,14 @@ const ALL_MATCHERS = { ...INTEREST_MATCHERS, ...LEGACY_MATCHERS };
 
 function parseDate(v) {
   if (!v) return null;
+  if (v instanceof Date) return isNaN(v.getTime()) ? null : v;
+  // Parse bare YYYY-MM-DD at LOCAL midnight. `new Date('2026-07-12')` is UTC
+  // midnight, which rolls back a day in any timezone behind UTC — shifting the
+  // month/day used for weather, daylight and event anchoring.
+  if (typeof v === 'string') {
+    const m = v.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (m) return new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+  }
   const d = new Date(v);
   return isNaN(d.getTime()) ? null : d;
 }
@@ -134,9 +143,36 @@ function getFoodEntries(culinary) {
   return entries;
 }
 
+// ── Outdoor / weather classification ─────────────────────────────────
+
+const OUTDOOR_KEYWORDS = ['park', 'garden', 'square', 'bridge', 'riverside', 'beach',
+  'outdoor', 'viewpoint', 'lookout', 'promenade', 'cemetery', 'market', 'hill', 'trail',
+  'vineyard', 'canal', 'boat', 'cruise', 'terrace', 'rooftop'];
+
+/**
+ * Whether a site is primarily an open-air experience. Prefers the explicit
+ * `indoor` flag from the city guide; falls back to type/description keywords.
+ */
+function isOutdoor(site) {
+  if (site.indoor === true) return false;
+  if (site.indoor === false) return true;
+  const t = (site.type || '').toLowerCase();
+  const d = (site.description || '').toLowerCase();
+  return OUTDOOR_KEYWORDS.some(k => t.includes(k) || d.includes(k));
+}
+
+/** Loose name match between a site and a seasonal experience/event title. */
+function nameMatches(siteName, otherName) {
+  if (!siteName || !otherName) return false;
+  const a = siteName.toLowerCase();
+  const b = otherName.toLowerCase();
+  if (a.length < 4 || b.length < 4) return false;
+  return a.includes(b) || b.includes(a);
+}
+
 // ── Scoring ──────────────────────────────────────────────────────────
 
-function scoreAttraction(site, interests, mustSee) {
+function scoreAttraction(site, interests, mustSee, season = {}) {
   let score = 0;
   const cultural = site?.ratings?.cultural_significance ?? 3;
   score += cultural * 10;
@@ -156,7 +192,38 @@ function scoreAttraction(site, interests, mustSee) {
     score += 50;
   }
 
+  // ── Seasonal weighting ──
+  const { seasonalContext, flags = {}, avoidWet = false } = season;
+  if (seasonalContext) {
+    // Boost sites featured in this month's curated experiences/events — these
+    // are the things actually worth doing during the trip window.
+    const featured = [
+      ...seasonalContext.uniqueExperiences.map(x => x.activity),
+      ...seasonalContext.events.map(e => e.name),
+    ];
+    if (featured.some(name => nameMatches(site.name, name))) score += 25;
+  }
+
+  // In wet/cold windows (or for rain-averse travelers) push open-air sites down
+  // so the day skews indoor. Heat is handled at slot-placement time instead.
+  if (avoidWet && isOutdoor(site)) score -= 25;
+
   return score;
+}
+
+/** Short per-day weather/packing note derived from seasonal context. */
+function buildWeatherNote(ctx) {
+  if (!ctx?.weather) return null;
+  const { highC, lowC, precipitation, tips } = ctx.weather;
+  const bits = [];
+  if (highC != null) bits.push(lowC != null ? `${lowC}–${highC}°C` : `~${highC}°C`);
+  if (ctx.flags.heatRisk) bits.push('hot midday — plan indoor/shade 14:00–17:00');
+  if (ctx.flags.rainRisk) bits.push('rain likely — keep indoor backups');
+  if (ctx.flags.coldRisk) bits.push('cold — layer up');
+  if (ctx.flags.shortDaylight && ctx.daylightHours != null) bits.push(`only ~${ctx.daylightHours}h daylight`);
+  else if (precipitation && !ctx.flags.rainRisk) bits.push(String(precipitation).split('.')[0]);
+  const note = bits.join(' · ');
+  return note || tips || null;
 }
 
 // ── Geographic clustering & routing ─────────────────────────────────
@@ -337,11 +404,29 @@ export function buildItinerary(trip, cityData) {
   const pace = typeof trip.pace === 'number' ? trip.pace : 50;
   const paceLabel = getPaceLabel(pace);
   const travelStyle = getTravelStyleForPace(pace);
-  const interests = Array.isArray(trip.interests) ? trip.interests : [];
+  const baseInterests = Array.isArray(trip.interests) ? trip.interests : [];
   const mustSee = Array.isArray(trip.must_see) ? trip.must_see : [];
   const budget = trip.budget || 'moderate';
-  const cityName = cityData?.cityName || trip.city || 'this city';
+  const cityName = cityData?.cityName || cityData?.name || trip.city || 'this city';
   const country = cityData?.country || trip.country || '';
+
+  // ── Seasonal + traveler context (previously dormant) ──
+  const seasonalContext = trip.seasonalContext
+    || getSeasonalContext(cityData, trip.start_date, trip.end_date);
+  const flags = seasonalContext?.flags || {};
+  const weatherTolerance = trip.weather_tolerance || null;
+  const travelers = trip.travelers || null;
+  const mobility = trip.mobility || null;
+  const dietary = Array.isArray(trip.dietary) ? trip.dietary : [];
+  const hasChildren = !!(travelers && travelers.hasChildren);
+  const gentlerDay = hasChildren || !!mobility || !!(travelers && travelers.hasElderly);
+  // Skew indoor when it's wet/cold or the traveler wants to avoid rain.
+  const avoidWet = !!(flags.rainRisk || flags.coldRisk || weatherTolerance === 'avoid_rain');
+
+  // Families implicitly care about family-friendly stops.
+  const interests = hasChildren && !baseInterests.includes('Family Activities')
+    ? [...baseInterests, 'Family Activities']
+    : baseInterests;
 
   // ── Gather & score attractions ──
   const rawAttractions = getAttractions(cityData);
@@ -350,9 +435,11 @@ export function buildItinerary(trip, cityData) {
       const hours = parseOpeningHours(site, startDate);
       return {
         ...site,
-        _score: scoreAttraction(site, interests, mustSee),
+        _score: scoreAttraction(site, interests, mustSee, { seasonalContext, flags, avoidWet }),
         _lat: site.latitude || null,
         _lon: site.longitude || null,
+        _outdoor: isOutdoor(site),
+        _weatherFallback: site.visit_profile?.weather_fallback || null,
         // Flag sites that open late (skip early slots) or close early (skip late slots)
         _opensLate: hours ? hours.opensAt > 10 : false,
         _closesEarly: hours ? hours.closesAt < 16 : false,
@@ -365,44 +452,99 @@ export function buildItinerary(trip, cityData) {
     })
     .sort((a, b) => b._score - a._score);
 
+  // Dedupe by name — some city guides carry duplicate or near-duplicate entries
+  // ("Musée Picasso Paris" vs "Musée Picasso–Paris"), which would otherwise
+  // schedule the same place twice. Normalize away accents/punctuation/spacing
+  // and keep the highest-scored. Falls back to the raw name when normalization
+  // would empty the key (e.g. a non-Latin script).
+  const normalizeName = (n) => (n || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '');
+  const seenNames = new Set();
+  const uniqueScored = [];
+  for (const s of scored) {
+    const key = normalizeName(s.name) || (s.name || '').trim().toLowerCase();
+    if (key && seenNames.has(key)) continue;
+    if (key) seenNames.add(key);
+    uniqueScored.push(s);
+  }
+
   const neighborhoods = getNeighborhoods(cityData);
   const culinary = getCulinary(cityData);
   const foodEntries = getFoodEntries(culinary);
 
-  // ── Select attractions for the trip ──
-  const slotsPerDay = paceLabel === 'relaxed' ? 2 : paceLabel === 'active' ? 4 : 3;
-  const totalSlots = numDays * slotsPerDay;
-  const selected = scored.slice(0, Math.min(totalSlots + 4, scored.length));
+  // ── Time slots for the day, adapted to season & travelers ──
+  let timeSlots = [...TIME_SLOTS[paceLabel]];
+  // Winter / high-latitude: don't schedule sightseeing after dark.
+  if (flags.shortDaylight) timeSlots = timeSlots.filter(s => s.time !== 'late_afternoon');
+  // Kids / reduced mobility / elderly → one fewer stop for a gentler pace.
+  if (gentlerDay) {
+    const fromEnd = [...timeSlots].reverse().findIndex(s => s.time !== 'lunch');
+    if (fromEnd !== -1 && timeSlots.filter(s => s.time !== 'lunch').length > 1) {
+      timeSlots.splice(timeSlots.length - 1 - fromEnd, 1);
+    }
+  }
+  const attractionSlotsPerDay = Math.max(1, timeSlots.filter(s => s.time !== 'lunch').length);
 
-  // ── Cluster geographically by day, then order within each day ──
+  // ── Select & cluster attractions for the trip ──
+  const totalSlots = numDays * attractionSlotsPerDay;
+  const selected = uniqueScored.slice(0, Math.min(totalSlots + 4, uniqueScored.length));
   const clusters = clusterByProximity(selected, numDays).map(orderByProximity);
 
-  // ── Build days ──
-  const timeSlots = TIME_SLOTS[paceLabel];
   const days = [];
 
   /**
    * Pick the best attraction for a time slot from the remaining pool,
-   * respecting opening hours flags while preserving geographic order.
-   * Falls back to the first available item if no ideal candidate exists.
+   * respecting opening hours and (in hot weather) steering open-air sites away
+   * from the midday heat. Falls back to the first available item.
    */
   function pickForSlot(pool, slotTime) {
     const isEarlySlot = slotTime === 'early_morning' || slotTime === 'morning';
     const isLateSlot = slotTime === 'late_afternoon';
+    const isHotSlot = slotTime === 'afternoon'; // ~14:00–17:00, peak heat
     for (let i = 0; i < pool.length; i++) {
       const site = pool[i];
       if (isEarlySlot && site._opensLate) continue;
       if (isLateSlot && site._closesEarly) continue;
+      // In a heat-risk window prefer indoor sites for the hot afternoon block.
+      if (flags.heatRisk && isHotSlot && site._outdoor) continue;
       return pool.splice(i, 1)[0];
     }
     // No ideal match — fall back to first available (no hours data, or all restricted)
     return pool.splice(0, 1)[0];
   }
 
+  // Dietary suffix for food blocks when the lunch entry can't be tag-filtered.
+  const dietaryNote = dietary.length ? ` (${dietary.join(', ')}-friendly options nearby)` : '';
+
+  // Honest fallback for cities without a detailed guide yet (no attractions and
+  // no neighborhoods). Better than leaving a day as a single "Lunch break".
+  const lowData = selected.length === 0 && neighborhoods.length === 0;
+  const GENERIC_EXPLORE = [
+    { name: `Explore central ${cityName}`, description: `Get oriented in ${cityName} on foot — the historic center, main squares, and riverside.` },
+    { name: `${cityName} old town walk`, description: `Wander ${cityName}'s old town: landmark streets, local cafés, and people-watching.` },
+    { name: `Viewpoints & markets`, description: `Seek out a viewpoint and a local market to feel the rhythm of ${cityName}.` },
+    { name: `Free time in ${cityName}`, description: `An open block to follow your own interests around ${cityName}.` },
+  ];
+
   for (let d = 0; d < numDays; d++) {
     const dayDate = startDate ? new Date(startDate.getTime() + d * MILLISECONDS_IN_DAY) : null;
     // Mutable copy so pickForSlot can splice from it
     const pool = [...(clusters[d] || [])];
+
+    // Event anchoring: a dated festival/holiday landing on THIS calendar day
+    // becomes a fixed morning anchor instead of a generic attraction.
+    const matchedEvent = (dayDate && seasonalContext)
+      ? seasonalContext.events.find(e => e.day === dayDate.getDate())
+      : null;
+    let eventAnchored = false;
+
+    // Avoid padding the same neighborhood twice in one day.
+    const usedHoods = new Set();
+    // Seed the generic-explore rotation by day so consecutive sparse days differ.
+    let exploreIdx = d;
 
     const timeBlocks = [];
 
@@ -417,34 +559,58 @@ export function buildItinerary(trip, cityData) {
           activity: {
             name: food ? `Lunch: ${food.name}` : `Lunch break`,
             type: 'food_recommendation',
-            description: food?.description || food?.atmosphere || `Explore local cuisine in ${cityName}`,
+            description: (food?.description || food?.atmosphere || `Explore local cuisine in ${cityName}`) + dietaryNote,
             neighborhood: food?.neighborhood || pool[0]?.neighborhood || null,
             suggestions: food ? [food.name] : [],
             price: food?.price_range || null,
           },
         });
-      } else if (pool.length > 0) {
-        const site = pickForSlot(pool, slot.time);
+        continue;
+      }
 
+      // Place the day's event in the first non-lunch slot.
+      if (matchedEvent && !eventAnchored) {
+        eventAnchored = true;
         timeBlocks.push({
           time: slot.time,
           startTime: slot.startTime,
           endTime: slot.endTime,
           activity: {
-            name: site.name,
-            type: site.type || 'Attraction',
-            description: site.description || '',
-            duration: site.ratings?.suggested_duration_hours ? `${site.ratings.suggested_duration_hours}h` : '1.5h',
-            price: site.price_range || 'Check locally',
-            coordinates: site._lat && site._lon ? [site._lon, site._lat] : null,
-            bookingUrl: site.official_url || site.website || null,
-            neighborhood: site.neighborhood || null,
+            name: matchedEvent.name,
+            type: 'event',
+            description: matchedEvent.description || `Special event happening today in ${cityName}.`,
+            isEvent: true,
+            note: matchedEvent.notes || null,
+            date: matchedEvent.date || null,
           },
         });
+        continue;
+      }
+
+      if (pool.length > 0) {
+        const site = pickForSlot(pool, slot.time);
+        const activity = {
+          name: site.name,
+          type: site.type || 'Attraction',
+          description: site.description || '',
+          duration: site.ratings?.suggested_duration_hours ? `${site.ratings.suggested_duration_hours}h` : '1.5h',
+          price: site.price_range || 'Check locally',
+          coordinates: site._lat && site._lon ? [site._lon, site._lat] : null,
+          bookingUrl: site.official_url || site.website || null,
+          neighborhood: site.neighborhood || null,
+          outdoor: site._outdoor,
+        };
+        // Attach a rainy-day backup for open-air stops when weather is iffy.
+        if (avoidWet && site._outdoor && site._weatherFallback) {
+          activity.weatherBackup = site._weatherFallback;
+        }
+        timeBlocks.push({ time: slot.time, startTime: slot.startTime, endTime: slot.endTime, activity });
       } else {
-        // Pad with neighborhood exploration
-        const hood = neighborhoods[d % Math.max(1, neighborhoods.length)];
+        // Pad with neighborhood exploration — pick one not already used today.
+        const hood = neighborhoods.find(h => h?.name && !usedHoods.has(h.name))
+          || neighborhoods[d % Math.max(1, neighborhoods.length)];
         if (hood) {
+          usedHoods.add(hood.name);
           timeBlocks.push({
             time: slot.time,
             startTime: slot.startTime,
@@ -457,6 +623,17 @@ export function buildItinerary(trip, cityData) {
               highlights: Array.isArray(hood.highlights) ? hood.highlights.slice(0, 3) : [],
             },
           });
+        } else {
+          // No attractions or neighborhoods for this city — keep the day useful
+          // with a generic, honest "explore" block rather than only lunch.
+          const ex = GENERIC_EXPLORE[exploreIdx % GENERIC_EXPLORE.length];
+          exploreIdx += 1;
+          timeBlocks.push({
+            time: slot.time,
+            startTime: slot.startTime,
+            endTime: slot.endTime,
+            activity: { name: ex.name, type: 'explore', description: ex.description },
+          });
         }
       }
     }
@@ -468,11 +645,14 @@ export function buildItinerary(trip, cityData) {
       date: formatDate(dayDate),
       theme,
       timeBlocks,
+      weatherNote: buildWeatherNote(seasonalContext),
       tips: [],
     });
   }
 
-  // ── Book immediately (must-see items that need pre-booking) ──
+  // ── Book immediately ──
+  // Must-see items with booking tips, plus weather-dependent / high-cost
+  // seasonal experiences and dated events that reward booking ahead.
   const bookImmediately = rawAttractions
     .filter(s => s.booking_tips && mustSee.some(m => (s.name || '').toLowerCase().includes(m)))
     .slice(0, 3)
@@ -482,9 +662,35 @@ export function buildItinerary(trip, cityData) {
       note: s.booking_tips,
     }));
 
+  if (seasonalContext) {
+    for (const exp of seasonalContext.uniqueExperiences) {
+      if (bookImmediately.length >= 5) break;
+      const pricey = /€\s*\d|expensive|\$\d/.test(String(exp.estimatedCost || ''));
+      if ((exp.weatherDependent || pricey) && exp.practicalTips) {
+        bookImmediately.push({ type: 'Seasonal experience', title: exp.activity, note: exp.practicalTips });
+      }
+    }
+    for (const ev of seasonalContext.events) {
+      if (bookImmediately.length >= 5) break;
+      if (ev.notes) bookImmediately.push({ type: 'Event', title: ev.name, note: ev.notes });
+    }
+  }
+
   // ── Summary ──
   const allNeighborhoods = [...new Set(days.flatMap(d => d.timeBlocks.map(tb => tb.activity?.neighborhood).filter(Boolean)))];
-  const summary = `Your ${numDays}-day ${travelStyle.headline.toLowerCase()} itinerary for ${cityName}${country ? `, ${country}` : ''}. ${selected.length} experiences across ${allNeighborhoods.length || 'several'} neighborhoods.`;
+  let summary;
+  if (lowData) {
+    summary = `A ${numDays}-day skeleton for ${cityName}${country ? `, ${country}` : ''}. We don't have a detailed attraction guide for ${cityName} yet, so this is a light day-by-day frame to build on.`;
+  } else {
+    summary = `Your ${numDays}-day ${travelStyle.headline.toLowerCase()} itinerary for ${cityName}${country ? `, ${country}` : ''}. ${selected.length} experiences across ${allNeighborhoods.length || 'several'} neighborhoods.`;
+  }
+  if (!lowData && seasonalContext?.weather?.highC != null) {
+    summary += ` Tuned for ${seasonalContext.month} (~${seasonalContext.weather.highC}°C)`;
+    if (flags.heatRisk) summary += ' with indoor-leaning afternoons';
+    else if (avoidWet) summary += ' with rainy-day backups';
+    else if (flags.shortDaylight) summary += ' with daylight-aware pacing';
+    summary += '.';
+  }
 
   return {
     city: cityName,
@@ -495,10 +701,18 @@ export function buildItinerary(trip, cityData) {
     summary,
     bookImmediately,
     days,
+    seasonal: seasonalContext ? {
+      month: seasonalContext.month,
+      weather: seasonalContext.weather,
+      crowds: seasonalContext.crowds,
+      flags,
+      weatherNote: buildWeatherNote(seasonalContext),
+    } : null,
     meta: {
       totalAttractions: selected.length,
       neighborhoods: allNeighborhoods,
       mustSeeCompleted: mustSee,
+      lowData,
     },
   };
 }

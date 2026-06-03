@@ -44,6 +44,15 @@ export function DayCard({ day, index, weather, experienceScores }) {
               {neighborhoods.join(' → ')}
             </p>
           )}
+          {day.weatherNote && (
+            <p className="mt-1.5 flex items-center gap-1.5 text-xs text-zinc-500">
+              <svg className="h-3.5 w-3.5 shrink-0 text-zinc-600" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4.5 13a3.5 3.5 0 0 1-.5-6.96A4 4 0 0 1 11.9 6.5H12a3 3 0 0 1 0 6H4.5Z"/></svg>
+              <span>{day.weatherNote}</span>
+            </p>
+          )}
+          {day.summary && (
+            <p className="mt-2 text-sm leading-relaxed text-zinc-400">{day.summary}</p>
+          )}
         </div>
       </header>
 

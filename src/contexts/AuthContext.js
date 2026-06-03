@@ -58,12 +58,50 @@ export function AuthProvider({ children }) {
       return;
     }
 
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
+    let active = true;
+
+    // Get initial session. A corrupted or legacy value in storage makes the
+    // Supabase SDK throw while parsing it (e.g. "Invalid or unexpected token"),
+    // and without a catch that surfaces as an uncaught promise rejection that
+    // breaks sign-in. Recover by clearing the bad session and loading as
+    // signed-out instead of crashing the auth provider.
+    (async () => {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!active) return;
+        setSession(session);
+        setUser(session?.user ?? null);
+      } catch (err) {
+        console.warn('[auth] Could not read stored session, clearing it:', err?.message || err);
+        // Don't clear storage while an OAuth code exchange is in flight on the
+        // callback route — that would also wipe the PKCE code-verifier and break
+        // the sign-in. On every other route, purge the bad session so the app
+        // recovers as signed-out and the next sign-in writes a clean session.
+        const onAuthCallback = typeof window !== 'undefined'
+          && window.location.pathname.startsWith('/auth/callback');
+        if (!onAuthCallback) {
+          try {
+            await supabase.auth.signOut({ scope: 'local' });
+          } catch {
+            // ignore — best-effort
+          }
+          try {
+            for (let i = window.localStorage.length - 1; i >= 0; i--) {
+              const k = window.localStorage.key(i);
+              if (k && k.startsWith('sb-')) window.localStorage.removeItem(k);
+            }
+          } catch {
+            // ignore — storage may be unavailable
+          }
+        }
+        if (active) {
+          setSession(null);
+          setUser(null);
+        }
+      } finally {
+        if (active) setLoading(false);
+      }
+    })();
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
@@ -74,7 +112,10 @@ export function AuthProvider({ children }) {
       }
     );
 
-    return () => subscription.unsubscribe();
+    return () => {
+      active = false;
+      subscription.unsubscribe();
+    };
   }, [supabase]);
 
   const signInWithGoogle = async ({ next } = {}) => {

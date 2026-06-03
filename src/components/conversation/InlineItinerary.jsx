@@ -94,12 +94,16 @@ function ActivityItem({ activity }) {
       </div>
       <div className="flex-1 min-w-0">
         <p className="text-sm font-medium text-gray-900 leading-snug">
+          {activity.isEvent && <span className="mr-1.5 text-amber-500">★</span>}
           {activity.name}
         </p>
         {activity.description && (
           <p className="text-xs text-gray-500 mt-0.5 line-clamp-2">
             {activity.description}
           </p>
+        )}
+        {activity.weatherBackup && (
+          <p className="text-xs text-sky-600/80 mt-0.5">Rainy-day backup: {activity.weatherBackup}</p>
         )}
         <div className="flex items-center gap-3 mt-1 text-xs text-gray-400">
           {activity.duration_minutes || activity.durationMinutes ? (
@@ -195,6 +199,12 @@ function DayCard({ day, dayIndex }) {
             </p>
             {theme && (
               <p className="text-xs text-gray-400">{theme}</p>
+            )}
+            {day.weatherNote && (
+              <p className="text-xs text-sky-600/80">{day.weatherNote}</p>
+            )}
+            {day.summary && (
+              <p className="text-xs text-gray-500 mt-0.5">{day.summary}</p>
             )}
           </div>
         </div>
