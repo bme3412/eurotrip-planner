@@ -59,21 +59,27 @@ export function useExperienceData({ experiencesUrl, cityName, limit = Infinity }
               ? item.themes.filter(Boolean).map((t) => String(t).toLowerCase())
               : [];
 
-            // Look up Google Place ID from googlePlaceKey
+            // Look up Google Place ID — and the pre-baked photo name — from
+            // googlePlaceKey. The baked photoName lets the card request the
+            // photo in a single hop instead of resolving placeId server-side.
             let googlePlaceId = null;
+            let googlePhotoName = null;
             if (item?.googlePlaceKey) {
               const placeData = experiencePlaceIds[item.googlePlaceKey] || cityPlaceIds[item.googlePlaceKey];
               googlePlaceId = placeData?.placeId || null;
+              googlePhotoName = placeData?.photoName || null;
             }
             if (!googlePlaceId && item?.name) {
-              const exactPlaceData = cityPlaceIds[item.name];
-              if (exactPlaceData?.placeId) {
-                googlePlaceId = exactPlaceData.placeId;
-              } else {
+              let entry = cityPlaceIds[item.name];
+              if (!entry?.placeId) {
                 const normalizedName = normalizePlaceName(item.name);
                 const normalizedMatch = Object.entries(cityPlaceIds)
                   .find(([name]) => normalizePlaceName(name) === normalizedName);
-                googlePlaceId = normalizedMatch?.[1]?.placeId || null;
+                entry = normalizedMatch?.[1];
+              }
+              if (entry?.placeId) {
+                googlePlaceId = entry.placeId;
+                googlePhotoName = googlePhotoName || entry.photoName || null;
               }
             }
 
@@ -100,6 +106,7 @@ export function useExperienceData({ experiencesUrl, cityName, limit = Infinity }
               duration_minutes: item?.duration_minutes || null,
               googlePlaceKey: item?.googlePlaceKey || null,
               googlePlaceId,
+              photoName: googlePhotoName,
               ratings: {
                 cultural_significance: item?.scores?.cultural_historical_significance || null,
                 suggested_duration_hours: item?.duration_minutes ? item.duration_minutes / 60 : null,
