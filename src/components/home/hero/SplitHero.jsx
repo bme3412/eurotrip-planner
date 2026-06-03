@@ -1,30 +1,33 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { useReducedMotion } from "framer-motion";
 import { CINEMATIC } from "./heroImages";
 import heroPhotos from "./heroPhotos.json";
 
-// Merge each slide with its real Google Places photo (if one was curated).
-const SLIDES = CINEMATIC.map((c) => ({ ...c, google: heroPhotos[c.key] || null }));
+// Only show hero stops that have a real Google Places photo. The home hero
+// never displays a bundled placeholder/AI image — if a stop has no curated
+// photo it is simply left out of the rotation.
+const SLIDES = CINEMATIC
+  .map((c) => ({ ...c, google: heroPhotos[c.key] || null }))
+  .filter((c) => c.google);
 
 /**
- * One stacked slide: the bundled image is the always-visible base (placeholder +
- * fallback); when a real Google Places photo exists it loads on top via the
- * /api/google-photos proxy and fades in once ready. If that request fails the base
- * stays. Google attribution is shown only while the Google photo is actually visible
+ * One stacked slide showing only the real Google Places photo, loaded via the
+ * /api/google-photos proxy and faded in over a neutral gradient. While it loads
+ * (or on the rare proxy failure) a plain slate gradient is shown — never an AI
+ * image. Google attribution is shown only while the photo is actually visible
  * (required by the Places API terms).
  */
 function HeroSlide({ slide, isActive, priority, reduce }) {
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
 
-  const google = slide.google && !failed ? slide.google : null;
-  const proxyUrl = google
+  const google = slide.google;
+  const proxyUrl = google && !failed
     ? `/api/google-photos?name=${encodeURIComponent(google.photoName)}&w=1400`
     : null;
-  const showAttribution = google && loaded && google.attribution;
+  const showAttribution = google && loaded && !failed && google.attribution;
 
   return (
     <div
@@ -35,21 +38,10 @@ function HeroSlide({ slide, isActive, priority, reduce }) {
         transition: reduce ? "none" : "opacity 1400ms ease-out, transform 6400ms ease-out",
       }}
     >
-      {/* Bundled base image (also the fallback) */}
-      <Image
-        src={slide.src}
-        alt={slide.city}
-        fill
-        priority={priority}
-        quality={90}
-        placeholder="blur"
-        blurDataURL={slide.blur}
-        sizes="(max-width: 1024px) 100vw, 45vw"
-        className="object-cover saturate-[1.06] contrast-[1.04] brightness-[1.01]"
-        style={{ objectPosition: slide.pos }}
-      />
+      {/* Neutral placeholder shown until the real photo loads (never an AI image) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-700 to-slate-900" />
 
-      {/* Real Google Places photo, layered on top once loaded */}
+      {/* Real Google Places photo — the only image the hero ever shows */}
       {proxyUrl && (
         // eslint-disable-next-line @next/next/no-img-element
         <img
@@ -57,8 +49,10 @@ function HeroSlide({ slide, isActive, priority, reduce }) {
           alt={slide.city}
           onLoad={() => setLoaded(true)}
           onError={() => setFailed(true)}
-          className="absolute inset-0 w-full h-full object-cover object-center saturate-[1.05] contrast-[1.03] transition-opacity duration-700"
-          style={{ opacity: loaded ? 1 : 0 }}
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
+          className="absolute inset-0 w-full h-full object-cover saturate-[1.05] contrast-[1.03] transition-opacity duration-700"
+          style={{ opacity: loaded ? 1 : 0, objectPosition: slide.pos }}
         />
       )}
 
