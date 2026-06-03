@@ -1,64 +1,34 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
+import defaultCityCalendar from '@/generated/defaultCityCalendar.json';
+import cityCalendarIndex from '@/generated/cityCalendarIndex.json';
+import { getCountryFlag } from '@/utils/countryFlags';
 
-// Full Barcelona visit calendar data derived from barcelona-visit-calendar.json
-const BARCELONA_DATA = {
-  january:   { ranges: [{ days: [1,2,3,4,5,6], score: 3, special: true, event: "Three Kings' Day" }, { days: range(7,31), score: 4 }] },
-  february:  { ranges: [{ days: range(1,11), score: 4 }, { days: range(12,28), score: 4, special: true, event: "Barcelona Carnival" }] },
-  march:     { ranges: [{ days: range(1,14), score: 4 }, { days: range(15,19), score: 5, special: true, event: "Saint Joseph's Day" }, { days: range(20,31), score: 5 }] },
-  april:     { ranges: [{ days: range(1,9), score: 5, special: true, event: "Easter Week" }, { days: range(10,22), score: 5 }, { days: [23], score: 5, special: true, event: "Sant Jordi Day" }, { days: range(24,30), score: 5 }] },
-  may:       { ranges: [{ days: [1], score: 4, special: true, event: "Labor Day" }, { days: range(2,14), score: 5 }, { days: range(15,31), score: 5, special: true, event: "Primavera Sound" }] },
-  june:      { ranges: [{ days: range(1,22), score: 5 }, { days: [23,24], score: 5, special: true, event: "Sant Joan Festival" }, { days: range(25,30), score: 4 }] },
-  july:      { ranges: [{ days: range(1,24), score: 4 }, { days: range(25,31), score: 4, special: true, event: "Gràcia Festival Prep" }] },
-  august:    { ranges: [{ days: range(1,14), score: 3 }, { days: [15], score: 3, special: true, event: "Assumption Day" }, { days: range(16,21), score: 4, special: true, event: "Festa Major de Gràcia" }, { days: range(22,31), score: 3 }] },
-  september: { ranges: [{ days: range(1,10), score: 4 }, { days: [11], score: 5, special: true, event: "La Diada" }, { days: range(12,23), score: 5, special: true, event: "La Mercè Festival" }, { days: range(24,30), score: 5 }] },
-  october:   { ranges: [{ days: range(1,11), score: 5 }, { days: [12], score: 4, special: true, event: "Spanish National Day" }, { days: range(13,31), score: 5, special: true, event: "Barcelona Jazz Festival" }] },
-  november:  { ranges: [{ days: [1], score: 3, special: true, event: "All Saints' Day" }, { days: range(2,30), score: 4 }] },
-  december:  { ranges: [{ days: range(1,7), score: 4, special: true, event: "Constitution Day" }, { days: range(8,23), score: 4, special: true, event: "Christmas Markets" }, { days: range(24,26), score: 3, special: true, event: "Christmas" }, { days: range(27,30), score: 4 }, { days: [31], score: 4, special: true, event: "New Year's Eve" }] },
-};
-
-function range(start, end) {
-  return Array.from({ length: end - start + 1 }, (_, i) => i + start);
-}
-
-function buildDayMap(ranges) {
-  const map = {};
-  for (const r of ranges) {
-    for (const d of r.days) {
-      map[d] = { score: r.score, special: !!r.special, event: r.event || null };
-    }
-  }
-  return map;
-}
-
-const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-const MONTH_KEYS  = ['january','february','march','april','may','june','july','august','september','october','november','december'];
-const DAY_HEADERS = ['S','M','T','W','T','F','S'];
+const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const MONTH_KEYS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+const DAY_HEADERS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
 const SCORE_COLORS = {
   5: { bg: 'bg-emerald-400', dot: 'bg-emerald-700' },
   4: { bg: 'bg-emerald-200', dot: 'bg-emerald-600' },
-  3: { bg: 'bg-yellow-200',  dot: 'bg-yellow-600'  },
-  2: { bg: 'bg-orange-300',  dot: 'bg-orange-600'  },
-  1: { bg: 'bg-red-400',     dot: 'bg-red-700'     },
+  3: { bg: 'bg-yellow-200', dot: 'bg-yellow-600' },
+  2: { bg: 'bg-orange-300', dot: 'bg-orange-600' },
+  1: { bg: 'bg-red-400', dot: 'bg-red-700' },
 };
 
 const LEGEND = [
   { label: 'Excellent', color: 'bg-emerald-400' },
-  { label: 'Good',      color: 'bg-emerald-200' },
-  { label: 'Average',   color: 'bg-yellow-200'  },
-  { label: 'Below Avg', color: 'bg-orange-300'  },
-  { label: 'Avoid',     color: 'bg-red-400'     },
+  { label: 'Good', color: 'bg-emerald-200' },
+  { label: 'Average', color: 'bg-yellow-200' },
+  { label: 'Below Avg', color: 'bg-orange-300' },
+  { label: 'Avoid', color: 'bg-red-400' },
 ];
 
-const SCORE_LABEL = {
-  5: 'Excellent',
-  4: 'Good',
-  3: 'Average',
-  2: 'Below average',
-  1: 'Avoid',
-};
+const SCORE_LABEL = { 5: 'Excellent', 4: 'Good', 3: 'Average', 2: 'Below average', 1: 'Avoid' };
+
+// Popular cities shown first when the dropdown opens with no search query.
+const POPULAR = ['barcelona', 'paris', 'rome', 'lisbon', 'amsterdam', 'prague', 'vienna', 'london'];
 
 function getDaysInMonth(month0, year) {
   return new Date(year, month0 + 1, 0).getDate();
@@ -66,6 +36,26 @@ function getDaysInMonth(month0, year) {
 
 function getFirstDayOfWeek(month0, year) {
   return new Date(year, month0, 1).getDay(); // 0=Sun
+}
+
+/** Build a day -> info map for one month. */
+function buildDayMap(monthData) {
+  const map = {};
+  if (!monthData?.ranges) return map;
+  for (const r of monthData.ranges) {
+    for (const d of r.days) {
+      map[d] = {
+        score: r.score,
+        special: !!r.special,
+        event: r.event || null,
+        notes: r.notes || null,
+        crowdLevel: r.crowdLevel || null,
+        weatherHighC: monthData.weatherHighC ?? null,
+        weatherLowC: monthData.weatherLowC ?? null,
+      };
+    }
+  }
+  return map;
 }
 
 function MonthCalendar({ monthIdx, year, dayMap, currentMonthIdx, onHoverDay, activeKey }) {
@@ -98,7 +88,7 @@ function MonthCalendar({ monthIdx, year, dayMap, currentMonthIdx, onHoverDay, ac
           const colors = SCORE_COLORS[scoreKey] || { bg: 'bg-gray-100', dot: '' };
           const key = `${monthIdx}-${day}`;
           const isActive = key === activeKey;
-          const payload = { monthIdx, day, score: scoreKey, event: info?.event || null };
+          const payload = { monthIdx, day, ...(info || { score: 0 }) };
           return (
             <button
               key={day}
@@ -120,14 +110,145 @@ function MonthCalendar({ monthIdx, year, dayMap, currentMonthIdx, onHoverDay, ac
   );
 }
 
+/** Highlighted, inline city name that opens a searchable dropdown. */
+function CityNameDropdown({ activeSlug, activeName, onPick }) {
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState('');
+  const [highlight, setHighlight] = useState(0);
+  const wrapRef = useRef(null);
+  const inputRef = useRef(null);
+
+  const results = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) {
+      const bySlug = new Map(cityCalendarIndex.map((c) => [c.slug, c]));
+      return POPULAR.map((s) => bySlug.get(s)).filter(Boolean);
+    }
+    return cityCalendarIndex
+      .filter((c) => c.name.toLowerCase().includes(q) || c.country.toLowerCase().includes(q))
+      .slice(0, 8);
+  }, [query]);
+
+  useEffect(() => { setHighlight(0); }, [results]);
+
+  // Focus the search box and close on outside click / Escape.
+  useEffect(() => {
+    if (!open) return;
+    inputRef.current?.focus();
+    const onDocClick = (e) => { if (wrapRef.current && !wrapRef.current.contains(e.target)) setOpen(false); };
+    document.addEventListener('mousedown', onDocClick);
+    return () => document.removeEventListener('mousedown', onDocClick);
+  }, [open]);
+
+  const choose = (city) => {
+    onPick(city.slug);
+    setQuery('');
+    setOpen(false);
+  };
+
+  const onKeyDown = (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); setHighlight((i) => Math.min(i + 1, results.length - 1)); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); setHighlight((i) => Math.max(i - 1, 0)); }
+    else if (e.key === 'Enter') { e.preventDefault(); if (results[highlight]) choose(results[highlight]); }
+    else if (e.key === 'Escape') { setOpen(false); }
+  };
+
+  return (
+    <span ref={wrapRef} className="relative inline-block align-baseline">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="inline-flex items-center gap-1 font-bold text-blue-600 underline decoration-2 decoration-blue-300 underline-offset-4 hover:decoration-blue-500 focus:outline-none focus:decoration-blue-500"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+      >
+        {activeName}
+        <svg className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {open && (
+        <div className="absolute left-0 top-full mt-2 z-50 w-72 max-w-[80vw] rounded-xl border border-gray-200 bg-white shadow-xl overflow-hidden">
+          <div className="relative border-b border-gray-100">
+            <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
+            </svg>
+            <input
+              ref={inputRef}
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={onKeyDown}
+              placeholder="Search 220 cities…"
+              className="w-full pl-9 pr-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none"
+            />
+          </div>
+          {!query.trim() && (
+            <div className="px-3 pt-2 text-[10px] font-semibold uppercase tracking-wider text-gray-400">Popular</div>
+          )}
+          <ul className="max-h-64 overflow-y-auto py-1">
+            {results.map((city, index) => (
+              <li key={city.slug}>
+                <button
+                  type="button"
+                  onClick={() => choose(city)}
+                  onMouseEnter={() => setHighlight(index)}
+                  className={`w-full px-3 py-2 flex items-center gap-3 text-left transition-colors ${index === highlight ? 'bg-blue-50' : 'hover:bg-gray-50'} ${city.slug === activeSlug ? 'font-semibold text-blue-700' : 'text-gray-800'}`}
+                >
+                  <span className="text-lg">{getCountryFlag(city.country)}</span>
+                  <span className="flex-1 min-w-0">
+                    <span className="block text-sm truncate">{city.name}</span>
+                    <span className="block text-xs text-gray-500">{city.country}</span>
+                  </span>
+                  {city.slug === activeSlug && (
+                    <svg className="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                  )}
+                </button>
+              </li>
+            ))}
+            {results.length === 0 && (
+              <li className="px-3 py-3 text-sm text-gray-400">No cities found</li>
+            )}
+          </ul>
+        </div>
+      )}
+    </span>
+  );
+}
+
 export default function ScoringDemoSection({ onScrollToDatePicker }) {
   const now = new Date();
   const currentYear = now.getFullYear();
   const currentMonthIdx = now.getMonth();
 
-  const dayMaps = MONTH_KEYS.map(k => buildDayMap(BARCELONA_DATA[k].ranges));
-
+  const [calendar, setCalendar] = useState(defaultCityCalendar);
+  const [loading, setLoading] = useState(false);
   const [hovered, setHovered] = useState(null);
+  const fetchRef = useRef(null);
+
+  const activeSlug = calendar?.slug;
+
+  const loadCity = useCallback((slug) => {
+    if (!slug || slug === activeSlug) return;
+    if (fetchRef.current) fetchRef.current.abort();
+    const controller = new AbortController();
+    fetchRef.current = controller;
+    setLoading(true);
+    fetch(`/calendars/${slug}.json`, { signal: controller.signal })
+      .then((r) => { if (!r.ok) throw new Error('not found'); return r.json(); })
+      .then((data) => { setCalendar(data); setHovered(null); })
+      .catch((err) => { if (err.name !== 'AbortError') console.warn('calendar load failed', slug, err); })
+      .finally(() => { if (fetchRef.current === controller) setLoading(false); });
+  }, [activeSlug]);
+
+  const dayMaps = useMemo(
+    () => MONTH_KEYS.map((k) => buildDayMap(calendar?.months?.[k])),
+    [calendar]
+  );
+
   const onHoverDay = useCallback((payload) => setHovered(payload), []);
   const activeKey = hovered ? `${hovered.monthIdx}-${hovered.day}` : null;
   const hoveredColors = hovered ? SCORE_COLORS[hovered.score] : null;
@@ -136,7 +257,7 @@ export default function ScoringDemoSection({ onScrollToDatePicker }) {
     <section className="px-6 py-20 bg-white text-gray-900 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="max-w-2xl mb-10">
+        <div className="max-w-2xl mb-8">
           <div className="flex items-center gap-2 text-blue-600 font-bold text-xs uppercase tracking-widest mb-3">
             <span className="w-8 h-px bg-blue-500"></span>
             The Right Time Changes Everything
@@ -144,14 +265,16 @@ export default function ScoringDemoSection({ onScrollToDatePicker }) {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-gray-900">
             Same city. Completely different trip.
           </h2>
-          <p className="text-gray-600 text-lg leading-relaxed">
-            Here&apos;s Barcelona&apos;s visit score, day by day, across the full year. Every one of our 220 cities has a chart like this — enter your dates to see your ranked list.
-          </p>
+          <div className="text-gray-600 text-lg leading-relaxed">
+            Here&apos;s{' '}
+            <CityNameDropdown activeSlug={activeSlug} activeName={calendar?.name} onPick={loadCity} />
+            &apos;s visit score, day by day, across the full year. Tap the city name to compare any of our 220 cities.
+          </div>
         </div>
 
         {/* Legend */}
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-8 text-xs text-gray-600">
-          {LEGEND.map(l => (
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-6 text-xs text-gray-600">
+          {LEGEND.map((l) => (
             <div key={l.label} className="flex items-center gap-1.5">
               <span className={`w-3 h-3 rounded-sm ${l.color}`} />
               {l.label}
@@ -165,18 +288,29 @@ export default function ScoringDemoSection({ onScrollToDatePicker }) {
           </div>
         </div>
 
-        {/* City label + interactive day readout */}
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6 min-h-[2rem]">
-          <span className="text-base">🇪🇸</span>
-          <span className="font-bold text-gray-900">Barcelona, Spain</span>
+        {/* City label + interactive day readout (detail panel) */}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6 min-h-[2.5rem]">
+          <span className="text-base">{getCountryFlag(calendar?.country)}</span>
+          <span className="font-bold text-gray-900">{calendar?.name}, {calendar?.country}</span>
+          {loading && <span className="text-xs text-blue-500 animate-pulse">loading…</span>}
           {hovered ? (
-            <span className="inline-flex items-center gap-2 rounded-full bg-gray-50 border border-gray-200 pl-2 pr-3 py-1 text-sm">
+            <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full bg-gray-50 border border-gray-200 pl-2 pr-3 py-1 text-sm">
               <span className={`w-3 h-3 rounded-sm ${hoveredColors?.bg || 'bg-gray-300'}`} />
-              <span className="font-semibold text-gray-900">
-                {MONTH_NAMES[hovered.monthIdx]} {hovered.day}
-              </span>
+              <span className="font-semibold text-gray-900">{MONTH_NAMES[hovered.monthIdx]} {hovered.day}</span>
               <span className="text-gray-400">·</span>
               <span className="text-gray-600">{SCORE_LABEL[hovered.score] || '—'}</span>
+              {hovered.crowdLevel && (
+                <>
+                  <span className="text-gray-400">·</span>
+                  <span className="text-gray-600">{hovered.crowdLevel} crowds</span>
+                </>
+              )}
+              {(hovered.weatherHighC != null) && (
+                <>
+                  <span className="text-gray-400">·</span>
+                  <span className="text-gray-600">{hovered.weatherHighC}° / {hovered.weatherLowC}°C</span>
+                </>
+              )}
               {hovered.event && (
                 <>
                   <span className="text-gray-400">·</span>
@@ -185,12 +319,17 @@ export default function ScoringDemoSection({ onScrollToDatePicker }) {
               )}
             </span>
           ) : (
-            <span className="text-gray-500 text-sm">— {currentYear} visit calendar · hover any day to see its score</span>
+            <span className="text-gray-500 text-sm">— {currentYear} visit calendar · hover or tap any day for details</span>
           )}
         </div>
 
+        {/* Notes line for the active day (graceful when absent) */}
+        {hovered?.notes && (
+          <p className="text-sm text-gray-500 leading-relaxed max-w-2xl mb-6 -mt-2">{hovered.notes}</p>
+        )}
+
         {/* 12-month calendar grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-10">
+        <div className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-10 transition-opacity ${loading ? 'opacity-50' : 'opacity-100'}`}>
           {MONTH_KEYS.map((key, idx) => (
             <MonthCalendar
               key={key}
@@ -202,22 +341,6 @@ export default function ScoringDemoSection({ onScrollToDatePicker }) {
               activeKey={activeKey}
             />
           ))}
-        </div>
-
-        {/* Callout cards */}
-        <div className="grid sm:grid-cols-3 gap-4 mb-10">
-          <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-5">
-            <div className="text-emerald-700 font-bold text-sm mb-1">Apr, May, Sep, Oct — Excellent</div>
-            <p className="text-gray-600 text-sm leading-relaxed">Perfect weather, festivals in full swing, shoulder-season prices. The sweet spots most tourists miss.</p>
-          </div>
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">
-            <div className="text-amber-700 font-bold text-sm mb-1">Jul & Aug — Average to Below Avg</div>
-            <p className="text-gray-600 text-sm leading-relaxed">Scorching heat (28–29°C), extreme crowds, and peak hotel prices. Great beach weather, poor city weather.</p>
-          </div>
-          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-5">
-            <div className="text-blue-700 font-bold text-sm mb-1">Feb–Mar — Hidden Gems</div>
-            <p className="text-gray-600 text-sm leading-relaxed">Carnival in February, spring beginning in March. Low crowds, good prices, still warm enough to enjoy the city.</p>
-          </div>
         </div>
 
         {/* CTA */}

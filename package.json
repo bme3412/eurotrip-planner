@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run generate-cities && npm run build:data && npm run build:cities && npm run build:scores && npm run build:content && npm run backfill:metadata && next build",
+    "build": "npm run generate-cities && npm run build:data && npm run build:cities && npm run build:scores && npm run build:calendars && npm run build:content && npm run backfill:metadata && next build",
     "generate-cities": "node scripts/generateCityList.mjs",
     "build:scores": "node scripts/generateMonthlyScores.mjs",
+    "build:calendars": "node scripts/generateCityCalendars.mjs",
     "start": "next start",
     "lint": "next lint",
     "test": "node --import ./tests/_support/register.mjs --test tests/*.test.mjs",
