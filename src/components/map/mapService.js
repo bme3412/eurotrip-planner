@@ -302,8 +302,18 @@ export const initializeMap = async (container, viewState, onViewStateChange) => 
    * @param {Object} map
    * @param {boolean} hasRankings
    */
+  // Highlight ring driven by feature-state (set from list hover / selection).
+  const STROKE_COLOR = [
+    'case',
+    ['boolean', ['feature-state', 'selected'], false], '#2563eb',
+    ['boolean', ['feature-state', 'hovered'], false], '#0f172a',
+    '#ffffff',
+  ];
+
   export const applyRankedPaint = (map, hasRankings) => {
     if (!map || !map.getLayer('unclustered-point')) return;
+
+    map.setPaintProperty('unclustered-point', 'circle-stroke-color', STROKE_COLOR);
 
     if (hasRankings) {
       map.setPaintProperty('unclustered-point', 'circle-color', [
@@ -318,7 +328,12 @@ export const initializeMap = async (container, viewState, onViewStateChange) => 
         10, ['case', ['>=', ['get', 'score'], 73], 12, ['get', 'ranked'], 9, 5],
       ]);
       map.setPaintProperty('unclustered-point', 'circle-opacity', ['case', ['get', 'ranked'], 1, 0.4]);
-      map.setPaintProperty('unclustered-point', 'circle-stroke-width', ['case', ['get', 'ranked'], 1.5, 0.5]);
+      map.setPaintProperty('unclustered-point', 'circle-stroke-width', [
+        'case',
+        ['boolean', ['feature-state', 'selected'], false], 3,
+        ['boolean', ['feature-state', 'hovered'], false], 2.5,
+        ['get', 'ranked'], 1.5, 0.5,
+      ]);
     } else {
       map.setPaintProperty('unclustered-point', 'circle-color', buildCountryColorExpression());
       map.setPaintProperty('unclustered-point', 'circle-radius', [
@@ -327,7 +342,12 @@ export const initializeMap = async (container, viewState, onViewStateChange) => 
         8, ['case', ['any', ['get', 'isCapital'], ['get', 'isMajor']], 8, 6],
       ]);
       map.setPaintProperty('unclustered-point', 'circle-opacity', 1);
-      map.setPaintProperty('unclustered-point', 'circle-stroke-width', 2);
+      map.setPaintProperty('unclustered-point', 'circle-stroke-width', [
+        'case',
+        ['boolean', ['feature-state', 'selected'], false], 3,
+        ['boolean', ['feature-state', 'hovered'], false], 2.5,
+        2,
+      ]);
     }
   };
 

@@ -92,6 +92,11 @@ function MapComponent({
   // State mirror of layersReadyRef so data/paint effects re-run once the map's
   // source layers exist (the precomputed ranking can resolve before map load).
   const [layersReady, setLayersReady] = useState(false);
+  // Two-way list<->map highlight via Mapbox feature-state.
+  const [hoveredId, setHoveredId] = useState(null);
+  const [selectedId, setSelectedId] = useState(null);
+  const prevHoveredRef = useRef(null);
+  const prevSelectedRef = useRef(null);
   // Latest click handler is parked in a ref so the once-bound Mapbox
   // event listener always invokes the freshest closure.
   const featureClickHandlerRef = useRef(null);
@@ -178,12 +183,17 @@ function MapComponent({
             layersReadyRef.current = true;
             setLayersReady(true);
 
-            // Pointer cursor over the city dots.
+            // Pointer cursor + hover highlight over the city dots (map -> list).
             map.on('mouseenter', 'unclustered-point', () => {
               map.getCanvas().style.cursor = 'pointer';
             });
+            map.on('mousemove', 'unclustered-point', (e) => {
+              const id = e.features?.[0]?.properties?.id;
+              if (id) setHoveredId(id);
+            });
             map.on('mouseleave', 'unclustered-point', () => {
               map.getCanvas().style.cursor = '';
+              setHoveredId(null);
             });
 
             // City dot click: delegate to the latest React handler.
@@ -400,6 +410,34 @@ function MapComponent({
     applyRankedPaint(map, Object.keys(cityRankings).length > 0);
   }, [cityRankings, layersReady]);
 
+  // Mirror hover/selection into Mapbox feature-state so markers glow in sync
+  // with the list (and clear the previously-flagged feature).
+  useEffect(() => {
+    const map = mapInstance.current;
+    if (!map || !layersReady) return;
+    const prev = prevHoveredRef.current;
+    if (prev && prev !== hoveredId) {
+      try { map.setFeatureState({ source: 'cities', id: prev }, { hovered: false }); } catch { /* feature not yet rendered */ }
+    }
+    if (hoveredId) {
+      try { map.setFeatureState({ source: 'cities', id: hoveredId }, { hovered: true }); } catch { /* noop */ }
+    }
+    prevHoveredRef.current = hoveredId;
+  }, [hoveredId, layersReady]);
+
+  useEffect(() => {
+    const map = mapInstance.current;
+    if (!map || !layersReady) return;
+    const prev = prevSelectedRef.current;
+    if (prev && prev !== selectedId) {
+      try { map.setFeatureState({ source: 'cities', id: prev }, { selected: false }); } catch { /* noop */ }
+    }
+    if (selectedId) {
+      try { map.setFeatureState({ source: 'cities', id: selectedId }, { selected: true }); } catch { /* noop */ }
+    }
+    prevSelectedRef.current = selectedId;
+  }, [selectedId, layersReady]);
+
   /**
    * Update markers on the map.
    *
@@ -587,6 +625,7 @@ function MapComponent({
     }
 
     onMarkerClick(city);
+    setSelectedId(city.id || city.title);
 
     // Phase 4: parent owns the selected-city UI. Recenter the map on
     // the city so the React card and the marker visually connect, then
@@ -855,6 +894,8 @@ function MapComponent({
         <RankedListPanel
           items={rankedItems}
           dateRange={activeDateRange}
+          highlightId={selectedId || hoveredId}
+          onCityHover={setHoveredId}
           onClose={toggleRankedListPanel}
           onCitySelect={handleRankedSelect}
         />

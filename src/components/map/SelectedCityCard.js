@@ -108,6 +108,13 @@ function SelectedCityCard({ city, ranking = null, startDate = null, endDate = nu
             back to the plain description when no dates are set / city unranked. */}
         {ranking ? (
           <>
+            {/* Surface ordinal rank only for the top tier — below it, rank is
+                false precision given how compressed the scores are. */}
+            {ranking.band?.key === 'top' && ranking.rank ? (
+              <p className="mt-2 text-xs font-bold text-emerald-700">
+                Ranked #{ranking.rank} for your dates
+              </p>
+            ) : null}
             <div className="mt-2 flex flex-wrap items-center gap-2">
               {ranking.band && (
                 <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold ${ranking.band.bg} ${ranking.band.text}`}>

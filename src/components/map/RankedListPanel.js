@@ -31,7 +31,7 @@ const GROUPS = [
   { key: 'fair', heading: 'Worth considering' },
 ];
 
-const RankedListPanel = ({ items = [], dateRange = null, onClose, onCitySelect }) => {
+const RankedListPanel = ({ items = [], dateRange = null, highlightId = null, onCityHover, onClose, onCitySelect }) => {
   const ranked = [...items].sort((a, b) => (a.rank || 999) - (b.rank || 999));
 
   // Bucket by qualitative band (derived from score), preserving rank order.
@@ -83,7 +83,13 @@ const RankedListPanel = ({ items = [], dateRange = null, onClose, onCitySelect }
                     <li
                       key={dest.id || dest.title}
                       onClick={() => onCitySelect?.(dest)}
-                      className={`flex items-start gap-2.5 px-4 py-2 border-l-4 hover:bg-gray-50 transition-colors cursor-pointer`}
+                      onMouseEnter={() => onCityHover?.(dest.id)}
+                      onMouseLeave={() => onCityHover?.(null)}
+                      className={`flex items-start gap-2.5 px-4 py-2 border-l-4 transition-colors cursor-pointer ${
+                        highlightId && (dest.id === highlightId)
+                          ? 'bg-blue-50'
+                          : 'hover:bg-gray-50'
+                      }`}
                       style={{ borderLeftColor: band?.color || '#cbd5e1' }}
                     >
                       <span className="mt-0.5 text-xs font-bold text-gray-400 w-5 text-right flex-shrink-0">
