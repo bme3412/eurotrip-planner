@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import SelectedCityCard from "@/components/map/SelectedCityCard";
 import ShortlistTray from "@/components/map/ShortlistTray";
 import useShortlist from "@/hooks/useShortlist";
+import { useCityRankings } from "@/contexts/MapDataContext";
 
 const LazyMapComponentWrapper = dynamic(
   () => import("@/components/map/LazyMapComponent"),
@@ -21,8 +22,11 @@ const LazyMapComponentWrapper = dynamic(
   }
 );
 
-export default function ExploreMap({ destinations }) {
+export default function ExploreMap({ destinations, initialStart = null, initialEnd = null }) {
   const [selectedCity, setSelectedCity] = useState(null);
+  // Rich V4 ranking per city for the active dates — used to show "why" on the
+  // selected-city card. Keyed by city id.
+  const cityRankings = useCityRankings();
   const [viewState, setViewState] = useState({
     longitude: 10,
     latitude: 50,
@@ -66,12 +70,15 @@ export default function ExploreMap({ destinations }) {
         onViewStateChange={setViewState}
         destinations={destinations}
         onMarkerClick={handleMarkerClick}
+        initialStart={initialStart}
+        initialEnd={initialEnd}
         suppressHtmlPopup
       />
 
       {selectedCity && (
         <SelectedCityCard
           city={selectedCity}
+          ranking={cityRankings?.[selectedCity.id] || null}
           onClose={() => setSelectedCity(null)}
           onAddToShortlist={
             addHandlerForCard ? () => addHandlerForCard(selectedCity) : null

@@ -1,27 +1,44 @@
 import React from 'react';
 
 /**
- * Panel displaying a ranked list of filtered destinations.
- * @param {Object} props - Component props
- * @param {Array<Object>} props.destinationsWithRatings - Array of destination objects including rating
- * @param {Function} props.onClose - Function to close the entire panel
- * @param {Function} props.onCitySelect - Function to call when a city is selected for details view
- * @returns {JSX.Element} - Ranked list panel component
+ * Panel listing the cities ranked for the selected dates by the V4 engine.
+ *
+ * Shows qualitative bands (Top Pick / Great / Good / Fair) and the one-line
+ * "why", never a raw score — consistent with the honest-ranking design and the
+ * sparse scoring data. Driven by the same ranking the /results scoreboard uses.
+ *
+ * @param {Array<Object>} props.items - ranked entries { id, title, country, score, band, why, rank }
+ * @param {{start:string,end:string}|null} props.dateRange - active date window (for the header)
+ * @param {Function} props.onClose - close the panel
+ * @param {Function} props.onCitySelect - select a city (focuses it on the map)
  */
-const RankedListPanel = ({ destinationsWithRatings = [], onClose, onCitySelect }) => {
-  // Sort destinations by rating, highest first
-  const sortedDestinations = [...destinationsWithRatings].sort((a, b) => b.rating - a.rating);
+const fmtDate = (iso) => {
+  if (!iso) return '';
+  try {
+    return new Date(`${iso}T00:00:00`).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+  } catch {
+    return iso;
+  }
+};
+
+const RankedListPanel = ({ items = [], dateRange = null, onClose, onCitySelect }) => {
+  const ranked = [...items].sort((a, b) => (a.rank || 999) - (b.rank || 999));
 
   return (
-    <div className="absolute top-4 right-4 bg-white p-4 rounded-lg shadow-lg w-72 max-h-[calc(100vh-4rem)] flex flex-col z-20 overflow-hidden">
-      {/* Header (Always Visible) */}
-      <div className="flex justify-between items-center mb-3 pb-2 border-b border-gray-200 flex-shrink-0">
-        <h4 className="font-bold text-md text-gray-800">
-          Ranked Destinations
-        </h4>
-        <button 
-          onClick={onClose} 
-          className="text-gray-500 hover:text-gray-800"
+    <div className="absolute top-4 right-4 bg-white p-4 rounded-2xl shadow-lg w-80 max-w-[calc(100vw-2rem)] max-h-[calc(100vh-4rem)] flex flex-col z-20 overflow-hidden">
+      {/* Header */}
+      <div className="flex justify-between items-start mb-3 pb-2 border-b border-gray-200 flex-shrink-0">
+        <div>
+          <h4 className="font-bold text-md text-gray-900">Ranked for your dates</h4>
+          {dateRange?.start && dateRange?.end && (
+            <p className="text-xs text-gray-500 mt-0.5">
+              {fmtDate(dateRange.start)} – {fmtDate(dateRange.end)}
+            </p>
+          )}
+        </div>
+        <button
+          onClick={onClose}
+          className="text-gray-500 hover:text-gray-800 -mr-1"
           title="Close panel"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -29,24 +46,36 @@ const RankedListPanel = ({ destinationsWithRatings = [], onClose, onCitySelect }
           </svg>
         </button>
       </div>
-      
-      {/* Content Area (Always shows the list now) */}
+
+      {/* List */}
       <div className="overflow-y-auto flex-grow pr-2 -mr-2 custom-scrollbar">
-        {sortedDestinations.length === 0 ? (
-          <p className="text-sm text-gray-600 text-center py-4">No destinations match the current filters.</p>
+        {ranked.length === 0 ? (
+          <p className="text-sm text-gray-600 text-center py-6">
+            Set a date range to rank cities for your trip.
+          </p>
         ) : (
-          <ul className="space-y-1 animate-fade-in">
-            {sortedDestinations.map((dest, index) => (
-              <li 
-                key={dest.title}
-                onClick={() => onCitySelect(dest)}
-                className="flex justify-between items-center text-sm p-2 rounded-md hover:bg-gray-100 transition-colors cursor-pointer"
+          <ul className="space-y-1.5 animate-fade-in">
+            {ranked.map((dest, index) => (
+              <li
+                key={dest.id || dest.title}
+                onClick={() => onCitySelect?.(dest)}
+                className="flex items-start gap-2.5 p-2 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
               >
-                <span className="font-medium text-gray-700 flex-1 mr-2 truncate">
-                  {index + 1}. {dest.title}
+                <span className="mt-0.5 text-xs font-bold text-gray-400 w-4 text-right flex-shrink-0">
+                  {index + 1}
                 </span>
-                <span className={`font-bold text-right whitespace-nowrap ${dest.rating >= 4 ? 'text-green-600' : dest.rating >= 3 ? 'text-yellow-600' : 'text-red-600'}`}>
-                  {(dest.rating || 0).toFixed(1)} ★
+                <span className="min-w-0 flex-1">
+                  <span className="flex items-center justify-between gap-2">
+                    <span className="font-semibold text-sm text-gray-900 truncate">{dest.title}</span>
+                    {dest.band && (
+                      <span className={`flex-shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold ${dest.band.bg} ${dest.band.text}`}>
+                        {dest.band.label}
+                      </span>
+                    )}
+                  </span>
+                  {dest.why && (
+                    <span className="block text-xs leading-snug text-gray-500 mt-0.5 line-clamp-2">{dest.why}</span>
+                  )}
                 </span>
               </li>
             ))}
@@ -57,4 +86,4 @@ const RankedListPanel = ({ destinationsWithRatings = [], onClose, onCitySelect }
   );
 };
 
-export default RankedListPanel; 
+export default RankedListPanel;

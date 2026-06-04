@@ -20,7 +20,7 @@ import Link from "next/link";
  * (lovely-baking-piglet.md) calls for a single React-owned card; the
  * HTML popup path stays in `mapPopup.js` for fallback / future reuse.
  */
-function SelectedCityCard({ city, onClose, onAddToShortlist, alreadyShortlisted = false }) {
+function SelectedCityCard({ city, ranking = null, onClose, onAddToShortlist, alreadyShortlisted = false }) {
   // Resolve a hero image. Server-side data carries `thumbnail` like
   // `/images/cities/{Country}/{slug}/thumbnail.jpeg`; if it's missing,
   // derive the same path from country + id as a best-effort fallback.
@@ -98,10 +98,40 @@ function SelectedCityCard({ city, onClose, onAddToShortlist, alreadyShortlisted 
         <h2 className="mt-2 text-2xl font-bold leading-tight text-slate-950">
           {city.title}
         </h2>
-        {city.description && (
-          <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600">
-            {city.description}
-          </p>
+
+        {/* Ranking context for the active dates (from the V4 engine). Falls
+            back to the plain description when no dates are set / city unranked. */}
+        {ranking ? (
+          <>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              {ranking.band && (
+                <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold ${ranking.band.bg} ${ranking.band.text}`}>
+                  {ranking.band.label} for your dates
+                </span>
+              )}
+              {ranking.weather?.highC != null && (
+                <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-semibold text-slate-600">
+                  {ranking.weather.highC}°C
+                </span>
+              )}
+              {ranking.crowdLevel && (
+                <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-semibold text-slate-600 capitalize">
+                  {ranking.crowdLevel} crowds
+                </span>
+              )}
+            </div>
+            {(ranking.whyExpanded || ranking.why) && (
+              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600">
+                {ranking.whyExpanded || ranking.why}
+              </p>
+            )}
+          </>
+        ) : (
+          city.description && (
+            <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600">
+              {city.description}
+            </p>
+          )
         )}
 
         <div className="mt-4 flex flex-wrap gap-2">

@@ -6,6 +6,7 @@ import performanceMonitor from '@/lib/performance';
 
 const ACTIONS = {
   SET_CITY_RATINGS: 'SET_CITY_RATINGS',
+  SET_CITY_RANKINGS: 'SET_CITY_RANKINGS',
   SET_CALENDAR_DATA: 'SET_CALENDAR_DATA',
   SET_CITY_DETAILS: 'SET_CITY_DETAILS',
   SET_FILTERS: 'SET_FILTERS',
@@ -16,6 +17,9 @@ const ACTIONS = {
 
 const initialState = {
   cityRatings: {},
+  // Rich V4 ranking per city (id -> { score, band, tier, why, weather, ... }).
+  // Replaced wholesale on each date-range fetch so stale picks never linger.
+  cityRankings: {},
   calendarData: {},
   cityDetails: {},
   currentFilters: {
@@ -56,6 +60,14 @@ function mapDataReducer(state, action) {
         }
       };
 
+    case ACTIONS.SET_CITY_RANKINGS:
+      // Replace (not merge): the payload is the full ranked set for the
+      // current dates, so dropped cities must not persist.
+      return {
+        ...state,
+        cityRankings: action.payload || {}
+      };
+
     case ACTIONS.SET_CALENDAR_DATA:
       return {
         ...state,
@@ -74,14 +86,22 @@ function mapDataReducer(state, action) {
         }
       };
 
-    case ACTIONS.SET_FILTERS:
+    case ACTIONS.SET_FILTERS: {
+      // Support both object patches and functional updaters
+      // (prev => next). Consumers (MapComponent's filter handlers) pass
+      // `prev => ({...prev, ...})` to avoid stale closures; a plain spread of a
+      // function is a no-op, so resolve it against the current filters here.
+      const patch = typeof action.payload === 'function'
+        ? action.payload(state.currentFilters)
+        : action.payload;
       return {
         ...state,
         currentFilters: {
           ...state.currentFilters,
-          ...action.payload
+          ...patch
         }
       };
+    }
 
     case ACTIONS.SET_LOADING_STATE:
       return {
@@ -103,6 +123,7 @@ function mapDataReducer(state, action) {
       return {
         ...state,
         cityRatings: {},
+        cityRankings: {},
         calendarData: {},
         cityDetails: {}
       };
@@ -164,7 +185,14 @@ export function MapDataProvider({ children }) {
           cityRatings: state.cityRatings,
           calendarData: state.calendarData,
           cityDetails: state.cityDetails,
-          currentFilters: state.currentFilters,
+          // Dates are URL-driven (the homepage hands them off via query params),
+          // so we deliberately don't persist the date fields — only the
+          // browse preferences. This keeps the URL authoritative on entry.
+          currentFilters: {
+            countries: state.currentFilters.countries,
+            searchTerm: state.currentFilters.searchTerm,
+            minRating: state.currentFilters.minRating,
+          },
           uiState: state.uiState
         };
         localStorage.setItem('mapDataState', JSON.stringify(dataToPersist));
@@ -205,7 +233,10 @@ export function MapDataProvider({ children }) {
           });
         }
         if (data.currentFilters) {
-          dispatch({ type: ACTIONS.SET_FILTERS, payload: data.currentFilters });
+          // Defensively strip any legacy persisted date fields so they can't
+          // clobber URL-provided dates on entry.
+          const { startDate, endDate, useFlexibleDates, selectedMonths, ...prefs } = data.currentFilters;
+          dispatch({ type: ACTIONS.SET_FILTERS, payload: prefs });
         }
       }
     } catch (error) {
@@ -221,6 +252,9 @@ export function MapDataProvider({ children }) {
   const actions = useMemo(() => ({
     setCityRatings: (ratings) =>
       dispatch({ type: ACTIONS.SET_CITY_RATINGS, payload: ratings }),
+
+    setCityRankings: (rankings) =>
+      dispatch({ type: ACTIONS.SET_CITY_RANKINGS, payload: rankings }),
 
     setCalendarData: (key, data) =>
       dispatch({ type: ACTIONS.SET_CALENDAR_DATA, payload: { key, data } }),
@@ -277,6 +311,11 @@ export function useMapData() {
 export function useCityRatings() {
   const { state } = useMapData();
   return state.cityRatings;
+}
+
+export function useCityRankings() {
+  const { state } = useMapData();
+  return state.cityRankings;
 }
 
 export function useCalendarData() {

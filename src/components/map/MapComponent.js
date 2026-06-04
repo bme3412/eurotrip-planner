@@ -2,11 +2,8 @@
 
 import React, { useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import { COUNTRY_COLORS, MAJOR_CITIES, INITIAL_FILTERS, MAP_USE_CLUSTERS } from './constants';
-import {
-  getCityRatingForDateRangeCached,
-  getCityRatingForMonthsCached,
-  getCityCalendarInfoCached
-} from './mapUtils';
+import { getCityCalendarInfoCached } from './mapUtils';
+import { scoreToBand } from '@/lib/scoring/qualitative';
 import { generatePopupContent } from './mapPopup';
 import {
   initializeMap,
@@ -23,10 +20,40 @@ import { FilterToggleButton } from './FilterComponents';
 import FilterContainer from './FilterContainer';
 import RankedListPanel from './RankedListPanel';
 import MapProgressBar from './MapProgressBar';
-import CityDetailsPopup from './CityDetailsPopup';
 import CacheManager from './CacheManager';
-import DataPreloader from './DataPreloader';
-import { useMapData, useCityRatings, useCurrentFilters, useLoadingStates } from '@/contexts/MapDataContext';
+import { useMapData, useCityRatings, useCityRankings, useCurrentFilters, useLoadingStates } from '@/contexts/MapDataContext';
+
+const MONTH_INDEX_RE = /^\d+$/;
+
+/**
+ * Resolve the effective {start,end} ISO date range from the current filters —
+ * either fixed dates, or flexible months (0-11 indices) spanned into a range.
+ * Returns null when there's nothing to rank for.
+ */
+function resolveDateRange(filters) {
+  if (!filters.useFlexibleDates && filters.startDate && filters.endDate) {
+    return { start: filters.startDate, end: filters.endDate };
+  }
+  if (filters.useFlexibleDates && Array.isArray(filters.selectedMonths) && filters.selectedMonths.length > 0) {
+    return monthsToDateRange(filters.selectedMonths);
+  }
+  return null;
+}
+
+/** Span an array of month indices (0-11) into a forward-looking ISO range. */
+function monthsToDateRange(months) {
+  const idx = months
+    .map((m) => (MONTH_INDEX_RE.test(String(m)) ? Number(m) : -1))
+    .filter((m) => m >= 0 && m <= 11)
+    .sort((a, b) => a - b);
+  if (!idx.length) return null;
+  const now = new Date();
+  const year = now.getFullYear();
+  const start = new Date(year, idx[0], 1);
+  const end = new Date(year, idx[idx.length - 1] + 1, 0); // last day of the latest month
+  const fmt = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  return { start: fmt(start), end: fmt(end) };
+}
 
 /**
  * Map Component
@@ -43,6 +70,10 @@ function MapComponent({
   // `onMarkerClick` only. The HTML popup code in mapPopup.js stays in
   // place for fallback / future reuse.
   suppressHtmlPopup = false,
+  // Date context handed off from the homepage "Plan Trip" flow. When present,
+  // Explore seeds its filters and ranks cities for these dates on arrival.
+  initialStart = null,
+  initialEnd = null,
 }) {
   // Refs
   const mapContainer = useRef(null);
@@ -72,8 +103,11 @@ function MapComponent({
   // Global state from context
   const { actions } = useMapData();
   const cityRatings = useCityRatings();
+  const cityRankings = useCityRankings();
   const [currentFilters, setCurrentFilters] = useCurrentFilters();
   const [loadingStates, setLoadingState] = useLoadingStates();
+  // Guard so the URL date hand-off seeds the filters exactly once.
+  const seededDatesRef = useRef(false);
   
   // Local state.
   // Phase 3: filters default to collapsed. The user's preference is
@@ -99,7 +133,6 @@ function MapComponent({
   const [filteredDestinations, setFilteredDestinations] = useState([]);
   const [currentPopup, setCurrentPopup] = useState(null);
   const [showRankedListPanel, setShowRankedListPanel] = useState(false);
-  const [selectedCityForDetails, setSelectedCityForDetails] = useState(null);
   const [showCacheManager, setShowCacheManager] = useState(false);
 
   // Memoized values
@@ -246,98 +279,81 @@ function MapComponent({
     setFilteredDestinations(results);
   }, [destinations, currentFilters, cityRatings]);
 
-  // Fetch ratings for all cities when date range changes.
-  //
-  // Phase 2 changes:
-  //   1. Debounce by 250 ms so rapid filter edits (typing dates, toggling
-  //      months) coalesce into a single fetch wave.
-  //   2. Cancel via an epoch counter — any wave whose captured epoch is
-  //      no longer current discards its results, preventing late stale
-  //      writes from clobbering the user's latest selection.
-  //   3. Viewport-priority ordering: cities currently rendered on screen
-  //      are fetched in the first batch, with their ratings pushed to
-  //      context immediately. Off-screen cities backfill in subsequent
-  //      batches without blocking the visible result.
+  // Seed the date filters from the homepage hand-off exactly once, and open the
+  // ranked list so the page arrives "with context" rather than an empty browse.
   useEffect(() => {
-    const shouldFetchRatings =
-      (!currentFilters.useFlexibleDates && currentFilters.startDate && currentFilters.endDate) ||
-      (currentFilters.useFlexibleDates && currentFilters.selectedMonths.length > 0);
+    if (seededDatesRef.current) return;
+    if (initialStart && initialEnd) {
+      seededDatesRef.current = true;
+      setCurrentFilters((prev) => ({
+        ...prev,
+        startDate: initialStart,
+        endDate: initialEnd,
+        useFlexibleDates: false,
+      }));
+      setShowRankedListPanel(true);
+    }
+  }, [initialStart, initialEnd, setCurrentFilters]);
 
-    if (!shouldFetchRatings) {
-      // Bump epoch so any in-flight wave aborts on its next checkpoint.
+  // Rank cities for the active date range with the V4 engine — the SAME ranking
+  // the /results scoreboard uses — via /api/suggestions. This replaces the
+  // former per-city rating path so Explore and the scoreboard never disagree.
+  // Debounced + epoch-cancelled so rapid filter edits coalesce and stale waves
+  // abort. Populates `cityRatings` (0-5, for the legacy filter/markers) and the
+  // rich `cityRankings` (band + why, for the ranked list and selected card).
+  useEffect(() => {
+    const range = resolveDateRange(currentFilters);
+
+    if (!range) {
       ratingFetchEpochRef.current += 1;
       actions.setCityRatings({});
+      actions.setCityRankings({});
       return;
     }
 
     const myEpoch = ++ratingFetchEpochRef.current;
 
     const debounceTimer = setTimeout(async () => {
-      // Re-check that we're still the most recent request before starting.
       if (myEpoch !== ratingFetchEpochRef.current) return;
-
       setLoadingState('ratings', true);
-
-      // Determine which cities the user can currently see. We deliberately
-      // catch & swallow query errors — viewport prioritization is an
-      // optimization; failure just falls back to original order.
-      const visibleIds = new Set();
-      if (mapInstance.current && layersReadyRef.current) {
-        try {
-          const features = mapInstance.current.queryRenderedFeatures({
-            layers: ['unclustered-point'],
-          });
-          for (const f of features) {
-            if (f.properties && f.properties.id) visibleIds.add(f.properties.id);
-          }
-        } catch {
-          /* noop */
-        }
-      }
-
-      const orderKey = (c) => c.id || c.title;
-      const inViewport = [];
-      const offscreen = [];
-      for (const c of destinations) {
-        if (visibleIds.has(orderKey(c))) inViewport.push(c);
-        else offscreen.push(c);
-      }
-      const ordered = [...inViewport, ...offscreen];
-
-      const fetchRating = async (city) => {
-        try {
-          const rating = currentFilters.useFlexibleDates
-            ? await getCityRatingForMonthsCached(city, currentFilters.selectedMonths)
-            : await getCityRatingForDateRangeCached(
-                city,
-                currentFilters.startDate,
-                currentFilters.endDate
-              );
-          return [city.title, rating];
-        } catch (error) {
-          console.error(`Error fetching rating for ${city.title}:`, error);
-          return [city.title, 0];
-        }
-      };
-
-      const accumulated = {};
-      const BATCH_SIZE = 25;
-
       try {
-        for (let i = 0; i < ordered.length; i += BATCH_SIZE) {
-          if (myEpoch !== ratingFetchEpochRef.current) return;
-          const batch = ordered.slice(i, i + BATCH_SIZE);
-          const results = await Promise.all(batch.map(fetchRating));
-          if (myEpoch !== ratingFetchEpochRef.current) return;
-          for (const [title, rating] of results) {
-            accumulated[title] = rating;
+        const res = await fetch(
+          `/api/suggestions?startDate=${range.start}&endDate=${range.end}&v=4&flat=true&limit=220`
+        );
+        if (!res.ok) throw new Error(`suggestions ${res.status}`);
+        const data = await res.json();
+        if (myEpoch !== ratingFetchEpochRef.current) return;
+
+        const items = Array.isArray(data?.items) ? data.items : [];
+        const ratings = {};
+        const rankings = {};
+        items.forEach((item, index) => {
+          const id = item.id || item.cityId;
+          const score = Number(item.score) || 0;
+          if (item.title) {
+            // 0-5 star scale kept for the legacy rating filter + markers.
+            ratings[item.title] = Math.round((score / 20) * 10) / 10;
           }
-          // Push an incremental update so visible cities light up before
-          // off-screen cities finish. This is the user-visible win.
-          actions.setCityRatings({ ...accumulated });
-        }
+          if (id) {
+            rankings[id] = {
+              id,
+              title: item.title,
+              country: item.country,
+              score,
+              tier: item.tier ?? null,
+              band: scoreToBand(score),
+              why: item.why || null,
+              whyExpanded: item.whyExpanded || null,
+              weather: item.weather || null,
+              crowdLevel: item.crowdLevel || null,
+              rank: index + 1,
+            };
+          }
+        });
+        actions.setCityRatings(ratings);
+        actions.setCityRankings(rankings);
       } catch (error) {
-        console.error('Error fetching ratings:', error);
+        console.error('Failed to load ranked suggestions:', error);
       } finally {
         if (myEpoch === ratingFetchEpochRef.current) {
           setLoadingState('ratings', false);
@@ -348,8 +364,12 @@ function MapComponent({
     return () => {
       clearTimeout(debounceTimer);
     };
+    // Intentionally key on the date fields only — re-running on every
+    // currentFilters change (countries/search/minRating) would refire the
+    // ranking fetch needlessly. resolveDateRange reads the full object but
+    // only the date fields affect its output.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
-    destinations,
     currentFilters.startDate,
     currentFilters.endDate,
     currentFilters.useFlexibleDates,
@@ -737,18 +757,7 @@ function MapComponent({
   }, []);
 
   const toggleRankedListPanel = useCallback(() => {
-    setShowRankedListPanel(prev => !prev);
-    if (showRankedListPanel) {
-      setSelectedCityForDetails(null);
-    }
-  }, [showRankedListPanel]);
-
-  const handleShowCityDetails = useCallback((city) => {
-    setSelectedCityForDetails(city);
-  }, []);
-
-  const handleCloseCityDetails = useCallback(() => {
-    setSelectedCityForDetails(null);
+    setShowRankedListPanel((prev) => !prev);
   }, []);
 
   // Phase 3: reset filters to their initial state and dismiss any open
@@ -761,9 +770,33 @@ function MapComponent({
     setCurrentFilters(INITIAL_FILTERS);
   }, [currentPopup, setCurrentFilters]);
 
+  // Cities ranked for the active dates, intersected with the country/search
+  // filter and ordered by rank — drives the ranked list panel.
+  const filteredIds = useMemo(
+    () => new Set(filteredDestinations.map((d) => d.id || d.title)),
+    [filteredDestinations]
+  );
+  const rankedItems = useMemo(
+    () =>
+      Object.values(cityRankings)
+        .filter((r) => filteredIds.has(r.id))
+        .sort((a, b) => (a.rank || 999) - (b.rank || 999)),
+    [cityRankings, filteredIds]
+  );
+  const activeDateRange = useMemo(() => resolveDateRange(currentFilters), [currentFilters]);
+
+  // Selecting a ranked city focuses it on the map and opens the same
+  // SelectedCityCard a marker click would (one unified selection path).
+  const handleRankedSelect = useCallback(
+    (entry) => {
+      const dest = destinations.find((d) => (d.id || d.title) === entry.id);
+      if (dest) handleFeatureClick(dest);
+    },
+    [destinations, handleFeatureClick]
+  );
+
   return (
     <div className="relative h-screen">
-      <DataPreloader destinations={destinations} />
       <div ref={mapContainer} className="absolute top-0 bottom-0 w-full" style={{ height: '100%' }} />
       
       <div className="absolute top-4 left-4 z-30">
@@ -805,29 +838,14 @@ function MapComponent({
       )}
       
       {showRankedListPanel && (
-        <RankedListPanel 
-          destinationsWithRatings={filteredDestinations.map(dest => ({
-            ...dest,
-            rating: cityRatings[dest.title] || 0
-          }))}
-          onClose={toggleRankedListPanel} 
-          onCitySelect={handleShowCityDetails}
+        <RankedListPanel
+          items={rankedItems}
+          dateRange={activeDateRange}
+          onClose={toggleRankedListPanel}
+          onCitySelect={handleRankedSelect}
         />
       )}
-      
-      {selectedCityForDetails && (
-        <CityDetailsPopup
-          city={selectedCityForDetails}
-          dateFilters={{
-            startDate: currentFilters.startDate,
-            endDate: currentFilters.endDate,
-            useFlexibleDates: currentFilters.useFlexibleDates,
-            selectedMonths: currentFilters.selectedMonths
-          }}
-          onClose={handleCloseCityDetails}
-        />
-      )}
-      
+
       {/* Phase 6: non-blocking top progress bar. The blocking
           LoadingOverlay was removed — with the Phase 2 debounced +
           viewport-priority rating pipeline, visible cities already
