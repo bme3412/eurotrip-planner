@@ -6,79 +6,46 @@ import { useReducedMotion } from "framer-motion";
 import { CINEMATIC } from "./heroImages";
 import heroPhotos from "./heroPhotos.json";
 
-// Merge each slide with its real Google Places photo (if one was curated).
-const SLIDES = CINEMATIC.map((c) => ({ ...c, google: heroPhotos[c.key] || null }));
+// Only show hero stops that have a baked local photo (see heroPhotos.json,
+// produced by scripts/fetchHomeHeroPhotos.mjs). The home hero never displays a
+// bundled placeholder/AI image — a stop with no curated photo is left out.
+const SLIDES = CINEMATIC
+  .map((c) => ({ ...c, google: heroPhotos[c.key] || null }))
+  .filter((c) => c.google?.local);
 
 /**
- * One stacked slide: the bundled image is the always-visible base (placeholder +
- * fallback); when a real Google Places photo exists it loads on top via the
- * /api/google-photos proxy and fades in once ready. If that request fails the base
- * stays. Google attribution is shown only while the Google photo is actually visible
- * (required by the Places API terms).
+ * One stacked photo layer — a curated city photo from a LOCAL static file
+ * (baked from Google Places), cross-faded in/out by opacity only. There is no
+ * zoom/Ken-Burns push-in (it read as unsettling), and crucially nothing in this
+ * layer is transformed, so the panel-level caption never gets pushed past the
+ * clipped bottom edge. Local files load instantly and cache cleanly, so the
+ * neutral placeholder is only ever a brief first-paint state.
  */
-function HeroSlide({ slide, isActive, priority, reduce }) {
+function HeroSlide({ slide, isActive, priority }) {
   const [loaded, setLoaded] = useState(false);
-  const [failed, setFailed] = useState(false);
-
-  const google = slide.google && !failed ? slide.google : null;
-  const proxyUrl = google
-    ? `/api/google-photos?name=${encodeURIComponent(google.photoName)}&w=1400`
-    : null;
-  const showAttribution = google && loaded && google.attribution;
+  const google = slide.google;
 
   return (
     <div
-      className="absolute inset-0"
-      style={{
-        opacity: isActive ? 1 : 0,
-        transform: reduce ? "none" : `scale(${isActive ? 1.07 : 1})`,
-        transition: reduce ? "none" : "opacity 1400ms ease-out, transform 6400ms ease-out",
-      }}
+      className="absolute inset-0 transition-opacity duration-[1200ms] ease-out"
+      style={{ opacity: isActive ? 1 : 0 }}
     >
-      {/* Bundled base image (also the fallback) */}
-      <Image
-        src={slide.src}
-        alt={slide.city}
-        fill
-        priority={priority}
-        quality={90}
-        placeholder="blur"
-        blurDataURL={slide.blur}
-        sizes="(max-width: 1024px) 100vw, 45vw"
-        className="object-cover saturate-[1.06] contrast-[1.04] brightness-[1.01]"
-        style={{ objectPosition: slide.pos }}
-      />
+      {/* Neutral placeholder shown until the real photo loads (never an AI image) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-700 to-slate-900" />
 
-      {/* Real Google Places photo, layered on top once loaded */}
-      {proxyUrl && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={proxyUrl}
+      {/* Curated city photo — local static file, optimized + cached by next/image */}
+      {google?.local && (
+        <Image
+          src={google.local}
           alt={slide.city}
+          fill
+          sizes="(min-width: 1024px) 560px, 90vw"
           onLoad={() => setLoaded(true)}
-          onError={() => setFailed(true)}
-          className="absolute inset-0 w-full h-full object-cover object-center saturate-[1.05] contrast-[1.03] transition-opacity duration-700"
-          style={{ opacity: loaded ? 1 : 0 }}
+          priority={priority}
+          className="object-cover saturate-[1.05] contrast-[1.03] transition-opacity duration-700"
+          style={{ opacity: loaded ? 1 : 0, objectPosition: slide.pos }}
         />
       )}
-
-      {/* bottom gradient so caption + credit read on any photo */}
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/55 to-transparent" />
-
-      {/* city caption + Google attribution */}
-      <div className="absolute bottom-3 left-4 leading-tight">
-        <span className="block text-sm font-semibold text-white drop-shadow">{slide.city}</span>
-        {showAttribution && (
-          <a
-            href={google.attribution.uri}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block text-[10px] text-white/70 hover:text-white transition-colors"
-          >
-            Photo: {google.attribution.name} · Google
-          </a>
-        )}
-      </div>
     </div>
   );
 }
@@ -86,20 +53,24 @@ function HeroSlide({ slide, isActive, priority, reduce }) {
 /**
  * SplitHero — editorial two-column layout with a cinematic photo panel.
  *
- * Left: the left-aligned content core on the light background. Right: a framed panel
- * that slowly crossfades through the hero shots with a gentle push-in. Real Google
- * Places photos are used where available (with attribution); the bundled images
- * remain as the base/fallback. Reduced motion → a single static frame.
+ * Left: the left-aligned content core. Right: a framed panel that gently
+ * crossfades through curated city photos (no zoom). The caption + Google
+ * attribution and the bottom scrim live at the PANEL level (outside the fading
+ * photo layers) so they stay fixed, fully legible, and never clipped by the
+ * panel's rounded/overflow-hidden edge. Reduced motion → a single static frame.
  */
 export default function SplitHero({ children }) {
   const reduce = useReducedMotion();
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    if (reduce) return;
+    if (reduce || SLIDES.length <= 1) return undefined;
     const id = setInterval(() => setActive((n) => (n + 1) % SLIDES.length), 6000);
     return () => clearInterval(id);
   }, [reduce]);
+
+  const activeSlide = SLIDES[active];
+  const attribution = activeSlide?.google?.attribution;
 
   return (
     <section className="relative px-6 pt-8 md:pt-14 pb-12 md:pb-16 overflow-hidden">
@@ -121,7 +92,6 @@ export default function SplitHero({ children }) {
               slide={slide}
               isActive={i === active}
               priority={i === 0}
-              reduce={reduce}
             />
           ))}
 
@@ -130,6 +100,27 @@ export default function SplitHero({ children }) {
             className="absolute inset-0 pointer-events-none"
             style={{ boxShadow: "inset 0 0 90px rgba(0,0,0,0.28)" }}
           />
+
+          {/* bottom scrim so the caption + credit read on any photo (panel-level) */}
+          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none" />
+
+          {/* caption + Google attribution — panel-level so they never clip or
+              shift with the crossfade; reflects the active slide */}
+          {activeSlide && (
+            <div className="absolute bottom-4 left-5 right-20 leading-snug">
+              <span className="block text-sm font-semibold text-white drop-shadow">{activeSlide.city}</span>
+              {attribution && (
+                <a
+                  href={attribution.uri}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block truncate text-[10px] text-white/75 hover:text-white transition-colors"
+                >
+                  Photo: {attribution.name} · Google
+                </a>
+              )}
+            </div>
+          )}
 
           {/* position dots */}
           <span className="absolute bottom-4 right-4 flex gap-1.5">

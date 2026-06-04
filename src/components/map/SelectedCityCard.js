@@ -20,7 +20,7 @@ import Link from "next/link";
  * (lovely-baking-piglet.md) calls for a single React-owned card; the
  * HTML popup path stays in `mapPopup.js` for fallback / future reuse.
  */
-function SelectedCityCard({ city, onClose, onAddToShortlist, alreadyShortlisted = false }) {
+function SelectedCityCard({ city, ranking = null, startDate = null, endDate = null, onClose, onAddToShortlist, alreadyShortlisted = false }) {
   // Resolve a hero image. Server-side data carries `thumbnail` like
   // `/images/cities/{Country}/{slug}/thumbnail.jpeg`; if it's missing,
   // derive the same path from country + id as a best-effort fallback.
@@ -38,16 +38,21 @@ function SelectedCityCard({ city, onClose, onAddToShortlist, alreadyShortlisted 
     (city.title ? city.title.toLowerCase().replace(/\s+/g, "-") : "");
 
   const guideHref = slug ? `/city-guides/${slug}` : "/city-guides";
-  const planHref = `/plan?city=${encodeURIComponent(slug)}&cityName=${encodeURIComponent(
-    city.title || ""
-  )}`;
+  const planHref = (() => {
+    const params = new URLSearchParams();
+    params.set("city", slug);
+    params.set("cityName", city.title || "");
+    if (startDate) params.set("startDate", startDate);
+    if (endDate) params.set("endDate", endDate);
+    return `/plan?${params.toString()}`;
+  })();
 
   return (
     <div
       // Phase 6: on mobile the card docks to the bottom edge as a
       // bottom-sheet (full width, rounded top only). On desktop it
       // stays in the bottom-left corner as a compact card.
-      className="absolute z-20 inset-x-0 bottom-0 w-full overflow-hidden rounded-t-3xl border-t border-slate-200 bg-white/95 shadow-xl backdrop-blur md:inset-x-auto md:bottom-4 md:left-4 md:w-[min(360px,calc(100%-2rem))] md:rounded-3xl md:border"
+      className="absolute z-40 inset-x-0 bottom-0 w-full overflow-hidden rounded-t-3xl border-t border-slate-200 bg-white/95 shadow-xl ring-1 ring-slate-200 backdrop-blur md:inset-x-auto md:bottom-4 md:left-4 md:w-[min(360px,calc(100%-2rem))] md:rounded-3xl md:border"
       role="dialog"
       aria-label={`${city.title} details`}
     >
@@ -98,10 +103,47 @@ function SelectedCityCard({ city, onClose, onAddToShortlist, alreadyShortlisted 
         <h2 className="mt-2 text-2xl font-bold leading-tight text-slate-950">
           {city.title}
         </h2>
-        {city.description && (
-          <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600">
-            {city.description}
-          </p>
+
+        {/* Ranking context for the active dates (from the V4 engine). Falls
+            back to the plain description when no dates are set / city unranked. */}
+        {ranking ? (
+          <>
+            {/* Surface ordinal rank only for the top tier — below it, rank is
+                false precision given how compressed the scores are. */}
+            {ranking.band?.key === 'top' && ranking.rank ? (
+              <p className="mt-2 text-xs font-bold text-emerald-700">
+                Ranked #{ranking.rank} for your dates
+              </p>
+            ) : null}
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              {ranking.band && (
+                <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold ${ranking.band.bg} ${ranking.band.text}`}>
+                  {ranking.band.key === 'limited' ? 'Limited data' : `${ranking.band.label} for your dates`}
+                </span>
+              )}
+              {ranking.weather?.highC != null && (
+                <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-semibold text-slate-600">
+                  {ranking.weather.highC}°C
+                </span>
+              )}
+              {ranking.crowdLevel && (
+                <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-semibold text-slate-600 capitalize">
+                  {ranking.crowdLevel} crowds
+                </span>
+              )}
+            </div>
+            {(ranking.whyExpanded || ranking.why) && (
+              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600">
+                {ranking.whyExpanded || ranking.why}
+              </p>
+            )}
+          </>
+        ) : (
+          city.description && (
+            <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600">
+              {city.description}
+            </p>
+          )
         )}
 
         <div className="mt-4 flex flex-wrap gap-2">

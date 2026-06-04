@@ -27,6 +27,7 @@ export default function GooglePlacePhoto({
   fallback = null,
   sizes,
   priority = false,
+  onReady,
 }) {
   // Build URL based on whether we have photoName or placeId
   const srcUrl = useMemo(() => {
@@ -68,6 +69,7 @@ export default function GooglePlacePhoto({
       alt={alt}
       {...imgProps}
       className={className}
+      onLoad={() => { if (onReady) onReady(); }}
       onError={() => setFailed(true)}
       unoptimized // Required: API returns redirect to external URL
       priority={priority}

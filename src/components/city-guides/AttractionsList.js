@@ -5,6 +5,7 @@ import { Check } from 'lucide-react';
 import AttractionCard from './attractions/AttractionCard';
 import ExperienceDetailModal from './attractions/ExperienceDetailModal';
 import CuratedFilters from './attractions/CuratedFilters';
+import QuickFilters from './attractions/QuickFilters';
 import LoadingSkeleton from './attractions/LoadingSkeleton';
 import { useExperienceData } from './attractions/hooks/useExperienceData';
 import { useGoogleEnrichment } from './attractions/hooks/useGoogleEnrichment';
@@ -83,6 +84,23 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   }, [experiences, attractions, applyGoogleData, enrichedTick]);
 
   const activeCategorySet = useMemo(() => new Set(activeCategories), [activeCategories]);
+
+  // Indoor / outdoor are mutually exclusive (the filter pipeline excludes the
+  // opposite), so turning one on clears the other.
+  const toggleQuickFilter = useCallback((key) => {
+    setQuickFilters((prev) => {
+      const next = { ...prev, [key]: !prev[key] };
+      if (key === 'indoorOnly' && next.indoorOnly) next.outdoorOnly = false;
+      if (key === 'outdoorOnly' && next.outdoorOnly) next.indoorOnly = false;
+      return next;
+    });
+  }, []);
+
+  const toggleCategory = useCallback((value) => {
+    setActiveCategories((prev) =>
+      prev.includes(value) ? prev.filter((c) => c !== value) : [...prev, value],
+    );
+  }, []);
 
   const getEffectiveMonth = useCallback(() => {
     if (dateFilterType === 'exact' && selectedDate) return getMonthFromDate(selectedDate);
@@ -242,6 +260,15 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
 
       {/* Curated Collection Filters */}
       <CuratedFilters active={curatedFilter} onSelect={setCuratedFilter} />
+
+      {/* Quick toggles + category chips (multi-select) */}
+      <QuickFilters
+        quickFilters={quickFilters}
+        onToggleQuickFilter={toggleQuickFilter}
+        categories={categories}
+        activeCategories={activeCategories}
+        onToggleCategory={toggleCategory}
+      />
 
       {/* Loading State */}
       {isLoading ? (

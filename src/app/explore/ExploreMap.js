@@ -1,10 +1,41 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 import SelectedCityCard from "@/components/map/SelectedCityCard";
 import ShortlistTray from "@/components/map/ShortlistTray";
+import DiscoverCommandBar from "@/components/map/DiscoverCommandBar";
+import ResultsGrid from "@/components/ResultsGrid";
 import useShortlist from "@/hooks/useShortlist";
+import { upsertLocalTripDraft } from "@/lib/trips/localTripDrafts";
+import { useCityRankings, useCurrentFilters, useRankedItems } from "@/contexts/MapDataContext";
+
+// Persists the localTripId so re-planning the same shortlist continues ONE
+// trip draft rather than spawning a new one each click.
+const SHORTLIST_DRAFT_KEY = "explore.shortlist.draftId";
+
+/** Build a planner tripState from the shortlist + active dates (Phase 3 spine). */
+function buildTripStateFromShortlist(items, destinations, start, end) {
+  const byId = new Map((destinations || []).map((d) => [d.id || d.title, d]));
+  const cities = items.map((it, i) => {
+    const d = byId.get(it.id || it.title) || {};
+    return {
+      id: it.id || (it.title || "").toLowerCase().replace(/\s+/g, "-"),
+      name: it.title || d.title || "",
+      country: it.country || d.country || null,
+      latitude: d.latitude ?? null,
+      longitude: d.longitude ?? null,
+      role: i === 0 ? "start" : i === items.length - 1 ? "end" : "stop",
+      order: i,
+      nights: null,
+    };
+  });
+  return {
+    route: { cities, routeShape: cities.length > 1 ? "one-way" : null },
+    dates: { startDate: start || null, endDate: end || null },
+  };
+}
 
 const LazyMapComponentWrapper = dynamic(
   () => import("@/components/map/LazyMapComponent"),
@@ -21,8 +52,22 @@ const LazyMapComponentWrapper = dynamic(
   }
 );
 
-export default function ExploreMap({ destinations }) {
+export default function ExploreMap({ destinations, initialStart = null, initialEnd = null, initialView = "map" }) {
   const [selectedCity, setSelectedCity] = useState(null);
+  // Discover surface view: the map and the ranked list are two presentations of
+  // the same V4 ranking. (Replaces the separate /results scoreboard page.)
+  const [view, setView] = useState(initialView === "list" ? "list" : "map");
+  // Rich V4 ranking per city for the active dates — used to show "why" on the
+  // selected-city card. Keyed by city id.
+  const cityRankings = useCityRankings();
+  // Raw flat ranked items for the List view (same data driving the map).
+  const rankedItems = useRankedItems();
+  // Active trip dates (user-changed filters win over the URL hand-off) so every
+  // hand-off to /plan carries the dates — the date-ranked intent shouldn't die
+  // when the user moves from discovery to planning.
+  const [currentFilters, setFilters] = useCurrentFilters();
+  const tripStart = currentFilters?.startDate || initialStart || null;
+  const tripEnd = currentFilters?.endDate || initialEnd || null;
   const [viewState, setViewState] = useState({
     longitude: 10,
     latitude: 50,
@@ -34,10 +79,66 @@ export default function ExploreMap({ destinations }) {
   // Phase 5: shortlist is the bridge from Explore → /plan. The hook is
   // localStorage-only (no auth coupling) per the plan decision.
   const shortlist = useShortlist();
+  const router = useRouter();
+
+  // Phase 3 spine: turn the shortlist + dates into a persisted trip draft and
+  // open the planner ON that draft (?localTripId), so discovery and planning
+  // are one object the planner continues and Saved Trips shows — instead of a
+  // throwaway ?cities= handoff. Idempotent via the stored draft id.
+  const handleStartPlanning = useCallback(() => {
+    const items = shortlist.items;
+    if (!items.length) {
+      router.push("/plan");
+      return;
+    }
+    const tripState = buildTripStateFromShortlist(items, destinations, tripStart, tripEnd);
+    let existingId = null;
+    try { existingId = window.localStorage.getItem(SHORTLIST_DRAFT_KEY); } catch { /* ignore */ }
+    const draft = upsertLocalTripDraft({ id: existingId || undefined, tripState });
+    try { window.localStorage.setItem(SHORTLIST_DRAFT_KEY, draft.id); } catch { /* ignore */ }
+    router.push(`/plan?localTripId=${encodeURIComponent(draft.id)}`);
+  }, [shortlist.items, destinations, tripStart, tripEnd, router]);
 
   const handleMarkerClick = (city) => {
     setSelectedCity(city);
   };
+
+  // Resolve a loose city name (from the assistant) to a real destination.
+  const resolveCity = useCallback(
+    (name) => {
+      const n = String(name || "").trim().toLowerCase();
+      if (!n) return null;
+      const slug = n.replace(/\s+/g, "-");
+      return (
+        destinations.find((d) => (d.title || "").toLowerCase() === n) ||
+        destinations.find((d) => (d.id || "") === slug) ||
+        destinations.find((d) => (d.title || "").toLowerCase().includes(n)) ||
+        null
+      );
+    },
+    [destinations]
+  );
+
+  // Apply the assistant's structured edits to the shared trip context: dates
+  // (re-ranks the map/list) and shortlist add/remove.
+  const handleApplyCommand = useCallback(
+    (actions) => {
+      if (!actions) return;
+      const { setDates, addCities, removeCities } = actions;
+      if (setDates?.start && setDates?.end) {
+        setFilters({ startDate: setDates.start, endDate: setDates.end, useFlexibleDates: false });
+      }
+      (addCities || []).forEach((name) => {
+        const d = resolveCity(name);
+        if (d) shortlist.add({ id: d.id, title: d.title, country: d.country });
+      });
+      (removeCities || []).forEach((name) => {
+        const d = resolveCity(name);
+        if (d) shortlist.remove({ id: d.id, title: d.title });
+      });
+    },
+    [setFilters, resolveCity, shortlist]
+  );
 
   const handleAddToShortlist = (city) => {
     if (!city) return;
@@ -66,12 +167,47 @@ export default function ExploreMap({ destinations }) {
         onViewStateChange={setViewState}
         destinations={destinations}
         onMarkerClick={handleMarkerClick}
+        initialStart={initialStart}
+        initialEnd={initialEnd}
         suppressHtmlPopup
       />
 
-      {selectedCity && (
+      {/* Map ↔ List toggle — both views render the same V4 ranking. */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-40">
+        <div className="inline-flex rounded-full bg-white/95 p-1 shadow-md ring-1 ring-slate-200">
+          {["map", "list"].map((v) => (
+            <button
+              key={v}
+              type="button"
+              onClick={() => setView(v)}
+              aria-pressed={view === v}
+              className={`rounded-full px-5 py-1.5 text-sm font-semibold capitalize transition-colors ${
+                view === v ? "bg-blue-600 text-white shadow-sm" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              {v}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Agentic command bar — natural-language edits to dates + shortlist. */}
+      {view === "map" && (
+        <div className="absolute top-[4.25rem] left-1/2 z-40 -translate-x-1/2">
+          <DiscoverCommandBar
+            context={{ startDate: tripStart, endDate: tripEnd, shortlist: shortlist.items.map((i) => i.title) }}
+            onApply={handleApplyCommand}
+          />
+        </div>
+      )}
+
+      {/* Map-only chrome: the selected-city card + shortlist tray. */}
+      {view === "map" && selectedCity && (
         <SelectedCityCard
           city={selectedCity}
+          ranking={cityRankings?.[selectedCity.id] || null}
+          startDate={tripStart}
+          endDate={tripEnd}
           onClose={() => setSelectedCity(null)}
           onAddToShortlist={
             addHandlerForCard ? () => addHandlerForCard(selectedCity) : null
@@ -80,15 +216,42 @@ export default function ExploreMap({ destinations }) {
         />
       )}
 
-      {/* Phase 6: on mobile the tray needs to lift above the
-          SelectedCityCard (which docks to bottom: 0). On desktop the
-          card is a corner card and the tray uses its default bottom-4. */}
-      <ShortlistTray
-        items={shortlist.items}
-        onRemove={shortlist.remove}
-        onClear={shortlist.clear}
-        liftAboveCard={Boolean(selectedCity)}
-      />
+      {view === "map" && (
+        <ShortlistTray
+          items={shortlist.items}
+          onRemove={shortlist.remove}
+          onClear={shortlist.clear}
+          onStartPlanning={handleStartPlanning}
+          liftAboveCard={Boolean(selectedCity)}
+        />
+      )}
+
+      {/* List view — the ranked scoreboard (ResultsGrid), overlaid on the still-
+          mounted map (which keeps fetching/painting underneath). */}
+      {view === "list" && (
+        <div className="absolute inset-0 z-30 overflow-y-auto bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-50">
+          <div className="mx-auto w-full max-w-5xl px-4 md:px-6 pt-20 pb-12">
+            {rankedItems.length > 0 ? (
+              <ResultsGrid
+                results={rankedItems}
+                dates={tripStart && tripEnd ? { start: tripStart, end: tripEnd } : null}
+                onChangeDates={() => setView("map")}
+              />
+            ) : (
+              <div className="py-24 text-center text-slate-500">
+                <p className="text-lg font-medium">Pick your travel dates to rank cities.</p>
+                <button
+                  type="button"
+                  onClick={() => setView("map")}
+                  className="mt-4 rounded-full bg-blue-600 px-5 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+                >
+                  Back to the map
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

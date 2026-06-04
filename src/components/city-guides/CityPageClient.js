@@ -253,15 +253,17 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
     [cityData, cityName]
   );
 
+  // `shortLabel` keeps every tab legible on phones narrower than the `xs`
+  // breakpoint (475px — i.e. most phones), where the full label is hidden.
   const tabs = useMemo(() => [
-    { id: 'overview', label: 'Overview', icon: '✨' },
-    { id: 'when', label: 'When to Go', icon: monthlyDataError ? '⚠️' : '📆' },
-    { id: 'gettingin', label: 'Getting In', icon: '✈️' },
-    { id: 'map', label: 'Interactive Map', icon: '🗺️' },
-    { id: 'attractions', label: 'Experiences', icon: '🎯' },
-    { id: 'food', label: 'Food + Drink', icon: '🍽️' },
-    { id: 'photos', label: 'Photo Spots', icon: '📸' },
-    { id: 'neighborhoods', label: 'Neighborhoods', icon: '🏘️' }
+    { id: 'overview', label: 'Overview', shortLabel: 'Overview', icon: '✨' },
+    { id: 'when', label: 'When to Go', shortLabel: 'When', icon: monthlyDataError ? '⚠️' : '📆' },
+    { id: 'gettingin', label: 'Getting In', shortLabel: 'Arrival', icon: '✈️' },
+    { id: 'map', label: 'Interactive Map', shortLabel: 'Map', icon: '🗺️' },
+    { id: 'attractions', label: 'Experiences', shortLabel: 'To Do', icon: '🎯' },
+    { id: 'food', label: 'Food + Drink', shortLabel: 'Food', icon: '🍽️' },
+    { id: 'photos', label: 'Photo Spots', shortLabel: 'Photos', icon: '📸' },
+    { id: 'neighborhoods', label: 'Neighborhoods', shortLabel: 'Areas', icon: '🏘️' }
   ], [monthlyDataError]);
 
   useEffect(() => {
@@ -685,14 +687,15 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
                   onMouseEnter={() => preloadTab(tab.id)}
                   aria-label={`Switch to ${tab.label} tab`}
                   aria-current={activeTab === tab.id ? 'page' : undefined}
-                  className={`snap-start px-3.5 sm:px-4.5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap flex items-center gap-1.5 ${
+                  className={`snap-start px-3.5 sm:px-4.5 py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap flex items-center gap-1.5 ${
                     activeTab === tab.id
                       ? 'bg-blue-600 text-white shadow-md shadow-blue-100'
                       : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 active:bg-gray-100'
                   }`}
                 >
-                  <span className="text-base sm:text-lg opacity-90">{tab.icon}</span>
-                  <span className="hidden xs:inline sm:inline">{tab.label}</span>
+                  <span className="text-base sm:text-lg opacity-90" aria-hidden="true">{tab.icon}</span>
+                  <span className="sm:hidden">{tab.shortLabel}</span>
+                  <span className="hidden sm:inline">{tab.label}</span>
                 </button>
               ))}
               </div>

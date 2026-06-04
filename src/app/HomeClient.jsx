@@ -23,17 +23,17 @@ export default function HomeClient({ initialDates }) {
     }, 2000);
   }, []);
 
-  // Navigate to the server-ranked /results route. A direct callback replaces the
-  // old window CustomEvent handoff (which was silently dropped if the listener
-  // wasn't attached) and useTransition gives the button an in-place pending state
-  // while the next route streams in.
+  // Navigate to the Explore map, ranked for the chosen dates. Explore reads the
+  // date params on entry and ranks cities with the same V4 engine the old
+  // /results scoreboard used, so the map arrives "with context" instead of an
+  // ungrouped browse. useTransition gives the button an in-place pending state.
   const submit = useCallback(() => {
     if (!dates?.start || !dates?.end) {
       scrollToDatePicker();
       return;
     }
     startTransition(() => {
-      router.push(`/results?${serializeDates(dates)}`);
+      router.push(`/explore?${serializeDates(dates)}`);
     });
   }, [dates, router, scrollToDatePicker]);
 

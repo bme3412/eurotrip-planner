@@ -1,28 +1,25 @@
 'use client';
 
-import React, { Suspense, useCallback, useEffect, useState } from 'react';
-import { CalendarDays, CalendarRange } from 'lucide-react';
+import React, { Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import {
   LazyCityOverview,
   LazyMonthlyGuideSection,
 } from '@/components/common/LazyComponents';
 import { SkeletonOverview, SkeletonTabContent } from '@/components/common/SkeletonLoader';
+import { MONTH_NAMES } from './overview/lib/constants';
 
 /**
- * WhenToGo — merges the two former timing tabs ("Best Time to Go" calendar and
- * "Monthly Guide") into one tab with a sub-view toggle. The two underlying
- * components are unchanged and co-located here, so this is a low-risk
- * composition rather than a rewrite.
+ * WhenToGo — a single, calendar-first scrolling view.
  *
- * Clicking a month in the calendar (via CityOverview's SelectedMonthPanel)
- * flips the sub-view to "Month by month" with that month selected — the same
- * UX as the old cross-tab jump, minus the tab hop.
+ * Leads with the interactive 12-month calendar (CityOverview, minus its
+ * "Season by Season" essay), then renders the selected month's full detail
+ * inline below (MonthlyGuideSection → MonthlyTabbedView): tagline, day
+ * calendar, events, and the "Why visit / Things to consider" breakdown.
+ *
+ * Clicking a month in the 12-month calendar sets `selectedMonth` and scrolls
+ * to the detail. This replaces the former Calendar / Month-by-month sub-view
+ * toggle and removes the duplicated seasonal storytelling that lived in both.
  */
-const VIEWS = [
-  { id: 'calendar', label: 'Calendar', icon: CalendarDays },
-  { id: 'months', label: 'Month by month', icon: CalendarRange },
-];
-
 export default function WhenToGo({
   overview,
   cityName,
@@ -33,89 +30,70 @@ export default function WhenToGo({
   monthlyDataError = null,
   hideCalendarIntroHero = false,
   initialSelectedMonth = null,
-  initialView = 'calendar',
 }) {
-  const [view, setView] = useState(initialSelectedMonth ? 'months' : initialView);
-  const [selectedMonth, setSelectedMonth] = useState(initialSelectedMonth);
+  // Default the detail to the current month so the tab opens with something
+  // relevant; a deep link / hero CTA can override via initialSelectedMonth.
+  const [selectedMonth, setSelectedMonth] = useState(
+    initialSelectedMonth || MONTH_NAMES[new Date().getMonth()],
+  );
+  const detailRef = useRef(null);
 
-  // If the parent passes a month later (e.g. a deep link / hero CTA), honour it.
   useEffect(() => {
-    if (initialSelectedMonth) {
-      setSelectedMonth(initialSelectedMonth);
-      setView('months');
-    }
+    if (initialSelectedMonth) setSelectedMonth(initialSelectedMonth);
   }, [initialSelectedMonth]);
 
   const handleOpenMonth = useCallback((monthName) => {
-    setSelectedMonth(monthName || null);
-    setView('months');
+    if (!monthName) return;
+    setSelectedMonth(monthName);
+    // Let the detail re-render for the new month, then bring it into view.
+    setTimeout(() => {
+      detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
   }, []);
 
   return (
-    <div className="space-y-5">
-      {/* Sub-view toggle */}
-      <div className="flex justify-center">
-        <div className="inline-flex rounded-full border border-gray-200 bg-white p-1 shadow-sm">
-          {VIEWS.map(({ id, label, icon: Icon }) => {
-            const active = view === id;
-            return (
-              <button
-                key={id}
-                type="button"
-                onClick={() => setView(id)}
-                aria-pressed={active}
-                className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition-all ${
-                  active ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <Icon className="h-4 w-4" aria-hidden />
-                {label}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+    <div className="space-y-8">
+      {/* Calendar-first overview (Season-by-Season essay suppressed here). */}
+      <Suspense fallback={<SkeletonOverview />}>
+        <LazyCityOverview
+          overview={overview}
+          cityName={cityName}
+          visitCalendar={visitCalendar}
+          monthlyData={monthlyData}
+          hideIntroHero={hideCalendarIntroHero}
+          onOpenMonthlyGuide={handleOpenMonth}
+          showSeasonalProse={false}
+        />
+      </Suspense>
 
-      {view === 'calendar' ? (
-        <Suspense fallback={<SkeletonOverview />}>
-          <LazyCityOverview
-            overview={overview}
-            cityName={cityName}
-            visitCalendar={visitCalendar}
-            monthlyData={monthlyData}
-            hideIntroHero={hideCalendarIntroHero}
-            onOpenMonthlyGuide={handleOpenMonth}
-          />
-        </Suspense>
-      ) : monthlyDataLoading ? (
-        <SkeletonTabContent />
-      ) : monthlyDataError ? (
-        <div className="flex items-center justify-center py-16">
-          <div className="text-center">
-            <div className="text-yellow-600 text-4xl mb-4">⚠️</div>
-            <h3 className="text-lg font-medium text-gray-900 mb-2">Monthly Guide Unavailable</h3>
-            <p className="text-gray-600 mb-4">We couldn&apos;t load the monthly guide for {cityName} right now.</p>
-            <button
-              type="button"
-              onClick={() => setView('calendar')}
-              className="text-sm font-semibold text-blue-600 hover:text-blue-700"
-            >
-              Back to the calendar
-            </button>
+      {/* Selected-month detail — the consolidated home for everything the old
+          "Monthly Guide" sub-view and the "Season by Season" essay used to
+          duplicate. */}
+      <div ref={detailRef} className="scroll-mt-24">
+        {monthlyDataLoading ? (
+          <SkeletonTabContent />
+        ) : monthlyDataError ? (
+          <div className="flex items-center justify-center py-16">
+            <div className="text-center">
+              <div className="text-yellow-600 text-4xl mb-4">⚠️</div>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">Monthly Guide Unavailable</h3>
+              <p className="text-gray-600">We couldn&apos;t load the monthly guide for {cityName} right now.</p>
+            </div>
           </div>
-        </div>
-      ) : (
-        <Suspense fallback={<SkeletonTabContent />}>
-          <LazyMonthlyGuideSection
-            monthlyData={monthlyData}
-            cityName={cityName}
-            city={cityName}
-            visitCalendar={visitCalendar}
-            countryName={country}
-            selectedMonth={selectedMonth}
-          />
-        </Suspense>
-      )}
+        ) : (
+          <Suspense fallback={<SkeletonTabContent />}>
+            <LazyMonthlyGuideSection
+              monthlyData={monthlyData}
+              cityName={cityName}
+              city={cityName}
+              visitCalendar={visitCalendar}
+              countryName={country}
+              selectedMonth={selectedMonth}
+              showFooter={false}
+            />
+          </Suspense>
+        )}
+      </div>
     </div>
   );
 }

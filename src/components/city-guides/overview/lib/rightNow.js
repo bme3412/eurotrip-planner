@@ -107,11 +107,28 @@ export function buildRightNow({ visitCalendar, cityDisplayName = 'this city', to
   if (crowdLevel) verdict += ` Crowds are ${String(crowdLevel).toLowerCase()} right now.`;
   if (events.length) verdict += ` ${events[0].name} is on, so plan around it.`;
 
+  // A short, honest note on what the score weighs. Names only the signals that
+  // are actually present so it never implies data the guide doesn't have
+  // (scoring coverage is sparse for many cities — see scoring-data-coverage).
+  const rationaleFactors = [];
+  if (weather?.tempLabel) rationaleFactors.push('weather');
+  if (crowdLevel) rationaleFactors.push('crowds');
+  if (events.length) rationaleFactors.push('events');
+  const scoreRationale =
+    score != null && rationaleFactors.length
+      ? `Scored on ${
+          rationaleFactors.length === 1
+            ? rationaleFactors[0]
+            : `${rationaleFactors.slice(0, -1).join(', ')} & ${rationaleFactors[rationaleFactors.length - 1]}`
+        }`
+      : null;
+
   return {
     monthName,
     periodLabel,
     score,
     scoreLabel,
+    scoreRationale,
     isGoodTime,
     crowdLevel,
     priceLevel,
