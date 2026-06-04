@@ -29,6 +29,7 @@ const GROUPS = [
   { key: 'great', heading: 'Great options' },
   { key: 'good', heading: 'Good options' },
   { key: 'fair', heading: 'Worth considering' },
+  { key: 'limited', heading: 'Limited data' },
 ];
 
 const RankedListPanel = ({ items = [], dateRange = null, highlightId = null, onCityHover, onClose, onCitySelect }) => {

@@ -17,6 +17,15 @@ export const QUALITATIVE_BANDS = {
   4: { key: 'fair',  label: 'Fair',         barClass: 'bg-orange-400',  color: '#fb923c', bg: 'bg-orange-50',   text: 'text-orange-700' },
 };
 
+// Cities scored mostly on fallback/neutral values (thin data) can't claim a
+// confident band — an obscure city must not read as a "Top Pick" on guesses.
+// Below this blended-confidence floor we show a muted "Limited data" band.
+export const CONFIDENCE_FLOOR = 0.6;
+
+export const LIMITED_BAND = {
+  key: 'limited', label: 'Limited data', barClass: 'bg-slate-300', color: '#94a3b8', bg: 'bg-slate-100', text: 'text-slate-500',
+};
+
 /**
  * Map an internal 0-100 finalScore to a qualitative band.
  * @param {number} finalScore
@@ -36,4 +45,18 @@ export function scoreToBand(finalScore) {
  */
 export function tierToBand(tier) {
   return QUALITATIVE_BANDS[tier] || QUALITATIVE_BANDS[4];
+}
+
+/**
+ * Confidence-gated band: score-driven band, but demoted to "Limited data" when
+ * the city was scored mostly on fallback values (blended confidence below the
+ * floor). Keeps obscure, thin-data cities out of the confident bands.
+ * @param {number} finalScore
+ * @param {number} [confidence] - blended 0-1 confidence (undefined = trust score)
+ */
+export function bandFor(finalScore, confidence) {
+  if (typeof confidence === 'number' && confidence < CONFIDENCE_FLOOR) {
+    return LIMITED_BAND;
+  }
+  return scoreToBand(finalScore);
 }

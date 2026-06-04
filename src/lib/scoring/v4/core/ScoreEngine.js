@@ -601,6 +601,21 @@ export class ScoreEngine {
       lowC: breakdown.timing?.details?.weatherLowC,
     };
 
+    // Blended data confidence: weight-weighted mean of the enabled factors'
+    // confidence. Low when a city is scored mostly on fallback/neutral values
+    // (thin data) — used downstream to gate it out of the confident bands so an
+    // obscure city can't read as a "Top Pick" on guesses.
+    let confWeight = 0;
+    let confSum = 0;
+    for (const [name, data] of Object.entries(breakdown)) {
+      const w = this.config.factors?.[name]?.weight ?? 0;
+      if (w > 0 && typeof data?.confidence === 'number') {
+        confWeight += w;
+        confSum += w * data.confidence;
+      }
+    }
+    const confidence = confWeight > 0 ? Math.round((confSum / confWeight) * 100) / 100 : 0;
+
     // Base response — `score` (0-100) and `tier` are INTERNAL ordering values.
     // They drive sorting/ranking only and must NOT be rendered as raw numbers in
     // the UI (false precision). Surface them qualitatively via
@@ -615,6 +630,7 @@ export class ScoreEngine {
       coordinates: cityData?.coordinates || null,
       tier,
       score: Math.round(finalScore),
+      confidence,
       weather,
       crowdLevel: breakdown.crowds?.details?.crowdLevel || 'Moderate',
       highlights,

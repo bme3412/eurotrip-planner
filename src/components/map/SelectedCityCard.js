@@ -118,7 +118,7 @@ function SelectedCityCard({ city, ranking = null, startDate = null, endDate = nu
             <div className="mt-2 flex flex-wrap items-center gap-2">
               {ranking.band && (
                 <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold ${ranking.band.bg} ${ranking.band.text}`}>
-                  {ranking.band.label} for your dates
+                  {ranking.band.key === 'limited' ? 'Limited data' : `${ranking.band.label} for your dates`}
                 </span>
               )}
               {ranking.weather?.highC != null && (

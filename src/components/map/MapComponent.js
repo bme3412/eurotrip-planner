@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import { COUNTRY_COLORS, MAJOR_CITIES, INITIAL_FILTERS, MAP_USE_CLUSTERS } from './constants';
 import { getCityCalendarInfoCached } from './mapUtils';
-import { scoreToBand } from '@/lib/scoring/qualitative';
+import { bandFor } from '@/lib/scoring/qualitative';
 import { generatePopupContent } from './mapPopup';
 import {
   initializeMap,
@@ -350,13 +350,17 @@ function MapComponent({
             ratings[item.title] = Math.round((score / 20) * 10) / 10;
           }
           if (id) {
+            const confidence = typeof item.confidence === 'number' ? item.confidence : null;
+            const band = bandFor(score, confidence);
             rankings[id] = {
               id,
               title: item.title,
               country: item.country,
               score,
+              confidence,
               tier: item.tier ?? null,
-              band: scoreToBand(score),
+              band,
+              limited: band.key === 'limited',
               why: item.why || null,
               whyExpanded: item.whyExpanded || null,
               weather: item.weather || null,

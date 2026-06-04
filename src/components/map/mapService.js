@@ -223,7 +223,9 @@ export const initializeMap = async (container, viewState, onViewStateChange) => 
             country: c.country,
             isCapital: isCapitalLike(c),
             isMajor: MAJOR_CITIES.includes(c.title),
-            ranked: Boolean(r),
+            // Limited-data cities are painted as unranked (muted, unlabeled) so
+            // the map only emphasizes cities we actually have signal on.
+            ranked: Boolean(r) && !r.limited,
             score: r?.score ?? 0,
             rank: r?.rank ?? 0,
           },

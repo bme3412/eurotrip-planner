@@ -169,6 +169,7 @@ async function generateMonthlyScores() {
           coordinates: city.coordinates, // real per-city daylight
           tier: city.tier,
           score: city.score,             // client-side "Best match" sort
+          confidence: city.confidence,   // gates thin-data cities to "Limited data"
           weather: city.weather,
           crowdLevel: city.crowdLevel,
           highlights: city.highlights,   // event chip on the row
