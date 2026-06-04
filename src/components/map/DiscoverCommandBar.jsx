@@ -43,7 +43,7 @@ export default function DiscoverCommandBar({ context, onApply }) {
   };
 
   return (
-    <div className="w-[min(92vw,30rem)]">
+    <div className="w-[min(92vw,26rem)]">
       <form
         onSubmit={submit}
         className="flex items-center gap-2 rounded-full bg-white/95 px-2 py-1.5 shadow-lg ring-1 ring-slate-200 backdrop-blur"

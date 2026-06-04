@@ -10,9 +10,9 @@ import { MONTH_NAMES_SHORT } from './constants';
  */
 export const FilterToggleButton = ({ showFilters, onToggle }) => {
   return (
-    <button 
+    <button
       onClick={onToggle}
-      className="bg-white p-2 rounded-full shadow-md mb-2 hover:bg-gray-100"
+      className="bg-white/95 p-2 rounded-full shadow-md ring-1 ring-slate-200 hover:bg-white"
       title={showFilters ? "Hide filters" : "Show filters"}
     >
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
@@ -74,7 +74,10 @@ export const CountryFilter = ({ countries, selectedCountries, showDropdown, onTo
         </div>
       </div>
       {showDropdown && (
-        <div className="absolute z-10 w-full bg-white border border-gray-300 rounded-md shadow-lg mt-1 max-h-60 overflow-y-auto">
+        // In-flow (not absolute): expands and pushes the fields below it down,
+        // so it never overlays/clips the date inputs or gets cut by the panel's
+        // mobile overflow-y-auto.
+        <div className="w-full bg-white border border-gray-200 rounded-md shadow-sm mt-1 max-h-56 overflow-y-auto">
           {countries.map(country => (
             <div 
               key={country} 

@@ -877,15 +877,17 @@ function MapComponent({
         <button
           type="button"
           onClick={() => setShowFilters(true)}
-          className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3.5 py-2 text-sm font-semibold text-slate-700 shadow-md ring-1 ring-slate-200 hover:bg-white"
+          className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3.5 py-2 text-sm font-semibold text-slate-700 shadow-lg ring-1 ring-slate-200 backdrop-blur hover:bg-white"
         >
           <svg className="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
+          {/* Canonical trip-context readout: dates + city count, shown once. */}
           {activeDateRange ? (
             <span>
               {fmtBadgeDate(activeDateRange.start)} – {fmtBadgeDate(activeDateRange.end)}
-              <span className="ml-1.5 text-blue-600">Change</span>
+              <span className="hidden text-slate-400 sm:inline"> · {filteredDestinations.length} {filteredDestinations.length === 1 ? 'city' : 'cities'}</span>
+              <span className="ml-1.5 hidden text-blue-600 sm:inline">Change</span>
             </span>
           ) : (
             <span className="text-blue-600">Add travel dates</span>
@@ -899,11 +901,11 @@ function MapComponent({
       {showFilters && (
         <>
           <div
-            className="absolute inset-0 z-20 bg-black/30 md:hidden"
+            className="absolute inset-0 z-[45] bg-black/30 md:hidden"
             onClick={handleToggleFilters}
             aria-hidden="true"
           />
-          <div className="absolute z-30 inset-x-0 bottom-0 md:inset-x-auto md:bottom-auto md:top-16 md:left-4">
+          <div className="absolute z-50 inset-x-0 bottom-0 md:inset-x-auto md:bottom-auto md:top-[4.75rem] md:left-4">
             <FilterContainer
               countries={['All', ...Object.keys(destinations.reduce((acc, d) => ({ ...acc, [d.country]: true }), {}))]}
               filters={currentFilters}
@@ -919,15 +921,13 @@ function MapComponent({
               onDateTypeToggle={toggleDateMode}
               onMonthToggle={handleMonthSelection}
               onRatingChange={handleRatingChange}
-              showRankedListPanel={showRankedListPanel}
-              onToggleRankedList={toggleRankedListPanel}
               onClearFilters={handleClearFilters}
             />
           </div>
         </>
       )}
       
-      {showRankedListPanel && (
+      {showRankedListPanel ? (
         <RankedListPanel
           items={rankedItems}
           dateRange={activeDateRange}
@@ -937,6 +937,19 @@ function MapComponent({
           onClose={toggleRankedListPanel}
           onCitySelect={handleRankedSelect}
         />
+      ) : (
+        // Re-open affordance after the rail is closed (replaces the removed
+        // filter-panel "List" button).
+        <button
+          type="button"
+          onClick={toggleRankedListPanel}
+          className="absolute top-[4.75rem] right-4 z-20 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3.5 py-2 text-sm font-semibold text-slate-700 shadow-lg ring-1 ring-slate-200 backdrop-blur hover:bg-white"
+        >
+          <svg className="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 10h16M4 14h10" />
+          </svg>
+          Ranked
+        </button>
       )}
 
       {/* Phase 6: non-blocking top progress bar. The blocking

@@ -52,7 +52,7 @@ function SelectedCityCard({ city, ranking = null, startDate = null, endDate = nu
       // Phase 6: on mobile the card docks to the bottom edge as a
       // bottom-sheet (full width, rounded top only). On desktop it
       // stays in the bottom-left corner as a compact card.
-      className="absolute z-20 inset-x-0 bottom-0 w-full overflow-hidden rounded-t-3xl border-t border-slate-200 bg-white/95 shadow-xl backdrop-blur md:inset-x-auto md:bottom-4 md:left-4 md:w-[min(360px,calc(100%-2rem))] md:rounded-3xl md:border"
+      className="absolute z-40 inset-x-0 bottom-0 w-full overflow-hidden rounded-t-3xl border-t border-slate-200 bg-white/95 shadow-xl ring-1 ring-slate-200 backdrop-blur md:inset-x-auto md:bottom-4 md:left-4 md:w-[min(360px,calc(100%-2rem))] md:rounded-3xl md:border"
       role="dialog"
       aria-label={`${city.title} details`}
     >
