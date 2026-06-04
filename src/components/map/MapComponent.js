@@ -56,6 +56,16 @@ function monthsToDateRange(months) {
   return { start: fmt(start), end: fmt(end) };
 }
 
+/** Short date for the persistent date-context badge (e.g. "Jun 15"). */
+function fmtBadgeDate(iso) {
+  if (!iso) return '';
+  try {
+    return new Date(`${iso}T00:00:00`).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+  } catch {
+    return iso;
+  }
+}
+
 /**
  * Map Component
  * Renders an interactive map with city markers and filters
@@ -857,8 +867,28 @@ function MapComponent({
     <div className="relative h-screen">
       <div ref={mapContainer} className="absolute top-0 bottom-0 w-full" style={{ height: '100%' }} />
       
-      <div className="absolute top-4 left-4 z-30">
+      <div className="absolute top-4 left-4 z-30 flex items-center gap-2">
         <FilterToggleButton showFilters={showFilters} onToggle={handleToggleFilters} />
+        {/* Persistent date context — the dates are otherwise buried in the
+            collapsed filter panel, so the ranking reads as "popular cities"
+            rather than "ranked for these dates". Click to change. */}
+        <button
+          type="button"
+          onClick={() => setShowFilters(true)}
+          className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3.5 py-2 text-sm font-semibold text-slate-700 shadow-md ring-1 ring-slate-200 hover:bg-white"
+        >
+          <svg className="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          {activeDateRange ? (
+            <span>
+              {fmtBadgeDate(activeDateRange.start)} – {fmtBadgeDate(activeDateRange.end)}
+              <span className="ml-1.5 text-blue-600">Change</span>
+            </span>
+          ) : (
+            <span className="text-blue-600">Add travel dates</span>
+          )}
+        </button>
       </div>
 
       {/* Phase 6: filter panel is a bottom-sheet on mobile and a docked
@@ -899,6 +929,7 @@ function MapComponent({
         <RankedListPanel
           items={rankedItems}
           dateRange={activeDateRange}
+          loading={loadingStates.ratings}
           highlightId={selectedId || hoveredId}
           onCityHover={setHoveredId}
           onClose={toggleRankedListPanel}
