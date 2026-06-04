@@ -1,52 +1,59 @@
 import React from 'react';
-import { 
-  CountryFilter, 
-  SearchInput, 
-  DateFilter, 
-  RatingFilter 
-} from './FilterComponents';
+import { CountryFilter, SearchInput } from './FilterComponents';
+import DateFilterSection from './DateFilterSection';
 
 /**
- * Filter container component 
+ * Filter container component.
+ *
+ * Holds the trip dates (calendar / flexible months) plus the browse filters
+ * (Countries + Search) in a single panel. The former Destination Rating control
+ * was removed — quality is conveyed by the ranked-list bands.
+ *
  * @param {Object} props - Component props
  * @param {Array<string>} props.countries - Available countries
  * @param {Object} props.filters - Current filter settings
  * @param {boolean} props.showCountryDropdown - Whether country dropdown is shown
- * @param {boolean} props.dateRangeLoading - Whether date range loading is in progress
  * @param {number} props.destinationCount - Number of filtered destinations
- * @param {Object} props.cityRatings - City ratings data
  * @param {Function} props.onToggleCountryDropdown - Country dropdown toggle handler
  * @param {Function} props.onToggleCountry - Country toggle handler
  * @param {Function} props.onSearchChange - Search change handler
- * @param {Function} props.onDateChange - Date change handler
- * @param {Function} props.onDateTypeToggle - Date type toggle handler
- * @param {Function} props.onMonthToggle - Month toggle handler
- * @param {Function} props.onRatingChange - Rating change handler
- * @param {boolean} props.showRankedListPanel - Whether the ranked list panel is shown
- * @param {Function} props.onToggleRankedList - Handler to toggle the ranked list panel
+ * @param {Function} props.onPickDateRange - Commit exact { start, end } dates
+ * @param {Function} props.onDateTypeToggle - Flip Exact <-> Flexible
+ * @param {Function} props.onMonthToggle - Toggle a flexible month
+ * @param {Function} props.onClearDates - Clear just the date selection
+ * @param {Function} props.onClearFilters - Clear all filters handler
  * @returns {JSX.Element} - Filter container component
  */
 const FilterContainer = ({
   countries,
   filters,
   showCountryDropdown,
-  dateRangeLoading,
   destinationCount,
-  cityRatings = {},
   onToggleCountryDropdown,
   onToggleCountry,
   onSearchChange,
-  onDateChange,
+  onPickDateRange,
   onDateTypeToggle,
   onMonthToggle,
-  onRatingChange,
+  onClearDates,
   onClearFilters,
 }) => {
   return (
-    <div className="bg-white/95 backdrop-blur p-4 shadow-lg ring-1 ring-slate-200 animate-fade-in w-full max-h-[80vh] overflow-y-auto rounded-t-2xl md:w-80 md:max-h-none md:overflow-visible md:rounded-2xl">
-      {/* The trip dates + city count live in the top-left date badge (single
-          source); this panel is just the controls. */}
+    <div className="bg-white/95 backdrop-blur p-4 shadow-lg ring-1 ring-slate-200 animate-fade-in w-full max-h-[80vh] overflow-y-auto rounded-t-2xl md:w-80 md:max-h-[calc(100vh-6rem)] md:overflow-y-auto md:rounded-2xl">
       <h3 className="mb-3 font-bold text-lg leading-tight">Filters</h3>
+
+      <DateFilterSection
+        dateFilters={{
+          useFlexibleDates: filters.useFlexibleDates,
+          startDate: filters.startDate,
+          endDate: filters.endDate,
+          selectedMonths: filters.selectedMonths,
+        }}
+        onPickRange={onPickDateRange}
+        onDateTypeToggle={onDateTypeToggle}
+        onMonthToggle={onMonthToggle}
+        onClearDates={onClearDates}
+      />
 
       <CountryFilter
         countries={countries}
@@ -61,36 +68,9 @@ const FilterContainer = ({
         onSearchChange={onSearchChange}
       />
 
-      <DateFilter
-        dateFilters={{
-          useFlexibleDates: filters.useFlexibleDates,
-          startDate: filters.startDate,
-          endDate: filters.endDate,
-          selectedMonths: filters.selectedMonths
-        }}
-        onDateTypeToggle={onDateTypeToggle}
-        onDateChange={onDateChange}
-        onMonthToggle={onMonthToggle}
-      />
-
-      <RatingFilter
-        minRating={filters.minRating}
-        disabled={false}
-        loading={dateRangeLoading}
-        onRatingChange={onRatingChange}
-        cityRatings={cityRatings}
-        destinationCount={destinationCount}
-        dateFilters={{
-          useFlexibleDates: filters.useFlexibleDates,
-          startDate: filters.startDate,
-          endDate: filters.endDate,
-          selectedMonths: filters.selectedMonths
-        }}
-      />
-
       {destinationCount === 0 && (
         <div className="mt-2 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800">
-          No cities match. Try widening dates or clearing countries.
+          No cities match. Try clearing countries or your search.
         </div>
       )}
 

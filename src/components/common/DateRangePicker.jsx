@@ -36,7 +36,7 @@ function isInRange(date, start, end) {
   return time > s && time < e;
 }
 
-function MonthGrid({ baseDate, start, end, onSelect }) {
+function MonthGrid({ baseDate, start, end, onSelect, fluid = false }) {
   const first = startOfMonth(baseDate);
   const firstWeekday = first.getDay(); // 0=Sun..6=Sat
   const totalDays = daysInMonth(baseDate);
@@ -49,7 +49,7 @@ function MonthGrid({ baseDate, start, end, onSelect }) {
   today.setHours(0, 0, 0, 0); // Reset time to start of day
 
   return (
-    <div className="w-48 sm:w-56">
+    <div className={fluid ? "w-full" : "w-48 sm:w-56"}>
       <div className="grid grid-cols-7 text-[10px] text-zinc-500 mb-1 font-medium uppercase tracking-wider">
         {["S", "M", "T", "W", "T", "F", "S"].map((day, i) => (
           <div key={`${day}-${i}`} className="text-center py-0.5">{day}</div>
@@ -87,7 +87,7 @@ function MonthGrid({ baseDate, start, end, onSelect }) {
   );
 }
 
-export default function DateRangePicker({ value, onChange, initialMonth }) {
+export default function DateRangePicker({ value, onChange, initialMonth, bare = false }) {
   const startDate = parseISO(value?.start);
   const endDate = parseISO(value?.end);
   const [cursor, setCursor] = useState(() => startOfMonth(initialMonth ? new Date(initialMonth) : new Date()));
@@ -114,33 +114,51 @@ export default function DateRangePicker({ value, onChange, initialMonth }) {
   const monthLabel = useMemo(() => ({ left: formatLabel(left), right: formatLabel(right) }), [left, right]);
 
   return (
-    <div className="rounded-[2rem] border border-blue-50 bg-white p-4 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.15)] max-w-full overflow-hidden">
-      <div className="flex items-center justify-between mb-4 px-2">
-        <button type="button" className="p-2 rounded-full hover:bg-gray-100 transition-colors group" onClick={() => setCursor(addMonths(cursor, -1))}>
+    <div
+      className={
+        bare
+          ? "w-full max-w-full overflow-hidden"
+          : "rounded-[2rem] border border-blue-50 bg-white p-4 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.15)] max-w-full overflow-hidden"
+      }
+    >
+      <div className={`flex items-center justify-between px-1 ${bare ? "mb-2" : "mb-4 px-2"}`}>
+        <button type="button" className="p-1.5 rounded-full hover:bg-gray-100 transition-colors group" onClick={() => setCursor(addMonths(cursor, -1))}>
           <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
-        <div className="text-sm font-bold text-gray-900 uppercase tracking-widest">Select Trip Dates</div>
-        <button type="button" className="p-2 rounded-full hover:bg-gray-100 transition-colors group" onClick={() => setCursor(addMonths(cursor, 1))}>
+        {bare ? (
+          <div className="text-sm font-semibold text-gray-900">{monthLabel.left}</div>
+        ) : (
+          <div className="text-sm font-bold text-gray-900 uppercase tracking-widest">Select Trip Dates</div>
+        )}
+        <button type="button" className="p-1.5 rounded-full hover:bg-gray-100 transition-colors group" onClick={() => setCursor(addMonths(cursor, 1))}>
           <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
       </div>
-      <div className="flex flex-col sm:flex-row gap-8 items-center justify-center">
-        <div>
-          <div className="text-center text-xs font-bold mb-3 text-blue-600 uppercase tracking-widest">{monthLabel.left}</div>
-          <MonthGrid baseDate={left} start={startDate} end={endDate} onSelect={handleSelect} />
+      {bare ? (
+        // Embedded in the narrow filter panel: a single fluid-width month
+        // (the `sm:` two-month layout overflows a 320px panel).
+        <MonthGrid baseDate={left} start={startDate} end={endDate} onSelect={handleSelect} fluid />
+      ) : (
+        <div className="flex flex-col sm:flex-row gap-8 items-center justify-center">
+          <div>
+            <div className="text-center text-xs font-bold mb-3 text-blue-600 uppercase tracking-widest">{monthLabel.left}</div>
+            <MonthGrid baseDate={left} start={startDate} end={endDate} onSelect={handleSelect} />
+          </div>
+          <div className="hidden sm:block">
+            <div className="text-center text-xs font-bold mb-3 text-blue-600 uppercase tracking-widest">{monthLabel.right}</div>
+            <MonthGrid baseDate={right} start={startDate} end={endDate} onSelect={handleSelect} />
+          </div>
         </div>
-        <div className="hidden sm:block">
-          <div className="text-center text-xs font-bold mb-3 text-blue-600 uppercase tracking-widest">{monthLabel.right}</div>
-          <MonthGrid baseDate={right} start={startDate} end={endDate} onSelect={handleSelect} />
+      )}
+      {!bare && (
+        <div className="mt-6 pt-6 border-t border-gray-50 text-[10px] text-gray-400 font-medium text-center uppercase tracking-widest">
+          Select start and end dates for your European adventure
         </div>
-      </div>
-      <div className="mt-6 pt-6 border-t border-gray-50 text-[10px] text-gray-400 font-medium text-center uppercase tracking-widest">
-        Select start and end dates for your European adventure
-      </div>
+      )}
     </div>
   );
 }

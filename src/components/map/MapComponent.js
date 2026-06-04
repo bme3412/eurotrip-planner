@@ -22,7 +22,7 @@ import FilterContainer from './FilterContainer';
 import RankedListPanel from './RankedListPanel';
 import MapProgressBar from './MapProgressBar';
 import CacheManager from './CacheManager';
-import { useMapData, useCityRatings, useCityRankings, useCurrentFilters, useLoadingStates } from '@/contexts/MapDataContext';
+import { useMapData, useCityRankings, useCurrentFilters, useLoadingStates } from '@/contexts/MapDataContext';
 
 const MONTH_INDEX_RE = /^\d+$/;
 
@@ -121,7 +121,6 @@ function MapComponent({
   
   // Global state from context
   const { actions } = useMapData();
-  const cityRatings = useCityRatings();
   const cityRankings = useCityRankings();
   const [currentFilters, setCurrentFilters] = useCurrentFilters();
   const [loadingStates, setLoadingState] = useLoadingStates();
@@ -280,29 +279,10 @@ function MapComponent({
       );
     }
     
-    // Apply rating filters if we have date selection
-    if (currentFilters.minRating > 0) {
-      const hasDateFilters = 
-        (!currentFilters.useFlexibleDates && currentFilters.startDate && currentFilters.endDate) || 
-        (currentFilters.useFlexibleDates && currentFilters.selectedMonths.length > 0);
-      
-      if (hasDateFilters) {
-        // Round to first decimal place for more consistent filtering
-        const ratingToUse = parseInt(currentFilters.minRating);
-        
-        // Filter based on ratings
-        const filteredByRating = results.filter(city => {
-          const rating = cityRatings[city.title] || 0;
-          const roundedRating = Math.round(rating * 10) / 10; // Round to 1 decimal
-          return roundedRating >= ratingToUse;
-        });
-        
-        results = filteredByRating;
-      }
-    }
-    
+    // Quality is conveyed by the ranked-list bands and marker colors — the map
+    // shows every city that matches country/search; ranking never hides cities.
     setFilteredDestinations(results);
-  }, [destinations, currentFilters, cityRatings]);
+  }, [destinations, currentFilters]);
 
   // Seed the date filters from the homepage hand-off exactly once, and open the
   // ranked list so the page arrives "with context" rather than an empty browse.
@@ -324,14 +304,13 @@ function MapComponent({
   // the /results scoreboard uses — via /api/suggestions. This replaces the
   // former per-city rating path so Explore and the scoreboard never disagree.
   // Debounced + epoch-cancelled so rapid filter edits coalesce and stale waves
-  // abort. Populates `cityRatings` (0-5, for the legacy filter/markers) and the
-  // rich `cityRankings` (band + why, for the ranked list and selected card).
+  // abort. Populates the rich `cityRankings` (band + why, for the ranked list,
+  // selected card, and marker colors).
   useEffect(() => {
     const range = resolveDateRange(currentFilters);
 
     if (!range) {
       ratingFetchEpochRef.current += 1;
-      actions.setCityRatings({});
       actions.setCityRankings({});
       actions.setRankedItems([]);
       return;
@@ -351,15 +330,10 @@ function MapComponent({
         if (myEpoch !== ratingFetchEpochRef.current) return;
 
         const items = Array.isArray(data?.items) ? data.items : [];
-        const ratings = {};
         const rankings = {};
         items.forEach((item, index) => {
           const id = item.id || item.cityId;
           const score = Number(item.score) || 0;
-          if (item.title) {
-            // 0-5 star scale kept for the legacy rating filter + markers.
-            ratings[item.title] = Math.round((score / 20) * 10) / 10;
-          }
           if (id) {
             const confidence = typeof item.confidence === 'number' ? item.confidence : null;
             const band = bandFor(score, confidence);
@@ -381,7 +355,6 @@ function MapComponent({
             };
           }
         });
-        actions.setCityRatings(ratings);
         actions.setCityRankings(rankings);
         actions.setRankedItems(items);
       } catch (error) {
@@ -397,7 +370,7 @@ function MapComponent({
       clearTimeout(debounceTimer);
     };
     // Intentionally key on the date fields only — re-running on every
-    // currentFilters change (countries/search/minRating) would refire the
+    // currentFilters change (countries/search) would refire the
     // ranking fetch needlessly. resolveDateRange reads the full object but
     // only the date fields affect its output.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -741,58 +714,45 @@ function MapComponent({
     }));
   }, [currentPopup, setCurrentFilters]);
 
-  const handleDateRangeChange = useCallback((field, value) => {
+  // Commit an exact { start, end } pick from the in-panel calendar. The ranking
+  // fetch keys on these fields; opening the ranked rail keeps the result visible.
+  const handlePickDateRange = useCallback(({ start, end }) => {
     if (currentPopup) {
       currentPopup.remove();
       setCurrentPopup(null);
     }
     setCurrentFilters(prev => ({
       ...prev,
-      [field]: value
+      startDate: start || '',
+      endDate: end || '',
+      useFlexibleDates: false,
     }));
-  }, [currentPopup, setCurrentFilters]);
-
-  const handleMonthSelection = useCallback((month, selected) => {
-    if (currentPopup) {
-      currentPopup.remove();
-      setCurrentPopup(null);
-    }
-    setCurrentFilters(prev => {
-      const currentMonths = prev.selectedMonths || [];
-      let newMonths;
-      if (selected) {
-        newMonths = [...currentMonths, month];
-      } else {
-        newMonths = currentMonths.filter(m => m !== month);
-      }
-      return {
-        ...prev,
-        selectedMonths: newMonths
-      };
-    });
+    if (start && end) setShowRankedListPanel(true);
   }, [currentPopup, setCurrentFilters]);
 
   const toggleDateMode = useCallback(() => {
-    if (currentPopup) {
-      currentPopup.remove();
-      setCurrentPopup(null);
-    }
-    setCurrentFilters(prev => ({
-      ...prev,
-      useFlexibleDates: !prev.useFlexibleDates
-    }));
-  }, [currentPopup, setCurrentFilters]);
+    setCurrentFilters(prev => ({ ...prev, useFlexibleDates: !prev.useFlexibleDates }));
+  }, [setCurrentFilters]);
 
-  const handleRatingChange = useCallback((value) => {
-    if (currentPopup) {
-      currentPopup.remove();
-      setCurrentPopup(null);
-    }
+  const handleMonthSelection = useCallback((month, selected) => {
+    setCurrentFilters(prev => {
+      const months = prev.selectedMonths || [];
+      const next = selected ? [...months, month] : months.filter(m => m !== month);
+      return { ...prev, selectedMonths: next };
+    });
+    setShowRankedListPanel(true);
+  }, [setCurrentFilters]);
+
+  // Clear just the date selection (leaves country/search untouched).
+  const handleClearDates = useCallback(() => {
     setCurrentFilters(prev => ({
       ...prev,
-      minRating: parseInt(value)
+      startDate: '',
+      endDate: '',
+      useFlexibleDates: false,
+      selectedMonths: [],
     }));
-  }, [currentPopup, setCurrentFilters]);
+  }, [setCurrentFilters]);
 
   const toggleCountry = useCallback((country) => {
     if (currentPopup) {
@@ -871,9 +831,9 @@ function MapComponent({
       
       <div className="absolute top-4 left-4 z-30 flex items-center gap-2">
         <FilterToggleButton showFilters={showFilters} onToggle={handleToggleFilters} />
-        {/* Persistent date context — the dates are otherwise buried in the
-            collapsed filter panel, so the ranking reads as "popular cities"
-            rather than "ranked for these dates". Click to change. */}
+        {/* Persistent date context + entry point. Clicking opens the Filters
+            panel, whose first section is the date picker — so dates and the
+            browse filters live in one surface (no overlapping panels). */}
         <button
           type="button"
           onClick={() => setShowFilters(true)}
@@ -910,17 +870,14 @@ function MapComponent({
               countries={['All', ...Object.keys(destinations.reduce((acc, d) => ({ ...acc, [d.country]: true }), {}))]}
               filters={currentFilters}
               showCountryDropdown={showCountryDropdown}
-              dateRangeLoading={loadingStates.ratings}
               destinationCount={filteredDestinations.length}
-              totalDestinationCount={destinations.length}
-              cityRatings={cityRatings}
               onToggleCountryDropdown={handleToggleCountryDropdown}
               onToggleCountry={toggleCountry}
               onSearchChange={handleSearchChange}
-              onDateChange={handleDateRangeChange}
+              onPickDateRange={handlePickDateRange}
               onDateTypeToggle={toggleDateMode}
               onMonthToggle={handleMonthSelection}
-              onRatingChange={handleRatingChange}
+              onClearDates={handleClearDates}
               onClearFilters={handleClearFilters}
             />
           </div>

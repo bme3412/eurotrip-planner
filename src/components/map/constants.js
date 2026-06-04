@@ -45,7 +45,6 @@ export const COUNTRY_COLORS = {
     searchTerm: '',
     startDate: '',
     endDate: '',
-    minRating: 0,
     useFlexibleDates: false,
     selectedMonths: []
   };
