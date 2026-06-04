@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import SelectedCityCard from "@/components/map/SelectedCityCard";
 import ShortlistTray from "@/components/map/ShortlistTray";
+import DiscoverCommandBar from "@/components/map/DiscoverCommandBar";
 import ResultsGrid from "@/components/ResultsGrid";
 import useShortlist from "@/hooks/useShortlist";
 import { upsertLocalTripDraft } from "@/lib/trips/localTripDrafts";
@@ -64,7 +65,7 @@ export default function ExploreMap({ destinations, initialStart = null, initialE
   // Active trip dates (user-changed filters win over the URL hand-off) so every
   // hand-off to /plan carries the dates — the date-ranked intent shouldn't die
   // when the user moves from discovery to planning.
-  const [currentFilters] = useCurrentFilters();
+  const [currentFilters, setFilters] = useCurrentFilters();
   const tripStart = currentFilters?.startDate || initialStart || null;
   const tripEnd = currentFilters?.endDate || initialEnd || null;
   const [viewState, setViewState] = useState({
@@ -101,6 +102,43 @@ export default function ExploreMap({ destinations, initialStart = null, initialE
   const handleMarkerClick = (city) => {
     setSelectedCity(city);
   };
+
+  // Resolve a loose city name (from the assistant) to a real destination.
+  const resolveCity = useCallback(
+    (name) => {
+      const n = String(name || "").trim().toLowerCase();
+      if (!n) return null;
+      const slug = n.replace(/\s+/g, "-");
+      return (
+        destinations.find((d) => (d.title || "").toLowerCase() === n) ||
+        destinations.find((d) => (d.id || "") === slug) ||
+        destinations.find((d) => (d.title || "").toLowerCase().includes(n)) ||
+        null
+      );
+    },
+    [destinations]
+  );
+
+  // Apply the assistant's structured edits to the shared trip context: dates
+  // (re-ranks the map/list) and shortlist add/remove.
+  const handleApplyCommand = useCallback(
+    (actions) => {
+      if (!actions) return;
+      const { setDates, addCities, removeCities } = actions;
+      if (setDates?.start && setDates?.end) {
+        setFilters({ startDate: setDates.start, endDate: setDates.end, useFlexibleDates: false });
+      }
+      (addCities || []).forEach((name) => {
+        const d = resolveCity(name);
+        if (d) shortlist.add({ id: d.id, title: d.title, country: d.country });
+      });
+      (removeCities || []).forEach((name) => {
+        const d = resolveCity(name);
+        if (d) shortlist.remove({ id: d.id, title: d.title });
+      });
+    },
+    [setFilters, resolveCity, shortlist]
+  );
 
   const handleAddToShortlist = (city) => {
     if (!city) return;
@@ -152,6 +190,16 @@ export default function ExploreMap({ destinations, initialStart = null, initialE
           ))}
         </div>
       </div>
+
+      {/* Agentic command bar — natural-language edits to dates + shortlist. */}
+      {view === "map" && (
+        <div className="absolute top-[4.25rem] left-1/2 z-40 -translate-x-1/2">
+          <DiscoverCommandBar
+            context={{ startDate: tripStart, endDate: tripEnd, shortlist: shortlist.items.map((i) => i.title) }}
+            onApply={handleApplyCommand}
+          />
+        </div>
+      )}
 
       {/* Map-only chrome: the selected-city card + shortlist tray. */}
       {view === "map" && selectedCity && (
