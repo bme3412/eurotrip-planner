@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useMemo } from "react";
-import Link from "next/link";
+import React from "react";
 
 /**
  * ShortlistTray
@@ -17,17 +16,7 @@ import Link from "next/link";
  * overlap on desktop. On mobile (phase 6) this will become a true
  * bottom-sheet; for now it gracefully wraps.
  */
-function ShortlistTray({ items, onRemove, onClear, startDate = null, endDate = null, liftAboveCard = false }) {
-  const planHref = useMemo(() => {
-    const ids = items.map((it) => it.id).filter(Boolean);
-    if (ids.length === 0) return "/plan";
-    const params = new URLSearchParams();
-    params.set("cities", ids.join(","));
-    if (startDate) params.set("startDate", startDate);
-    if (endDate) params.set("endDate", endDate);
-    return `/plan?${params.toString()}`;
-  }, [items, startDate, endDate]);
-
+function ShortlistTray({ items, onRemove, onClear, onStartPlanning, liftAboveCard = false }) {
   if (!items || items.length === 0) return null;
 
   const count = items.length;
@@ -93,8 +82,9 @@ function ShortlistTray({ items, onRemove, onClear, startDate = null, endDate = n
             Clear
           </button>
         )}
-        <Link
-          href={planHref}
+        <button
+          type="button"
+          onClick={onStartPlanning}
           className="inline-flex items-center gap-1.5 rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
         >
           Start planning
@@ -110,7 +100,7 @@ function ShortlistTray({ items, onRemove, onClear, startDate = null, endDate = n
               clipRule="evenodd"
             />
           </svg>
-        </Link>
+        </button>
       </div>
     </div>
   );

@@ -41,6 +41,11 @@ function tripDateInfo(trip) {
     return { kind: "range", label: `${formatDate(trip.start_date)} – ${formatDate(trip.end_date)}` };
   }
   const timeRange = trip.time_range || {};
+  // Local drafts carry exact dates in time_range (Supabase trips use the
+  // top-level start_date/end_date handled above).
+  if (timeRange.startDate && timeRange.endDate) {
+    return { kind: "range", label: `${formatDate(timeRange.startDate)} – ${formatDate(timeRange.endDate)}` };
+  }
   if (timeRange.flexibleMonth) return { kind: "soft", label: `Flexible in ${timeRange.flexibleMonth}` };
   if (timeRange.totalNights) return { kind: "soft", label: `${timeRange.totalNights} nights` };
   return { kind: "empty", label: "Dates not set" };

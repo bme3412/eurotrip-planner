@@ -1,12 +1,40 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 import SelectedCityCard from "@/components/map/SelectedCityCard";
 import ShortlistTray from "@/components/map/ShortlistTray";
 import ResultsGrid from "@/components/ResultsGrid";
 import useShortlist from "@/hooks/useShortlist";
+import { upsertLocalTripDraft } from "@/lib/trips/localTripDrafts";
 import { useCityRankings, useCurrentFilters, useRankedItems } from "@/contexts/MapDataContext";
+
+// Persists the localTripId so re-planning the same shortlist continues ONE
+// trip draft rather than spawning a new one each click.
+const SHORTLIST_DRAFT_KEY = "explore.shortlist.draftId";
+
+/** Build a planner tripState from the shortlist + active dates (Phase 3 spine). */
+function buildTripStateFromShortlist(items, destinations, start, end) {
+  const byId = new Map((destinations || []).map((d) => [d.id || d.title, d]));
+  const cities = items.map((it, i) => {
+    const d = byId.get(it.id || it.title) || {};
+    return {
+      id: it.id || (it.title || "").toLowerCase().replace(/\s+/g, "-"),
+      name: it.title || d.title || "",
+      country: it.country || d.country || null,
+      latitude: d.latitude ?? null,
+      longitude: d.longitude ?? null,
+      role: i === 0 ? "start" : i === items.length - 1 ? "end" : "stop",
+      order: i,
+      nights: null,
+    };
+  });
+  return {
+    route: { cities, routeShape: cities.length > 1 ? "one-way" : null },
+    dates: { startDate: start || null, endDate: end || null },
+  };
+}
 
 const LazyMapComponentWrapper = dynamic(
   () => import("@/components/map/LazyMapComponent"),
@@ -50,6 +78,25 @@ export default function ExploreMap({ destinations, initialStart = null, initialE
   // Phase 5: shortlist is the bridge from Explore → /plan. The hook is
   // localStorage-only (no auth coupling) per the plan decision.
   const shortlist = useShortlist();
+  const router = useRouter();
+
+  // Phase 3 spine: turn the shortlist + dates into a persisted trip draft and
+  // open the planner ON that draft (?localTripId), so discovery and planning
+  // are one object the planner continues and Saved Trips shows — instead of a
+  // throwaway ?cities= handoff. Idempotent via the stored draft id.
+  const handleStartPlanning = useCallback(() => {
+    const items = shortlist.items;
+    if (!items.length) {
+      router.push("/plan");
+      return;
+    }
+    const tripState = buildTripStateFromShortlist(items, destinations, tripStart, tripEnd);
+    let existingId = null;
+    try { existingId = window.localStorage.getItem(SHORTLIST_DRAFT_KEY); } catch { /* ignore */ }
+    const draft = upsertLocalTripDraft({ id: existingId || undefined, tripState });
+    try { window.localStorage.setItem(SHORTLIST_DRAFT_KEY, draft.id); } catch { /* ignore */ }
+    router.push(`/plan?localTripId=${encodeURIComponent(draft.id)}`);
+  }, [shortlist.items, destinations, tripStart, tripEnd, router]);
 
   const handleMarkerClick = (city) => {
     setSelectedCity(city);
@@ -126,8 +173,7 @@ export default function ExploreMap({ destinations, initialStart = null, initialE
           items={shortlist.items}
           onRemove={shortlist.remove}
           onClear={shortlist.clear}
-          startDate={tripStart}
-          endDate={tripEnd}
+          onStartPlanning={handleStartPlanning}
           liftAboveCard={Boolean(selectedCity)}
         />
       )}
