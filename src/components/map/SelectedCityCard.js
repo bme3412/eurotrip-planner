@@ -20,7 +20,7 @@ import Link from "next/link";
  * (lovely-baking-piglet.md) calls for a single React-owned card; the
  * HTML popup path stays in `mapPopup.js` for fallback / future reuse.
  */
-function SelectedCityCard({ city, ranking = null, onClose, onAddToShortlist, alreadyShortlisted = false }) {
+function SelectedCityCard({ city, ranking = null, startDate = null, endDate = null, onClose, onAddToShortlist, alreadyShortlisted = false }) {
   // Resolve a hero image. Server-side data carries `thumbnail` like
   // `/images/cities/{Country}/{slug}/thumbnail.jpeg`; if it's missing,
   // derive the same path from country + id as a best-effort fallback.
@@ -38,9 +38,14 @@ function SelectedCityCard({ city, ranking = null, onClose, onAddToShortlist, alr
     (city.title ? city.title.toLowerCase().replace(/\s+/g, "-") : "");
 
   const guideHref = slug ? `/city-guides/${slug}` : "/city-guides";
-  const planHref = `/plan?city=${encodeURIComponent(slug)}&cityName=${encodeURIComponent(
-    city.title || ""
-  )}`;
+  const planHref = (() => {
+    const params = new URLSearchParams();
+    params.set("city", slug);
+    params.set("cityName", city.title || "");
+    if (startDate) params.set("startDate", startDate);
+    if (endDate) params.set("endDate", endDate);
+    return `/plan?${params.toString()}`;
+  })();
 
   return (
     <div

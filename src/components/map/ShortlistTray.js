@@ -17,12 +17,16 @@ import Link from "next/link";
  * overlap on desktop. On mobile (phase 6) this will become a true
  * bottom-sheet; for now it gracefully wraps.
  */
-function ShortlistTray({ items, onRemove, onClear, liftAboveCard = false }) {
+function ShortlistTray({ items, onRemove, onClear, startDate = null, endDate = null, liftAboveCard = false }) {
   const planHref = useMemo(() => {
     const ids = items.map((it) => it.id).filter(Boolean);
     if (ids.length === 0) return "/plan";
-    return `/plan?cities=${ids.map((id) => encodeURIComponent(id)).join(",")}`;
-  }, [items]);
+    const params = new URLSearchParams();
+    params.set("cities", ids.join(","));
+    if (startDate) params.set("startDate", startDate);
+    if (endDate) params.set("endDate", endDate);
+    return `/plan?${params.toString()}`;
+  }, [items, startDate, endDate]);
 
   if (!items || items.length === 0) return null;
 

@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import SelectedCityCard from "@/components/map/SelectedCityCard";
 import ShortlistTray from "@/components/map/ShortlistTray";
 import useShortlist from "@/hooks/useShortlist";
-import { useCityRankings } from "@/contexts/MapDataContext";
+import { useCityRankings, useCurrentFilters } from "@/contexts/MapDataContext";
 
 const LazyMapComponentWrapper = dynamic(
   () => import("@/components/map/LazyMapComponent"),
@@ -27,6 +27,12 @@ export default function ExploreMap({ destinations, initialStart = null, initialE
   // Rich V4 ranking per city for the active dates — used to show "why" on the
   // selected-city card. Keyed by city id.
   const cityRankings = useCityRankings();
+  // Active trip dates (user-changed filters win over the URL hand-off) so every
+  // hand-off to /plan carries the dates — the date-ranked intent shouldn't die
+  // when the user moves from discovery to planning.
+  const [currentFilters] = useCurrentFilters();
+  const tripStart = currentFilters?.startDate || initialStart || null;
+  const tripEnd = currentFilters?.endDate || initialEnd || null;
   const [viewState, setViewState] = useState({
     longitude: 10,
     latitude: 50,
@@ -79,6 +85,8 @@ export default function ExploreMap({ destinations, initialStart = null, initialE
         <SelectedCityCard
           city={selectedCity}
           ranking={cityRankings?.[selectedCity.id] || null}
+          startDate={tripStart}
+          endDate={tripEnd}
           onClose={() => setSelectedCity(null)}
           onAddToShortlist={
             addHandlerForCard ? () => addHandlerForCard(selectedCity) : null
@@ -94,6 +102,8 @@ export default function ExploreMap({ destinations, initialStart = null, initialE
         items={shortlist.items}
         onRemove={shortlist.remove}
         onClear={shortlist.clear}
+        startDate={tripStart}
+        endDate={tripEnd}
         liftAboveCard={Boolean(selectedCity)}
       />
     </div>
