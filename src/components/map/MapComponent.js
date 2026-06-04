@@ -14,7 +14,8 @@ import {
   centerPopupInView,
   buildCitiesGeoJSON,
   addCitiesSourceAndLayers,
-  setCitiesData
+  setCitiesData,
+  applyRankedPaint
 } from './mapService';
 import { FilterToggleButton } from './FilterComponents';
 import FilterContainer from './FilterContainer';
@@ -88,6 +89,9 @@ function MapComponent({
   // and a "layers ready" flag so source-updating effects can wait for `load`.
   const cityByIdRef = useRef(new Map());
   const layersReadyRef = useRef(false);
+  // State mirror of layersReadyRef so data/paint effects re-run once the map's
+  // source layers exist (the precomputed ranking can resolve before map load).
+  const [layersReady, setLayersReady] = useState(false);
   // Latest click handler is parked in a ref so the once-bound Mapbox
   // event listener always invokes the freshest closure.
   const featureClickHandlerRef = useRef(null);
@@ -165,13 +169,14 @@ function MapComponent({
             // Build the source from the full destination list (filtering is
             // expressed by replacing the source data later, not by removing
             // and recreating layers).
-            const initialGeoJSON = buildCitiesGeoJSON(destinations);
+            const initialGeoJSON = buildCitiesGeoJSON(destinations, cityRankings);
             // Maintain a lookup so feature clicks can resolve the full city.
             cityByIdRef.current = new Map(
               destinations.map((c) => [c.id || c.title, c])
             );
             addCitiesSourceAndLayers(map, initialGeoJSON);
             layersReadyRef.current = true;
+            setLayersReady(true);
 
             // Pointer cursor over the city dots.
             map.on('mouseenter', 'unclustered-point', () => {
@@ -384,7 +389,16 @@ function MapComponent({
   useEffect(() => {
     if (!mapInstance.current || !mapboxGLRef.current) return;
     updateMarkersRef.current?.();
-  }, [filteredDestinations]);
+  }, [filteredDestinations, cityRankings, layersReady]);
+
+  // Repaint markers by band whenever the ranking set changes (or once the
+  // layers exist): band color + size + dimmed unranked when dates are active,
+  // neutral country dots when not.
+  useEffect(() => {
+    const map = mapInstance.current;
+    if (!map || !layersReady) return;
+    applyRankedPaint(map, Object.keys(cityRankings).length > 0);
+  }, [cityRankings, layersReady]);
 
   /**
    * Update markers on the map.
@@ -408,7 +422,7 @@ function MapComponent({
 
     if (MAP_USE_CLUSTERS) {
       if (!layersReadyRef.current) return; // load handler will sync once layers are ready
-      setCitiesData(mapInstance.current, buildCitiesGeoJSON(citiesToShow));
+      setCitiesData(mapInstance.current, buildCitiesGeoJSON(citiesToShow, cityRankings));
       return;
     }
 
@@ -449,7 +463,7 @@ function MapComponent({
     // for emergency rollback, in which case React will get a slightly
     // older handler — non-fatal.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filteredDestinations, destinations]);
+  }, [filteredDestinations, destinations, cityRankings]);
 
   // Keep the marker-sync ref pointed at the latest updateMarkers.
   useEffect(() => {

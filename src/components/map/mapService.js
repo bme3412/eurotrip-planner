@@ -14,7 +14,10 @@ export const initializeMap = async (container, viewState, onViewStateChange) => 
       
       const map = new mapboxgl.Map({
         container,
-        style: 'mapbox://styles/mapbox/outdoors-v12',
+        // Calm, muted basemap so the ranked markers are the focal point (the
+        // old outdoors-v12 was a busy topographic map whose town/POI labels
+        // fought the markers). light-v11 matches the itinerary map's style.
+        style: 'mapbox://styles/mapbox/light-v11',
         center: [viewState.longitude, viewState.latitude],
         zoom: viewState.zoom,
         pitch: viewState.pitch,
@@ -60,8 +63,8 @@ export const initializeMap = async (container, viewState, onViewStateChange) => 
             'line-cap': 'round'
           },
           paint: {
-            'line-color': '#888',
-            'line-width': 1
+            'line-color': '#d4dae2',
+            'line-width': 0.6
           }
         });
         
@@ -194,32 +197,49 @@ export const initializeMap = async (container, viewState, onViewStateChange) => 
 
   /**
    * Build a GeoJSON FeatureCollection from the destinations array.
-   * Each feature carries enough properties for cluster styling
-   * and downstream lookups.
+   * Each feature carries enough properties for marker styling and downstream
+   * lookups, including the V4 ranking for the active dates (`cityRankings`,
+   * keyed by city id) so markers can be painted by band — see applyRankedPaint.
    * @param {Array<Object>} cities
+   * @param {Object} [cityRankings] - id -> { score, rank, tier, band }
    * @returns {Object} GeoJSON FeatureCollection
    */
-  export const buildCitiesGeoJSON = (cities) => ({
+  export const buildCitiesGeoJSON = (cities, cityRankings = {}) => ({
     type: 'FeatureCollection',
     features: (cities || [])
       .filter((c) => Number.isFinite(c.longitude) && Number.isFinite(c.latitude))
-      .map((c) => ({
-        type: 'Feature',
-        id: c.id || c.title,
-        geometry: {
-          type: 'Point',
-          coordinates: [c.longitude, c.latitude],
-        },
-        properties: {
-          id: c.id || c.title,
-          title: c.title,
-          country: c.country,
-          isCapital: isCapitalLike(c),
-          isMajor: MAJOR_CITIES.includes(c.title),
-          rating: 0,
-        },
-      })),
+      .map((c) => {
+        const key = c.id || c.title;
+        const r = cityRankings[key];
+        return {
+          type: 'Feature',
+          id: key,
+          geometry: {
+            type: 'Point',
+            coordinates: [c.longitude, c.latitude],
+          },
+          properties: {
+            id: key,
+            title: c.title,
+            country: c.country,
+            isCapital: isCapitalLike(c),
+            isMajor: MAJOR_CITIES.includes(c.title),
+            ranked: Boolean(r),
+            score: r?.score ?? 0,
+            rank: r?.rank ?? 0,
+          },
+        };
+      }),
   });
+
+  // Qualitative band colors (must match src/lib/scoring/qualitative.js).
+  const BAND_COLORS = {
+    top: '#10b981',
+    great: '#34d399',
+    good: '#fbbf24',
+    fair: '#fb923c',
+    unranked: '#cbd5e1',
+  };
 
   /**
    * Build a Mapbox style expression that maps a feature's
@@ -270,6 +290,45 @@ export const initializeMap = async (container, viewState, onViewStateChange) => 
         'circle-stroke-color': '#ffffff',
       },
     });
+  };
+
+  /**
+   * Switch the marker paint between two modes:
+   *   - ranked: color/size/opacity driven by each city's V4 band+score for the
+   *     active dates; unranked cities are dimmed so the ranked set pops.
+   *   - neutral: the default country-colored dots (no dates selected).
+   * Called whenever the ranking set changes. Reads feature props set by
+   * buildCitiesGeoJSON, so the data must carry rankings for `hasRankings` mode.
+   * @param {Object} map
+   * @param {boolean} hasRankings
+   */
+  export const applyRankedPaint = (map, hasRankings) => {
+    if (!map || !map.getLayer('unclustered-point')) return;
+
+    if (hasRankings) {
+      map.setPaintProperty('unclustered-point', 'circle-color', [
+        'case', ['get', 'ranked'],
+        ['step', ['get', 'score'], BAND_COLORS.fair, 55, BAND_COLORS.good, 64, BAND_COLORS.great, 73, BAND_COLORS.top],
+        BAND_COLORS.unranked,
+      ]);
+      map.setPaintProperty('unclustered-point', 'circle-radius', [
+        'interpolate', ['linear'], ['zoom'],
+        3, ['case', ['>=', ['get', 'score'], 73], 5.5, ['get', 'ranked'], 4, 2.5],
+        6, ['case', ['>=', ['get', 'score'], 73], 8, ['get', 'ranked'], 6, 3.5],
+        10, ['case', ['>=', ['get', 'score'], 73], 12, ['get', 'ranked'], 9, 5],
+      ]);
+      map.setPaintProperty('unclustered-point', 'circle-opacity', ['case', ['get', 'ranked'], 1, 0.4]);
+      map.setPaintProperty('unclustered-point', 'circle-stroke-width', ['case', ['get', 'ranked'], 1.5, 0.5]);
+    } else {
+      map.setPaintProperty('unclustered-point', 'circle-color', buildCountryColorExpression());
+      map.setPaintProperty('unclustered-point', 'circle-radius', [
+        'interpolate', ['linear'], ['zoom'],
+        3, ['case', ['any', ['get', 'isCapital'], ['get', 'isMajor']], 4, 3],
+        8, ['case', ['any', ['get', 'isCapital'], ['get', 'isMajor']], 8, 6],
+      ]);
+      map.setPaintProperty('unclustered-point', 'circle-opacity', 1);
+      map.setPaintProperty('unclustered-point', 'circle-stroke-width', 2);
+    }
   };
 
   /**
