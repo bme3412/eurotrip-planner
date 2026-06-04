@@ -14,10 +14,9 @@ export const initializeMap = async (container, viewState, onViewStateChange) => 
       
       const map = new mapboxgl.Map({
         container,
-        // Calm, muted basemap so the ranked markers are the focal point (the
-        // old outdoors-v12 was a busy topographic map whose town/POI labels
-        // fought the markers). light-v11 matches the itinerary map's style.
-        style: 'mapbox://styles/mapbox/light-v11',
+        // Colored basemap, consistent with every other map in the app
+        // (city guides, airport, itinerary all use streets-v12).
+        style: 'mapbox://styles/mapbox/streets-v12',
         center: [viewState.longitude, viewState.latitude],
         zoom: viewState.zoom,
         pitch: viewState.pitch,
@@ -288,6 +287,39 @@ export const initializeMap = async (container, viewState, onViewStateChange) => 
         ],
         'circle-stroke-width': 2,
         'circle-stroke-color': '#ffffff',
+      },
+    });
+
+    // City-name labels make the markers informative. They only show for ranked
+    // cities (top picks at any zoom, the rest as you zoom in); Mapbox's symbol
+    // collision keeps them from overlapping. A white halo keeps them legible
+    // over the colored basemap.
+    map.addLayer({
+      id: 'city-labels',
+      type: 'symbol',
+      source: 'cities',
+      layout: {
+        'text-field': ['get', 'title'],
+        'text-font': ['DIN Pro Medium', 'Arial Unicode MS Regular'],
+        'text-size': ['interpolate', ['linear'], ['zoom'], 3, 10, 8, 13],
+        'text-anchor': 'top',
+        'text-offset': [0, 0.7],
+        'text-allow-overlap': false,
+        'text-optional': true,
+      },
+      paint: {
+        'text-color': '#1f2937',
+        'text-halo-color': '#ffffff',
+        'text-halo-width': 1.5,
+        // Label ranked cities only: top picks from the start, the rest from
+        // zoom ~5.5+ so the low-zoom view isn't cluttered. The zoom interpolate
+        // must be the top-level expression (Mapbox rule), so the ranked/score
+        // gating lives in each stop's output.
+        'text-opacity': [
+          'interpolate', ['linear'], ['zoom'],
+          3, ['case', ['all', ['get', 'ranked'], ['>=', ['get', 'score'], 73]], 1, 0],
+          5.5, ['case', ['get', 'ranked'], 1, 0],
+        ],
       },
     });
   };

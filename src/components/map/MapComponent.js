@@ -361,6 +361,7 @@ function MapComponent({
               whyExpanded: item.whyExpanded || null,
               weather: item.weather || null,
               crowdLevel: item.crowdLevel || null,
+              image: item.image || null,
               rank: index + 1,
             };
           }

@@ -92,8 +92,20 @@ const RankedListPanel = ({ items = [], dateRange = null, highlightId = null, onC
                       }`}
                       style={{ borderLeftColor: band?.color || '#cbd5e1' }}
                     >
-                      <span className="mt-0.5 text-xs font-bold text-gray-400 w-5 text-right flex-shrink-0">
+                      <span className="mt-2 text-xs font-bold text-gray-400 w-4 text-right flex-shrink-0">
                         {dest.rank}
+                      </span>
+                      <span className="relative h-11 w-11 flex-shrink-0 overflow-hidden rounded-md bg-slate-100">
+                        {dest.image && (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={dest.image}
+                            alt=""
+                            loading="lazy"
+                            className="h-full w-full object-cover"
+                            onError={(e) => { e.currentTarget.style.visibility = 'hidden'; }}
+                          />
+                        )}
                       </span>
                       <span className="min-w-0 flex-1">
                         <span className="font-semibold text-sm text-gray-900 truncate block">{dest.title}</span>
