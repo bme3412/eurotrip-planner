@@ -668,6 +668,10 @@ export class ScoreEngine {
     includeDebug = false,
     flatList = false,
     useLLM = true,
+    // Cap how many of the returned cities get LLM prose. Lets callers persist a
+    // large corpus (limit) while keeping LLM cost bounded to the top N
+    // (describeLimit); the rest keep their template whyExpanded. Null = all.
+    describeLimit = null,
   }) {
     // Store date range for tier label generation
     this.currentStartDate = startDate;
@@ -720,8 +724,9 @@ export class ScoreEngine {
       // back silently to the template `whyExpanded` when no API key / on error.
       if (useLLM) {
         try {
+          const describeCount = describeLimit != null ? Math.min(describeLimit, flat.length) : flat.length;
           const cities = [];
-          for (const r of flat) {
+          for (const r of flat.slice(0, describeCount)) {
             const raw = rawResults.find((x) => x.result.cityId === r.cityId);
             if (raw) cities.push({ ...raw.result, cityData: raw.cityData });
           }

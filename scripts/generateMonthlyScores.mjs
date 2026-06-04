@@ -12,8 +12,23 @@
 
 import fs from 'fs';
 import path from 'path';
+import dotenv from 'dotenv';
+
+// Load .env.local so LLM prose (ANTHROPIC_API_KEY) works on local regens.
+// No-ops in CI / when the file is absent; generateDescriptions falls back to
+// the template whyExpanded without a key.
+dotenv.config({ path: '.env.local' });
 
 const ROOT = process.cwd();
+
+// Score-driven tier labels (membership comes from the engine's config
+// thresholds 73/64/55, not bucket caps — so the bands actually discriminate).
+const TIER_META = {
+  1: { label: 'Top picks', sublabel: 'Best matches for these dates' },
+  2: { label: 'Great options', sublabel: 'Strong choices for these dates' },
+  3: { label: 'Good options', sublabel: 'Solid if the top picks are booked' },
+  4: { label: 'Worth considering', sublabel: 'A lower match for these dates' },
+};
 const DATA_DIR = path.join(ROOT, 'public', 'data');
 const OUT_DIR = path.join(ROOT, 'src', 'generated');
 
@@ -114,53 +129,55 @@ async function generateMonthlyScores() {
     console.log(`   📅 ${monthName.charAt(0).toUpperCase() + monthName.slice(1)} ${year}...`);
 
     try {
-      // Score all cities for this month. LLM descriptions are baked in here (one
-      // call per month, ~12 total at build) so the /results page can serve
-      // precomputed scores instantly WITH good prose and no per-request LLM.
-      // generateDescriptions no-ops gracefully when ANTHROPIC_API_KEY is absent,
-      // falling back to the template whyExpanded.
-      const results = await engine.scoreCitiesForAPI({
+      // Score the FULL corpus (not a top-50 slice) so the precomputed file can
+      // discriminate honestly: tier membership is score-driven (config
+      // thresholds 73/64/55 via formatForAPI), not bucket caps. LLM prose is
+      // bounded to the top `describeLimit` cities to keep build cost flat (~one
+      // batched call per month); the rest keep the template whyExpanded.
+      const flat = await engine.scoreCitiesForAPI({
         cityIds,
         startDate,
         endDate,
         originCity: null,
         getCityData: (cityId) => loadCityData(manifest, cityId),
-        limit: 50, // Top 50 cities per month
+        limit: cityIds.length, // persist every scored city
+        describeLimit: 40,     // ...but only LLM-write prose for the top 40
         includeDebug: false,
-        flatList: false,
+        flatList: true,        // score-sorted flat list with config-thresholded tiers
         useLLM: true,
       });
 
-      // Extract tier labels and top cities
+      // Bucket the flat, score-sorted list into tiers by each city's
+      // threshold-derived `tier`. Same file shape as before (tiers.tier1..4),
+      // so the /results page and the Explore map consume it unchanged — but now
+      // with the full corpus and tiers that actually mean something.
       const tiers = {};
       let totalCities = 0;
 
-      for (const [tierKey, tierData] of Object.entries(results)) {
-        if (tierKey === '_meta') continue;
-
-        tiers[tierKey] = {
-          label: tierData.label,
-          sublabel: tierData.sublabel,
-          // Include simplified city data (no debug info)
-          cities: tierData.cities.map(city => ({
-            id: city.id,
-            cityId: city.cityId,
-            title: city.title,
-            country: city.country,
-            region: city.region,           // Region filter
-            coordinates: city.coordinates, // real per-city daylight
-            tier: city.tier,
-            score: city.score,             // client-side "Best match" sort
-            weather: city.weather,
-            crowdLevel: city.crowdLevel,
-            highlights: city.highlights,   // event chip on the row
-            why: city.why,
-            whyExpanded: city.whyExpanded,
-            tags: city.tags,
-            image: city.image,
-          })),
-        };
-        totalCities += tierData.cities.length;
+      for (const city of flat) {
+        const t = Number(city.tier) || 4;
+        const tierKey = `tier${t}`;
+        if (!tiers[tierKey]) {
+          tiers[tierKey] = { label: TIER_META[t].label, sublabel: TIER_META[t].sublabel, cities: [] };
+        }
+        tiers[tierKey].cities.push({
+          id: city.id,
+          cityId: city.cityId,
+          title: city.title,
+          country: city.country,
+          region: city.region,           // Region filter
+          coordinates: city.coordinates, // real per-city daylight
+          tier: city.tier,
+          score: city.score,             // client-side "Best match" sort
+          weather: city.weather,
+          crowdLevel: city.crowdLevel,
+          highlights: city.highlights,   // event chip on the row
+          why: city.why,
+          whyExpanded: city.whyExpanded,
+          tags: city.tags,
+          image: city.image,
+        });
+        totalCities += 1;
       }
 
       monthlyScores[monthName] = {
