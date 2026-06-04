@@ -333,6 +333,7 @@ function MapComponent({
       ratingFetchEpochRef.current += 1;
       actions.setCityRatings({});
       actions.setCityRankings({});
+      actions.setRankedItems([]);
       return;
     }
 
@@ -382,6 +383,7 @@ function MapComponent({
         });
         actions.setCityRatings(ratings);
         actions.setCityRankings(rankings);
+        actions.setRankedItems(items);
       } catch (error) {
         console.error('Failed to load ranked suggestions:', error);
       } finally {

@@ -24,6 +24,8 @@ export default async function ExplorePage({ searchParams }) {
   const sp = (await searchParams) || {};
   const initialStart = sp.mode === "dates" && sp.start ? String(sp.start) : null;
   const initialEnd = sp.mode === "dates" && sp.end ? String(sp.end) : null;
+  // ?view=list lands on the Discover list view (e.g. redirected from /results).
+  const initialView = sp.view === "list" ? "list" : "map";
 
   return (
     <div className="h-screen w-full flex flex-col">
@@ -32,6 +34,7 @@ export default async function ExplorePage({ searchParams }) {
           destinations={destinations}
           initialStart={initialStart}
           initialEnd={initialEnd}
+          initialView={initialView}
         />
       </main>
     </div>

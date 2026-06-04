@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import SelectedCityCard from "@/components/map/SelectedCityCard";
 import ShortlistTray from "@/components/map/ShortlistTray";
+import ResultsGrid from "@/components/ResultsGrid";
 import useShortlist from "@/hooks/useShortlist";
-import { useCityRankings, useCurrentFilters } from "@/contexts/MapDataContext";
+import { useCityRankings, useCurrentFilters, useRankedItems } from "@/contexts/MapDataContext";
 
 const LazyMapComponentWrapper = dynamic(
   () => import("@/components/map/LazyMapComponent"),
@@ -22,11 +23,16 @@ const LazyMapComponentWrapper = dynamic(
   }
 );
 
-export default function ExploreMap({ destinations, initialStart = null, initialEnd = null }) {
+export default function ExploreMap({ destinations, initialStart = null, initialEnd = null, initialView = "map" }) {
   const [selectedCity, setSelectedCity] = useState(null);
+  // Discover surface view: the map and the ranked list are two presentations of
+  // the same V4 ranking. (Replaces the separate /results scoreboard page.)
+  const [view, setView] = useState(initialView === "list" ? "list" : "map");
   // Rich V4 ranking per city for the active dates — used to show "why" on the
   // selected-city card. Keyed by city id.
   const cityRankings = useCityRankings();
+  // Raw flat ranked items for the List view (same data driving the map).
+  const rankedItems = useRankedItems();
   // Active trip dates (user-changed filters win over the URL hand-off) so every
   // hand-off to /plan carries the dates — the date-ranked intent shouldn't die
   // when the user moves from discovery to planning.
@@ -81,7 +87,27 @@ export default function ExploreMap({ destinations, initialStart = null, initialE
         suppressHtmlPopup
       />
 
-      {selectedCity && (
+      {/* Map ↔ List toggle — both views render the same V4 ranking. */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-40">
+        <div className="inline-flex rounded-full bg-white/95 p-1 shadow-md ring-1 ring-slate-200">
+          {["map", "list"].map((v) => (
+            <button
+              key={v}
+              type="button"
+              onClick={() => setView(v)}
+              aria-pressed={view === v}
+              className={`rounded-full px-5 py-1.5 text-sm font-semibold capitalize transition-colors ${
+                view === v ? "bg-blue-600 text-white shadow-sm" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              {v}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Map-only chrome: the selected-city card + shortlist tray. */}
+      {view === "map" && selectedCity && (
         <SelectedCityCard
           city={selectedCity}
           ranking={cityRankings?.[selectedCity.id] || null}
@@ -95,17 +121,43 @@ export default function ExploreMap({ destinations, initialStart = null, initialE
         />
       )}
 
-      {/* Phase 6: on mobile the tray needs to lift above the
-          SelectedCityCard (which docks to bottom: 0). On desktop the
-          card is a corner card and the tray uses its default bottom-4. */}
-      <ShortlistTray
-        items={shortlist.items}
-        onRemove={shortlist.remove}
-        onClear={shortlist.clear}
-        startDate={tripStart}
-        endDate={tripEnd}
-        liftAboveCard={Boolean(selectedCity)}
-      />
+      {view === "map" && (
+        <ShortlistTray
+          items={shortlist.items}
+          onRemove={shortlist.remove}
+          onClear={shortlist.clear}
+          startDate={tripStart}
+          endDate={tripEnd}
+          liftAboveCard={Boolean(selectedCity)}
+        />
+      )}
+
+      {/* List view — the ranked scoreboard (ResultsGrid), overlaid on the still-
+          mounted map (which keeps fetching/painting underneath). */}
+      {view === "list" && (
+        <div className="absolute inset-0 z-30 overflow-y-auto bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-50">
+          <div className="mx-auto w-full max-w-5xl px-4 md:px-6 pt-20 pb-12">
+            {rankedItems.length > 0 ? (
+              <ResultsGrid
+                results={rankedItems}
+                dates={tripStart && tripEnd ? { start: tripStart, end: tripEnd } : null}
+                onChangeDates={() => setView("map")}
+              />
+            ) : (
+              <div className="py-24 text-center text-slate-500">
+                <p className="text-lg font-medium">Pick your travel dates to rank cities.</p>
+                <button
+                  type="button"
+                  onClick={() => setView("map")}
+                  className="mt-4 rounded-full bg-blue-600 px-5 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+                >
+                  Back to the map
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

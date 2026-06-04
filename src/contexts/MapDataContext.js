@@ -7,6 +7,7 @@ import performanceMonitor from '@/lib/performance';
 const ACTIONS = {
   SET_CITY_RATINGS: 'SET_CITY_RATINGS',
   SET_CITY_RANKINGS: 'SET_CITY_RANKINGS',
+  SET_RANKED_ITEMS: 'SET_RANKED_ITEMS',
   SET_CALENDAR_DATA: 'SET_CALENDAR_DATA',
   SET_CITY_DETAILS: 'SET_CITY_DETAILS',
   SET_FILTERS: 'SET_FILTERS',
@@ -20,6 +21,9 @@ const initialState = {
   // Rich V4 ranking per city (id -> { score, band, tier, why, weather, ... }).
   // Replaced wholesale on each date-range fetch so stale picks never linger.
   cityRankings: {},
+  // Raw flat ranked items from /api/suggestions, for the Discover "List" view
+  // (ResultsGrid consumes this exact shape). Replaced on each fetch.
+  rankedItems: [],
   calendarData: {},
   cityDetails: {},
   currentFilters: {
@@ -66,6 +70,12 @@ function mapDataReducer(state, action) {
       return {
         ...state,
         cityRankings: action.payload || {}
+      };
+
+    case ACTIONS.SET_RANKED_ITEMS:
+      return {
+        ...state,
+        rankedItems: Array.isArray(action.payload) ? action.payload : []
       };
 
     case ACTIONS.SET_CALENDAR_DATA:
@@ -256,6 +266,9 @@ export function MapDataProvider({ children }) {
     setCityRankings: (rankings) =>
       dispatch({ type: ACTIONS.SET_CITY_RANKINGS, payload: rankings }),
 
+    setRankedItems: (items) =>
+      dispatch({ type: ACTIONS.SET_RANKED_ITEMS, payload: items }),
+
     setCalendarData: (key, data) =>
       dispatch({ type: ACTIONS.SET_CALENDAR_DATA, payload: { key, data } }),
 
@@ -316,6 +329,11 @@ export function useCityRatings() {
 export function useCityRankings() {
   const { state } = useMapData();
   return state.cityRankings;
+}
+
+export function useRankedItems() {
+  const { state } = useMapData();
+  return state.rankedItems;
 }
 
 export function useCalendarData() {
