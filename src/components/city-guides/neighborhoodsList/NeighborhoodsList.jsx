@@ -9,6 +9,7 @@ import NeighborhoodDetailModal from './components/NeighborhoodDetailModal.jsx';
 import SpotlightCard from './components/SpotlightCard.jsx';
 import useNeighborhoodFilters from './hooks/useNeighborhoodFilters.js';
 import { EDITORS_PICKS, NEIGHBORHOOD_SORTS, PERSONAS } from './lib/constants.js';
+import { titleCaseFromSlug } from '@/lib/text';
 
 /**
  * Orchestrator for the "Neighborhoods" tab of a city guide.
@@ -65,7 +66,7 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Explore {cityName} Neighborhoods</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Explore {titleCaseFromSlug(cityName)} Neighborhoods</h1>
           <p className="text-sm text-gray-600 mt-1">{filteredNeighborhoods.length} neighborhoods to discover</p>
         </div>
 

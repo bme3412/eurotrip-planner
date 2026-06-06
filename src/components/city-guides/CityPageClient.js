@@ -520,7 +520,7 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
               monthlyData={memoizedData.safeMonthlyEvents}
               monthlyDataLoading={monthlyDataLoading}
               monthlyDataError={monthlyDataError}
-              hideCalendarIntroHero={cityName?.toLowerCase() === 'paris'}
+              hideCalendarIntroHero
             />
           </Suspense>
         );
@@ -647,12 +647,10 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
       <Hero
         cityName={cityName && typeof cityName === 'string' ? cityName.toLowerCase() : undefined}
         country={cityData?.country}
-        backgroundImageSrc={isParis ? '/images/city-page/France/paris-montmartre-hero-2x.jpeg' : undefined}
         backgroundAlt={`${cityData?.displayName || cityName || 'City'} cityscape`}
         heightClass="min-h-[430px] lg:min-h-[520px]"
-        imagePositionClass={isParis ? 'object-[62%_35%]' : 'object-center md:object-[62%_50%]'}
-        darkOverlayOpacity={isParis ? 'bg-black/25' : 'bg-black/35'}
-        showImageOverlays={!isParis}
+        imagePositionClass="object-center md:object-[62%_50%]"
+        darkOverlayOpacity="bg-black/35"
         eyebrow={`${displayName} city guide`}
         title={getCityDisplayName(cityData, cityName) || cityName || 'City'}
         subtitle={heroSubtitle}

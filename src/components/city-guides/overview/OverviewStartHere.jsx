@@ -30,7 +30,9 @@ export default function OverviewStartHere({
 }) {
   const displayName = getCityDisplayName({ overview }, cityName);
   const nickname = getCityNickname({ overview });
-  const brief = overview?.brief_description || '';
+  // The page hero already shows brief_description, so the Start-here card leads
+  // with the why-visit synthesis instead — distinct copy, no repetition.
+  const lead = overview?.why_visit?.intro || overview?.brief_description || '';
   const sectionTitles = Array.isArray(overview?.sections)
     ? overview.sections.map((s) => s?.title).filter(Boolean)
     : [];
@@ -71,9 +73,9 @@ export default function OverviewStartHere({
         <h2 className="mt-1 text-2xl md:text-3xl font-bold tracking-tight text-slate-900">
           {displayName}{nickname ? <span className="text-slate-400 font-semibold"> — {nickname}</span> : null}
         </h2>
-        {brief && (
+        {lead && (
           <p className="mt-3 max-w-[70ch] text-[15.5px] md:text-base leading-7 text-slate-700">
-            {brief}
+            {lead}
           </p>
         )}
         {sectionTitles.length > 0 && (
@@ -103,11 +105,9 @@ export default function OverviewStartHere({
           <h3 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900">
             Why visit {displayName}
           </h3>
-          {overview?.why_visit?.intro && (
-            <p className="mt-1.5 max-w-[68ch] text-sm md:text-[15px] leading-6 text-slate-600">
-              {overview.why_visit.intro}
-            </p>
-          )}
+          <p className="mt-1.5 max-w-[68ch] text-sm md:text-[15px] leading-6 text-slate-500">
+            The places and experiences that make {displayName} worth the trip.
+          </p>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {highlights.map((h) => (
               <div key={h.title} className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm">
