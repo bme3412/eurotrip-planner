@@ -14,7 +14,7 @@
 // A `key` with no matching heroPhotos.json entry is dropped from the rotation.
 
 export const CINEMATIC = [
-  { key: "paris", city: "Paris", query: "Eiffel Tower, Paris, France", pos: "50% 45%" },
+  { key: "paris", city: "Paris", query: "Eiffel Tower, Paris, France", pos: "50% 80%" },
   { key: "rome", city: "Rome", query: "Colosseum, Rome, Italy", pos: "50% 50%" },
   { key: "barcelona", city: "Barcelona", query: "Sagrada Família, Barcelona, Spain", pos: "50% 40%" },
   { key: "amalfi", city: "Amalfi Coast", query: "Positano, Amalfi Coast, Italy", pos: "50% 50%" },
