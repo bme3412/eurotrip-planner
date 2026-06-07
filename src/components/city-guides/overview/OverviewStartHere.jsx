@@ -33,11 +33,13 @@ export default function OverviewStartHere({
   // The page hero already shows brief_description, so the Start-here card leads
   // with the why-visit synthesis instead — distinct copy, no repetition.
   const lead = overview?.why_visit?.intro || overview?.brief_description || '';
-  const sectionTitles = Array.isArray(overview?.sections)
-    ? overview.sections.map((s) => s?.title).filter(Boolean)
-    : [];
   const highlights = overview?.why_visit?.highlights || [];
   const info = overview?.practical_info || {};
+
+  // "At a glance" facts — only fields that exist, kept short.
+  const idealStay = info.visit_duration || '2–3 days';
+  const bestTime = overview?.best_time_to_visit?.overall || '';
+  const population = formatPopulation(overview?.population);
 
   // Client-only "today" so the date-aware verdict can't mismatch SSR.
   const [today, setToday] = useState(null);
@@ -65,29 +67,37 @@ export default function OverviewStartHere({
 
   return (
     <div className="max-w-6xl mx-auto space-y-8">
-      {/* Intro synthesis */}
-      <section className="rounded-2xl border border-gray-100 bg-white p-6 md:p-8 shadow-sm">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-600">
-          Start here
-        </p>
-        <h2 className="mt-1 text-2xl md:text-3xl font-bold tracking-tight text-slate-900">
-          {displayName}{nickname ? <span className="text-slate-400 font-semibold"> — {nickname}</span> : null}
-        </h2>
-        {lead && (
-          <p className="mt-3 max-w-[70ch] text-[15.5px] md:text-base leading-7 text-slate-700">
-            {lead}
+      {/* Lede: intro synthesis (left) + at-a-glance facts (right) */}
+      <div className="grid gap-6 lg:grid-cols-5">
+        <section className="lg:col-span-3 rounded-2xl border border-gray-100 bg-white p-6 md:p-8 shadow-sm">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-600">
+            Start here
           </p>
+          <h2 className="mt-1 text-2xl md:text-3xl font-bold tracking-tight text-slate-900">
+            {displayName}{nickname ? <span className="text-slate-400 font-semibold"> — {nickname}</span> : null}
+          </h2>
+          {lead && (
+            <p className="mt-3 text-[15.5px] md:text-base leading-7 text-slate-700">
+              {lead}
+            </p>
+          )}
+        </section>
+
+        {(bestTime || info.language || info.currency || population) && (
+          <aside className="lg:col-span-2 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-600">
+              At a glance
+            </p>
+            <dl className="mt-3 divide-y divide-gray-100">
+              <GlanceRow label="Ideal stay" value={idealStay} />
+              <GlanceRow label="Best time" value={bestTime} />
+              <GlanceRow label="Language" value={info.language} />
+              <GlanceRow label="Currency" value={info.currency} />
+              <GlanceRow label="Population" value={population} />
+            </dl>
+          </aside>
         )}
-        {sectionTitles.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-2">
-            {sectionTitles.map((t) => (
-              <span key={t} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
-                {t}
-              </span>
-            ))}
-          </div>
-        )}
-      </section>
+      </div>
 
       {/* Date-aware "right now" synthesis */}
       <RightNowBlock
@@ -112,7 +122,7 @@ export default function OverviewStartHere({
             {highlights.map((h) => (
               <div key={h.title} className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm">
                 <h4 className="text-base font-semibold text-slate-900">{h.title}</h4>
-                <p className="mt-1.5 text-sm leading-6 text-slate-600">{h.content}</p>
+                <p className="mt-1.5 line-clamp-3 text-sm leading-6 text-slate-600">{h.content}</p>
               </div>
             ))}
           </div>
@@ -149,6 +159,29 @@ function Fact({ label, value }) {
     <div>
       <dt className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">{label}</dt>
       <dd className="mt-1 text-sm font-semibold text-slate-900">{value}</dd>
+    </div>
+  );
+}
+
+// Population may be a number, a string, or an object like {city, metro, unit}.
+// Always return a renderable string (never an object — React would throw).
+function formatPopulation(p) {
+  if (typeof p === 'number') return p.toLocaleString();
+  if (typeof p === 'string') return p;
+  if (p && typeof p === 'object') {
+    const v = p.city ?? p.metro ?? p.value ?? p.total;
+    if (v != null) return `${typeof v === 'number' ? v.toLocaleString() : v}${p.unit ? ` ${p.unit}` : ''}`;
+  }
+  return '';
+}
+
+// One label/value row in the "At a glance" panel; renders nothing without a value.
+function GlanceRow({ label, value }) {
+  if (!value) return null;
+  return (
+    <div className="py-2.5 first:pt-0 last:pb-0">
+      <dt className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">{label}</dt>
+      <dd className="mt-0.5 text-sm font-semibold leading-snug text-slate-900">{value}</dd>
     </div>
   );
 }
