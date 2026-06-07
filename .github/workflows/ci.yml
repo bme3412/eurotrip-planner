@@ -32,6 +32,9 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+      # suggestCitiesFallback.test.mjs reads src/generated/cities.json, which is
+      # a build artifact (gitignored). Generate it before the suite runs.
+      - run: npm run generate-cities
       - run: npm test
 
   validate:
