@@ -13,6 +13,7 @@ const TIME_OPTIONS = [
 const PRICE_OPTIONS = [
   ['all', 'All Prices'],
   ['free', 'Free'],
+  ['budget', 'Budget'],
   ['moderate', 'Moderate'],
   ['expensive', 'Expensive'],
 ];
@@ -25,7 +26,7 @@ const DURATION_OPTIONS = [
 ];
 
 const INDOOR_OPTIONS = [
-  ['all', 'All Locations'],
+  ['all', 'Indoor & Outdoor'],
   ['indoor', 'Indoor Only'],
   ['outdoor', 'Outdoor Only'],
 ];
@@ -35,6 +36,7 @@ const DEFAULT_FILTERS = {
   priceFilter: 'all',
   durationFilter: 'all',
   indoorFilter: 'all',
+  typeFilter: 'all',
 };
 
 /**
@@ -50,7 +52,9 @@ export default function SmartFiltersPanel({
   onSmartFiltersChange,
   collapsed,
   onToggleCollapsed,
+  typeOptions = [],
 }) {
+  const TYPE_OPTIONS = [['all', 'All Types'], ...typeOptions];
   const updateFilter = (key, value) => {
     onSmartFiltersChange({ ...smartFilters, [key]: value });
   };
@@ -86,6 +90,14 @@ export default function SmartFiltersPanel({
           </label>
         </div>
 
+        {TYPE_OPTIONS.length > 1 && (
+          <FilterSelect
+            label="Type"
+            value={smartFilters.typeFilter || 'all'}
+            options={TYPE_OPTIONS}
+            onChange={(v) => updateFilter('typeFilter', v)}
+          />
+        )}
         <FilterSelect
           label="Time"
           value={smartFilters.timeFilter}
@@ -105,7 +117,7 @@ export default function SmartFiltersPanel({
           onChange={(v) => updateFilter('durationFilter', v)}
         />
         <FilterSelect
-          label="Location"
+          label="Indoor / Outdoor"
           value={smartFilters.indoorFilter}
           options={INDOOR_OPTIONS}
           onChange={(v) => updateFilter('indoorFilter', v)}

@@ -1,9 +1,12 @@
 'use client';
 
-export const matchesTimeFilter = (attraction, filter, tzNow = new Date()) => {
+// `cityHour` is the current hour (0–23) in the CITY's timezone — pass it so
+// "Open Now" reflects local time, not the visitor's. Falls back to the
+// visitor's hour only when a city hour isn't available.
+export const matchesTimeFilter = (attraction, filter, cityHour) => {
   if (filter === 'all') return true;
   if (!attraction?.best_time) return filter === 'now';
-  const currentHour = tzNow.getHours();
+  const currentHour = typeof cityHour === 'number' ? cityHour : new Date().getHours();
   const best = String(attraction.best_time).toLowerCase();
   if (filter === 'now') {
     if (best.includes('morning') && currentHour >= 6 && currentHour < 12) return true;
@@ -34,13 +37,17 @@ export const matchesIndoorFilter = (attraction, filter) => {
   return Boolean(attraction?.indoor) === (filter === 'indoor');
 };
 
-export const matchesSmartFilters = (attraction, smartFilters) => {
-  return (
-    matchesTimeFilter(attraction, smartFilters.timeFilter) &&
-    matchesPriceFilter(attraction, smartFilters.priceFilter) &&
-    matchesDurationFilter(attraction, smartFilters.durationFilter) &&
-    matchesIndoorFilter(attraction, smartFilters.indoorFilter)
-  );
+export const matchesTypeFilter = (attraction, filter) => {
+  if (!filter || filter === 'all') return true;
+  return String(attraction?.type || attraction?.category || '').toLowerCase() === filter;
 };
 
-
+export const matchesSmartFilters = (attraction, smartFilters, cityHour) => {
+  return (
+    matchesTimeFilter(attraction, smartFilters.timeFilter, cityHour) &&
+    matchesPriceFilter(attraction, smartFilters.priceFilter) &&
+    matchesDurationFilter(attraction, smartFilters.durationFilter) &&
+    matchesIndoorFilter(attraction, smartFilters.indoorFilter) &&
+    matchesTypeFilter(attraction, smartFilters.typeFilter)
+  );
+};

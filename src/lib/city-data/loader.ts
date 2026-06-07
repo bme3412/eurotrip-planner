@@ -16,12 +16,19 @@ export type LoadOpts = {
   signal?: AbortSignal;
 };
 
+// City data changes when content is rebuilt, but the URLs are stable (no content
+// hash), so a `force-cache` fetch would pin a stale copy in the browser forever —
+// e.g. an edited visit-calendar never reaching a returning visitor. `no-cache`
+// revalidates (a cheap conditional request → 304 when unchanged, fresh bytes when
+// the file changed), so updates always show without refetching the body needlessly.
+const DEFAULT_DATA_CACHE: RequestCache = 'no-cache';
+
 /**
  * Fetch the consolidated /data/.../index.json for a city.
  */
 export async function getCityIndex<T = any>(citySlug: string, opts: LoadOpts = {}): Promise<T> {
   const url = sectionUrl(citySlug, 'index');
-  return fetchCityDataUrl<T>(url, { cache: opts.cache ?? 'force-cache' });
+  return fetchCityDataUrl<T>(url, { cache: opts.cache ?? DEFAULT_DATA_CACHE });
 }
 
 /**
@@ -47,14 +54,14 @@ export async function getCitySection<T = any>(
     // Phase A: section is inside index.json
     const idx = await fetchCityDataUrl<Record<string, any>>(
       sectionUrl(resolution, 'index'),
-      { cache: opts.cache ?? 'force-cache' }
+      { cache: opts.cache ?? DEFAULT_DATA_CACHE }
     );
     return (idx?.[key] ?? null) as T | null;
   }
 
   const url = sectionUrl(resolution, section, { month: opts.month });
   try {
-    return await fetchCityDataUrl<T>(url, { cache: opts.cache ?? 'force-cache' });
+    return await fetchCityDataUrl<T>(url, { cache: opts.cache ?? DEFAULT_DATA_CACHE });
   } catch (err) {
     // Phase A: not all cities have every prose/monthly file. Resolve null
     // rather than throw — components handle missing data with defaults.

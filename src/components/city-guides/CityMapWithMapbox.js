@@ -5,11 +5,11 @@ import {
   getStandardCategory,
   getCategoryColor,
   computeTopIconicList,
-  getMarkerSize,
 } from '@/components/map/helpers';
 import { matchesSmartFilters } from '@/components/map/filters';
 
-import { getPriorityColor } from './citymap/lib/priority';
+import { getPriorityColor, getMarkerScale } from './citymap/lib/priority';
+import { resolveTimeZone, cityHourIn, formatCityTime } from './citymap/lib/timezone';
 import { computeIconicAttractionNames } from './citymap/lib/iconic';
 import { getAttractionCoords } from './citymap/lib/coords';
 import {
@@ -18,7 +18,6 @@ import {
   applyUnselectedStyling,
 } from './citymap/dom/markerFactory';
 import {
-  buildAttractionPopupHtml,
   buildSelectedPopupHtml,
   setupExpandToggle,
 } from './citymap/dom/popupContent';
@@ -46,6 +45,7 @@ import MapStyles from './citymap/MapStyles';
 export default function CityMapWithMapbox({
   attractions = [],
   cityName = 'City',
+  country = '',
   center = [0, 0],
   zoom = 12,
   selectedAttraction = null,
@@ -66,7 +66,9 @@ export default function CityMapWithMapbox({
     priceFilter: 'all',
     durationFilter: 'all',
     indoorFilter: 'all',
+    typeFilter: 'all',
   });
+  const [cityHour, setCityHour] = useState(null);
   const [mapError, setMapError] = useState(null);
   const [categoriesProcessed, setCategoriesProcessed] = useState(false);
   const [filtersCollapsed, setFiltersCollapsed] = useState(false);
@@ -94,9 +96,21 @@ export default function CityMapWithMapbox({
   );
 
   const matchesSmartFiltersLocal = useCallback(
-    (attraction) => matchesSmartFilters(attraction, smartFilters),
-    [smartFilters],
+    (attraction) => matchesSmartFilters(attraction, smartFilters, cityHour),
+    [smartFilters, cityHour],
   );
+
+  // Distinct attraction types → options for the Type filter ([value, label]).
+  const typeOptions = useMemo(() => {
+    const seen = new Map();
+    for (const a of attractions) {
+      const label = (a?.type || a?.category || '').trim();
+      if (label) seen.set(label.toLowerCase(), label);
+    }
+    return [...seen.entries()]
+      .sort((a, b) => a[1].localeCompare(b[1]))
+      .map(([value, label]) => [value, label]);
+  }, [attractions]);
 
   // Track previous selection for smooth transitions.
   const prevSelectedRef = useRef(null);
@@ -219,9 +233,11 @@ export default function CityMapWithMapbox({
       popupRef.current.setHTML(html);
       setTimeout(wireToggle, 50);
     } else {
+      // No fixed anchor — Mapbox picks the anchor that keeps the popup inside
+      // the map viewport, so it flips above markers near the bottom edge
+      // instead of being clipped by the container's overflow-hidden.
       const popup = new mapboxglRef.current.Popup({
-        offset: [0, 10],
-        anchor: 'top',
+        offset: 25,
         closeOnMove: false,
         maxWidth: '440px',
         className: 'selected-popup',
@@ -230,6 +246,14 @@ export default function CityMapWithMapbox({
         .setLngLat(coords)
         .setHTML(html)
         .addTo(map.current);
+      // Closing via the ✕ must clear selection so the next click re-opens.
+      popup.on('close', () => {
+        if (popupRef.current === popup) {
+          popupRef.current = null;
+          setSelectedLocal(null);
+          onSelectRef.current(null);
+        }
+      });
       popupRef.current = popup;
       setTimeout(wireToggle, 50);
     }
@@ -335,32 +359,21 @@ export default function CityMapWithMapbox({
     }
   }, []);
 
-  // Local time, updated every minute.
+  // City local time + hour, updated every minute. Resolves the city's IANA zone
+  // from its country so the readout (and the "Open Now" filter, via cityHour)
+  // reflect LOCAL time, not the visitor's. Falls back to the visitor's zone only
+  // when the country is unknown.
   useEffect(() => {
-    const cityTzMap = { paris: 'Europe/Paris' };
-    const tz =
-      cityName && typeof cityName === 'string'
-        ? cityTzMap[cityName.toLowerCase()] || Intl.DateTimeFormat().resolvedOptions().timeZone
-        : Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const tz = resolveTimeZone(country) || Intl.DateTimeFormat().resolvedOptions().timeZone;
     const update = () => {
-      try {
-        const now = new Date();
-        const formatted = new Intl.DateTimeFormat(undefined, {
-          hour: '2-digit',
-          minute: '2-digit',
-          hour12: false,
-          hourCycle: 'h23',
-          timeZone: tz,
-        }).format(now);
-        setCurrentLocalTime(formatted);
-      } catch (_) {
-        setCurrentLocalTime('');
-      }
+      const now = new Date();
+      setCurrentLocalTime(formatCityTime(tz, now) || '');
+      setCityHour(cityHourIn(tz, now));
     };
     update();
     const id = setInterval(update, 60 * 1000);
     return () => clearInterval(id);
-  }, [cityName]);
+  }, [country]);
 
   // Track previous state so we only recreate markers on actual changes.
   const prevAttractionsRef = useRef([]);
@@ -434,16 +447,14 @@ export default function CityMapWithMapbox({
         const [lng, lat] = coords;
         const globalIndex = attractionIndexMap.get(attraction.name) || 0;
         const category = attraction.category || attraction.type || 'Uncategorized';
-        const standardCategory = getStandardCategory(category);
 
         let color = getPriorityColor(attraction);
         if (!color || color.toLowerCase() === '#6b7280') {
           color = getCategoryColor(category) || '#2563eb';
         }
-        // Side-effect read kept to preserve marker-size dependency for future use.
-        getMarkerSize(attraction);
+        const scale = getMarkerScale(attraction);
 
-        const markerEl = createMarkerElement({ attraction, globalIndex, color });
+        const markerEl = createMarkerElement({ attraction, globalIndex, color, scale });
 
         markerEl.addEventListener('mouseenter', () => onHoverRef.current(attraction));
         markerEl.addEventListener('mouseleave', () => onHoverRef.current(null));
@@ -452,17 +463,10 @@ export default function CityMapWithMapbox({
           onSelectRef.current(attraction);
         });
 
-        const popup = new mapboxgl.Popup({
-          offset: 35,
-          closeButton: true,
-          closeOnClick: false,
-          maxWidth: '320px',
-          className: 'custom-popup',
-        }).setHTML(buildAttractionPopupHtml({ attraction, category, standardCategory, color }));
-
+        // No popup is attached to the marker — clicking it selects the
+        // attraction, which drives the single dedicated "selected" popup below.
         const marker = new mapboxgl.Marker(markerEl)
           .setLngLat([lng, lat])
-          .setPopup(popup)
           .addTo(map.current);
 
         markersRef.current.push(marker);
@@ -540,7 +544,9 @@ export default function CityMapWithMapbox({
 
   return (
     <div className="relative w-full h-full rounded-lg overflow-hidden">
-      <div ref={mapContainer} className="w-full h-full" />
+      {/* z-0 makes the map its own stacking context so internal marker/popup
+          z-indexes (up to 1000) stay below the z-20 overlay panels. */}
+      <div ref={mapContainer} className="w-full h-full relative z-0" />
 
       <SmartFiltersPanel
         cityName={cityName}
@@ -551,6 +557,7 @@ export default function CityMapWithMapbox({
         onSmartFiltersChange={setSmartFilters}
         collapsed={filtersCollapsed}
         onToggleCollapsed={() => setFiltersCollapsed((v) => !v)}
+        typeOptions={typeOptions}
       />
 
       <MapLegend />

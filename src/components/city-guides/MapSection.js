@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { useGoogleEnrichment } from './attractions/hooks/useGoogleEnrichment';
 
 // Dynamically import map component with no SSR to reduce initial bundle
 const LazyMapWithMapbox = dynamic(
@@ -10,16 +11,17 @@ const LazyMapWithMapbox = dynamic(
   { ssr: false }
 );
 
-export default function MapSection({ 
-  attractions = [], 
-  categories = [], 
-  cityName = "City", 
-  center = [0, 0], 
+export default function MapSection({
+  attractions = [],
+  categories = [],
+  cityName = "City",
+  country = "",
+  center = [0, 0],
   zoom = 12,
   title,
   subtitle,
   showHeader = true,
-  height = 500 
+  height = 500
 }) {
   const [isClient, setIsClient] = useState(false);
   const [selectedAttraction, setSelectedAttraction] = useState(null);
@@ -57,8 +59,17 @@ export default function MapSection({
   const mapTitle = title || `${cityName} at a Glance`;
   const mapSubtitle = subtitle || `Interactive map of key attractions and landmarks`;
 
+  // Merge Google enrichment (photos, rating, open-now, Maps link) onto the
+  // attractions so the map markers' popups can show it. Lands asynchronously.
+  const { applyGoogleData, enrichedTick } = useGoogleEnrichment(cityName);
+  const enrichedAttractions = useMemo(
+    () => applyGoogleData(Array.isArray(attractions) ? attractions : []) || attractions,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [attractions, applyGoogleData, enrichedTick],
+  );
+
   const filteredAttractions = useMemo(() => {
-    let result = Array.isArray(attractions) ? attractions : [];
+    let result = Array.isArray(enrichedAttractions) ? enrichedAttractions : [];
     if (activeCategory !== 'all') {
       result = result.filter((a) => (a.category || '').toLowerCase() === activeCategory);
     }
@@ -67,7 +78,7 @@ export default function MapSection({
       result = result.filter((a) => (a.name || '').toLowerCase().includes(q));
     }
     return result;
-  }, [attractions, activeCategory, search]);
+  }, [enrichedAttractions, activeCategory, search]);
 
   // Always show all filtered attractions on map; selection highlighting is handled by the map component
   const mapAttractions = filteredAttractions;
@@ -123,10 +134,11 @@ export default function MapSection({
       
       <div ref={mapContainerRef} style={{ height: `${height}px` }}>
         {isClient && (
-          <LazyMapWithMapbox 
-            attractions={mapAttractions} 
+          <LazyMapWithMapbox
+            attractions={mapAttractions}
             categories={categories}
             cityName={cityName}
+            country={country}
             center={center}
             zoom={zoom}
             selectedAttraction={selectedAttraction}

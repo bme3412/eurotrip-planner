@@ -16,17 +16,15 @@ import CityShortlistBar from '@/components/city-guides/CityShortlistBar';
 import ShareGuideButton from '@/components/city-guides/ShareGuideButton';
 import { useFavorites } from '@/hooks/useFavorites';
 import { readTabFromUrl, writeTabToUrl } from '@/components/city-guides/tabUrl';
-import { 
-  SkeletonOverview, 
-  SkeletonMapLoader, 
-  SkeletonTabContent 
+import {
+  SkeletonOverview,
+  SkeletonTabContent
 } from '@/components/common/SkeletonLoader';
 
 // Lazy imports for better code splitting
 import {
   LazyOverviewStartHere,
   LazyWhenToGo,
-  LazyStartHere,
   LazyAttractionsList,
   LazyNeighborhoodsList,
   LazySeasonalActivities,
@@ -47,13 +45,11 @@ const DEFAULT_CENTER = [9.19, 48.66];
 // from /data/{country}/{slug}/sections/*.json on demand (when the tab is
 // opened or hovered) instead of pulling the whole consolidated index.json.
 const TAB_SECTIONS = {
-  overview: ['visitCalendar'], // landing's "right now" verdict needs the calendar
+  overview: ['visitCalendar', 'attractions'], // calendar + the embedded interactive map
   when: ['visitCalendar'], // merged calendar + monthly view
-  map: ['attractions'],
   attractions: ['attractions'],
   neighborhoods: ['neighborhoods'],
   food: ['culinary'],
-  gettingin: [], // StartHere self-fetches its prose sections
   photos: [], // PhotoSpots uses static module data
 };
 
@@ -258,8 +254,6 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
   const tabs = useMemo(() => [
     { id: 'overview', label: 'Overview', shortLabel: 'Overview', icon: '✨' },
     { id: 'when', label: 'When to Go', shortLabel: 'When', icon: monthlyDataError ? '⚠️' : '📆' },
-    { id: 'gettingin', label: 'Getting In', shortLabel: 'Arrival', icon: '✈️' },
-    { id: 'map', label: 'Interactive Map', shortLabel: 'Map', icon: '🗺️' },
     { id: 'attractions', label: 'Experiences', shortLabel: 'To Do', icon: '🎯' },
     { id: 'food', label: 'Food + Drink', shortLabel: 'Food', icon: '🍽️' },
     { id: 'photos', label: 'Photo Spots', shortLabel: 'Photos', icon: '📸' },
@@ -270,8 +264,6 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
     setComponentLoaded(true);
     // Eager preload the default landing view to reduce perceived latency.
     import('@/components/city-guides/overview/OverviewStartHere');
-    // Also preload logistics since it is commonly accessed early.
-    import('@/components/city-guides/StartHere');
   }, []);
 
   // Breadcrumb & sticky tab bar scroll behavior (throttled with requestAnimationFrame)
@@ -354,19 +346,15 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
     (TAB_SECTIONS[tabId] || []).forEach(loadSection);
 
     switch (tabId) {
-      case 'gettingin':
-        import('@/components/city-guides/StartHere');
-        break;
       case 'overview':
         import('@/components/city-guides/overview/OverviewStartHere');
+        // The interactive map is embedded in the Overview now.
+        import('@/components/city-guides/MapSection');
         break;
       case 'when':
         import('@/components/city-guides/WhenToGo');
         // Hint monthly data fetch early on hover (the month-by-month sub-view).
         loadAllMonthly();
-        break;
-      case 'map':
-        import('@/components/city-guides/MapSection');
         break;
       case 'attractions':
         import('@/components/city-guides/AttractionsList');
@@ -487,26 +475,31 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
       (section) => loadingSections.has(section) || !requestedRef.current.has(section)
     );
     if (activeTabPending) {
-      return activeTab === 'map' ? <SkeletonMapLoader /> : <SkeletonTabContent />;
+      return <SkeletonTabContent />;
     }
 
+    // The interactive map is folded into the Overview (it replaced the old
+    // standalone Map tab). Built once and slotted into OverviewStartHere.
+    const mapSlot = (
+      <MapSuspenseWrapper>
+        <LazyMapSection
+          attractions={memoizedData.safeAttractions}
+          categories={memoizedData.safeCategories}
+          cityName={cityName}
+          country={country}
+          center={center}
+          zoom={12}
+          title={`${displayName} on the map`}
+          subtitle="Explore attractions and neighborhoods"
+        />
+      </MapSuspenseWrapper>
+    );
+
     switch (activeTab) {
-      case 'gettingin':
-        return (
-          <Suspense fallback={<SkeletonOverview />}>
-            <LazyStartHere cityName={cityName} cityData={cityData} />
-          </Suspense>
-        );
       case 'overview':
         return (
           <Suspense fallback={<SkeletonOverview />}>
-            <LazyOverviewStartHere
-              overview={overview}
-              cityName={cityName}
-              visitCalendar={visitCalendar}
-              experiencesUrl={cityPaths.experiences}
-              onOpenTab={handleTabSwitch}
-            />
+            <LazyOverviewStartHere overview={overview} cityName={cityName} mapSlot={mapSlot} />
           </Suspense>
         );
       case 'when':
@@ -523,20 +516,6 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
               hideCalendarIntroHero
             />
           </Suspense>
-        );
-      case 'map':
-        return (
-          <MapSuspenseWrapper>
-            <LazyMapSection
-              attractions={memoizedData.safeAttractions}
-              categories={memoizedData.safeCategories}
-              cityName={cityName}
-              center={center}
-              zoom={12}
-              title={`${displayName} Interactive Map`}
-              subtitle="Explore attractions, neighborhoods, and more"
-            />
-          </MapSuspenseWrapper>
         );
       case 'attractions':
         return (
@@ -580,13 +559,7 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
       default:
         return (
           <Suspense fallback={<SkeletonOverview />}>
-            <LazyOverviewStartHere
-              overview={overview}
-              cityName={cityName}
-              visitCalendar={visitCalendar}
-              experiencesUrl={cityPaths.experiences}
-              onOpenTab={handleTabSwitch}
-            />
+            <LazyOverviewStartHere overview={overview} cityName={cityName} mapSlot={mapSlot} />
           </Suspense>
         );
     }

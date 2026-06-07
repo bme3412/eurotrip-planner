@@ -23,7 +23,7 @@ test('buildAttractionPopupHtml: includes title and standard category', () => {
   assert.ok(html.includes('#10B981'));
 });
 
-test('buildAttractionPopupHtml: truncates long descriptions to 120 chars', () => {
+test('buildAttractionPopupHtml: truncates long descriptions', () => {
   const longDesc = 'a'.repeat(500);
   const html = buildAttractionPopupHtml({
     attraction: { name: 'Site', description: longDesc },
@@ -31,8 +31,9 @@ test('buildAttractionPopupHtml: truncates long descriptions to 120 chars', () =>
     standardCategory: 'Cultural',
     color: '#3B82F6',
   });
-  // Should contain "..." truncation indicator.
-  assert.ok(html.includes('...'));
+  // Should contain the ellipsis truncation indicator and not the full 500 chars.
+  assert.ok(html.includes('…'));
+  assert.ok(!html.includes('a'.repeat(200)));
 });
 
 test('buildAttractionPopupHtml: strips markdown from name + description + hours + best_time', () => {
@@ -97,7 +98,7 @@ test('buildSelectedPopupHtml: long descriptions add a Read more button + return 
   const result = buildSelectedPopupHtml({ name: 'Site', description: longDesc });
   assert.equal(result.isLongDesc, true);
   assert.ok(result.html.includes('Read more'));
-  assert.equal(result.truncatedDesc.length, 183); // 180 + '...'
+  assert.equal(result.truncatedDesc.length, 221); // 220 + '…'
   assert.equal(result.cleanDesc.length, 500);
 });
 
