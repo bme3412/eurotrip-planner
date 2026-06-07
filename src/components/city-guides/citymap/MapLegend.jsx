@@ -3,11 +3,10 @@
 import React from 'react';
 
 const LEGEND_ITEMS = [
-  ['bg-green-500', 'Free & Open Now'],
-  ['bg-blue-500', 'Free (Other Times)'],
-  ['bg-yellow-500', 'Moderate & Good Time'],
+  ['bg-green-500', 'Free'],
+  ['bg-sky-500', 'Budget'],
+  ['bg-amber-500', 'Moderate'],
   ['bg-red-500', 'Expensive'],
-  ['bg-gray-500', 'Other'],
 ];
 
 /**
@@ -26,7 +25,7 @@ export default function MapLegend() {
         ))}
       </div>
       <div className="mt-3 pt-2 border-t border-gray-200">
-        <p className="text-xs text-gray-600">Pin size = Cultural significance</p>
+        <p className="text-xs text-gray-600">Bigger pin = more iconic landmark</p>
       </div>
     </div>
   );

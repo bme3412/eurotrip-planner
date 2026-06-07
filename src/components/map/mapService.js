@@ -355,18 +355,21 @@ export const initializeMap = async (container, viewState, onViewStateChange) => 
         ['step', ['get', 'score'], BAND_COLORS.fair, 55, BAND_COLORS.good, 64, BAND_COLORS.great, 73, BAND_COLORS.top],
         BAND_COLORS.unranked,
       ]);
+      // Ranked cities pop (band color + larger); unranked stay as clearly
+      // visible neutral dots — same size as the no-dates view — so the map is
+      // never read as "empty" just because a city has thin V4 signal.
       map.setPaintProperty('unclustered-point', 'circle-radius', [
         'interpolate', ['linear'], ['zoom'],
-        3, ['case', ['>=', ['get', 'score'], 73], 5.5, ['get', 'ranked'], 4, 2.5],
-        6, ['case', ['>=', ['get', 'score'], 73], 8, ['get', 'ranked'], 6, 3.5],
-        10, ['case', ['>=', ['get', 'score'], 73], 12, ['get', 'ranked'], 9, 5],
+        3, ['case', ['>=', ['get', 'score'], 73], 5.5, ['get', 'ranked'], 4.5, 4],
+        6, ['case', ['>=', ['get', 'score'], 73], 8, ['get', 'ranked'], 6.5, 6],
+        10, ['case', ['>=', ['get', 'score'], 73], 12, ['get', 'ranked'], 9, 8],
       ]);
-      map.setPaintProperty('unclustered-point', 'circle-opacity', ['case', ['get', 'ranked'], 1, 0.4]);
+      map.setPaintProperty('unclustered-point', 'circle-opacity', ['case', ['get', 'ranked'], 1, 0.85]);
       map.setPaintProperty('unclustered-point', 'circle-stroke-width', [
         'case',
         ['boolean', ['feature-state', 'selected'], false], 3,
         ['boolean', ['feature-state', 'hovered'], false], 2.5,
-        ['get', 'ranked'], 1.5, 0.5,
+        ['get', 'ranked'], 1.5, 1,
       ]);
     } else {
       map.setPaintProperty('unclustered-point', 'circle-color', buildCountryColorExpression());

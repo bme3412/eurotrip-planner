@@ -2483,7 +2483,9 @@
         },
         "tourismLevel": 2,
         "priceLevel": "Low",
-        "crowdLevel": "Very Low"
+        "crowdLevel": "Very Low",
+        "weatherHighC": 8,
+        "weatherLowC": 2
       },
       "february": {
         "name": "February",
@@ -2567,7 +2569,9 @@
         },
         "tourismLevel": 3,
         "priceLevel": "Low",
-        "crowdLevel": "Low"
+        "crowdLevel": "Low",
+        "weatherHighC": 11,
+        "weatherLowC": 3
       },
       "march": {
         "name": "March",
@@ -2676,7 +2680,9 @@
         },
         "tourismLevel": 5,
         "priceLevel": "Medium",
-        "crowdLevel": "Medium"
+        "crowdLevel": "Medium",
+        "weatherHighC": 13,
+        "weatherLowC": 4
       },
       "april": {
         "name": "April",
@@ -2757,7 +2763,9 @@
         },
         "tourismLevel": 7,
         "priceLevel": "Medium",
-        "crowdLevel": "Medium-High"
+        "crowdLevel": "Medium-High",
+        "weatherHighC": 16,
+        "weatherLowC": 6
       },
       "may": {
         "name": "May",
@@ -2843,7 +2851,9 @@
         },
         "tourismLevel": 8,
         "priceLevel": "Medium-High",
-        "crowdLevel": "Medium-High"
+        "crowdLevel": "Medium-High",
+        "weatherHighC": 19,
+        "weatherLowC": 9
       },
       "june": {
         "name": "June",
@@ -2919,7 +2929,9 @@
         },
         "tourismLevel": 9,
         "priceLevel": "High",
-        "crowdLevel": "High"
+        "crowdLevel": "High",
+        "weatherHighC": 23,
+        "weatherLowC": 13
       },
       "july": {
         "name": "July",
@@ -2992,7 +3004,9 @@
         },
         "tourismLevel": 8,
         "priceLevel": "High",
-        "crowdLevel": "High"
+        "crowdLevel": "High",
+        "weatherHighC": 25,
+        "weatherLowC": 14
       },
       "august": {
         "name": "August",
@@ -3068,7 +3082,9 @@
         },
         "tourismLevel": 8,
         "priceLevel": "High",
-        "crowdLevel": "High"
+        "crowdLevel": "High",
+        "weatherHighC": 26,
+        "weatherLowC": 15
       },
       "september": {
         "name": "September",
@@ -3154,7 +3170,9 @@
         },
         "tourismLevel": 7,
         "priceLevel": "Medium-High",
-        "crowdLevel": "Medium"
+        "crowdLevel": "Medium",
+        "weatherHighC": 22,
+        "weatherLowC": 12
       },
       "october": {
         "name": "October",
@@ -3231,7 +3249,9 @@
         },
         "tourismLevel": 6,
         "priceLevel": "Medium",
-        "crowdLevel": "Medium"
+        "crowdLevel": "Medium",
+        "weatherHighC": 18,
+        "weatherLowC": 10
       },
       "november": {
         "name": "November",
@@ -3299,7 +3319,9 @@
         },
         "tourismLevel": 4,
         "priceLevel": "Medium",
-        "crowdLevel": "Low-Medium"
+        "crowdLevel": "Low-Medium",
+        "weatherHighC": 12,
+        "weatherLowC": 5
       },
       "december": {
         "name": "December",
@@ -3375,7 +3397,9 @@
         },
         "tourismLevel": 3,
         "priceLevel": "Medium",
-        "crowdLevel": "Low"
+        "crowdLevel": "Low",
+        "weatherHighC": 9,
+        "weatherLowC": 3
       }
     },
     "activityTypes": {
@@ -7027,6 +7051,7 @@
   "region": "Other",
   "provenance": {
     "coordinates": "cityMetadata.json",
-    "region": "cityMetadata.json"
+    "region": "cityMetadata.json",
+    "weather": "open-meteo"
   }
 }

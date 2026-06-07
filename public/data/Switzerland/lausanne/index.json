@@ -3304,7 +3304,15 @@
         ],
         "weatherHighC": 4,
         "weatherLowC": 0,
-        "tourismLevel": 2
+        "tourismLevel": 2,
+        "weatherDetails": {
+          "highC": 5,
+          "lowC": 0,
+          "avgC": 2.5,
+          "rainfallMm": 104,
+          "sunshineHours": 5.3,
+          "source": "open-meteo"
+        }
       },
       "february": {
         "name": "February",
@@ -3388,7 +3396,15 @@
         ],
         "weatherHighC": 6,
         "weatherLowC": 0,
-        "tourismLevel": 3
+        "tourismLevel": 3,
+        "weatherDetails": {
+          "highC": 8,
+          "lowC": 1,
+          "avgC": 4.5,
+          "rainfallMm": 73,
+          "sunshineHours": 7.2,
+          "source": "open-meteo"
+        }
       },
       "march": {
         "name": "March",
@@ -3461,7 +3477,15 @@
         ],
         "weatherHighC": 10,
         "weatherLowC": 2,
-        "tourismLevel": 3
+        "tourismLevel": 3,
+        "weatherDetails": {
+          "highC": 11,
+          "lowC": 2,
+          "avgC": 6.5,
+          "rainfallMm": 97,
+          "sunshineHours": 8.8,
+          "source": "open-meteo"
+        }
       },
       "april": {
         "name": "April",
@@ -3531,7 +3555,15 @@
         ],
         "weatherHighC": 14,
         "weatherLowC": 5,
-        "tourismLevel": 4
+        "tourismLevel": 4,
+        "weatherDetails": {
+          "highC": 14,
+          "lowC": 5,
+          "avgC": 9.5,
+          "rainfallMm": 93,
+          "sunshineHours": 10.1,
+          "source": "open-meteo"
+        }
       },
       "may": {
         "name": "May",
@@ -3604,7 +3636,15 @@
         ],
         "weatherHighC": 19,
         "weatherLowC": 9,
-        "tourismLevel": 6
+        "tourismLevel": 6,
+        "weatherDetails": {
+          "highC": 18,
+          "lowC": 10,
+          "avgC": 14,
+          "rainfallMm": 128,
+          "sunshineHours": 10.9,
+          "source": "open-meteo"
+        }
       },
       "june": {
         "name": "June",
@@ -3676,7 +3716,15 @@
         ],
         "weatherHighC": 23,
         "weatherLowC": 12,
-        "tourismLevel": 7
+        "tourismLevel": 7,
+        "weatherDetails": {
+          "highC": 23,
+          "lowC": 14,
+          "avgC": 18.5,
+          "rainfallMm": 119,
+          "sunshineHours": 12.2,
+          "source": "open-meteo"
+        }
       },
       "july": {
         "name": "July",
@@ -3749,7 +3797,15 @@
         ],
         "weatherHighC": 26,
         "weatherLowC": 15,
-        "tourismLevel": 9
+        "tourismLevel": 9,
+        "weatherDetails": {
+          "highC": 25,
+          "lowC": 16,
+          "avgC": 20.5,
+          "rainfallMm": 118,
+          "sunshineHours": 12.8,
+          "source": "open-meteo"
+        }
       },
       "august": {
         "name": "August",
@@ -3822,7 +3878,15 @@
         ],
         "weatherHighC": 26,
         "weatherLowC": 15,
-        "tourismLevel": 10
+        "tourismLevel": 10,
+        "weatherDetails": {
+          "highC": 25,
+          "lowC": 16,
+          "avgC": 20.5,
+          "rainfallMm": 76,
+          "sunshineHours": 11.4,
+          "source": "open-meteo"
+        }
       },
       "september": {
         "name": "September",
@@ -3894,7 +3958,15 @@
         ],
         "weatherHighC": 21,
         "weatherLowC": 11,
-        "tourismLevel": 7
+        "tourismLevel": 7,
+        "weatherDetails": {
+          "highC": 21,
+          "lowC": 13,
+          "avgC": 17,
+          "rainfallMm": 100,
+          "sunshineHours": 9.8,
+          "source": "open-meteo"
+        }
       },
       "october": {
         "name": "October",
@@ -3965,7 +4037,15 @@
         ],
         "weatherHighC": 15,
         "weatherLowC": 7,
-        "tourismLevel": 5
+        "tourismLevel": 5,
+        "weatherDetails": {
+          "highC": 16,
+          "lowC": 9,
+          "avgC": 12.5,
+          "rainfallMm": 128,
+          "sunshineHours": 7.8,
+          "source": "open-meteo"
+        }
       },
       "november": {
         "name": "November",
@@ -4035,7 +4115,15 @@
         ],
         "weatherHighC": 9,
         "weatherLowC": 3,
-        "tourismLevel": 3
+        "tourismLevel": 3,
+        "weatherDetails": {
+          "highC": 10,
+          "lowC": 4,
+          "avgC": 7,
+          "rainfallMm": 134,
+          "sunshineHours": 5.9,
+          "source": "open-meteo"
+        }
       },
       "december": {
         "name": "December",
@@ -4172,7 +4260,15 @@
         ],
         "weatherHighC": 5,
         "weatherLowC": 0,
-        "tourismLevel": 4
+        "tourismLevel": 4,
+        "weatherDetails": {
+          "highC": 6,
+          "lowC": 1,
+          "avgC": 3.5,
+          "rainfallMm": 147,
+          "sunshineHours": 4.4,
+          "source": "open-meteo"
+        }
       }
     },
     "activityTypes": {
@@ -6671,6 +6767,7 @@
   "provenance": {
     "tourismCategories": "cityMetadata.json",
     "coordinates": "cityMetadata.json",
-    "region": "cityMetadata.json"
+    "region": "cityMetadata.json",
+    "weather": "open-meteo"
   }
 }

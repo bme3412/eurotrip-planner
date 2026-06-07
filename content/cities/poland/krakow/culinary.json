@@ -1,0 +1,671 @@
+{
+  "restaurants": {
+    "fine_dining": [
+      {
+        "name": "Bottiglieria 1881",
+        "cuisine_type": "Modern Polish",
+        "signature_dishes": [
+          "Seasonal tasting menu",
+          "Reinterpreted Polish classics",
+          "Aged duck with regional accompaniments"
+        ],
+        "price_range": "€€€€",
+        "atmosphere": "Intimate vaulted cellar with an extensive wine list",
+        "best_time": "Dinner",
+        "reservation_needed": true,
+        "booking_tips": "Book well in advance, the dining room is small and fills quickly",
+        "dress_code": "Smart casual",
+        "michelin_stars": 1,
+        "location": "Kazimierz",
+        "local_tips": "Opt for the tasting menu with wine pairings to experience Kraków's only Michelin-starred kitchen"
+      },
+      {
+        "name": "Pod Nosem",
+        "cuisine_type": "Modern Polish",
+        "signature_dishes": [
+          "Maczanka po krakowsku",
+          "Slow-cooked beef cheeks",
+          "Reimagined pierogi"
+        ],
+        "price_range": "€€€€",
+        "atmosphere": "Elegant townhouse dining beneath Wawel Castle",
+        "best_time": "Dinner",
+        "reservation_needed": true,
+        "booking_tips": "Reserve a table near the windows for views toward Wawel",
+        "dress_code": "Smart casual",
+        "michelin_stars": 0,
+        "location": "Old Town, near Wawel",
+        "local_tips": "Their take on the Kraków-style maczanka pork sandwich is a local highlight"
+      },
+      {
+        "name": "Szara Gęś",
+        "cuisine_type": "Polish Fine Dining",
+        "signature_dishes": [
+          "Roast goose",
+          "Game with seasonal sauces",
+          "Polish duck"
+        ],
+        "price_range": "€€€€",
+        "atmosphere": "Refined dining under Gothic vaults on the Main Market Square",
+        "best_time": "Dinner",
+        "reservation_needed": true,
+        "booking_tips": "Request a table in the vaulted main hall for the best atmosphere",
+        "dress_code": "Smart casual",
+        "michelin_stars": 0,
+        "location": "Rynek Główny, Old Town",
+        "local_tips": "Dine right on Europe's largest medieval market square overlooking the Cloth Hall"
+      },
+      {
+        "name": "Pod Aniołami",
+        "cuisine_type": "Traditional Polish",
+        "signature_dishes": [
+          "Grilled meats over beechwood",
+          "Roast suckling pig",
+          "Highland-style oscypek dishes"
+        ],
+        "price_range": "€€€€",
+        "atmosphere": "Atmospheric 13th-century cellar with rustic décor",
+        "best_time": "Dinner",
+        "reservation_needed": true,
+        "booking_tips": "Book ahead for a candlelit table in the historic cellar",
+        "dress_code": "Smart casual",
+        "michelin_stars": 0,
+        "location": "Grodzka Street, Old Town",
+        "local_tips": "Try the meats grilled over beechwood embers for a true old-Kraków experience"
+      }
+    ],
+    "casual_dining": [
+      {
+        "name": "Miód Malina",
+        "cuisine_type": "Traditional Polish",
+        "signature_dishes": [
+          "Pierogi",
+          "Żurek in a bread bowl",
+          "Roast duck with apples"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Warm, colorful interior with a cozy Polish-country feel",
+        "best_time": "Dinner",
+        "reservation_needed": true,
+        "booking_tips": "Popular with visitors, reserve ahead for evening dining",
+        "dress_code": "Casual",
+        "location": "Grodzka Street, Old Town",
+        "local_tips": "The name means 'honey raspberry'; their hearty pierogi and żurek are crowd favorites"
+      },
+      {
+        "name": "Hawełka",
+        "cuisine_type": "Traditional Polish",
+        "signature_dishes": [
+          "Bigos",
+          "Veal Kraków style",
+          "Pierogi"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Historic restaurant on the Main Market Square since 1876",
+        "best_time": "Lunch",
+        "reservation_needed": false,
+        "booking_tips": "Arrive early for lunch to secure a table during peak season",
+        "dress_code": "Casual",
+        "location": "Rynek Główny, Old Town",
+        "local_tips": "A Kraków institution serving classic Polish dishes for well over a century"
+      },
+      {
+        "name": "Restauracja Pod Wawelem",
+        "cuisine_type": "Traditional Polish",
+        "signature_dishes": [
+          "Pork knuckle",
+          "Placki ziemniaczane",
+          "Polish sausages with sauerkraut"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Bustling beer-hall style restaurant with large portions",
+        "best_time": "Dinner",
+        "reservation_needed": false,
+        "booking_tips": "Come hungry; portions are generous and shared platters are popular",
+        "dress_code": "Casual",
+        "location": "Below Wawel Castle, riverside",
+        "local_tips": "Famous for huge portions of hearty Polish fare and beer poured by the half-litre"
+      },
+      {
+        "name": "Marchewka z Groszkiem",
+        "cuisine_type": "Polish Home Cooking",
+        "signature_dishes": [
+          "Pierogi ruskie",
+          "Placki ziemniaczane",
+          "Żurek"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Homely, retro interior evoking a Polish grandmother's kitchen",
+        "best_time": "Lunch",
+        "reservation_needed": false,
+        "booking_tips": "A favorite in Kazimierz, arrive early to avoid the lunch rush",
+        "dress_code": "Casual",
+        "location": "Kazimierz",
+        "local_tips": "The name means 'carrot with peas'; great affordable comfort food off the tourist trail"
+      },
+      {
+        "name": "Hamsa",
+        "cuisine_type": "Israeli & Middle Eastern",
+        "signature_dishes": [
+          "Hummus platters",
+          "Mezze",
+          "Grilled meats"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Bright, relaxed hummus-and-mezze spot in the former Jewish quarter",
+        "best_time": "Dinner",
+        "reservation_needed": true,
+        "booking_tips": "Book ahead on weekends; it sits on a lively Kazimierz square",
+        "dress_code": "Casual",
+        "location": "Szeroka Street, Kazimierz",
+        "local_tips": "A modern take on Israeli cuisine fitting Kazimierz's Jewish heritage"
+      },
+      {
+        "name": "Starka",
+        "cuisine_type": "Traditional Polish",
+        "signature_dishes": [
+          "Duck with dumplings",
+          "Pierogi",
+          "House-infused vodkas"
+        ],
+        "price_range": "€€€",
+        "atmosphere": "Elegant yet cozy restaurant known for its vodka cellar",
+        "best_time": "Dinner",
+        "reservation_needed": true,
+        "booking_tips": "Reserve ahead and ask about their flavored vodka flights",
+        "dress_code": "Casual",
+        "location": "Kazimierz",
+        "local_tips": "Named after the aged Polish rye vodka; pair their house infusions with hearty Polish dishes"
+      }
+    ],
+    "street_food": [
+      {
+        "name": "Obwarzanek Street Carts",
+        "specialties": [
+          "Obwarzanek krakowski (pretzel-ring)",
+          "Sesame and poppy-seed rings",
+          "Salt-topped rings"
+        ],
+        "price_range": "€",
+        "hours": "Daily: 7:00am-7:00pm",
+        "location": "Rynek Główny and across the Old Town",
+        "seating": false,
+        "local_tips": "The blue carts sell Kraków's protected pretzel-ring; eat it fresh in the morning"
+      },
+      {
+        "name": "Endzior at Plac Nowy",
+        "specialties": [
+          "Zapiekanka (open-faced baguette)",
+          "Mushroom and cheese toppings",
+          "Garlic sauce variations"
+        ],
+        "price_range": "€",
+        "hours": "Daily: 9:00am-late",
+        "location": "Plac Nowy rotunda, Kazimierz",
+        "seating": false,
+        "local_tips": "The round market hall on Plac Nowy is the home of the zapiekanka; a late-night Kraków staple"
+      },
+      {
+        "name": "Stary Kleparz Market Food Stalls",
+        "specialties": [
+          "Fresh oscypek smoked cheese",
+          "Smoked sausages",
+          "Seasonal produce and preserves"
+        ],
+        "price_range": "€",
+        "hours": "Mon-Sat: 7:00am-6:00pm",
+        "location": "Stary Kleparz, north of the Old Town",
+        "seating": false,
+        "local_tips": "Kraków's historic market; try grilled oscypek sheep cheese with cranberry"
+      },
+      {
+        "name": "Christmas Market on Rynek Główny",
+        "specialties": [
+          "Grilled oscypek",
+          "Grzaniec (mulled wine)",
+          "Smoked sausages"
+        ],
+        "price_range": "€",
+        "hours": "Late Nov-Dec: 10:00am-9:00pm",
+        "location": "Main Market Square",
+        "seating": true,
+        "local_tips": "Visit the December market for hot grzaniec and grilled highland cheese"
+      }
+    ]
+  },
+  "bars_and_cafes": {
+    "coffee_shops": [
+      {
+        "name": "Café Camelot",
+        "specialty": "Historic café charm",
+        "must_try": [
+          "Szarlotka (apple cake)",
+          "Hot chocolate",
+          "Coffee with cake"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Quaint, folk-art filled café on a quiet Old Town corner",
+        "best_time": "Afternoon",
+        "wifi_friendly": true,
+        "food_options": "Cakes, breakfasts, and light Polish dishes",
+        "local_tips": "Tucked just off the Main Square, beloved for its apple cake and cozy nooks"
+      },
+      {
+        "name": "Charlotte",
+        "specialty": "French-style bakery café",
+        "must_try": [
+          "Fresh croissants",
+          "Sourdough breads",
+          "Coffee on the terrace"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Bright, airy bakery-bistro on Plac Szczepański",
+        "best_time": "Morning",
+        "wifi_friendly": true,
+        "food_options": "Bakery breakfasts, tartines, and light meals",
+        "local_tips": "Arrive early for warm croissants; the square-side terrace is a local favorite"
+      },
+      {
+        "name": "Cytat Café",
+        "specialty": "Cozy book-lined café",
+        "must_try": [
+          "Specialty coffee",
+          "Homemade cakes",
+          "Seasonal teas"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Relaxed, literary-themed café ideal for lingering",
+        "best_time": "Afternoon",
+        "wifi_friendly": true,
+        "food_options": "Cakes, light snacks, and breakfast",
+        "local_tips": "A quiet spot to read and sip coffee away from the busy square"
+      },
+      {
+        "name": "Mleczarnia",
+        "specialty": "Nostalgic Kazimierz café",
+        "must_try": [
+          "Coffee in the garden",
+          "Cakes",
+          "Mulled wine in winter"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Vintage interior with a leafy summer courtyard",
+        "best_time": "Evening",
+        "wifi_friendly": false,
+        "food_options": "Cakes, snacks, and drinks",
+        "local_tips": "The shaded garden across the street is one of Kazimierz's loveliest hideaways"
+      },
+      {
+        "name": "Forum Przestrzenie",
+        "specialty": "Riverside café in a former hotel",
+        "must_try": [
+          "Coffee with Vistula views",
+          "Brunch plates",
+          "Craft drinks"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Retro-industrial space in the modernist Hotel Forum building",
+        "best_time": "Afternoon",
+        "wifi_friendly": true,
+        "food_options": "Brunch, snacks, and bar food",
+        "local_tips": "Lounge on deckchairs by the Vistula with views across to Wawel"
+      }
+    ],
+    "bars": [
+      {
+        "name": "Alchemia",
+        "type": "Bohemian Bar",
+        "specialty": "Candlelit atmosphere and live music",
+        "signature_drinks": [
+          "Polish craft beer",
+          "Flavored vodka shots",
+          "Grzaniec in winter"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Dark, candlelit warren of rooms with a bohemian vibe",
+        "best_time": "Evening",
+        "food_options": "Light bar snacks",
+        "reservation_needed": false,
+        "local_tips": "A Kazimierz icon on Plac Nowy with frequent live concerts in the back room"
+      },
+      {
+        "name": "Wódka Café Bar",
+        "type": "Vodka Bar",
+        "specialty": "Polish vodka flights",
+        "signature_drinks": [
+          "Flavored Polish vodkas",
+          "Żubrówka",
+          "House infusions"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Tiny, lively bar dedicated to Polish vodka",
+        "best_time": "Late evening",
+        "food_options": "Pickles and small bites",
+        "reservation_needed": false,
+        "local_tips": "Order a flight of infused vodkas served ice-cold the traditional Polish way"
+      },
+      {
+        "name": "Multi Qulti",
+        "type": "Craft Beer Bar",
+        "specialty": "Polish craft beer on tap",
+        "signature_drinks": [
+          "Rotating Polish craft taps",
+          "Regional IPAs",
+          "Seasonal ales"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Relaxed bar showcasing Poland's craft brewing scene",
+        "best_time": "Evening",
+        "food_options": "Bar snacks",
+        "reservation_needed": false,
+        "local_tips": "Ask the staff for recommendations from the rotating selection of Polish craft beers"
+      },
+      {
+        "name": "Singer Café",
+        "type": "Bar & Café",
+        "specialty": "Sewing-machine tables and nightlife",
+        "signature_drinks": [
+          "Cocktails",
+          "Polish beer",
+          "Wine"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Dimly lit Kazimierz bar with vintage Singer sewing-machine tables",
+        "best_time": "Late evening",
+        "food_options": "Light snacks",
+        "reservation_needed": false,
+        "local_tips": "Grab a candlelit table by the window for classic Kazimierz nightlife"
+      },
+      {
+        "name": "Hala Forum Beer Garden",
+        "type": "Riverside Bar",
+        "specialty": "Outdoor drinking by the Vistula",
+        "signature_drinks": [
+          "Polish craft beer",
+          "Aperitifs",
+          "Seasonal spritzes"
+        ],
+        "price_range": "€€",
+        "atmosphere": "Open-air riverside lounge with deckchairs and views of Wawel",
+        "best_time": "Summer evenings",
+        "food_options": "Grilled snacks and street food",
+        "reservation_needed": false,
+        "local_tips": "Perfect for a sunset drink on the Vistula boulevards in summer"
+      }
+    ]
+  },
+  "food_experiences": {
+    "food_tours": [
+      {
+        "name": "Kraków Old Town Food Tour",
+        "focus": "Traditional Polish cuisine and street food",
+        "duration": "4 hours",
+        "price_range": "€€€",
+        "highlights": [
+          "Obwarzanek pretzel-rings",
+          "Traditional Polish restaurants",
+          "Local milk bars",
+          "Polish vodka tasting"
+        ],
+        "booking_required": true,
+        "group_size": "12",
+        "languages": [
+          "English",
+          "Polish",
+          "German"
+        ],
+        "booking_tips": "Book at least a week in advance, especially for weekend tours"
+      },
+      {
+        "name": "Kazimierz Food and Heritage Tour",
+        "focus": "Jewish quarter food culture and zapiekanka",
+        "duration": "3 hours",
+        "price_range": "€€€",
+        "highlights": [
+          "Zapiekanka at Plac Nowy",
+          "Jewish and Polish dishes",
+          "Local cafés and bars",
+          "Kazimierz history"
+        ],
+        "booking_required": true,
+        "group_size": "12",
+        "languages": [
+          "English",
+          "Polish"
+        ],
+        "booking_tips": "Evening tours include the lively Plac Nowy zapiekanka stalls"
+      },
+      {
+        "name": "Kraków Market and Vodka Tour",
+        "focus": "Market shopping and Polish vodka",
+        "duration": "5 hours",
+        "price_range": "€€€",
+        "highlights": [
+          "Stary Kleparz market",
+          "Oscypek cheese tasting",
+          "Polish vodka flight",
+          "Lunch with regional dishes"
+        ],
+        "booking_required": true,
+        "group_size": "8",
+        "languages": [
+          "English",
+          "Polish"
+        ],
+        "booking_tips": "Morning start for market freshness, book well in advance"
+      }
+    ],
+    "cooking_classes": [
+      {
+        "name": "Polish Pierogi Workshop",
+        "cuisine_focus": "Traditional Polish dumplings",
+        "duration": "4 hours",
+        "price_range": "€€€",
+        "what_you_learn": [
+          "Pierogi ruskie",
+          "Meat and sauerkraut pierogi",
+          "Sweet fruit pierogi",
+          "Dough-folding techniques"
+        ],
+        "group_size": "10",
+        "languages": [
+          "English",
+          "Polish"
+        ],
+        "includes": [
+          "Ingredients",
+          "Recipes",
+          "Polish beer or vodka pairing",
+          "Lunch"
+        ],
+        "booking_tips": "Reserve your spot at least two weeks in advance"
+      },
+      {
+        "name": "Traditional Kraków Cooking Class",
+        "cuisine_focus": "Classic Kraków dishes",
+        "duration": "4 hours",
+        "price_range": "€€€",
+        "what_you_learn": [
+          "Żurek sour rye soup",
+          "Bigos hunter's stew",
+          "Placki ziemniaczane",
+          "Maczanka po krakowsku"
+        ],
+        "group_size": "10",
+        "languages": [
+          "English",
+          "Polish"
+        ],
+        "includes": [
+          "Ingredients",
+          "Recipes",
+          "Wine or beer",
+          "Sit-down meal"
+        ],
+        "booking_tips": "Check for seasonal menus featuring market ingredients"
+      },
+      {
+        "name": "Polish Vodka and Food Pairing Class",
+        "cuisine_focus": "Polish vodka and food combinations",
+        "duration": "3 hours",
+        "price_range": "€€€",
+        "what_you_learn": [
+          "Types of Polish vodka",
+          "Vodka and food pairing principles",
+          "Traditional zakąski (snacks)",
+          "Polish drinking customs"
+        ],
+        "group_size": "8",
+        "languages": [
+          "English",
+          "Polish"
+        ],
+        "includes": [
+          "Vodka tastings",
+          "Food samples",
+          "Pairing notes",
+          "Tasting guide"
+        ],
+        "booking_tips": "Must be 18+, book in advance for weekend sessions"
+      }
+    ],
+    "markets": [
+      {
+        "name": "Stary Kleparz",
+        "type": "Historic food market",
+        "highlights": [
+          "Fresh fruits and vegetables",
+          "Oscypek and regional cheeses",
+          "Smoked meats and sausages",
+          "Local honey and preserves"
+        ],
+        "hours": "Mon-Sat: 7:00am-6:00pm, Sun: closed",
+        "best_time": "Morning",
+        "location": "North of the Old Town",
+        "local_tips": "Kraków's oldest market, operating for centuries; best for fresh local produce"
+      },
+      {
+        "name": "Plac Nowy Market",
+        "type": "Square market and street food hub",
+        "highlights": [
+          "Zapiekanka stalls in the rotunda",
+          "Fresh produce stands",
+          "Weekend flea market",
+          "Local snacks"
+        ],
+        "hours": "Daily: 8:00am-late (food stalls open late)",
+        "best_time": "Evening for street food",
+        "location": "Kazimierz",
+        "local_tips": "The round hall is the spiritual home of the zapiekanka, busiest at night"
+      },
+      {
+        "name": "Hala Targowa",
+        "type": "Traditional and antiques market",
+        "highlights": [
+          "Fresh produce and groceries",
+          "Polish snacks",
+          "Sunday antiques and vinyl market",
+          "Local vendors"
+        ],
+        "hours": "Daily mornings; Sun: antiques market",
+        "best_time": "Sunday morning",
+        "location": "Grzegórzki, east of the Old Town",
+        "local_tips": "Come Sunday morning for the sprawling flea and antiques market"
+      }
+    ]
+  },
+  "seasonal_specialties": {
+    "spring": [
+      "Żurek with white sausage for Easter",
+      "Fresh spring vegetables and young greens",
+      "Roast lamb dishes",
+      "Easter babka and mazurek cakes"
+    ],
+    "summer": [
+      "Grilled oscypek with cranberry",
+      "Chłodnik (cold beetroot soup)",
+      "Seasonal fruit pierogi",
+      "Beer garden grilled sausages"
+    ],
+    "autumn": [
+      "Wild mushroom dishes",
+      "Bigos hunter's stew",
+      "Roast duck with apples",
+      "Game meat preparations"
+    ],
+    "winter": [
+      "Hearty żurek and barszcz",
+      "Pierogi and bigos",
+      "Grzaniec (mulled wine)",
+      "Christmas market roasted oscypek and sausages"
+    ]
+  },
+  "local_specialties": [
+    {
+      "dish": "Obwarzanek krakowski",
+      "description": "Kraków's protected ring-shaped bread, boiled then baked and topped with salt, sesame, or poppy seeds; sold from blue street carts."
+    },
+    {
+      "dish": "Pierogi",
+      "description": "Polish dumplings filled with potato and cheese (ruskie), meat, sauerkraut and mushroom, or sweet fruit; boiled or pan-fried."
+    },
+    {
+      "dish": "Zapiekanka",
+      "description": "Open-faced toasted baguette topped with mushrooms, cheese, and garlic sauce; the iconic street food of Plac Nowy in Kazimierz."
+    },
+    {
+      "dish": "Żurek",
+      "description": "Sour rye soup with white sausage and egg, often served in a hollowed-out bread bowl."
+    },
+    {
+      "dish": "Bigos",
+      "description": "Hunter's stew of sauerkraut, fresh cabbage, and assorted meats slow-cooked for hours; a Polish winter staple."
+    },
+    {
+      "dish": "Oscypek",
+      "description": "Smoked sheep's-milk cheese from the Tatra highlands, often grilled and served with cranberry sauce."
+    },
+    {
+      "dish": "Maczanka po krakowsku",
+      "description": "A Kraków specialty of slow-braised pork in a savory caraway gravy served in a soft roll for dipping."
+    },
+    {
+      "dish": "Placki ziemniaczane",
+      "description": "Crispy fried potato pancakes, served savory with sour cream or goulash, or sweet with sugar."
+    }
+  ],
+  "drinks": [
+    {
+      "name": "Polish vodka",
+      "description": "Poland's national spirit, made from rye or potato; sipped ice-cold straight or as flavored infusions like Żubrówka."
+    },
+    {
+      "name": "Polish craft beer",
+      "description": "A thriving craft scene of IPAs, lagers, and seasonal ales served at multitap bars across Kraków."
+    },
+    {
+      "name": "Kompot",
+      "description": "Traditional homemade fruit drink of stewed seasonal fruits, served warm or chilled as a non-alcoholic accompaniment to meals."
+    },
+    {
+      "name": "Grzaniec",
+      "description": "Polish mulled wine spiced with cloves and cinnamon, a winter and Christmas-market favorite (grzane wino)."
+    },
+    {
+      "name": "Starka",
+      "description": "Aged Polish rye vodka mellowed in oak barrels, smooth and amber-hued, traditionally served as a sipping spirit."
+    },
+    {
+      "name": "Żubrówka",
+      "description": "Bison grass vodka with a subtle herbal, vanilla note, often mixed with apple juice in a 'szarlotka' cocktail."
+    },
+    {
+      "name": "Krupnik",
+      "description": "Sweet Polish honey-spiced liqueur, traditionally served warm in winter as a comforting digestif."
+    },
+    {
+      "name": "Polish mineral water",
+      "description": "Sparkling and still mineral waters from Polish springs, a common table drink alongside Kraków meals."
+    }
+  ]
+}

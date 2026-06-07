@@ -13,10 +13,9 @@
  * dynamic selection effect can mount a marker that's already in its
  * "selected" pose (no flash on first paint).
  */
-export function buildMarkerInnerHtml({ color, globalIndex, name, selected = false }) {
-  const containerStyle = selected
-    ? 'transform: scale(1.5); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);'
-    : '';
+export function buildMarkerInnerHtml({ color, globalIndex, name, selected = false, scale = 1 }) {
+  const s = selected ? 1.5 : scale;
+  const containerStyle = `transform: scale(${s}); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);`;
   return `
     <div class="marker-container" style="${containerStyle}">
       <div class="marker-pin" style="background-color: ${color}; box-shadow: 0 2px 6px rgba(0,0,0,0.25); border: 2px solid white;">
@@ -32,7 +31,7 @@ export function buildMarkerInnerHtml({ color, globalIndex, name, selected = fals
  * Create the marker root <div> with the standard data attributes the
  * selection effect relies on (`data-attraction-name`, `data-attraction-index`).
  */
-export function createMarkerElement({ attraction, globalIndex, color, selected = false }) {
+export function createMarkerElement({ attraction, globalIndex, color, selected = false, scale = 1 }) {
   const el = document.createElement('div');
   el.className = selected ? 'custom-marker marker-selected' : 'custom-marker';
   el.setAttribute('data-attraction-name', attraction.name);
@@ -42,10 +41,14 @@ export function createMarkerElement({ attraction, globalIndex, color, selected =
     globalIndex,
     name: attraction.name,
     selected,
+    scale,
   });
   if (selected) {
     el.style.zIndex = '1000';
     el.style.filter = 'drop-shadow(0 0 12px rgba(59, 130, 246, 0.8))';
+  } else {
+    // Bigger (more significant) pins sit above smaller ones so they aren't hidden.
+    el.style.zIndex = String(Math.round(scale * 100));
   }
   return el;
 }

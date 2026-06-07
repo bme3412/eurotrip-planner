@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { isOpenNow, getPriorityColor, getPriorityLevel } from '../src/components/city-guides/citymap/lib/priority.js';
+import { isOpenNow, getPriorityColor, getPriorityLevel, getMarkerScale } from '../src/components/city-guides/citymap/lib/priority.js';
 import { stripMarkdown } from '../src/components/city-guides/citymap/lib/markdown.js';
 import { computeIconicAttractionNames } from '../src/components/city-guides/citymap/lib/iconic.js';
 import { getAttractionCoords } from '../src/components/city-guides/citymap/lib/coords.js';
@@ -42,34 +42,46 @@ test('isOpenNow: matches "sunset" between 17-20', () => {
   assert.equal(isOpenNow({ best_time: 'Best at sunset' }, at21), false);
 });
 
-// ---------- getPriorityColor ----------
+// ---------- getPriorityColor (price tier only; "open now" lives in the popup) ----------
 
-test('getPriorityColor: free + open now → green', () => {
-  const at9 = new Date('2026-01-01T09:00:00');
-  const color = getPriorityColor({ price_range: 'Free', best_time: 'Morning' }, at9);
-  assert.equal(color, '#10B981');
+test('getPriorityColor: free → green (regardless of time)', () => {
+  assert.equal(getPriorityColor({ price_range: 'Free' }), '#10B981');
 });
 
-test('getPriorityColor: free + closed → blue', () => {
-  const at21 = new Date('2026-01-01T21:00:00');
-  const color = getPriorityColor({ price_range: 'Free', best_time: 'Morning' }, at21);
-  assert.equal(color, '#3B82F6');
+test('getPriorityColor: budget → sky', () => {
+  assert.equal(getPriorityColor({ price_range: 'Budget' }), '#0EA5E9');
 });
 
-test('getPriorityColor: moderate + open → yellow', () => {
-  const at14 = new Date('2026-01-01T14:00:00');
-  const color = getPriorityColor({ price_range: 'Moderate', best_time: 'Afternoon' }, at14);
-  assert.equal(color, '#F59E0B');
+test('getPriorityColor: moderate → amber', () => {
+  assert.equal(getPriorityColor({ price_range: 'Moderate' }), '#F59E0B');
 });
 
-test('getPriorityColor: expensive → red regardless of time', () => {
-  const at9 = new Date('2026-01-01T09:00:00');
-  assert.equal(getPriorityColor({ price_range: 'Expensive' }, at9), '#EF4444');
+test('getPriorityColor: expensive → red', () => {
+  assert.equal(getPriorityColor({ price_range: 'Expensive' }), '#EF4444');
 });
 
 test('getPriorityColor: unknown → gray fallback', () => {
   assert.equal(getPriorityColor({ price_range: 'Unknown' }), '#6B7280');
   assert.equal(getPriorityColor(null), '#6B7280');
+});
+
+// ---------- getMarkerScale ----------
+
+test('getMarkerScale: iconic (significance 5) is largest, minor sights smaller', () => {
+  const iconic = getMarkerScale({ ratings: { cultural_significance: 5 } });
+  const mid = getMarkerScale({ ratings: { cultural_significance: 3 } });
+  const minor = getMarkerScale({ ratings: { cultural_significance: 1 } });
+  assert.ok(iconic > mid && mid > minor);
+  assert.equal(mid, 1.0); // unscored/average → neutral size
+  assert.equal(getMarkerScale({}), 1.0); // missing significance → neutral
+});
+
+// ---------- isOpenNow accepts a city-hour number ----------
+
+test('isOpenNow: accepts a numeric city hour (not just a Date)', () => {
+  assert.equal(isOpenNow({ best_time: 'Morning' }, 9), true);
+  assert.equal(isOpenNow({ best_time: 'Morning' }, 21), false);
+  assert.equal(isOpenNow({ best_time: 'Evening' }, 20), true);
 });
 
 // ---------- getPriorityLevel ----------

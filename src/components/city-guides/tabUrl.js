@@ -21,8 +21,6 @@
 export const VALID_TABS = [
   'overview',
   'when',
-  'gettingin',
-  'map',
   'attractions',
   'food',
   'photos',

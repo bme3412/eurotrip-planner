@@ -65,7 +65,13 @@ const QUALITY_CHECKS = {
     weight: 15,
     check: (data) => {
       const connections = data.connections || data.transport || [];
-      const count = Array.isArray(connections) ? connections.length : Object.keys(connections).length;
+      // Connections may be a bare array, or an object that wraps the real list
+      // under `destinations` (the current data shape) — count that, not the
+      // single wrapper key, so rich connection data isn't under-scored.
+      let count;
+      if (Array.isArray(connections)) count = connections.length;
+      else if (Array.isArray(connections.destinations)) count = connections.destinations.length;
+      else count = Object.keys(connections).length;
       if (count === 0) return 0;
       if (count >= 10) return 100;
       if (count >= 5) return 80;

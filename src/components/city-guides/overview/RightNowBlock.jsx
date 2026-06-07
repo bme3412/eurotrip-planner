@@ -49,7 +49,7 @@ export default function RightNowBlock({
 
   return (
     <section className="relative overflow-hidden rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 via-white to-indigo-50/60 shadow-sm">
-      <div className="p-5 md:p-7">
+      <div className="p-5 md:p-6">
         {/* Header */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
@@ -158,23 +158,25 @@ export default function RightNowBlock({
         )}
 
         {/* Footnote considerations + calendar CTA */}
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-blue-100 pt-4">
-          {considerations?.length > 0 ? (
-            <p className="max-w-[60ch] text-xs text-slate-500">
-              Heads up: {considerations.slice(0, 2).join(' · ')}
-            </p>
-          ) : <span />}
-          {onOpenWhenToGo && (
-            <button
-              type="button"
-              onClick={onOpenWhenToGo}
-              className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-white px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-50"
-            >
-              <CalendarDays className="h-4 w-4" aria-hidden />
-              See the full calendar
-            </button>
-          )}
-        </div>
+        {(considerations?.length > 0 || onOpenWhenToGo) && (
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-blue-100 pt-4">
+            {considerations?.length > 0 && (
+              <p className="max-w-[60ch] text-xs text-slate-500">
+                Heads up: {considerations.slice(0, 2).join(' · ')}
+              </p>
+            )}
+            {onOpenWhenToGo && (
+              <button
+                type="button"
+                onClick={onOpenWhenToGo}
+                className="ml-auto inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-white px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-50"
+              >
+                <CalendarDays className="h-4 w-4" aria-hidden />
+                See the full calendar
+              </button>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

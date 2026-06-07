@@ -5,7 +5,6 @@ import { getCacheStats, clearCache } from '@/lib/mapCache';
 import performanceMonitor from '@/lib/performance';
 
 const ACTIONS = {
-  SET_CITY_RATINGS: 'SET_CITY_RATINGS',
   SET_CITY_RANKINGS: 'SET_CITY_RANKINGS',
   SET_RANKED_ITEMS: 'SET_RANKED_ITEMS',
   SET_CALENDAR_DATA: 'SET_CALENDAR_DATA',
@@ -17,7 +16,6 @@ const ACTIONS = {
 };
 
 const initialState = {
-  cityRatings: {},
   // Rich V4 ranking per city (id -> { score, band, tier, why, weather, ... }).
   // Replaced wholesale on each date-range fetch so stale picks never linger.
   cityRankings: {},
@@ -33,7 +31,6 @@ const initialState = {
     endDate: null,
     useFlexibleDates: false,
     selectedMonths: [],
-    minRating: 0
   },
   loadingStates: {
     ratings: false,
@@ -55,15 +52,6 @@ const initialState = {
 
 function mapDataReducer(state, action) {
   switch (action.type) {
-    case ACTIONS.SET_CITY_RATINGS:
-      return {
-        ...state,
-        cityRatings: {
-          ...state.cityRatings,
-          ...action.payload
-        }
-      };
-
     case ACTIONS.SET_CITY_RANKINGS:
       // Replace (not merge): the payload is the full ranked set for the
       // current dates, so dropped cities must not persist.
@@ -132,7 +120,6 @@ function mapDataReducer(state, action) {
       clearCache(action.payload?.pattern);
       return {
         ...state,
-        cityRatings: {},
         cityRankings: {},
         calendarData: {},
         cityDetails: {}
@@ -192,7 +179,6 @@ export function MapDataProvider({ children }) {
     const persistState = () => {
       try {
         const dataToPersist = {
-          cityRatings: state.cityRatings,
           calendarData: state.calendarData,
           cityDetails: state.cityDetails,
           // Dates are URL-driven (the homepage hands them off via query params),
@@ -201,7 +187,6 @@ export function MapDataProvider({ children }) {
           currentFilters: {
             countries: state.currentFilters.countries,
             searchTerm: state.currentFilters.searchTerm,
-            minRating: state.currentFilters.minRating,
           },
           uiState: state.uiState
         };
@@ -213,7 +198,7 @@ export function MapDataProvider({ children }) {
 
     const timeoutId = setTimeout(persistState, 1000);
     return () => clearTimeout(timeoutId);
-  }, [isSubscribed, state.cityRatings, state.calendarData, state.cityDetails, state.currentFilters, state.uiState]);
+  }, [isSubscribed, state.calendarData, state.cityDetails, state.currentFilters, state.uiState]);
 
   useEffect(() => {
     if (!isSubscribed) return;
@@ -223,9 +208,6 @@ export function MapDataProvider({ children }) {
       if (persisted) {
         const data = JSON.parse(persisted);
 
-        if (data.cityRatings) {
-          dispatch({ type: ACTIONS.SET_CITY_RATINGS, payload: data.cityRatings });
-        }
         if (data.calendarData) {
           Object.entries(data.calendarData).forEach(([key, value]) => {
             dispatch({
@@ -260,9 +242,6 @@ export function MapDataProvider({ children }) {
   // changed every time the reducer ran, the effect would re-dispatch,
   // re-render, and loop forever.
   const actions = useMemo(() => ({
-    setCityRatings: (ratings) =>
-      dispatch({ type: ACTIONS.SET_CITY_RATINGS, payload: ratings }),
-
     setCityRankings: (rankings) =>
       dispatch({ type: ACTIONS.SET_CITY_RANKINGS, payload: rankings }),
 
@@ -319,11 +298,6 @@ export function useMapData() {
   }, [subscribe]);
 
   return context;
-}
-
-export function useCityRatings() {
-  const { state } = useMapData();
-  return state.cityRatings;
 }
 
 export function useCityRankings() {
