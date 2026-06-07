@@ -2301,7 +2301,9 @@
             "starts": "mid-February",
             "impact": "None in January"
           }
-        }
+        },
+        "weatherHighC": 7,
+        "weatherLowC": 3
       },
       "february": {
         "name": "February",
@@ -2426,7 +2428,9 @@
             ],
             "impact": "Family attractions busier"
           }
-        }
+        },
+        "weatherHighC": 8,
+        "weatherLowC": 3
       },
       "march": {
         "name": "March",
@@ -2545,7 +2549,9 @@
             "starts": "late March or early April",
             "impact": "Watch for school trips"
           }
-        }
+        },
+        "weatherHighC": 9,
+        "weatherLowC": 3
       },
       "april": {
         "name": "April",
@@ -2659,7 +2665,9 @@
             "dates": "varies",
             "impact": "High local family travel"
           }
-        }
+        },
+        "weatherHighC": 11,
+        "weatherLowC": 4
       },
       "may": {
         "name": "May",
@@ -2776,7 +2784,9 @@
             "dates": "Early May",
             "impact": "Local families traveling"
           }
-        }
+        },
+        "weatherHighC": 14,
+        "weatherLowC": 8
       },
       "june": {
         "name": "June",
@@ -2888,7 +2898,9 @@
             "starts": "late June",
             "impact": "Families begin travel"
           }
-        }
+        },
+        "weatherHighC": 17,
+        "weatherLowC": 10
       },
       "july": {
         "name": "July",
@@ -3007,7 +3019,9 @@
             "dates": "All month",
             "impact": "High family travel"
           }
-        }
+        },
+        "weatherHighC": 18,
+        "weatherLowC": 12
       },
       "august": {
         "name": "August",
@@ -3128,7 +3142,9 @@
             "ends": "mid-August",
             "impact": "Local families in town"
           }
-        }
+        },
+        "weatherHighC": 18,
+        "weatherLowC": 12
       },
       "september": {
         "name": "September",
@@ -3240,7 +3256,9 @@
             "dates": "late September",
             "impact": "Minimal"
           }
-        }
+        },
+        "weatherHighC": 16,
+        "weatherLowC": 10
       },
       "october": {
         "name": "October",
@@ -3359,7 +3377,9 @@
             ],
             "impact": "Family attractions busier"
           }
-        }
+        },
+        "weatherHighC": 13,
+        "weatherLowC": 8
       },
       "november": {
         "name": "November",
@@ -3473,7 +3493,9 @@
             "date": 30,
             "impact": "Special events citywide"
           }
-        }
+        },
+        "weatherHighC": 10,
+        "weatherLowC": 5
       },
       "december": {
         "name": "December",
@@ -3602,7 +3624,9 @@
             ],
             "impact": "Holiday closures and family travel"
           }
-        }
+        },
+        "weatherHighC": 7,
+        "weatherLowC": 3
       }
     },
     "activityTypes": {
@@ -5537,6 +5561,7 @@
   "region": "Other",
   "provenance": {
     "coordinates": "cityMetadata.json",
-    "region": "cityMetadata.json"
+    "region": "cityMetadata.json",
+    "weather": "open-meteo"
   }
 }

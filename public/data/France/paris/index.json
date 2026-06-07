@@ -7166,7 +7166,9 @@
             "starts": "mid-February",
             "impact": "None in January"
           }
-        }
+        },
+        "weatherHighC": 8,
+        "weatherLowC": 2
       },
       "february": {
         "name": "February",
@@ -7371,7 +7373,9 @@
         "avoid": [
           "outdoor dining",
           "garden visits"
-        ]
+        ],
+        "weatherHighC": 11,
+        "weatherLowC": 4
       },
       "march": {
         "name": "March",
@@ -7531,7 +7535,9 @@
             "impact": "Moderate-High",
             "zones": "All zones"
           }
-        }
+        },
+        "weatherHighC": 13,
+        "weatherLowC": 4
       },
       "april": {
         "name": "April",
@@ -7765,7 +7771,9 @@
           "easter": "Major Christian holiday affects opening hours and creates family tourism spike",
           "schoolHolidays": "Two weeks of increased family tourism from all regions",
           "weather": "Most stable spring weather but sudden showers possible"
-        }
+        },
+        "weatherHighC": 16,
+        "weatherLowC": 6
       },
       "may": {
         "name": "May",
@@ -7986,7 +7994,9 @@
           "outdoor lovers",
           "culture seekers",
           "tennis fans"
-        ]
+        ],
+        "weatherHighC": 19,
+        "weatherLowC": 10
       },
       "june": {
         "name": "June",
@@ -8162,7 +8172,9 @@
           "music lovers",
           "romantics",
           "outdoor dining"
-        ]
+        ],
+        "weatherHighC": 24,
+        "weatherLowC": 14
       },
       "july": {
         "name": "July",
@@ -8343,7 +8355,9 @@
           "Possible heatwaves",
           "Many local shops closed",
           "Book everything in advance"
-        ]
+        ],
+        "weatherHighC": 25,
+        "weatherLowC": 15
       },
       "august": {
         "name": "August",
@@ -8524,7 +8538,9 @@
           "Early August many closures",
           "Heat can be extreme",
           "Book restaurants ahead"
-        ]
+        ],
+        "weatherHighC": 25,
+        "weatherLowC": 16
       },
       "september": {
         "name": "September",
@@ -8683,7 +8699,9 @@
           "culture lovers",
           "photographers",
           "fashion enthusiasts"
-        ]
+        ],
+        "weatherHighC": 22,
+        "weatherLowC": 13
       },
       "october": {
         "name": "October",
@@ -8917,7 +8935,9 @@
           "art lovers",
           "wine enthusiasts",
           "autumn fans"
-        ]
+        ],
+        "weatherHighC": 17,
+        "weatherLowC": 10
       },
       "november": {
         "name": "November",
@@ -9137,7 +9157,9 @@
           "cozy seekers",
           "pre-Christmas shoppers",
           "budget travelers"
-        ]
+        ],
+        "weatherHighC": 12,
+        "weatherLowC": 6
       },
       "december": {
         "name": "December",
@@ -9404,7 +9426,9 @@
           "couples",
           "festive seekers",
           "shoppers"
-        ]
+        ],
+        "weatherHighC": 8,
+        "weatherLowC": 4
       }
     },
     "activityTypes": {
@@ -13185,6 +13209,7 @@
   "provenance": {
     "tourismCategories": "cityMetadata.json",
     "coordinates": "cityMetadata.json",
-    "region": "cityMetadata.json"
+    "region": "cityMetadata.json",
+    "weather": "open-meteo"
   }
 }

@@ -648,7 +648,17 @@
               "Check restaurant opening hours"
             ]
           }
-        ]
+        ],
+        "weatherHighC": 4,
+        "weatherLowC": -2,
+        "weatherDetails": {
+          "highC": 4,
+          "lowC": -2,
+          "avgC": 1,
+          "rainfallMm": 56,
+          "sunshineHours": 4.3,
+          "source": "open-meteo"
+        }
       },
       "february": {
         "name": "February",
@@ -755,7 +765,17 @@
               "Check for Valentine's specials"
             ]
           }
-        ]
+        ],
+        "weatherHighC": 7,
+        "weatherLowC": 0,
+        "weatherDetails": {
+          "highC": 7,
+          "lowC": 0,
+          "avgC": 3.5,
+          "rainfallMm": 56,
+          "sunshineHours": 5.9,
+          "source": "open-meteo"
+        }
       },
       "march": {
         "name": "March",
@@ -865,7 +885,17 @@
               "Check for spring events"
             ]
           }
-        ]
+        ],
+        "weatherHighC": 10,
+        "weatherLowC": 1,
+        "weatherDetails": {
+          "highC": 10,
+          "lowC": 1,
+          "avgC": 5.5,
+          "rainfallMm": 39,
+          "sunshineHours": 8.3,
+          "source": "open-meteo"
+        }
       },
       "april": {
         "name": "April",
@@ -974,7 +1004,17 @@
               "Plan outdoor activities"
             ]
           }
-        ]
+        ],
+        "weatherHighC": 13,
+        "weatherLowC": 3,
+        "weatherDetails": {
+          "highC": 13,
+          "lowC": 3,
+          "avgC": 8,
+          "rainfallMm": 64,
+          "sunshineHours": 9.1,
+          "source": "open-meteo"
+        }
       },
       "may": {
         "name": "May",
@@ -1084,7 +1124,17 @@
               "Bring comfortable walking shoes"
             ]
           }
-        ]
+        ],
+        "weatherHighC": 17,
+        "weatherLowC": 8,
+        "weatherDetails": {
+          "highC": 17,
+          "lowC": 8,
+          "avgC": 12.5,
+          "rainfallMm": 98,
+          "sunshineHours": 10,
+          "source": "open-meteo"
+        }
       },
       "june": {
         "name": "June",
@@ -1205,7 +1255,17 @@
               "Bring festival costumes"
             ]
           }
-        ]
+        ],
+        "weatherHighC": 23,
+        "weatherLowC": 13,
+        "weatherDetails": {
+          "highC": 23,
+          "lowC": 13,
+          "avgC": 18,
+          "rainfallMm": 108,
+          "sunshineHours": 12.2,
+          "source": "open-meteo"
+        }
       },
       "july": {
         "name": "July",
@@ -1327,7 +1387,17 @@
               "Check festival schedule"
             ]
           }
-        ]
+        ],
+        "weatherHighC": 24,
+        "weatherLowC": 14,
+        "weatherDetails": {
+          "highC": 24,
+          "lowC": 14,
+          "avgC": 19,
+          "rainfallMm": 81,
+          "sunshineHours": 12,
+          "source": "open-meteo"
+        }
       },
       "august": {
         "name": "August",
@@ -1437,7 +1507,17 @@
               "Check for summer events"
             ]
           }
-        ]
+        ],
+        "weatherHighC": 24,
+        "weatherLowC": 15,
+        "weatherDetails": {
+          "highC": 24,
+          "lowC": 15,
+          "avgC": 19.5,
+          "rainfallMm": 132,
+          "sunshineHours": 10.4,
+          "source": "open-meteo"
+        }
       },
       "september": {
         "name": "September",
@@ -1546,7 +1626,17 @@
               "Check harvest festivals"
             ]
           }
-        ]
+        ],
+        "weatherHighC": 20,
+        "weatherLowC": 11,
+        "weatherDetails": {
+          "highC": 20,
+          "lowC": 11,
+          "avgC": 15.5,
+          "rainfallMm": 88,
+          "sunshineHours": 8.8,
+          "source": "open-meteo"
+        }
       },
       "october": {
         "name": "October",
@@ -1656,7 +1746,17 @@
               "Book flexible accommodation"
             ]
           }
-        ]
+        ],
+        "weatherHighC": 16,
+        "weatherLowC": 7,
+        "weatherDetails": {
+          "highC": 16,
+          "lowC": 7,
+          "avgC": 11.5,
+          "rainfallMm": 50,
+          "sunshineHours": 7.3,
+          "source": "open-meteo"
+        }
       },
       "november": {
         "name": "November",
@@ -1765,7 +1865,17 @@
               "Enjoy peaceful atmosphere"
             ]
           }
-        ]
+        ],
+        "weatherHighC": 8,
+        "weatherLowC": 2,
+        "weatherDetails": {
+          "highC": 8,
+          "lowC": 2,
+          "avgC": 5,
+          "rainfallMm": 50,
+          "sunshineHours": 5.3,
+          "source": "open-meteo"
+        }
       },
       "december": {
         "name": "December",
@@ -1887,7 +1997,17 @@
               "Enjoy festive atmosphere"
             ]
           }
-        ]
+        ],
+        "weatherHighC": 5,
+        "weatherLowC": -1,
+        "weatherDetails": {
+          "highC": 5,
+          "lowC": -1,
+          "avgC": 2,
+          "rainfallMm": 72,
+          "sunshineHours": 3.9,
+          "source": "open-meteo"
+        }
       }
     },
     "summary": {
@@ -2566,6 +2686,7 @@
   "provenance": {
     "tourismCategories": "cityMetadata.json",
     "coordinates": "cityMetadata.json",
-    "region": "cityMetadata.json"
+    "region": "cityMetadata.json",
+    "weather": "open-meteo"
   }
 }
