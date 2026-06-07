@@ -65,6 +65,7 @@ jobs:
           npm run generate-cities
           npm run build:data
           npm run build:cities
+          npm run build:calendars
       - name: Build (skip score generation in CI for speed)
         run: npx next build
         env:
