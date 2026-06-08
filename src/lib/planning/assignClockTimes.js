@@ -25,6 +25,26 @@ const LUNCH_EARLIEST = 12 * 60 + 30; // don't seat lunch before 12:30
 const DEFAULT_TRANSIT_MIN = 10; // fallback hop when no routing/coords
 const WALK_KMH = 4.8;
 
+// Flight-day framing: after landing, clear the airport, transit to the lodging, and
+// drop bags before sightseeing; before an outbound flight, leave time to reach the gate.
+const ARRIVAL_BUFFER_MIN = 135; // ~2h15 from landing to first activity
+const DEPARTURE_BUFFER_MIN = 180; // ~3h before departure to be at the gate (international)
+const LATE_ARRIVAL_CUTOFF = 20 * 60; // 20:00 — later than this, no daytime activities
+
+/** "10:35" | "10:35AM" | "10:35 PM" | "10:35:00" → minutes past midnight, or null. */
+export function parseClockToMinutes(value) {
+  if (typeof value !== 'string') return null;
+  const m = value.trim().match(/^(\d{1,2}):(\d{2})(?::\d{2})?\s*([AaPp][Mm])?$/);
+  if (!m) return null;
+  let h = parseInt(m[1], 10);
+  const min = parseInt(m[2], 10);
+  if (h > 23 || min > 59) return null;
+  const ap = m[3]?.toLowerCase();
+  if (ap === 'am' && h === 12) h = 0;
+  else if (ap === 'pm' && h !== 12) h += 12;
+  return h * 60 + min;
+}
+
 /** "1.5h" | "90m" | "1-2 hours" | 90 → minutes (clamped), or default. */
 function parseDurationMinutes(duration) {
   if (typeof duration === 'number' && Number.isFinite(duration)) {
@@ -83,15 +103,19 @@ function travelToNext(block, nextBlock) {
 /**
  * Reassign clock times across one day's timeBlocks in their current order.
  * @param {Object} day - a built day with timeBlocks[]
- * @param {Object} [opts] - { pace: 'relaxed'|'moderate'|'active' }
+ * @param {Object} [opts] - { pace: 'relaxed'|'moderate'|'active', earliestStartMinutes }
+ *   earliestStartMinutes floors the day's first start (e.g. arrival + transit buffer);
+ *   opening-hours/lunch bumps still only push start times later, never before the floor.
  * @returns {Object} a new day with updated block start/end times
  */
 export function assignDayClockTimes(day, opts = {}) {
   const blocks = day?.timeBlocks;
   if (!Array.isArray(blocks) || blocks.length === 0) return day;
 
-  const anchor = ANCHOR_BY_PACE[opts.pace] ?? ANCHOR_BY_PACE.moderate;
-  let clock = anchor;
+  const paceAnchor = ANCHOR_BY_PACE[opts.pace] ?? ANCHOR_BY_PACE.moderate;
+  let clock = Number.isFinite(opts.earliestStartMinutes)
+    ? Math.max(paceAnchor, opts.earliestStartMinutes)
+    : paceAnchor;
 
   const nextBlocks = blocks.map((block, i) => {
     const activity = block.activity || {};
@@ -124,6 +148,39 @@ export function assignDayClockTimes(day, opts = {}) {
   });
 
   return { ...day, timeBlocks: nextBlocks };
+}
+
+/**
+ * Re-anchor a single arrival/departure day's clock times around its booked flight,
+ * so the day no longer schedules activities before the traveler has landed (arrival)
+ * or after they must leave for the airport (departure). Pure; returns the day
+ * unchanged when the flight time can't be parsed.
+ *
+ * @param {Object} day  a built day carrying `.arrival` (inbound) or `.departure` (outbound)
+ * @param {Object} opts { pace, direction: 'arrival'|'departure' }
+ */
+export function assignFlightDayClockTimes(day, opts = {}) {
+  if (opts.direction === 'arrival') {
+    const mins = parseClockToMinutes(day?.arrival?.arrivalTime);
+    if (mins == null) return day; // graceful: keep the per-city pass result
+    const floor = mins + ARRIVAL_BUFFER_MIN;
+    // Too late to fit any daytime sightseeing — leave only the arrival banner + check-in.
+    if (floor >= LATE_ARRIVAL_CUTOFF) return { ...day, timeBlocks: [] };
+    return assignDayClockTimes(day, { pace: opts.pace, earliestStartMinutes: floor });
+  }
+  if (opts.direction === 'departure') {
+    const mins = parseClockToMinutes(day?.departure?.departureTime);
+    if (mins == null) return day;
+    const latestEnd = mins - DEPARTURE_BUFFER_MIN;
+    // Lay the day out normally, then drop trailing stops that would start past the cutoff.
+    const laid = assignDayClockTimes(day, { pace: opts.pace });
+    const kept = laid.timeBlocks.filter((b) => {
+      const start = parseClockToMinutes(b.startTime);
+      return start == null || start < latestEnd;
+    });
+    return { ...laid, timeBlocks: kept };
+  }
+  return day;
 }
 
 /**
