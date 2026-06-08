@@ -4,7 +4,14 @@ import { getConnectionBetweenCities } from './routeOptimizer.js';
 import { getCityData } from '../data-utils.js';
 import { enrichItineraryLLM } from './enrichItineraryLLM.js';
 import { pickInbound, pickOutbound, matchFlight } from './tripBookings.js';
+import { assignFlightDayClockTimes } from './assignClockTimes.js';
 import { addDays, format } from 'date-fns';
+
+/** Map trip.pace (number 0–100 or 'relaxed'|'balanced'|'active') to a clock-time anchor label. */
+function paceLabelFor(pace) {
+  if (typeof pace === 'number') return pace <= 35 ? 'relaxed' : pace >= 70 ? 'active' : 'moderate';
+  return pace === 'relaxed' || pace === 'active' ? pace : 'moderate';
+}
 
 /**
  * Multi-City Itinerary Builder
@@ -352,6 +359,20 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
   const lastCityDay = [...allDays].reverse().find((d) => !d.isTravelDay);
   if (inbound && firstCityDay) firstCityDay.arrival = inbound;
   if (outbound && lastCityDay) lastCityDay.departure = outbound;
+
+  // With realistic clock times on, re-anchor the framing days around the booked
+  // flights: the arrival day starts after landing + a transit/settle-in buffer, and
+  // the departure day ends before the traveler must leave for the airport. Gated on
+  // the same flag as the per-city clock pass (which ran before arrival was attached).
+  if (process.env.ITINERARY_CLOCK_TIMES === 'true') {
+    const pace = paceLabelFor(trip.pace);
+    if (inbound && firstCityDay) {
+      Object.assign(firstCityDay, assignFlightDayClockTimes(firstCityDay, { pace, direction: 'arrival' }));
+    }
+    if (outbound && lastCityDay) {
+      Object.assign(lastCityDay, assignFlightDayClockTimes(lastCityDay, { pace, direction: 'departure' }));
+    }
+  }
 
   // Step 3: Generate summary
   const totalCities = cities.length;

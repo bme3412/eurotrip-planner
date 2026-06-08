@@ -3,7 +3,37 @@
  * Kept framework-light so all three variants stay consistent.
  */
 
+import { Plane } from 'lucide-react';
+
 export const ACCENT = '#1e63e9'; // app blue (--eu-blue) — congruent with the rest of the app
+
+/** "DELTA 8723" from a booking, or "". */
+export function flightLabel(b) {
+  return [b?.provider, b?.flightNumber].filter(Boolean).join(' ');
+}
+
+/**
+ * Arrival / departure flight banner. The default arrival display, and the fallback
+ * the richer ArrivalLogistics card degrades to when there's no curated getting-in data.
+ */
+export function FlightBanner({ kind, booking, accommodationName }) {
+  const fl = flightLabel(booking);
+  const isArr = kind === 'arrival';
+  const airport = isArr ? booking.toCity : booking.fromCity;
+  const time = isArr ? booking.arrivalTime : booking.departureTime;
+  const verb = isArr ? 'Arrive' : 'Depart';
+  const stayBit = accommodationName
+    ? (isArr ? ` · Check in to ${accommodationName}` : ` · Check out of ${accommodationName}`)
+    : '';
+  return (
+    <p className="mt-2 inline-flex items-start gap-1.5 rounded-lg bg-[#1e63e9]/10 px-2.5 py-1.5 text-xs font-medium text-[#1e63e9] ring-1 ring-[#1e63e9]/20">
+      <Plane className={`mt-0.5 h-3 w-3 shrink-0 ${isArr ? '' : 'rotate-90'}`} />
+      <span>
+        {verb} {airport}{time ? ` ${time}` : ''}{fl ? ` · ${fl}` : ''}{stayBit}
+      </span>
+    </p>
+  );
+}
 
 export const SLOT_META = {
   early_morning: { label: 'Early', tone: 'text-amber-500', dot: 'bg-amber-400' },
