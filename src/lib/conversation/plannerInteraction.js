@@ -235,18 +235,11 @@ function nextActionForMode(mode, { gaps, freeNights, isFinalized, capturedItiner
       id: 'captured-route',
       label: next ? `Add ${next.label.toLowerCase()}` : 'Build itinerary',
       description: next?.prompt || 'Ready when you are.',
-      type: 'chat',
+      // When the brief is complete the CTA builds in one click; while a gap
+      // remains it sends a chat message to fill that gap.
+      type: next ? 'chat' : 'build',
       message: next?.message || 'Build the itinerary.',
       checklist,
-      secondaryActions: next
-        ? [
-            {
-              id: 'build-itinerary',
-              label: 'Build now',
-              message: 'Build the itinerary.',
-            },
-          ]
-        : [],
     };
   }
 
@@ -285,7 +278,7 @@ function nextActionForMode(mode, { gaps, freeNights, isFinalized, capturedItiner
       id: 'build-itinerary',
       label: 'Build itinerary',
       description: 'Turn this route into day-by-day activities and travel blocks.',
-      type: 'chat',
+      type: 'build',
       message: 'Build the itinerary.',
     };
   }
@@ -361,11 +354,14 @@ export function derivePlannerInteraction({
     hasCapturedItinerary: capturedItinerary,
     briefCompleteness,
     nextAction: nextActionForMode(mode, { gaps, freeNights, isFinalized, capturedItinerary, briefCompleteness }),
-    quickReplies: isFinalized || isStreaming || pendingValid || showWelcome
+    // The single build affordance is the bottom action bar — drop any redundant
+    // "Build…" quick-reply chips (id 'draft') so the chip row stays for edits only.
+    quickReplies: (isFinalized || isStreaming || pendingValid || showWelcome
       ? []
       : capturedItinerary && mode === 'review_route'
         ? quickRepliesForCapturedRoute()
-        : quickRepliesForMode(mode, gaps),
+        : quickRepliesForMode(mode, gaps)
+    ).filter((opt) => opt.id !== 'draft'),
     showWelcome,
     showProgress: hasCities || hasUserMessages || pendingValid,
     showRouteAllocator: activeWidget === 'night_allocator',

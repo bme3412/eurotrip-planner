@@ -128,6 +128,7 @@ function PlanContent() {
             days={plannerSnapshot.days}
             cities={plannerSnapshot.cities}
             tripDates={plannerSnapshot.tripState?.dates}
+            itinerary={plannerSnapshot.itinerary}
             onSetCityNights={handleSetCityNights}
             onSetCityAccommodation={handleSetCityAccommodation}
             onSetTripDates={handleSetTripDates}

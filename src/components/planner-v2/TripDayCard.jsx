@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { getFlagForCountry } from '@/utils/countryFlags';
 import { parseIsoDate } from '@/lib/conversation/dayAssignments';
 import { ACCOMMODATION_FIELDS } from '@/lib/conversation/tripState';
@@ -9,6 +10,29 @@ import PlannerDateCalendar from './PlannerDateCalendar.jsx';
 const DOW_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONTH_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const MONTH_FULL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+const TIME_BLOCKS = [
+  ['morning', 'Morning'],
+  ['lunch', 'Lunch'],
+  ['afternoon', 'Afternoon'],
+  ['evening', 'Evening'],
+  ['night', 'Night'],
+];
+const TRANSPORT_ICON = { train: '🚆', flight: '✈️', bus: '🚌', ferry: '⛴️', car: '🚗' };
+
+function orderedTimeBlocks(timeBlocks) {
+  const list = Array.isArray(timeBlocks) ? timeBlocks : [];
+  const rank = (t) => {
+    const i = TIME_BLOCKS.findIndex(([key]) => key === t);
+    return i === -1 ? 99 : i;
+  };
+  return [...list].sort((a, b) => rank(a.time) - rank(b.time));
+}
+
+function blockLabel(time) {
+  const found = TIME_BLOCKS.find(([key]) => key === time);
+  return found ? found[1] : (time || '');
+}
 
 function formatShortDate(iso) {
   const d = parseIsoDate(iso);
@@ -58,6 +82,8 @@ export default function TripDayCard({
   city,
   nightsForCity,
   tripDates,
+  dayItinerary = null,
+  transfer = null,
   isExpanded,
   onClick,
   onClose,
@@ -101,6 +127,9 @@ export default function TripDayCard({
 
   const isAssigned = !!day.cityId;
   const flag = city?.country ? getFlagForCountry(city.country) : null;
+  const activities = orderedTimeBlocks(dayItinerary?.timeBlocks);
+  const accommodation_ = city?.accommodation;
+  const hasStay = accommodation_ && (accommodation_.name || accommodation_.address);
   const shortDate = formatShortDate(day.date);
   const longDate = formatLongDate(day.date);
 
@@ -155,9 +184,9 @@ export default function TripDayCard({
         </div>
       </button>
 
-      {isExpanded && (
+      {isExpanded && typeof document !== 'undefined' && createPortal(
         <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/40 px-4 py-6"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 px-4 py-6"
           onMouseDown={(e) => {
             // Close when backdrop (not modal body) is clicked.
             if (modalRef.current && !modalRef.current.contains(e.target)) {
@@ -204,6 +233,117 @@ export default function TripDayCard({
                 </svg>
               </button>
             </div>
+
+            {/* ── Where you're staying ── */}
+            <div className="mt-4">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a8578]">
+                Where you&apos;re staying
+              </p>
+              {hasStay ? (
+                <div className="mt-1.5 rounded-lg border border-[#e5e0d8] bg-[#faf8f5] px-3 py-2">
+                  {accommodation_.name && (
+                    <p className="text-sm font-semibold text-[#2a2520]">{accommodation_.name}</p>
+                  )}
+                  {accommodation_.address && (
+                    <p className="mt-0.5 text-xs text-[#6a6459]">{accommodation_.address}</p>
+                  )}
+                </div>
+              ) : (
+                <p className="mt-1.5 text-xs italic text-[#8a8578]">
+                  {isAssigned ? 'No stay saved yet — add one under “Edit day details”.' : 'Unassigned day.'}
+                </p>
+              )}
+            </div>
+
+            {/* ── Today's plan ── */}
+            {isAssigned && (
+              <div className="mt-4">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a8578]">
+                  Today&apos;s plan
+                </p>
+                {activities.length > 0 ? (
+                  <ul className="mt-2 space-y-2">
+                    {activities.map((block, i) => (
+                      <li key={i} className="rounded-lg border border-[#e5e0d8] bg-white px-3 py-2">
+                        <div className="flex items-baseline justify-between gap-2">
+                          <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#b08900]">
+                            {blockLabel(block.time)}
+                          </span>
+                          {(block.startTime || block.activity?.duration) && (
+                            <span className="text-[10px] text-[#8a8578]">
+                              {block.startTime
+                                ? `${block.startTime}${block.endTime ? `–${block.endTime}` : ''}`
+                                : block.activity?.duration}
+                            </span>
+                          )}
+                        </div>
+                        <p className="mt-0.5 text-sm font-medium text-[#2a2520]">{block.activity?.name}</p>
+                        {(block.activity?.neighborhood || block.activity?.price) && (
+                          <p className="mt-0.5 text-xs text-[#8a8578]">
+                            {block.activity?.neighborhood}
+                            {block.activity?.neighborhood && block.activity?.price ? ' · ' : ''}
+                            {block.activity?.price}
+                          </p>
+                        )}
+                        {block.activity?.bookingUrl && (
+                          <a
+                            href={block.activity.bookingUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-1 inline-block text-xs font-semibold text-[#b08900] hover:underline"
+                          >
+                            Book / details →
+                          </a>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="mt-1.5 text-xs italic text-[#8a8578]">
+                    Build the itinerary to see the day&apos;s activities.
+                  </p>
+                )}
+              </div>
+            )}
+
+            {/* ── Getting to your next city ── */}
+            {transfer && (
+              <div className="mt-4">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a8578]">
+                  Getting to your next city
+                </p>
+                <div className="mt-1.5 rounded-lg border border-[#e5e0d8] bg-[#faf8f5] px-3 py-2">
+                  <p className="text-sm font-semibold text-[#2a2520]">
+                    <span className="mr-1" aria-hidden="true">
+                      {TRANSPORT_ICON[transfer.transport?.type] || '🚌'}
+                    </span>
+                    {transfer.from?.name} → {transfer.to?.name}
+                  </p>
+                  <p className="mt-0.5 text-xs text-[#6a6459]">
+                    {[transfer.transport?.type, transfer.transport?.journeyTime, transfer.transport?.priceRange]
+                      .filter(Boolean)
+                      .join(' · ')}
+                  </p>
+                  {transfer.transport?.bookingUrl && (
+                    <a
+                      href={transfer.transport.bookingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-block text-xs font-semibold text-[#b08900] hover:underline"
+                    >
+                      Book transport →
+                    </a>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* ── Edit controls (nights · stay · trip dates) ── */}
+            <details className="mt-4 rounded-lg border border-[#e5e0d8] bg-white [&_summary]:list-none">
+              <summary className="cursor-pointer select-none px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#8a8578] hover:text-[#2a2520]">
+                Edit day details
+              </summary>
+              <div className="px-3 pb-3">
 
             {isAssigned && (
               <div className="mt-4 flex items-center justify-between rounded-lg border border-[#e5e0d8] bg-[#faf8f5] px-3 py-2">
@@ -328,8 +468,11 @@ export default function TripDayCard({
                 </div>
               </div>
             )}
+              </div>
+            </details>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </div>
   );

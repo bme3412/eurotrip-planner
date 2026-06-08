@@ -5,7 +5,8 @@ import { useMemo } from 'react';
 import { MapPin, Clock, Wallet, PartyPopper, CloudRain, Plane, Utensils, Footprints, BedDouble } from 'lucide-react';
 import ActivityImage from './ActivityImage';
 import SeasonStrip from './SeasonStrip';
-import { tokens, slotMeta, citySegments, fmtDate, cityGradient, ACCENT } from './shared';
+import ArrivalLogistics from './arrival/ArrivalLogistics';
+import { tokens, slotMeta, citySegments, fmtDate, cityGradient, ACCENT, FlightBanner, flightLabel } from './shared';
 
 const ItineraryMap = dynamic(
   () => import('@/app/itineraries/[tripId]/ItineraryMap'),
@@ -32,10 +33,6 @@ function travelLabel(nextTravel) {
   return `${mins} min ${verb} to next stop`;
 }
 
-function flightLabel(b) {
-  return [b?.provider, b?.flightNumber].filter(Boolean).join(' ');
-}
-
 /** Lodging card shown under a city's chapter header. */
 function LodgingCard({ a, t }) {
   if (!a || (!a.name && !a.address)) return null;
@@ -57,26 +54,6 @@ function LodgingCard({ a, t }) {
         {a.notes && <p className={`mt-1 text-xs ${t.muted}`}>{a.notes}</p>}
       </div>
     </div>
-  );
-}
-
-/** Arrival / departure flight banner in a day header. */
-function FlightBanner({ kind, booking, accommodationName }) {
-  const fl = flightLabel(booking);
-  const isArr = kind === 'arrival';
-  const airport = isArr ? booking.toCity : booking.fromCity;
-  const time = isArr ? booking.arrivalTime : booking.departureTime;
-  const verb = isArr ? 'Arrive' : 'Depart';
-  const stayBit = accommodationName
-    ? (isArr ? ` · Check in to ${accommodationName}` : ` · Check out of ${accommodationName}`)
-    : '';
-  return (
-    <p className="mt-2 inline-flex items-start gap-1.5 rounded-lg bg-[#1e63e9]/10 px-2.5 py-1.5 text-xs font-medium text-[#1e63e9] ring-1 ring-[#1e63e9]/20">
-      <Plane className={`mt-0.5 h-3 w-3 shrink-0 ${isArr ? '' : 'rotate-90'}`} />
-      <span>
-        {verb} {airport}{time ? ` ${time}` : ''}{fl ? ` · ${fl}` : ''}{stayBit}
-      </span>
-    </p>
   );
 }
 
@@ -310,7 +287,12 @@ export default function ItineraryView({ itinerary, theme = 'light', showPhotos =
                 )}
                 <LodgingCard a={seg.days.find((d) => d.accommodation)?.accommodation} t={t} />
                 {seg.days.map((d) => (
-                  <article key={d.dayNumber} id={`day-${d.dayNumber}`} className={`mb-4 scroll-mt-20 rounded-2xl border ${t.panel} p-4 sm:p-5 lg:scroll-mt-6`}>
+                  <article
+                    key={d.dayNumber}
+                    id={`day-${d.dayNumber}`}
+                    className={`mb-4 scroll-mt-20 rounded-2xl border ${t.panel} p-4 sm:p-5 lg:scroll-mt-6 animate-fade-in`}
+                    style={{ animationDelay: `${Math.min((d.dayNumber || 1) * 50, 400)}ms`, animationFillMode: 'both' }}
+                  >
                     <header className={`mb-4 border-b ${t.border} pb-3`}>
                       <div className="flex items-baseline gap-2.5">
                         <span className="font-display text-3xl font-medium" style={{ color: ACCENT }}>{d.dayNumber}</span>
@@ -323,13 +305,21 @@ export default function ItineraryView({ itinerary, theme = 'light', showPhotos =
                         <p className={`mt-2 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs ring-1 ${t.chip}`}>{d.weatherNote}</p>
                       )}
                       {d.summary && <p className={`mt-2 text-sm leading-relaxed ${t.body}`}>{d.summary}</p>}
-                      {d.arrival && (
-                        <div><FlightBanner kind="arrival" booking={d.arrival} accommodationName={seg.days.find((x) => x.accommodation)?.accommodation?.name} /></div>
-                      )}
                       {d.departure && (
                         <div><FlightBanner kind="departure" booking={d.departure} accommodationName={seg.days.find((x) => x.accommodation)?.accommodation?.name} /></div>
                       )}
                     </header>
+                    {/* Arrival logistics: how to get from the airport to the lodging. Reads
+                        first so the day flows "get to your stay, then explore." */}
+                    {d.arrival && (
+                      <ArrivalLogistics
+                        arrival={d.arrival}
+                        citySlug={d.city}
+                        cityName={d.cityName}
+                        accommodation={seg.days.find((x) => x.accommodation)?.accommodation}
+                        t={t}
+                      />
+                    )}
                     <div>
                       {d.timeBlocks.map((b, bi) => (
                         <ActivityRow key={bi} block={b} citySlug={d.city} cityName={d.cityName} showPhotos={showPhotos} t={t} />

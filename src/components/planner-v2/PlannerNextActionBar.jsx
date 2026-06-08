@@ -10,6 +10,7 @@ export default function PlannerNextActionBar({
   tripState,
   savedTripId,
   onSendMessage,
+  onBuildItinerary,
   onAcceptSuggestedAllocation,
 }) {
   if (interaction?.showWelcome) return null;
@@ -41,12 +42,18 @@ export default function PlannerNextActionBar({
       onAcceptSuggestedAllocation?.(suggestedAllocation);
       return;
     }
+    // One-click build: go straight to generation instead of round-tripping a
+    // "build the itinerary" chat message through the agent + a confirm gate.
+    if (action?.type === 'build') {
+      onBuildItinerary?.();
+      return;
+    }
     if (action?.message) {
       onSendMessage?.(action.message);
     }
   };
 
-  const canClick = action?.type === 'allocation' || action?.message;
+  const canClick = action?.type === 'allocation' || action?.type === 'build' || action?.message;
   const checklist = action?.checklist || [];
   const completedCount = checklist.filter((item) => item.complete).length;
   const hasProgress = checklist.length > 0;

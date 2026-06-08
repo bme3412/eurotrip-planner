@@ -100,6 +100,32 @@ export function useItineraryGeneration({
     }
   }, [tripStateRef, tripIdRef, session, onGeneratedItinerary]);
 
+  /**
+   * Patch a single activity in the in-memory itinerary (used by the inline swap
+   * agent so an edit reflects immediately without a full rebuild). Mirrors the
+   * patch shape in ItineraryClient.handleActivityUpdate.
+   */
+  const updateGeneratedActivity = useCallback((dayNumber, timeBlock, newActivity) => {
+    setItinerary((prev) => {
+      if (!prev?.days) return prev;
+      return {
+        ...prev,
+        days: prev.days.map((day) => {
+          if (day.dayNumber !== dayNumber && day.day_number !== dayNumber) return day;
+          if (!day.timeBlocks) return day;
+          return {
+            ...day,
+            timeBlocks: day.timeBlocks.map((block) =>
+              block.time === timeBlock
+                ? { ...block, activity: { ...block.activity, ...newActivity, _aiUpdated: true } }
+                : block,
+            ),
+          };
+        }),
+      };
+    });
+  }, []);
+
   /** User declined finalization — go back to idle. */
   const cancelFinalization = useCallback(() => {
     setGenerationPhase('idle');
@@ -127,5 +153,6 @@ export function useItineraryGeneration({
     cancelFinalization,
     retryGeneration,
     resetGeneration,
+    updateGeneratedActivity,
   };
 }

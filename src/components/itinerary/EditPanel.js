@@ -290,9 +290,9 @@ export default function EditPanel({
 
   return (
     <>
-      {/* Backdrop (mobile) */}
+      {/* Backdrop (mobile). z sits above the post-generation overlay (z-60). */}
       <div
-        className="fixed inset-0 z-40 bg-black/40 sm:bg-transparent"
+        className="fixed inset-0 z-[80] bg-black/40 sm:bg-transparent"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -301,7 +301,7 @@ export default function EditPanel({
       <aside
         role="dialog"
         aria-label={`Edit ${cityDisplay} trip`}
-        className="fixed bottom-0 right-0 z-50 flex h-[85vh] w-full max-w-md flex-col rounded-t-2xl border border-zinc-200 bg-white shadow-2xl ring-1 ring-black/5 sm:bottom-6 sm:right-6 sm:h-[640px] sm:rounded-2xl"
+        className="fixed bottom-0 right-0 z-[90] flex h-[85vh] w-full max-w-md flex-col rounded-t-2xl border border-zinc-200 bg-white shadow-2xl ring-1 ring-black/5 sm:bottom-6 sm:right-6 sm:h-[640px] sm:rounded-2xl"
       >
         {/* Header */}
         <div className="flex items-center justify-between border-b border-zinc-200 px-4 py-3.5">

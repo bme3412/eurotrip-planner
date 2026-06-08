@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import TripDayCard from './TripDayCard';
 import { cityKey } from '@/lib/planning/cityColors';
+import { buildDayDetailsByDate, nextTransferForDate } from '@/lib/planning/dayDetails';
 
 /**
  * Horizontal-scroll day strip rendered in the top header row of `/plan`,
@@ -14,6 +15,7 @@ export default function TripDayStrip({
   days,
   cities,
   tripDates,
+  itinerary,
   onSetCityNights,
   onSetCityAccommodation,
   onSetTripDates,
@@ -29,6 +31,9 @@ export default function TripDayStrip({
     return map;
   }, [cities]);
 
+  // Generated itinerary detail (activities + transfers), indexed by ISO date.
+  const detailByDate = useMemo(() => buildDayDetailsByDate(itinerary), [itinerary]);
+
   if (!Array.isArray(days) || days.length === 0) return null;
 
   return (
@@ -38,6 +43,8 @@ export default function TripDayStrip({
           const city = day.cityId ? cityById.get(day.cityId) : null;
           const nights = Number.isFinite(city?.nights) ? city.nights : 0;
           const isOpen = openIndex === day.dayIndex;
+          const dayItinerary = day.date ? detailByDate.get(day.date) || null : null;
+          const transfer = day.date ? nextTransferForDate(itinerary, day.date) : null;
           return (
             <TripDayCard
               key={day.dayIndex}
@@ -45,6 +52,8 @@ export default function TripDayStrip({
               city={city}
               nightsForCity={nights}
               tripDates={tripDates}
+              dayItinerary={dayItinerary}
+              transfer={transfer}
               isExpanded={isOpen}
               onClick={() => setOpenIndex(isOpen ? null : day.dayIndex)}
               onClose={() => setOpenIndex(null)}

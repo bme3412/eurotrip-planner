@@ -6,6 +6,8 @@ import { useAuth } from '@/contexts/AuthContext';
 import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
 import { canPersistTripDraft, deriveTripTitle, normalizeTripState } from '@/lib/trips/tripLifecycle';
 import { getLocalTripDraft, removeLocalTripDraft, upsertLocalTripDraft } from '@/lib/trips/localTripDrafts';
+import { ensureClientDedupKey } from '@/lib/trips/clientDedupKey';
+import { setPending } from '@/lib/savedItems/pendingSave';
 import { hydrateRoutePreset } from '@/lib/planning/routePresets';
 import { useMessages } from './useMessages';
 import { useTripState } from './useTripState';
@@ -105,6 +107,13 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
   const sessionIdRef = useRef(makeSessionId());
   const tripIdRef = useRef(initialTripId);
   const loadedTripIdRef = useRef(null);
+  // Stable idempotency key for this planning session, kept in a ref so the
+  // burst of autosaves before `savedTripId` lands all carry the same key and
+  // collapse to one server row (UPSERT on user_id,client_dedup_key).
+  const clientDedupKeyRef = useRef(null);
+  // Holds the latest one-click build entry (persist + generate). The agent's
+  // finalize_trip tool fires this directly — no separate confirm gate.
+  const buildItineraryRef = useRef(null);
   const saveTimerRef = useRef(null);
   const saveStatusRef = useRef(initialTripId || initialLocalTripId ? 'loading' : 'local');
   const setSaveStatus = useCallback((next) => {
@@ -137,6 +146,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
       generatedItinerary,
       itineraryGeneratedAt: new Date().toISOString(),
     });
+    clientDedupKeyRef.current = draft.client_dedup_key || clientDedupKeyRef.current;
     setLocalTripId(draft.id);
     setSaveStatus('saved_local');
     setSaveError(null);
@@ -144,8 +154,8 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
 
   const {
     generationPhase, itinerary, generationError,
-    requestFinalization, confirmGeneration: rawConfirmGeneration, cancelFinalization,
-    retryGeneration, resetGeneration,
+    confirmGeneration: rawConfirmGeneration, cancelFinalization,
+    retryGeneration, resetGeneration, updateGeneratedActivity,
   } = useItineraryGeneration({
     tripStateRef,
     tripIdRef,
@@ -215,6 +225,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
       return;
     }
 
+    clientDedupKeyRef.current = draft.client_dedup_key || draft.trip_state?.meta?.clientDedupKey || null;
     setTripState(normalizeTripState(draft.trip_state));
     if (draft.messages?.length) {
       replaceMessages(draft.messages);
@@ -244,6 +255,12 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     }
   }, []);
 
+  // finalize_trip → build immediately (one click). The user only confirms once,
+  // by asking the agent to build; we don't pop a second "Ready to build?" gate.
+  const handleFinalize = useCallback(() => {
+    buildItineraryRef.current?.();
+  }, []);
+
   const {
     isStreaming, setIsStreaming, error, setError,
     processStream, abortStream, abortControllerRef, dismissError: rawDismissError,
@@ -252,7 +269,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     setTripState,
     setPendingInput,
     setIsFinalized,
-    onFinalize: requestFinalization,
+    onFinalize: handleFinalize,
     onToolCall: handleToolHistoryEntry,
   });
 
@@ -302,10 +319,19 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     const title = tripTitle.trim() || deriveTripTitle(draftTripState);
     const shouldSyncToAccount = isSupabaseConfigured && Boolean(session?.access_token);
 
+    // Build the snapshot once and stamp it with a stable client_dedup_key so the
+    // local copy and every server POST share one identity.
+    const snapshot = withConversationSnapshot(draftTripState, messagesRef.current);
+    const seeded = clientDedupKeyRef.current
+      ? { ...snapshot, meta: { ...(snapshot.meta || {}), clientDedupKey: clientDedupKeyRef.current } }
+      : snapshot;
+    const { key: clientDedupKey, tripState: keyedSnapshot } = ensureClientDedupKey(seeded);
+    clientDedupKeyRef.current = clientDedupKey;
+
     const saveLocally = () => {
       const draft = upsertLocalTripDraft({
         id: localTripId,
-        tripState: withConversationSnapshot(draftTripState, messagesRef.current),
+        tripState: keyedSnapshot,
         title,
         messages: compactMessagesForDraft(messagesRef.current),
         generatedItinerary: itinerary,
@@ -314,6 +340,9 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
       setLocalTripId(draft.id);
       setSaveStatus('saved_local');
       setSaveError(null);
+      // Soft gate: a guest's draft is safe locally; record intent so signing in
+      // commits it to the account (migration is idempotent on clientDedupKey).
+      if (!user && isSupabaseConfigured) setPending('trip', { clientDedupKey });
       return draft;
     };
 
@@ -330,8 +359,9 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
         method,
         headers: getSupabaseAuthHeaders(session, { 'Content-Type': 'application/json' }),
         body: JSON.stringify({
-          tripState: withConversationSnapshot(draftTripState, messagesRef.current),
+          tripState: keyedSnapshot,
           title,
+          clientDedupKey,
         }),
       });
 
@@ -372,7 +402,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
       console.warn('[agent] Remote save unavailable, saving locally:', error);
       return saveLocally();
     }
-  }, [isSupabaseConfigured, itinerary, localTripId, messagesRef, savedTripId, session, setSaveStatus, tripState, tripTitle]);
+  }, [isSupabaseConfigured, itinerary, localTripId, messagesRef, savedTripId, session, setSaveStatus, tripState, tripTitle, user]);
 
   useEffect(() => {
     if (authLoading) return;
@@ -399,6 +429,10 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     }
     return rawConfirmGeneration();
   }, [persistDraft, rawConfirmGeneration, session?.access_token, tripStateRef]);
+
+  // Keep the finalize_trip handler pointed at the latest build entry so an
+  // agent-initiated finalize generates immediately (one click, no confirm card).
+  buildItineraryRef.current = confirmGeneration;
 
   const handlePlannerAction = useCallback((action, nextTripState) => {
     if (!action) return;
@@ -667,6 +701,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     cancelFinalization,
     retryGeneration,
     resetGeneration,
+    updateGeneratedActivity,
 
     // Direct-manipulation mutators (used by TripScheduleHeader)
     assignDaysToCity,
