@@ -95,7 +95,7 @@ export async function createTripWithDays(tripPayload, itinerary) {
 /**
  * Create a durable draft from the conversation planner's canonical tripState.
  */
-export async function createDraftTrip({ tripState, userId = null, userEmail = null, title = null }) {
+export async function createDraftTrip({ tripState, userId = null, userEmail = null, title = null, clientDedupKey = null }) {
   if (!canPersistTripDraft(tripState)) {
     throw new Error('Draft trips require at least one anchor city and a time range.');
   }
@@ -108,15 +108,23 @@ export async function createDraftTrip({ tripState, userId = null, userEmail = nu
     status: TRIP_LIFECYCLE_STATUSES.DRAFT,
   });
 
-  const { data, error } = await supabase
-    .from('trips')
-    .insert({
-      ...payload,
-      share_token: makeShareToken(),
-      is_public: false,
-    })
-    .select()
-    .single();
+  const key = clientDedupKey || tripState?.meta?.clientDedupKey || null;
+  const row = {
+    ...payload,
+    share_token: makeShareToken(),
+    is_public: false,
+    ...(key ? { client_dedup_key: key } : {}),
+  };
+
+  // When we have both an owner and a key, UPSERT on (user_id, client_dedup_key)
+  // so concurrent autosaves and re-run migrations collapse to a single row
+  // instead of inserting duplicates. Fall back to a plain insert otherwise
+  // (e.g. legacy email-only ownership, or a draft created before this change).
+  const builder = key && userId
+    ? supabase.from('trips').upsert(row, { onConflict: 'user_id,client_dedup_key' })
+    : supabase.from('trips').insert(row);
+
+  const { data, error } = await builder.select().single();
 
   if (error) throw error;
   return data;

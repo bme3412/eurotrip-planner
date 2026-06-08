@@ -143,6 +143,33 @@ export function buildTripDraftPayload(tripState, options = {}) {
   };
 }
 
+/**
+ * A coarse fingerprint of a trip used to detect duplicates. Works for both
+ * synced trips (from /api/trips) and local drafts since both expose `title`,
+ * `cities` and `time_range`. Pure — safe to import on the server.
+ */
+export function tripSignature(trip) {
+  if (!trip) return '';
+  const title = (trip.title || '').trim().toLowerCase();
+  const cities = Array.isArray(trip.cities)
+    ? trip.cities.map((city) => (city?.name || city?.id || '').toLowerCase()).join('>')
+    : '';
+  const tr = trip.time_range || {};
+  let dates;
+  if (tr.startDate && tr.endDate) {
+    dates = `${tr.startDate}_${tr.endDate}`;
+  } else if (tr.flexibleMonth) {
+    dates = tr.flexibleMonth;
+  } else if (tr.totalNights) {
+    dates = `${tr.totalNights}n`;
+  } else if (trip.start_date && trip.end_date) {
+    dates = `${trip.start_date}_${trip.end_date}`;
+  } else {
+    dates = '';
+  }
+  return `${title}|${cities}|${dates}`;
+}
+
 export function summarizeTripForCard(trip) {
   const tripState = normalizeTripState(trip?.trip_state);
   const cities = getAnchorCities(tripState);

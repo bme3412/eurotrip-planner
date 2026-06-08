@@ -7,6 +7,7 @@ import { ArrowRightIcon, HeartIcon as HeartOutline, MapPinIcon } from '@heroicon
 import { HeartIcon as HeartSolid } from '@heroicons/react/24/solid';
 import { useAuth } from '@/contexts/AuthContext';
 import { useWishlist, useWishlistList } from '@/hooks/useWishlist';
+import { setPending } from '@/lib/savedItems/pendingSave';
 import { getFlagForCountry } from '@/utils/countryFlags';
 
 const GUEST_NUDGE_SESSION_KEY = 'eurotrip.wishlist.guestNudgeShown';
@@ -49,6 +50,9 @@ export default function SaveToTrips({
     if (action === 'added') {
       if (isGuest && shouldShowGuestNudge()) {
         markGuestNudgeShown();
+        // Soft gate: the city is already saved locally; record intent so the
+        // post-sign-in committer knows to surface it, then nudge to sign in.
+        setPending('city', { cityName });
         showNotificationMessage({
           text: 'Saved — sign in to keep these across devices',
           cta: 'signIn',
@@ -61,7 +65,7 @@ export default function SaveToTrips({
     } else if (action === 'noop') {
       showNotificationMessage('Error saving');
     }
-  }, [toggle, showNotificationMessage, isGuest]);
+  }, [toggle, showNotificationMessage, isGuest, cityName]);
 
   const handleNudgeSignIn = useCallback(async () => {
     setNotification(null);

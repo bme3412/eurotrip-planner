@@ -15,6 +15,7 @@ import {
   writeLocalWishlist,
 } from '@/lib/savedItems/wishlistStore';
 import { migrateLocalToSupabase } from '@/lib/savedItems/wishlistMigration';
+import { useSavedCollection } from '@/hooks/useSavedCollection';
 
 function getBrowserStorage() {
   if (typeof window === 'undefined') return null;
@@ -152,55 +153,29 @@ export function useWishlist(cityName, cityData) {
 }
 
 /**
- * useWishlistList — read+remove for the "My saved cities" page.
+ * Collection config for saved cities, consumed by the generic useSavedCollection
+ * list hook. Defined once so the My Trips list and any future surface share it.
+ */
+const wishlistListConfig = {
+  table: 'saved_trips',
+  orderBy: 'created_at',
+  fromRow: fromSupabaseRow,
+  readLocal: (storage) => readLocalWishlist(storage),
+  removeRemote: (supabase, _userId, trip) =>
+    trip.id ? supabase.from('saved_trips').delete().eq('id', trip.id) : Promise.resolve(),
+  removeLocal: (storage, trip) => {
+    const next = readLocalWishlist(storage).filter((t) => t.cityName !== trip.cityName);
+    writeLocalWishlist(next, storage);
+  },
+  sameItem: (a, b) => a.cityName === b.cityName,
+};
+
+/**
+ * useWishlistList — read+remove for the "My saved cities" page. Thin wrapper
+ * over the shared useSavedCollection lifecycle; keeps the legacy `savedTrips`
+ * surface so existing call sites are untouched.
  */
 export function useWishlistList() {
-  const { user, isSupabaseConfigured, loading: authLoading } = useAuth();
-  const [savedTrips, setSavedTrips] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const useSupabase = !!(user && isSupabaseConfigured);
-
-  const reload = useCallback(async () => {
-    setLoading(true);
-    if (useSupabase) {
-      const supabase = getSupabaseClient();
-      if (supabase) {
-        const { data, error } = await supabase
-          .from('saved_trips')
-          .select('*')
-          .eq('user_id', user.id)
-          .order('created_at', { ascending: false });
-        if (!error && Array.isArray(data)) {
-          setSavedTrips(data.map(fromSupabaseRow).filter(Boolean));
-        } else if (error) {
-          console.error('[useWishlistList] supabase load error', error);
-        }
-      }
-    } else {
-      setSavedTrips(readLocalWishlist(getBrowserStorage()));
-    }
-    setLoading(false);
-  }, [useSupabase, user?.id]);
-
-  useEffect(() => {
-    if (authLoading) return;
-    reload();
-  }, [authLoading, reload]);
-
-  const remove = useCallback(async (trip) => {
-    if (useSupabase) {
-      const supabase = getSupabaseClient();
-      if (supabase && trip.id) {
-        await supabase.from('saved_trips').delete().eq('id', trip.id);
-      }
-    } else {
-      const list = readLocalWishlist(getBrowserStorage());
-      const next = list.filter((t) => t.cityName !== trip.cityName);
-      writeLocalWishlist(next, getBrowserStorage());
-    }
-    setSavedTrips((curr) => curr.filter((t) => t.cityName !== trip.cityName));
-  }, [useSupabase]);
-
-  return { savedTrips, loading: loading || authLoading, remove, reload };
+  const { items, loading, remove, reload } = useSavedCollection(wishlistListConfig);
+  return { savedTrips: items, loading, remove, reload };
 }

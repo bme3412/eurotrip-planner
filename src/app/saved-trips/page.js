@@ -8,6 +8,7 @@ import {
   CalendarDaysIcon,
   ClockIcon,
   ExclamationTriangleIcon,
+  MagnifyingGlassIcon,
   PlusIcon,
   SparklesIcon,
   TrashIcon,
@@ -15,6 +16,7 @@ import {
 } from "@heroicons/react/24/outline";
 import AuthButton from "@/components/auth/AuthButton";
 import { SavedTripsList } from "@/components/common/SaveToTrips";
+import SavedExperiencesList from "@/components/common/SavedExperiencesList";
 import { useAuth } from "@/contexts/AuthContext";
 import { getSupabaseAuthHeaders } from "@/lib/supabase/authHeaders";
 import { migrateLegacyWizardItineraries, readLocalTripDrafts, removeLocalTripDraft } from "@/lib/trips/localTripDrafts";
@@ -23,6 +25,14 @@ import { getFlagForCountry } from "@/utils/countryFlags";
 
 function isGeneratedTrip(trip) {
   return Boolean(trip.itinerary_generated_at || trip.generated_itinerary);
+}
+
+// Higher = keep when collapsing duplicates: a generated itinerary wins, then the
+// most recently updated.
+function tripRichness(trip) {
+  const generated = isGeneratedTrip(trip) ? 1 : 0;
+  const updated = new Date(trip.updated_at || trip.created_at || 0).getTime() || 0;
+  return generated * 1e15 + updated;
 }
 
 function formatDate(value) {
@@ -148,6 +158,7 @@ function EmptyCard({ icon: Icon, tone = "rose", title, body, cta }) {
     rose: { wrap: "ring-gray-200 bg-white", badge: "bg-rose-50 text-rose-500" },
     amber: { wrap: "ring-amber-200 bg-amber-50/70", badge: "bg-amber-100 text-amber-700" },
     red: { wrap: "ring-red-200 bg-red-50/70", badge: "bg-red-100 text-red-600" },
+    gray: { wrap: "ring-gray-200 bg-white", badge: "bg-gray-100 text-gray-500" },
   };
   const styles = toneMap[tone] || toneMap.rose;
   return (
@@ -162,7 +173,7 @@ function EmptyCard({ icon: Icon, tone = "rose", title, body, cta }) {
   );
 }
 
-function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null }) {
+function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null, selectable = false, selected = false, onToggleSelect = null }) {
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const isGenerated = isGeneratedTrip(trip);
@@ -188,11 +199,22 @@ function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null }) {
   const containerVariant = isLocal
     ? "bg-gradient-to-br from-amber-50/80 to-white ring-amber-200"
     : "bg-white ring-gray-200/80";
+  const selectedRing = selectable && selected ? " ring-2 ring-rose-400" : "";
 
   return (
-    <article className={`${containerBase} ${containerVariant}`}>
+    <article className={`${containerBase} ${containerVariant}${selectedRing}`}>
       <div className="flex items-start justify-between gap-4">
-        <div className="min-w-0">
+        <div className="flex min-w-0 items-start gap-3">
+          {selectable && (
+            <input
+              type="checkbox"
+              checked={selected}
+              onChange={() => onToggleSelect?.(trip.id)}
+              className="mt-1 size-4 shrink-0 cursor-pointer rounded border-gray-300 text-rose-600 focus:ring-rose-500"
+              aria-label={`Select ${trip.title || "trip"}`}
+            />
+          )}
+          <div className="min-w-0">
           <p className={`flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] ${isLocal ? "text-amber-700" : "text-gray-400"}`}>
             <StatusDot tone={dotTone} />
             {statusLabel}
@@ -204,6 +226,7 @@ function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null }) {
             <ClockIcon className="size-3.5" aria-hidden="true" />
             {formatUpdatedAt(trip.updated_at || trip.created_at)}
           </p>
+          </div>
         </div>
         <span className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ring-1 ${badgeTone}`}>
           <StatusDot tone={dotTone} />
@@ -306,14 +329,23 @@ function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null }) {
   );
 }
 
-function TripsSection({ eyebrow, title, subtitle, dotTone, trips, isLocal, onRemove, onDelete }) {
+function TripsSection({ eyebrow, title, subtitle, dotTone, trips, isLocal, onRemove, onDelete, selectable = false, selectedIds = null, onToggleSelect = null }) {
   if (trips.length === 0) return null;
   return (
     <section>
       <SectionHeader eyebrow={eyebrow} title={title} subtitle={subtitle} dotTone={dotTone} />
       <div className="grid gap-4 md:grid-cols-2">
         {trips.map((trip) => (
-          <TripCard key={trip.id} trip={trip} isLocal={isLocal} onRemove={onRemove} onDelete={onDelete} />
+          <TripCard
+            key={trip.id}
+            trip={trip}
+            isLocal={isLocal}
+            onRemove={onRemove}
+            onDelete={onDelete}
+            selectable={selectable}
+            selected={selectedIds ? selectedIds.has(trip.id) : false}
+            onToggleSelect={onToggleSelect}
+          />
         ))}
       </div>
     </section>
@@ -332,7 +364,13 @@ export default function SavedTripsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [wishlistCount, setWishlistCount] = useState(0);
+  const [experiencesCount, setExperiencesCount] = useState(0);
+  const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState("recent"); // 'recent' | 'name'
+  const [selectMode, setSelectMode] = useState(false);
+  const [selectedIds, setSelectedIds] = useState(() => new Set());
   const migrationAttempted = useRef(false);
+  const dedupeAttempted = useRef(false);
 
   const loadTrips = useCallback(async () => {
     if (!user || !session?.access_token) {
@@ -388,6 +426,28 @@ export default function SavedTripsPage() {
     });
   }, [authLoading, loading, user, session, trips, loadTrips, reloadLocalDrafts]);
 
+  // One-shot cleanup of pre-existing duplicate server rows (created before the
+  // client_dedup_key idempotency key existed). Guarded per-user so it runs once.
+  useEffect(() => {
+    if (authLoading || loading) return;
+    if (!user || !session?.access_token) return;
+    if (dedupeAttempted.current) return;
+    const guardKey = `plannerDedupeRanFor:${user.id}`;
+    if (typeof window !== "undefined" && window.localStorage.getItem(guardKey) === "1") return;
+
+    dedupeAttempted.current = true;
+    fetch("/api/trips/dedupe", {
+      method: "POST",
+      headers: getSupabaseAuthHeaders(session),
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((res) => {
+        if (typeof window !== "undefined") window.localStorage.setItem(guardKey, "1");
+        if (res?.removed > 0) loadTrips();
+      })
+      .catch((err) => console.warn("[saved-trips] dedupe failed:", err));
+  }, [authLoading, loading, user, session, loadTrips]);
+
   const handleRemoveLocal = useCallback((id) => {
     removeLocalTripDraft(id);
     reloadLocalDrafts();
@@ -413,16 +473,90 @@ export default function SavedTripsPage() {
 
   // Signed in → account trips; signed out → local drafts (rendered as unsynced).
   const isLocalMode = !user;
-  const displayTrips = isLocalMode ? localDrafts : trips;
+
+  // Safety net: collapse any rows that share a client_dedup_key (e.g. a server
+  // copy plus a not-yet-cleaned duplicate), keeping the richest. Rows without a
+  // key keep their own identity. The server dedupe endpoint is the real fix;
+  // this just guarantees the UI never shows the same logical trip twice.
+  const displayTrips = useMemo(() => {
+    const source = isLocalMode ? localDrafts : trips;
+    const byKey = new Map();
+    const passthrough = [];
+    for (const trip of source) {
+      const key = trip.client_dedup_key || trip.trip_state?.meta?.clientDedupKey;
+      if (!key) {
+        passthrough.push(trip);
+        continue;
+      }
+      const existing = byKey.get(key);
+      if (!existing || tripRichness(trip) > tripRichness(existing)) byKey.set(key, trip);
+    }
+    return [...passthrough, ...byKey.values()];
+  }, [isLocalMode, localDrafts, trips]);
+
+  const visibleTrips = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    let list = displayTrips;
+    if (q) {
+      list = list.filter((trip) => {
+        const title = (trip.title || "").toLowerCase();
+        const cities = (trip.cities || []).map((c) => (c?.name || "").toLowerCase()).join(" ");
+        return title.includes(q) || cities.includes(q);
+      });
+    }
+    const sorted = [...list];
+    if (sortBy === "name") {
+      sorted.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+    } else {
+      sorted.sort((a, b) => tripRichness(b) - tripRichness(a));
+    }
+    return sorted;
+  }, [displayTrips, search, sortBy]);
 
   const { ready, inProgress } = useMemo(() => {
     const readyTrips = [];
     const inProgressTrips = [];
-    for (const trip of displayTrips) {
+    for (const trip of visibleTrips) {
       (isGeneratedTrip(trip) ? readyTrips : inProgressTrips).push(trip);
     }
     return { ready: readyTrips, inProgress: inProgressTrips };
-  }, [displayTrips]);
+  }, [visibleTrips]);
+
+  const toggleSelect = useCallback((id) => {
+    setSelectedIds((curr) => {
+      const next = new Set(curr);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }, []);
+
+  const selectAllVisible = useCallback(() => {
+    setSelectedIds(new Set(visibleTrips.map((t) => t.id)));
+  }, [visibleTrips]);
+
+  const exitSelectMode = useCallback(() => {
+    setSelectMode(false);
+    setSelectedIds(new Set());
+  }, []);
+
+  const handleBulkDelete = useCallback(async () => {
+    const ids = [...selectedIds];
+    if (ids.length === 0) return;
+    if (isLocalMode) {
+      ids.forEach((id) => removeLocalTripDraft(id));
+      reloadLocalDrafts();
+    } else {
+      setTrips((curr) => curr.filter((t) => !selectedIds.has(t.id))); // optimistic
+      await Promise.allSettled(
+        ids.map((id) =>
+          fetch(`/api/trips/${id}`, { method: "DELETE", headers: getSupabaseAuthHeaders(session) }),
+        ),
+      );
+      loadTrips();
+    }
+    exitSelectMode();
+  }, [selectedIds, isLocalMode, reloadLocalDrafts, session, loadTrips, exitSelectMode]);
 
   const showLoading = authLoading || (user && loading);
   const showEmptyState = !showLoading && !error && displayTrips.length === 0;
@@ -441,9 +575,12 @@ export default function SavedTripsPage() {
                 Your itineraries, planner drafts, and saved cities — all in one place.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
-                <StatPill count={ready.length} label={ready.length === 1 ? "ready" : "ready"} tone="emerald" />
+                <StatPill count={ready.length} label="ready" tone="emerald" />
                 <StatPill count={inProgress.length} label="in progress" tone="rose" />
                 <StatPill count={wishlistCount} label={wishlistCount === 1 ? "saved city" : "saved cities"} tone="emerald" />
+                {experiencesCount > 0 && (
+                  <StatPill count={experiencesCount} label={experiencesCount === 1 ? "experience" : "experiences"} tone="rose" />
+                )}
               </div>
             </div>
             <div className="shrink-0">
@@ -456,10 +593,68 @@ export default function SavedTripsPage() {
       <main className="mx-auto max-w-6xl space-y-12 px-4 py-10 sm:px-6">
         {/* Trips lifecycle: Ready to go → In progress */}
         <div className="space-y-12">
-          <div className="flex items-center justify-end">
+          <div className="flex flex-wrap items-center gap-3">
+            {displayTrips.length > 0 && (
+              <>
+                <div className="relative min-w-0 flex-1 sm:max-w-xs">
+                  <MagnifyingGlassIcon className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-gray-400" aria-hidden="true" />
+                  <input
+                    type="search"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="Search trips or cities"
+                    className="w-full rounded-full border border-gray-200 bg-white py-1.5 pl-9 pr-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-rose-300 focus:outline-none focus:ring-1 focus:ring-rose-300"
+                  />
+                </div>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="rounded-full border border-gray-200 bg-white py-1.5 pl-3 pr-7 text-sm text-gray-700 focus:border-rose-300 focus:outline-none focus:ring-1 focus:ring-rose-300"
+                  aria-label="Sort trips"
+                >
+                  <option value="recent">Most recent</option>
+                  <option value="name">Name (A–Z)</option>
+                </select>
+                {selectMode ? (
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={selectAllVisible}
+                      className="rounded-full px-3 py-1.5 text-xs font-semibold text-gray-600 ring-1 ring-gray-200 transition-colors hover:bg-gray-50"
+                    >
+                      Select all
+                    </button>
+                    <button
+                      type="button"
+                      disabled={selectedIds.size === 0}
+                      onClick={handleBulkDelete}
+                      className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-red-700 disabled:opacity-50"
+                    >
+                      <TrashIcon className="size-3.5" aria-hidden="true" />
+                      Delete{selectedIds.size > 0 ? ` (${selectedIds.size})` : ""}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={exitSelectMode}
+                      className="rounded-full px-3 py-1.5 text-xs font-semibold text-gray-500 transition-colors hover:text-gray-800"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setSelectMode(true)}
+                    className="rounded-full px-3 py-1.5 text-xs font-semibold text-gray-600 ring-1 ring-gray-200 transition-colors hover:bg-gray-50"
+                  >
+                    Select
+                  </button>
+                )}
+              </>
+            )}
             <Link
               href="/plan"
-              className="inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-gray-800"
+              className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-gray-800"
             >
               <PlusIcon className="size-3.5" aria-hidden="true" />
               New trip
@@ -521,6 +716,22 @@ export default function SavedTripsPage() {
                 }
               />
             )
+          ) : visibleTrips.length === 0 ? (
+            <EmptyCard
+              icon={MagnifyingGlassIcon}
+              tone="gray"
+              title="No matching trips"
+              body={`Nothing matches “${search}”. Try a different city or title.`}
+              cta={
+                <button
+                  type="button"
+                  onClick={() => setSearch("")}
+                  className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800"
+                >
+                  Clear search
+                </button>
+              }
+            />
           ) : (
             <>
               <TripsSection
@@ -532,6 +743,9 @@ export default function SavedTripsPage() {
                 isLocal={isLocalMode}
                 onRemove={isLocalMode ? handleRemoveLocal : null}
                 onDelete={isLocalMode ? null : handleDeleteTrip}
+                selectable={selectMode}
+                selectedIds={selectedIds}
+                onToggleSelect={toggleSelect}
               />
               <TripsSection
                 eyebrow="02 · In progress"
@@ -542,6 +756,9 @@ export default function SavedTripsPage() {
                 isLocal={isLocalMode}
                 onRemove={isLocalMode ? handleRemoveLocal : null}
                 onDelete={isLocalMode ? null : handleDeleteTrip}
+                selectable={selectMode}
+                selectedIds={selectedIds}
+                onToggleSelect={toggleSelect}
               />
             </>
           )}
@@ -549,9 +766,9 @@ export default function SavedTripsPage() {
 
         <section>
           <SectionHeader
-            eyebrow="03 · Wishlist"
-            title="Wishlist"
-            subtitle="Cities and experiences saved while browsing guides."
+            eyebrow="03 · Saved cities"
+            title="Saved cities"
+            subtitle="Cities you've hearted while browsing guides."
             dotTone="emerald"
             action={
               <Link
@@ -564,6 +781,16 @@ export default function SavedTripsPage() {
             }
           />
           <SavedTripsList onCount={setWishlistCount} />
+        </section>
+
+        <section>
+          <SectionHeader
+            eyebrow="04 · Saved experiences"
+            title="Saved experiences"
+            subtitle="Attractions you've shortlisted, grouped by city."
+            dotTone="rose"
+          />
+          <SavedExperiencesList onCount={setExperiencesCount} />
         </section>
       </main>
     </div>

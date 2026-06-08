@@ -5,6 +5,7 @@ import {
   normalizeTripState,
   TRIP_LIFECYCLE_STATUSES,
 } from './tripLifecycle';
+import { ensureClientDedupKey } from './clientDedupKey';
 
 export const LOCAL_TRIP_DRAFTS_KEY = 'plannerLocalTripDrafts';
 const LEGACY_WIZARD_SAVES_KEY = 'eurotrip-saved-itineraries';
@@ -49,11 +50,17 @@ export function upsertLocalTripDraft({
   generatedItinerary = null,
   itineraryGeneratedAt = null,
 } = {}) {
-  const normalized = normalizeTripState(tripState);
   const now = new Date().toISOString();
   const draftId = id || makeLocalTripId();
   const existingDrafts = readLocalTripDrafts();
   const existing = existingDrafts.find((draft) => draft.id === draftId);
+  // Mint a stable idempotency key once and carry it inside trip_state.meta so it
+  // survives normalize + the POST body. Reuse the existing draft's key on update.
+  const seededTripState = existing?.client_dedup_key
+    ? { ...(tripState || {}), meta: { ...(tripState?.meta || {}), clientDedupKey: existing.client_dedup_key } }
+    : tripState;
+  const { key: clientDedupKey, tripState: keyedTripState } = ensureClientDedupKey(seededTripState);
+  const normalized = normalizeTripState(keyedTripState);
   const cities = getAnchorCities(normalized);
   const timeRange = getTripTimeRange(normalized);
 
@@ -61,6 +68,7 @@ export function upsertLocalTripDraft({
     ...(existing || {}),
     id: draftId,
     local: true,
+    client_dedup_key: clientDedupKey,
     title: title || deriveTripTitle(normalized),
     status: TRIP_LIFECYCLE_STATUSES.DRAFT,
     cities,

@@ -1,11 +1,14 @@
 /**
  * One-shot migration of a guest's local wishlist into Supabase's `saved_trips`
- * table on first sign-in.
+ * table on first sign-in. Delegates the insert/dedupe mechanics to the shared
+ * saved-items engine (createSavedCollection) so every collection migrates the
+ * same idempotent way.
  *
  * Kept React-free so it can be unit-tested with a stub supabase client.
  */
 
 import { toSupabaseInsert } from './wishlistStore';
+import { migrateRows } from './createSavedCollection';
 
 /**
  * Push `localList` into saved_trips for `userId`, deduped against rows the
@@ -14,20 +17,12 @@ import { toSupabaseInsert } from './wishlistStore';
  * @returns {Promise<{ inserted: number, skipped: number, error: any }>}
  */
 export async function migrateLocalToSupabase({ supabase, userId, localList }) {
-  if (!supabase || !userId) return { inserted: 0, skipped: 0, error: null };
   if (!Array.isArray(localList) || localList.length === 0) {
     return { inserted: 0, skipped: 0, error: null };
   }
 
-  const { data: existing, error: readErr } = await supabase
-    .from('saved_trips')
-    .select('city_name')
-    .eq('user_id', userId);
-  if (readErr) return { inserted: 0, skipped: 0, error: readErr };
-
-  const taken = new Set((existing || []).map((r) => r.city_name));
-  const toInsert = localList
-    .filter((t) => t && t.cityName && !taken.has(t.cityName))
+  const rows = localList
+    .filter((t) => t && t.cityName)
     .map((t) =>
       toSupabaseInsert({
         userId,
@@ -41,16 +36,12 @@ export async function migrateLocalToSupabase({ supabase, userId, localList }) {
       }),
     );
 
-  if (toInsert.length === 0) {
-    return { inserted: 0, skipped: localList.length, error: null };
-  }
-
-  const { error: insertErr } = await supabase.from('saved_trips').insert(toInsert);
-  if (insertErr) return { inserted: 0, skipped: 0, error: insertErr };
-
-  return {
-    inserted: toInsert.length,
-    skipped: localList.length - toInsert.length,
-    error: null,
-  };
+  return migrateRows({
+    supabase,
+    table: 'saved_trips',
+    userId,
+    rows,
+    keyColumns: ['city_name'],
+    keyOf: (r) => r.city_name,
+  });
 }
