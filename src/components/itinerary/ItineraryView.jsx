@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { useMemo } from 'react';
-import { MapPin, Clock, Wallet, PartyPopper, CloudRain, Plane, Utensils } from 'lucide-react';
+import { MapPin, Clock, Wallet, PartyPopper, CloudRain, Plane, Utensils, Footprints } from 'lucide-react';
 import ActivityImage from './ActivityImage';
 import { tokens, slotMeta, citySegments, fmtDate, cityGradient, ACCENT } from './shared';
 
@@ -20,6 +20,15 @@ function toLatLng(a) {
     return { lat: a.latitude, lng: a.longitude };
   }
   return null;
+}
+
+/** Human label for an activity's nextTravel hop, or null when not worth showing. */
+function travelLabel(nextTravel) {
+  const mins = nextTravel?.durationMinutes;
+  if (mins == null || mins < 1) return null;
+  const mode = (nextTravel.travelMode || 'WALK').toUpperCase();
+  const verb = mode === 'WALK' ? 'walk' : mode === 'BICYCLE' ? 'bike' : mode === 'TRANSIT' ? 'by transit' : 'travel';
+  return `${mins} min ${verb} to next stop`;
 }
 
 function Chips({ a, t }) {
@@ -84,12 +93,22 @@ function ActivityRow({ block, citySlug, cityName, showPhotos, t }) {
         <h4 className={`mt-0.5 flex items-center gap-1.5 font-semibold ${t.heading}`}>
           {a.isEvent && <PartyPopper className="h-4 w-4 text-amber-500" />}
           {a.name}
+          {a._provenance === 'google_places' && (
+            <span className={`rounded px-1.5 py-0.5 text-[9px] font-medium uppercase tracking-wide ${t.chip}`} title="Live suggestion from Google Places — verify hours before you go">
+              Suggested
+            </span>
+          )}
         </h4>
         {a.description && <p className={`mt-1 text-sm leading-relaxed ${t.body}`}>{a.description}</p>}
         <Chips a={a} t={t} />
         {a.weatherBackup && (
           <p className="mt-2 inline-flex items-start gap-1.5 rounded-lg bg-sky-500/10 px-2.5 py-1.5 text-xs text-sky-600 ring-1 ring-sky-500/20">
             <CloudRain className="mt-0.5 h-3 w-3 shrink-0" /> Rain backup: {a.weatherBackup}
+          </p>
+        )}
+        {travelLabel(a.nextTravel) && (
+          <p className={`mt-2 inline-flex items-center gap-1 text-[11px] ${t.muted}`}>
+            <Footprints className="h-3 w-3 shrink-0" /> {travelLabel(a.nextTravel)}
           </p>
         )}
       </div>

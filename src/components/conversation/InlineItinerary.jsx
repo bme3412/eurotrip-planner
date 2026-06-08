@@ -17,6 +17,7 @@ import {
   RotateCcw,
   Save,
   AlertCircle,
+  Footprints,
 } from 'lucide-react';
 import { getCountryFlag } from '@/utils/countryFlags';
 
@@ -118,6 +119,12 @@ function ActivityItem({ activity }) {
               {activity.neighborhood || activity.address}
             </span>
           )}
+          {activity.nextTravel?.durationMinutes >= 1 && (
+            <span className="flex items-center gap-1">
+              <Footprints className="w-3 h-3" />
+              {activity.nextTravel.durationMinutes} min to next
+            </span>
+          )}
         </div>
       </div>
     </div>
@@ -157,14 +164,18 @@ function DayCard({ day, dayIndex }) {
   const activities = day.timeBlocks || day.activities || day.items || [];
   const allActivities =
     Array.isArray(activities) && activities.length > 0
-      ? activities.flatMap(block =>
-          block.activities
-            ? block.activities.map(a => ({
-                ...a,
-                timeBlock: block.label || block.time,
-              }))
-            : [block]
-        )
+      ? activities.flatMap(block => {
+          // Normalized/legacy shape: a block holding many activities.
+          if (block.activities) {
+            return block.activities.map(a => ({ ...a, timeBlock: block.label || block.time }));
+          }
+          // Builder shape: a time block wrapping a single activity.
+          if (block.activity) {
+            return [{ ...block.activity, timeBlock: block.label || block.time }];
+          }
+          // Already a flat activity.
+          return [block];
+        })
       : [];
 
   const cityName = day.cityName || day.city || '';

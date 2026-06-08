@@ -215,59 +215,79 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
     })
   );
 
-  // Step 3: Build itinerary for each city (sequential — order matters for transfers)
+  // Step 3: Build the itinerary per city.
   const allDays = [];
   const citySegments = [];
   const transfers = [];
 
-  let currentDayNumber = 1;
-  let currentDate = new Date(startDate);
-
-  for (let i = 0; i < cities.length; i++) {
-    const city = cities[i];
+  // 3a) Keep only cities we can actually build (have an allocation + data), and
+  // schedule each one's day-numbers / dates up front. Travel days sit between
+  // consecutive buildable cities. This is a cheap sequential pass — no awaits —
+  // so the expensive per-city builds can then run in parallel.
+  const buildable = [];
+  for (const city of cities) {
     const cityAlloc = allocation.allocation.find(a => a.city === city.id);
-
     if (!cityAlloc) {
       console.warn(`No allocation found for city ${city.id}, skipping`);
       continue;
     }
-
     const cityData = cityDataMap.get(city.id);
-
     if (!cityData) {
       console.error(`No city data available for ${city.id}, skipping`);
       continue;
     }
+    buildable.push({ city, cityAlloc, cityData });
+  }
 
-    // Create temporary trip object for this city segment
-    const cityTrip = {
+  let currentDayNumber = 1;
+  let currentDate = new Date(startDate);
+  buildable.forEach((entry, i) => {
+    entry.startDayNumber = currentDayNumber;
+    entry.startDate = new Date(currentDate);
+    entry.cityTrip = {
       ...trip,
-      city: city.id,
-      start_date: format(currentDate, 'yyyy-MM-dd'),
-      end_date: format(addDays(currentDate, cityAlloc.days - 1), 'yyyy-MM-dd')
+      city: entry.city.id,
+      start_date: format(entry.startDate, 'yyyy-MM-dd'),
+      end_date: format(addDays(entry.startDate, entry.cityAlloc.days - 1), 'yyyy-MM-dd'),
     };
+    currentDayNumber += entry.cityAlloc.days;
+    currentDate = addDays(currentDate, entry.cityAlloc.days);
+    if (i < buildable.length - 1 && includeTransfers) {
+      entry.travelAfter = { dayNumber: currentDayNumber, date: new Date(currentDate) };
+      currentDayNumber++;
+      currentDate = addDays(currentDate, 1);
+    }
+  });
 
-    // Build itinerary for this city
-    const cityItinerary = await buildItineraryWithRouting(cityTrip, cityData, {
-      routeOptimization,
-      travelMode: 'WALK',
-    });
+  // 3b) Build every city in parallel (each does its own routing + optional
+  // curation), so an LLM curation pass fans out instead of running serially.
+  const built = await Promise.all(
+    buildable.map((entry) =>
+      buildItineraryWithRouting(entry.cityTrip, entry.cityData, {
+        routeOptimization,
+        travelMode: 'WALK',
+      })
+    )
+  );
 
-    // Add city metadata to each day
+  // 3c) Assemble days + travel days in order using the precomputed schedule.
+  buildable.forEach((entry, i) => {
+    const { city, cityAlloc, startDayNumber, startDate: segStart } = entry;
+    const cityItinerary = built[i];
+
     const cityDays = cityItinerary.days.map((day, idx) => {
-      const dayDate = addDays(currentDate, idx);
+      const dayDate = addDays(segStart, idx);
       return {
         ...day,
-        dayNumber: currentDayNumber + idx,
+        dayNumber: startDayNumber + idx,
         date: format(dayDate, 'yyyy-MM-dd'),
         dateLabel: format(dayDate, 'EEE, MMM d'),
         city: city.id,
         cityName: city.name,
         country: city.country,
-        isTravelDay: false
+        isTravelDay: false,
       };
     });
-
     allDays.push(...cityDays);
 
     citySegments.push({
@@ -275,19 +295,14 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
       name: city.name,
       country: city.country,
       days: cityAlloc.days,
-      dayRange: `${currentDayNumber}-${currentDayNumber + cityAlloc.days - 1}`,
+      dayRange: `${startDayNumber}-${startDayNumber + cityAlloc.days - 1}`,
       rationale: cityAlloc.rationale,
       summary: cityItinerary.summary,
-      routing: cityItinerary.routing || null
+      routing: cityItinerary.routing || null,
     });
 
-    currentDayNumber += cityAlloc.days;
-    currentDate = addDays(currentDate, cityAlloc.days);
-
-    // Insert travel day after this city (except for last city)
-    if (i < cities.length - 1 && includeTransfers) {
-      const nextCity = cities[i + 1];
-
+    if (entry.travelAfter) {
+      const nextCity = buildable[i + 1].city;
       // Look up curated connection details; fall back to a sensible default when
       // a city has no connections.json so a travel day is ALWAYS inserted (and
       // always carries real from/to names — the curated lookup omits names).
@@ -305,24 +320,19 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
         whyGo: connection?.whyGo || null,
       };
 
-      const travelDay = createTravelDay(currentDayNumber, currentDate, transfer);
-      allDays.push(travelDay);
-
+      allDays.push(createTravelDay(entry.travelAfter.dayNumber, entry.travelAfter.date, transfer));
       transfers.push({
         from: city.id,
         to: nextCity.id,
         fromName: city.name,
         toName: nextCity.name,
-        dayNumber: currentDayNumber,
-        date: format(currentDate, 'yyyy-MM-dd'),
+        dayNumber: entry.travelAfter.dayNumber,
+        date: format(entry.travelAfter.date, 'yyyy-MM-dd'),
         ...transfer.transport,
-        bookingUrl: generateBookingUrl(transfer, currentDate)
+        bookingUrl: generateBookingUrl(transfer, entry.travelAfter.date),
       });
-
-      currentDayNumber++;
-      currentDate = addDays(currentDate, 1);
     }
-  }
+  });
 
   // Step 3: Generate summary
   const totalCities = cities.length;

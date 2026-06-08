@@ -99,7 +99,7 @@ function formatDate(date) {
   return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
 }
 
-function haversine(lat1, lon1, lat2, lon2) {
+export function haversine(lat1, lon1, lat2, lon2) {
   const R = 6371;
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
   const dLon = ((lon2 - lon1) * Math.PI) / 180;
@@ -107,26 +107,26 @@ function haversine(lat1, lon1, lat2, lon2) {
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-function getAttractions(cityData) {
+export function getAttractions(cityData) {
   if (!cityData) return [];
   if (Array.isArray(cityData.attractions?.sites)) return cityData.attractions.sites;
   if (Array.isArray(cityData.attractions)) return cityData.attractions;
   return [];
 }
 
-function getNeighborhoods(cityData) {
+export function getNeighborhoods(cityData) {
   if (!cityData) return [];
   if (Array.isArray(cityData.neighborhoods?.neighborhoods)) return cityData.neighborhoods.neighborhoods;
   if (Array.isArray(cityData.neighborhoods)) return cityData.neighborhoods;
   return [];
 }
 
-function getCulinary(cityData) {
+export function getCulinary(cityData) {
   if (!cityData) return null;
   return cityData.culinaryGuide || cityData.culinary || null;
 }
 
-function getFoodEntries(culinary) {
+export function getFoodEntries(culinary) {
   if (!culinary) return [];
   const entries = [];
   const sections = ['restaurants', 'bars_and_cafes', 'food_experiences'];
@@ -153,7 +153,7 @@ const OUTDOOR_KEYWORDS = ['park', 'garden', 'square', 'bridge', 'riverside', 'be
  * Whether a site is primarily an open-air experience. Prefers the explicit
  * `indoor` flag from the city guide; falls back to type/description keywords.
  */
-function isOutdoor(site) {
+export function isOutdoor(site) {
   if (site.indoor === true) return false;
   if (site.indoor === false) return true;
   const t = (site.type || '').toLowerCase();
@@ -172,7 +172,16 @@ function nameMatches(siteName, otherName) {
 
 // ── Scoring ──────────────────────────────────────────────────────────
 
-function scoreAttraction(site, interests, mustSee, season = {}) {
+/** Normalize a name for dedup: lowercase, strip accents/punctuation/spacing. */
+export function normalizeName(n) {
+  return (n || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '');
+}
+
+export function scoreAttraction(site, interests, mustSee, season = {}) {
   let score = 0;
   const cultural = site?.ratings?.cultural_significance ?? 3;
   score += cultural * 10;
@@ -269,7 +278,7 @@ function orderByProximity(items) {
  *
  * Falls back to parsing a plain string like "9:00 AM – 5:00 PM".
  */
-function parseOpeningHours(site, tripDate) {
+export function parseOpeningHours(site, tripDate) {
   // Try Google Places structured format
   const periods = site.openingHours?.periods || site.opening_hours?.periods;
   if (periods && Array.isArray(periods) && periods.length > 0) {
@@ -440,6 +449,8 @@ export function buildItinerary(trip, cityData) {
         _lon: site.longitude || null,
         _outdoor: isOutdoor(site),
         _weatherFallback: site.visit_profile?.weather_fallback || null,
+        // Parsed opening window {opensAt, closesAt} (hours), for clock scheduling.
+        _hours: hours,
         // Flag sites that open late (skip early slots) or close early (skip late slots)
         _opensLate: hours ? hours.opensAt > 10 : false,
         _closesEarly: hours ? hours.closesAt < 16 : false,
@@ -457,11 +468,6 @@ export function buildItinerary(trip, cityData) {
   // schedule the same place twice. Normalize away accents/punctuation/spacing
   // and keep the highest-scored. Falls back to the raw name when normalization
   // would empty the key (e.g. a non-Latin script).
-  const normalizeName = (n) => (n || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9]+/g, '');
   const seenNames = new Set();
   const uniqueScored = [];
   for (const s of scored) {
@@ -599,6 +605,11 @@ export function buildItinerary(trip, cityData) {
           bookingUrl: site.official_url || site.website || null,
           neighborhood: site.neighborhood || null,
           outdoor: site._outdoor,
+          googlePlaceId: site.googlePlaceId || null,
+          // Opening window carried for the optional clock-time pass; ignored by persistence.
+          _hours: site._hours || null,
+          // Provenance (e.g. 'google_places') so the UI can flag live suggestions.
+          _provenance: site._provenance || null,
         };
         // Attach a rainy-day backup for open-air stops when weather is iffy.
         if (avoidWet && site._outdoor && site._weatherFallback) {
@@ -718,11 +729,50 @@ export function buildItinerary(trip, cityData) {
 }
 
 export async function buildItineraryWithRouting(trip, cityData, options = {}) {
-  const itinerary = buildItinerary(trip, cityData);
-  if (options.routeOptimization === false) return itinerary;
+  // Optional live Google Places fallback for cities without a curated attraction
+  // guide: pull real nearby POIs so the day isn't generic "Explore central X".
+  let effectiveCityData = cityData;
+  if (process.env.ITINERARY_PLACES_FALLBACK === 'true' && getAttractions(cityData).length === 0) {
+    try {
+      const { getFallbackAttractions } = await import('./placesFallback.js');
+      const fb = await getFallbackAttractions(trip.city);
+      if (fb && fb.length) effectiveCityData = { ...cityData, attractions: fb };
+    } catch (err) {
+      console.warn('[buildItineraryWithRouting] places fallback skipped:', err?.message || err);
+    }
+  }
 
-  const { applyGoogleRouteOrdering } = await import('./googleRouteOrdering.js');
-  return applyGoogleRouteOrdering(itinerary, {
-    travelMode: options.travelMode || 'WALK',
-  });
+  let itinerary = buildItinerary(trip, effectiveCityData);
+
+  // Optional grounded LLM curation: replace the deterministic day content with an
+  // LLM-sequenced plan drawn from the SAME candidate pool. Runs before routing so
+  // travel times + clock times reflect the curated picks. Falls back silently to
+  // the deterministic days on no key / disabled / timeout / sparse pool.
+  if (process.env.ITINERARY_LLM_CURATE === 'true') {
+    try {
+      const { curateCityDays } = await import('./curateCityDays.js');
+      const curatedDays = await curateCityDays(trip, effectiveCityData, itinerary);
+      if (curatedDays) itinerary = { ...itinerary, days: curatedDays, _curated: true };
+    } catch (err) {
+      console.warn('[buildItineraryWithRouting] curation skipped:', err?.message || err);
+    }
+  }
+
+  let routed = itinerary;
+  if (options.routeOptimization !== false) {
+    const { applyGoogleRouteOrdering } = await import('./googleRouteOrdering.js');
+    routed = await applyGoogleRouteOrdering(itinerary, {
+      travelMode: options.travelMode || 'WALK',
+    });
+  }
+
+  // Optional realistic clock times (duration + travel + opening-hours aware).
+  // Off by default — the builder's fixed templates remain the baseline.
+  if (process.env.ITINERARY_CLOCK_TIMES === 'true') {
+    const { assignClockTimes } = await import('./assignClockTimes.js');
+    const pace = typeof trip.pace === 'number' ? trip.pace : 50;
+    return assignClockTimes(routed, { pace: getPaceLabel(pace) });
+  }
+
+  return routed;
 }
