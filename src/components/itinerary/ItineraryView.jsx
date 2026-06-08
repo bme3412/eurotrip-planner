@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { useMemo } from 'react';
 import { MapPin, Clock, Wallet, PartyPopper, CloudRain, Plane, Utensils, Footprints } from 'lucide-react';
 import ActivityImage from './ActivityImage';
+import SeasonStrip from './SeasonStrip';
 import { tokens, slotMeta, citySegments, fmtDate, cityGradient, ACCENT } from './shared';
 
 const ItineraryMap = dynamic(
@@ -116,9 +117,10 @@ function ActivityRow({ block, citySlug, cityName, showPhotos, t }) {
   );
 }
 
-export default function ItineraryView({ itinerary, theme = 'dark', showPhotos = true, actions = null, heroImage = null }) {
+export default function ItineraryView({ itinerary, theme = 'light', showPhotos = true, actions = null, heroImage = null }) {
   const t = tokens(theme);
   const segs = citySegments(itinerary);
+  const cityCount = segs.filter((s) => !s.travel).length;
   const m = itinerary.meta || {};
   const cities = itinerary.cities || [];
   const route = cities.map((c) => c.name).join(' → ');
@@ -153,11 +155,10 @@ export default function ItineraryView({ itinerary, theme = 'dark', showPhotos = 
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/25" />
           <div className="absolute inset-x-0 bottom-0 mx-auto max-w-6xl px-5 pb-5 sm:pb-7">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/75 sm:text-[11px]">Your trip</p>
-            <h1 className="mt-1 text-balance font-serif text-2xl font-light leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl" style={{ letterSpacing: '-0.01em' }}>{route}</h1>
+            <h1 className="mt-1 text-balance font-display text-2xl font-medium leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl" style={{ letterSpacing: '-0.01em' }}>{route}</h1>
             <p className="mt-1.5 text-xs text-white/85 sm:mt-2 sm:text-sm">
               {fmtDate(m.startDate)} – {fmtDate(m.endDate)} · {m.totalDays} days · {m.totalCities} {m.totalCities === 1 ? 'city' : 'cities'}
             </p>
-            {itinerary.intro && <p className="mt-2 line-clamp-3 max-w-2xl text-xs leading-relaxed text-white/80 sm:text-sm">{itinerary.intro}</p>}
             {actions && <div className="mt-3 flex flex-wrap gap-2 sm:mt-4">{actions}</div>}
           </div>
         </div>
@@ -201,6 +202,14 @@ export default function ItineraryView({ itinerary, theme = 'dark', showPhotos = 
         </aside>
 
         <main className="min-w-0 flex-1">
+          {itinerary.intro && (
+            <p className={`mb-6 max-w-2xl font-display text-lg leading-relaxed sm:text-xl ${t.body}`}>
+              {itinerary.intro}
+            </p>
+          )}
+
+          <SeasonStrip itinerary={itinerary} t={t} />
+
           {itinerary.bookImmediately?.length > 0 && (
             <section className="mb-6 rounded-2xl border px-5 py-4" style={{ borderColor: `${ACCENT}40`, background: `${ACCENT}0f` }}>
               <h2 className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>Reserve these first</h2>
@@ -235,28 +244,40 @@ export default function ItineraryView({ itinerary, theme = 'dark', showPhotos = 
                 );
               })()
             ) : (
-              seg.days.map((d) => (
-                <article key={d.dayNumber} id={`day-${d.dayNumber}`} className={`mb-4 scroll-mt-20 rounded-2xl border ${t.panel} p-4 sm:p-5 lg:scroll-mt-6`}>
-                  <header className={`mb-4 border-b ${t.border} pb-3`}>
-                    <div className="flex items-baseline gap-2.5">
-                      <span className="font-serif text-3xl font-light" style={{ color: ACCENT }}>{d.dayNumber}</span>
-                      <div>
-                        <h3 className={`font-semibold ${t.heading}`}>{d.theme}</h3>
-                        <p className={`text-xs ${t.muted}`}>{d.dateLabel} · {d.cityName}</p>
-                      </div>
-                    </div>
-                    {d.weatherNote && (
-                      <p className={`mt-2 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs ring-1 ${t.chip}`}>{d.weatherNote}</p>
-                    )}
-                    {d.summary && <p className={`mt-2 text-sm leading-relaxed ${t.body}`}>{d.summary}</p>}
+              <section key={`c${i}`}>
+                {/* City chapter header — only when the trip spans more than one city. */}
+                {cityCount > 1 && (
+                  <header className={`mb-3 mt-2 flex items-baseline gap-2 border-b pb-2 ${t.border}`}>
+                    <h2 className={`font-display text-xl font-medium ${t.heading}`}>{seg.city}</h2>
+                    {seg.country && <span className={`text-sm ${t.muted}`}>{seg.country}</span>}
+                    <span className={`ml-auto text-xs ${t.muted}`}>
+                      Days {seg.days[0].dayNumber}&ndash;{seg.days[seg.days.length - 1].dayNumber}
+                    </span>
                   </header>
-                  <div>
-                    {d.timeBlocks.map((b, bi) => (
-                      <ActivityRow key={bi} block={b} citySlug={d.city} cityName={d.cityName} showPhotos={showPhotos} t={t} />
-                    ))}
-                  </div>
-                </article>
-              ))
+                )}
+                {seg.days.map((d) => (
+                  <article key={d.dayNumber} id={`day-${d.dayNumber}`} className={`mb-4 scroll-mt-20 rounded-2xl border ${t.panel} p-4 sm:p-5 lg:scroll-mt-6`}>
+                    <header className={`mb-4 border-b ${t.border} pb-3`}>
+                      <div className="flex items-baseline gap-2.5">
+                        <span className="font-display text-3xl font-medium" style={{ color: ACCENT }}>{d.dayNumber}</span>
+                        <div>
+                          <h3 className={`font-semibold ${t.heading}`}>{d.theme}</h3>
+                          <p className={`text-xs ${t.muted}`}>{d.dateLabel} · {d.cityName}</p>
+                        </div>
+                      </div>
+                      {d.weatherNote && (
+                        <p className={`mt-2 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs ring-1 ${t.chip}`}>{d.weatherNote}</p>
+                      )}
+                      {d.summary && <p className={`mt-2 text-sm leading-relaxed ${t.body}`}>{d.summary}</p>}
+                    </header>
+                    <div>
+                      {d.timeBlocks.map((b, bi) => (
+                        <ActivityRow key={bi} block={b} citySlug={d.city} cityName={d.cityName} showPhotos={showPhotos} t={t} />
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </section>
             )
           )}
         </main>

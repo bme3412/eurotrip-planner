@@ -151,7 +151,6 @@ export default function ItineraryClient({
     <>
       <ItineraryView
         itinerary={adapted}
-        theme="dark"
         showPhotos
         heroImage={hasHero ? thumbnail : null}
         actions={heroActions}

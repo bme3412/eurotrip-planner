@@ -3,7 +3,7 @@
  * Kept framework-light so all three variants stay consistent.
  */
 
-export const ACCENT = '#c9963c'; // brand gold
+export const ACCENT = '#1e63e9'; // app blue (--eu-blue) — congruent with the rest of the app
 
 export const SLOT_META = {
   early_morning: { label: 'Early', tone: 'text-amber-500', dot: 'bg-amber-400' },
@@ -38,16 +38,18 @@ export function tokens(theme) {
     };
   }
   return {
+    // Light/editorial — matches the homepage + city guides. Panels carry a soft
+    // shadow + hairline ring to read like the app's `.card`.
     page: 'bg-[#fafaf7] text-zinc-900',
-    panel: 'bg-white border-zinc-200',
-    panelSoft: 'bg-white border-zinc-200/80',
+    panel: 'bg-white border-zinc-200/80 shadow-sm ring-1 ring-black/5',
+    panelSoft: 'bg-white border-zinc-200/70',
     border: 'border-zinc-200',
     heading: 'text-zinc-950',
     body: 'text-zinc-700',
     muted: 'text-zinc-500',
     chip: 'bg-zinc-100 text-zinc-700 ring-zinc-200',
-    railBg: 'bg-white',
-    hover: 'hover:bg-zinc-50',
+    railBg: 'bg-[#fafaf7]',
+    hover: 'hover:bg-zinc-100/70',
   };
 }
 
