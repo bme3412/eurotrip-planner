@@ -11,7 +11,11 @@ import {
   favoritesStorageKey,
   readLocalFavorites,
   writeLocalFavorites,
+  readAllLocalFavorites,
+  clearLocalFavorites,
 } from '../src/lib/savedItems/favoritesStore.js';
+
+import { migrateRows } from '../src/lib/savedItems/createSavedCollection.js';
 
 import {
   WISHLIST_STORAGE_KEY,
@@ -34,7 +38,32 @@ function memStorage(initial = {}) {
     getItem: (k) => (k in data ? data[k] : null),
     setItem: (k, v) => { data[k] = String(v); },
     removeItem: (k) => { delete data[k]; },
+    get length() { return Object.keys(data).length; },
+    key: (i) => Object.keys(data)[i] ?? null,
     _data: data,
+  };
+}
+
+// Minimal chainable Supabase stub for migrateRows. `existing` seeds the table;
+// inserted payloads are captured for assertions.
+function supabaseStub({ existing = [], readError = null, insertError = null } = {}) {
+  const captured = { inserted: null, upsertOpts: null };
+  return {
+    captured,
+    from() {
+      return {
+        select() {
+          return {
+            eq: async () => ({ data: readError ? null : existing, error: readError }),
+          };
+        },
+        upsert(rows, opts) {
+          captured.inserted = rows;
+          captured.upsertOpts = opts;
+          return Promise.resolve({ error: insertError });
+        },
+      };
+    },
   };
 }
 
@@ -277,4 +306,97 @@ test('readLocalWishlist is a noop with no storage (SSR)', () => {
 
 test('readLocalWishlist tolerates malformed JSON', () => {
   assert.deepEqual(readLocalWishlist(memStorage({ savedTrips: 'garbage' })), []);
+});
+
+// ===========================================================================
+// favoritesStore — multi-city scan (readAllLocalFavorites)
+// ===========================================================================
+
+test('readAllLocalFavorites scans every favorites-{city} bucket, skips others', () => {
+  const storage = memStorage();
+  writeLocalFavorites('paris', [{ name: 'Louvre' }], storage);
+  writeLocalFavorites('rome', [{ name: 'Colosseum' }, { name: 'Forum' }], storage);
+  storage.setItem('savedTrips', '[]'); // unrelated key ignored
+  storage.setItem('favorites-empty', '[]'); // empty bucket skipped
+
+  const all = readAllLocalFavorites(storage);
+  const byCity = Object.fromEntries(all.map((x) => [x.cityName, x.items.length]));
+  assert.deepEqual(byCity, { paris: 1, rome: 2 });
+});
+
+test('readAllLocalFavorites is a noop with no storage (SSR)', () => {
+  assert.deepEqual(readAllLocalFavorites(null), []);
+});
+
+test('clearLocalFavorites removes a single city bucket', () => {
+  const storage = memStorage();
+  writeLocalFavorites('paris', [{ name: 'Louvre' }], storage);
+  clearLocalFavorites('paris', storage);
+  assert.equal(storage.getItem('favorites-paris'), null);
+});
+
+// ===========================================================================
+// createSavedCollection — migrateRows engine
+// ===========================================================================
+
+test('migrateRows inserts only rows whose key is not already on the server', async () => {
+  const supabase = supabaseStub({ existing: [{ city_name: 'paris' }] });
+  const rows = [
+    { user_id: 'u1', city_name: 'paris' },
+    { user_id: 'u1', city_name: 'rome' },
+  ];
+  const res = await migrateRows({
+    supabase, table: 'saved_trips', userId: 'u1', rows,
+    keyColumns: ['city_name'], keyOf: (r) => r.city_name,
+  });
+  assert.equal(res.inserted, 1);
+  assert.equal(res.skipped, 1);
+  assert.equal(res.error, null);
+  assert.deepEqual(supabase.captured.inserted, [{ user_id: 'u1', city_name: 'rome' }]);
+  assert.equal(supabase.captured.upsertOpts.onConflict, 'user_id,city_name');
+});
+
+test('migrateRows is a noop when every row already exists', async () => {
+  const supabase = supabaseStub({ existing: [{ city_name: 'paris' }] });
+  const res = await migrateRows({
+    supabase, table: 'saved_trips', userId: 'u1',
+    rows: [{ user_id: 'u1', city_name: 'paris' }],
+    keyColumns: ['city_name'], keyOf: (r) => r.city_name,
+  });
+  assert.equal(res.inserted, 0);
+  assert.equal(res.skipped, 1);
+  assert.equal(supabase.captured.inserted, null); // upsert never called
+});
+
+test('migrateRows composite key uses all key columns in the conflict target', async () => {
+  const supabase = supabaseStub({ existing: [] });
+  const rows = [{ user_id: 'u1', city_name: 'paris', experience_name: 'Louvre' }];
+  const res = await migrateRows({
+    supabase, table: 'saved_experiences', userId: 'u1', rows,
+    keyColumns: ['city_name', 'experience_name'],
+    keyOf: (r) => `${r.city_name}::${r.experience_name}`,
+  });
+  assert.equal(res.inserted, 1);
+  assert.equal(supabase.captured.upsertOpts.onConflict, 'user_id,city_name,experience_name');
+});
+
+test('migrateRows surfaces a read error without inserting', async () => {
+  const supabase = supabaseStub({ readError: { message: 'boom' } });
+  const res = await migrateRows({
+    supabase, table: 'saved_trips', userId: 'u1',
+    rows: [{ user_id: 'u1', city_name: 'paris' }],
+    keyColumns: ['city_name'], keyOf: (r) => r.city_name,
+  });
+  assert.equal(res.inserted, 0);
+  assert.ok(res.error);
+  assert.equal(supabase.captured.inserted, null);
+});
+
+test('migrateRows handles empty input', async () => {
+  const supabase = supabaseStub({ existing: [] });
+  const res = await migrateRows({
+    supabase, table: 'saved_trips', userId: 'u1', rows: [],
+    keyColumns: ['city_name'], keyOf: (r) => r.city_name,
+  });
+  assert.deepEqual(res, { inserted: 0, skipped: 0, error: null });
 });

@@ -52,11 +52,12 @@ function dayForModel(d) {
   };
 }
 
-/** Group non-travel days by city, in first-appearance order. */
+/** Group non-travel days by city, in first-appearance order. Curated days are
+ * skipped — the curator already wrote their theme + summary. */
 function groupDaysByCity(itinerary) {
   const groups = new Map();
   for (const d of itinerary.days || []) {
-    if (d.isTravelDay) continue;
+    if (d.isTravelDay || d._curated) continue;
     const city = d.cityName || d.city || itinerary.city || 'this city';
     if (!groups.has(city)) groups.set(city, []);
     groups.get(city).push(d);
@@ -101,7 +102,12 @@ export async function enrichItineraryLLM(itinerary, trip = {}) {
   if (!apiKey) return itinerary;
 
   const groups = [...groupDaysByCity(itinerary).entries()].filter(([, days]) => hasRealStops(days));
-  if (groups.length === 0) return itinerary;
+  // Even with nothing to polish per-city (e.g. every city was curated), still
+  // write the trip-level intro when there's at least one real or curated day.
+  const anyRealDay = (itinerary.days || []).some(
+    (d) => !d.isTravelDay && (d._curated || hasRealStops([d])),
+  );
+  if (groups.length === 0 && !anyRealDay) return itinerary;
 
   const client = new Anthropic({ apiKey });
   const cityNames = (itinerary.cities || []).map((c) => c.name).filter(Boolean);

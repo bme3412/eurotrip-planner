@@ -29,6 +29,7 @@ function draftSaveErrorResponse(error) {
     combined.includes("share_token") ||
     combined.includes("is_public") ||
     combined.includes("itinerary_generated_at") ||
+    combined.includes("client_dedup_key") ||
     combined.includes("null value in column") ||
     combined.includes("trips_status_check");
 
@@ -74,6 +75,7 @@ export async function POST(request) {
       title: body?.title || null,
       userId: requester.userId,
       userEmail: requester.userEmail,
+      clientDedupKey: body?.clientDedupKey || tripState?.meta?.clientDedupKey || null,
     });
     return NextResponse.json(trip, { status: 201 });
   } catch (error) {

@@ -20,6 +20,7 @@ export function usePlannerStateSnapshot({
   briefCompleteness,
   nextAction,
   briefSignature,
+  itinerary,
 }) {
   useEffect(() => {
     if (!onPlannerStateChange) return;
@@ -31,7 +32,8 @@ export function usePlannerStateSnapshot({
       hasCities: tripHasCities,
       briefCompleteness: briefCompleteness || null,
       nextAction: nextAction || null,
+      itinerary: itinerary || null,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [onPlannerStateChange, tripState, dayAssignments, cityColors, tripHasCities, briefSignature]);
+  }, [onPlannerStateChange, tripState, dayAssignments, cityColors, tripHasCities, briefSignature, itinerary]);
 }

@@ -2,9 +2,11 @@
 
 import dynamic from 'next/dynamic';
 import { useMemo } from 'react';
-import { MapPin, Clock, Wallet, PartyPopper, CloudRain, Plane, Utensils } from 'lucide-react';
+import { MapPin, Clock, Wallet, PartyPopper, CloudRain, Plane, Utensils, Footprints, BedDouble } from 'lucide-react';
 import ActivityImage from './ActivityImage';
-import { tokens, slotMeta, citySegments, fmtDate, cityGradient, ACCENT } from './shared';
+import SeasonStrip from './SeasonStrip';
+import ArrivalLogistics from './arrival/ArrivalLogistics';
+import { tokens, slotMeta, citySegments, fmtDate, cityGradient, ACCENT, FlightBanner, flightLabel } from './shared';
 
 const ItineraryMap = dynamic(
   () => import('@/app/itineraries/[tripId]/ItineraryMap'),
@@ -20,6 +22,39 @@ function toLatLng(a) {
     return { lat: a.latitude, lng: a.longitude };
   }
   return null;
+}
+
+/** Human label for an activity's nextTravel hop, or null when not worth showing. */
+function travelLabel(nextTravel) {
+  const mins = nextTravel?.durationMinutes;
+  if (mins == null || mins < 1) return null;
+  const mode = (nextTravel.travelMode || 'WALK').toUpperCase();
+  const verb = mode === 'WALK' ? 'walk' : mode === 'BICYCLE' ? 'bike' : mode === 'TRANSIT' ? 'by transit' : 'travel';
+  return `${mins} min ${verb} to next stop`;
+}
+
+/** Lodging card shown under a city's chapter header. */
+function LodgingCard({ a, t }) {
+  if (!a || (!a.name && !a.address)) return null;
+  const stay = (a.checkIn || a.checkOut)
+    ? `${a.checkIn ? `Check-in ${fmtDate(a.checkIn)}` : ''}${a.checkIn && a.checkOut ? ' · ' : ''}${a.checkOut ? `Check-out ${fmtDate(a.checkOut)}` : ''}`
+    : null;
+  return (
+    <div className={`mb-4 flex items-start gap-3 rounded-2xl border px-4 py-3 ${t.panel}`}>
+      <BedDouble className="mt-0.5 h-4 w-4 shrink-0" style={{ color: ACCENT }} />
+      <div className="min-w-0 flex-1">
+        <p className={`text-sm font-semibold ${t.heading}`}>{a.name || 'Your stay'}</p>
+        {a.address && <p className={`text-xs ${t.muted}`}>{a.address}</p>}
+        {(stay || a.confirmationNumber) && (
+          <div className={`mt-1 flex flex-wrap gap-x-3 gap-y-0.5 text-xs ${t.muted}`}>
+            {stay && <span>{stay}</span>}
+            {a.confirmationNumber && <span>Conf. {a.confirmationNumber}</span>}
+          </div>
+        )}
+        {a.notes && <p className={`mt-1 text-xs ${t.muted}`}>{a.notes}</p>}
+      </div>
+    </div>
+  );
 }
 
 function Chips({ a, t }) {
@@ -84,6 +119,11 @@ function ActivityRow({ block, citySlug, cityName, showPhotos, t }) {
         <h4 className={`mt-0.5 flex items-center gap-1.5 font-semibold ${t.heading}`}>
           {a.isEvent && <PartyPopper className="h-4 w-4 text-amber-500" />}
           {a.name}
+          {a._provenance === 'google_places' && (
+            <span className={`rounded px-1.5 py-0.5 text-[9px] font-medium uppercase tracking-wide ${t.chip}`} title="Live suggestion from Google Places — verify hours before you go">
+              Suggested
+            </span>
+          )}
         </h4>
         {a.description && <p className={`mt-1 text-sm leading-relaxed ${t.body}`}>{a.description}</p>}
         <Chips a={a} t={t} />
@@ -92,14 +132,20 @@ function ActivityRow({ block, citySlug, cityName, showPhotos, t }) {
             <CloudRain className="mt-0.5 h-3 w-3 shrink-0" /> Rain backup: {a.weatherBackup}
           </p>
         )}
+        {travelLabel(a.nextTravel) && (
+          <p className={`mt-2 inline-flex items-center gap-1 text-[11px] ${t.muted}`}>
+            <Footprints className="h-3 w-3 shrink-0" /> {travelLabel(a.nextTravel)}
+          </p>
+        )}
       </div>
     </div>
   );
 }
 
-export default function ItineraryView({ itinerary, theme = 'dark', showPhotos = true, actions = null, heroImage = null }) {
+export default function ItineraryView({ itinerary, theme = 'light', showPhotos = true, actions = null, heroImage = null }) {
   const t = tokens(theme);
   const segs = citySegments(itinerary);
+  const cityCount = segs.filter((s) => !s.travel).length;
   const m = itinerary.meta || {};
   const cities = itinerary.cities || [];
   const route = cities.map((c) => c.name).join(' → ');
@@ -134,11 +180,10 @@ export default function ItineraryView({ itinerary, theme = 'dark', showPhotos = 
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/25" />
           <div className="absolute inset-x-0 bottom-0 mx-auto max-w-6xl px-5 pb-5 sm:pb-7">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/75 sm:text-[11px]">Your trip</p>
-            <h1 className="mt-1 text-balance font-serif text-2xl font-light leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl" style={{ letterSpacing: '-0.01em' }}>{route}</h1>
+            <h1 className="mt-1 text-balance font-display text-2xl font-medium leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl" style={{ letterSpacing: '-0.01em' }}>{route}</h1>
             <p className="mt-1.5 text-xs text-white/85 sm:mt-2 sm:text-sm">
               {fmtDate(m.startDate)} – {fmtDate(m.endDate)} · {m.totalDays} days · {m.totalCities} {m.totalCities === 1 ? 'city' : 'cities'}
             </p>
-            {itinerary.intro && <p className="mt-2 line-clamp-3 max-w-2xl text-xs leading-relaxed text-white/80 sm:text-sm">{itinerary.intro}</p>}
             {actions && <div className="mt-3 flex flex-wrap gap-2 sm:mt-4">{actions}</div>}
           </div>
         </div>
@@ -182,6 +227,14 @@ export default function ItineraryView({ itinerary, theme = 'dark', showPhotos = 
         </aside>
 
         <main className="min-w-0 flex-1">
+          {itinerary.intro && (
+            <p className={`mb-6 max-w-2xl font-display text-lg leading-relaxed sm:text-xl ${t.body}`}>
+              {itinerary.intro}
+            </p>
+          )}
+
+          <SeasonStrip itinerary={itinerary} t={t} />
+
           {itinerary.bookImmediately?.length > 0 && (
             <section className="mb-6 rounded-2xl border px-5 py-4" style={{ borderColor: `${ACCENT}40`, background: `${ACCENT}0f` }}>
               <h2 className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: ACCENT }}>Reserve these first</h2>
@@ -206,38 +259,75 @@ export default function ItineraryView({ itinerary, theme = 'dark', showPhotos = 
                 const label = tr?.from?.name && tr?.to?.name
                   ? `${tr.from.name} → ${tr.to.name}`
                   : (seg.travel.theme || 'Travel day').replace(/^✈️\s*/, '');
-                const sub = tr?.transport ? `${tr.transport.type} · ${tr.transport.journeyTime}` : null;
+                // Prefer the user's actual booked flight for this leg.
+                const bf = tr?.bookedFlight;
+                const sub = bf
+                  ? `${flightLabel(bf) || 'Flight'}${bf.departureTime ? ` · ${bf.departureTime}${bf.arrivalTime ? `–${bf.arrivalTime}` : ''}` : ''}`
+                  : (tr?.transport ? `${tr.transport.type} · ${tr.transport.journeyTime}` : null);
                 return (
                   <div key={`t${i}`} className={`my-4 flex items-center gap-3 rounded-xl border border-dashed ${t.border} ${t.panelSoft} px-4 py-3`}>
                     <Plane className="h-4 w-4" style={{ color: ACCENT }} />
                     <span className={`text-sm font-medium ${t.body}`}>{label}</span>
                     {sub && <span className={`text-xs ${t.muted}`}>{sub}</span>}
+                    {bf && <span className="rounded bg-[#1e63e9]/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#1e63e9]">Your flight</span>}
                   </div>
                 );
               })()
             ) : (
-              seg.days.map((d) => (
-                <article key={d.dayNumber} id={`day-${d.dayNumber}`} className={`mb-4 scroll-mt-20 rounded-2xl border ${t.panel} p-4 sm:p-5 lg:scroll-mt-6`}>
-                  <header className={`mb-4 border-b ${t.border} pb-3`}>
-                    <div className="flex items-baseline gap-2.5">
-                      <span className="font-serif text-3xl font-light" style={{ color: ACCENT }}>{d.dayNumber}</span>
-                      <div>
-                        <h3 className={`font-semibold ${t.heading}`}>{d.theme}</h3>
-                        <p className={`text-xs ${t.muted}`}>{d.dateLabel} · {d.cityName}</p>
-                      </div>
-                    </div>
-                    {d.weatherNote && (
-                      <p className={`mt-2 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs ring-1 ${t.chip}`}>{d.weatherNote}</p>
-                    )}
-                    {d.summary && <p className={`mt-2 text-sm leading-relaxed ${t.body}`}>{d.summary}</p>}
+              <section key={`c${i}`}>
+                {/* City chapter header — only when the trip spans more than one city. */}
+                {cityCount > 1 && (
+                  <header className={`mb-3 mt-2 flex items-baseline gap-2 border-b pb-2 ${t.border}`}>
+                    <h2 className={`font-display text-xl font-medium ${t.heading}`}>{seg.city}</h2>
+                    {seg.country && <span className={`text-sm ${t.muted}`}>{seg.country}</span>}
+                    <span className={`ml-auto text-xs ${t.muted}`}>
+                      Days {seg.days[0].dayNumber}&ndash;{seg.days[seg.days.length - 1].dayNumber}
+                    </span>
                   </header>
-                  <div>
-                    {d.timeBlocks.map((b, bi) => (
-                      <ActivityRow key={bi} block={b} citySlug={d.city} cityName={d.cityName} showPhotos={showPhotos} t={t} />
-                    ))}
-                  </div>
-                </article>
-              ))
+                )}
+                <LodgingCard a={seg.days.find((d) => d.accommodation)?.accommodation} t={t} />
+                {seg.days.map((d) => (
+                  <article
+                    key={d.dayNumber}
+                    id={`day-${d.dayNumber}`}
+                    className={`mb-4 scroll-mt-20 rounded-2xl border ${t.panel} p-4 sm:p-5 lg:scroll-mt-6 animate-fade-in`}
+                    style={{ animationDelay: `${Math.min((d.dayNumber || 1) * 50, 400)}ms`, animationFillMode: 'both' }}
+                  >
+                    <header className={`mb-4 border-b ${t.border} pb-3`}>
+                      <div className="flex items-baseline gap-2.5">
+                        <span className="font-display text-3xl font-medium" style={{ color: ACCENT }}>{d.dayNumber}</span>
+                        <div>
+                          <h3 className={`font-semibold ${t.heading}`}>{d.theme}</h3>
+                          <p className={`text-xs ${t.muted}`}>{d.dateLabel} · {d.cityName}</p>
+                        </div>
+                      </div>
+                      {d.weatherNote && (
+                        <p className={`mt-2 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs ring-1 ${t.chip}`}>{d.weatherNote}</p>
+                      )}
+                      {d.summary && <p className={`mt-2 text-sm leading-relaxed ${t.body}`}>{d.summary}</p>}
+                      {d.departure && (
+                        <div><FlightBanner kind="departure" booking={d.departure} accommodationName={seg.days.find((x) => x.accommodation)?.accommodation?.name} /></div>
+                      )}
+                    </header>
+                    {/* Arrival logistics: how to get from the airport to the lodging. Reads
+                        first so the day flows "get to your stay, then explore." */}
+                    {d.arrival && (
+                      <ArrivalLogistics
+                        arrival={d.arrival}
+                        citySlug={d.city}
+                        cityName={d.cityName}
+                        accommodation={seg.days.find((x) => x.accommodation)?.accommodation}
+                        t={t}
+                      />
+                    )}
+                    <div>
+                      {d.timeBlocks.map((b, bi) => (
+                        <ActivityRow key={bi} block={b} citySlug={d.city} cityName={d.cityName} showPhotos={showPhotos} t={t} />
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </section>
             )
           )}
         </main>

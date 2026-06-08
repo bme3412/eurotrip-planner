@@ -15,6 +15,10 @@ import BookActivities from '@/components/city-guides/BookActivities';
 import CityShortlistBar from '@/components/city-guides/CityShortlistBar';
 import ShareGuideButton from '@/components/city-guides/ShareGuideButton';
 import { useFavorites } from '@/hooks/useFavorites';
+import { useAuth } from '@/contexts/AuthContext';
+import { setPending } from '@/lib/savedItems/pendingSave';
+import { defaultIdOf } from '@/lib/savedItems/favoritesStore';
+import SignInNudge from '@/components/common/SignInNudge';
 import { readTabFromUrl, writeTabToUrl } from '@/components/city-guides/tabUrl';
 import {
   SkeletonOverview,
@@ -208,6 +212,21 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
   // Favorites are lifted here (single instance) so the Experiences cards and
   // the shortlist bar share one source of truth. The shortlist IS this array.
   const { favorites, isFavorite, toggle: toggleFavorite } = useFavorites(cityName);
+  const { user, isSupabaseConfigured } = useAuth();
+  const [showSaveNudge, setShowSaveNudge] = useState(false);
+  const saveNudgeShownRef = useRef(false);
+
+  // Soft gate: saving an attraction always succeeds locally; if a guest saves
+  // one, record intent and nudge them to sign in (once per session) so it syncs.
+  const handleToggleFavorite = useCallback(async (item) => {
+    const res = await toggleFavorite(item);
+    if (res?.action === 'added' && !user && isSupabaseConfigured && !saveNudgeShownRef.current) {
+      saveNudgeShownRef.current = true;
+      setPending('attraction', { cityName, name: defaultIdOf(item) });
+      setShowSaveNudge(true);
+    }
+    return res;
+  }, [toggleFavorite, user, isSupabaseConfigured, cityName]);
 
   const {
     overview = {},
@@ -530,7 +549,7 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
                 limit={Infinity}
                 forceList
                 isFavorite={isFavorite}
-                toggle={toggleFavorite}
+                toggle={handleToggleFavorite}
               />
             </Suspense>
             <div className="mt-8">
@@ -718,6 +737,13 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
         favorites={favorites}
         onRemove={toggleFavorite}
       />
+
+      {showSaveNudge && (
+        <SignInNudge
+          message="Saved — sign in to keep your experiences across devices"
+          onClose={() => setShowSaveNudge(false)}
+        />
+      )}
 
     </div>
   );

@@ -17,40 +17,16 @@
  */
 
 import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
-import { canPersistTripDraft } from './tripLifecycle';
+import { canPersistTripDraft, tripSignature } from './tripLifecycle';
 import { readLocalTripDrafts, removeLocalTripDraft } from './localTripDrafts';
 
 export const LOCAL_DRAFTS_MIGRATION_KEY = 'plannerLocalDraftsMigratedFor';
 
+// Re-exported for callers that historically imported it from this module.
+export { tripSignature };
+
 function canUseLocalStorage() {
   return typeof window !== 'undefined' && Boolean(window.localStorage);
-}
-
-/**
- * A coarse fingerprint of a trip used to detect duplicates. Works for both
- * synced trips (from /api/trips) and local drafts since both expose `title`,
- * `cities` and `time_range`.
- */
-export function tripSignature(trip) {
-  if (!trip) return '';
-  const title = (trip.title || '').trim().toLowerCase();
-  const cities = Array.isArray(trip.cities)
-    ? trip.cities.map((city) => (city?.name || city?.id || '').toLowerCase()).join('>')
-    : '';
-  const tr = trip.time_range || {};
-  let dates;
-  if (tr.startDate && tr.endDate) {
-    dates = `${tr.startDate}_${tr.endDate}`;
-  } else if (tr.flexibleMonth) {
-    dates = tr.flexibleMonth;
-  } else if (tr.totalNights) {
-    dates = `${tr.totalNights}n`;
-  } else if (trip.start_date && trip.end_date) {
-    dates = `${trip.start_date}_${trip.end_date}`;
-  } else {
-    dates = '';
-  }
-  return `${title}|${cities}|${dates}`;
 }
 
 function hasMigrated(userId) {
@@ -85,15 +61,21 @@ export async function migrateLocalDraftsToAccount({ session, userId, existingTri
   }
 
   result.ran = true;
-  const seen = new Set(existingTrips.map(tripSignature));
+  // Primary dedupe is by the stable client_dedup_key (idempotent even if the
+  // server already holds the row — the POST upserts on it). tripSignature is a
+  // secondary heuristic for legacy local drafts minted before keys existed.
+  const draftKey = (trip) => trip?.client_dedup_key || trip?.trip_state?.meta?.clientDedupKey || null;
+  const seenKeys = new Set(existingTrips.map(draftKey).filter(Boolean));
+  const seenSignatures = new Set(existingTrips.map(tripSignature));
 
   for (const draft of drafts) {
     // Incomplete drafts (no city/time range) can't be persisted server-side —
     // leave them in localStorage untouched rather than dropping them.
     if (!canPersistTripDraft(draft.trip_state)) continue;
 
+    const key = draftKey(draft);
     const signature = tripSignature(draft);
-    if (seen.has(signature)) {
+    if ((key && seenKeys.has(key)) || seenSignatures.has(signature)) {
       // A matching trip already lives in the account: drop the redundant local
       // copy so it stops showing up as a duplicate.
       removeLocalTripDraft(draft.id);
@@ -105,7 +87,7 @@ export async function migrateLocalDraftsToAccount({ session, userId, existingTri
       const res = await fetch('/api/trips/drafts', {
         method: 'POST',
         headers: getSupabaseAuthHeaders(session, { 'Content-Type': 'application/json' }),
-        body: JSON.stringify({ tripState: draft.trip_state, title: draft.title }),
+        body: JSON.stringify({ tripState: draft.trip_state, title: draft.title, clientDedupKey: key }),
       });
 
       if (!res.ok) {
@@ -113,7 +95,8 @@ export async function migrateLocalDraftsToAccount({ session, userId, existingTri
         continue;
       }
 
-      seen.add(signature);
+      if (key) seenKeys.add(key);
+      seenSignatures.add(signature);
       removeLocalTripDraft(draft.id);
       result.migrated += 1;
     } catch (error) {

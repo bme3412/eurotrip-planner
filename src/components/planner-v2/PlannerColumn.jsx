@@ -3,10 +3,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { AlertTriangle, CheckCircle2, Cloud, CloudOff, RotateCcw, Save, X, Map as MapIcon } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 import CompactMessageList from './CompactMessageList';
 import CompactChatInput from './CompactChatInput';
 import PlannerProgressBar from './PlannerProgressBar';
 import PlannerNextActionBar from './PlannerNextActionBar';
+import ItineraryBuildingState from './ItineraryBuildingState';
 import InlineItinerary from '../conversation/InlineItinerary';
 import ItineraryOverlay from '../itinerary/ItineraryOverlay';
 import { derivePlannerInteraction } from '@/lib/conversation/plannerInteraction';
@@ -147,12 +149,12 @@ function GenerationPanel({
   itinerary,
   generationError,
   trip,
+  tripState,
   savedTripId,
   localTripId,
-  confirmGeneration,
-  cancelFinalization,
   retryGeneration,
   resetGeneration,
+  onUpdateActivity,
 }) {
   // Full-screen rich itinerary overlay — auto-opens once generation completes.
   const [overlayOpen, setOverlayOpen] = useState(false);
@@ -162,125 +164,120 @@ function GenerationPanel({
 
   if (generationPhase === 'idle') return null;
 
-  if (generationPhase === 'confirming') {
-    return (
-      <div className="mx-3 mb-3 rounded-2xl border border-[#d9c58e] bg-[#fff8e5] p-4 shadow-sm">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a6f18]">
-          Ready to build
-        </p>
-        <h3 className="mt-1 font-display text-lg font-semibold text-[#2a2520]">
-          Generate the detailed day-by-day itinerary?
-        </h3>
-        <p className="mt-1 text-sm text-[#6a6459]">
-          I’ll turn the route, dates, pace, and preferences into daily activities, travel days, and meal-friendly time blocks.
-        </p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={confirmGeneration}
-            className="rounded-full bg-[#2a2520] px-4 py-2 text-sm font-semibold text-white hover:bg-[#1a1510]"
+  // There is no 'confirming' gate — build is one click. finalize (agent) and the
+  // bottom-bar CTA both go straight to 'generating'.
+
+  const cityCount = itinerary?.meta?.totalCities || itinerary?.cities?.length || 0;
+  const dayCount = itinerary?.meta?.totalDays || itinerary?.days?.length || 0;
+  const firstCity = itinerary?.cities?.[0] || tripState?.route?.cities?.[0] || null;
+  const citySlug = firstCity?.id || firstCity?.city || null;
+  const cityDisplay = firstCity?.name || firstCity?.cityName || 'Trip';
+
+  return (
+    <>
+      <AnimatePresence mode="wait" initial={false}>
+        {generationPhase === 'generating' && (
+          <motion.div
+            key="generating"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="mx-3 mb-3"
           >
-            Build itinerary
-          </button>
-          <button
-            type="button"
-            onClick={cancelFinalization}
-            className="rounded-full border border-[#d9c58e] bg-white px-4 py-2 text-sm font-semibold text-[#6a6459] hover:bg-[#fffaf0]"
+            <ItineraryBuildingState tripState={tripState} />
+          </motion.div>
+        )}
+
+        {generationPhase === 'error' && (
+          <motion.div
+            key="error"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="mx-3 mb-3 rounded-2xl border border-red-200 bg-red-50 p-4"
           >
-            Keep editing
-          </button>
-        </div>
-      </div>
-    );
-  }
+            <InlineItinerary
+              itinerary={null}
+              error={generationError || 'Generation failed.'}
+              trip={trip}
+              onRetry={retryGeneration}
+            />
+          </motion.div>
+        )}
 
-  if (generationPhase === 'generating') {
-    return (
-      <div className="mx-3 mb-3 rounded-2xl border border-[#e5e0d8] bg-white p-4">
-        <InlineItinerary itinerary={null} isLoading trip={trip} />
-      </div>
-    );
-  }
-
-  if (generationPhase === 'error') {
-    return (
-      <div className="mx-3 mb-3 rounded-2xl border border-red-200 bg-red-50 p-4">
-        <InlineItinerary
-          itinerary={null}
-          error={generationError || 'Generation failed.'}
-          trip={trip}
-          onRetry={retryGeneration}
-        />
-      </div>
-    );
-  }
-
-  if (generationPhase === 'complete') {
-    const cityCount = itinerary?.meta?.totalCities || itinerary?.cities?.length || 0;
-    const dayCount = itinerary?.meta?.totalDays || itinerary?.days?.length || 0;
-    return (
-      <>
-        {/* Compact success card in the chat column */}
-        <div className="mx-3 mb-3 rounded-2xl border border-emerald-200 bg-white p-4">
-          <div className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100">
-              <CheckCircle2 className="h-5 w-5 text-emerald-600" />
-            </span>
-            <div className="min-w-0">
-              <p className="text-sm font-semibold text-[#2a2520]">Your itinerary is ready</p>
-              <p className="text-xs text-[#8a8578]">
-                {dayCount} days{cityCount ? ` · ${cityCount} ${cityCount === 1 ? 'city' : 'cities'}` : ''}
-              </p>
+        {generationPhase === 'complete' && (
+          <motion.div
+            key="complete"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="mx-3 mb-3 rounded-2xl border border-emerald-200 bg-white p-4"
+          >
+            <div className="flex items-center gap-3">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100">
+                <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+              </span>
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-[#2a2520]">Your itinerary is ready</p>
+                <p className="text-xs text-[#8a8578]">
+                  {dayCount} days{cityCount ? ` · ${cityCount} ${cityCount === 1 ? 'city' : 'cities'}` : ''}
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="mt-3 flex flex-wrap gap-2">
-            <button
-              type="button"
-              onClick={() => setOverlayOpen(true)}
-              className="inline-flex items-center gap-1.5 rounded-full bg-[#2a2520] px-4 py-2 text-sm font-semibold text-white hover:bg-[#1a1510]"
-            >
-              <MapIcon className="h-4 w-4" /> View itinerary
-            </button>
-            {savedTripId && (
-              <Link
-                href={`/itineraries/${savedTripId}`}
+            <div className="mt-3 flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => setOverlayOpen(true)}
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#2a2520] px-4 py-2 text-sm font-semibold text-white hover:bg-[#1a1510]"
+              >
+                <MapIcon className="h-4 w-4" /> View itinerary
+              </button>
+              {savedTripId && (
+                <Link
+                  href={`/itineraries/${savedTripId}`}
+                  className="rounded-full border border-[#e5e0d8] bg-white px-4 py-2 text-sm font-semibold text-[#6a6459] hover:bg-[#faf8f5]"
+                >
+                  Open full page
+                </Link>
+              )}
+              {localTripId && !savedTripId && (
+                <Link
+                  href="/saved-trips"
+                  className="rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-800 hover:bg-emerald-100"
+                >
+                  Saved in My Trips
+                </Link>
+              )}
+              {/* Non-destructive: keep editing the route/days with the itinerary
+                  still intact. "Start over" is the explicit discard. */}
+              <button
+                type="button"
+                onClick={resetGeneration}
                 className="rounded-full border border-[#e5e0d8] bg-white px-4 py-2 text-sm font-semibold text-[#6a6459] hover:bg-[#faf8f5]"
               >
-                Open full page
-              </Link>
-            )}
-            {localTripId && !savedTripId && (
-              <Link
-                href="/saved-trips"
-                className="rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-800 hover:bg-emerald-100"
-              >
-                Saved in My Trips
-              </Link>
-            )}
-            <button
-              type="button"
-              onClick={resetGeneration}
-              className="rounded-full border border-[#e5e0d8] bg-white px-4 py-2 text-sm font-semibold text-[#6a6459] hover:bg-[#faf8f5]"
-            >
-              Keep editing
-            </button>
-          </div>
-        </div>
-
-        {overlayOpen && (
-          <ItineraryOverlay
-            itinerary={itinerary}
-            trip={trip}
-            savedTripId={savedTripId}
-            onClose={() => setOverlayOpen(false)}
-            onKeepEditing={() => { setOverlayOpen(false); resetGeneration(); }}
-          />
+                Start over
+              </button>
+            </div>
+          </motion.div>
         )}
-      </>
-    );
-  }
+      </AnimatePresence>
 
-  return null;
+      {generationPhase === 'complete' && overlayOpen && (
+        <ItineraryOverlay
+          itinerary={itinerary}
+          trip={trip}
+          savedTripId={savedTripId}
+          citySlug={citySlug}
+          cityDisplay={cityDisplay}
+          onActivityUpdate={onUpdateActivity}
+          onClose={() => setOverlayOpen(false)}
+          onKeepEditing={() => setOverlayOpen(false)}
+        />
+      )}
+    </>
+  );
 }
 
 export default function PlannerColumn({
@@ -315,9 +312,9 @@ export default function PlannerColumn({
   onParsedItineraryConfirm,
   onParsedItineraryRefine,
   confirmGeneration,
-  cancelFinalization,
   retryGeneration,
   resetGeneration,
+  onUpdateActivity,
   onSaveNow,
   onSignIn,
   latestPlannerAction,
@@ -452,12 +449,12 @@ export default function PlannerColumn({
           itinerary={itinerary}
           generationError={generationError}
           trip={trip}
+          tripState={tripState}
           savedTripId={savedTripId}
           localTripId={localTripId}
-          confirmGeneration={confirmGeneration}
-          cancelFinalization={cancelFinalization}
           retryGeneration={retryGeneration}
           resetGeneration={resetGeneration}
+          onUpdateActivity={onUpdateActivity}
         />
       </div>
 
@@ -477,6 +474,7 @@ export default function PlannerColumn({
             tripState={tripState}
             savedTripId={savedTripId}
             onSendMessage={onSendMessage}
+            onBuildItinerary={confirmGeneration}
             onAcceptSuggestedAllocation={acceptSuggestedAllocation}
           />
         </>

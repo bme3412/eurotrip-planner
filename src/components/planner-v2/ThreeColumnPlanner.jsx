@@ -72,9 +72,9 @@ export default function ThreeColumnPlanner({
     acceptSuggestedAllocation,
     setTripDates,
     confirmGeneration,
-    cancelFinalization,
     retryGeneration,
     resetGeneration,
+    updateGeneratedActivity,
     latestPlannerAction,
   } = useTripPlannerAgent({ initialTripId, initialLocalTripId, initialTripState });
 
@@ -111,6 +111,7 @@ export default function ThreeColumnPlanner({
     briefCompleteness: interaction?.briefCompleteness,
     nextAction: interaction?.nextAction,
     briefSignature,
+    itinerary,
   });
 
   useRegisterPlannerHandles({
@@ -209,9 +210,9 @@ export default function ThreeColumnPlanner({
             }
             onParsedItineraryRefine={(summary) => sendMessage(summary)}
             confirmGeneration={confirmGeneration}
-            cancelFinalization={cancelFinalization}
             retryGeneration={retryGeneration}
             resetGeneration={resetGeneration}
+            onUpdateActivity={updateGeneratedActivity}
             onSaveNow={saveNow}
             onSignIn={handleSignInToSync}
             latestPlannerAction={latestPlannerAction}

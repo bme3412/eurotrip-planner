@@ -118,3 +118,40 @@ export function writeLocalFavorites(cityName, list, storage) {
     // state still reflects the change for this session.
   }
 }
+
+const FAVORITES_KEY_PREFIX = 'favorites-';
+
+/**
+ * Read every per-city favorites bucket from storage. Favorites are stored under
+ * `favorites-{city}` keys (one per city), so the collection view and the
+ * sign-in migration both need to scan all of them.
+ *
+ * @returns {Array<{ cityName: string, items: any[] }>}
+ */
+export function readAllLocalFavorites(storage) {
+  if (!storage) return [];
+  const out = [];
+  try {
+    const len = storage.length || 0;
+    for (let i = 0; i < len; i += 1) {
+      const key = storage.key(i);
+      if (!key || !key.startsWith(FAVORITES_KEY_PREFIX)) continue;
+      const cityName = key.slice(FAVORITES_KEY_PREFIX.length);
+      const items = readLocalFavorites(cityName, storage);
+      if (items.length > 0) out.push({ cityName, items });
+    }
+  } catch {
+    return out;
+  }
+  return out;
+}
+
+/** Remove a single city's favorites bucket (after migration). */
+export function clearLocalFavorites(cityName, storage) {
+  if (!storage) return;
+  try {
+    storage.removeItem(favoritesStorageKey(cityName));
+  } catch {
+    // fail quietly
+  }
+}
