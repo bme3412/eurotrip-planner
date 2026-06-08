@@ -3,6 +3,15 @@
 import { NextResponse } from 'next/server';
 import { buildMultiCityItinerary } from '@/lib/planning/buildMultiCityItinerary';
 import { optimizeRoute } from '@/lib/planning/routeOptimizer';
+import { deriveTripWindow, accommodationsByCity, getBookings } from '@/lib/planning/tripBookings';
+
+function nightsBetween(start, end) {
+  if (!start || !end) return null;
+  const s = new Date(`${start}T00:00:00`);
+  const e = new Date(`${end}T00:00:00`);
+  if (Number.isNaN(s) || Number.isNaN(e)) return null;
+  return Math.round((e - s) / 86400000);
+}
 
 /**
  * POST /api/trips/generate
@@ -80,10 +89,27 @@ export async function POST(request) {
       }
     }
 
+    // Fold in captured flights + lodging when the client sent the full tripState
+    // (the planner does). Constrain the window to the booked flights and re-fit
+    // the night allocation so day-count, dates, and flights agree.
+    const tripState = body.tripState || null;
+    const flightWindow = tripState ? deriveTripWindow(tripState) : null;
+    const effectiveStart = flightWindow?.startDate || start_date;
+    const effectiveEnd = flightWindow?.endDate || end_date;
+
+    let dayAllocation = day_allocation;
+    const windowNights = nightsBetween(effectiveStart, effectiveEnd);
+    const allocatedNights = dayAllocation
+      ? Object.values(dayAllocation).reduce((a, b) => a + b, 0)
+      : null;
+    if (windowNights != null && allocatedNights != null && allocatedNights !== windowNights) {
+      dayAllocation = null;
+    }
+
     // Build the trip params object
     const trip = {
-      start_date,
-      end_date,
+      start_date: effectiveStart,
+      end_date: effectiveEnd,
       interests,
       pace,
       budget,
@@ -95,8 +121,10 @@ export async function POST(request) {
 
     // Build the itinerary
     const itinerary = await buildMultiCityItinerary(trip, orderedCities, {
-      dayAllocation: day_allocation,
+      dayAllocation,
       includeTransfers: true,
+      accommodations: tripState ? accommodationsByCity(tripState) : {},
+      flights: tripState ? getBookings(tripState) : [],
     });
 
     return NextResponse.json({ itinerary });

@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { useMemo } from 'react';
-import { MapPin, Clock, Wallet, PartyPopper, CloudRain, Plane, Utensils, Footprints } from 'lucide-react';
+import { MapPin, Clock, Wallet, PartyPopper, CloudRain, Plane, Utensils, Footprints, BedDouble } from 'lucide-react';
 import ActivityImage from './ActivityImage';
 import SeasonStrip from './SeasonStrip';
 import { tokens, slotMeta, citySegments, fmtDate, cityGradient, ACCENT } from './shared';
@@ -30,6 +30,54 @@ function travelLabel(nextTravel) {
   const mode = (nextTravel.travelMode || 'WALK').toUpperCase();
   const verb = mode === 'WALK' ? 'walk' : mode === 'BICYCLE' ? 'bike' : mode === 'TRANSIT' ? 'by transit' : 'travel';
   return `${mins} min ${verb} to next stop`;
+}
+
+function flightLabel(b) {
+  return [b?.provider, b?.flightNumber].filter(Boolean).join(' ');
+}
+
+/** Lodging card shown under a city's chapter header. */
+function LodgingCard({ a, t }) {
+  if (!a || (!a.name && !a.address)) return null;
+  const stay = (a.checkIn || a.checkOut)
+    ? `${a.checkIn ? `Check-in ${fmtDate(a.checkIn)}` : ''}${a.checkIn && a.checkOut ? ' · ' : ''}${a.checkOut ? `Check-out ${fmtDate(a.checkOut)}` : ''}`
+    : null;
+  return (
+    <div className={`mb-4 flex items-start gap-3 rounded-2xl border px-4 py-3 ${t.panel}`}>
+      <BedDouble className="mt-0.5 h-4 w-4 shrink-0" style={{ color: ACCENT }} />
+      <div className="min-w-0 flex-1">
+        <p className={`text-sm font-semibold ${t.heading}`}>{a.name || 'Your stay'}</p>
+        {a.address && <p className={`text-xs ${t.muted}`}>{a.address}</p>}
+        {(stay || a.confirmationNumber) && (
+          <div className={`mt-1 flex flex-wrap gap-x-3 gap-y-0.5 text-xs ${t.muted}`}>
+            {stay && <span>{stay}</span>}
+            {a.confirmationNumber && <span>Conf. {a.confirmationNumber}</span>}
+          </div>
+        )}
+        {a.notes && <p className={`mt-1 text-xs ${t.muted}`}>{a.notes}</p>}
+      </div>
+    </div>
+  );
+}
+
+/** Arrival / departure flight banner in a day header. */
+function FlightBanner({ kind, booking, accommodationName }) {
+  const fl = flightLabel(booking);
+  const isArr = kind === 'arrival';
+  const airport = isArr ? booking.toCity : booking.fromCity;
+  const time = isArr ? booking.arrivalTime : booking.departureTime;
+  const verb = isArr ? 'Arrive' : 'Depart';
+  const stayBit = accommodationName
+    ? (isArr ? ` · Check in to ${accommodationName}` : ` · Check out of ${accommodationName}`)
+    : '';
+  return (
+    <p className="mt-2 inline-flex items-start gap-1.5 rounded-lg bg-[#1e63e9]/10 px-2.5 py-1.5 text-xs font-medium text-[#1e63e9] ring-1 ring-[#1e63e9]/20">
+      <Plane className={`mt-0.5 h-3 w-3 shrink-0 ${isArr ? '' : 'rotate-90'}`} />
+      <span>
+        {verb} {airport}{time ? ` ${time}` : ''}{fl ? ` · ${fl}` : ''}{stayBit}
+      </span>
+    </p>
+  );
 }
 
 function Chips({ a, t }) {
@@ -234,12 +282,17 @@ export default function ItineraryView({ itinerary, theme = 'light', showPhotos =
                 const label = tr?.from?.name && tr?.to?.name
                   ? `${tr.from.name} → ${tr.to.name}`
                   : (seg.travel.theme || 'Travel day').replace(/^✈️\s*/, '');
-                const sub = tr?.transport ? `${tr.transport.type} · ${tr.transport.journeyTime}` : null;
+                // Prefer the user's actual booked flight for this leg.
+                const bf = tr?.bookedFlight;
+                const sub = bf
+                  ? `${flightLabel(bf) || 'Flight'}${bf.departureTime ? ` · ${bf.departureTime}${bf.arrivalTime ? `–${bf.arrivalTime}` : ''}` : ''}`
+                  : (tr?.transport ? `${tr.transport.type} · ${tr.transport.journeyTime}` : null);
                 return (
                   <div key={`t${i}`} className={`my-4 flex items-center gap-3 rounded-xl border border-dashed ${t.border} ${t.panelSoft} px-4 py-3`}>
                     <Plane className="h-4 w-4" style={{ color: ACCENT }} />
                     <span className={`text-sm font-medium ${t.body}`}>{label}</span>
                     {sub && <span className={`text-xs ${t.muted}`}>{sub}</span>}
+                    {bf && <span className="rounded bg-[#1e63e9]/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#1e63e9]">Your flight</span>}
                   </div>
                 );
               })()
@@ -255,6 +308,7 @@ export default function ItineraryView({ itinerary, theme = 'light', showPhotos =
                     </span>
                   </header>
                 )}
+                <LodgingCard a={seg.days.find((d) => d.accommodation)?.accommodation} t={t} />
                 {seg.days.map((d) => (
                   <article key={d.dayNumber} id={`day-${d.dayNumber}`} className={`mb-4 scroll-mt-20 rounded-2xl border ${t.panel} p-4 sm:p-5 lg:scroll-mt-6`}>
                     <header className={`mb-4 border-b ${t.border} pb-3`}>
@@ -269,6 +323,12 @@ export default function ItineraryView({ itinerary, theme = 'light', showPhotos =
                         <p className={`mt-2 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs ring-1 ${t.chip}`}>{d.weatherNote}</p>
                       )}
                       {d.summary && <p className={`mt-2 text-sm leading-relaxed ${t.body}`}>{d.summary}</p>}
+                      {d.arrival && (
+                        <div><FlightBanner kind="arrival" booking={d.arrival} accommodationName={seg.days.find((x) => x.accommodation)?.accommodation?.name} /></div>
+                      )}
+                      {d.departure && (
+                        <div><FlightBanner kind="departure" booking={d.departure} accommodationName={seg.days.find((x) => x.accommodation)?.accommodation?.name} /></div>
+                      )}
                     </header>
                     <div>
                       {d.timeBlocks.map((b, bi) => (

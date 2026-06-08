@@ -258,12 +258,11 @@ export default function InlineItinerary({
   onSaveTrip,
 }) {
   if (isLoading) {
+    // Plain div (no motion transform): the panel re-renders while the trip
+    // streams/generates, and a framer-motion `y` translate would replay on each
+    // re-render — making the heading ghost. The spinner + skeleton convey motion.
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="max-w-2xl mx-auto py-6"
-      >
+      <div className="max-w-2xl mx-auto py-6">
         <div className="flex items-center gap-3 mb-6">
           <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
           <p className="text-sm font-medium text-gray-600">
@@ -271,7 +270,7 @@ export default function InlineItinerary({
           </p>
         </div>
         <LoadingSkeleton />
-      </motion.div>
+      </div>
     );
   }
 

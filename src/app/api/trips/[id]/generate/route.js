@@ -6,6 +6,16 @@ import { optimizeRoute } from "@/lib/planning/routeOptimizer";
 import { getTripWithDetails, persistGeneratedItinerary } from "@/lib/trips/tripsRepository";
 import { getAnchorCities, normalizeTripState } from "@/lib/trips/tripLifecycle";
 import { forbiddenResponse, getRequesterFromAuthHeader } from "@/lib/supabase/requestAuth";
+import { deriveTripWindow, accommodationsByCity, getBookings } from "@/lib/planning/tripBookings";
+
+/** Whole nights between two YYYY-MM-DD dates (UTC-safe component math). */
+function nightsBetween(start, end) {
+  if (!start || !end) return null;
+  const s = new Date(`${start}T00:00:00`);
+  const e = new Date(`${end}T00:00:00`);
+  if (Number.isNaN(s) || Number.isNaN(e)) return null;
+  return Math.round((e - s) / 86400000);
+}
 
 function deriveConcreteDates(tripState) {
   let startDate = tripState.dates.startDate;
@@ -67,7 +77,12 @@ export async function POST(request, { params }) {
       name: city.name,
       country: city.country,
     }));
-    const { startDate, endDate } = deriveConcreteDates(tripState);
+    // Prefer the flight-derived window (constrain the trip to the booked flights),
+    // falling back to the planner's dates when there are no bounding flights.
+    const flightWindow = deriveTripWindow(tripState);
+    const concrete = deriveConcreteDates(tripState);
+    const startDate = flightWindow?.startDate || concrete.startDate;
+    const endDate = flightWindow?.endDate || concrete.endDate;
 
     const errors = [];
     if (cities.length < 1) errors.push("At least 1 city is required.");
@@ -92,11 +107,23 @@ export async function POST(request, { params }) {
       }
     }
 
-    const dayAllocation = Object.fromEntries(
+    let dayAllocation = Object.fromEntries(
       tripState.route.cities
         .filter((city) => city.id && city.nights > 0)
         .map((city) => [city.id, city.nights])
     );
+
+    // If the per-city nights don't fit the (flight-constrained) window, drop the
+    // explicit allocation so the builder re-fits the real number of nights —
+    // keeps day-count, dates, and flights in agreement.
+    const windowNights = nightsBetween(startDate, endDate);
+    const allocatedNights = Object.values(dayAllocation).reduce((a, b) => a + b, 0);
+    if (windowNights != null && allocatedNights !== windowNights) {
+      dayAllocation = null;
+    }
+
+    const accommodations = accommodationsByCity(tripState);
+    const flights = getBookings(tripState);
 
     const itinerary = await buildMultiCityItinerary({
       start_date: startDate,
@@ -117,6 +144,8 @@ export async function POST(request, { params }) {
     }, orderedCities, {
       dayAllocation,
       includeTransfers: true,
+      accommodations,
+      flights,
     });
 
     const updatedTrip = await persistGeneratedItinerary(id, itinerary, {

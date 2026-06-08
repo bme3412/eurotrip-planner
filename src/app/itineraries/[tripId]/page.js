@@ -185,6 +185,7 @@ export default async function ItineraryPage({ params }) {
     return (
       <ItineraryClient
         plan={plan}
+        tripState={trip.trip_state || null}
         tripId={tripId}
         cityDisplay={cityDisplay}
         citySlug={citySlug}
@@ -217,6 +218,7 @@ export default async function ItineraryPage({ params }) {
   return (
     <ItineraryClient
       plan={plan}
+      tripState={trip.trip_state || null}
       tripId={tripId}
       cityDisplay={cityDisplay}
       citySlug={citySlug}

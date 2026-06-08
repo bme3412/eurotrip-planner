@@ -9,6 +9,7 @@ import { formatDayDate } from './_lib/helpers';
 import ItineraryView from '@/components/itinerary/ItineraryView';
 import { useAuth } from '@/contexts/AuthContext';
 import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
+import { accommodationsByCity, getBookings, pickInbound, pickOutbound } from '@/lib/planning/tripBookings';
 
 const EditPanel = dynamic(() => import('@/components/itinerary/EditPanel'), {
   ssr: false,
@@ -23,6 +24,7 @@ const EditPanel = dynamic(() => import('@/components/itinerary/EditPanel'), {
  */
 export default function ItineraryClient({
   plan,
+  tripState = null,
   tripId,
   cityDisplay,
   citySlug,
@@ -87,6 +89,26 @@ export default function ItineraryClient({
       dateLabel: d.dateLabel || formatDayDate(d.date) || d.date,
     }));
 
+    // Fold captured lodging + flights (from trip_state jsonb) onto the rebuilt
+    // days so the saved page shows them too — no DB columns needed. Accommodation
+    // attaches to each city's first day; inbound/outbound flights frame the trip.
+    const acc = tripState ? accommodationsByCity(tripState) : {};
+    const flights = tripState ? getBookings(tripState) : [];
+    const inbound = pickInbound(flights);
+    const outbound = pickOutbound(flights);
+    const seenCity = new Set();
+    for (const d of days) {
+      if (d.isTravelDay) continue;
+      if (!seenCity.has(d.city)) {
+        seenCity.add(d.city);
+        if (acc[d.city]) d.accommodation = acc[d.city];
+      }
+    }
+    const firstReal = days.find((d) => !d.isTravelDay);
+    const lastReal = [...days].reverse().find((d) => !d.isTravelDay);
+    if (inbound && firstReal) firstReal.arrival = inbound;
+    if (outbound && lastReal) lastReal.departure = outbound;
+
     const cityOrder = [];
     for (const d of days) {
       if (d.isTravelDay || !d.cityName) continue;
@@ -117,7 +139,7 @@ export default function ItineraryClient({
       },
       days,
     };
-  }, [localPlan, cityDisplay, citySlug, country]);
+  }, [localPlan, tripState, cityDisplay, citySlug, country]);
 
   const heroActions = (
     <>

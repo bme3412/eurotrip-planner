@@ -3,6 +3,7 @@ import { allocateDays } from './dayAllocator.js';
 import { getConnectionBetweenCities } from './routeOptimizer.js';
 import { getCityData } from '../data-utils.js';
 import { enrichItineraryLLM } from './enrichItineraryLLM.js';
+import { pickInbound, pickOutbound, matchFlight } from './tripBookings.js';
 import { addDays, format } from 'date-fns';
 
 /**
@@ -104,7 +105,8 @@ function createTravelDay(dayNumber, date, transfer) {
         frequency: transfer.transport.frequency,
         trainType: transfer.transport.trainType,
         bookingUrl
-      }
+      },
+      bookedFlight: transfer.bookedFlight || null
     },
     timeBlocks: [
       {
@@ -156,6 +158,8 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
     includeTransfers = true,
     routeOptimization = true,
     enrich = true,
+    accommodations = {},
+    flights = [],
   } = options;
 
   if (!cities || cities.length === 0) {
@@ -286,6 +290,9 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
         cityName: city.name,
         country: city.country,
         isTravelDay: false,
+        // Lodging rides on the first day of the city; render surfaces it under
+        // the city header (and the real town, e.g. Menton under a "Nice" node).
+        accommodation: idx === 0 ? (accommodations[city.id] || null) : null,
       };
     });
     allDays.push(...cityDays);
@@ -318,6 +325,8 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
         to: { id: nextCity.id, name: nextCity.name, country: nextCity.country },
         transport: connection?.transport || defaultTransport(city.country === nextCity.country),
         whyGo: connection?.whyGo || null,
+        // A real booked flight for this leg, when the user pasted one.
+        bookedFlight: matchFlight(flights, city.name, nextCity.name) || null,
       };
 
       allDays.push(createTravelDay(entry.travelAfter.dayNumber, entry.travelAfter.date, transfer));
@@ -333,6 +342,16 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
       });
     }
   });
+
+  // Frame the trip with the user's booked flights: inbound arrival on the first
+  // real day, outbound departure on the last. Render shows an arrival/checkout
+  // banner; lodging check-in/out come from each city's accommodation.
+  const inbound = pickInbound(flights);
+  const outbound = pickOutbound(flights);
+  const firstCityDay = allDays.find((d) => !d.isTravelDay);
+  const lastCityDay = [...allDays].reverse().find((d) => !d.isTravelDay);
+  if (inbound && firstCityDay) firstCityDay.arrival = inbound;
+  if (outbound && lastCityDay) lastCityDay.departure = outbound;
 
   // Step 3: Generate summary
   const totalCities = cities.length;
