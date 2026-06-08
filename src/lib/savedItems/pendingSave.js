@@ -33,18 +33,6 @@ export function setPending(type, payload = {}) {
   }
 }
 
-export function getPending(type) {
-  const key = PENDING_KEYS[type];
-  const storage = getStorage();
-  if (!key || !storage) return null;
-  try {
-    const raw = storage.getItem(key);
-    return raw ? JSON.parse(raw) : null;
-  } catch {
-    return null;
-  }
-}
-
 export function clearPending(type) {
   const key = PENDING_KEYS[type];
   const storage = getStorage();
@@ -54,8 +42,4 @@ export function clearPending(type) {
   } catch {
     // fail quietly
   }
-}
-
-export function hasAnyPending() {
-  return PENDING_SAVE_TYPES.some((t) => getPending(t));
 }

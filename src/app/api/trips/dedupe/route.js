@@ -61,15 +61,13 @@ export async function POST(request) {
     toRemove.push(...bucket.slice(1));
   }
 
+  // Delete in parallel — independent rows, no ordering dependency.
+  const outcomes = await Promise.allSettled(toRemove.map((trip) => deleteTrip(trip.id)));
   let removed = 0;
-  for (const trip of toRemove) {
-    try {
-      await deleteTrip(trip.id);
-      removed += 1;
-    } catch (error) {
-      console.warn("[dedupe] Failed to delete duplicate trip", trip.id, error);
-    }
-  }
+  outcomes.forEach((outcome, i) => {
+    if (outcome.status === "fulfilled") removed += 1;
+    else console.warn("[dedupe] Failed to delete duplicate trip", toRemove[i].id, outcome.reason);
+  });
 
   return NextResponse.json({ removed, groups: groups.size }, { status: 200 });
 }

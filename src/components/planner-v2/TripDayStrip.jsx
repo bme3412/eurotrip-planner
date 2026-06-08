@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react';
 import TripDayCard from './TripDayCard';
 import { cityKey } from '@/lib/planning/cityColors';
-import { buildDayDetailsByDate, nextTransferForDate } from '@/lib/planning/dayDetails';
+import { buildDayDetailsByDate, buildNextTransferByDate } from '@/lib/planning/dayDetails';
 
 /**
  * Horizontal-scroll day strip rendered in the top header row of `/plan`,
@@ -31,8 +31,10 @@ export default function TripDayStrip({
     return map;
   }, [cities]);
 
-  // Generated itinerary detail (activities + transfers), indexed by ISO date.
+  // Generated itinerary detail (activities + onward transfers), indexed by ISO
+  // date so each card is an O(1) lookup instead of re-scanning the itinerary.
   const detailByDate = useMemo(() => buildDayDetailsByDate(itinerary), [itinerary]);
+  const transferByDate = useMemo(() => buildNextTransferByDate(itinerary), [itinerary]);
 
   if (!Array.isArray(days) || days.length === 0) return null;
 
@@ -44,7 +46,7 @@ export default function TripDayStrip({
           const nights = Number.isFinite(city?.nights) ? city.nights : 0;
           const isOpen = openIndex === day.dayIndex;
           const dayItinerary = day.date ? detailByDate.get(day.date) || null : null;
-          const transfer = day.date ? nextTransferForDate(itinerary, day.date) : null;
+          const transfer = day.date ? transferByDate.get(day.date) || null : null;
           return (
             <TripDayCard
               key={day.dayIndex}

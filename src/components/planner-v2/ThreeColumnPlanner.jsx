@@ -72,7 +72,6 @@ export default function ThreeColumnPlanner({
     acceptSuggestedAllocation,
     setTripDates,
     confirmGeneration,
-    cancelFinalization,
     retryGeneration,
     resetGeneration,
     updateGeneratedActivity,
@@ -211,7 +210,6 @@ export default function ThreeColumnPlanner({
             }
             onParsedItineraryRefine={(summary) => sendMessage(summary)}
             confirmGeneration={confirmGeneration}
-            cancelFinalization={cancelFinalization}
             retryGeneration={retryGeneration}
             resetGeneration={resetGeneration}
             onUpdateActivity={updateGeneratedActivity}

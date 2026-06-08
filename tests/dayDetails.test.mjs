@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { buildDayDetailsByDate, nextTransferForDate } from '../src/lib/planning/dayDetails.js';
+import { buildDayDetailsByDate, nextTransferForDate, buildNextTransferByDate } from '../src/lib/planning/dayDetails.js';
 
 // Paris (2 days) → travel → Berlin (1 day). Mirrors buildMultiCityItinerary order.
 const ITIN = {
@@ -46,4 +46,19 @@ test('nextTransferForDate returns null for unknown date / empty itinerary', () =
   assert.equal(nextTransferForDate(ITIN, '2099-01-01'), null);
   assert.equal(nextTransferForDate({ days: [] }, '2026-06-20'), null);
   assert.equal(nextTransferForDate(null, '2026-06-20'), null);
+});
+
+test('buildNextTransferByDate maps only last-in-city dates to their transfer', () => {
+  const map = buildNextTransferByDate(ITIN);
+  assert.deepEqual([...map.keys()], ['2026-06-20']); // only the last Paris day
+  assert.equal(map.get('2026-06-20').to.city, 'berlin');
+  // Matches the per-date function for every day.
+  for (const d of ITIN.days) {
+    assert.equal(map.get(d.date) || null, nextTransferForDate(ITIN, d.date));
+  }
+});
+
+test('buildNextTransferByDate tolerates empty/missing itinerary', () => {
+  assert.equal(buildNextTransferByDate(null).size, 0);
+  assert.equal(buildNextTransferByDate({ days: [] }).size, 0);
 });

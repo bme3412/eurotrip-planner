@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import { getFlagForCountry } from '@/utils/countryFlags';
 import { parseIsoDate } from '@/lib/conversation/dayAssignments';
 import { ACCOMMODATION_FIELDS } from '@/lib/conversation/tripState';
+import { TRANSPORT_ICON } from '@/components/itinerary/shared';
 import PlannerDateCalendar from './PlannerDateCalendar.jsx';
 
 const DOW_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -18,8 +19,6 @@ const TIME_BLOCKS = [
   ['evening', 'Evening'],
   ['night', 'Night'],
 ];
-const TRANSPORT_ICON = { train: '🚆', flight: '✈️', bus: '🚌', ferry: '⛴️', car: '🚗' };
-
 function orderedTimeBlocks(timeBlocks) {
   const list = Array.isArray(timeBlocks) ? timeBlocks : [];
   const rank = (t) => {
