@@ -42,7 +42,7 @@ function ToolPill({ event }) {
 
   if (event.type === 'tool_call') {
     return (
-      <div className="flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-800/60 px-3 py-1.5 text-xs text-zinc-400">
+      <div className="flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-100 px-3 py-1.5 text-xs text-zinc-600">
         <Loader2 className="h-3 w-3 animate-spin" />
         <span>{labels[event.name] || event.name}…</span>
       </div>
@@ -50,14 +50,14 @@ function ToolPill({ event }) {
   }
   if (event.type === 'tool_result') {
     return (
-      <div className="flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-800/60 px-3 py-1.5 text-xs text-zinc-400">
+      <div className="flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-100 px-3 py-1.5 text-xs text-zinc-600">
         <span>{event.summary}</span>
       </div>
     );
   }
   if (event.type === 'activity_updated') {
     return (
-      <div className="flex items-center gap-2 rounded-full border border-[#c9963c40] bg-[#c9963c10] px-3 py-1.5 text-xs font-medium text-[#c9963c]">
+      <div className="flex items-center gap-2 rounded-full border border-[#1e63e940] bg-[#1e63e910] px-3 py-1.5 text-xs font-medium text-[#1e63e9]">
         <RefreshCw className="h-3 w-3" />
         <span>Day {event.dayNumber} updated: {event.activity?.name}</span>
       </div>
@@ -82,8 +82,8 @@ function MessageBubble({ msg }) {
       <div
         className={`max-w-[88%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
           isUser
-            ? 'rounded-br-sm bg-zinc-700 text-white'
-            : 'rounded-bl-sm border border-zinc-700 bg-[#1c1c1f] text-zinc-200'
+            ? 'rounded-br-sm bg-[#1e63e9] text-white'
+            : 'rounded-bl-sm border border-zinc-200 bg-zinc-50 text-zinc-800'
         }`}
       >
         {msg.content}
@@ -301,19 +301,19 @@ export default function EditPanel({
       <aside
         role="dialog"
         aria-label={`Edit ${cityDisplay} trip`}
-        className="fixed bottom-0 right-0 z-50 flex h-[85vh] w-full max-w-md flex-col rounded-t-2xl border border-zinc-700 bg-[#111113] shadow-2xl sm:bottom-6 sm:right-6 sm:h-[640px] sm:rounded-2xl"
+        className="fixed bottom-0 right-0 z-50 flex h-[85vh] w-full max-w-md flex-col rounded-t-2xl border border-zinc-200 bg-white shadow-2xl ring-1 ring-black/5 sm:bottom-6 sm:right-6 sm:h-[640px] sm:rounded-2xl"
       >
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-3.5">
+        <div className="flex items-center justify-between border-b border-zinc-200 px-4 py-3.5">
           <div className="flex items-center gap-2 min-w-0">
-            <Pencil className="h-4 w-4 shrink-0" style={{ color: '#c9963c' }} />
-            <span className="text-sm font-semibold text-zinc-200 truncate">
+            <Pencil className="h-4 w-4 shrink-0" style={{ color: '#1e63e9' }} />
+            <span className="text-sm font-semibold text-zinc-900 truncate">
               {cityDisplay} trip — edits
             </span>
           </div>
           <button
             onClick={onClose}
-            className="rounded-lg p-1 text-zinc-500 transition hover:bg-zinc-800 hover:text-zinc-300"
+            className="rounded-lg p-1 text-zinc-400 transition hover:bg-zinc-100 hover:text-zinc-700"
             aria-label="Close edit panel"
           >
             <X className="h-4 w-4" />
@@ -322,31 +322,31 @@ export default function EditPanel({
 
         {/* Mode tabs (only shown before any thread exists) */}
         {!hasThread && (
-          <div className="flex border-b border-zinc-800 px-4">
+          <div className="flex border-b border-zinc-200 px-4">
             <button
               onClick={() => setMode('quick')}
               className={`relative px-3 py-2.5 text-xs font-semibold uppercase tracking-wider transition ${
                 mode === 'quick'
-                  ? 'text-[#c9963c]'
-                  : 'text-zinc-500 hover:text-zinc-300'
+                  ? 'text-[#1e63e9]'
+                  : 'text-zinc-500 hover:text-zinc-800'
               }`}
             >
               Quick edits
               {mode === 'quick' && (
-                <span className="absolute inset-x-3 -bottom-px h-0.5 bg-[#c9963c]" />
+                <span className="absolute inset-x-3 -bottom-px h-0.5 bg-[#1e63e9]" />
               )}
             </button>
             <button
               onClick={() => setMode('type')}
               className={`relative px-3 py-2.5 text-xs font-semibold uppercase tracking-wider transition ${
                 mode === 'type'
-                  ? 'text-[#c9963c]'
-                  : 'text-zinc-500 hover:text-zinc-300'
+                  ? 'text-[#1e63e9]'
+                  : 'text-zinc-500 hover:text-zinc-800'
               }`}
             >
               Type a request
               {mode === 'type' && (
-                <span className="absolute inset-x-3 -bottom-px h-0.5 bg-[#c9963c]" />
+                <span className="absolute inset-x-3 -bottom-px h-0.5 bg-[#1e63e9]" />
               )}
             </button>
           </div>
@@ -370,7 +370,7 @@ export default function EditPanel({
                 <button
                   key={item.label}
                   onClick={() => sendMessage(item.request)}
-                  className="w-full rounded-xl border border-zinc-800 bg-zinc-800/40 px-3.5 py-3 text-left text-sm text-zinc-200 transition hover:border-zinc-600 hover:bg-zinc-800"
+                  className="w-full rounded-xl border border-zinc-200 bg-white px-3.5 py-3 text-left text-sm text-zinc-800 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50"
                 >
                   {item.label}
                 </button>
@@ -379,7 +379,7 @@ export default function EditPanel({
           ) : (
             <div className="flex h-full flex-col items-center justify-center text-center">
               <div className="max-w-xs">
-                <p className="font-semibold text-zinc-200">What needs to change?</p>
+                <p className="font-semibold text-zinc-900">What needs to change?</p>
                 <p className="mt-1.5 text-sm text-zinc-500">
                   Describe the swap, addition, or pace change. Cite a day if it
                   helps — e.g. &ldquo;Day 2 morning is too packed.&rdquo;
@@ -391,8 +391,8 @@ export default function EditPanel({
 
         {/* Input — always visible once thread starts; visible in 'type' mode pre-thread */}
         {(hasThread || mode === 'type') && (
-          <form onSubmit={handleSubmit} className="border-t border-zinc-800 px-3 py-3">
-            <div className="flex items-end gap-2 rounded-xl border border-zinc-700 bg-zinc-800/60 px-3 py-2 focus-within:border-zinc-500">
+          <form onSubmit={handleSubmit} className="border-t border-zinc-200 px-3 py-3">
+            <div className="flex items-end gap-2 rounded-xl border border-zinc-300 bg-white px-3 py-2 focus-within:border-[#1e63e9]">
               <textarea
                 ref={inputRef}
                 value={input}
@@ -401,14 +401,14 @@ export default function EditPanel({
                 rows={1}
                 disabled={streaming}
                 placeholder="Describe a change to the trip…"
-                className="flex-1 resize-none bg-transparent text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none disabled:opacity-50"
+                className="flex-1 resize-none bg-transparent text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none disabled:opacity-50"
                 style={{ maxHeight: '96px' }}
               />
               {streaming ? (
                 <button
                   type="button"
                   onClick={handleAbort}
-                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-zinc-700 text-zinc-400 transition hover:bg-zinc-600"
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-zinc-200 text-zinc-600 transition hover:bg-zinc-300"
                   title="Stop"
                 >
                   <X className="h-3.5 w-3.5" />
@@ -417,15 +417,15 @@ export default function EditPanel({
                 <button
                   type="submit"
                   disabled={!input.trim()}
-                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-black transition hover:opacity-90 disabled:opacity-30"
-                  style={{ backgroundColor: '#c9963c' }}
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-white transition hover:opacity-90 disabled:opacity-30"
+                  style={{ backgroundColor: '#1e63e9' }}
                   title="Send"
                 >
                   <Send className="h-3.5 w-3.5" />
                 </button>
               )}
             </div>
-            <p className="mt-1.5 text-center text-[10px] text-zinc-600">
+            <p className="mt-1.5 text-center text-[10px] text-zinc-400">
               Changes save automatically.
             </p>
           </form>
