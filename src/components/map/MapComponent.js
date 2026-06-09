@@ -57,6 +57,21 @@ function monthsToDateRange(months) {
 }
 
 /** Short date for the persistent date-context badge (e.g. "Jun 15"). */
+// Resolve when the current camera animation settles, or after a timeout —
+// 'moveend' never fires if the map is removed mid-flight, and an unresolved
+// promise would strand the click handler with its listener still attached.
+function waitForMoveEnd(map, timeoutMs = 1500) {
+  return new Promise((resolve) => {
+    const done = () => {
+      clearTimeout(timer);
+      map.off('moveend', done);
+      resolve();
+    };
+    const timer = setTimeout(done, timeoutMs);
+    map.on('moveend', done);
+  });
+}
+
 function fmtBadgeDate(iso) {
   if (!iso) return '';
   try {
@@ -153,11 +168,6 @@ function MapComponent({
   const [showRankedListPanel, setShowRankedListPanel] = useState(false);
   const [showCacheManager, setShowCacheManager] = useState(false);
 
-  // Memoized values
-  const countries = useMemo(() => {
-    return ['All', ...new Set(destinations.map(city => city.country))].sort();
-  }, [destinations]);
-
   // Effect for initializing map
   useEffect(() => {
     // Prevent re-initialization if already done or container not ready
@@ -165,6 +175,11 @@ function MapComponent({
       return;
     }
     mapInitialized.current = true; // Mark as initialized
+
+    // initializeMap is async: if the component unmounts before it resolves,
+    // the cleanup below runs first and the freshly created map would never
+    // be removed. Track disposal so the late-arriving map is torn down.
+    let disposed = false;
 
     const setupMap = async () => {
       try {
@@ -174,51 +189,62 @@ function MapComponent({
           onViewStateChange
         );
 
+        if (disposed) {
+          map.remove();
+          return;
+        }
+
         mapInstance.current = map;
         mapboxGLRef.current = mapboxgl;
         isMoving.current = movingState;
 
         map.once('load', async () => {
-          if (MAP_USE_CLUSTERS) {
-            // Build the source from the full destination list (filtering is
-            // expressed by replacing the source data later, not by removing
-            // and recreating layers).
-            const initialGeoJSON = buildCitiesGeoJSON(destinations, cityRankings);
-            // Maintain a lookup so feature clicks can resolve the full city.
-            cityByIdRef.current = new Map(
-              destinations.map((c) => [c.id || c.title, c])
-            );
-            addCitiesSourceAndLayers(map, initialGeoJSON);
-            layersReadyRef.current = true;
-            setLayersReady(true);
+          try {
+            if (MAP_USE_CLUSTERS) {
+              // Build the source from the full destination list (filtering is
+              // expressed by replacing the source data later, not by removing
+              // and recreating layers).
+              const initialGeoJSON = buildCitiesGeoJSON(destinations, cityRankings);
+              // Maintain a lookup so feature clicks can resolve the full city.
+              cityByIdRef.current = new Map(
+                destinations.map((c) => [c.id || c.title, c])
+              );
+              addCitiesSourceAndLayers(map, initialGeoJSON);
+              layersReadyRef.current = true;
+              setLayersReady(true);
 
-            // Pointer cursor + hover highlight over the city dots (map -> list).
-            map.on('mouseenter', 'unclustered-point', () => {
-              map.getCanvas().style.cursor = 'pointer';
-            });
-            map.on('mousemove', 'unclustered-point', (e) => {
-              const id = e.features?.[0]?.properties?.id;
-              if (id) setHoveredId(id);
-            });
-            map.on('mouseleave', 'unclustered-point', () => {
-              map.getCanvas().style.cursor = '';
-              setHoveredId(null);
-            });
+              // Pointer cursor + hover highlight over the city dots (map -> list).
+              map.on('mouseenter', 'unclustered-point', () => {
+                map.getCanvas().style.cursor = 'pointer';
+              });
+              map.on('mousemove', 'unclustered-point', (e) => {
+                const id = e.features?.[0]?.properties?.id;
+                if (id) setHoveredId(id);
+              });
+              map.on('mouseleave', 'unclustered-point', () => {
+                map.getCanvas().style.cursor = '';
+                setHoveredId(null);
+              });
 
-            // City dot click: delegate to the latest React handler.
-            map.on('click', 'unclustered-point', (e) => {
-              const feature = e.features && e.features[0];
-              if (!feature) return;
-              const id = feature.properties.id;
-              const city = cityByIdRef.current.get(id);
-              if (!city) return;
-              const handler = featureClickHandlerRef.current;
-              if (handler) {
-                handler(city);
-              }
-            });
+              // City dot click: delegate to the latest React handler.
+              map.on('click', 'unclustered-point', (e) => {
+                const feature = e.features && e.features[0];
+                if (!feature) return;
+                const id = feature.properties.id;
+                const city = cityByIdRef.current.get(id);
+                if (!city) return;
+                const handler = featureClickHandlerRef.current;
+                if (handler) {
+                  handler(city);
+                }
+              });
+            }
+            await updateMarkers();
+          } catch (error) {
+            // An async 'load' listener that throws would otherwise become an
+            // unhandled rejection and leave the map silently non-interactive.
+            console.error('[MapComponent] map load handler failed:', error);
           }
-          await updateMarkers();
         });
       } catch (error) {
         console.error("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -230,6 +256,7 @@ function MapComponent({
     setupMap();
 
     return () => {
+      disposed = true;
       if (mapInstance.current) {
         mapInstance.current.remove();
         mapInstance.current = null;
@@ -556,18 +583,15 @@ function MapComponent({
       });
       
       // Wait for flyTo to complete
-      await new Promise(resolve => {
-        const moveEndHandler = () => {
-          mapInstance.current.off('moveend', moveEndHandler);
-          resolve();
-        };
-        mapInstance.current.on('moveend', moveEndHandler);
-      });
-      
+      await waitForMoveEnd(mapInstance.current);
+
       // Remove loading indicator
       if (loadingEl.parentNode) {
         loadingEl.parentNode.removeChild(loadingEl);
       }
+
+      // The component may have unmounted while the camera was moving.
+      if (!mapInstance.current || !mapboxGLRef.current) return;
       
       // Create popup content
       const popupContent = generatePopupContent(city, calendarInfo, countryColor, currentFilters);
@@ -650,13 +674,10 @@ function MapComponent({
         essential: true,
       });
 
-      await new Promise((resolve) => {
-        const moveEndHandler = () => {
-          mapInstance.current.off('moveend', moveEndHandler);
-          resolve();
-        };
-        mapInstance.current.on('moveend', moveEndHandler);
-      });
+      await waitForMoveEnd(mapInstance.current);
+
+      // The component may have unmounted while the camera was moving.
+      if (!mapInstance.current || !mapboxGLRef.current) return;
 
       const countryColor = COUNTRY_COLORS[city.country] || '#d63631';
       const popupContent = generatePopupContent(city, calendarInfo, countryColor, currentFilters);

@@ -360,6 +360,20 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
     }
     const existingId = savedTripId || tripIdRef.current;
 
+    // For CREATEs, hold a lock that settles only after the save fully
+    // completes (trip id recorded), not when response headers arrive — a
+    // concurrent save resuming earlier would still see no id and POST a
+    // duplicate draft. Released in finally so a failed save can never
+    // strand later autosaves waiting on it.
+    let releaseCreateLock = null;
+    if (!existingId) {
+      const lock = new Promise((resolve) => { releaseCreateLock = resolve; });
+      savingPromiseRef.current = lock;
+      lock.then(() => {
+        if (savingPromiseRef.current === lock) savingPromiseRef.current = null;
+      });
+    }
+
     try {
       setSaveStatus('saving');
       setSaveError(null);
@@ -374,9 +388,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
           clientDedupKey,
         }),
       });
-      if (method === 'POST') savingPromiseRef.current = request;
       const res = await request;
-      if (method === 'POST') savingPromiseRef.current = null;
 
       // 503 = Supabase not configured / migration missing. The draft is still
       // valuable to the user, so keep it alive locally and report that we
@@ -403,7 +415,6 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
       setSaveStatus('saved');
       return saved;
     } catch (error) {
-      savingPromiseRef.current = null;
       // Network failure. If we already have a remote trip, this is a real
       // problem the user should see. Otherwise we haven't promised remote
       // persistence yet — keep the draft alive locally.
@@ -415,6 +426,8 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
       }
       console.warn('[agent] Remote save unavailable, saving locally:', error);
       return saveLocally();
+    } finally {
+      if (releaseCreateLock) releaseCreateLock();
     }
   }, [isSupabaseConfigured, itinerary, localTripId, messagesRef, savedTripId, session, setSaveStatus, tripState, tripTitle, user]);
 
