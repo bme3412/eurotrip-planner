@@ -17,10 +17,13 @@ import {
 import AuthButton from "@/components/auth/AuthButton";
 import { SavedTripsList } from "@/components/common/SaveToTrips";
 import SavedExperiencesList from "@/components/common/SavedExperiencesList";
+import CardMenu from "@/components/common/CardMenu";
+import ActivityImage from "@/components/itinerary/ActivityImage";
 import { useAuth } from "@/contexts/AuthContext";
 import { getSupabaseAuthHeaders } from "@/lib/supabase/authHeaders";
 import { migrateLegacyWizardItineraries, readLocalTripDrafts, removeLocalTripDraft } from "@/lib/trips/localTripDrafts";
 import { migrateLocalDraftsToAccount } from "@/lib/trips/migrateLocalDrafts";
+import { tripSignature } from "@/lib/trips/tripLifecycle";
 import { getFlagForCountry } from "@/utils/countryFlags";
 
 function isGeneratedTrip(trip) {
@@ -86,6 +89,27 @@ function tripCityChips(trip) {
     return [{ name: trip.city, flag: trip.country ? getFlagForCountry(trip.country) : null }];
   }
   return [];
+}
+
+// What stage is a draft at, and is it effectively empty? Drives the progress chip,
+// the "Older drafts" grouping, and "Clear empty drafts".
+function draftProgress(trip) {
+  const cityCount = tripCityChips(trip).length;
+  const hasRealDates = tripDateInfo(trip).kind === "range";
+  const isEmpty = cityCount <= 1 && !hasRealDates;
+  let stage;
+  if (cityCount >= 1 && hasRealDates) stage = { key: "ready", label: "Ready to generate", tone: "emerald" };
+  else if (cityCount >= 1 || hasRealDates) stage = { key: "taking", label: "Taking shape", tone: "rose" };
+  else stage = { key: "started", label: "Just started", tone: "gray" };
+  return { stage, isEmpty, cityCount, hasRealDates };
+}
+
+// The anchor (first) city, used for a draft/hero thumbnail so cards differ visually.
+function anchorCity(trip) {
+  const c = (Array.isArray(trip.cities) && trip.cities[0]) || null;
+  const name = c?.name || c?.id || trip.city || null;
+  const slug = c?.id || (name ? String(name).toLowerCase() : null);
+  return name ? { name, slug } : null;
 }
 
 function CityChips({ chips }) {
@@ -194,6 +218,9 @@ function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null, sel
 
   const chips = tripCityChips(trip);
   const dateInfo = tripDateInfo(trip);
+  const progress = !isGenerated ? draftProgress(trip) : null;
+  const anchor = anchorCity(trip);
+  const nights = trip.time_range?.totalNights || null;
 
   const containerBase = "group rounded-2xl p-5 md:p-6 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ring-1";
   const containerVariant = isLocal
@@ -213,6 +240,11 @@ function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null, sel
               className="mt-1 size-4 shrink-0 cursor-pointer rounded border-gray-300 text-rose-600 focus:ring-rose-500"
               aria-label={`Select ${trip.title || "trip"}`}
             />
+          )}
+          {anchor && (
+            <div className="relative size-12 shrink-0 overflow-hidden rounded-xl ring-1 ring-gray-200/70">
+              <ActivityImage q={`${anchor.name} skyline`} citySlug={anchor.slug} w={120} alt="" className="absolute inset-0 size-full" />
+            </div>
           )}
           <div className="min-w-0">
           <p className={`flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] ${isLocal ? "text-amber-700" : "text-gray-400"}`}>
@@ -238,7 +270,7 @@ function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null, sel
         <CityChips chips={chips} />
       </div>
 
-      <div className="mt-3">
+      <div className="mt-3 flex flex-wrap items-center gap-2">
         {dateInfo.kind === "range" ? (
           <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-50 px-3 py-1 text-xs font-medium text-rose-700 ring-1 ring-rose-100">
             <CalendarDaysIcon className="size-3.5" aria-hidden="true" />
@@ -250,79 +282,76 @@ function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null, sel
             {dateInfo.label}
           </span>
         ) : (
-          <p className="text-xs italic text-gray-400">{dateInfo.label}</p>
+          <span className="text-xs italic text-gray-400">{dateInfo.label}</span>
+        )}
+        {nights ? <span className="text-xs text-gray-400">· {nights} nights</span> : null}
+        {progress && (
+          <span className={`ml-auto inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold ${progress.stage.tone === "emerald" ? "bg-emerald-50 text-emerald-700" : progress.stage.tone === "rose" ? "bg-rose-50 text-rose-600" : "bg-gray-100 text-gray-500"}`}>
+            <StatusDot tone={progress.stage.tone === "emerald" ? "emerald" : progress.stage.tone === "rose" ? "rose" : "gray"} />
+            {progress.stage.label}
+          </span>
         )}
       </div>
 
-      <div className="mt-5 flex flex-wrap gap-2">
-        <Link
-          href={primaryHref}
-          className="inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
-        >
-          {isGenerated && !isLocal ? "View itinerary" : "Continue planning"}
-          <ArrowRightIcon className="size-4" aria-hidden="true" />
-        </Link>
-        {!isLocal && (
-          <>
-            <Link
-              href={`/plan?tripId=${trip.id}`}
-              className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-gray-200 transition-all hover:bg-gray-50 hover:ring-gray-300"
-            >
-              Edit route
-            </Link>
-            {isGenerated && (
-              <Link
-                href={`/itineraries/${trip.id}`}
-                className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-gray-200 transition-all hover:bg-gray-50 hover:ring-gray-300"
-              >
-                Edit itinerary
-              </Link>
-            )}
-          </>
-        )}
-        {isLocal && onRemove && (
-          <button
-            type="button"
-            onClick={() => onRemove(trip.id)}
-            className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-amber-700 ring-1 ring-amber-200 transition-all hover:text-amber-900 hover:ring-amber-300"
-          >
-            Remove
-          </button>
-        )}
-        {!isLocal && onDelete && (
-          confirmingDelete ? (
-            <span className="ml-auto inline-flex items-center gap-2">
-              <span className="text-xs text-gray-500">Delete this trip?</span>
-              <button
-                type="button"
-                disabled={deleting}
-                onClick={async () => {
-                  setDeleting(true);
-                  await onDelete(trip.id);
-                }}
-                className="rounded-full bg-red-600 px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-700 disabled:opacity-60"
-              >
-                {deleting ? "Deleting…" : "Delete"}
-              </button>
-              <button
-                type="button"
-                disabled={deleting}
-                onClick={() => setConfirmingDelete(false)}
-                className="rounded-full px-3 py-2 text-sm font-semibold text-gray-500 transition-colors hover:text-gray-800"
-              >
-                Cancel
-              </button>
-            </span>
-          ) : (
+      <div className="mt-5 flex flex-wrap items-center gap-2">
+        {confirmingDelete ? (
+          <span className="inline-flex items-center gap-2">
+            <span className="text-xs text-gray-500">Delete this trip?</span>
             <button
               type="button"
-              onClick={() => setConfirmingDelete(true)}
-              className="ml-auto inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-semibold text-gray-400 transition-colors hover:text-red-600"
+              disabled={deleting}
+              onClick={async () => { setDeleting(true); await onDelete(trip.id); }}
+              className="rounded-full bg-red-600 px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-700 disabled:opacity-60"
             >
-              <TrashIcon className="size-4" aria-hidden="true" />
-              Delete
+              {deleting ? "Deleting…" : "Delete"}
             </button>
-          )
+            <button
+              type="button"
+              disabled={deleting}
+              onClick={() => setConfirmingDelete(false)}
+              className="rounded-full px-3 py-2 text-sm font-semibold text-gray-500 transition-colors hover:text-gray-800"
+            >
+              Cancel
+            </button>
+          </span>
+        ) : (
+          <>
+            <Link
+              href={primaryHref}
+              className="inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
+            >
+              {isGenerated && !isLocal ? "Open itinerary" : "Continue planning"}
+              <ArrowRightIcon className="size-4" aria-hidden="true" />
+            </Link>
+            {isGenerated && !isLocal && (
+              <Link
+                href={`/plan?tripId=${trip.id}`}
+                className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-gray-200 transition-all hover:bg-gray-50 hover:ring-gray-300"
+              >
+                Refine
+              </Link>
+            )}
+            {isLocal && onRemove && (
+              <button
+                type="button"
+                onClick={() => onRemove(trip.id)}
+                className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-amber-700 ring-1 ring-amber-200 transition-all hover:text-amber-900 hover:ring-amber-300"
+              >
+                Remove
+              </button>
+            )}
+            {!isLocal && onDelete && (
+              <CardMenu
+                items={[
+                  ...(isGenerated
+                    ? [{ label: "Concierge", href: `/itineraries/${trip.id}/concierge`, icon: SparklesIcon }]
+                    : []),
+                  { divider: true },
+                  { label: "Delete trip", danger: true, icon: TrashIcon, onClick: () => setConfirmingDelete(true) },
+                ]}
+              />
+            )}
+          </>
         )}
       </div>
     </article>
@@ -347,6 +376,55 @@ function TripsSection({ eyebrow, title, subtitle, dotTone, trips, isLocal, onRem
             onToggleSelect={onToggleSelect}
           />
         ))}
+      </div>
+    </section>
+  );
+}
+
+// "Pick up where you left off" — the single most-recently-edited meaningful trip,
+// front and center so the #1 use case (resume) isn't buried under the draft wall.
+function ResumeHero({ trip, isLocal }) {
+  if (!trip) return null;
+  const isGenerated = isGeneratedTrip(trip);
+  const anchor = anchorCity(trip);
+  const chips = tripCityChips(trip);
+  const dateInfo = tripDateInfo(trip);
+  const href = isGenerated && !isLocal
+    ? `/itineraries/${trip.id}`
+    : `/plan?${isLocal ? "localTripId" : "tripId"}=${trip.id}`;
+  return (
+    <section>
+      <p className="mb-3 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-rose-500/80">
+        <StatusDot tone="rose" /> Pick up where you left off
+      </p>
+      <div className="relative overflow-hidden rounded-3xl ring-1 ring-gray-200/80">
+        {anchor && (
+          <>
+            <ActivityImage q={`${anchor.name} skyline`} citySlug={anchor.slug} w={1200} alt="" className="absolute inset-0 size-full" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/92 to-white/40" />
+          </>
+        )}
+        <div className="relative flex flex-col gap-4 p-6 sm:flex-row sm:items-end sm:justify-between md:p-8">
+          <div className="min-w-0">
+            <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ring-1 ${isGenerated ? "bg-emerald-50 text-emerald-700 ring-emerald-100" : "bg-gray-50 text-gray-600 ring-gray-200"}`}>
+              <StatusDot tone={isGenerated ? "emerald" : "gray"} />
+              {isGenerated ? "Itinerary ready" : "Draft in progress"}
+            </span>
+            <h2 className="mt-3 font-display text-3xl text-gray-950 md:text-4xl">{trip.title || "Untitled Europe Trip"}</h2>
+            <div className="mt-3"><CityChips chips={chips} /></div>
+            <p className="mt-2 inline-flex items-center gap-1.5 text-xs text-gray-500">
+              <ClockIcon className="size-3.5" /> {formatUpdatedAt(trip.updated_at || trip.created_at)}
+              {dateInfo.kind === "range" && <span>· {dateInfo.label}</span>}
+            </p>
+          </div>
+          <Link
+            href={href}
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-gray-900 px-6 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-gray-800"
+          >
+            {isGenerated && !isLocal ? "Open itinerary" : "Continue planning"}
+            <ArrowRightIcon className="size-4" />
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -432,8 +510,20 @@ export default function SavedTripsPage() {
     if (authLoading || loading) return;
     if (!user || !session?.access_token) return;
     if (dedupeAttempted.current) return;
-    const guardKey = `plannerDedupeRanFor:${user.id}`;
-    if (typeof window !== "undefined" && window.localStorage.getItem(guardKey) === "1") return;
+
+    // Only call the server when there's actually something to collapse — i.e. two
+    // trips share a content signature. This runs at most once per page load and,
+    // unlike the old run-once-ever guard, cleans the DB *whenever* dupes have
+    // accumulated (the upsert key only catches same-session bursts).
+    const seen = new Set();
+    let hasDuplicate = false;
+    for (const t of trips) {
+      const sig = tripSignature(t);
+      if (!sig || sig === "||") continue;
+      if (seen.has(sig)) { hasDuplicate = true; break; }
+      seen.add(sig);
+    }
+    if (!hasDuplicate) return;
 
     dedupeAttempted.current = true;
     fetch("/api/trips/dedupe", {
@@ -442,11 +532,10 @@ export default function SavedTripsPage() {
     })
       .then((res) => (res.ok ? res.json() : null))
       .then((res) => {
-        if (typeof window !== "undefined") window.localStorage.setItem(guardKey, "1");
         if (res?.removed > 0) loadTrips();
       })
       .catch((err) => console.warn("[saved-trips] dedupe failed:", err));
-  }, [authLoading, loading, user, session, loadTrips]);
+  }, [authLoading, loading, user, session, trips, loadTrips]);
 
   const handleRemoveLocal = useCallback((id) => {
     removeLocalTripDraft(id);
@@ -480,18 +569,23 @@ export default function SavedTripsPage() {
   // this just guarantees the UI never shows the same logical trip twice.
   const displayTrips = useMemo(() => {
     const source = isLocalMode ? localDrafts : trips;
-    const byKey = new Map();
+    const byCollapse = new Map();
     const passthrough = [];
     for (const trip of source) {
+      // Collapse by the stable dedup key when present, else by a coarse content
+      // signature (title + cities + dates) — so the wall of NULL-key "Paris Trip"
+      // dupes folds into one row even though the server never deduped them.
       const key = trip.client_dedup_key || trip.trip_state?.meta?.clientDedupKey;
-      if (!key) {
+      const sig = tripSignature(trip);
+      const collapseKey = key || (sig && sig !== "||" ? `sig:${sig}` : null);
+      if (!collapseKey) {
         passthrough.push(trip);
         continue;
       }
-      const existing = byKey.get(key);
-      if (!existing || tripRichness(trip) > tripRichness(existing)) byKey.set(key, trip);
+      const existing = byCollapse.get(collapseKey);
+      if (!existing || tripRichness(trip) > tripRichness(existing)) byCollapse.set(collapseKey, trip);
     }
-    return [...passthrough, ...byKey.values()];
+    return [...passthrough, ...byCollapse.values()];
   }, [isLocalMode, localDrafts, trips]);
 
   const visibleTrips = useMemo(() => {
@@ -513,14 +607,64 @@ export default function SavedTripsPage() {
     return sorted;
   }, [displayTrips, search, sortBy]);
 
-  const { ready, inProgress } = useMemo(() => {
+  const { ready, activeDrafts, olderDrafts, heroTrip, olderDraftIds } = useMemo(() => {
     const readyTrips = [];
-    const inProgressTrips = [];
-    for (const trip of visibleTrips) {
-      (isGeneratedTrip(trip) ? readyTrips : inProgressTrips).push(trip);
+    const allDrafts = [];
+    for (const trip of visibleTrips) (isGeneratedTrip(trip) ? readyTrips : allDrafts).push(trip);
+
+    const updatedOf = (tr) => new Date(tr.updated_at || tr.created_at || 0).getTime() || 0;
+    const cityCountOf = (tr) => tripCityChips(tr).length;
+
+    // The user accumulates single-city "quick starts" (e.g. five separate Paris
+    // drafts). Keep the NEWEST start per city up front; the rest are "older quick
+    // starts" tucked into a disclosure — kept, not deleted, so nothing is lost.
+    const newestSingle = new Map();
+    for (const tr of allDrafts) {
+      if (cityCountOf(tr) <= 1) {
+        const k = anchorCity(tr)?.slug || "?";
+        if (!newestSingle.has(k) || updatedOf(tr) > updatedOf(newestSingle.get(k))) newestSingle.set(k, tr);
+      }
     }
-    return { ready: readyTrips, inProgress: inProgressTrips };
+    const isOlder = (tr) => {
+      if (draftProgress(tr).isEmpty) return true;
+      if ((Date.now() - updatedOf(tr)) / 86400000 > 30) return true;
+      if (cityCountOf(tr) <= 1) {
+        const k = anchorCity(tr)?.slug || "?";
+        return newestSingle.get(k)?.id !== tr.id; // not the newest start for this city
+      }
+      return false;
+    };
+
+    const active = [];
+    const older = [];
+    const olderIds = [];
+    for (const tr of allDrafts) {
+      if (isOlder(tr)) { older.push(tr); olderIds.push(tr.id); }
+      else active.push(tr);
+    }
+    const hero = [...readyTrips, ...active].slice().sort((a, b) => updatedOf(b) - updatedOf(a))[0] || null;
+    return { ready: readyTrips, activeDrafts: active, olderDrafts: older, heroTrip: hero, olderDraftIds: olderIds };
   }, [visibleTrips]);
+
+  const inProgressCount = activeDrafts.length + olderDrafts.length;
+
+  const [clearingEmpty, setClearingEmpty] = useState(false);
+  const handleClearEmpty = useCallback(async () => {
+    const ids = olderDraftIds;
+    if (!ids.length) return;
+    setClearingEmpty(true);
+    if (isLocalMode) {
+      ids.forEach((id) => removeLocalTripDraft(id));
+      reloadLocalDrafts();
+    } else {
+      setTrips((curr) => curr.filter((t) => !ids.includes(t.id)));
+      await Promise.allSettled(
+        ids.map((id) => fetch(`/api/trips/${id}`, { method: "DELETE", headers: getSupabaseAuthHeaders(session) })),
+      );
+      loadTrips();
+    }
+    setClearingEmpty(false);
+  }, [olderDraftIds, isLocalMode, reloadLocalDrafts, session, loadTrips]);
 
   const toggleSelect = useCallback((id) => {
     setSelectedIds((curr) => {
@@ -576,7 +720,7 @@ export default function SavedTripsPage() {
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 <StatPill count={ready.length} label="ready" tone="emerald" />
-                <StatPill count={inProgress.length} label="in progress" tone="rose" />
+                <StatPill count={inProgressCount} label="in progress" tone="rose" />
                 <StatPill count={wishlistCount} label={wishlistCount === 1 ? "saved city" : "saved cities"} tone="emerald" />
                 {experiencesCount > 0 && (
                   <StatPill count={experiencesCount} label={experiencesCount === 1 ? "experience" : "experiences"} tone="rose" />
@@ -734,12 +878,13 @@ export default function SavedTripsPage() {
             />
           ) : (
             <>
+              {!selectMode && <ResumeHero trip={heroTrip} isLocal={isLocalMode} />}
               <TripsSection
                 eyebrow="01 · Ready to go"
                 title="Ready to go"
                 subtitle="Generated itineraries you can open and refine."
                 dotTone="emerald"
-                trips={ready}
+                trips={ready.filter((t) => t.id !== heroTrip?.id || selectMode)}
                 isLocal={isLocalMode}
                 onRemove={isLocalMode ? handleRemoveLocal : null}
                 onDelete={isLocalMode ? null : handleDeleteTrip}
@@ -747,19 +892,66 @@ export default function SavedTripsPage() {
                 selectedIds={selectedIds}
                 onToggleSelect={toggleSelect}
               />
-              <TripsSection
-                eyebrow="02 · In progress"
-                title="In progress"
-                subtitle="Routes still being planned in the conversational planner."
-                dotTone="rose"
-                trips={inProgress}
-                isLocal={isLocalMode}
-                onRemove={isLocalMode ? handleRemoveLocal : null}
-                onDelete={isLocalMode ? null : handleDeleteTrip}
-                selectable={selectMode}
-                selectedIds={selectedIds}
-                onToggleSelect={toggleSelect}
-              />
+              {(activeDrafts.length > 0 || selectMode) && (
+                <section>
+                  <SectionHeader
+                    eyebrow="02 · In progress"
+                    title="In progress"
+                    subtitle="Routes still being planned in the conversational planner."
+                    dotTone="rose"
+                  />
+                  <div className="grid gap-4 md:grid-cols-2">
+                    {activeDrafts
+                      .filter((t) => t.id !== heroTrip?.id || selectMode)
+                      .map((trip) => (
+                        <TripCard
+                          key={trip.id}
+                          trip={trip}
+                          isLocal={isLocalMode}
+                          onRemove={isLocalMode ? handleRemoveLocal : null}
+                          onDelete={isLocalMode ? null : handleDeleteTrip}
+                          selectable={selectMode}
+                          selected={selectedIds ? selectedIds.has(trip.id) : false}
+                          onToggleSelect={toggleSelect}
+                        />
+                      ))}
+                  </div>
+                </section>
+              )}
+              {olderDrafts.length > 0 && (
+                <details className="group rounded-2xl border border-gray-200/80 bg-white/60 px-5 py-4">
+                  <summary className="flex cursor-pointer list-none items-center gap-2 text-sm font-semibold text-gray-600 transition hover:text-gray-900">
+                    <ArrowRightIcon className="size-4 transition-transform group-open:rotate-90" />
+                    Older quick-start drafts ({olderDrafts.length})
+                    <span className="font-normal text-gray-400">— earlier starts you didn&apos;t finish</span>
+                    {!isLocalMode && (
+                      <button
+                        type="button"
+                        onClick={(e) => { e.preventDefault(); handleClearEmpty(); }}
+                        disabled={clearingEmpty}
+                        className="ml-auto inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-gray-500 ring-1 ring-gray-200 transition hover:text-red-600 hover:ring-red-200 disabled:opacity-60"
+                      >
+                        <TrashIcon className="size-3.5" />
+                        {clearingEmpty ? "Clearing…" : `Clear all ${olderDrafts.length}`}
+                      </button>
+                    )}
+                  </summary>
+                  <div className="mt-4 grid gap-4 md:grid-cols-2">
+                    {olderDrafts.map((trip) => (
+                      <TripCard
+                        key={trip.id}
+                        trip={trip}
+                        isLocal={isLocalMode}
+                        onRemove={isLocalMode ? handleRemoveLocal : null}
+                        onDelete={isLocalMode ? null : handleDeleteTrip}
+                        selectable={selectMode}
+                        selected={selectedIds ? selectedIds.has(trip.id) : false}
+                        onToggleSelect={toggleSelect}
+                      />
+                    ))}
+                  </div>
+                </details>
+              )}
             </>
           )}
         </div>

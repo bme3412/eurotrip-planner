@@ -111,6 +111,9 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
   // burst of autosaves before `savedTripId` lands all carry the same key and
   // collapse to one server row (UPSERT on user_id,client_dedup_key).
   const clientDedupKeyRef = useRef(null);
+  // Tracks an in-flight CREATE so concurrent autosaves wait for the first row's
+  // id instead of each POSTing a brand-new draft (belt-and-braces over the UPSERT).
+  const savingPromiseRef = useRef(null);
   // Holds the latest one-click build entry (persist + generate). The agent's
   // finalize_trip tool fires this directly — no separate confirm gate.
   const buildItineraryRef = useRef(null);
@@ -350,12 +353,19 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
       return saveLocally();
     }
 
+    // If a CREATE is already in flight and we don't yet have an id, wait for it so
+    // this save becomes a PUT to that row instead of POSTing a second draft.
+    if (!savedTripId && !tripIdRef.current && savingPromiseRef.current) {
+      await savingPromiseRef.current.catch(() => {});
+    }
+    const existingId = savedTripId || tripIdRef.current;
+
     try {
       setSaveStatus('saving');
       setSaveError(null);
-      const method = savedTripId ? 'PUT' : 'POST';
-      const url = savedTripId ? `/api/trips/${savedTripId}` : '/api/trips/drafts';
-      const res = await fetch(url, {
+      const method = existingId ? 'PUT' : 'POST';
+      const url = existingId ? `/api/trips/${existingId}` : '/api/trips/drafts';
+      const request = fetch(url, {
         method,
         headers: getSupabaseAuthHeaders(session, { 'Content-Type': 'application/json' }),
         body: JSON.stringify({
@@ -364,6 +374,9 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
           clientDedupKey,
         }),
       });
+      if (method === 'POST') savingPromiseRef.current = request;
+      const res = await request;
+      if (method === 'POST') savingPromiseRef.current = null;
 
       // 503 = Supabase not configured / migration missing. The draft is still
       // valuable to the user, so keep it alive locally and report that we
@@ -390,6 +403,7 @@ export function useTripPlannerAgent({ initialTripId = null, initialLocalTripId =
       setSaveStatus('saved');
       return saved;
     } catch (error) {
+      savingPromiseRef.current = null;
       // Network failure. If we already have a remote trip, this is a real
       // problem the user should see. Otherwise we haven't promised remote
       // persistence yet — keep the draft alive locally.
