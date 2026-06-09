@@ -4,6 +4,7 @@ import { getTripWithDetails } from '@/lib/trips/tripsRepository';
 import { getCityVisitCalendar } from '@/lib/data-utils';
 import { extractWeather } from '@/app/itineraries/[tripId]/_lib/buildPlan';
 import { buildConciergeContext, weatherConditions, metaLine } from '@/lib/concierge/buildContext';
+import { getCachedSuggestions, setCachedSuggestions } from '@/lib/cache/suggestions';
 
 export const runtime = 'nodejs';
 // The rich brief LLM call runs ~19s; without this Vercel kills the function at
@@ -14,6 +15,9 @@ const MODEL = 'claude-sonnet-4-6';
 // Rich structured tool output (~1100 tokens) can run 15-25s on a busy minute;
 // give it real headroom so we serve Olivier's voice instead of the fallback.
 const LLM_TIMEOUT_MS = 32000;
+// Briefs are stable for a given trip version, so cache the generated response for
+// a week. The cache key includes trip.updated_at, so an edit invalidates it.
+const CACHE_TTL_SECONDS = 604800;
 
 /**
  * POST /api/trips/[id]/concierge-brief   body: { dayNumber?: number }
@@ -139,6 +143,17 @@ export async function POST(request, { params }) {
   const ctx = buildConciergeContext(trip, { dayNumber });
   const d = ctx.selectedDay;
 
+  // Cache by (trip, resolved day, trip version): skip the ~19s LLM on repeat
+  // views, and auto-invalidate when the trip is edited (updated_at changes).
+  // Keyed by the RESOLVED day number so the initial (null) load and an explicit
+  // day-1 request share one entry. No-ops gracefully if Redis isn't configured.
+  const ver = trip.updated_at ? new Date(trip.updated_at).getTime() : 0;
+  const cacheKey = `concierge:brief:v1:${tripId}:${d?.dayNumber ?? 'none'}:${ver}`;
+  const hit = await getCachedSuggestions(cacheKey);
+  if (hit?.data?.day) {
+    return NextResponse.json({ ...hit.data, cached: true });
+  }
+
   // Weather for the selected day's city + month (best-effort).
   let weather = null;
   try {
@@ -240,5 +255,9 @@ Write: the three messages (eveningBrief with one delight + optional decision; mo
   if (!toolUse?.input?.briefs) {
     return NextResponse.json(assemble(fallbackProse(ctx)));
   }
-  return NextResponse.json(assemble({ ...toolUse.input, source: 'llm' }));
+  // Cache only the successful LLM result, so a transient failure isn't pinned
+  // for a week (the fallback paths above intentionally skip the write).
+  const payload = assemble({ ...toolUse.input, source: 'llm' });
+  await setCachedSuggestions(cacheKey, payload, CACHE_TTL_SECONDS);
+  return NextResponse.json(payload);
 }
