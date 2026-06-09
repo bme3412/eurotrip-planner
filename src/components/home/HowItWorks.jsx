@@ -1,92 +1,68 @@
 'use client';
 
-import { CalendarDays, Gauge, Route } from 'lucide-react';
+import { Check, Loader2, ArrowRight } from 'lucide-react';
 
-const STEPS = [
-  {
-    icon: CalendarDays,
-    title: 'Pick your dates',
-    body: 'Choose your exact travel window — or just describe the trip in plain words.',
-  },
-  {
-    icon: Gauge,
-    title: 'See where everywhere shines',
-    body: 'Every city scored for your exact days on weather, crowds, seasonal events, and value.',
-  },
-  {
-    icon: Route,
-    title: 'Plan it day-by-day',
-    body: 'Turn the winner into a day-by-day itinerary — attractions, timing, and logistics in one click.',
-  },
-];
-
-const STATS = [
-  { value: '327', label: 'City guides' },
-  { value: '40', label: 'Countries' },
-  { value: '365', label: 'Days scored' },
-  { value: 'Free', label: 'No signup' },
+const DONE_STEPS = [
+  <>Mapped the route · Paris → Berlin → Kraków → Nice</>,
+  <>Balanced 14 nights · 3 / 3 / 2 / 3</>,
+  <>Checked June · weather, crowds, festivals</>,
+  <>Folded in your flights &amp; stays</>,
 ];
 
 export default function HowItWorks({ onScrollToDatePicker }) {
   return (
     <section className="px-6 py-20 bg-gray-50 border-t border-gray-100">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 text-blue-600 font-bold text-xs uppercase tracking-widest mb-3">
-            <span className="w-8 h-px bg-blue-600"></span>
-            How it works
-            <span className="w-8 h-px bg-blue-600"></span>
+        <div className="text-center mb-10">
+          <div className="text-blue-600 font-bold text-xs uppercase tracking-widest mb-4">
+            The Planner
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            From your dates to a trip you can actually take.
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
+            Describe the trip. Watch it build itself.
           </h2>
+          <p className="mt-4 text-lg text-gray-500">
+            It doesn&apos;t hand you a list to sort through — it does the work.
+          </p>
         </div>
 
-        {/* Steps */}
-        <div className="grid gap-6 sm:grid-cols-3 mb-14">
-          {STEPS.map((step, i) => {
-            const Icon = step.icon;
-            return (
-              <div
-                key={step.title}
-                className="relative rounded-2xl bg-white border border-gray-100 p-6 shadow-sm"
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-50 text-blue-600">
-                    <Icon className="w-5 h-5" />
-                  </span>
-                  <span className="text-xs font-extrabold uppercase tracking-widest text-gray-300">
-                    Step {i + 1}
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-1.5">{step.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{step.body}</p>
-              </div>
-            );
-          })}
-        </div>
+        {/* Planner card */}
+        <div className="rounded-2xl bg-white border border-gray-200 shadow-sm p-6 sm:p-8">
+          {/* Prompt */}
+          <div className="flex items-start gap-4">
+            <span className="text-sm font-medium text-gray-400 pt-0.5">You</span>
+            <p className="text-lg font-medium text-gray-900">
+              &ldquo;Paris, Berlin, Kraków, then Nice — two weeks in June, mostly trains.&rdquo;
+            </p>
+          </div>
 
-        {/* Trust / stats band */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-px rounded-2xl overflow-hidden bg-gray-200 border border-gray-200">
-          {STATS.map((s) => (
-            <div key={s.label} className="bg-white px-4 py-6 text-center">
-              <div className="text-3xl font-extrabold text-gray-900">{s.value}</div>
-              <div className="mt-1 text-xs font-bold uppercase tracking-widest text-gray-400">{s.label}</div>
-            </div>
-          ))}
+          <div className="my-5 border-t border-gray-100" />
+
+          {/* Checklist */}
+          <ul className="space-y-3.5">
+            {DONE_STEPS.map((step, i) => (
+              <li key={i} className="flex items-center gap-3 text-gray-800">
+                <span className="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded-full bg-green-100 text-green-600">
+                  <Check className="w-3.5 h-3.5" strokeWidth={3} />
+                </span>
+                <span className="text-base">{step}</span>
+              </li>
+            ))}
+            <li className="flex items-center gap-3 text-blue-600">
+              <Loader2 className="flex-shrink-0 w-5 h-5 animate-spin" />
+              <span className="text-base font-medium">Placing day-by-day stops…</span>
+            </li>
+          </ul>
         </div>
 
         {/* CTA */}
-        <div className="mt-12 text-center">
+        <div className="mt-8 text-center">
           <button
             onClick={onScrollToDatePicker}
-            className="group inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white font-bold rounded-full hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            className="group inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
-            Start with your dates
-            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
+            Plan a trip
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
       </div>

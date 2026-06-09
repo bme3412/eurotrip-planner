@@ -3,7 +3,7 @@
 import { useState, useMemo, useCallback } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { Pencil, CalendarDays, ArrowLeft } from 'lucide-react';
+import { Pencil, CalendarDays, ArrowLeft, Sparkles } from 'lucide-react';
 import ShareButton from './ShareButton';
 import { formatDayDate } from './_lib/helpers';
 import ItineraryView from '@/components/itinerary/ItineraryView';
@@ -143,6 +143,12 @@ export default function ItineraryClient({
 
   const heroActions = (
     <>
+      <Link
+        href={`/itineraries/${tripId}/concierge`}
+        className="inline-flex items-center gap-1.5 rounded-full bg-blue-600 px-4 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-blue-700"
+      >
+        <Sparkles className="h-3.5 w-3.5" /> Concierge mode
+      </Link>
       <button
         type="button"
         onClick={() => setEditPanelOpen(true)}
