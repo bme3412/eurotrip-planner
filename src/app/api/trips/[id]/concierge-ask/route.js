@@ -6,7 +6,7 @@ import { buildConciergeContext } from '@/lib/concierge/buildContext';
 export const runtime = 'nodejs';
 
 const MODEL = 'claude-sonnet-4-6';
-const LLM_TIMEOUT_MS = 14000;
+const LLM_TIMEOUT_MS = 22000;
 
 /**
  * POST /api/trips/[id]/concierge-ask   body: { question: string }

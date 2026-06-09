@@ -19,7 +19,7 @@ const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
-const MODEL = 'claude-sonnet-4-20250514'; // Fast and capable for short generations
+const MODEL = 'claude-sonnet-4-6'; // Fast and capable for short generations
 
 // Bump when the prompt/style changes so cached descriptions don't go stale.
 const PROMPT_VERSION = 'v2-stats-aware';

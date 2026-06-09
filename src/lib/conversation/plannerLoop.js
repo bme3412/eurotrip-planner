@@ -4,7 +4,7 @@ import { executeToolCall as defaultExecuteToolCall } from '@/lib/conversation/to
 import { diffRoute, mergeDiffs, renderStateChangesBlock } from '@/lib/conversation/routeDiff';
 
 export const MAX_LOOPS = 8;
-export const MODEL = 'claude-sonnet-4-20250514';
+export const MODEL = 'claude-sonnet-4-6';
 
 /**
  * Run the multi-turn planner agent loop.

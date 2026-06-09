@@ -4,7 +4,7 @@ import Anthropic from '@anthropic-ai/sdk';
 export const runtime = 'nodejs';
 
 // Same model the planner + scoring prose use (proven on this account).
-const MODEL = 'claude-sonnet-4-20250514';
+const MODEL = 'claude-sonnet-4-6';
 
 /**
  * POST /api/discover/command

@@ -22,7 +22,7 @@ import { buildCandidatePool } from './candidatePool.js';
 import { getSeasonalContext } from './seasonalContext.js';
 import { getCityExperiences } from '../data-utils.js';
 
-const MODEL = 'claude-sonnet-4-20250514';
+const MODEL = 'claude-sonnet-4-6';
 // Selection is higher-value than the prose-polish pass, so it gets a longer
 // budget. Calls fan out per-city in parallel, so this is ~the whole pass's
 // wall-clock regardless of trip length.

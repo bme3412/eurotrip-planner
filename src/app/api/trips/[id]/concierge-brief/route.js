@@ -8,7 +8,9 @@ import { buildConciergeContext, weatherConditions, metaLine } from '@/lib/concie
 export const runtime = 'nodejs';
 
 const MODEL = 'claude-sonnet-4-6';
-const LLM_TIMEOUT_MS = 16000;
+// Rich structured tool output (~1100 tokens) can run 15-25s on a busy minute;
+// give it real headroom so we serve Olivier's voice instead of the fallback.
+const LLM_TIMEOUT_MS = 32000;
 
 /**
  * POST /api/trips/[id]/concierge-brief   body: { dayNumber?: number }
