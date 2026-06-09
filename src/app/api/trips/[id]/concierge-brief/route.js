@@ -37,6 +37,17 @@ const TOOL = {
     type: 'object',
     properties: {
       routeNote: { type: 'string', description: 'One short line on how to make the first leg, e.g. "18-min walk over Pont des Arts — lovely in morning light".' },
+      pushLine: { type: 'string', description: 'A single glanceable lock-screen notification line (<=90 chars), distinct from the evening brief body. The depart-by hook, e.g. "Tomorrow: the Louvre at 10am. Leave by 9:25 — I\'ll wake you." No emoji.' },
+      signoff: { type: 'string', description: 'A short, warm sign-off in Olivier\'s voice for the wind-down, e.g. "Sleep easy — Olivier." 3-6 words.' },
+      sampleAsk: {
+        type: 'object',
+        description: 'One strong example of a question the traveler might ask and Olivier\'s answer, grounded in this trip.',
+        properties: {
+          question: { type: 'string', description: 'A natural question a traveler would ask, 4-9 words.' },
+          answer: { type: 'string', description: "Olivier's answer, 2-3 sentences, specific and opinionated." },
+        },
+        required: ['question', 'answer'],
+      },
       briefs: {
         type: 'object',
         properties: {
@@ -79,7 +90,7 @@ const TOOL = {
         required: ['trigger', 'body', 'action'],
       },
     },
-    required: ['briefs', 'reactive'],
+    required: ['briefs', 'reactive', 'pushLine', 'signoff', 'sampleAsk'],
   },
 };
 
@@ -97,6 +108,16 @@ function fallbackProse(ctx) {
   const leave = d?.departBy ? ` I'd head out around ${d.departBy}.` : '';
   return {
     routeNote: act ? `An easy approach to ${act.name} — take the scenic way and let the morning open up.` : 'A gentle, unhurried start.',
+    pushLine: act
+      ? `Tomorrow: ${act.name}${at}.${d?.departBy ? ` Leave by ${d.departBy}.` : ''} I'll wake you in time.`
+      : `Tomorrow's your first full day in ${d?.cityName || 'the city'}. I'll have it ready.`,
+    signoff: 'Sleep easy — Olivier',
+    sampleAsk: {
+      question: 'What should I not miss?',
+      answer: act
+        ? `Give ${act.name} the unhurried morning it deserves — it's the heart of the day. Everything after can flex; that one's worth arriving fresh for.`
+        : `Lean into ${d?.cityName || 'the city'} on foot the first morning — the trip finds its rhythm once you've wandered a little.`,
+    },
     briefs: {
       eveningBrief: {
         body: act
@@ -148,7 +169,7 @@ export async function POST(request, { params }) {
   // Keyed by the RESOLVED day number so the initial (null) load and an explicit
   // day-1 request share one entry. No-ops gracefully if Redis isn't configured.
   const ver = trip.updated_at ? new Date(trip.updated_at).getTime() : 0;
-  const cacheKey = `concierge:brief:v1:${tripId}:${d?.dayNumber ?? 'none'}:${ver}`;
+  const cacheKey = `concierge:brief:v2:${tripId}:${d?.dayNumber ?? 'none'}:${ver}`;
   const hit = await getCachedSuggestions(cacheKey);
   if (hit?.data?.day) {
     return NextResponse.json({ ...hit.data, cached: true });
@@ -184,8 +205,14 @@ export async function POST(request, { params }) {
       theme: d?.theme ?? null,
       firstActivity: d?.firstActivity ?? null,
       departBy: d?.departBy ?? null,
+      schedule: d?.schedule ?? [],
+      hotelName: d?.hotelName ?? null,
+      arrival: d?.arrival ?? null,
       weather: dayWeather,
       routeNote: prose.routeNote || null,
+      pushLine: prose.pushLine || null,
+      signoff: prose.signoff || null,
+      sampleAsk: prose.sampleAsk || null,
       briefs: {
         eveningBrief: { ...prose.briefs.eveningBrief, meta: metaEvening },
         morningWakeup: { ...prose.briefs.morningWakeup, meta: metaMorning },
@@ -221,12 +248,20 @@ Date: ${d.dateLabel || 'a day on the trip'}
 Theme: ${d.theme || 'open exploration'}
 First activity: ${d.firstActivity ? `${d.firstActivity.name}${d.firstActivity.startTime ? ` at ${d.firstActivity.startTime}` : ''}${d.firstActivity.neighborhood ? ` (${d.firstActivity.neighborhood})` : ''}` : 'not specified — keep general'}
 Suggested depart-by: ${d.departBy || 'n/a'}
-Hotel: ${p.hotelName || 'not specified'}
+The full day's stops (in order): ${d.schedule?.length ? d.schedule.map((s) => `${s.time ? s.time + ' ' : ''}${s.name}`).join('; ') : 'just the first activity'}
+Hotel: ${d.hotelName || p.hotelName || 'not specified'}
+${d.arrival ? `They land${d.arrival.fromCity ? ` from ${d.arrival.fromCity}` : ''} on this day — frame it around the arrival.` : ''}
 Traveler pace: ${p.pace || 'unspecified'}; interests: ${p.interests?.join(', ') || 'varied'}.
 ${d.nextCity && d.nextCity !== d.cityName ? `Tomorrow they move to ${d.nextCity}.` : d.nextTheme ? `Tomorrow's theme: ${d.nextTheme}.` : ''}
 Weather (monthly normal): ${weatherLine}
 
-Write: the three messages (eveningBrief with one delight + optional decision; morningWakeup; windDown with a tomorrow tease), a routeNote for the first leg, and one realistic reactive alert (a disruption you'd catch mid-day and the swap you'd propose).`;
+Write, all grounded in the stops above:
+- the three messages (eveningBrief with one delight + optional decision; morningWakeup; windDown with a tomorrow tease)
+- a routeNote for the first leg
+- one realistic reactive alert (a disruption you'd catch mid-day and the swap you'd propose)
+- pushLine: the glanceable lock-screen version of the evening brief (NOT a copy of the body)
+- signoff: a short warm sign-off
+- sampleAsk: one question this traveler would plausibly ask and your answer`;
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), LLM_TIMEOUT_MS);
@@ -236,7 +271,7 @@ Write: the three messages (eveningBrief with one delight + optional decision; mo
     resp = await client.messages.create(
       {
         model: MODEL,
-        max_tokens: 1100,
+        max_tokens: 1500,
         system: [{ type: 'text', text: system, cache_control: { type: 'ephemeral' } }],
         tools: [TOOL],
         tool_choice: { type: 'tool', name: 'concierge_day' },

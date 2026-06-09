@@ -14,15 +14,21 @@ const SUGGESTIONS = [
  * One-shot "ask Olivier" — a taste of the in-app chat. Posts a single question to
  * /api/trips/[id]/concierge-ask and shows the reply in his voice. Not a thread.
  */
-export default function AskOlivier({ tripId, authHeaders }) {
+export default function AskOlivier({ tripId, authHeaders, sample = null }) {
   const [q, setQ] = useState('');
-  const [turns, setTurns] = useState([]); // { q, a }
+  // Pre-seed with a real sample exchange so the quality is visible without typing.
+  const [turns, setTurns] = useState(
+    sample?.question && sample?.answer ? [{ q: sample.question, a: sample.answer }] : []
+  );
   const [loading, setLoading] = useState(false);
+  const [userAsked, setUserAsked] = useState(false);
+  const seeded = Boolean(sample?.question) && !userAsked;
 
   const ask = async (question) => {
     const text = (question ?? q).trim();
     if (!text || loading) return;
     setQ('');
+    setUserAsked(true);
     setLoading(true);
     setTurns((t) => [...t, { q: text, a: null }]);
     try {
@@ -51,8 +57,10 @@ export default function AskOlivier({ tripId, authHeaders }) {
         </div>
       </div>
 
+      {seeded && <p className="mt-4 text-[11px] font-semibold uppercase tracking-wide text-gray-300">Sample</p>}
+
       {turns.length > 0 && (
-        <div className="mt-5 space-y-4">
+        <div className="mt-3 space-y-4">
           {turns.map((t, i) => (
             <div key={i} className="space-y-2">
               <div className="flex justify-end">
@@ -69,7 +77,7 @@ export default function AskOlivier({ tripId, authHeaders }) {
         </div>
       )}
 
-      {turns.length === 0 && (
+      {!userAsked && (
         <div className="mt-4 flex flex-wrap gap-2">
           {SUGGESTIONS.map((s) => (
             <button

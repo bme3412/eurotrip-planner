@@ -147,6 +147,18 @@ export function buildConciergeContext(trip, { dayNumber } = {}) {
     // index of this day among real days, to name "tomorrow".
     const idx = realDays.findIndex((d) => d.dayNumber === rawDay.dayNumber);
     const nextRealDay = idx >= 0 ? realDays[idx + 1] : null;
+    const isFirstRealDay = realDays[0]?.dayNumber === rawDay.dayNumber;
+
+    // The whole day's stops — proves Olivier read the itinerary, not just the
+    // first line. Ordered as stored; times trimmed to HH:MM.
+    const schedule = (rawDay.timeBlocks || [])
+      .filter((b) => b.activity?.name)
+      .map((b) => ({
+        time: trimTime(b.startTime),
+        name: b.activity.name,
+        neighborhood: b.activity.neighborhood || null,
+        type: b.activity.type || null,
+      }));
 
     selectedDay = {
       dayNumber: rawDay.dayNumber,
@@ -167,6 +179,10 @@ export function buildConciergeContext(trip, { dayNumber } = {}) {
           }
         : null,
       departBy,
+      schedule,
+      // Real bookings to ground the brief: hotel always, inbound flight on day 1.
+      hotelName: (rawDay.city && acc[rawDay.city]?.name) || personalization.hotelName || null,
+      arrival: isFirstRealDay && inbound ? { fromCity: inbound.fromCity || null, date: inbound.arrivalDate || null } : null,
       nextCity: nextRealDay?.cityName || null,
       nextTheme: nextRealDay?.theme || null,
     };
