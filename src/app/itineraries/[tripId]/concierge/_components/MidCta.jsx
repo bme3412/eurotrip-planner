@@ -21,7 +21,7 @@ export default function MidCta({ targetId = 'concierge-waitlist' }) {
       <Sparkles className="h-6 w-6 shrink-0 text-white/80" />
       <div className="min-w-0 flex-1">
         <p className="font-display text-xl font-bold">Want this on your real trips?</p>
-        <p className="text-sm text-white/80">Olivier, every day, in your timezone — the moment the concierge ships.</p>
+        <p className="text-sm text-white/80">Olivier, every day, in your timezone — the moment your travel agent ships.</p>
       </div>
       <button
         type="button"

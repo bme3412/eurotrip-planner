@@ -73,7 +73,7 @@ export default function ItineraryOverlay({
               href={`/itineraries/${savedTripId}/concierge`}
               className="inline-flex items-center gap-1.5 rounded-full border border-[#1e63e9]/30 bg-[#1e63e9]/5 px-4 py-1.5 text-xs font-semibold text-[#1e63e9] transition hover:bg-[#1e63e9]/10"
             >
-              <Sparkles className="h-3.5 w-3.5" /> Concierge mode
+              <Sparkles className="h-3.5 w-3.5" /> Travel agent
             </Link>
           )}
           {savedTripId && (

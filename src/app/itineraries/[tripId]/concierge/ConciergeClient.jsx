@@ -156,11 +156,11 @@ export default function ConciergeClient({
           <div className="mt-6 flex items-center gap-3">
             <OlivierMark size={44} />
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600">
-              <Sparkles className="h-3.5 w-3.5" /> Coming soon · Olivier, your concierge
+              <Sparkles className="h-3.5 w-3.5" /> Coming soon · Olivier, your travel agent
             </div>
           </div>
           <h1 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-[1.1] text-gray-900 md:text-5xl">
-            A taste of your concierge.
+            A taste of your travel agent.
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-gray-600">
             Three quiet messages a day, in the voice of someone who lives in{' '}
@@ -186,7 +186,7 @@ export default function ConciergeClient({
 
       <main className="mx-auto max-w-5xl space-y-14 px-6 py-12">
         {/* ── Meet Olivier (persona) — shown immediately ── */}
-        <MeetOlivier cityName={cityDisplay} />
+        <MeetOlivier cityName={cityDisplay} destinations={bundle?.meta?.destinations || []} />
 
         {status === 'loading' && (
           <div className="flex flex-col items-center gap-3 rounded-2xl border border-amber-100/70 bg-white px-6 py-20 text-center shadow-sm">
@@ -200,7 +200,7 @@ export default function ConciergeClient({
         {status === 'error' && (
           <div className="rounded-2xl border border-amber-100/70 bg-white px-6 py-12 text-center shadow-sm">
             <p className="font-semibold text-gray-900">Olivier couldn&apos;t draft your preview just now.</p>
-            <p className="mt-1 text-sm text-gray-500">Try again in a moment — the concierge is still in preview.</p>
+            <p className="mt-1 text-sm text-gray-500">Try again in a moment — your travel agent is still in preview.</p>
           </div>
         )}
 
@@ -250,13 +250,13 @@ export default function ConciergeClient({
 
               {/* whole-day schedule + real bookings */}
               <div className="mt-5">
-                <DaySchedule schedule={day.schedule} hotelName={day.hotelName} arrival={day.arrival} />
+                <DaySchedule schedule={day.schedule} hotelName={day.hotelName} arrival={day.arrival} cityName={day.cityName} persona={day.persona} />
               </div>
 
               <div className={`mt-6 grid gap-8 lg:grid-cols-[280px_1fr] ${dayLoading ? 'opacity-60 transition-opacity' : ''}`}>
                 {/* Left: how it arrives */}
                 <div className="lg:sticky lg:top-6 lg:self-start">
-                  <PushMock pushLine={day.pushLine} />
+                  <PushMock pushLine={day.pushLine} persona={day.persona} />
                   <p className="mt-3 text-center text-xs text-gray-400">A glance is all it takes.</p>
                 </div>
 
@@ -271,8 +271,9 @@ export default function ConciergeClient({
                     delight={day.briefs.eveningBrief.delight}
                     decision={day.briefs.eveningBrief.decision}
                     meta={day.briefs.eveningBrief.meta}
+                    persona={day.persona}
                   >
-                    {act && <RouteMap firstActivity={act} departBy={day.departBy} routeNote={day.routeNote} />}
+                    {act && <RouteMap firstActivity={act} departBy={day.departBy} routeNote={day.routeNote} cityName={day.cityName} />}
                   </BriefCard>
 
                   <BriefCard
@@ -282,6 +283,7 @@ export default function ConciergeClient({
                     timeOfDay="morning"
                     body={day.briefs.morningWakeup.body}
                     meta={day.briefs.morningWakeup.meta}
+                    persona={day.persona}
                   >
                     {day.weather && <WeatherStrip weather={day.weather} />}
                   </BriefCard>
@@ -295,13 +297,15 @@ export default function ConciergeClient({
                     tomorrowTease={day.briefs.windDown.tomorrowTease}
                     signoff={day.signoff}
                     meta={day.briefs.windDown.meta}
+                    persona={day.persona}
+                    handoff={day.handoff}
                   />
                 </div>
               </div>
             </section>
 
             {/* ── Reactive magic ── */}
-            <ReactiveAlert reactive={day.reactive} />
+            <ReactiveAlert reactive={day.reactive} persona={day.persona} />
 
             {/* ── Mid-page conversion (peak interest) ── */}
             <MidCta targetId="concierge-waitlist" />

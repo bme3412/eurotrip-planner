@@ -1,17 +1,21 @@
-import { BedDouble, Plane, Clock } from 'lucide-react';
+import { BedDouble, Plane, Clock, Navigation } from 'lucide-react';
+import { legLinks } from '@/lib/concierge/mapsLink';
 
 /**
  * "Your whole day" — the full stop list for the selected day plus the real
- * bookings Olivier is working around. Proves he read the itinerary, not just the
- * first line.
+ * bookings the agent is working around. Proves they read the itinerary, not
+ * just the first line. Each stop deep-links into Google Maps directions.
  */
-export default function DaySchedule({ schedule = [], hotelName, arrival }) {
+export default function DaySchedule({ schedule = [], hotelName, arrival, cityName, persona }) {
   if (!schedule.length && !hotelName && !arrival) return null;
+
+  const legs = legLinks(schedule, { cityName });
+  const agentName = persona?.name || 'Olivier';
 
   return (
     <div className="rounded-2xl border border-gray-200/80 bg-white p-5 shadow-sm md:p-6">
       <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-400">
-        <Clock className="h-3.5 w-3.5" /> The whole day he&apos;s working around
+        <Clock className="h-3.5 w-3.5" /> The whole day {agentName}&apos;s working around
       </div>
 
       {schedule.length > 0 && (
@@ -25,6 +29,17 @@ export default function DaySchedule({ schedule = [], hotelName, arrival }) {
               <span className="min-w-0">
                 <span className="text-sm font-medium text-gray-900">{s.name}</span>
                 {s.neighborhood && <span className="text-sm text-gray-400"> · {s.neighborhood}</span>}
+                {legs[i]?.url && (
+                  <a
+                    href={legs[i].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Directions to ${s.name}`}
+                    className="ml-2 inline-flex translate-y-0.5 items-center text-gray-300 transition hover:text-blue-600"
+                  >
+                    <Navigation className="h-3.5 w-3.5" />
+                  </a>
+                )}
               </span>
             </li>
           ))}
