@@ -21,6 +21,7 @@ import ServicePreview from './_components/ServicePreview';
 import MeetOlivier from './_components/MeetOlivier';
 import DaySchedule from './_components/DaySchedule';
 import MidCta from './_components/MidCta';
+import ConciergeOptIn from './_components/ConciergeOptIn';
 
 /**
  * Concierge preview — a rich, multi-section taste of Olivier built from the trip's
@@ -28,7 +29,7 @@ import MidCta from './_components/MidCta';
  * owns the voice. Day selection lazily regenerates the rich day.
  */
 export default function ConciergeClient({ tripId, cityDisplay, dateRangeLabel, heroImage }) {
-  const { session } = useAuth();
+  const { user, session } = useAuth();
   const authHeaders = useMemo(
     () => getSupabaseAuthHeaders(session, { 'Content-Type': 'application/json' }),
     [session]
@@ -272,14 +273,22 @@ export default function ConciergeClient({ tripId, cityDisplay, dateRangeLabel, h
           </>
         )}
 
-        {/* ── Early access ── */}
+        {/* ── Turn it on (signed in) / early access (signed out) ── */}
         <div id="concierge-waitlist" className="scroll-mt-6">
-          <p className="mb-4 text-center text-sm font-medium text-gray-500">
-            This is a preview. Want Olivier on your real trips?
-          </p>
-          <div className="mx-auto max-w-md">
-            <ConciergeWaitlist heading="Get early access" />
-          </div>
+          {user ? (
+            <div className="mx-auto max-w-xl">
+              <ConciergeOptIn tripId={tripId} />
+            </div>
+          ) : (
+            <>
+              <p className="mb-4 text-center text-sm font-medium text-gray-500">
+                This is a preview. Want Olivier on your real trips?
+              </p>
+              <div className="mx-auto max-w-md">
+                <ConciergeWaitlist heading="Get early access" />
+              </div>
+            </>
+          )}
         </div>
       </main>
     </div>
