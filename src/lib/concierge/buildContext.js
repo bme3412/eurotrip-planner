@@ -1,0 +1,176 @@
+// Deterministic context for the concierge preview. Code owns the FACTS (times,
+// weather, depart-by, cadence, the day scaffold); the LLM only writes the voice.
+// Shared by the brief route and the "ask Olivier" route.
+
+import { buildPlanFromNormalizedDays } from '@/app/itineraries/[tripId]/_lib/buildPlan';
+import { accommodationsByCity, getBookings, pickInbound } from '@/lib/planning/tripBookings';
+
+export function timeToMinutes(hhmm) {
+  if (!hhmm || typeof hhmm !== 'string') return null;
+  const m = hhmm.match(/^(\d{1,2}):(\d{2})/);
+  if (!m) return null;
+  return Number(m[1]) * 60 + Number(m[2]);
+}
+
+export function minutesToTime(mins) {
+  if (mins == null || Number.isNaN(mins)) return null;
+  const m = ((mins % 1440) + 1440) % 1440;
+  const h = Math.floor(m / 60);
+  const min = m % 60;
+  return `${String(h).padStart(2, '0')}:${String(min).padStart(2, '0')}`;
+}
+
+/** Trim a stored time ("12:50:00") to "12:50"; null-safe. */
+export function trimTime(t) {
+  if (!t || typeof t !== 'string') return null;
+  const m = t.match(/^(\d{1,2}):(\d{2})/);
+  return m ? `${m[1].padStart(2, '0')}:${m[2]}` : null;
+}
+
+/** Human pace label from the trip's numeric or string pace. */
+export function paceLabel(pace) {
+  if (pace == null) return null;
+  if (typeof pace === 'string') return pace;
+  if (pace <= 2) return 'relaxed';
+  if (pace <= 4) return 'moderate';
+  return 'active';
+}
+
+/** Coarse weather read used for status lines + golden-hour framing. */
+export function weatherConditions(w) {
+  if (!w) return { label: 'settled skies', emoji: '☀️', wet: false };
+  const rainDays = w.rainDays ?? 0;
+  const sun = w.sunshineHours ?? 7;
+  if (rainDays >= 14) return { label: 'showers likely', emoji: '🌧️', wet: true };
+  if (rainDays >= 10) return { label: 'a few passing showers', emoji: '⛅', wet: true };
+  if (sun >= 7) return { label: 'clear skies', emoji: '☀️', wet: false };
+  return { label: 'mixed skies', emoji: '⛅', wet: false };
+}
+
+function crowdHint(monthIndex) {
+  // No live popular-times here; a light seasonal heuristic keeps it honest.
+  if (monthIndex >= 5 && monthIndex <= 7) return 'busier by midday';
+  if (monthIndex === 11 || monthIndex <= 1) return 'quiet streets';
+  return 'light early crowds';
+}
+
+/** Pretty status line for a brief, e.g. "☀️ 23° · sunrise 05:45 · light crowds". */
+export function metaLine(w, monthIndex) {
+  const c = weatherConditions(w);
+  const parts = [];
+  if (w?.highC != null) parts.push(`${c.emoji} ${Math.round(w.highC)}°`);
+  if (w?.sunrise) parts.push(`sunrise ${w.sunrise}`);
+  parts.push(crowdHint(monthIndex));
+  return parts.join(' · ');
+}
+
+/** Rough, friendly timezone label per city (preview-grade). */
+function timezoneLabel(cityName) {
+  const c = (cityName || '').toLowerCase();
+  const uk = ['london', 'edinburgh', 'dublin'];
+  const east = ['athens', 'helsinki', 'bucharest', 'istanbul', 'kyiv', 'riga', 'tallinn', 'vilnius'];
+  if (uk.some((x) => c.includes(x))) return 'UK time';
+  if (east.some((x) => c.includes(x))) return 'Eastern European time';
+  return 'Central European time';
+}
+
+/**
+ * Build the full deterministic context bundle.
+ * @returns { plan, meta, days, personalization, selectedDay }
+ */
+export function buildConciergeContext(trip, { dayNumber } = {}) {
+  const plan = buildPlanFromNormalizedDays(trip);
+  const allDays = plan.days || [];
+  const realDays = allDays.filter((d) => !d.isTravelDay);
+
+  // Ordered unique cities across the trip.
+  const cities = [];
+  for (const d of allDays) {
+    if (d.isTravelDay || !d.cityName) continue;
+    if (!cities.some((c) => c.name === d.cityName)) cities.push({ name: d.cityName, city: d.city });
+  }
+  const anchorName = cities[0]?.name || trip.city || 'your city';
+
+  // Day scaffold for the selector + rhythm timeline.
+  const days = allDays.map((d) => {
+    const fb = (d.timeBlocks || []).find((b) => b.activity?.name) || null;
+    return {
+      dayNumber: d.dayNumber,
+      dateLabel: d.dateLabel || null,
+      cityName: d.cityName || anchorName,
+      theme: d.theme || null,
+      isTravelDay: !!d.isTravelDay,
+      touchCount: d.isTravelDay ? 1 : 3,
+      firstActivity: fb
+        ? { name: fb.activity.name, startTime: trimTime(fb.startTime), neighborhood: fb.activity.neighborhood || null }
+        : null,
+    };
+  });
+
+  const dailyTouches = 3;
+  const totalTouches = realDays.length * dailyTouches;
+
+  const meta = {
+    cityName: anchorName,
+    country: cities[0] ? trip.country : trip.country || null,
+    cities: cities.map((c) => c.name),
+    totalDays: allDays.length,
+    totalRealDays: realDays.length,
+    cadence: { dailyTouches, totalTouches, timezone: timezoneLabel(anchorName) },
+  };
+
+  // Personalization pulled from data we already hold.
+  const flights = trip.trip_state ? getBookings(trip.trip_state) : [];
+  const inbound = pickInbound(flights);
+  const acc = trip.trip_state ? accommodationsByCity(trip.trip_state) : {};
+  const firstCitySlug = cities[0]?.city;
+  const personalization = {
+    pace: paceLabel(trip.pace),
+    interests: Array.isArray(trip.interests) ? trip.interests.slice(0, 6) : [],
+    arrival: inbound ? { fromCity: inbound.fromCity || null, date: inbound.arrivalDate || null } : null,
+    hotelName: (firstCitySlug && acc[firstCitySlug]?.name) || null,
+  };
+
+  // The selected (or first real) day, with the facts a brief needs.
+  const rawDay =
+    (dayNumber != null && allDays.find((d) => d.dayNumber === dayNumber && !d.isTravelDay)) ||
+    realDays[0] ||
+    allDays[0] ||
+    null;
+
+  let selectedDay = null;
+  if (rawDay) {
+    const fb = (rawDay.timeBlocks || []).find((b) => b.activity?.name) || null;
+    const act = fb?.activity || null;
+    const startMin = timeToMinutes(fb?.startTime);
+    const departBy = startMin != null ? minutesToTime(startMin - 30) : null;
+    // index of this day among real days, to name "tomorrow".
+    const idx = realDays.findIndex((d) => d.dayNumber === rawDay.dayNumber);
+    const nextRealDay = idx >= 0 ? realDays[idx + 1] : null;
+
+    selectedDay = {
+      dayNumber: rawDay.dayNumber,
+      date: rawDay.date || null,
+      dateLabel: rawDay.dateLabel || null,
+      cityName: rawDay.cityName || anchorName,
+      city: rawDay.city || firstCitySlug || null,
+      theme: rawDay.theme || null,
+      firstActivity: act
+        ? {
+            name: act.name,
+            startTime: trimTime(fb.startTime),
+            neighborhood: act.neighborhood || null,
+            type: act.type || null,
+            placeId: act.googlePlaceId || null,
+            lat: act.latitude ?? null,
+            lng: act.longitude ?? null,
+          }
+        : null,
+      departBy,
+      nextCity: nextRealDay?.cityName || null,
+      nextTheme: nextRealDay?.theme || null,
+    };
+  }
+
+  return { plan, meta, days, personalization, selectedDay };
+}

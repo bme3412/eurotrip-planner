@@ -1,137 +1,126 @@
 import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 import { getTripWithDetails } from '@/lib/trips/tripsRepository';
-import { getCityData, getCityVisitCalendar } from '@/lib/data-utils';
-import { accommodationsByCity } from '@/lib/planning/tripBookings';
-import { buildPlanFromNormalizedDays, extractWeather } from '@/app/itineraries/[tripId]/_lib/buildPlan';
+import { getCityVisitCalendar } from '@/lib/data-utils';
+import { extractWeather } from '@/app/itineraries/[tripId]/_lib/buildPlan';
+import { buildConciergeContext, weatherConditions, metaLine } from '@/lib/concierge/buildContext';
 
 export const runtime = 'nodejs';
 
-// Same model the planner + scoring prose use (proven on this account).
-const MODEL = 'claude-sonnet-4-20250514';
-const LLM_TIMEOUT_MS = 15000;
+const MODEL = 'claude-sonnet-4-6';
+const LLM_TIMEOUT_MS = 16000;
 
 /**
- * POST /api/trips/[tripId]/concierge-brief
+ * POST /api/trips/[id]/concierge-brief   body: { dayNumber?: number }
  *
- * Generates a *preview* of the white-glove concierge ("Olivier") daily rhythm —
- * an Evening Brief, Morning Wake-up, and Wind-down — written in his voice from
- * the trip's real Day 1 (first activity, time, neighborhood, weather, hotel).
- *
- * The concierge backend doesn't exist yet (see CONCIERGE_PLAN.md); this is the
- * marketing-grade taste of it. If the LLM is unavailable we fall back to a
- * deterministic brief composed from the same context so the page is never empty.
+ * A *preview* of Olivier's white-glove concierge for one day of a saved trip.
+ * Code owns every fact (times, weather, depart-by, the trip scaffold, cadence);
+ * Claude only writes the voice. Returns enough for a rich, multi-section page:
+ *   { meta, days[], personalization, day }
+ * Pass dayNumber to regenerate the rich `day` for a different day (lazy select).
+ * Falls back to deterministic prose if the LLM is unconfigured or fails.
  */
 
 const TOOL = {
-  name: 'concierge_briefs',
-  description: "Olivier's three scheduled messages for the traveler's first day.",
+  name: 'concierge_day',
+  description: "Olivier's voice for one day — three scheduled messages, a route note, and one reactive alert.",
   input_schema: {
     type: 'object',
     properties: {
-      eveningBrief: {
+      routeNote: { type: 'string', description: 'One short line on how to make the first leg, e.g. "18-min walk over Pont des Arts — lovely in morning light".' },
+      briefs: {
         type: 'object',
-        description: 'Sent ~8pm the night before. Sets up tomorrow.',
         properties: {
-          body: { type: 'string', description: "2-3 sentences in Olivier's voice." },
-          meta: { type: 'string', description: 'One short status line, e.g. "☀ 23° · sunrise 5:45 · light crowds".' },
+          eveningBrief: {
+            type: 'object',
+            description: '~8pm the night before.',
+            properties: {
+              body: { type: 'string', description: "2-3 sentences in Olivier's voice setting up tomorrow." },
+              delight: { type: 'string', description: 'One small, specific local delight (a named bakery, a quiet courtyard).' },
+              decision: { type: 'string', description: 'Optional one-line thing to decide before bed (a reservation). Empty if none.' },
+            },
+            required: ['body', 'delight'],
+          },
+          morningWakeup: {
+            type: 'object',
+            description: '60-90 min before the first activity.',
+            properties: { body: { type: 'string', description: '"Good morning." + live-conditions feel + a timing nudge. 2 sentences.' } },
+            required: ['body'],
+          },
+          windDown: {
+            type: 'object',
+            description: '~9pm, end of day.',
+            properties: {
+              body: { type: 'string', description: 'A quiet 1-2 sentence acknowledgment of the day.' },
+              tomorrowTease: { type: 'string', description: 'One line teasing tomorrow.' },
+            },
+            required: ['body', 'tomorrowTease'],
+          },
         },
-        required: ['body', 'meta'],
+        required: ['eveningBrief', 'morningWakeup', 'windDown'],
       },
-      morningWakeup: {
+      reactive: {
         type: 'object',
-        description: 'Sent 60-90 min before the first activity. Live conditions.',
+        description: 'A realistic mid-day disruption Olivier would catch, and what he proposes.',
         properties: {
-          body: { type: 'string', description: "2-3 sentences in Olivier's voice." },
-          meta: { type: 'string', description: 'One short status line.' },
+          trigger: { type: 'string', description: 'Short label of what changed, e.g. "Rain moving into your 3pm window".' },
+          body: { type: 'string', description: "1-2 sentences in Olivier's voice flagging it." },
+          action: { type: 'string', description: 'The concrete swap/suggestion he offers.' },
         },
-        required: ['body', 'meta'],
-      },
-      windDown: {
-        type: 'object',
-        description: 'Sent ~9pm, end of day. Quiet, teases tomorrow.',
-        properties: {
-          body: { type: 'string', description: "1-2 sentences in Olivier's voice." },
-          meta: { type: 'string', description: 'One short status line.' },
-        },
-        required: ['body', 'meta'],
+        required: ['trigger', 'body', 'action'],
       },
     },
-    required: ['eveningBrief', 'morningWakeup', 'windDown'],
+    required: ['briefs', 'reactive'],
   },
 };
 
-/** Pull the smallest context bundle Olivier needs from the trip's first real day. */
-function buildContext(trip) {
-  const plan = buildPlanFromNormalizedDays(trip);
-  const day1 = (plan.days || []).find((d) => !d.isTravelDay && d.timeBlocks?.length) || plan.days?.[0] || null;
-
-  const firstBlock = day1?.timeBlocks?.find((b) => b.activity?.name) || null;
-  const firstActivity = firstBlock?.activity || null;
-
-  const acc = trip.trip_state ? accommodationsByCity(trip.trip_state) : {};
-  const hotel = day1?.city ? acc[day1.city] : null;
-
-  let dateLabel = null;
-  if (day1?.date) {
-    const d = new Date(day1.date);
-    if (!Number.isNaN(d.getTime())) {
-      dateLabel = new Intl.DateTimeFormat('en-US', {
-        weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC',
-      }).format(d);
-    }
-  }
-
-  return {
-    cityName: day1?.cityName || trip.city || 'your city',
-    country: day1?.country || trip.country || null,
-    theme: day1?.theme || null,
-    dateLabel,
-    firstActivity: firstActivity
-      ? {
-          name: firstActivity.name,
-          startTime: firstBlock.startTime || null,
-          neighborhood: firstActivity.neighborhood || null,
-          type: firstActivity.type || null,
-        }
-      : null,
-    hotelName: hotel?.name || null,
-  };
+function monthIndexOf(dateStr, fallback) {
+  const d = dateStr ? new Date(dateStr) : fallback ? new Date(fallback) : null;
+  return d && !Number.isNaN(d.getTime()) ? d.getUTCMonth() : 5;
 }
 
-/** Deterministic fallback brief — used when the LLM is unconfigured or fails. */
-function fallbackBriefs(ctx, weather) {
-  const sunrise = weather?.sunrise ? `sunrise ${weather.sunrise}` : null;
-  const tempLine = weather?.highC != null ? `${Math.round(weather.highC)}°` : null;
-  const wet = weather?.rainDays != null && weather.rainDays >= 12 ? 'showers likely' : 'mostly clear';
-  const meta = [tempLine, sunrise, wet].filter(Boolean).join(' · ') || 'conditions look good';
-
-  const act = ctx.firstActivity;
+/** Deterministic prose fallback when the LLM is unavailable. */
+function fallbackProse(ctx) {
+  const d = ctx.selectedDay;
+  const act = d?.firstActivity;
   const where = act?.neighborhood ? ` in ${act.neighborhood}` : '';
   const at = act?.startTime ? ` at ${act.startTime}` : '';
-  const leaveLine = act?.startTime ? ` I'd head out a little before${at ? ' your slot' : ''}.` : '';
-  const hotelLine = ctx.hotelName ? ` You're settled at ${ctx.hotelName}.` : '';
-
-  const evening = act
-    ? `Tomorrow opens with ${act.name}${where}${at}.${leaveLine}${hotelLine} Get a good night's rest — ${ctx.cityName} is best on fresh legs.`
-    : `Tomorrow is your first full day in ${ctx.cityName}.${hotelLine} Rest up — I'll have the morning mapped out for you.`;
-
-  const morning = act
-    ? `Good morning. Conditions are holding — ${act.name} should be calm if you go early. I'd leave with time to spare and take the scenic way over.`
-    : `Good morning from ${ctx.cityName}. Conditions look settled; a relaxed start suits today well.`;
-
-  const wind = `That's a wrap on day one in ${ctx.cityName}. Tomorrow has its own rhythm — I'll be in touch in the evening. Sleep well.`;
-
+  const leave = d?.departBy ? ` I'd head out around ${d.departBy}.` : '';
   return {
-    eveningBrief: { body: evening, meta },
-    morningWakeup: { body: morning, meta },
-    windDown: { body: wind, meta: 'around 9pm · ' + ctx.cityName },
+    routeNote: act ? `An easy approach to ${act.name} — take the scenic way and let the morning open up.` : 'A gentle, unhurried start.',
+    briefs: {
+      eveningBrief: {
+        body: act
+          ? `Tomorrow opens with ${act.name}${where}${at}.${leave} Rest up — ${d.cityName} rewards fresh legs.`
+          : `Tomorrow is your first full day in ${d?.cityName || 'the city'}. Rest up — I'll have it mapped for you.`,
+        delight: 'There’s a good café on your corner that opens early if you want coffee on the way.',
+        decision: '',
+      },
+      morningWakeup: {
+        body: act
+          ? `Good morning. Conditions are holding — ${act.name} is calmest early, so an unhurried start suits it.`
+          : `Good morning from ${d?.cityName || 'the city'}. Conditions look settled; ease into the day.`,
+      },
+      windDown: {
+        body: `That’s a wrap on ${d?.cityName || 'the day'}. You covered good ground.`,
+        tomorrowTease: d?.nextCity && d.nextCity !== d.cityName ? `Tomorrow we shift to ${d.nextCity}.` : 'Tomorrow has its own rhythm — more soon.',
+      },
+    },
+    reactive: {
+      trigger: 'Rain moving into your afternoon',
+      body: 'A band of showers is creeping into your afternoon window — nothing dramatic, but enough to dampen an outdoor stretch.',
+      action: 'I’d pull an indoor stop forward and push the open-air walk to tomorrow’s clearer skies. Want me to swap them?',
+    },
     source: 'fallback',
   };
 }
 
 export async function POST(request, { params }) {
   const { id: tripId } = await params;
+
+  let body = {};
+  try { body = await request.json(); } catch { /* optional */ }
+  const dayNumber = Number.isFinite(body?.dayNumber) ? body.dayNumber : null;
 
   let trip;
   try {
@@ -142,48 +131,82 @@ export async function POST(request, { params }) {
   }
   if (!trip) return NextResponse.json({ error: 'Trip not found' }, { status: 404 });
 
-  const ctx = buildContext(trip);
+  const ctx = buildConciergeContext(trip, { dayNumber });
+  const d = ctx.selectedDay;
 
-  // Weather for the trip's start month (best-effort).
+  // Weather for the selected day's city + month (best-effort).
   let weather = null;
   try {
-    const citySlug = trip.city || 'paris';
-    const visitCalendar = await getCityVisitCalendar(citySlug);
-    weather = extractWeather(visitCalendar, trip.start_date);
-  } catch {
-    // non-fatal — Olivier just won't cite conditions
-  }
+    const citySlug = d?.city || trip.city || 'paris';
+    const cal = await getCityVisitCalendar(citySlug);
+    weather = extractWeather(cal, d?.date || trip.start_date);
+  } catch { /* non-fatal */ }
+
+  const mIdx = monthIndexOf(d?.date, trip.start_date);
+  const cond = weatherConditions(weather);
+  const metaEvening = metaLine(weather, mIdx);
+  const metaMorning = `${cond.emoji} ${cond.label} · metro running smoothly`;
+  const metaWind = weather?.lowC != null ? `🌙 ${Math.round(weather.lowC)}° · gentle evening` : '🌙 gentle evening';
+
+  const dayWeather = weather
+    ? { highC: weather.highC, lowC: weather.lowC, sunrise: weather.sunrise, sunset: weather.sunset, conditions: cond }
+    : { conditions: cond };
+
+  // Assemble the rich `day`, then graft prose (LLM or fallback) on top.
+  const assemble = (prose) => ({
+    meta: ctx.meta,
+    days: ctx.days,
+    personalization: ctx.personalization,
+    day: {
+      dayNumber: d?.dayNumber ?? null,
+      dateLabel: d?.dateLabel ?? null,
+      cityName: d?.cityName ?? ctx.meta.cityName,
+      theme: d?.theme ?? null,
+      firstActivity: d?.firstActivity ?? null,
+      departBy: d?.departBy ?? null,
+      weather: dayWeather,
+      routeNote: prose.routeNote || null,
+      briefs: {
+        eveningBrief: { ...prose.briefs.eveningBrief, meta: metaEvening },
+        morningWakeup: { ...prose.briefs.morningWakeup, meta: metaMorning },
+        windDown: { ...prose.briefs.windDown, meta: metaWind },
+      },
+      reactive: prose.reactive,
+    },
+    source: prose.source || 'llm',
+  });
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
-    return NextResponse.json(fallbackBriefs(ctx, weather));
+  if (!apiKey || !d) {
+    return NextResponse.json(assemble(fallbackProse(ctx)));
   }
 
+  const p = ctx.personalization;
   const weatherLine = weather
-    ? `High ~${weather.highC}°C, low ~${weather.lowC}°C, sunrise ${weather.sunrise}, sunset ${weather.sunset}, ~${weather.rainDays} rainy days this month.`
-    : 'No weather detail available — do not invent specifics.';
+    ? `High ~${weather.highC}°C, low ~${weather.lowC}°C, sunrise ${weather.sunrise}, sunset ${weather.sunset}, ~${weather.rainDays} rainy days this month (${cond.label}).`
+    : 'No weather detail — do not invent specifics.';
 
-  const system = `You are Olivier, a white-glove travel concierge who lives in the city your traveler is visiting. You write three short scheduled messages for their FIRST day. You are warm, specific, and quietly knowing — the voice of someone who lives there, not someone who Googled it.
+  const system = `You are Olivier, a white-glove travel concierge who lives in the city your traveler is visiting. Warm, specific, quietly knowing — the voice of someone who lives there, not someone who Googled it.
 
-Three tone rules, enforced in every message:
-1. Specific over generic — name the thing ("the kouign-amann", a real street), never "a pastry" or "a nice spot".
-2. Opinionated, not encyclopedic — recommend ONE thing, never a list of five.
-3. Quietly knowing — a small insider detail (the shorter entrance, the café off the tourist drag, the morning light on a bridge).
+Three tone rules, every line:
+1. Specific over generic — name the thing ("the kouign-amann", a real street), never "a pastry".
+2. Opinionated, not encyclopedic — recommend ONE thing, never a list.
+3. Quietly knowing — an insider detail (the shorter entrance, the café off the tourist drag, the morning light on a bridge).
 
-Never invent venue names or facts not given below; you may add atmosphere (light, pace, a route) that a local would plausibly know. Keep each body to 2-3 sentences. No emoji in the body (the meta line may use one small weather glyph).
+Never invent venue names or facts beyond what's given; you may add plausible local atmosphere (light, pace, a route). No emoji in any text. Keep each message to its stated length.
 
-THE TRIP — Day 1
-City: ${ctx.cityName}${ctx.country ? `, ${ctx.country}` : ''}
-Date: ${ctx.dateLabel || 'first day of the trip'}
-Day theme: ${ctx.theme || 'open exploration'}
-First activity: ${ctx.firstActivity ? `${ctx.firstActivity.name}${ctx.firstActivity.startTime ? ` at ${ctx.firstActivity.startTime}` : ''}${ctx.firstActivity.neighborhood ? ` (${ctx.firstActivity.neighborhood})` : ''}` : 'not specified — keep it general'}
-Hotel: ${ctx.hotelName || 'not specified'}
+THE DAY (day ${d.dayNumber} of the trip)
+City: ${d.cityName}
+Date: ${d.dateLabel || 'a day on the trip'}
+Theme: ${d.theme || 'open exploration'}
+First activity: ${d.firstActivity ? `${d.firstActivity.name}${d.firstActivity.startTime ? ` at ${d.firstActivity.startTime}` : ''}${d.firstActivity.neighborhood ? ` (${d.firstActivity.neighborhood})` : ''}` : 'not specified — keep general'}
+Suggested depart-by: ${d.departBy || 'n/a'}
+Hotel: ${p.hotelName || 'not specified'}
+Traveler pace: ${p.pace || 'unspecified'}; interests: ${p.interests?.join(', ') || 'varied'}.
+${d.nextCity && d.nextCity !== d.cityName ? `Tomorrow they move to ${d.nextCity}.` : d.nextTheme ? `Tomorrow's theme: ${d.nextTheme}.` : ''}
 Weather (monthly normal): ${weatherLine}
 
-The three messages:
-- eveningBrief (~8pm, night before): one-sentence shape of tomorrow, the first activity's logistics (a depart-by feel), one small delight. meta = short status line.
-- morningWakeup (60-90 min before the first activity): "Good morning." + current-conditions feel + a nudge on timing. meta = short status line.
-- windDown (~9pm): a quiet acknowledgment of the day and a one-line tease of tomorrow. meta = short status line.`;
+Write: the three messages (eveningBrief with one delight + optional decision; morningWakeup; windDown with a tomorrow tease), a routeNote for the first leg, and one realistic reactive alert (a disruption you'd catch mid-day and the swap you'd propose).`;
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), LLM_TIMEOUT_MS);
@@ -193,24 +216,24 @@ The three messages:
     resp = await client.messages.create(
       {
         model: MODEL,
-        max_tokens: 900,
+        max_tokens: 1100,
         system: [{ type: 'text', text: system, cache_control: { type: 'ephemeral' } }],
         tools: [TOOL],
-        tool_choice: { type: 'tool', name: 'concierge_briefs' },
-        messages: [{ role: 'user', content: `Write Olivier's three messages for day one in ${ctx.cityName}.` }],
+        tool_choice: { type: 'tool', name: 'concierge_day' },
+        messages: [{ role: 'user', content: `Write Olivier's day for ${d.cityName}, day ${d.dayNumber}.` }],
       },
       { signal: controller.signal }
     );
   } catch (err) {
     console.error('[concierge-brief] LLM failed, using fallback:', err?.message);
-    return NextResponse.json(fallbackBriefs(ctx, weather));
+    return NextResponse.json(assemble(fallbackProse(ctx)));
   } finally {
     clearTimeout(timeout);
   }
 
   const toolUse = resp?.content?.find((c) => c.type === 'tool_use');
-  if (!toolUse?.input?.eveningBrief) {
-    return NextResponse.json(fallbackBriefs(ctx, weather));
+  if (!toolUse?.input?.briefs) {
+    return NextResponse.json(assemble(fallbackProse(ctx)));
   }
-  return NextResponse.json({ ...toolUse.input, source: 'llm', city: ctx.cityName });
+  return NextResponse.json(assemble({ ...toolUse.input, source: 'llm' }));
 }
