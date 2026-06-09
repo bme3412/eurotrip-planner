@@ -6,9 +6,14 @@ import { extractWeather } from '@/app/itineraries/[tripId]/_lib/buildPlan';
 import { buildConciergeContext, weatherConditions, metaLine } from '@/lib/concierge/buildContext';
 
 export const runtime = 'nodejs';
+// The rich brief LLM call runs ~19s; without this Vercel kills the function at
+// its default (~10s) and returns 504 FUNCTION_INVOCATION_TIMEOUT.
+export const maxDuration = 60;
 
 const MODEL = 'claude-sonnet-4-6';
-const LLM_TIMEOUT_MS = 16000;
+// Rich structured tool output (~1100 tokens) can run 15-25s on a busy minute;
+// give it real headroom so we serve Olivier's voice instead of the fallback.
+const LLM_TIMEOUT_MS = 32000;
 
 /**
  * POST /api/trips/[id]/concierge-brief   body: { dayNumber?: number }

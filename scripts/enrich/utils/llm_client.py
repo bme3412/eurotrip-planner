@@ -73,7 +73,7 @@ class LLMClient:
             if not self.api_key:
                 raise ValueError("ANTHROPIC_API_KEY not set")
             self.client = anthropic.Anthropic(api_key=self.api_key)
-            self.model = model or "claude-sonnet-4-20250514"
+            self.model = model or "claude-sonnet-4-6"
 
         elif self.provider == "openai":
             if not HAS_OPENAI:

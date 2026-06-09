@@ -24,7 +24,7 @@
 
 import Anthropic from '@anthropic-ai/sdk';
 
-const MODEL = 'claude-sonnet-4-20250514';
+const MODEL = 'claude-sonnet-4-6';
 // Per-call cap. Calls run in parallel, so this is roughly the whole pass's
 // wall-clock budget no matter how many cities there are.
 const TIMEOUT_MS = 9_000;

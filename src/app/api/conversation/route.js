@@ -4,7 +4,7 @@ import { initialTripState } from '@/lib/conversation/tripState';
 import { runPlannerLoop } from '@/lib/conversation/plannerLoop';
 
 const MAX_BODY_BYTES = 256 * 1024; // 256 KB — plenty for long itinerary paste-ins
-const MODEL = 'claude-sonnet-4-20250514';
+const MODEL = 'claude-sonnet-4-6';
 
 function logEvent(event, data = {}) {
   const isError = typeof event === 'string' && event.includes('error');
