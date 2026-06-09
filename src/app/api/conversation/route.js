@@ -2,6 +2,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { buildQuickAnswerPrompt } from '@/lib/conversation/systemPromptV2';
 import { initialTripState } from '@/lib/conversation/tripState';
 import { runPlannerLoop } from '@/lib/conversation/plannerLoop';
+import { enforceRateLimit, RATE_LIMITS } from '@/lib/rateLimit';
 
 const MAX_BODY_BYTES = 256 * 1024; // 256 KB — plenty for long itinerary paste-ins
 const MODEL = 'claude-sonnet-4-6';
@@ -100,6 +101,12 @@ async function callAnthropicWithRetry({ client, params, onText, sessionId }) {
 }
 
 export async function POST(request) {
+  const limited = await enforceRateLimit(request, {
+    route: 'conversation',
+    ...RATE_LIMITS.conversation,
+  });
+  if (limited) return limited;
+
   const apiKey = process.env.ANTHROPIC_API_KEY;
 
   if (!apiKey) {
@@ -315,7 +322,7 @@ export async function POST(request) {
       sessionId,
       message: error?.message,
     });
-    return new Response(JSON.stringify({ error: error.message }), {
+    return new Response(JSON.stringify({ error: 'Something went wrong. Please try again.' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });

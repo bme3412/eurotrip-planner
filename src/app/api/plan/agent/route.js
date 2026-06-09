@@ -14,7 +14,6 @@
  *   done           — stream complete
  */
 
-import { getTripWithDetails } from '@/lib/trips/tripsRepository';
 import {
   OPENAI_TOOLS,
   execGetCityAttractions,
@@ -24,6 +23,8 @@ import {
   buildSystemPrompt,
   buildToolSummary,
 } from '@/lib/planning/agentTools';
+import { requireTripWriteAccess } from '@/lib/trips/requireTripAccess';
+import { enforceRateLimit, RATE_LIMITS } from '@/lib/rateLimit';
 import OpenAI from 'openai';
 
 export const runtime = 'nodejs';
@@ -35,6 +36,12 @@ function sseEvent(type, data) {
 }
 
 export async function POST(request) {
+  const limited = await enforceRateLimit(request, {
+    route: 'plan-agent',
+    ...RATE_LIMITS.planAgent,
+  });
+  if (limited) return limited;
+
   if (!process.env.OPENAI_API_KEY) {
     return new Response(
       sseEvent('error', { message: 'OPENAI_API_KEY is not configured' }),
@@ -61,6 +68,10 @@ export async function POST(request) {
     );
   }
 
+  const access = await requireTripWriteAccess(request, tripId);
+  if (access.response) return access.response;
+  const trip = access.trip;
+
   const stream = new ReadableStream({
     async start(controller) {
       const enc = new TextEncoder();
@@ -73,16 +84,7 @@ export async function POST(request) {
       };
 
       try {
-        const [trip, cityData] = await Promise.all([
-          getTripWithDetails(tripId),
-          (await import('@/lib/data-utils')).getCityData(citySlug),
-        ]);
-
-        if (!trip) {
-          emit('error', { message: 'Trip not found' });
-          controller.close();
-          return;
-        }
+        const cityData = await (await import('@/lib/data-utils')).getCityData(citySlug);
 
         const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
         const systemPrompt = buildSystemPrompt(trip, cityData);

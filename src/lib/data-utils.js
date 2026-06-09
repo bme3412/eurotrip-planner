@@ -246,10 +246,19 @@ export async function getCityData(cityId) {
   }
 }
 
+// City ids are lowercase slugs (e.g. "aix-en-provence"). Reject anything else
+// before it reaches a path.join() — these ids arrive from user-controlled
+// route params and request bodies.
+const CITY_ID_RE = /^[a-z0-9][a-z0-9-]{0,63}$/;
+
 /**
  * Find the file system path for a city using O(1) manifest lookup
  */
 async function findCityPath(cityId) {
+  if (typeof cityId !== 'string' || !CITY_ID_RE.test(cityId)) {
+    return null;
+  }
+
   // Fast path: Use manifest for O(1) lookup
   const manifestPath = getManifestCityPath(cityId);
   if (manifestPath) {

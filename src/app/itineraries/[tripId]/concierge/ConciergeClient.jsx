@@ -28,12 +28,23 @@ import ConciergeOptIn from './_components/ConciergeOptIn';
  * real shape. Code owns the facts (via /api/trips/[id]/concierge-brief), Claude
  * owns the voice. Day selection lazily regenerates the rich day.
  */
-export default function ConciergeClient({ tripId, cityDisplay, dateRangeLabel, heroImage }) {
+export default function ConciergeClient({
+  tripId,
+  shareToken = null,
+  cityDisplay: cityDisplayProp = null,
+  dateRangeLabel: dateRangeLabelProp = null,
+  heroImage: heroImageProp = null,
+}) {
   const { user, session } = useAuth();
+  const shareQuery = shareToken ? `?share=${encodeURIComponent(shareToken)}` : '';
   const authHeaders = useMemo(
     () => getSupabaseAuthHeaders(session, { 'Content-Type': 'application/json' }),
     [session]
   );
+
+  const [cityDisplay, setCityDisplay] = useState(cityDisplayProp);
+  const [dateRangeLabel, setDateRangeLabel] = useState(dateRangeLabelProp);
+  const [heroImage, setHeroImage] = useState(heroImageProp);
 
   const [bundle, setBundle] = useState(null); // { meta, days, personalization }
   const [day, setDay] = useState(null);
@@ -47,7 +58,7 @@ export default function ConciergeClient({ tripId, cityDisplay, dateRangeLabel, h
       if (initial) setStatus('loading');
       else setDayLoading(true);
       try {
-        const res = await fetch(`/api/trips/${tripId}/concierge-brief`, {
+        const res = await fetch(`/api/trips/${tripId}/concierge-brief${shareQuery}`, {
           method: 'POST',
           headers: authHeaders,
           body: JSON.stringify(dayNumber != null ? { dayNumber } : {}),
@@ -66,8 +77,45 @@ export default function ConciergeClient({ tripId, cityDisplay, dateRangeLabel, h
         if (!initial) setDayLoading(false);
       }
     },
-    [tripId, authHeaders]
+    [tripId, authHeaders, shareQuery]
   );
+
+  // Private trips: load display metadata client-side (no facts in SSR HTML).
+  useEffect(() => {
+    if (cityDisplayProp || !session?.access_token) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch(`/api/trips/${tripId}`, { headers: getSupabaseAuthHeaders(session) });
+        if (!res.ok || cancelled) return;
+        const trip = await res.json();
+        const slug = trip.city || 'paris';
+        const label = slug.charAt(0).toUpperCase() + slug.slice(1);
+        setCityDisplay(label);
+        if (trip.start_date && trip.end_date) {
+          const fmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' });
+          const fmtYear = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+          const s = new Date(`${trip.start_date}T00:00:00`);
+          const e = new Date(`${trip.end_date}T00:00:00`);
+          setDateRangeLabel(
+            s.getMonth() === e.getMonth() && s.getFullYear() === e.getFullYear()
+              ? `${fmt.format(s)} – ${e.getDate()}, ${e.getFullYear()}`
+              : `${fmt.format(s)} – ${fmtYear.format(e)}`
+          );
+        }
+        const cityRes = await fetch(`/api/cities/${slug}`);
+        if (!cityRes.ok || cancelled) return;
+        const cityData = await cityRes.json();
+        if (cancelled) return;
+        setCityDisplay(cityData?.cityName || cityData?.name || label);
+        const thumb = cityData?.thumbnail;
+        if (thumb && thumb !== '/images/city-placeholder.svg') setHeroImage(thumb);
+      } catch {
+        // optional display polish
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [cityDisplayProp, session, tripId]);
 
   // Auto-load the first day exactly once. fetchDay's identity changes when the
   // auth session re-renders; without this guard those re-renders would re-fire
@@ -113,7 +161,7 @@ export default function ConciergeClient({ tripId, cityDisplay, dateRangeLabel, h
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-gray-600">
             Three quiet messages a day, in the voice of someone who lives in{' '}
-            <span className="font-semibold text-gray-900">{cityDisplay}</span>
+            <span className="font-semibold text-gray-900">{cityDisplay || 'your trip'}</span>
             {dateRangeLabel ? ` · ${dateRangeLabel}` : ''}. Here&apos;s how it would feel.
           </p>
 
@@ -250,7 +298,7 @@ export default function ConciergeClient({ tripId, cityDisplay, dateRangeLabel, h
             <MidCta targetId="concierge-waitlist" />
 
             {/* ── Ask Olivier ── */}
-            <AskOlivier tripId={tripId} authHeaders={authHeaders} sample={day.sampleAsk} />
+            <AskOlivier tripId={tripId} authHeaders={authHeaders} shareQuery={shareQuery} sample={day.sampleAsk} />
 
             {/* ── Knows you ── */}
             <KnowsYou personalization={bundle.personalization} cityName={meta?.cityName} />

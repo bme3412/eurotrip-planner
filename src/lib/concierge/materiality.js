@@ -7,11 +7,13 @@ import { timeToMinutes } from '@/lib/concierge/buildContext';
 const RAIN_POP = 0.6;            // forecast probability that counts as "rain"
 const SEVERE = ['Thunderstorm', 'Snow'];
 
-/** Is there a daytime (10:00–18:00) stop on this day that rain would spoil? */
+/** Is there a daytime (10:00–18:00) outdoor stop on this day that rain would spoil? */
 function hasDaytimeOutdoorPlan(schedule) {
   for (const s of schedule || []) {
     const min = timeToMinutes(s.time);
-    if (min != null && min >= 600 && min <= 1080) return s; // 10:00–18:00
+    if (min == null || min < 600 || min > 1080) continue; // 10:00–18:00
+    if (s.indoor === true) continue;
+    return s;
   }
   return null;
 }

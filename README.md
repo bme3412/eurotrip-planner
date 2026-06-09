@@ -9,7 +9,7 @@ flowchart TB
     subgraph Client["Client (Next.js App Router)"]
         Home["/ Homepage"]
         CityGuides["/city-guides/[city]"]
-        Discover["/discover"]
+        Discover["/explore"]
         Plan["/plan"]
     end
 
@@ -145,13 +145,14 @@ Comprehensive guides for 220+ European cities with:
 
 Tab switches use React 18 `useTransition` with a thin top progress bar instead of a full-content skeleton swap, so the previous tab stays visible while the next one warms up. Per-section JSON is fetched lazily on the first tab open via `useCitySection()`.
 
-### Discover (`/discover`)
+### Discover (`/explore`)
 
-Search and compare 220+ European cities with:
+Search and compare 220+ European cities on a unified map + list surface:
 
-- AI-powered city scoring and ranking
-- Filter by weather, budget, vibe, and more
-- Scatter plot visualization
+- AI-powered city scoring and ranking (`/api/suggestions`)
+- Natural-language commands via the Discover command bar (`/api/discover/command`)
+- Map view (default) or ranked list (`/explore?view=list`)
+- Legacy `/results?start=…&end=…` and `/discover` redirect here
 
 ### Trip Planning
 

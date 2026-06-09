@@ -1,8 +1,7 @@
-"use server";
-
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { getTripWithDetails } from "@/lib/trips/tripsRepository";
+import { isTripPubliclyReadable } from "@/lib/trips/tripAccess";
 
 function capitalize(s) {
   if (!s) return '';
@@ -27,7 +26,7 @@ export async function generateMetadata({ params }) {
   const { tripId } = await params;
   try {
     const trip = await getTripWithDetails(tripId);
-    if (!trip) return { title: 'Trip Not Found' };
+    if (!trip || !isTripPubliclyReadable(trip)) return { title: 'Trip Not Found' };
     const cityName = capitalize(trip.city);
     return {
       title: `${trip.title || `${cityName} Trip`} | EuroTrip Planner`,
@@ -42,10 +41,12 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default async function SharedTripPage({ params }) {
+export default async function SharedTripPage({ params, searchParams }) {
   const { tripId } = await params;
-  let trip;
+  const resolvedSearch = await searchParams;
+  const shareToken = typeof resolvedSearch?.share === "string" ? resolvedSearch.share : null;
 
+  let trip;
   try {
     trip = await getTripWithDetails(tripId);
   } catch {
@@ -56,10 +57,11 @@ export default async function SharedTripPage({ params }) {
     );
   }
 
-  if (!trip) notFound();
+  if (!trip || !isTripPubliclyReadable(trip, shareToken)) notFound();
 
   if (trip.itinerary_generated_at || trip.days?.length > 0) {
-    redirect(`/itineraries/${tripId}`);
+    const shareQuery = shareToken ? `?share=${encodeURIComponent(shareToken)}` : '';
+    redirect(`/itineraries/${tripId}${shareQuery}`);
   }
 
   const cityName = capitalize(trip.city);
