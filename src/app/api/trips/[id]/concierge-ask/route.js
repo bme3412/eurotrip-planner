@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import Anthropic from '@anthropic-ai/sdk';
+import { getAnthropicClient } from '@/lib/llm/clients';
 import { buildConciergeContext } from '@/lib/concierge/buildContext';
 import { requireTripReadAccess } from '@/lib/trips/requireTripAccess';
 import { enforceRateLimit, RATE_LIMITS } from '@/lib/rateLimit';
@@ -65,7 +65,7 @@ Ground your answer in this itinerary. If something genuinely isn't in the plan, 
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), LLM_TIMEOUT_MS);
-  const client = new Anthropic({ apiKey });
+  const client = getAnthropicClient();
   try {
     const resp = await client.messages.create(
       {

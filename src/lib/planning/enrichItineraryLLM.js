@@ -22,7 +22,7 @@
  *    (per city, so partial success is fine).
  */
 
-import Anthropic from '@anthropic-ai/sdk';
+import { getAnthropicClient } from '@/lib/llm/clients';
 
 const MODEL = 'claude-sonnet-4-6';
 // Per-call cap. Calls run in parallel, so this is roughly the whole pass's
@@ -109,7 +109,7 @@ export async function enrichItineraryLLM(itinerary, trip = {}) {
   );
   if (groups.length === 0 && !anyRealDay) return itinerary;
 
-  const client = new Anthropic({ apiKey });
+  const client = getAnthropicClient();
   const cityNames = (itinerary.cities || []).map((c) => c.name).filter(Boolean);
   const tone = {
     interests: trip.interests || [],

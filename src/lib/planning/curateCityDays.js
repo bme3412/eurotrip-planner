@@ -16,7 +16,7 @@
  * Never throws. No API key / disabled / timeout / invalid output / too-sparse a
  * pool → returns null, and the caller keeps the deterministic days.
  */
-import Anthropic from '@anthropic-ai/sdk';
+import { getAnthropicClient } from '@/lib/llm/clients';
 
 import { buildCandidatePool } from './candidatePool.js';
 import { getSeasonalContext } from './seasonalContext.js';
@@ -238,7 +238,7 @@ export async function curateCityDays(trip, cityData, baseItinerary) {
     ...describeCandidates(pool),
   };
 
-  const client = new Anthropic({ apiKey });
+  const client = getAnthropicClient();
   const modelPlan = await callModel(client, `Plan ${payload.city}. Data:\n${JSON.stringify(payload)}`);
   if (!modelPlan || !Array.isArray(modelPlan.days)) return null;
 

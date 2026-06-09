@@ -1,4 +1,4 @@
-import Anthropic from '@anthropic-ai/sdk';
+import { getAnthropicClient } from '@/lib/llm/clients';
 import { buildQuickAnswerPrompt } from '@/lib/conversation/systemPromptV2';
 import { initialTripState } from '@/lib/conversation/tripState';
 import { runPlannerLoop } from '@/lib/conversation/plannerLoop';
@@ -148,7 +148,7 @@ export async function POST(request) {
   });
 
   try {
-    const client = new Anthropic({ apiKey });
+    const client = getAnthropicClient();
 
     let tripState = clientTripState || { ...initialTripState };
 

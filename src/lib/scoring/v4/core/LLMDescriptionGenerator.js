@@ -9,15 +9,11 @@
  * and attractions to generate contextually rich descriptions.
  */
 
-import Anthropic from '@anthropic-ai/sdk';
 import crypto from 'crypto';
+import { getAnthropicClient } from '../../../llm/clients.js';
 import { getCachedLLMDescriptions, cacheLLMDescriptions } from '../../../cache/suggestions.js';
 import { titleCaseFromSlug } from '../../../text.js';
 import { cleanEventName } from '../utils/index.js';
-
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
 
 const MODEL = 'claude-sonnet-4-6'; // Fast and capable for short generations
 
@@ -228,7 +224,7 @@ export async function generateDescriptions({ startDate, endDate, tiers }) {
 
     let response;
     try {
-      response = await anthropic.messages.create({
+      response = await getAnthropicClient().messages.create({
         model: MODEL,
         max_tokens: 4000,
         messages: [

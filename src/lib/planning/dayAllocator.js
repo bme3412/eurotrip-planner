@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import OpenAI from 'openai';
+import { getOpenAIClient } from '@/lib/llm/clients';
 
 /**
  * Day Allocator for Multi-City Trips
@@ -130,7 +130,7 @@ async function generateAIRationale(cityInfo, recommendedDays, context) {
   }
 
   try {
-    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+    const openai = getOpenAIClient();
 
     const prompt = `You are a travel planner. Recommend ${recommendedDays} days for ${cityInfo.name}, ${cityInfo.country}.
 
