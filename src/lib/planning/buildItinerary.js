@@ -766,9 +766,10 @@ export async function buildItineraryWithRouting(trip, cityData, options = {}) {
     });
   }
 
-  // Optional realistic clock times (duration + travel + opening-hours aware).
-  // Off by default — the builder's fixed templates remain the baseline.
-  if (process.env.ITINERARY_CLOCK_TIMES === 'true') {
+  // Realistic clock times (duration + travel + opening-hours aware) run by
+  // default — the fixed slot templates overlap multi-hour activities. Set
+  // ITINERARY_CLOCK_TIMES=false to fall back to the templates.
+  if (process.env.ITINERARY_CLOCK_TIMES !== 'false') {
     const { assignClockTimes } = await import('./assignClockTimes.js');
     const pace = typeof trip.pace === 'number' ? trip.pace : 50;
     return assignClockTimes(routed, { pace: getPaceLabel(pace) });

@@ -62,15 +62,16 @@ test('matchFlight matches a leg by city name loosely; null when unbooked', () =>
 });
 
 test('builder folds lodging + flight framing into the generated days', async () => {
+  // Trip ends in Nice — matching the booked Nice→CDG outbound leg.
   const cities = [
     { id: 'paris', name: 'Paris', country: 'France' },
-    { id: 'berlin', name: 'Berlin', country: 'Germany' },
+    { id: 'nice', name: 'Nice', country: 'France' },
   ];
   const it = await buildMultiCityItinerary(
     { start_date: '2026-06-19', end_date: '2026-06-24', interests: ['Culture & History'], pace: 'balanced' },
     cities,
     {
-      dayAllocation: { paris: 3, berlin: 2 },
+      dayAllocation: { paris: 3, nice: 2 },
       includeTransfers: true,
       enrich: false,
       accommodations: accommodationsByCity(SAMPLE),
@@ -83,6 +84,42 @@ test('builder folds lodging + flight framing into the generated days', async () 
   const last = realDays[realDays.length - 1];
 
   assert.equal(first.accommodation?.name, 'Large 1 Bedroom Apt Saint-Germain', 'Paris stay on day 1');
-  assert.equal(first.arrival?.flightNumber, '8723', 'inbound flight frames the first day');
-  assert.equal(last.departure?.flightNumber, '8583', 'outbound flight frames the last day');
+  assert.equal(first.cityName, 'Paris');
+  assert.equal(first.arrival?.flightNumber, '8723', 'inbound (→CDG) frames the first Paris day');
+  assert.equal(last.cityName, 'Nice');
+  assert.equal(last.departure?.flightNumber, '8583', 'outbound LEAVING the last city (Nice→CDG) frames the last day');
+});
+
+test('builder does NOT paint a departure banner when no flight leaves the last city', async () => {
+  // Open-jaw guard: trip ends in Berlin, but the only outbound legs depart Nice /
+  // CDG — neither leaves Berlin, so no misleading "Depart …" banner.
+  const cities = [
+    { id: 'paris', name: 'Paris', country: 'France' },
+    { id: 'berlin', name: 'Berlin', country: 'Germany' },
+  ];
+  const it = await buildMultiCityItinerary(
+    { start_date: '2026-06-19', end_date: '2026-06-24', interests: ['Culture & History'], pace: 'balanced' },
+    cities,
+    { dayAllocation: { paris: 3, berlin: 2 }, includeTransfers: true, enrich: false, flights: getBookings(SAMPLE) },
+  );
+  const realDays = it.days.filter((d) => !d.isTravelDay);
+  assert.equal(realDays[realDays.length - 1].cityName, 'Berlin');
+  assert.equal(realDays[realDays.length - 1].departure, undefined, 'no departure banner for an unmatched last city');
+});
+
+test('builder day dates stay within the trip window (no per-leg inflation)', async () => {
+  const cities = [
+    { id: 'paris', name: 'Paris', country: 'France' },
+    { id: 'nice', name: 'Nice', country: 'France' },
+  ];
+  const it = await buildMultiCityItinerary(
+    { start_date: '2026-06-19', end_date: '2026-06-24', interests: ['Culture & History'], pace: 'balanced' },
+    cities,
+    { dayAllocation: { paris: 3, nice: 2 }, includeTransfers: true, enrich: false },
+  );
+  // 5 nights → 6 calendar days, Jun 19..24, contiguous, ending on checkout.
+  assert.equal(it.meta.totalDays, 6);
+  assert.equal(it.days[0].date, '2026-06-19');
+  assert.equal(it.days[it.days.length - 1].date, '2026-06-24');
+  assert.equal(it.meta.endDate, '2026-06-24');
 });

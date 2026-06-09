@@ -3,9 +3,40 @@ import { allocateDays } from './dayAllocator.js';
 import { getConnectionBetweenCities } from './routeOptimizer.js';
 import { getCityData } from '../data-utils.js';
 import { enrichItineraryLLM } from './enrichItineraryLLM.js';
-import { pickInbound, pickOutbound, matchFlight } from './tripBookings.js';
+import { pickInbound, matchFlight } from './tripBookings.js';
 import { assignFlightDayClockTimes } from './assignClockTimes.js';
+import { planTripDays } from './tripDaySchedule.js';
 import { addDays, format } from 'date-fns';
+
+/** Realistic clock times run by default; set ITINERARY_CLOCK_TIMES=false to opt out. */
+function clockTimesEnabled() {
+  return process.env.ITINERARY_CLOCK_TIMES !== 'false';
+}
+
+const parseLocalDate = (iso) => new Date(`${iso}T00:00:00`);
+
+/** Loose city-name match ("Nice"~"nice, fr", "Paris-DeGaulle"~"Paris") for flight↔city. */
+function cityNameMatches(a, b) {
+  const w = (s) => (s || '').toLowerCase().trim().split(/[\s,\-]+/)[0] || '';
+  return Boolean(w(a)) && w(a) === w(b);
+}
+
+/** Find a city's accommodation, tolerant of id/slug/name case mismatches. */
+function lookupAccommodation(accommodations, city) {
+  if (!accommodations || !city) return null;
+  const keys = [city.id, city.name].filter(Boolean);
+  for (const k of keys) {
+    if (accommodations[k]) return accommodations[k];
+    const lc = String(k).toLowerCase();
+    if (accommodations[lc]) return accommodations[lc];
+  }
+  // Last resort: case-insensitive scan.
+  const want = new Set(keys.map((k) => String(k).toLowerCase()));
+  for (const [k, v] of Object.entries(accommodations)) {
+    if (want.has(String(k).toLowerCase())) return v;
+  }
+  return null;
+}
 
 /** Map trip.pace (number 0–100 or 'relaxed'|'balanced'|'active') to a clock-time anchor label. */
 function paceLabelFor(pace) {
@@ -250,126 +281,131 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
     buildable.push({ city, cityAlloc, cityData });
   }
 
-  let currentDayNumber = 1;
-  let currentDate = new Date(startDate);
+  // 3a) Plan the calendar. Inter-city travel rides on the arrival day (a shared
+  // date), so the trip spans exactly sum(nights)+1 days and each city's dates
+  // stay inside its lodging window — no per-leg inflation.
+  const schedule = planTripDays(
+    buildable.map((e) => ({ nights: e.cityAlloc.days })),
+    startDate,
+    { includeTransfers },
+  );
+  const cityFirstDate = new Map();
+  for (const slot of schedule.slots) {
+    if (slot.kind === 'city' && !cityFirstDate.has(slot.cityIndex)) {
+      cityFirstDate.set(slot.cityIndex, slot.date);
+    }
+  }
   buildable.forEach((entry, i) => {
-    entry.startDayNumber = currentDayNumber;
-    entry.startDate = new Date(currentDate);
-    entry.cityTrip = {
-      ...trip,
-      city: entry.city.id,
-      start_date: format(entry.startDate, 'yyyy-MM-dd'),
-      end_date: format(addDays(entry.startDate, entry.cityAlloc.days - 1), 'yyyy-MM-dd'),
-    };
-    currentDayNumber += entry.cityAlloc.days;
-    currentDate = addDays(currentDate, entry.cityAlloc.days);
-    if (i < buildable.length - 1 && includeTransfers) {
-      entry.travelAfter = { dayNumber: currentDayNumber, date: new Date(currentDate) };
-      currentDayNumber++;
-      currentDate = addDays(currentDate, 1);
+    entry.activityDays = schedule.perCityActivityDays[i];
+    const start = cityFirstDate.get(i);
+    if (entry.activityDays > 0 && start) {
+      entry.cityTrip = {
+        ...trip,
+        city: entry.city.id,
+        start_date: start,
+        end_date: format(addDays(parseLocalDate(start), entry.activityDays - 1), 'yyyy-MM-dd'),
+      };
     }
   });
 
-  // 3b) Build every city in parallel (each does its own routing + optional
-  // curation), so an LLM curation pass fans out instead of running serially.
+  // 3b) Build each city's day templates in parallel (routing + optional curation).
   const built = await Promise.all(
     buildable.map((entry) =>
-      buildItineraryWithRouting(entry.cityTrip, entry.cityData, {
-        routeOptimization,
-        travelMode: 'WALK',
-      })
-    )
+      entry.activityDays > 0
+        ? buildItineraryWithRouting(entry.cityTrip, entry.cityData, { routeOptimization, travelMode: 'WALK' })
+        : Promise.resolve({ days: [], summary: null, routing: null }),
+    ),
   );
 
-  // 3c) Assemble days + travel days in order using the precomputed schedule.
-  buildable.forEach((entry, i) => {
-    const { city, cityAlloc, startDayNumber, startDate: segStart } = entry;
-    const cityItinerary = built[i];
-
-    const cityDays = cityItinerary.days.map((day, idx) => {
-      const dayDate = addDays(segStart, idx);
-      return {
-        ...day,
-        dayNumber: startDayNumber + idx,
-        date: format(dayDate, 'yyyy-MM-dd'),
-        dateLabel: format(dayDate, 'EEE, MMM d'),
-        city: city.id,
-        cityName: city.name,
-        country: city.country,
-        isTravelDay: false,
-        // Lodging rides on the first day of the city; render surfaces it under
-        // the city header (and the real town, e.g. Menton under a "Nice" node).
-        accommodation: idx === 0 ? (accommodations[city.id] || null) : null,
-      };
-    });
-    allDays.push(...cityDays);
-
-    citySegments.push({
-      city: city.id,
-      name: city.name,
-      country: city.country,
-      days: cityAlloc.days,
-      dayRange: `${startDayNumber}-${startDayNumber + cityAlloc.days - 1}`,
-      rationale: cityAlloc.rationale,
-      summary: cityItinerary.summary,
-      routing: cityItinerary.routing || null,
-    });
-
-    if (entry.travelAfter) {
-      const nextCity = buildable[i + 1].city;
-      // Look up curated connection details; fall back to a sensible default when
-      // a city has no connections.json so a travel day is ALWAYS inserted (and
-      // always carries real from/to names — the curated lookup omits names).
-      const connection = getConnectionBetweenCities(
-        city.id,
-        city.country,
-        nextCity.id,
-        nextCity.country
-      );
-
+  // 3c) Walk the schedule in calendar order, emitting travel + city day entries.
+  const cityCursor = new Array(buildable.length).fill(0);
+  for (const slot of schedule.slots) {
+    if (slot.kind === 'travel') {
+      const fromCity = buildable[slot.fromIndex].city;
+      const toCity = buildable[slot.toIndex].city;
+      const connection = getConnectionBetweenCities(fromCity.id, fromCity.country, toCity.id, toCity.country);
       const transfer = {
-        from: { id: city.id, name: city.name, country: city.country },
-        to: { id: nextCity.id, name: nextCity.name, country: nextCity.country },
-        transport: connection?.transport || defaultTransport(city.country === nextCity.country),
+        from: { id: fromCity.id, name: fromCity.name, country: fromCity.country },
+        to: { id: toCity.id, name: toCity.name, country: toCity.country },
+        transport: connection?.transport || defaultTransport(fromCity.country === toCity.country),
         whyGo: connection?.whyGo || null,
-        // A real booked flight for this leg, when the user pasted one.
-        bookedFlight: matchFlight(flights, city.name, nextCity.name) || null,
+        bookedFlight: matchFlight(flights, fromCity.name, toCity.name) || null,
       };
-
-      allDays.push(createTravelDay(entry.travelAfter.dayNumber, entry.travelAfter.date, transfer));
+      allDays.push(createTravelDay(slot.dayNumber, parseLocalDate(slot.date), transfer));
       transfers.push({
-        from: city.id,
-        to: nextCity.id,
-        fromName: city.name,
-        toName: nextCity.name,
-        dayNumber: entry.travelAfter.dayNumber,
-        date: format(entry.travelAfter.date, 'yyyy-MM-dd'),
+        from: fromCity.id,
+        to: toCity.id,
+        fromName: fromCity.name,
+        toName: toCity.name,
+        dayNumber: slot.dayNumber,
+        date: slot.date,
         ...transfer.transport,
-        bookingUrl: generateBookingUrl(transfer, entry.travelAfter.date),
+        bookingUrl: generateBookingUrl(transfer, parseLocalDate(slot.date)),
+      });
+    } else {
+      const entry = buildable[slot.cityIndex];
+      const template = built[slot.cityIndex].days[cityCursor[slot.cityIndex]] || {};
+      cityCursor[slot.cityIndex] += 1;
+      allDays.push({
+        ...template,
+        dayNumber: slot.dayNumber,
+        date: slot.date,
+        dateLabel: format(parseLocalDate(slot.date), 'EEE, MMM d'),
+        city: entry.city.id,
+        cityName: entry.city.name,
+        country: entry.city.country,
+        isTravelDay: false,
+        // Lodging rides on the city's first day; render surfaces it under the header.
+        accommodation: slot.activityIndex === 0 ? (lookupAccommodation(accommodations, entry.city) || null) : null,
       });
     }
+  }
+
+  // City segments for grouping/labels (dayRange spans the city's travel + days).
+  buildable.forEach((entry, i) => {
+    const dayNums = schedule.slots.filter((s) => s.cityIndex === i).map((s) => s.dayNumber);
+    citySegments.push({
+      city: entry.city.id,
+      name: entry.city.name,
+      country: entry.city.country,
+      days: entry.cityAlloc.days,
+      dayRange: dayNums.length ? `${Math.min(...dayNums)}-${Math.max(...dayNums)}` : '',
+      rationale: entry.cityAlloc.rationale,
+      summary: built[i].summary,
+      routing: built[i].routing || null,
+    });
   });
 
   // Frame the trip with the user's booked flights: inbound arrival on the first
-  // real day, outbound departure on the last. Render shows an arrival/checkout
-  // banner; lodging check-in/out come from each city's accommodation.
-  const inbound = pickInbound(flights);
-  const outbound = pickOutbound(flights);
+  // real day, outbound departure on the last — but ONLY when the flight's city
+  // matches that end of the route. A round-trip booked from the first city
+  // (open-jaw vs the actual last stop) must not paint a "Depart <first city>"
+  // banner on the final day of a different city.
   const firstCityDay = allDays.find((d) => !d.isTravelDay);
   const lastCityDay = [...allDays].reverse().find((d) => !d.isTravelDay);
-  if (inbound && firstCityDay) firstCityDay.arrival = inbound;
+  // Inbound: the trip's arrival flight, attached only if it actually lands in the
+  // first city. Outbound: the flight that LEAVES the last city — found by matching
+  // its origin to the last city, so an onward return leg from a different airport
+  // (e.g. a CDG→home connector) never paints a wrong "Depart <city>" banner.
+  const inbound = pickInbound(flights);
+  if (inbound && firstCityDay && cityNameMatches(inbound.toCity, firstCityDay.cityName)) {
+    firstCityDay.arrival = inbound;
+  }
+  const outbound = lastCityDay
+    ? flights.find((b) => b?.type === 'flight' && b.departureDate && cityNameMatches(b.fromCity, lastCityDay.cityName)) || null
+    : null;
   if (outbound && lastCityDay) lastCityDay.departure = outbound;
 
-  // With realistic clock times on, re-anchor the framing days around the booked
-  // flights: the arrival day starts after landing + a transit/settle-in buffer, and
-  // the departure day ends before the traveler must leave for the airport. Gated on
-  // the same flag as the per-city clock pass (which ran before arrival was attached).
-  if (process.env.ITINERARY_CLOCK_TIMES === 'true') {
+  // Realistic clock times run by default (set ITINERARY_CLOCK_TIMES=false to opt
+  // out). Re-anchor the framing days around the booked flights: the arrival day
+  // starts after landing + a settle-in buffer, the departure day ends before the
+  // traveler must leave for the airport. Runs after arrival/departure attach.
+  if (clockTimesEnabled()) {
     const pace = paceLabelFor(trip.pace);
-    if (inbound && firstCityDay) {
+    if (firstCityDay?.arrival) {
       Object.assign(firstCityDay, assignFlightDayClockTimes(firstCityDay, { pace, direction: 'arrival' }));
     }
-    if (outbound && lastCityDay) {
+    if (lastCityDay?.departure) {
       Object.assign(lastCityDay, assignFlightDayClockTimes(lastCityDay, { pace, direction: 'departure' }));
     }
   }
@@ -396,8 +432,10 @@ export async function buildMultiCityItinerary(trip, cities, options = {}) {
       totalCities,
       totalCityDays,
       totalTravelDays,
-      startDate: trip.start_date,
-      endDate: trip.end_date,
+      // Derive from the actual assembled days so the header label always matches
+      // what's rendered (never a stale/over-long end date).
+      startDate: allDays[0]?.date || trip.start_date,
+      endDate: allDays[allDays.length - 1]?.date || trip.end_date,
       allocation: allocation.allocation
     }
   };
