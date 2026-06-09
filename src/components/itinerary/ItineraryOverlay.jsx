@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { X, ExternalLink, Pencil, Wand2 } from 'lucide-react';
+import { X, ExternalLink, Pencil, Wand2, Sparkles } from 'lucide-react';
 import ItineraryView from './ItineraryView';
 import EditPanel from './EditPanel';
 import SignInNudge from '@/components/common/SignInNudge';
@@ -68,6 +68,14 @@ export default function ItineraryOverlay({
           >
             <Wand2 className="h-3.5 w-3.5" /> Edit activities
           </button>
+          {savedTripId && (
+            <Link
+              href={`/itineraries/${savedTripId}/concierge`}
+              className="inline-flex items-center gap-1.5 rounded-full border border-[#1e63e9]/30 bg-[#1e63e9]/5 px-4 py-1.5 text-xs font-semibold text-[#1e63e9] transition hover:bg-[#1e63e9]/10"
+            >
+              <Sparkles className="h-3.5 w-3.5" /> Concierge mode
+            </Link>
+          )}
           {savedTripId && (
             <Link
               href={`/itineraries/${savedTripId}`}
