@@ -1,4 +1,5 @@
 import { getAnthropicClient } from '@/lib/llm/clients';
+import { resolvePersona, PERSONA_GUARDRAILS } from '@/lib/concierge/personas';
 
 // Generates Olivier's proactive "the day changed" alert from a REAL detected
 // signal (unlike the generic reactive example in the daily brief). Grounded in the
@@ -10,13 +11,13 @@ const LLM_TIMEOUT_MS = 14000;
 
 const TOOL = {
   name: 'reactive_alert',
-  description: "Olivier's short proactive heads-up about a real change to tomorrow.",
+  description: "The travel agent's short proactive heads-up about a real change to tomorrow.",
   input_schema: {
     type: 'object',
     properties: {
       trigger: { type: 'string', description: 'Short label of what changed, e.g. "Rain moving into your afternoon".' },
-      body: { type: 'string', description: "1-2 sentences in Olivier's voice flagging it, specific to the day. No emoji." },
-      action: { type: 'string', description: 'The concrete swap/suggestion he proposes (move an indoor stop up, bring an umbrella, etc.).' },
+      body: { type: 'string', description: '1-2 sentences in your voice flagging it, specific to the day. No emoji.' },
+      action: { type: 'string', description: 'The concrete swap/suggestion you propose (move an indoor stop up, bring an umbrella, etc.).' },
     },
     required: ['trigger', 'body', 'action'],
   },
@@ -34,7 +35,7 @@ function fallbackReactive(signal, day) {
 }
 
 /**
- * @param {object} ctx   selectedDay-like facts: { cityName, dateLabel, schedule }
+ * @param {object} ctx   selectedDay-like facts: { cityName, dateLabel, schedule, country, city }
  * @param {object} signal materiality signal from assessWeatherChange
  */
 export async function generateReactiveAlert(ctx, signal) {
@@ -45,7 +46,14 @@ export async function generateReactiveAlert(ctx, signal) {
     .map((s) => `${s.time ? s.time + ' ' : ''}${s.name}`)
     .join('; ') || 'no detailed schedule';
 
-  const system = `You are Olivier, a white-glove travel concierge who lives in your traveler's city. Warm, specific, opinionated, quietly knowing. No emoji. You only message when something genuinely changed.
+  const persona = resolvePersona({ country: ctx.country, city: ctx.city });
+  const personaBlock =
+    persona.id === 'olivier'
+      ? `You are Olivier, the traveler's personal travel agent — a Parisian with a trusted local friend in every city. Warm, specific, opinionated, quietly knowing.`
+      : `You are ${persona.name}, a local based in ${persona.city}, covering ${persona.country} as part of Olivier the travel agent's trusted network — the traveler's person on the ground here. ${persona.voice}`;
+
+  const system = `${personaBlock} No emoji. You only message when something genuinely changed.
+${PERSONA_GUARDRAILS}
 
 A real forecast change has come in for ${ctx.cityName} on ${ctx.dateLabel || 'tomorrow'}:
 - ${signal.kind === 'severe' ? signal.condition + ' expected' : 'Rain'} in the ${signal.window}, ~${signal.pop}% chance${signal.description ? ` (${signal.description})` : ''}.

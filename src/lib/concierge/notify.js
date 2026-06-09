@@ -119,7 +119,7 @@ export async function sendReactiveAlert({ tripId, dayNumber, signal }) {
   if (!d) return { ok: false, reason: 'no_day' };
 
   const alert = await generateReactiveAlert(
-    { cityName: d.cityName, dateLabel: d.dateLabel, schedule: d.schedule },
+    { cityName: d.cityName, dateLabel: d.dateLabel, schedule: d.schedule, country: d.country, city: d.city },
     signal
   );
 

@@ -2,6 +2,7 @@ import { getAnthropicClient } from '@/lib/llm/clients';
 import { getCityVisitCalendar } from '@/lib/data-utils';
 import { extractWeather } from '@/app/itineraries/[tripId]/_lib/buildPlan';
 import { buildConciergeContext, weatherConditions, metaLine } from '@/lib/concierge/buildContext';
+import { resolvePersona, detectHandoff, PERSONAS_VERSION, PERSONA_GUARDRAILS } from '@/lib/concierge/personas';
 import { getCachedSuggestions, setCachedSuggestions } from '@/lib/cache/suggestions';
 
 // Core concierge-day generator — extracted from the brief route so both the
@@ -15,19 +16,19 @@ const CACHE_TTL_SECONDS = 604800;
 
 const TOOL = {
   name: 'concierge_day',
-  description: "Olivier's voice for one day — three scheduled messages, a route note, and one reactive alert.",
+  description: "The travel agent's voice for one day — three scheduled messages, a route note, and one reactive alert.",
   input_schema: {
     type: 'object',
     properties: {
       routeNote: { type: 'string', description: 'One short line on how to make the first leg, e.g. "18-min walk over Pont des Arts — lovely in morning light".' },
       pushLine: { type: 'string', description: 'A single glanceable lock-screen notification line (<=90 chars), distinct from the evening brief body. The depart-by hook, e.g. "Tomorrow: the Louvre at 10am. Leave by 9:25 — I\'ll wake you." No emoji.' },
-      signoff: { type: 'string', description: 'A short, warm sign-off in Olivier\'s voice for the wind-down, e.g. "Sleep easy — Olivier." 3-6 words.' },
+      signoff: { type: 'string', description: 'A short, warm sign-off in your voice for the wind-down, e.g. "Sleep easy — <your name>." 3-6 words.' },
       sampleAsk: {
         type: 'object',
-        description: 'One strong example of a question the traveler might ask and Olivier\'s answer, grounded in this trip.',
+        description: 'One strong example of a question the traveler might ask and your answer, grounded in this trip.',
         properties: {
           question: { type: 'string', description: 'A natural question a traveler would ask, 4-9 words.' },
-          answer: { type: 'string', description: "Olivier's answer, 2-3 sentences, specific and opinionated." },
+          answer: { type: 'string', description: 'Your answer, 2-3 sentences, specific and opinionated.' },
         },
         required: ['question', 'answer'],
       },
@@ -38,7 +39,7 @@ const TOOL = {
             type: 'object',
             description: '~8pm the night before.',
             properties: {
-              body: { type: 'string', description: "2-3 sentences in Olivier's voice setting up tomorrow." },
+              body: { type: 'string', description: '2-3 sentences in your voice setting up tomorrow.' },
               delight: { type: 'string', description: 'One small, specific local delight (a named bakery, a quiet courtyard).' },
               decision: { type: 'string', description: 'Optional one-line thing to decide before bed (a reservation). Empty if none.' },
             },
@@ -64,11 +65,11 @@ const TOOL = {
       },
       reactive: {
         type: 'object',
-        description: 'A realistic mid-day disruption Olivier would catch, and what he proposes.',
+        description: 'A realistic mid-day disruption you would catch, and what you propose.',
         properties: {
           trigger: { type: 'string', description: 'Short label of what changed, e.g. "Rain moving into your 3pm window".' },
-          body: { type: 'string', description: "1-2 sentences in Olivier's voice flagging it." },
-          action: { type: 'string', description: 'The concrete swap/suggestion he offers.' },
+          body: { type: 'string', description: '1-2 sentences in your voice flagging it.' },
+          action: { type: 'string', description: 'The concrete swap/suggestion you offer.' },
         },
         required: ['trigger', 'body', 'action'],
       },
@@ -83,18 +84,23 @@ function monthIndexOf(dateStr, fallback) {
 }
 
 /** Deterministic prose fallback when the LLM is unavailable. */
-function fallbackProse(ctx) {
+function fallbackProse(ctx, persona, handoff) {
   const d = ctx.selectedDay;
   const act = d?.firstActivity;
   const where = act?.neighborhood ? ` in ${act.neighborhood}` : '';
   const at = act?.startTime ? ` at ${act.startTime}` : '';
   const leave = d?.departBy ? ` I'd head out around ${d.departBy}.` : '';
+  const tomorrowTease = handoff
+    ? `Tomorrow we shift to ${handoff.toCity} — you're in ${handoff.toPersona.name}'s hands from here.`
+    : d?.nextCity && d.nextCity !== d.cityName
+      ? `Tomorrow we shift to ${d.nextCity}.`
+      : 'Tomorrow has its own rhythm — more soon.';
   return {
     routeNote: act ? `An easy approach to ${act.name} — take the scenic way and let the morning open up.` : 'A gentle, unhurried start.',
     pushLine: act
       ? `Tomorrow: ${act.name}${at}.${d?.departBy ? ` Leave by ${d.departBy}.` : ''} I'll wake you in time.`
       : `Tomorrow's your first full day in ${d?.cityName || 'the city'}. I'll have it ready.`,
-    signoff: 'Sleep easy — Olivier',
+    signoff: `Sleep easy ${persona.signoffStyle}`,
     sampleAsk: {
       question: 'What should I not miss?',
       answer: act
@@ -116,7 +122,7 @@ function fallbackProse(ctx) {
       },
       windDown: {
         body: `That’s a wrap on ${d?.cityName || 'the day'}. You covered good ground.`,
-        tomorrowTease: d?.nextCity && d.nextCity !== d.cityName ? `Tomorrow we shift to ${d.nextCity}.` : 'Tomorrow has its own rhythm — more soon.',
+        tomorrowTease,
       },
     },
     reactive: {
@@ -138,8 +144,12 @@ export async function generateConciergeDay(trip, dayNumber = null) {
   const ctx = buildConciergeContext(trip, { dayNumber });
   const d = ctx.selectedDay;
 
+  // Who fronts this day, and whether tomorrow belongs to someone else.
+  const persona = resolvePersona({ country: d?.country, city: d?.city });
+  const handoff = detectHandoff(d);
+
   const ver = trip.updated_at ? new Date(trip.updated_at).getTime() : 0;
-  const cacheKey = `concierge:brief:v2:${trip.id}:${d?.dayNumber ?? 'none'}:${ver}`;
+  const cacheKey = `concierge:brief:v3:${trip.id}:${d?.dayNumber ?? 'none'}:${ver}:p${PERSONAS_VERSION}:${persona.id}`;
   const hit = await getCachedSuggestions(cacheKey);
   if (hit?.data?.day) return { ...hit.data, cached: true };
 
@@ -175,6 +185,19 @@ export async function generateConciergeDay(trip, dayNumber = null) {
       hotelName: d?.hotelName ?? null,
       arrival: d?.arrival ?? null,
       weather: dayWeather,
+      persona: { id: persona.id, name: persona.name, initial: persona.initial, accent: persona.accent, intro: persona.intro },
+      handoff: handoff
+        ? {
+            toCity: handoff.toCity,
+            toPersona: {
+              id: handoff.toPersona.id,
+              name: handoff.toPersona.name,
+              initial: handoff.toPersona.initial,
+              accent: handoff.toPersona.accent,
+              intro: handoff.toPersona.intro,
+            },
+          }
+        : null,
       routeNote: prose.routeNote || null,
       pushLine: prose.pushLine || null,
       signoff: prose.signoff || null,
@@ -190,14 +213,24 @@ export async function generateConciergeDay(trip, dayNumber = null) {
   });
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey || !d) return assemble(fallbackProse(ctx));
+  if (!apiKey || !d) return assemble(fallbackProse(ctx, persona, handoff));
 
   const p = ctx.personalization;
   const weatherLine = weather
     ? `High ~${weather.highC}°C, low ~${weather.lowC}°C, sunrise ${weather.sunrise}, sunset ${weather.sunset}, ~${weather.rainDays} rainy days this month (${cond.label}).`
     : 'No weather detail — do not invent specifics.';
 
-  const system = `You are Olivier, a white-glove travel concierge who lives in the city your traveler is visiting. Warm, specific, quietly knowing — the voice of someone who lives there, not someone who Googled it.
+  const personaBlock =
+    persona.id === 'olivier'
+      ? `You are Olivier, the traveler's personal travel agent — a Parisian with a trusted local friend in every city. Warm, specific, quietly knowing — the voice of someone who knows the place, not someone who Googled it.`
+      : `You are ${persona.name}, a local based in ${persona.city}, covering ${persona.country} as part of Olivier the travel agent's trusted network. Olivier set up this trip; while the traveler is in ${persona.country}, you're their person on the ground. ${persona.voice}`;
+
+  const handoffBlock = handoff
+    ? `\nHANDOFF: tomorrow the traveler moves to ${handoff.toCity} — ${handoff.toPersona.name}'s territory. In the windDown's tomorrowTease, hand them over warmly by name (e.g. "…you're in ${handoff.toPersona.name}'s hands tomorrow"). One line, no ceremony.`
+    : '';
+
+  const system = `${personaBlock}
+${PERSONA_GUARDRAILS}
 
 Three tone rules, every line:
 1. Specific over generic — name the thing ("the kouign-amann", a real street), never "a pastry".
@@ -217,7 +250,7 @@ Hotel: ${d.hotelName || p.hotelName || 'not specified'}
 ${d.arrival ? `They land${d.arrival.fromCity ? ` from ${d.arrival.fromCity}` : ''} on this day — frame it around the arrival.` : ''}
 Traveler pace: ${p.pace || 'unspecified'}; interests: ${p.interests?.join(', ') || 'varied'}.
 ${d.nextCity && d.nextCity !== d.cityName ? `Tomorrow they move to ${d.nextCity}.` : d.nextTheme ? `Tomorrow's theme: ${d.nextTheme}.` : ''}
-Weather (monthly normal): ${weatherLine}
+Weather (monthly normal): ${weatherLine}${handoffBlock}
 
 Write, all grounded in the stops above:
 - the three messages (eveningBrief with one delight + optional decision; morningWakeup; windDown with a tomorrow tease)
@@ -239,19 +272,19 @@ Write, all grounded in the stops above:
         system: [{ type: 'text', text: system, cache_control: { type: 'ephemeral' } }],
         tools: [TOOL],
         tool_choice: { type: 'tool', name: 'concierge_day' },
-        messages: [{ role: 'user', content: `Write Olivier's day for ${d.cityName}, day ${d.dayNumber}.` }],
+        messages: [{ role: 'user', content: `Write ${persona.name}'s day for ${d.cityName}, day ${d.dayNumber}.` }],
       },
       { signal: controller.signal }
     );
   } catch (err) {
     console.error('[concierge] LLM failed, using fallback:', err?.message);
-    return assemble(fallbackProse(ctx));
+    return assemble(fallbackProse(ctx, persona, handoff));
   } finally {
     clearTimeout(timeout);
   }
 
   const toolUse = resp?.content?.find((c) => c.type === 'tool_use');
-  if (!toolUse?.input?.briefs) return assemble(fallbackProse(ctx));
+  if (!toolUse?.input?.briefs) return assemble(fallbackProse(ctx, persona, handoff));
 
   const payload = assemble({ ...toolUse.input, source: 'llm' });
   await setCachedSuggestions(cacheKey, payload, CACHE_TTL_SECONDS);
