@@ -12,6 +12,7 @@ export const metadata = {
     template: '%s | EuroTrip Planner',
   },
   description: 'Plan your perfect European trip with personalized city recommendations and detailed guides for 220+ destinations.',
+  manifest: '/manifest.webmanifest',
   openGraph: {
     siteName: 'EuroTrip Planner',
     locale: 'en_US',
