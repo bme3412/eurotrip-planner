@@ -4,6 +4,7 @@ import { getTripWithDetails } from '@/lib/trips/tripsRepository';
 import { buildConciergeContext } from '@/lib/concierge/buildContext';
 
 export const runtime = 'nodejs';
+export const maxDuration = 30;
 
 const MODEL = 'claude-sonnet-4-6';
 const LLM_TIMEOUT_MS = 22000;

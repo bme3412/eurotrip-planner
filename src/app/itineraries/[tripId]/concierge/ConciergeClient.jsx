@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback, useMemo } from 'react';
+import { useEffect, useState, useCallback, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import { Moon, Sunrise, ArrowLeft, Loader2, Sparkles, Clock } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
@@ -65,7 +65,13 @@ export default function ConciergeClient({ tripId, cityDisplay, dateRangeLabel, h
     [tripId, authHeaders]
   );
 
+  // Auto-load the first day exactly once. fetchDay's identity changes when the
+  // auth session re-renders; without this guard those re-renders would re-fire
+  // the (expensive, ~19s) brief request in a loop.
+  const didInit = useRef(false);
   useEffect(() => {
+    if (didInit.current) return;
+    didInit.current = true;
     fetchDay(null);
   }, [fetchDay]);
 
