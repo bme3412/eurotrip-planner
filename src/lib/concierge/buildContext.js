@@ -158,6 +158,7 @@ export function buildConciergeContext(trip, { dayNumber } = {}) {
         name: b.activity.name,
         neighborhood: b.activity.neighborhood || null,
         type: b.activity.type || null,
+        indoor: b.activity.indoor ?? null,
       }));
 
     selectedDay = {

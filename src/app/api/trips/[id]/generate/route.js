@@ -1,11 +1,9 @@
-"use server";
-
 import { NextResponse } from "next/server";
 import { buildMultiCityItinerary } from "@/lib/planning/buildMultiCityItinerary";
 import { optimizeRoute } from "@/lib/planning/routeOptimizer";
 import { getTripWithDetails, persistGeneratedItinerary } from "@/lib/trips/tripsRepository";
 import { getAnchorCities, normalizeTripState } from "@/lib/trips/tripLifecycle";
-import { forbiddenResponse, getRequesterFromAuthHeader } from "@/lib/supabase/requestAuth";
+import { requireTripWriteAccess } from "@/lib/trips/requireTripAccess";
 import { deriveTripWindow, accommodationsByCity, getBookings } from "@/lib/planning/tripBookings";
 
 /** Whole nights between two YYYY-MM-DD dates (UTC-safe component math). */
@@ -37,22 +35,13 @@ function deriveConcreteDates(tripState) {
   return { startDate, endDate };
 }
 
-function canWriteTrip(trip, requester) {
-  const ownerId = trip?.user_id || null;
-  const ownerEmail = trip?.user_email || null;
-  if (!ownerId && !ownerEmail) return false;
-  if (ownerId && requester?.userId === ownerId) return true;
-  if (ownerEmail && requester?.userEmail === ownerEmail) return true;
-  return false;
-}
-
 export async function POST(request, { params }) {
   const { id } = await params;
   if (!id) {
     return NextResponse.json({ error: "Trip id is required." }, { status: 400 });
   }
 
-  const { requester, response } = await getRequesterFromAuthHeader(request);
+  const { trip, response } = await requireTripWriteAccess(request, id);
   if (response) return response;
 
   let body = {};
@@ -63,13 +52,6 @@ export async function POST(request, { params }) {
   }
 
   try {
-    const trip = await getTripWithDetails(id);
-    if (!trip) {
-      return NextResponse.json({ error: "Trip not found." }, { status: 404 });
-    }
-    if (!canWriteTrip(trip, requester)) {
-      return forbiddenResponse("You do not have access to generate this itinerary.");
-    }
 
     const tripState = normalizeTripState(body.tripState || body.trip_state || trip.trip_state);
     const cities = getAnchorCities(tripState).map((city) => ({

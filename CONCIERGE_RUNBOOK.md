@@ -53,15 +53,23 @@ Inngest hourly cron (conciergeTick)
 ### 1. Database — apply migrations
 Run both in the Supabase SQL editor (or `supabase db push`). Idempotent.
 
-- `supabase/migrations/0008_concierge_notifications.sql` — preferences + inbox + Realtime. **(already applied)**
-- `supabase/migrations/0009_push_subscriptions.sql` — Web Push device subs. **(pending)**
+- `supabase/migrations/0008_concierge_notifications.sql` — preferences + inbox + Realtime
+- `supabase/migrations/0009_push_subscriptions.sql` — Web Push device subs (**required for push**)
 
-Verify: `concierge_preferences`, `concierge_notifications`, `push_subscriptions` exist, RLS is on, and `concierge_notifications` is in the `supabase_realtime` publication.
+Run both in the Supabase SQL editor. Idempotent — safe to re-run.
+
+Verify:
+```sql
+SELECT table_name FROM information_schema.tables
+WHERE table_schema = 'public'
+  AND table_name IN ('concierge_preferences', 'concierge_notifications', 'push_subscriptions');
+```
+Also confirm RLS is on and `concierge_notifications` is in the `supabase_realtime` publication.
 
 ### 2. Inngest — the scheduler (makes it autonomous)
 1. Create a free account at inngest.com → new app.
 2. Copy the **Event Key** and **Signing Key** → set `INNGEST_EVENT_KEY` + `INNGEST_SIGNING_KEY` in Vercel (Production).
-3. Deploy, then in the Inngest dashboard **Sync** the app at `https://<your-domain>/api/inngest`. It should register **2 functions** (`concierge-tick`, `concierge-send`).
+3. Deploy, then in the Inngest dashboard **Sync** the app at `https://<your-domain>/api/inngest`. It should register **4 functions** (`concierge-tick`, `concierge-send`, `concierge-weather-watch`, `concierge-reactive-send`).
 4. Done — the hourly cron now runs in Inngest's infra and calls your app. **No Vercel Pro needed** (Inngest owns the schedule; Vercel just serves the function).
 
 ### 3. Web Push (optional channel)

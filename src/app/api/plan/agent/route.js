@@ -14,7 +14,6 @@
  *   done           — stream complete
  */
 
-import { getTripWithDetails } from '@/lib/trips/tripsRepository';
 import {
   OPENAI_TOOLS,
   execGetCityAttractions,
@@ -24,6 +23,7 @@ import {
   buildSystemPrompt,
   buildToolSummary,
 } from '@/lib/planning/agentTools';
+import { requireTripWriteAccess } from '@/lib/trips/requireTripAccess';
 import OpenAI from 'openai';
 
 export const runtime = 'nodejs';
@@ -61,6 +61,10 @@ export async function POST(request) {
     );
   }
 
+  const access = await requireTripWriteAccess(request, tripId);
+  if (access.response) return access.response;
+  const trip = access.trip;
+
   const stream = new ReadableStream({
     async start(controller) {
       const enc = new TextEncoder();
@@ -73,16 +77,7 @@ export async function POST(request) {
       };
 
       try {
-        const [trip, cityData] = await Promise.all([
-          getTripWithDetails(tripId),
-          (await import('@/lib/data-utils')).getCityData(citySlug),
-        ]);
-
-        if (!trip) {
-          emit('error', { message: 'Trip not found' });
-          controller.close();
-          return;
-        }
+        const cityData = await (await import('@/lib/data-utils')).getCityData(citySlug);
 
         const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
         const systemPrompt = buildSystemPrompt(trip, cityData);

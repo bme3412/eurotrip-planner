@@ -1,21 +1,14 @@
-"use server";
-
 import { notFound } from "next/navigation";
 import { getCityData } from "@/lib/data-utils";
 import { getTripWithDetails } from "@/lib/trips/tripsRepository";
+import { isTripPubliclyReadable } from "@/lib/trips/tripAccess";
 import { formatDateRange } from "../_lib/buildPlan";
 import ConciergeClient from "./ConciergeClient";
 
-/**
- * Concierge preview page — `/itineraries/[tripId]/concierge`.
- *
- * Stays deliberately slim: it only resolves display props (city name, dates,
- * hero image) and hands off to the client, which fetches the LLM-written briefs
- * from /api/trips/[tripId]/concierge-brief. The heavy lifting (context + Claude)
- * lives in that route so this page renders instantly.
- */
-export default async function ConciergePage({ params }) {
+export default async function ConciergePage({ params, searchParams }) {
   const { tripId } = await params;
+  const resolvedSearch = await searchParams;
+  const shareToken = typeof resolvedSearch?.share === "string" ? resolvedSearch.share : null;
 
   let trip;
   try {
@@ -24,6 +17,12 @@ export default async function ConciergePage({ params }) {
     notFound();
   }
   if (!trip) notFound();
+
+  // Private trips: render the client shell only — no trip facts in SSR HTML.
+  // ConciergeClient loads briefs via the authenticated API.
+  if (!isTripPubliclyReadable(trip, shareToken)) {
+    return <ConciergeClient tripId={tripId} />;
+  }
 
   const citySlug = trip.city || "paris";
   const cityData = await getCityData(citySlug);
@@ -38,6 +37,7 @@ export default async function ConciergePage({ params }) {
   return (
     <ConciergeClient
       tripId={tripId}
+      shareToken={shareToken}
       cityDisplay={cityDisplay}
       dateRangeLabel={dateRangeLabel}
       heroImage={hasHero ? thumbnail : null}

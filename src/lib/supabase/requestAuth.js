@@ -1,4 +1,3 @@
-import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "./server";
 
 function readBearerToken(request) {
@@ -8,15 +7,15 @@ function readBearerToken(request) {
 }
 
 export function unauthenticatedResponse(message = "Sign in is required.") {
-  return NextResponse.json({ error: message }, { status: 401 });
+  return Response.json({ error: message }, { status: 401 });
 }
 
 export function forbiddenResponse(message = "You do not have access to this resource.") {
-  return NextResponse.json({ error: message }, { status: 403 });
+  return Response.json({ error: message }, { status: 403 });
 }
 
 function authConfigErrorResponse(error) {
-  return NextResponse.json(
+  return Response.json(
     {
       error: "Authentication requires Supabase server configuration.",
       reason: "supabase_unconfigured",

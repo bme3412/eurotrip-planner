@@ -1,9 +1,9 @@
-"use server";
-
 import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "../../../../lib/supabase/server";
 import { deleteTrip, getTripWithDetails, updateTripDraft } from "@/lib/trips/tripsRepository";
 import { forbiddenResponse, getRequesterFromAuthHeader } from "@/lib/supabase/requestAuth";
+import { canAccessTrip } from "@/lib/trips/tripAccess";
+import { requireTripReadAccess } from "@/lib/trips/requireTripAccess";
 
 const ALLOWED_UPDATE_FIELDS = new Set([
   "start_date",
@@ -94,41 +94,15 @@ function notFoundResponse() {
   return NextResponse.json({ error: "Trip not found." }, { status: 404 });
 }
 
-function canAccessTrip(trip, requester, { write = false } = {}) {
-  if (!trip) return false;
-  const ownerId = trip.user_id || null;
-  const ownerEmail = trip.user_email || null;
-  const hasOwner = Boolean(ownerId || ownerEmail);
-
-  if (!write && trip.is_public === true) return true;
-  if (!hasOwner || !requester) return false;
-  if (ownerId && requester.userId === ownerId) return true;
-  if (ownerEmail && requester.userEmail === ownerEmail) return true;
-  return false;
-}
-
 export async function GET(request, { params }) {
   const { id } = await params;
   if (!id) {
     return NextResponse.json({ error: "Trip id is required." }, { status: 400 });
   }
 
-  try {
-    const trip = await getTripWithDetails(id);
-    if (!trip) return notFoundResponse();
-    if (canAccessTrip(trip, null)) return NextResponse.json(trip, { status: 200 });
-
-    const { requester, response } = await getRequesterFromAuthHeader(request);
-    if (response) return response;
-    if (!canAccessTrip(trip, requester)) return forbiddenResponse("You do not have access to this trip.");
-    return NextResponse.json(trip, { status: 200 });
-  } catch (error) {
-    console.error("Failed to load trip", error);
-    return NextResponse.json(
-      { error: "Unable to load trip at this time." },
-      { status: 500 }
-    );
-  }
+  const { trip, response } = await requireTripReadAccess(request, id);
+  if (response) return response;
+  return NextResponse.json(trip, { status: 200 });
 }
 
 export async function PUT(request, { params }) {

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
-import { getTripWithDetails } from '@/lib/trips/tripsRepository';
 import { buildConciergeContext } from '@/lib/concierge/buildContext';
+import { requireTripReadAccess } from '@/lib/trips/requireTripAccess';
 
 export const runtime = 'nodejs';
 export const maxDuration = 30;
@@ -24,6 +24,9 @@ export async function POST(request, { params }) {
   const question = typeof body?.question === 'string' ? body.question.trim().slice(0, 500) : '';
   if (!question) return NextResponse.json({ error: 'Empty question' }, { status: 400 });
 
+  const { trip, response } = await requireTripReadAccess(request, tripId);
+  if (response) return response;
+
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
     return NextResponse.json({
@@ -31,15 +34,6 @@ export async function POST(request, { params }) {
       source: 'fallback',
     });
   }
-
-  let trip;
-  try {
-    trip = await getTripWithDetails(tripId);
-  } catch (err) {
-    console.error('[concierge-ask] trip load failed:', err?.message);
-    return NextResponse.json({ error: 'Could not load trip' }, { status: 502 });
-  }
-  if (!trip) return NextResponse.json({ error: 'Trip not found' }, { status: 404 });
 
   const ctx = buildConciergeContext(trip);
   const itinerarySketch = ctx.days

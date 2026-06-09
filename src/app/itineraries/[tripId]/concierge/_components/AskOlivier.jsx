@@ -14,7 +14,7 @@ const SUGGESTIONS = [
  * One-shot "ask Olivier" — a taste of the in-app chat. Posts a single question to
  * /api/trips/[id]/concierge-ask and shows the reply in his voice. Not a thread.
  */
-export default function AskOlivier({ tripId, authHeaders, sample = null }) {
+export default function AskOlivier({ tripId, authHeaders, shareQuery = '', sample = null }) {
   const [q, setQ] = useState('');
   // Pre-seed with a real sample exchange so the quality is visible without typing.
   const [turns, setTurns] = useState(
@@ -32,7 +32,7 @@ export default function AskOlivier({ tripId, authHeaders, sample = null }) {
     setLoading(true);
     setTurns((t) => [...t, { q: text, a: null }]);
     try {
-      const res = await fetch(`/api/trips/${tripId}/concierge-ask`, {
+      const res = await fetch(`/api/trips/${tripId}/concierge-ask${shareQuery}`, {
         method: 'POST',
         headers: authHeaders,
         body: JSON.stringify({ question: text }),

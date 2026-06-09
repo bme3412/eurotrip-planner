@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { enforceAnonymousRateLimit, RATE_LIMITS } from '@/lib/rateLimit';
 
 export const runtime = 'nodejs';
 
@@ -46,6 +47,12 @@ const TOOL = {
 };
 
 export async function POST(request) {
+  const limited = await enforceAnonymousRateLimit(request, {
+    route: 'discover-command',
+    ...RATE_LIMITS.discoverCommand,
+  });
+  if (limited) return limited;
+
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
     return NextResponse.json({ error: 'Assistant is not configured.' }, { status: 503 });

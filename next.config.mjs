@@ -35,8 +35,8 @@ const baseConfig = {
       },
       {
         source: '/discover',
-        destination: '/',
-        permanent: true,
+        destination: '/explore',
+        permanent: false,
       },
     ];
   },

@@ -32,6 +32,7 @@ export default function ItineraryClient({
   thumbnail,
   dateRangeLabel,
   interestsList,
+  shareToken = null,
 }) {
   const { session } = useAuth();
   const [editPanelOpen, setEditPanelOpen] = useState(false);
@@ -39,7 +40,8 @@ export default function ItineraryClient({
 
   const handleCalendarDownload = useCallback(async () => {
     try {
-      const res = await fetch(`/api/trips/${tripId}/calendar`, {
+      const shareQuery = shareToken ? `?share=${encodeURIComponent(shareToken)}` : '';
+      const res = await fetch(`/api/trips/${tripId}/calendar${shareQuery}`, {
         headers: getSupabaseAuthHeaders(session),
       });
       if (!res.ok) throw new Error(await res.text());
@@ -55,7 +57,7 @@ export default function ItineraryClient({
     } catch (error) {
       console.error('[calendar export]', error);
     }
-  }, [cityDisplay, session, tripId]);
+  }, [cityDisplay, session, tripId, shareToken]);
 
   const handleActivityUpdate = useCallback((dayNumber, timeBlock, newActivity) => {
     setLocalPlan((prev) => {

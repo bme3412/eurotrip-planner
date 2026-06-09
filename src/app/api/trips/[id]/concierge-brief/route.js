@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { getTripWithDetails } from '@/lib/trips/tripsRepository';
 import { generateConciergeDay } from '@/lib/concierge/generateBrief';
+import { requireTripReadAccess } from '@/lib/trips/requireTripAccess';
 
 export const runtime = 'nodejs';
 // The rich brief LLM call runs ~19s; without this Vercel kills the function at
@@ -16,18 +16,12 @@ export const maxDuration = 60;
 export async function POST(request, { params }) {
   const { id: tripId } = await params;
 
+  const { trip, response } = await requireTripReadAccess(request, tripId);
+  if (response) return response;
+
   let body = {};
   try { body = await request.json(); } catch { /* optional */ }
   const dayNumber = Number.isFinite(body?.dayNumber) ? body.dayNumber : null;
-
-  let trip;
-  try {
-    trip = await getTripWithDetails(tripId);
-  } catch (err) {
-    console.error('[concierge-brief] trip load failed:', err?.message);
-    return NextResponse.json({ error: 'Could not load trip' }, { status: 502 });
-  }
-  if (!trip) return NextResponse.json({ error: 'Trip not found' }, { status: 404 });
 
   const payload = await generateConciergeDay(trip, dayNumber);
   return NextResponse.json(payload);

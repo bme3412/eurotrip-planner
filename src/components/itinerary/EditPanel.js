@@ -1,7 +1,9 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { X, Send, Loader2, RefreshCw, Pencil } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
+import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
 
 const AGENT_URL = '/api/plan/agent';
 
@@ -104,6 +106,11 @@ export default function EditPanel({
   plan,
   onActivityUpdate,
 }) {
+  const { session } = useAuth();
+  const authHeaders = useMemo(
+    () => getSupabaseAuthHeaders(session, { 'Content-Type': 'application/json' }),
+    [session]
+  );
   const [mode, setMode] = useState('quick'); // 'quick' | 'type'
   const [messages, setMessages] = useState([]);
   const [displayMessages, setDisplayMessages] = useState([]);
@@ -193,7 +200,7 @@ export default function EditPanel({
         abortRef.current = new AbortController();
         const res = await fetch(AGENT_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: authHeaders,
           body: JSON.stringify({
             tripId,
             citySlug,
@@ -264,7 +271,7 @@ export default function EditPanel({
         abortRef.current = null;
       }
     },
-    [messages, streaming, tripId, citySlug, onActivityUpdate]
+    [messages, streaming, tripId, citySlug, onActivityUpdate, authHeaders]
   );
 
   const handleSubmit = (e) => {
