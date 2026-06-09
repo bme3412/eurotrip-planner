@@ -2,6 +2,7 @@
 
 import { Moon, Sunrise } from 'lucide-react';
 import ConciergeWaitlist from './ConciergeWaitlist';
+import SectionHeading from './SectionHeading';
 
 /**
  * Concierge teaser — a "coming soon" CTA for the white-glove concierge described
@@ -19,22 +20,17 @@ const RHYTHM = [
 
 export default function ConciergeTeaser() {
   return (
-    <section className="px-6 py-20 bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-5xl mx-auto rounded-3xl border border-amber-100/80 bg-[#faf8f3] p-8 md:p-12 shadow-sm">
+    <section className="px-6 pt-12 md:pt-16 pb-20 md:pb-28 bg-white">
+      <div className="max-w-5xl mx-auto rounded-3xl border border-amber-100/70 bg-[#faf7f1] p-8 md:p-12 shadow-sm">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           {/* Left: the pitch + daily rhythm */}
           <div>
-            <div className="flex items-center gap-2 text-blue-600 font-bold text-xs uppercase tracking-widest mb-4">
-              Coming soon · Olivier, your concierge
-            </div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-5 leading-[1.1]">
-              Like knowing someone in every city.
-            </h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
-              Olivier already has your itinerary. He knows when the rain&apos;s coming, which
-              entrance has the shorter line, and the café just off the tourist drag — and he
-              tells you the night before, not when you finally think to ask.
-            </p>
+            <SectionHeading
+              eyebrow="Coming soon · Olivier, your concierge"
+              title="Like knowing someone in every city."
+              subtitle="Olivier already has your itinerary. He knows when the rain's coming, which entrance has the shorter line, and the café just off the tourist drag — and he tells you the night before, not when you finally think to ask."
+              className="mb-8"
+            />
 
             <ul className="flex flex-col gap-5">
               {RHYTHM.map((r) => {
