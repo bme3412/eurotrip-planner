@@ -1,10 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Bell, Loader2, Check, ArrowUp } from 'lucide-react';
+import { Bell, BellRing, Loader2, Check, ArrowUp } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { getSupabaseClient } from '@/lib/supabase/client';
 import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
+import { subscribeToPush, pushSupported } from '@/lib/concierge/pushClient';
 import OlivierMark from './OlivierMark';
 
 /**
@@ -19,6 +20,7 @@ export default function ConciergeOptIn({ tripId }) {
   const [saving, setSaving] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [pushState, setPushState] = useState('idle'); // idle | on | denied | unsupported | working
 
   useEffect(() => {
     if (!user?.id) return;
@@ -27,13 +29,25 @@ export default function ConciergeOptIn({ tripId }) {
     (async () => {
       const { data } = await supabase
         .from('concierge_preferences')
-        .select('enabled')
+        .select('enabled, push_enabled')
         .eq('user_id', user.id)
         .maybeSingle();
-      if (active && data) setEnabled(!!data.enabled);
+      if (active && data) {
+        setEnabled(!!data.enabled);
+        if (data.push_enabled) setPushState('on');
+      }
     })();
+    if (!pushSupported()) setPushState('unsupported');
     return () => { active = false; };
   }, [user?.id]);
+
+  const savePrefs = async (patch) => {
+    const supabase = getSupabaseClient();
+    await supabase.from('concierge_preferences').upsert(
+      { user_id: user.id, user_email: user.email, updated_at: new Date().toISOString(), ...patch },
+      { onConflict: 'user_id' }
+    );
+  };
 
   const toggle = async () => {
     if (!user?.id || saving) return;
@@ -41,11 +55,15 @@ export default function ConciergeOptIn({ tripId }) {
     setEnabled(next);
     setSaving(true);
     try {
-      const supabase = getSupabaseClient();
-      await supabase.from('concierge_preferences').upsert(
-        { user_id: user.id, user_email: user.email, enabled: next, updated_at: new Date().toISOString() },
-        { onConflict: 'user_id' }
-      );
+      await savePrefs({ enabled: next });
+      // On enable, also try to light up push on this device (best-effort).
+      if (next && pushState !== 'on' && pushState !== 'unsupported') {
+        setPushState('working');
+        const headers = getSupabaseAuthHeaders(session, { 'Content-Type': 'application/json' });
+        const r = await subscribeToPush(headers);
+        setPushState(r.ok ? 'on' : r.reason === 'denied' ? 'denied' : r.reason === 'unsupported' ? 'unsupported' : 'idle');
+        if (r.ok) await savePrefs({ push_enabled: true });
+      }
     } catch {
       setEnabled(!next); // revert on failure
     } finally {
@@ -108,8 +126,25 @@ export default function ConciergeOptIn({ tripId }) {
           </span>
         )}
       </div>
+
+      {enabled && (
+        <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium">
+          {pushState === 'on' ? (
+            <span className="inline-flex items-center gap-1.5 text-emerald-700"><BellRing className="h-3.5 w-3.5" /> Push on for this device</span>
+          ) : pushState === 'working' ? (
+            <span className="inline-flex items-center gap-1.5 text-gray-500"><Loader2 className="h-3.5 w-3.5 animate-spin" /> Enabling push…</span>
+          ) : pushState === 'denied' ? (
+            <span className="text-gray-400">Push blocked in your browser — in-app + email still work.</span>
+          ) : pushState === 'unsupported' ? (
+            <span className="text-gray-400">This browser doesn&apos;t support push — in-app + email still work.</span>
+          ) : (
+            <button type="button" onClick={toggle} className="text-blue-600 hover:underline">Enable push on this device</button>
+          )}
+        </div>
+      )}
+
       <p className="mt-3 text-xs text-gray-400">
-        Preview today; once the scheduler ships he&apos;ll send these on his own, in your timezone.
+        He&apos;ll send these on his own at the right local time once scheduling is live for your account.
       </p>
     </div>
   );

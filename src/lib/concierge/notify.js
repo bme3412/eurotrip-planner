@@ -1,6 +1,7 @@
 import { getSupabaseAdmin } from '@/lib/supabase/server';
 import { getTripWithDetails } from '@/lib/trips/tripsRepository';
 import { generateConciergeDay } from '@/lib/concierge/generateBrief';
+import { pushToUser } from '@/lib/concierge/webpush';
 
 // Channel-agnostic concierge send pipeline. Today it delivers in-app by inserting
 // a row into concierge_notifications (Supabase Realtime fans it out to the live
@@ -58,7 +59,19 @@ export async function sendConciergeBrief({ tripId, dayNumber = null, type = 'eve
     return { ok: false, reason: 'insert_failed' };
   }
 
-  // Phase 3/4: deliver to push_subscriptions + email here (best-effort).
+  // Web Push (best-effort) — the in-app row above is the durable record.
+  let push = { sent: 0 };
+  try {
+    push = await pushToUser(trip.user_id, {
+      title,
+      body: bodyText,
+      url: `/itineraries/${tripId}/concierge`,
+    });
+  } catch (err) {
+    console.error('[concierge/notify] push failed:', err?.message);
+  }
 
-  return { ok: true, notification: data };
+  // Phase 4: email here (best-effort).
+
+  return { ok: true, notification: data, push };
 }
