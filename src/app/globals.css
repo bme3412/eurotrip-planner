@@ -168,6 +168,22 @@ body {
   animation: shimmer 2s ease-in-out infinite;
 }
 
+/* ── Cross-route View Transitions (see ViewTransitions.jsx / TransitionLink.jsx) ──
+   Default root crossfade, slightly quicker than the browser default, plus an
+   eased morph for the `trip-hero` shared element (My Trips card → itinerary
+   hero). Only runs in browsers that support the API; reduced-motion users never
+   trigger a transition (the JS opts out before calling startViewTransition). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.28s;
+  animation-timing-function: ease-out;
+}
+
+::view-transition-group(trip-hero) {
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* Carousel panel transitions */
 .carousel-panel {
   transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
