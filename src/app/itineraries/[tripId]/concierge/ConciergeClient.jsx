@@ -51,12 +51,14 @@ export default function ConciergeClient({
   const [activeDay, setActiveDay] = useState(null);
   const [status, setStatus] = useState('loading'); // loading | ready | error
   const [dayLoading, setDayLoading] = useState(false);
+  const [dayError, setDayError] = useState(false);
 
   const fetchDay = useCallback(
     async (dayNumber) => {
       const initial = dayNumber == null;
       if (initial) setStatus('loading');
       else setDayLoading(true);
+      setDayError(false);
       try {
         const res = await fetch(`/api/trips/${tripId}/concierge-brief${shareQuery}`, {
           method: 'POST',
@@ -73,6 +75,7 @@ export default function ConciergeClient({
       } catch (err) {
         console.error('[concierge] fetch failed', err);
         if (initial) setStatus('error');
+        else setDayError(true); // keep the last good day visible, but say why the switch failed
       } finally {
         if (!initial) setDayLoading(false);
       }
@@ -216,6 +219,12 @@ export default function ConciergeClient({
               </div>
 
               <DaySelector days={bundle.days} activeDay={activeDay} loading={dayLoading} onSelect={fetchDay} />
+
+              {dayError && (
+                <p className="mt-3 rounded-xl bg-amber-50 px-4 py-2 text-sm text-amber-800 ring-1 ring-amber-200">
+                  Couldn&apos;t load that day — try it again in a moment.
+                </p>
+              )}
 
               {/* activity banner */}
               {act && (

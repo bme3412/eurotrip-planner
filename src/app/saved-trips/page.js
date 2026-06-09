@@ -544,7 +544,7 @@ export default function SavedTripsPage() {
 
   const handleDeleteTrip = useCallback(async (id) => {
     if (!session?.access_token) return;
-    const snapshot = trips;
+    const removed = trips.find((trip) => trip.id === id);
     setError(null);
     setTrips((current) => current.filter((trip) => trip.id !== id)); // optimistic
     try {
@@ -555,10 +555,22 @@ export default function SavedTripsPage() {
       if (!res.ok) throw new Error(await res.text());
     } catch (err) {
       console.error("[saved-trips] Failed to delete trip:", err);
-      setTrips(snapshot); // rollback
+      // Roll back just this deletion — restoring a full pre-delete snapshot
+      // would clobber any state changes that landed while the request ran.
+      if (removed) {
+        setTrips((current) => (current.some((t) => t.id === id) ? current : [...current, removed]));
+      }
       setError("Unable to delete that trip. Please try again.");
     }
   }, [session, trips]);
+
+  // DELETE the given trip ids, returning how many failed (rejected or non-2xx).
+  const deleteTripsOnServer = useCallback(async (ids) => {
+    const results = await Promise.allSettled(
+      ids.map((id) => fetch(`/api/trips/${id}`, { method: "DELETE", headers: getSupabaseAuthHeaders(session) })),
+    );
+    return results.filter((r) => r.status !== "fulfilled" || !r.value.ok).length;
+  }, [session]);
 
   // Signed in → account trips; signed out → local drafts (rendered as unsynced).
   const isLocalMode = !user;
@@ -607,6 +619,10 @@ export default function SavedTripsPage() {
     return sorted;
   }, [displayTrips, search, sortBy]);
 
+  // Captured once per page load so the "older than 30 days" triage boundary is
+  // stable across re-renders (and across server/client render passes).
+  const loadedAtRef = useRef(Date.now());
+
   const { ready, activeDrafts, olderDrafts, heroTrip, olderDraftIds } = useMemo(() => {
     const readyTrips = [];
     const allDrafts = [];
@@ -627,7 +643,7 @@ export default function SavedTripsPage() {
     }
     const isOlder = (tr) => {
       if (draftProgress(tr).isEmpty) return true;
-      if ((Date.now() - updatedOf(tr)) / 86400000 > 30) return true;
+      if ((loadedAtRef.current - updatedOf(tr)) / 86400000 > 30) return true;
       if (cityCountOf(tr) <= 1) {
         const k = anchorCity(tr)?.slug || "?";
         return newestSingle.get(k)?.id !== tr.id; // not the newest start for this city
@@ -658,13 +674,12 @@ export default function SavedTripsPage() {
       reloadLocalDrafts();
     } else {
       setTrips((curr) => curr.filter((t) => !ids.includes(t.id)));
-      await Promise.allSettled(
-        ids.map((id) => fetch(`/api/trips/${id}`, { method: "DELETE", headers: getSupabaseAuthHeaders(session) })),
-      );
+      const failed = await deleteTripsOnServer(ids);
+      if (failed > 0) setError(`Couldn't clear ${failed} of ${ids.length} drafts. Please try again.`);
       loadTrips();
     }
     setClearingEmpty(false);
-  }, [olderDraftIds, isLocalMode, reloadLocalDrafts, session, loadTrips]);
+  }, [olderDraftIds, isLocalMode, reloadLocalDrafts, deleteTripsOnServer, loadTrips]);
 
   const toggleSelect = useCallback((id) => {
     setSelectedIds((curr) => {
@@ -692,15 +707,12 @@ export default function SavedTripsPage() {
       reloadLocalDrafts();
     } else {
       setTrips((curr) => curr.filter((t) => !selectedIds.has(t.id))); // optimistic
-      await Promise.allSettled(
-        ids.map((id) =>
-          fetch(`/api/trips/${id}`, { method: "DELETE", headers: getSupabaseAuthHeaders(session) }),
-        ),
-      );
+      const failed = await deleteTripsOnServer(ids);
+      if (failed > 0) setError(`Couldn't delete ${failed} of ${ids.length} trips. Please try again.`);
       loadTrips();
     }
     exitSelectMode();
-  }, [selectedIds, isLocalMode, reloadLocalDrafts, session, loadTrips, exitSelectMode]);
+  }, [selectedIds, isLocalMode, reloadLocalDrafts, deleteTripsOnServer, loadTrips, exitSelectMode]);
 
   const showLoading = authLoading || (user && loading);
   const showEmptyState = !showLoading && !error && displayTrips.length === 0;
