@@ -18,6 +18,9 @@ import RhythmTimeline from './_components/RhythmTimeline';
 import AskOlivier from './_components/AskOlivier';
 import KnowsYou from './_components/KnowsYou';
 import ServicePreview from './_components/ServicePreview';
+import MeetOlivier from './_components/MeetOlivier';
+import DaySchedule from './_components/DaySchedule';
+import MidCta from './_components/MidCta';
 
 /**
  * Concierge preview — a rich, multi-section taste of Olivier built from the trip's
@@ -130,6 +133,9 @@ export default function ConciergeClient({ tripId, cityDisplay, dateRangeLabel, h
       </header>
 
       <main className="mx-auto max-w-5xl space-y-14 px-6 py-12">
+        {/* ── Meet Olivier (persona) — shown immediately ── */}
+        <MeetOlivier cityName={cityDisplay} />
+
         {status === 'loading' && (
           <div className="flex flex-col items-center gap-3 rounded-2xl border border-amber-100/70 bg-white px-6 py-20 text-center shadow-sm">
             <OlivierMark size={48} />
@@ -184,11 +190,16 @@ export default function ConciergeClient({ tripId, cityDisplay, dateRangeLabel, h
                 </div>
               )}
 
+              {/* whole-day schedule + real bookings */}
+              <div className="mt-5">
+                <DaySchedule schedule={day.schedule} hotelName={day.hotelName} arrival={day.arrival} />
+              </div>
+
               <div className={`mt-6 grid gap-8 lg:grid-cols-[280px_1fr] ${dayLoading ? 'opacity-60 transition-opacity' : ''}`}>
                 {/* Left: how it arrives */}
                 <div className="lg:sticky lg:top-6 lg:self-start">
-                  <PushMock body={day.briefs.eveningBrief.body} />
-                  <p className="mt-3 text-center text-xs text-gray-400">This is how the evening brief lands.</p>
+                  <PushMock pushLine={day.pushLine} />
+                  <p className="mt-3 text-center text-xs text-gray-400">A glance is all it takes.</p>
                 </div>
 
                 {/* Right: the three briefs */}
@@ -197,6 +208,7 @@ export default function ConciergeClient({ tripId, cityDisplay, dateRangeLabel, h
                     icon={Moon}
                     label="Evening brief"
                     when="tonight · the night before"
+                    timeOfDay="evening"
                     body={day.briefs.eveningBrief.body}
                     delight={day.briefs.eveningBrief.delight}
                     decision={day.briefs.eveningBrief.decision}
@@ -209,9 +221,9 @@ export default function ConciergeClient({ tripId, cityDisplay, dateRangeLabel, h
                     icon={Sunrise}
                     label="Morning wake-up"
                     when="~90 min before you go"
+                    timeOfDay="morning"
                     body={day.briefs.morningWakeup.body}
                     meta={day.briefs.morningWakeup.meta}
-                    accent="amber"
                   >
                     {day.weather && <WeatherStrip weather={day.weather} />}
                   </BriefCard>
@@ -220,8 +232,10 @@ export default function ConciergeClient({ tripId, cityDisplay, dateRangeLabel, h
                     icon={Moon}
                     label="Wind-down"
                     when="around 9pm"
+                    timeOfDay="wind-down"
                     body={day.briefs.windDown.body}
                     tomorrowTease={day.briefs.windDown.tomorrowTease}
+                    signoff={day.signoff}
                     meta={day.briefs.windDown.meta}
                   />
                 </div>
@@ -231,8 +245,11 @@ export default function ConciergeClient({ tripId, cityDisplay, dateRangeLabel, h
             {/* ── Reactive magic ── */}
             <ReactiveAlert reactive={day.reactive} />
 
+            {/* ── Mid-page conversion (peak interest) ── */}
+            <MidCta targetId="concierge-waitlist" />
+
             {/* ── Ask Olivier ── */}
-            <AskOlivier tripId={tripId} authHeaders={authHeaders} />
+            <AskOlivier tripId={tripId} authHeaders={authHeaders} sample={day.sampleAsk} />
 
             {/* ── Knows you ── */}
             <KnowsYou personalization={bundle.personalization} cityName={meta?.cityName} />
@@ -256,7 +273,7 @@ export default function ConciergeClient({ tripId, cityDisplay, dateRangeLabel, h
         )}
 
         {/* ── Early access ── */}
-        <div>
+        <div id="concierge-waitlist" className="scroll-mt-6">
           <p className="mb-4 text-center text-sm font-medium text-gray-500">
             This is a preview. Want Olivier on your real trips?
           </p>
