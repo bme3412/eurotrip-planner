@@ -83,11 +83,21 @@ export function buildConciergeContext(trip, { dayNumber } = {}) {
   const allDays = plan.days || [];
   const realDays = allDays.filter((d) => !d.isTravelDay);
 
+  // Country per day: the day's own column, else the trip's cities[] entry for
+  // that slug, else the trip-level country (single-country trips).
+  const countryBySlug = {};
+  if (Array.isArray(trip.cities)) {
+    for (const c of trip.cities) {
+      if (c?.id && c.country) countryBySlug[c.id] = c.country;
+    }
+  }
+  const countryFor = (d) => d?.country || (d?.city && countryBySlug[d.city]) || trip.country || null;
+
   // Ordered unique cities across the trip.
   const cities = [];
   for (const d of allDays) {
     if (d.isTravelDay || !d.cityName) continue;
-    if (!cities.some((c) => c.name === d.cityName)) cities.push({ name: d.cityName, city: d.city });
+    if (!cities.some((c) => c.name === d.cityName)) cities.push({ name: d.cityName, city: d.city, country: countryFor(d) });
   }
   const anchorName = cities[0]?.name || trip.city || 'your city';
 
@@ -98,6 +108,7 @@ export function buildConciergeContext(trip, { dayNumber } = {}) {
       dayNumber: d.dayNumber,
       dateLabel: d.dateLabel || null,
       cityName: d.cityName || anchorName,
+      country: countryFor(d),
       theme: d.theme || null,
       isTravelDay: !!d.isTravelDay,
       touchCount: d.isTravelDay ? 1 : 3,
@@ -114,6 +125,8 @@ export function buildConciergeContext(trip, { dayNumber } = {}) {
     cityName: anchorName,
     country: cities[0] ? trip.country : trip.country || null,
     cities: cities.map((c) => c.name),
+    // Full destination records (name + slug + country) for persona resolution.
+    destinations: cities.map((c) => ({ name: c.name, city: c.city || null, country: c.country || null })),
     totalDays: allDays.length,
     totalRealDays: realDays.length,
     cadence: { dailyTouches, totalTouches, timezone: timezoneLabel(anchorName) },
@@ -159,6 +172,8 @@ export function buildConciergeContext(trip, { dayNumber } = {}) {
         neighborhood: b.activity.neighborhood || null,
         type: b.activity.type || null,
         indoor: b.activity.indoor ?? null,
+        lat: b.activity.latitude ?? null,
+        lng: b.activity.longitude ?? null,
       }));
 
     selectedDay = {
@@ -167,6 +182,7 @@ export function buildConciergeContext(trip, { dayNumber } = {}) {
       dateLabel: rawDay.dateLabel || null,
       cityName: rawDay.cityName || anchorName,
       city: rawDay.city || firstCitySlug || null,
+      country: countryFor(rawDay),
       theme: rawDay.theme || null,
       firstActivity: act
         ? {
@@ -185,6 +201,8 @@ export function buildConciergeContext(trip, { dayNumber } = {}) {
       hotelName: (rawDay.city && acc[rawDay.city]?.name) || personalization.hotelName || null,
       arrival: isFirstRealDay && inbound ? { fromCity: inbound.fromCity || null, date: inbound.arrivalDate || null } : null,
       nextCity: nextRealDay?.cityName || null,
+      nextCitySlug: nextRealDay?.city || null,
+      nextCountry: nextRealDay ? countryFor(nextRealDay) : null,
       nextTheme: nextRealDay?.theme || null,
     };
   }

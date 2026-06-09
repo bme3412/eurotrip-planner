@@ -19,7 +19,7 @@ const trip = {
       day_number: 1,
       city: 'paris',
       activities: [
-        { time_block: 'morning', start_time: '09:30:00', name: 'Louvre Museum', type: 'museum', neighborhood: '1st arrondissement', indoor: true },
+        { time_block: 'morning', start_time: '09:30:00', name: 'Louvre Museum', type: 'museum', neighborhood: '1st arrondissement', indoor: true, latitude: 48.8606, longitude: 2.3376 },
         { time_block: 'afternoon', start_time: '14:00:00', name: 'Tuileries stroll', type: 'park', indoor: false },
       ],
     },
@@ -88,10 +88,82 @@ describe('buildConciergeContext', () => {
     assert.equal(fallback.dayNumber, 1);
   });
 
+  it('carries country and coordinates for persona resolution and maps links', () => {
+    assert.equal(ctx.selectedDay.country, 'France');
+    assert.equal(ctx.days[0].country, 'France');
+    assert.deepEqual(ctx.meta.destinations, [
+      { name: 'Paris', city: 'paris', country: 'France' },
+      { name: 'Lyon', city: 'lyon', country: 'France' },
+    ]);
+    assert.equal(ctx.selectedDay.schedule[0].lat, 48.8606);
+    assert.equal(ctx.selectedDay.schedule[0].lng, 2.3376);
+    assert.equal(ctx.selectedDay.schedule[1].lat, null);
+  });
+
   it('derives personalization from trip fields', () => {
     assert.equal(ctx.personalization.pace, 'moderate');
     assert.deepEqual(ctx.personalization.interests, ['food', 'art', 'history']);
     assert.equal(ctx.personalization.hotelName, null);
+  });
+});
+
+// Multi-country trip: day countries come from per-day rows, the trip cities[]
+// array, then the trip-level country, in that order.
+const multiCountryTrip = {
+  id: 'trip-ctx-2',
+  city: 'paris',
+  country: null,
+  pace: 3,
+  start_date: '2026-09-01',
+  end_date: '2026-09-03',
+  updated_at: '2026-08-01T00:00:00Z',
+  cities: [
+    { id: 'paris', name: 'Paris', country: 'France' },
+    { id: 'rome', name: 'Rome', country: 'Italy' },
+    { id: 'venice', name: 'Venice', country: 'Italy' },
+  ],
+  days: [
+    {
+      date: '2026-09-01',
+      day_number: 1,
+      city: 'paris',
+      country: 'France',
+      activities: [{ time_block: 'morning', start_time: '10:00:00', name: 'Musée d’Orsay', type: 'museum' }],
+    },
+    {
+      date: '2026-09-02',
+      day_number: 2,
+      city: 'rome',
+      // country intentionally missing — falls back to trip.cities[].country
+      activities: [{ time_block: 'morning', start_time: '09:00:00', name: 'Colosseum', type: 'landmark' }],
+    },
+    {
+      date: '2026-09-03',
+      day_number: 3,
+      city: 'venice',
+      country: 'Italy',
+      activities: [{ time_block: 'morning', start_time: '10:00:00', name: 'Doge’s Palace', type: 'palace' }],
+    },
+  ],
+};
+
+describe('buildConciergeContext (multi-country)', () => {
+  it('resolves each day country with the cities[] fallback', () => {
+    const ctx = buildConciergeContext(multiCountryTrip);
+    assert.deepEqual(ctx.days.map((d) => d.country), ['France', 'Italy', 'Italy']);
+    assert.deepEqual(ctx.meta.destinations.map((d) => d.country), ['France', 'Italy', 'Italy']);
+  });
+
+  it('exposes tomorrow’s slug and country for handoff detection', () => {
+    const paris = buildConciergeContext(multiCountryTrip, { dayNumber: 1 }).selectedDay;
+    assert.equal(paris.country, 'France');
+    assert.equal(paris.nextCity, 'Rome');
+    assert.equal(paris.nextCitySlug, 'rome');
+    assert.equal(paris.nextCountry, 'Italy');
+
+    const venice = buildConciergeContext(multiCountryTrip, { dayNumber: 3 }).selectedDay;
+    assert.equal(venice.nextCity, null);
+    assert.equal(venice.nextCountry, null);
   });
 });
 
@@ -116,6 +188,38 @@ describe('generateConciergeDay (fallback path, no API key)', () => {
       }
       assert.match(result.day.pushLine, /Louvre Museum/);
       assert.ok(result.day.sampleAsk?.question);
+
+      // France days stay with Olivier himself.
+      assert.equal(result.day.persona?.id, 'olivier');
+      assert.match(result.day.signoff, /Olivier/);
+    } finally {
+      if (savedKey != null) process.env.ANTHROPIC_API_KEY = savedKey;
+    }
+  });
+
+  it('fronts the local persona and hands off at country borders', async () => {
+    const savedKey = process.env.ANTHROPIC_API_KEY;
+    delete process.env.ANTHROPIC_API_KEY;
+    try {
+      // Italy day → Giulia fronts the brief.
+      const rome = await generateConciergeDay(multiCountryTrip, 2);
+      assert.equal(rome.source, 'fallback');
+      assert.equal(rome.day.persona?.id, 'giulia-rome');
+      assert.equal(rome.day.persona?.name, 'Giulia');
+      assert.match(rome.day.signoff, /Giulia/);
+      // Rome→Venice is a city-override handoff (Giulia → Marco).
+      assert.equal(rome.day.handoff?.toPersona?.id, 'marco-venice');
+      assert.match(rome.day.briefs.windDown.tomorrowTease, /Marco/);
+
+      // Paris day → Olivier, handing off to Giulia tomorrow.
+      const paris = await generateConciergeDay(multiCountryTrip, 1);
+      assert.equal(paris.day.persona?.id, 'olivier');
+      assert.equal(paris.day.handoff?.toPersona?.id, 'giulia-rome');
+
+      // Last day → no handoff.
+      const venice = await generateConciergeDay(multiCountryTrip, 3);
+      assert.equal(venice.day.persona?.id, 'marco-venice');
+      assert.equal(venice.day.handoff, null);
     } finally {
       if (savedKey != null) process.env.ANTHROPIC_API_KEY = savedKey;
     }
