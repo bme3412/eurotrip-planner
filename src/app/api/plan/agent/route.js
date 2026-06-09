@@ -25,7 +25,7 @@ import {
 } from '@/lib/planning/agentTools';
 import { requireTripWriteAccess } from '@/lib/trips/requireTripAccess';
 import { enforceRateLimit, RATE_LIMITS } from '@/lib/rateLimit';
-import OpenAI from 'openai';
+import { getOpenAIClient } from '@/lib/llm/clients';
 
 export const runtime = 'nodejs';
 
@@ -86,7 +86,7 @@ export async function POST(request) {
       try {
         const cityData = await (await import('@/lib/data-utils')).getCityData(citySlug);
 
-        const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+        const openai = getOpenAIClient();
         const systemPrompt = buildSystemPrompt(trip, cityData);
 
         const messages = [

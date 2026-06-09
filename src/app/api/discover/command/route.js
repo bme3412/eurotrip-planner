@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import Anthropic from '@anthropic-ai/sdk';
+import { getAnthropicClient } from '@/lib/llm/clients';
 import { enforceRateLimit, RATE_LIMITS } from '@/lib/rateLimit';
 
 export const runtime = 'nodejs';
@@ -84,7 +84,7 @@ Rules:
 - Resolve casual names to well-known European city names ("barca" → "Barcelona").
 - reply: one short, friendly sentence describing what you changed.`;
 
-  const client = new Anthropic({ apiKey });
+  const client = getAnthropicClient();
   let resp;
   try {
     resp = await client.messages.create({

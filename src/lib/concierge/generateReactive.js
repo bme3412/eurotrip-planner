@@ -1,4 +1,4 @@
-import Anthropic from '@anthropic-ai/sdk';
+import { getAnthropicClient } from '@/lib/llm/clients';
 
 // Generates Olivier's proactive "the day changed" alert from a REAL detected
 // signal (unlike the generic reactive example in the daily brief). Grounded in the
@@ -56,7 +56,7 @@ Write a short proactive heads-up: name what changed, and propose ONE concrete re
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), LLM_TIMEOUT_MS);
-  const client = new Anthropic({ apiKey });
+  const client = getAnthropicClient();
   try {
     const resp = await client.messages.create(
       {

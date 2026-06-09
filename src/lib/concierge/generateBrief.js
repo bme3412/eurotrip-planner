@@ -1,4 +1,4 @@
-import Anthropic from '@anthropic-ai/sdk';
+import { getAnthropicClient } from '@/lib/llm/clients';
 import { getCityVisitCalendar } from '@/lib/data-utils';
 import { extractWeather } from '@/app/itineraries/[tripId]/_lib/buildPlan';
 import { buildConciergeContext, weatherConditions, metaLine } from '@/lib/concierge/buildContext';
@@ -229,7 +229,7 @@ Write, all grounded in the stops above:
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), LLM_TIMEOUT_MS);
-  const client = new Anthropic({ apiKey });
+  const client = getAnthropicClient();
   let resp;
   try {
     resp = await client.messages.create(

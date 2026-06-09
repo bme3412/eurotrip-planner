@@ -2,6 +2,9 @@
   "name": "eurotrip-nextjs-1",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "npm run generate-cities && npm run build:data && npm run build:cities && npm run build:scores && npm run build:calendars && npm run build:content && npm run backfill:metadata && next build",
@@ -38,11 +41,10 @@
     ]
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.78.0",
-    "@aws-sdk/client-bedrock-agent-runtime": "^3.1000.0",
+    "@anthropic-ai/sdk": "^0.104.0",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
-    "@supabase/supabase-js": "^2.75.0",
+    "@supabase/supabase-js": "^2.108.1",
     "@upstash/redis": "^1.36.3",
     "@vercel/analytics": "^1.5.0",
     "date-fns": "^4.1.0",
@@ -51,11 +53,10 @@
     "inngest": "^4.5.0",
     "lucide-react": "^0.475.0",
     "mapbox-gl": "^3.11.0",
-    "next": "15.1.11",
+    "next": "^15.5.19",
     "openai": "^6.3.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-window": "^2.2.7",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "sharp": "^0.33.0",
     "web-push": "^3.6.7"
   },
