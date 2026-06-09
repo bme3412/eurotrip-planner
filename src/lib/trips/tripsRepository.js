@@ -427,6 +427,46 @@ export async function getActiveTrips() {
   return results;
 }
 
+/**
+ * Trips the concierge scheduler should consider this tick: those currently active
+ * OR starting tomorrow (so the arrival-eve brief fires), whose owner has the
+ * concierge enabled. Returns [{ trip (full details), prefs }].
+ */
+export async function getConciergeWindowTrips() {
+  const supabase = await getSupabaseAdmin();
+  const today = new Date().toISOString().slice(0, 10);
+  const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+
+  // Active today, or starting tomorrow.
+  const { data: trips, error } = await supabase
+    .from('trips')
+    .select('*')
+    .or(`and(status.eq.active,start_date.lte.${today},end_date.gte.${today}),start_date.eq.${tomorrow}`);
+  if (error) throw error;
+  if (!trips?.length) return [];
+
+  // Only owners who have opted in.
+  const { data: prefRows } = await supabase
+    .from('concierge_preferences')
+    .select('*')
+    .eq('enabled', true);
+  const byUserId = new Map();
+  const byEmail = new Map();
+  for (const p of prefRows || []) {
+    if (p.user_id) byUserId.set(p.user_id, p);
+    if (p.user_email) byEmail.set(p.user_email, p);
+  }
+
+  const out = [];
+  for (const trip of trips) {
+    const prefs = (trip.user_id && byUserId.get(trip.user_id)) || (trip.user_email && byEmail.get(trip.user_email)) || null;
+    if (!prefs) continue;
+    const full = await getTripWithDetails(trip.id);
+    if (full) out.push({ trip: full, prefs });
+  }
+  return out;
+}
+
 // ── Internal helpers ─────────────────────────────────────────────────
 
 function computeDayDate(startDate, dayIndex) {
