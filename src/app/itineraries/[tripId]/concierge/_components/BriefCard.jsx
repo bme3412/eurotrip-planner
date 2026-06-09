@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Sparkles, Check } from 'lucide-react';
-import OlivierMark from './OlivierMark';
+import AgentMark from './AgentMark';
 
 /**
  * One rich brief — time-of-day themed header, body prose, and optional structured
@@ -27,6 +27,8 @@ export default function BriefCard({
   signoff,
   meta,
   timeOfDay = 'evening',
+  persona = null,
+  handoff = null,
   children,
 }) {
   const [held, setHeld] = useState(false);
@@ -42,6 +44,12 @@ export default function BriefCard({
           <p className="font-bold leading-tight text-gray-900">{label}</p>
           {when && <p className="text-xs uppercase tracking-wide text-gray-400">{when}</p>}
         </div>
+        {persona && persona.id !== 'olivier' && (
+          <span className="ml-auto inline-flex items-center gap-1.5 text-xs font-medium text-gray-400">
+            <AgentMark persona={persona} size={18} />
+            from {persona.name} · Olivier&apos;s network
+          </span>
+        )}
       </header>
 
       {children && <div className="mt-4">{children}</div>}
@@ -56,7 +64,10 @@ export default function BriefCard({
       )}
 
       {tomorrowTease && (
-        <p className="mt-4 border-l-2 border-blue-200 pl-3 text-sm italic text-gray-500">{tomorrowTease}</p>
+        <p className="mt-4 flex items-start gap-2 border-l-2 border-blue-200 pl-3 text-sm italic text-gray-500">
+          {handoff?.toPersona && <AgentMark persona={handoff.toPersona} size={18} title={handoff.toPersona.intro} className="mt-0.5" />}
+          <span>{tomorrowTease}</span>
+        </p>
       )}
 
       {decision && (
@@ -89,7 +100,7 @@ export default function BriefCard({
 
       {signoff && (
         <div className="mt-5 flex items-center gap-2 text-sm font-medium text-gray-500">
-          <OlivierMark size={22} />
+          <AgentMark persona={persona || undefined} size={22} />
           <span className="font-display italic text-gray-600">{signoff}</span>
         </div>
       )}

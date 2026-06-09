@@ -26,7 +26,7 @@ export default function ConciergeTeaser() {
           {/* Left: the pitch + daily rhythm */}
           <div>
             <SectionHeading
-              eyebrow="Coming soon · Olivier, your concierge"
+              eyebrow="Coming soon · Olivier, your travel agent"
               title="Like knowing someone in every city."
               subtitle="Olivier already has your itinerary. He knows when the rain's coming, which entrance has the shorter line, and the café just off the tourist drag — and he tells you the night before, not when you finally think to ask."
               className="mb-8"

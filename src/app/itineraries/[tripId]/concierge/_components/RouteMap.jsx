@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Navigation, Footprints } from 'lucide-react';
+import { directionsUrl, placeParam } from '@/lib/concierge/mapsLink';
 
 /**
  * The "first leg" module. When the activity has coordinates we show a real Mapbox
@@ -9,12 +10,13 @@ import { Navigation, Footprints } from 'lucide-react';
  * gradient — we render a clean depart-by panel with the route note. Never a
  * broken tile.
  */
-export default function RouteMap({ firstActivity, departBy, routeNote }) {
+export default function RouteMap({ firstActivity, departBy, routeNote, cityName }) {
   const [imgOk, setImgOk] = useState(true);
   const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
   const lat = firstActivity?.lat;
   const lng = firstActivity?.lng;
   const canMap = imgOk && token && Number.isFinite(lat) && Number.isFinite(lng);
+  const navUrl = directionsUrl({ destination: placeParam(firstActivity, cityName), travelmode: 'transit' });
 
   if (canMap) {
     const src = `https://api.mapbox.com/styles/v1/mapbox/light-v11/static/pin-l+1e63e9(${lng},${lat})/${lng},${lat},13,0/640x280@2x?access_token=${token}`;
@@ -32,6 +34,16 @@ export default function RouteMap({ firstActivity, departBy, routeNote }) {
             <Navigation className="h-3.5 w-3.5" />
             {departBy ? `Leave by ${departBy}` : 'Your first leg'}
             {firstActivity?.name && <span className="font-normal text-white/85">· {firstActivity.name}</span>}
+            {navUrl && (
+              <a
+                href={navUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-auto rounded-full bg-white/20 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-sm transition hover:bg-white/30"
+              >
+                Directions
+              </a>
+            )}
           </div>
           {routeNote && <p className="mt-0.5 text-[11px] leading-snug text-white/85">{routeNote}</p>}
         </div>
@@ -53,6 +65,16 @@ export default function RouteMap({ firstActivity, departBy, routeNote }) {
           </p>
           {routeNote && <p className="text-xs leading-snug text-gray-600">{routeNote}</p>}
         </div>
+        {navUrl && (
+          <a
+            href={navUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-auto shrink-0 rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-blue-700 shadow-sm ring-1 ring-blue-100 transition hover:shadow"
+          >
+            Directions
+          </a>
+        )}
       </div>
     </div>
   );
