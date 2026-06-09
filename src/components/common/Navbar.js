@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import { Disclosure } from '@headlessui/react';
 import SearchBar from './SearchBar';
+import ConciergeBell from './ConciergeBell';
 
 // Heavy routes — disable default prefetch, warm on hover
 const NAV_LINKS = [
@@ -88,6 +89,7 @@ export default function Navbar() {
               {/* Search + auth + mobile hamburger */}
               <div className="flex items-center gap-3">
                 <SearchBar />
+                {user && <ConciergeBell />}
                 {authError && (
                   <span className="hidden max-w-[220px] truncate text-xs text-red-600 lg:inline">
                     {authError}
