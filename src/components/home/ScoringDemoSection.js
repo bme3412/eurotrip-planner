@@ -4,6 +4,7 @@ import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import defaultCityCalendar from '@/generated/defaultCityCalendar.json';
 import cityCalendarIndex from '@/generated/cityCalendarIndex.json';
 import { getCountryFlag } from '@/utils/countryFlags';
+import SectionHeading from './SectionHeading';
 
 const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const MONTH_KEYS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
@@ -254,18 +255,15 @@ export default function ScoringDemoSection() {
   const hoveredColors = hovered ? SCORE_COLORS[hovered.score] : null;
 
   return (
-    <section className="px-6 py-20 bg-white text-gray-900 overflow-hidden">
+    <section className="px-6 py-20 md:py-28 bg-white text-gray-900 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="max-w-2xl mb-8">
-          <div className="flex items-center gap-2 text-blue-600 font-bold text-xs uppercase tracking-widest mb-3">
-            <span className="w-8 h-px bg-blue-500"></span>
-            The Right Time Changes Everything
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-gray-900">
-            Same city. Completely different trip.
-          </h2>
-          <div className="text-gray-600 text-lg leading-relaxed">
+        <div className="mb-10">
+          <SectionHeading
+            eyebrow="The right time changes everything"
+            title="Same city. Completely different trip."
+          />
+          <div className="max-w-2xl mt-4 text-gray-600 text-lg leading-relaxed">
             Here&apos;s{' '}
             <CityNameDropdown activeSlug={activeSlug} activeName={calendar?.name} onPick={loadCity} />
             &apos;s visit score, day by day, across the full year. Tap the city name to compare any of our 220 cities.

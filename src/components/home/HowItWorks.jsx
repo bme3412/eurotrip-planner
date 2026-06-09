@@ -1,6 +1,7 @@
 'use client';
 
 import { Check, Loader2, ArrowRight } from 'lucide-react';
+import SectionHeading from './SectionHeading';
 
 const DONE_STEPS = [
   <>Mapped the route · Paris → Berlin → Kraków → Nice</>,
@@ -11,23 +12,19 @@ const DONE_STEPS = [
 
 export default function HowItWorks({ onScrollToDatePicker }) {
   return (
-    <section className="px-6 py-20 bg-gray-50 border-t border-gray-100">
+    <section className="px-6 py-20 md:py-28 bg-slate-50 border-t border-gray-100">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-10">
-          <div className="text-blue-600 font-bold text-xs uppercase tracking-widest mb-4">
-            The Planner
-          </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
-            Describe the trip. Watch it build itself.
-          </h2>
-          <p className="mt-4 text-lg text-gray-500">
-            It doesn&apos;t hand you a list to sort through — it does the work.
-          </p>
-        </div>
+        <SectionHeading
+          align="center"
+          eyebrow="The Planner"
+          title="Describe the trip. Watch it build itself."
+          subtitle="It doesn't hand you a list to sort through — it does the work."
+          className="mb-10"
+        />
 
         {/* Planner card */}
-        <div className="rounded-2xl bg-white border border-gray-200 shadow-sm p-6 sm:p-8">
+        <div className="rounded-2xl bg-white border border-gray-200/80 shadow-sm p-6 sm:p-8">
           {/* Prompt */}
           <div className="flex items-start gap-4">
             <span className="text-sm font-medium text-gray-400 pt-0.5">You</span>
