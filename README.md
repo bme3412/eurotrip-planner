@@ -1,6 +1,6 @@
 # Eurotrip Planner
 
-A Next.js application for planning European travel, featuring AI-powered itinerary generation, city guides with curated experiences, and integration with Google Places for real-time photos.
+A Next.js application for planning European travel, featuring AI-powered itinerary generation, city guides with curated experiences, real-time photos via Google Places, and **Olivier — a white-glove AI concierge** that sends scheduled, timezone-aware daily briefs (in-app, Web Push, email) and proactive weather alerts for your active trips.
 
 ## Architecture
 
@@ -95,17 +95,38 @@ Create `.env.local` with:
 
 ```env
 GOOGLE_PLACES_API_KEY=your_key_here
+ANTHROPIC_API_KEY=your_anthropic_key_here   # Claude — planner + concierge generation
+NEXT_PUBLIC_MAPBOX_TOKEN=your_mapbox_token_here
 
-# Supabase (auth + saved trips / wishlist persistence)
+# Supabase (auth + saved trips / wishlist + concierge persistence)
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key_here
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
 
-# Optional: CDN for static assets and city data
+# Concierge — scheduling (Inngest). Local dev uses INNGEST_DEV=1 instead of keys.
+INNGEST_EVENT_KEY=your_inngest_event_key
+INNGEST_SIGNING_KEY=your_inngest_signing_key
+
+# Concierge — Web Push (VAPID). Generate: node -e "console.log(require('web-push').generateVAPIDKeys())"
+VAPID_SUBJECT=mailto:you@yourdomain.com
+VAPID_PUBLIC_KEY=...
+VAPID_PRIVATE_KEY=...
+NEXT_PUBLIC_VAPID_PUBLIC_KEY=...            # = VAPID_PUBLIC_KEY
+
+# Concierge — email (Resend) + reactive weather
+RESEND_API_KEY=your_resend_key
+FROM_EMAIL=Olivier <briefing@yourdomain.com>
+OPENWEATHERMAP_API_KEY=your_owm_key         # reactive forecast monitor (v3)
+
+# Optional: brief cache (Upstash Redis) + CDN for static assets/city data
+UPSTASH_REDIS_REST_URL=...
+UPSTASH_REDIS_REST_TOKEN=...
 NEXT_PUBLIC_CDN_URL=https://your-distribution.cloudfront.net
 ```
 
-See `.env.example` for the full set.
+Everything concierge-related degrades gracefully when its key is unset, so the
+core app runs with just Google Places + Supabase. See `.env.example` and
+[`CONCIERGE_RUNBOOK.md`](CONCIERGE_RUNBOOK.md) for the full set.
 
 ## Features
 
@@ -137,6 +158,35 @@ Search and compare 220+ European cities with:
 - **Start Planning** - Create new trips with AI assistance
 - **Saved Trips** - View and manage saved itineraries
 - **Roulette** - Random city selection for spontaneous travelers
+
+### Concierge — "Olivier" (`/itineraries/[tripId]/concierge`)
+
+A white-glove AI concierge wrapped around a saved trip. **Code owns the facts**
+(times, weather, depart-by, the day's schedule, cadence); **Claude owns the voice**.
+
+- **Personalized preview** — a rich, grounded taste of the daily rhythm built from
+  the trip's real Day 1: an Evening Brief / Morning Wake-up / Wind-down (each with a
+  glanceable push line, a "one delight", a decision prompt, the whole-day schedule,
+  and a weather strip), a reactive "simulate a rainy afternoon" demo, a pre-seeded
+  "Ask Olivier" chat, and the whole-trip rhythm timeline.
+- **Real, autonomous delivery** — once a user opts in, Olivier sends the three daily
+  beats on his own at the right **local time** per trip, across three channels:
+  - **In-app** — a live navbar bell (Supabase Realtime).
+  - **Web Push** — service worker + VAPID (`public/sw.js`).
+  - **Email** — a designed Evening-Brief email via Resend.
+- **Reactive (v3)** — a weather monitor checks each active trip's tomorrow; a material
+  change (e.g. rain moving into an outdoor window) fires a proactive "the day changed"
+  alert with a proposed reshuffle.
+
+**Architecture:** generation lives in `src/lib/concierge/*`; delivery in
+`notify.js`; scheduling + fan-out + retries via **Inngest** functions
+(`src/inngest/functions/*`, served at `/api/inngest`); state in Supabase
+(`concierge_preferences`, `concierge_notifications`, `push_subscriptions` — migrations
+`0008`/`0009`).
+
+> **To run it in production**, follow [`CONCIERGE_RUNBOOK.md`](CONCIERGE_RUNBOOK.md)
+> (migrations + Inngest + VAPID + Resend). Design rationale is in
+> [`CONCIERGE_PLAN.md`](CONCIERGE_PLAN.md).
 
 ## City Data Structure
 
@@ -435,9 +485,12 @@ A Husky `pre-commit` hook runs `eslint --fix` against staged source files via
 
 ## Tech Stack
 
-- **Framework**: Next.js 15 (App Router), React 18 (`useTransition` for tab navigation)
+- **Framework**: Next.js 15 (App Router), React 19
 - **Styling**: Tailwind CSS
 - **Maps**: Mapbox GL
-- **APIs**: Google Places (New), OpenAI/Anthropic
-- **Auth + Database**: Supabase (auth, saved trips, wishlist)
+- **AI**: Claude (Anthropic) — itinerary generation + concierge voice
+- **APIs**: Google Places (New), OpenWeatherMap (reactive forecasts)
+- **Auth + Database**: Supabase (auth, saved trips, wishlist, concierge state + Realtime)
+- **Concierge backend**: Inngest (timezone-aware scheduling + fan-out + retries), Web Push (VAPID), Resend (email)
+- **Cache**: Upstash Redis (optional, brief caching)
 - **Hosting**: Vercel
