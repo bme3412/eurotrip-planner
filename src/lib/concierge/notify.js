@@ -2,6 +2,7 @@ import { getSupabaseAdmin } from '@/lib/supabase/server';
 import { getTripWithDetails } from '@/lib/trips/tripsRepository';
 import { generateConciergeDay } from '@/lib/concierge/generateBrief';
 import { pushToUser } from '@/lib/concierge/webpush';
+import { sendBriefEmail } from '@/lib/concierge/email';
 
 // Channel-agnostic concierge send pipeline. Today it delivers in-app by inserting
 // a row into concierge_notifications (Supabase Realtime fans it out to the live
@@ -59,6 +60,17 @@ export async function sendConciergeBrief({ tripId, dayNumber = null, type = 'eve
     return { ok: false, reason: 'insert_failed' };
   }
 
+  // The user's channel preferences (best-effort — defaults are safe).
+  let prefs = {};
+  try {
+    const { data: pref } = await supabase
+      .from('concierge_preferences')
+      .select('email_enabled')
+      .eq('user_id', trip.user_id)
+      .maybeSingle();
+    prefs = pref || {};
+  } catch { /* table/row may be absent — treat as no email */ }
+
   // Web Push (best-effort) — the in-app row above is the durable record.
   let push = { sent: 0 };
   try {
@@ -71,7 +83,16 @@ export async function sendConciergeBrief({ tripId, dayNumber = null, type = 'eve
     console.error('[concierge/notify] push failed:', err?.message);
   }
 
-  // Phase 4: email here (best-effort).
+  // Email — only the evening brief (don't email all three beats), only if opted in.
+  let email = { sent: false, skipped: type !== 'evening_brief' ? 'not_evening' : !prefs.email_enabled ? 'not_opted_in' : 'no_email' };
+  if (type === 'evening_brief' && prefs.email_enabled && trip.user_email) {
+    try {
+      email = await sendBriefEmail({ to: trip.user_email, day, cityName: day.cityName });
+    } catch (err) {
+      console.error('[concierge/notify] email failed:', err?.message);
+      email = { sent: false, skipped: 'error' };
+    }
+  }
 
-  return { ok: true, notification: data, push };
+  return { ok: true, notification: data, push, email };
 }

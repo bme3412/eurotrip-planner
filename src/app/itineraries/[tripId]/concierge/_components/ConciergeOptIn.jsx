@@ -55,7 +55,9 @@ export default function ConciergeOptIn({ tripId }) {
     setEnabled(next);
     setSaving(true);
     try {
-      await savePrefs({ enabled: next });
+      // Enabling Olivier opts into the daily briefs, email included (your own
+      // trip only). Disabling turns email off too.
+      await savePrefs({ enabled: next, email_enabled: next });
       // On enable, also try to light up push on this device (best-effort).
       if (next && pushState !== 'on' && pushState !== 'unsupported') {
         setPushState('working');
@@ -144,7 +146,8 @@ export default function ConciergeOptIn({ tripId }) {
       )}
 
       <p className="mt-3 text-xs text-gray-400">
-        He&apos;ll send these on his own at the right local time once scheduling is live for your account.
+        You&apos;ll get the evening brief in the bell and by email; turn on push for your phone too.
+        He sends on his own at the right local time once scheduling is live for your account.
       </p>
     </div>
   );
