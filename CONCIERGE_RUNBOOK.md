@@ -40,6 +40,7 @@ Inngest hourly cron (conciergeTick)
 | `NEXT_PUBLIC_VAPID_PUBLIC_KEY` | client | push subscribe | for Web Push |
 | `RESEND_API_KEY` | server | email delivery | for email |
 | `FROM_EMAIL` | server | e.g. `Olivier <briefing@yourdomain.com>` | for email |
+| `OPENWEATHERMAP_API_KEY` | server | reactive forecast monitor (v3) | for reactive alerts |
 | `UPSTASH_REDIS_REST_URL` / `..._TOKEN` | server | brief cache (optional) | optional |
 | `NEXT_PUBLIC_MAPBOX_TOKEN` | client | route map thumbnails | optional |
 
@@ -108,10 +109,15 @@ Open the Inngest dev UI (http://localhost:8288) to invoke functions and watch ru
 
 ---
 
-## Not done yet (v3 — reactive layer)
+## Reactive layer (v3)
 
-Deliberately deferred: signal monitors (weather/transit) → a materiality check →
-proactive "the day changed" alerts. The Inngest substrate chosen here is exactly
-what makes that event-driven layer clean to add. The preview page already
-*demonstrates* the reactive beat ("simulate a rainy afternoon"); v3 wires it to
-real signals.
+**Weather reactivity is built.** `conciergeWeatherWatch` (Inngest cron, twice daily)
+scans each active trip's *tomorrow*; a conservative materiality check
+(`src/lib/concierge/materiality.js` — rain ≥60% in a daytime window that's a
+departure from the month's norm, or severe weather) fires `concierge/reactive.due`,
+and `conciergeReactiveSend` generates a schedule-aware "the day changed" alert.
+**To enable: set `OPENWEATHERMAP_API_KEY`** (without it the scan no-ops). Delivers
+in-app + push (no email).
+
+Still future: transit/strike monitors, popular-times signals, and a smarter
+materiality classifier. The event-driven Inngest substrate makes these additive.

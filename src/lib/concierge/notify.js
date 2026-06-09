@@ -1,6 +1,8 @@
 import { getSupabaseAdmin } from '@/lib/supabase/server';
 import { getTripWithDetails } from '@/lib/trips/tripsRepository';
 import { generateConciergeDay } from '@/lib/concierge/generateBrief';
+import { buildConciergeContext } from '@/lib/concierge/buildContext';
+import { generateReactiveAlert } from '@/lib/concierge/generateReactive';
 import { pushToUser } from '@/lib/concierge/webpush';
 import { sendBriefEmail } from '@/lib/concierge/email';
 
@@ -95,4 +97,61 @@ export async function sendConciergeBrief({ tripId, dayNumber = null, type = 'eve
   }
 
   return { ok: true, notification: data, push, email };
+}
+
+/**
+ * Deliver a proactive reactive alert (the v3 "the day changed" beat) for a real
+ * detected signal. In-app + push (urgent); no email. Idempotent per
+ * (user, trip, day, 'reactive') — re-detecting refreshes in place.
+ *
+ * @param {object} args
+ * @param {string} args.tripId
+ * @param {number} args.dayNumber  the affected day
+ * @param {object} args.signal     materiality signal from assessWeatherChange
+ */
+export async function sendReactiveAlert({ tripId, dayNumber, signal }) {
+  const trip = await getTripWithDetails(tripId);
+  if (!trip) return { ok: false, reason: 'trip_not_found' };
+  if (!trip.user_id && !trip.user_email) return { ok: false, reason: 'trip_unowned' };
+
+  const ctx = buildConciergeContext(trip, { dayNumber });
+  const d = ctx.selectedDay;
+  if (!d) return { ok: false, reason: 'no_day' };
+
+  const alert = await generateReactiveAlert(
+    { cityName: d.cityName, dateLabel: d.dateLabel, schedule: d.schedule },
+    signal
+  );
+
+  const title = `Heads up · ${d.cityName || trip.city || 'your trip'}`;
+  const row = {
+    user_id: trip.user_id,
+    user_email: trip.user_email,
+    trip_id: tripId,
+    day_number: d.dayNumber ?? dayNumber ?? null,
+    type: 'reactive',
+    title,
+    body: alert.body,
+    meta: { reactive: alert, signal, cityName: d.cityName, dateLabel: d.dateLabel },
+  };
+
+  const supabase = await getSupabaseAdmin();
+  const { data, error } = await supabase
+    .from('concierge_notifications')
+    .upsert(row, { onConflict: 'user_id,trip_id,day_number,type' })
+    .select()
+    .single();
+  if (error) {
+    console.error('[concierge/notify] reactive insert failed:', error.message);
+    return { ok: false, reason: 'insert_failed' };
+  }
+
+  let push = { sent: 0 };
+  try {
+    push = await pushToUser(trip.user_id, { title, body: alert.body, url: `/itineraries/${tripId}/concierge` });
+  } catch (err) {
+    console.error('[concierge/notify] reactive push failed:', err?.message);
+  }
+
+  return { ok: true, notification: data, push };
 }
