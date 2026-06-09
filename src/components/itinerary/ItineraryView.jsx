@@ -6,7 +6,7 @@ import { MapPin, Clock, Wallet, PartyPopper, CloudRain, Plane, Utensils, Footpri
 import ActivityImage from './ActivityImage';
 import SeasonStrip from './SeasonStrip';
 import ArrivalLogistics from './arrival/ArrivalLogistics';
-import { tokens, slotMeta, citySegments, fmtDate, cityGradient, ACCENT, FlightBanner, flightLabel } from './shared';
+import { tokens, slotMeta, citySegments, fmtDate, cityGradient, ACCENT, FlightBanner, flightLabel, richText } from './shared';
 
 const ItineraryMap = dynamic(
   () => import('@/app/itineraries/[tripId]/ItineraryMap'),
@@ -125,7 +125,7 @@ function ActivityRow({ block, citySlug, cityName, showPhotos, t }) {
             </span>
           )}
         </h4>
-        {a.description && <p className={`mt-1 text-sm leading-relaxed ${t.body}`}>{a.description}</p>}
+        {a.description && <p className={`mt-1 text-sm leading-relaxed ${t.body}`}>{richText(a.description)}</p>}
         <Chips a={a} t={t} />
         {a.weatherBackup && (
           <p className="mt-2 inline-flex items-start gap-1.5 rounded-lg bg-sky-500/10 px-2.5 py-1.5 text-xs text-sky-600 ring-1 ring-sky-500/20">

@@ -7,6 +7,20 @@ import { Plane } from 'lucide-react';
 
 export const ACCENT = '#1e63e9'; // app blue (--eu-blue) — congruent with the rest of the app
 
+/**
+ * Render inline `**bold**` markdown (curated descriptions use it) as <strong>,
+ * instead of showing literal asterisks. Returns a string unchanged when there's
+ * no markup, else an array of strings/elements safe to drop into JSX.
+ */
+export function richText(s) {
+  if (!s || typeof s !== 'string' || !s.includes('**')) return s;
+  return s.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+    part.length > 4 && part.startsWith('**') && part.endsWith('**')
+      ? <strong key={i}>{part.slice(2, -2)}</strong>
+      : part,
+  );
+}
+
 /** "DELTA 8723" from a booking, or "". */
 export function flightLabel(b) {
   return [b?.provider, b?.flightNumber].filter(Boolean).join(' ');
