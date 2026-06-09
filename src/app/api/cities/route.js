@@ -57,10 +57,9 @@ export async function GET(request) {
   } catch (error) {
     console.error('Error in cities API:', error);
     return NextResponse.json(
-      { 
-        success: false, 
+      {
+        success: false,
         error: 'Failed to fetch cities',
-        message: error.message 
       },
       { status: 500 }
     );

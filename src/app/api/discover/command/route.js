@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
-import { enforceAnonymousRateLimit, RATE_LIMITS } from '@/lib/rateLimit';
+import { enforceRateLimit, RATE_LIMITS } from '@/lib/rateLimit';
 
 export const runtime = 'nodejs';
 
@@ -47,7 +47,7 @@ const TOOL = {
 };
 
 export async function POST(request) {
-  const limited = await enforceAnonymousRateLimit(request, {
+  const limited = await enforceRateLimit(request, {
     route: 'discover-command',
     ...RATE_LIMITS.discoverCommand,
   });

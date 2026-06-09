@@ -1,12 +1,13 @@
 /**
- * Lightweight rate limiting for expensive anonymous API routes.
+ * Lightweight rate limiting for expensive API routes (LLM calls, generation).
  * Uses Upstash Redis when configured; falls back to a per-instance memory map
  * (weaker on serverless, but blocks obvious burst abuse in dev).
  *
- * Signed-in callers (Bearer token present) are not limited here — trip APIs
- * already enforce ownership separately.
+ * Every caller is limited: signed-in callers are keyed by a hash of their
+ * bearer token and get a higher allowance; anonymous callers are keyed by IP.
  */
 
+import { createHash } from 'node:crypto';
 import { Redis } from '@upstash/redis';
 
 let redis = null;
@@ -26,9 +27,9 @@ export function getClientIp(request) {
   return request.headers.get('x-real-ip') || 'unknown';
 }
 
-function hasBearerAuth(request) {
+function getBearerToken(request) {
   const header = request.headers.get('authorization') || '';
-  return /^Bearer\s+\S+/i.test(header);
+  return header.match(/^Bearer\s+(\S+)/i)?.[1] || null;
 }
 
 async function consumeToken(key, limit, windowSec) {
@@ -58,22 +59,33 @@ async function consumeToken(key, limit, windowSec) {
 }
 
 /**
- * Rate-limit anonymous callers. Returns a 429 Response/NextResponse, or null if OK.
+ * Rate-limit a request. Returns a 429 Response, or null if OK.
+ *
+ * Signed-in callers are keyed per session (hash of the bearer token — no auth
+ * round-trip needed) and allowed `authedLimit` requests per window, defaulting
+ * to 4x the anonymous limit. The token is not verified here; routes that need
+ * real auth still enforce it themselves, and an invalid token only buys an
+ * attacker a per-token bucket, the same as rotating IPs.
  *
  * @param {Request} request
- * @param {{ route: string, limit?: number, windowSec?: number }} options
+ * @param {{ route: string, limit?: number, windowSec?: number, authedLimit?: number }} options
  * @returns {Promise<Response|null>}
  */
-export async function enforceAnonymousRateLimit(request, { route, limit = 30, windowSec = 3600 }) {
-  if (hasBearerAuth(request)) return null;
-
-  const ip = getClientIp(request);
-  const key = `rl:${route}:${ip}`;
-  const { allowed, retryAfter, remaining } = await consumeToken(key, limit, windowSec);
+export async function enforceRateLimit(request, { route, limit = 30, windowSec = 3600, authedLimit = null }) {
+  const token = getBearerToken(request);
+  const effectiveLimit = token ? (authedLimit ?? limit * 4) : limit;
+  const suffix = token
+    ? `u:${createHash('sha256').update(token).digest('hex').slice(0, 16)}`
+    : `ip:${getClientIp(request)}`;
+  const key = `rl:${route}:${suffix}`;
+  const { allowed, retryAfter, remaining } = await consumeToken(key, effectiveLimit, windowSec);
 
   if (!allowed) {
+    const message = token
+      ? 'Too many requests. Please try again later.'
+      : 'Too many requests. Sign in for higher limits, or try again later.';
     return Response.json(
-      { error: 'Too many requests. Sign in for higher limits, or try again later.' },
+      { error: message },
       {
         status: 429,
         headers: {
@@ -88,9 +100,12 @@ export async function enforceAnonymousRateLimit(request, { route, limit = 30, wi
   return null;
 }
 
-/** Preset limits for expensive routes. */
+/** Preset limits for expensive routes (anonymous; signed-in callers get 4x). */
 export const RATE_LIMITS = {
   conversation: { limit: 24, windowSec: 3600 },
   tripsGenerate: { limit: 8, windowSec: 3600 },
   discoverCommand: { limit: 60, windowSec: 3600 },
+  conciergeAsk: { limit: 20, windowSec: 3600 },
+  conciergeBrief: { limit: 40, windowSec: 3600 },
+  planAgent: { limit: 15, windowSec: 3600 },
 };

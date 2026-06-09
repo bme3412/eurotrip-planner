@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 import { buildConciergeContext } from '@/lib/concierge/buildContext';
 import { requireTripReadAccess } from '@/lib/trips/requireTripAccess';
+import { enforceRateLimit, RATE_LIMITS } from '@/lib/rateLimit';
 
 export const runtime = 'nodejs';
 export const maxDuration = 30;
@@ -18,6 +19,12 @@ const LLM_TIMEOUT_MS = 22000;
  */
 export async function POST(request, { params }) {
   const { id: tripId } = await params;
+
+  const limited = await enforceRateLimit(request, {
+    route: 'concierge-ask',
+    ...RATE_LIMITS.conciergeAsk,
+  });
+  if (limited) return limited;
 
   let body = {};
   try { body = await request.json(); } catch { /* */ }

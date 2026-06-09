@@ -24,6 +24,7 @@ import {
   buildToolSummary,
 } from '@/lib/planning/agentTools';
 import { requireTripWriteAccess } from '@/lib/trips/requireTripAccess';
+import { enforceRateLimit, RATE_LIMITS } from '@/lib/rateLimit';
 import OpenAI from 'openai';
 
 export const runtime = 'nodejs';
@@ -35,6 +36,12 @@ function sseEvent(type, data) {
 }
 
 export async function POST(request) {
+  const limited = await enforceRateLimit(request, {
+    route: 'plan-agent',
+    ...RATE_LIMITS.planAgent,
+  });
+  if (limited) return limited;
+
   if (!process.env.OPENAI_API_KEY) {
     return new Response(
       sseEvent('error', { message: 'OPENAI_API_KEY is not configured' }),

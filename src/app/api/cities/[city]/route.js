@@ -31,8 +31,12 @@ export async function GET(request, { params }) {
 
     const { searchParams } = new URL(request.url);
     const shouldEnrich = searchParams.get('enrich') === 'true';
-    const debug = searchParams.get('debug') === 'true';
-    const includeDiagnostics = debug || process.env.NODE_ENV !== 'production';
+    // Diagnostics (and the cache-busting debug flag) are dev-only: in
+    // production the query param must not expose internal error details or
+    // bypass the enrichment cache.
+    const isProd = process.env.NODE_ENV === 'production';
+    const debug = !isProd && searchParams.get('debug') === 'true';
+    const includeDiagnostics = !isProd;
 
     // data-utils returns attractions as a flat array; handle both shapes
     const attractionSites = Array.isArray(cityData.attractions)

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { generateConciergeDay } from '@/lib/concierge/generateBrief';
 import { requireTripReadAccess } from '@/lib/trips/requireTripAccess';
+import { enforceRateLimit, RATE_LIMITS } from '@/lib/rateLimit';
 
 export const runtime = 'nodejs';
 // The rich brief LLM call runs ~19s; without this Vercel kills the function at
@@ -15,6 +16,12 @@ export const maxDuration = 60;
  */
 export async function POST(request, { params }) {
   const { id: tripId } = await params;
+
+  const limited = await enforceRateLimit(request, {
+    route: 'concierge-brief',
+    ...RATE_LIMITS.conciergeBrief,
+  });
+  if (limited) return limited;
 
   const { trip, response } = await requireTripReadAccess(request, tripId);
   if (response) return response;

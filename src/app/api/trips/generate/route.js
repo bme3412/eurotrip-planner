@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { enforceAnonymousRateLimit, RATE_LIMITS } from '@/lib/rateLimit';
+import { enforceRateLimit, RATE_LIMITS } from '@/lib/rateLimit';
 import { buildMultiCityItinerary } from '@/lib/planning/buildMultiCityItinerary';
 import { optimizeRoute } from '@/lib/planning/routeOptimizer';
 import { deriveTripWindow, accommodationsByCity, getBookings } from '@/lib/planning/tripBookings';
@@ -30,7 +30,7 @@ function nightsBetween(start, end) {
  * }
  */
 export async function POST(request) {
-  const limited = await enforceAnonymousRateLimit(request, {
+  const limited = await enforceRateLimit(request, {
     route: 'trips-generate',
     ...RATE_LIMITS.tripsGenerate,
   });

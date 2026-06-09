@@ -6,11 +6,15 @@
  * render success/failure.
  *
  * Refuses to run in production (responds 404) so it cannot accidentally be
- * exposed to a public deployment.
+ * exposed to a public deployment. Outside production it additionally requires
+ * either a matching ADMIN_REFRESH_TOKEN bearer token or, when no token is
+ * configured, a loopback Host — a dev server exposed on the LAN must not
+ * accept unauthenticated requests that spawn child processes.
  */
 import { NextResponse } from 'next/server';
 import { spawn } from 'node:child_process';
 import { resolve } from 'node:path';
+import { timingSafeEqual } from 'node:crypto';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -41,9 +45,26 @@ function runCli(args, timeoutMs = 120_000) {
   });
 }
 
+function isAuthorized(request) {
+  const configured = process.env.ADMIN_REFRESH_TOKEN || '';
+  if (configured) {
+    const header = request.headers.get('authorization') || '';
+    const supplied = header.match(/^Bearer\s+(.+)$/i)?.[1]?.trim() || '';
+    const a = Buffer.from(supplied);
+    const b = Buffer.from(configured);
+    return a.length === b.length && timingSafeEqual(a, b);
+  }
+  const host = (request.headers.get('host') || '').split(':')[0];
+  return host === 'localhost' || host === '127.0.0.1' || host === '::1';
+}
+
 export async function POST(request) {
   if (process.env.NODE_ENV === 'production') {
     return NextResponse.json({ ok: false, error: 'not_found' }, { status: 404 });
+  }
+
+  if (!isAuthorized(request)) {
+    return NextResponse.json({ ok: false, message: 'Unauthorized' }, { status: 401 });
   }
 
   let body;
