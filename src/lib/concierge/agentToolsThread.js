@@ -6,6 +6,7 @@ import { getCityVisitCalendar } from '@/lib/data-utils';
 import { extractWeather } from '@/app/itineraries/[tripId]/_lib/buildPlan';
 import { legLinks } from './mapsLink';
 import { rememberFact } from './memories';
+import { buildProposal } from './tripActions';
 
 export const AGENT_TOOLS = [
   {
@@ -35,6 +36,23 @@ export const AGENT_TOOLS = [
       type: 'object',
       properties: { dayNumber: { type: 'integer', description: 'The trip day number.' } },
       required: ['dayNumber'],
+    },
+  },
+  {
+    name: 'propose_itinerary_change',
+    description:
+      'Propose a concrete change to the itinerary: move a stop to a new time/day, skip a stop, swap two days, or add a note to a day. The traveler sees the proposal with an Apply button — NOTHING changes until they tap it, so never claim a change is done; say it’s ready to apply. Propose ONE change per message.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        action: { type: 'string', enum: ['move_activity', 'remove_activity', 'swap_days', 'add_note'] },
+        dayNumber: { type: 'integer', description: 'The day the change starts from.' },
+        activityName: { type: 'string', description: 'For move/remove: the stop’s name as it appears in the schedule.' },
+        toDayNumber: { type: 'integer', description: 'For move (different day) or swap_days (the other day).' },
+        toTime: { type: 'string', description: 'For move: new start time, HH:MM 24h.' },
+        note: { type: 'string', description: 'For add_note: the note text.' },
+      },
+      required: ['action', 'dayNumber'],
     },
   },
   {
@@ -97,6 +115,13 @@ export async function execAgentTool(name, input = {}, env) {
         const legs = legLinks(d.schedule || [], { cityName: d.cityName }).filter((l) => l.url);
         if (!legs.length) return { note: 'No mappable stops on this day.' };
         return { dayNumber: d.dayNumber, legs };
+      }
+      case 'propose_itinerary_change': {
+        const { proposal, error } = buildProposal(env.trip, input);
+        if (error) return { error };
+        // The route spots `proposal` on the result, emits the SSE event, and
+        // persists it on the message for the Apply flow.
+        return { ok: true, proposal, awaiting: 'The traveler must tap Apply — tell them it’s ready, do not claim it’s done.' };
       }
       case 'remember': {
         const res = await rememberFact(supabase, {
