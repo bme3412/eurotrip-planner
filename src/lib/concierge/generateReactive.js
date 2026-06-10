@@ -1,5 +1,6 @@
 import { getAnthropicClient } from '@/lib/llm/clients';
 import { resolvePersona, PERSONA_GUARDRAILS } from '@/lib/concierge/personas';
+import { logLlmUsage } from '@/lib/llm/usageLog';
 
 // Generates Olivier's proactive "the day changed" alert from a REAL detected
 // signal (unlike the generic reactive example in the daily brief). Grounded in the
@@ -77,6 +78,12 @@ Write a short proactive heads-up: name what changed, and propose ONE concrete re
       },
       { signal: controller.signal }
     );
+    logLlmUsage({
+      feature: 'concierge_reactive',
+      model: MODEL,
+      usage: resp?.usage,
+      meta: { city: ctx.cityName ?? null },
+    });
     const toolUse = resp?.content?.find((c) => c.type === 'tool_use');
     if (!toolUse?.input?.body) return fallbackReactive(signal, ctx);
     return { ...toolUse.input, source: 'llm' };

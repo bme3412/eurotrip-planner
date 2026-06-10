@@ -684,6 +684,20 @@ body {
   border-radius: 999px;
 }
 
+/* iPhone notch / home-bar safe areas (paired with viewport-fit=cover in
+   layout.js). The sticky navbar pads down from the notch; the body pads up
+   from the home indicator so fixed/bottom content stays tappable. */
+@supports (padding: env(safe-area-inset-top)) {
+  nav.sticky {
+    padding-top: env(safe-area-inset-top);
+  }
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
 /* Mobile Responsive Improvements */
 @media (max-width: 768px) {
   /* Better touch targets */

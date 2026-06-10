@@ -1,15 +1,20 @@
+'use client';
+
 import { BedDouble, Plane, Clock, Navigation } from 'lucide-react';
 import { legLinks } from '@/lib/concierge/mapsLink';
+import { useMapsPlatform } from '@/lib/concierge/useMapsPlatform';
 
 /**
  * "Your whole day" — the full stop list for the selected day plus the real
  * bookings the agent is working around. Proves they read the itinerary, not
- * just the first line. Each stop deep-links into Google Maps directions.
+ * just the first line. Each stop deep-links into directions (Apple Maps on
+ * iPhone, Google Maps elsewhere).
  */
 export default function DaySchedule({ schedule = [], hotelName, arrival, cityName, persona }) {
+  const platform = useMapsPlatform();
   if (!schedule.length && !hotelName && !arrival) return null;
 
-  const legs = legLinks(schedule, { cityName });
+  const legs = legLinks(schedule, { cityName, platform });
   const agentName = persona?.name || 'Olivier';
 
   return (

@@ -119,7 +119,7 @@ function PlanContent() {
   }, []);
 
   return (
-    <div className="fixed inset-0 top-[56px] flex flex-col bg-[#faf8f5] overflow-hidden z-10">
+    <div className="fixed inset-0 top-[calc(56px+env(safe-area-inset-top))] flex flex-col bg-[#faf8f5] overflow-hidden z-10">
       {/* Top header bar */}
       <div className="flex items-center gap-4 px-4 py-2 border-b border-[#e5e0d8] shrink-0 bg-white/85 backdrop-blur">
         {/* Day strip (once trip has cities) */}

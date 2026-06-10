@@ -19,6 +19,31 @@ export function pushSupported() {
   );
 }
 
+/** iOS device, including iPadOS Safari masquerading as a Mac. */
+export function isIos() {
+  if (typeof navigator === 'undefined') return false;
+  if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) return true;
+  return /Macintosh/i.test(navigator.userAgent) && (navigator.maxTouchPoints || 0) > 1;
+}
+
+/** Running as an installed PWA (launched from the home screen). */
+export function isStandalone() {
+  if (typeof window === 'undefined') return false;
+  return window.matchMedia?.('(display-mode: standalone)')?.matches || navigator.standalone === true;
+}
+
+/**
+ * Why push isn't available here, when it isn't. iOS only exposes Web Push to
+ * installed PWAs (16.4+), so Safari-in-a-tab is an install problem, not a
+ * support problem.
+ * @returns {'ok' | 'needs_install_ios' | 'unsupported'}
+ */
+export function pushAvailability() {
+  if (pushSupported()) return 'ok';
+  if (isIos() && !isStandalone()) return 'needs_install_ios';
+  return 'unsupported';
+}
+
 /**
  * Register the SW, request permission, subscribe, and persist the subscription.
  * @returns {Promise<{ ok: boolean, reason: string }>}

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Navigation, Footprints } from 'lucide-react';
 import { directionsUrl, placeParam } from '@/lib/concierge/mapsLink';
+import { useMapsPlatform } from '@/lib/concierge/useMapsPlatform';
 
 /**
  * The "first leg" module. When the activity has coordinates we show a real Mapbox
@@ -12,11 +13,12 @@ import { directionsUrl, placeParam } from '@/lib/concierge/mapsLink';
  */
 export default function RouteMap({ firstActivity, departBy, routeNote, cityName }) {
   const [imgOk, setImgOk] = useState(true);
+  const platform = useMapsPlatform();
   const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
   const lat = firstActivity?.lat;
   const lng = firstActivity?.lng;
   const canMap = imgOk && token && Number.isFinite(lat) && Number.isFinite(lng);
-  const navUrl = directionsUrl({ destination: placeParam(firstActivity, cityName), travelmode: 'transit' });
+  const navUrl = directionsUrl({ destination: placeParam(firstActivity, cityName), travelmode: 'transit', platform });
 
   if (canMap) {
     const src = `https://api.mapbox.com/styles/v1/mapbox/light-v11/static/pin-l+1e63e9(${lng},${lat})/${lng},${lat},13,0/640x280@2x?access_token=${token}`;

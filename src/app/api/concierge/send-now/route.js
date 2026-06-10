@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
 import { getRequesterFromAuthHeader } from '@/lib/supabase/requestAuth';
+import { getSupabaseAdmin } from '@/lib/supabase/server';
 import { listTripsForUser } from '@/lib/trips/tripsRepository';
 import { sendConciergeBrief } from '@/lib/concierge/notify';
+import { isInvited } from '@/lib/concierge/invites';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60; // generates a brief
@@ -16,6 +18,19 @@ export const maxDuration = 60; // generates a brief
 export async function POST(request) {
   const { requester, response } = await getRequesterFromAuthHeader(request);
   if (response) return response;
+
+  // Closed beta: sends are invite-only even though the preview page is public.
+  const invited = await isInvited({
+    supabase: await getSupabaseAdmin(),
+    email: requester.userEmail,
+    userId: requester.userId,
+  });
+  if (!invited) {
+    return NextResponse.json(
+      { error: 'Olivier is in early access — join the waitlist and we’ll let you in soon.', code: 'not_invited' },
+      { status: 403 }
+    );
+  }
 
   let body = {};
   try { body = await request.json(); } catch { /* optional */ }

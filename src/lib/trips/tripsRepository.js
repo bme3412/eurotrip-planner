@@ -5,6 +5,7 @@
  */
 
 import { getSupabaseAdmin } from '../supabase/server';
+import { loadInviteIndex, indexHasInvite } from '../concierge/invites';
 import {
   buildTripDraftPayload,
   canPersistTripDraft,
@@ -457,10 +458,16 @@ export async function getConciergeWindowTrips() {
     if (p.user_email) byEmail.set(p.user_email, p);
   }
 
+  // Closed beta: only invited owners get scheduled sends. Opting in without an
+  // invite is allowed (RLS lets users write their own prefs) but inert.
+  const inviteIndex = await loadInviteIndex(supabase);
+
   const out = [];
   for (const trip of trips) {
     const prefs = (trip.user_id && byUserId.get(trip.user_id)) || (trip.user_email && byEmail.get(trip.user_email)) || null;
     if (!prefs) continue;
+    const email = trip.user_email || prefs.user_email || null;
+    if (!indexHasInvite(inviteIndex, { email, userId: trip.user_id })) continue;
     const full = await getTripWithDetails(trip.id);
     if (full) out.push({ trip: full, prefs });
   }

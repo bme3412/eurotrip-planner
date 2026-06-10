@@ -10,8 +10,8 @@ self.addEventListener('push', (event) => {
   const title = data.title || 'Olivier';
   const options = {
     body: data.body || '',
-    icon: data.icon || '/favicon.ico',
-    badge: '/favicon.ico',
+    icon: data.icon || '/icon-192.png',
+    badge: '/icon-192.png',
     tag: data.tag || 'concierge',
     data: { url: data.url || '/' },
   };
