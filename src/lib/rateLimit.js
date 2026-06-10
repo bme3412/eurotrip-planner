@@ -108,4 +108,5 @@ export const RATE_LIMITS = {
   conciergeAsk: { limit: 20, windowSec: 3600 },
   conciergeBrief: { limit: 40, windowSec: 3600 },
   planAgent: { limit: 15, windowSec: 3600 },
+  waitlist: { limit: 6, windowSec: 3600 },
 };

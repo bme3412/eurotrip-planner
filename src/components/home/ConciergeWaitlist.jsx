@@ -4,13 +4,9 @@ import { useState } from 'react';
 import { Check } from 'lucide-react';
 
 /**
- * Early-access capture for the concierge ("Olivier"). Shared by the home-page
- * ConciergeTeaser and the per-trip concierge preview page.
- *
- * PLACEHOLDER: the concierge backend doesn't exist yet (see CONCIERGE_PLAN.md).
- * This form is intentionally client-only — it confirms locally and stores
- * nothing. Wire the `onJoin` handler to a real endpoint (Resend / Supabase)
- * once the service ships.
+ * Early-access capture for the travel agent ("Olivier"). Shared by the
+ * home-page ConciergeTeaser and the per-trip travel-agent preview page.
+ * Signups land in concierge_waitlist via POST /api/concierge/waitlist.
  */
 
 const CHANNELS = [
@@ -21,16 +17,32 @@ const CHANNELS = [
 export default function ConciergeWaitlist({ heading = 'Get early access', className = '' }) {
   const [email, setEmail] = useState('');
   const [channels, setChannels] = useState({ push: true, email: true });
-  const [joined, setJoined] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | sending | joined
+  const [error, setError] = useState(null);
+  const joined = status === 'joined';
 
   const toggleChannel = (id) =>
     setChannels((prev) => ({ ...prev, [id]: !prev[id] }));
 
-  // Placeholder: confirm locally, send nothing. Swap for a real endpoint later.
-  const onJoin = (e) => {
+  const onJoin = async (e) => {
     e.preventDefault();
-    if (!email.trim()) return;
-    setJoined(true);
+    if (!email.trim() || status === 'sending') return;
+    setStatus('sending');
+    setError(null);
+    try {
+      const source = window.location.pathname.includes('/concierge') ? 'concierge-preview' : 'home';
+      const res = await fetch('/api/concierge/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, channels, source }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data?.error || 'Could not save your signup — try again in a moment.');
+      setStatus('joined');
+    } catch (err) {
+      setStatus('idle');
+      setError(err?.message || 'Something went wrong — try again in a moment.');
+    }
   };
 
   return (
@@ -86,10 +98,15 @@ export default function ConciergeWaitlist({ heading = 'Get early access', classN
 
           <button
             type="submit"
-            className="mt-5 w-full inline-flex items-center justify-center px-7 py-3.5 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+            disabled={status === 'sending'}
+            className="mt-5 w-full inline-flex items-center justify-center px-7 py-3.5 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-60 disabled:hover:bg-blue-600"
           >
-            Join the early list
+            {status === 'sending' ? 'Joining…' : 'Join the early list'}
           </button>
+
+          {error && (
+            <p role="alert" className="mt-3 text-sm font-medium text-red-600">{error}</p>
+          )}
 
           <p className="text-sm text-gray-400 mt-4 leading-relaxed">
             We&apos;ll only message you about your own trips. Unsubscribe anytime.
