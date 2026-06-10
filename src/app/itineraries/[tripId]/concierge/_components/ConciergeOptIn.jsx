@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Bell, BellRing, Loader2, Check, ArrowUp, Share, SquarePlus, MonitorDown } from 'lucide-react';
+import Link from 'next/link';
+import { Bell, BellRing, Loader2, Check, ArrowUp, Share, SquarePlus, MonitorDown, MessageCircle } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { getSupabaseClient } from '@/lib/supabase/client';
 import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
@@ -171,6 +172,12 @@ export default function ConciergeOptIn({ tripId }) {
       </div>
 
       <div className="mt-5 flex flex-wrap items-center gap-3">
+        <Link
+          href={`/trips/${tripId}/today`}
+          className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-bold text-blue-700 shadow-sm transition hover:border-blue-300"
+        >
+          <MessageCircle className="h-4 w-4" /> Open Trip Home
+        </Link>
         <button
           type="button"
           onClick={sendNow}

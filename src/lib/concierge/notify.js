@@ -5,6 +5,7 @@ import { buildConciergeContext } from '@/lib/concierge/buildContext';
 import { generateReactiveAlert } from '@/lib/concierge/generateReactive';
 import { pushToUser } from '@/lib/concierge/webpush';
 import { sendBriefEmail } from '@/lib/concierge/email';
+import { getOrCreateThread, appendThreadMessage } from '@/lib/concierge/thread';
 
 // Channel-agnostic concierge send pipeline. Today it delivers in-app by inserting
 // a row into concierge_notifications (Supabase Realtime fans it out to the live
@@ -62,6 +63,33 @@ export async function sendConciergeBrief({ tripId, dayNumber = null, type = 'eve
     return { ok: false, reason: 'insert_failed' };
   }
 
+  // The thread is the canonical conversation — beats post into it so the user
+  // can reply. Best-effort: the notification row above stays the durable
+  // delivery record even if the thread tables aren't migrated yet.
+  if (trip.user_id) {
+    try {
+      const { thread } = await getOrCreateThread(supabase, {
+        tripId,
+        userId: trip.user_id,
+        userEmail: trip.user_email,
+      });
+      if (thread) {
+        await appendThreadMessage(supabase, {
+          threadId: thread.id,
+          userId: trip.user_id,
+          userEmail: trip.user_email,
+          role: 'olivier',
+          kind: type,
+          dayNumber: day.dayNumber ?? null,
+          body: bodyText,
+          meta: { day, cityName: day.cityName, dateLabel: day.dateLabel },
+        });
+      }
+    } catch (err) {
+      console.error('[concierge/notify] thread append failed:', err?.message);
+    }
+  }
+
   // The user's channel preferences (best-effort — defaults are safe).
   let prefs = {};
   try {
@@ -73,13 +101,13 @@ export async function sendConciergeBrief({ tripId, dayNumber = null, type = 'eve
     prefs = pref || {};
   } catch { /* table/row may be absent — treat as no email */ }
 
-  // Web Push (best-effort) — the in-app row above is the durable record.
+  // Web Push (best-effort) — a receipt that deep-links into Trip Home's thread.
   let push = { sent: 0 };
   try {
     push = await pushToUser(trip.user_id, {
       title,
       body: bodyText,
-      url: `/itineraries/${tripId}/concierge`,
+      url: `/trips/${tripId}/today`,
     });
   } catch (err) {
     console.error('[concierge/notify] push failed:', err?.message);
@@ -146,9 +174,33 @@ export async function sendReactiveAlert({ tripId, dayNumber, signal }) {
     return { ok: false, reason: 'insert_failed' };
   }
 
+  if (trip.user_id) {
+    try {
+      const { thread } = await getOrCreateThread(supabase, {
+        tripId,
+        userId: trip.user_id,
+        userEmail: trip.user_email,
+      });
+      if (thread) {
+        await appendThreadMessage(supabase, {
+          threadId: thread.id,
+          userId: trip.user_id,
+          userEmail: trip.user_email,
+          role: 'olivier',
+          kind: 'reactive',
+          dayNumber: d.dayNumber ?? dayNumber ?? null,
+          body: alert.body,
+          meta: { reactive: alert, signal, cityName: d.cityName, dateLabel: d.dateLabel },
+        });
+      }
+    } catch (err) {
+      console.error('[concierge/notify] reactive thread append failed:', err?.message);
+    }
+  }
+
   let push = { sent: 0 };
   try {
-    push = await pushToUser(trip.user_id, { title, body: alert.body, url: `/itineraries/${tripId}/concierge` });
+    push = await pushToUser(trip.user_id, { title, body: alert.body, url: `/trips/${tripId}/today` });
   } catch (err) {
     console.error('[concierge/notify] reactive push failed:', err?.message);
   }
