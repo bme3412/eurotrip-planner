@@ -78,6 +78,13 @@ Run in order in the Supabase SQL editor (or `supabase db push`). Idempotent.
 - `supabase/migrations/0011_concierge_waitlist_invites.sql` — `invited_at` beta gate (**required — without it only allowlisted emails get briefs**)
 - `supabase/migrations/0012_concierge_thread.sql` — agent thread + memories (**required for Trip Home** at `/trips/[tripId]/today`; beats post into the thread, push deep-links there)
 - `supabase/migrations/0013_hours_alert_kind.sql` — `hours_alert` kind for the opening-hours watcher (`concierge-hours-watch`, daily 16:00 UTC; needs `GOOGLE_PLACES_API_KEY`, already set)
+- `supabase/migrations/0014_telegram_channel.sql` — Telegram chat link on preferences
+
+### Telegram channel (optional)
+1. Create a bot with @BotFather (`/newbot`) → set `TELEGRAM_BOT_TOKEN` + a random `TELEGRAM_WEBHOOK_SECRET`.
+2. `node --env-file=.env.local scripts/telegram-setup.mjs https://<your-domain>` — registers the webhook and prints the bot username → set `TELEGRAM_BOT_USERNAME`.
+3. Users tap **Connect Telegram** on Trip Home → signed `t.me` deep link → `/start <code>` links the chat. Beats then mirror to Telegram; replies run the same agent; hours-alert fixes arrive as inline Apply/Skip buttons.
+4. Local dev: Telegram can't reach localhost — use a tunnel (`ngrok http 3000`) or test on a preview deploy.
 
 Verify:
 ```sql

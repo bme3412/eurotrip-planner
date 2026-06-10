@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Clock, Loader2, MapPin, Moon, Send, Sunrise, Wand2, BedDouble } from 'lucide-react';
+import { ArrowLeft, Clock, Loader2, MapPin, Moon, Send, Sunrise, Wand2, BedDouble, SendHorizonal } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { getSupabaseClient } from '@/lib/supabase/client';
 import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
@@ -70,7 +70,13 @@ export default function TodayClient({ tripId }) {
         if (!res.ok) throw new Error(await res.text());
         const data = await res.json();
         for (const m of data.messages || []) seenIdsRef.current.add(m.id);
-        setBundle({ threadId: data.threadId, meta: data.meta, days: data.days, todayDayNumber: data.todayDayNumber });
+        setBundle({
+          threadId: data.threadId,
+          meta: data.meta,
+          days: data.days,
+          todayDayNumber: data.todayDayNumber,
+          telegramLinked: !!data.telegramLinked,
+        });
         setMessages(data.messages || []);
         setStatus('ready');
       } catch (err) {
@@ -170,6 +176,23 @@ export default function TodayClient({ tripId }) {
       setAgentNote(null);
     }
   }, [draft, sending, tripId, authHeaders, appendMessage]);
+
+  // ── Connect Telegram: signed deep link into the bot ──
+  const connectTelegram = useCallback(async () => {
+    try {
+      const res = await fetch('/api/telegram/link', { headers: authHeaders });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.url) {
+        window.open(data.url, '_blank', 'noopener');
+        // Optimistic: the webhook flips the real flag when /start lands.
+        setBundle((prev) => (prev ? { ...prev, telegramLinked: true } : prev));
+      } else if (data?.code === 'unconfigured') {
+        appendMessage({ id: `sys-${Date.now()}`, role: 'system', kind: 'system', body: 'Telegram isn’t set up on this deployment yet.', created_at: new Date().toISOString() });
+      }
+    } catch {
+      /* non-fatal */
+    }
+  }, [authHeaders, appendMessage]);
 
   // ── Apply / Skip a proposal ──
   const decide = useCallback(
@@ -275,6 +298,19 @@ export default function TodayClient({ tripId }) {
             <Link href={`/itineraries/${tripId}`} className="inline-flex items-center gap-1 font-semibold text-blue-600 hover:underline">
               <MapPin className="h-3.5 w-3.5" /> Full itinerary
             </Link>
+            {bundle.telegramLinked ? (
+              <span className="inline-flex items-center gap-1 text-emerald-700">
+                <SendHorizonal className="h-3.5 w-3.5" /> Telegram connected
+              </span>
+            ) : (
+              <button
+                type="button"
+                onClick={connectTelegram}
+                className="inline-flex items-center gap-1 font-semibold text-blue-600 hover:underline"
+              >
+                <SendHorizonal className="h-3.5 w-3.5" /> Connect Telegram
+              </button>
+            )}
           </div>
         </section>
       )}

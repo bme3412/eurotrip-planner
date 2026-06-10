@@ -8,6 +8,28 @@ import { sendBriefEmail } from '@/lib/concierge/email';
 import { getOrCreateThread, appendThreadMessage } from '@/lib/concierge/thread';
 import { hoursAlertBody } from '@/lib/concierge/hoursCheck';
 import { buildProposal } from '@/lib/concierge/tripActions';
+import { sendTelegramMessage } from '@/lib/concierge/telegram';
+
+/** Mirror a beat to the user's linked Telegram chat (best-effort). */
+async function mirrorToTelegram(supabase, { userId, title, body, proposalMessageId = null }) {
+  if (!userId) return;
+  try {
+    const { data } = await supabase
+      .from('concierge_preferences')
+      .select('telegram_chat_id')
+      .eq('user_id', userId)
+      .maybeSingle();
+    if (data?.telegram_chat_id) {
+      await sendTelegramMessage(
+        data.telegram_chat_id,
+        `${title}\n\n${body}`,
+        proposalMessageId ? { proposalMessageId } : {}
+      );
+    }
+  } catch (err) {
+    console.error('[concierge/notify] telegram mirror failed:', err?.message);
+  }
+}
 
 // Channel-agnostic concierge send pipeline. Today it delivers in-app by inserting
 // a row into concierge_notifications (Supabase Realtime fans it out to the live
@@ -126,6 +148,8 @@ export async function sendConciergeBrief({ tripId, dayNumber = null, type = 'eve
     }
   }
 
+  await mirrorToTelegram(supabase, { userId: trip.user_id, title, body: bodyText });
+
   return { ok: true, notification: data, push, email };
 }
 
@@ -207,6 +231,8 @@ export async function sendReactiveAlert({ tripId, dayNumber, signal }) {
     console.error('[concierge/notify] reactive push failed:', err?.message);
   }
 
+  await mirrorToTelegram(supabase, { userId: trip.user_id, title, body: alert.body });
+
   return { ok: true, notification: data, push };
 }
 
@@ -262,6 +288,7 @@ export async function sendHoursAlert({ tripId, dayNumber, issues }) {
     return { ok: false, reason: 'insert_failed' };
   }
 
+  let threadMessageId = null;
   if (trip.user_id) {
     try {
       const { thread } = await getOrCreateThread(supabase, {
@@ -270,7 +297,7 @@ export async function sendHoursAlert({ tripId, dayNumber, issues }) {
         userEmail: trip.user_email,
       });
       if (thread) {
-        await appendThreadMessage(supabase, {
+        const { message } = await appendThreadMessage(supabase, {
           threadId: thread.id,
           userId: trip.user_id,
           userEmail: trip.user_email,
@@ -280,6 +307,7 @@ export async function sendHoursAlert({ tripId, dayNumber, issues }) {
           body,
           meta: { issues, ...(proposal ? { proposal } : {}) },
         });
+        threadMessageId = message?.id || null;
       }
     } catch (err) {
       console.error('[concierge/notify] hours thread append failed:', err?.message);
@@ -292,6 +320,14 @@ export async function sendHoursAlert({ tripId, dayNumber, issues }) {
   } catch (err) {
     console.error('[concierge/notify] hours push failed:', err?.message);
   }
+
+  // Telegram gets the fix as inline Apply/Skip buttons when a proposal rode along.
+  await mirrorToTelegram(supabase, {
+    userId: trip.user_id,
+    title,
+    body,
+    proposalMessageId: proposal && threadMessageId ? threadMessageId : null,
+  });
 
   return { ok: true, notification: data, push, proposed: !!proposal };
 }
