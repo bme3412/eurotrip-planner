@@ -63,9 +63,25 @@ describe('buildConciergeContext', () => {
       name: 'Louvre Museum',
       startTime: '09:30',
       neighborhood: '1st arrondissement',
+      type: 'museum',
+      placeId: null,
+      lat: 48.8606,
+      lng: 2.3376,
     });
     assert.equal(ctx.days[1].isTravelDay, true);
     assert.equal(ctx.days[1].touchCount, 1);
+  });
+
+  it('carries the full deterministic day in the scaffold (instant client render)', () => {
+    const d0 = ctx.days[0];
+    assert.equal(d0.date, '2026-06-09');
+    assert.equal(d0.departBy, '09:00');
+    assert.deepEqual(d0.schedule.map((s) => s.time), ['09:30', '14:00']);
+    assert.deepEqual(d0.schedule.map((s) => s.indoor), [true, false]);
+    assert.equal(d0.hotelName, null);
+    // Travel days carry their schedule too (the rhythm view uses it).
+    assert.deepEqual(ctx.days[1].schedule.map((s) => s.name), ['Train to Lyon']);
+    assert.equal(ctx.days[2].city, 'lyon');
   });
 
   it('selects the first real day by default, with depart-by 30min before the first stop', () => {

@@ -74,6 +74,37 @@ function timezoneLabel(cityName) {
   return 'Central European time';
 }
 
+/** A day's stops as the brief/schedule components consume them. */
+function mapSchedule(timeBlocks) {
+  return (timeBlocks || [])
+    .filter((b) => b.activity?.name)
+    .map((b) => ({
+      time: trimTime(b.startTime),
+      name: b.activity.name,
+      neighborhood: b.activity.neighborhood || null,
+      type: b.activity.type || null,
+      indoor: b.activity.indoor ?? null,
+      lat: b.activity.latitude ?? null,
+      lng: b.activity.longitude ?? null,
+    }));
+}
+
+/** Full first-activity record (banner + route map need place/geo fields). */
+function mapFirstActivity(timeBlocks) {
+  const fb = (timeBlocks || []).find((b) => b.activity?.name) || null;
+  if (!fb) return null;
+  const act = fb.activity;
+  return {
+    name: act.name,
+    startTime: trimTime(fb.startTime),
+    neighborhood: act.neighborhood || null,
+    type: act.type || null,
+    placeId: act.googlePlaceId || null,
+    lat: act.latitude ?? null,
+    lng: act.longitude ?? null,
+  };
+}
+
 /**
  * Build the full deterministic context bundle.
  * @returns { plan, meta, days, personalization, selectedDay }
@@ -101,20 +132,31 @@ export function buildConciergeContext(trip, { dayNumber } = {}) {
   }
   const anchorName = cities[0]?.name || trip.city || 'your city';
 
-  // Day scaffold for the selector + rhythm timeline.
+  // Real bookings up-front so the day scaffold can carry per-day hotel names.
+  const flights = trip.trip_state ? getBookings(trip.trip_state) : [];
+  const inbound = pickInbound(flights);
+  const acc = trip.trip_state ? accommodationsByCity(trip.trip_state) : {};
+
+  // Day scaffold for the selector + rhythm timeline — and, since it carries the
+  // full deterministic day (schedule, depart-by, hotel), the client can render
+  // any day instantly while the LLM prose is still being written.
   const days = allDays.map((d) => {
-    const fb = (d.timeBlocks || []).find((b) => b.activity?.name) || null;
+    const firstActivity = mapFirstActivity(d.timeBlocks);
+    const startMin = timeToMinutes(firstActivity?.startTime);
     return {
       dayNumber: d.dayNumber,
+      date: d.date || null,
       dateLabel: d.dateLabel || null,
       cityName: d.cityName || anchorName,
+      city: d.city || null,
       country: countryFor(d),
       theme: d.theme || null,
       isTravelDay: !!d.isTravelDay,
       touchCount: d.isTravelDay ? 1 : 3,
-      firstActivity: fb
-        ? { name: fb.activity.name, startTime: trimTime(fb.startTime), neighborhood: fb.activity.neighborhood || null }
-        : null,
+      firstActivity,
+      schedule: mapSchedule(d.timeBlocks),
+      departBy: startMin != null ? minutesToTime(startMin - 30) : null,
+      hotelName: (d.city && acc[d.city]?.name) || null,
     };
   });
 
@@ -133,9 +175,6 @@ export function buildConciergeContext(trip, { dayNumber } = {}) {
   };
 
   // Personalization pulled from data we already hold.
-  const flights = trip.trip_state ? getBookings(trip.trip_state) : [];
-  const inbound = pickInbound(flights);
-  const acc = trip.trip_state ? accommodationsByCity(trip.trip_state) : {};
   const firstCitySlug = cities[0]?.city;
   const personalization = {
     pace: paceLabel(trip.pace),
@@ -153,28 +192,13 @@ export function buildConciergeContext(trip, { dayNumber } = {}) {
 
   let selectedDay = null;
   if (rawDay) {
-    const fb = (rawDay.timeBlocks || []).find((b) => b.activity?.name) || null;
-    const act = fb?.activity || null;
-    const startMin = timeToMinutes(fb?.startTime);
+    const firstActivity = mapFirstActivity(rawDay.timeBlocks);
+    const startMin = timeToMinutes(firstActivity?.startTime);
     const departBy = startMin != null ? minutesToTime(startMin - 30) : null;
     // index of this day among real days, to name "tomorrow".
     const idx = realDays.findIndex((d) => d.dayNumber === rawDay.dayNumber);
     const nextRealDay = idx >= 0 ? realDays[idx + 1] : null;
     const isFirstRealDay = realDays[0]?.dayNumber === rawDay.dayNumber;
-
-    // The whole day's stops — proves Olivier read the itinerary, not just the
-    // first line. Ordered as stored; times trimmed to HH:MM.
-    const schedule = (rawDay.timeBlocks || [])
-      .filter((b) => b.activity?.name)
-      .map((b) => ({
-        time: trimTime(b.startTime),
-        name: b.activity.name,
-        neighborhood: b.activity.neighborhood || null,
-        type: b.activity.type || null,
-        indoor: b.activity.indoor ?? null,
-        lat: b.activity.latitude ?? null,
-        lng: b.activity.longitude ?? null,
-      }));
 
     selectedDay = {
       dayNumber: rawDay.dayNumber,
@@ -184,19 +208,11 @@ export function buildConciergeContext(trip, { dayNumber } = {}) {
       city: rawDay.city || firstCitySlug || null,
       country: countryFor(rawDay),
       theme: rawDay.theme || null,
-      firstActivity: act
-        ? {
-            name: act.name,
-            startTime: trimTime(fb.startTime),
-            neighborhood: act.neighborhood || null,
-            type: act.type || null,
-            placeId: act.googlePlaceId || null,
-            lat: act.latitude ?? null,
-            lng: act.longitude ?? null,
-          }
-        : null,
+      firstActivity,
       departBy,
-      schedule,
+      // The whole day's stops — proves Olivier read the itinerary, not just
+      // the first line. Ordered as stored; times trimmed to HH:MM.
+      schedule: mapSchedule(rawDay.timeBlocks),
       // Real bookings to ground the brief: hotel always, inbound flight on day 1.
       hotelName: (rawDay.city && acc[rawDay.city]?.name) || personalization.hotelName || null,
       arrival: isFirstRealDay && inbound ? { fromCity: inbound.fromCity || null, date: inbound.arrivalDate || null } : null,
