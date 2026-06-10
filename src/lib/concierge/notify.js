@@ -6,6 +6,8 @@ import { generateReactiveAlert } from '@/lib/concierge/generateReactive';
 import { pushToUser } from '@/lib/concierge/webpush';
 import { sendBriefEmail } from '@/lib/concierge/email';
 import { getOrCreateThread, appendThreadMessage } from '@/lib/concierge/thread';
+import { hoursAlertBody } from '@/lib/concierge/hoursCheck';
+import { buildProposal } from '@/lib/concierge/tripActions';
 
 // Channel-agnostic concierge send pipeline. Today it delivers in-app by inserting
 // a row into concierge_notifications (Supabase Realtime fans it out to the live
@@ -206,4 +208,90 @@ export async function sendReactiveAlert({ tripId, dayNumber, signal }) {
   }
 
   return { ok: true, notification: data, push };
+}
+
+/**
+ * Deliver the night-before opening-hours alert (T3 watcher). Deterministic
+ * copy — code owns these facts — and, when there's exactly one unambiguous
+ * issue, the fix ships WITH the alert as a pending proposal (the same
+ * Apply/Skip card the thread agent uses): closed → skip it; opens later →
+ * move it to opening time.
+ *
+ * @param {object} args { tripId, dayNumber, issues: [{ name, time, status, opensAt? }] }
+ */
+export async function sendHoursAlert({ tripId, dayNumber, issues }) {
+  const trip = await getTripWithDetails(tripId);
+  if (!trip) return { ok: false, reason: 'trip_not_found' };
+  if (!trip.user_id && !trip.user_email) return { ok: false, reason: 'trip_unowned' };
+
+  const ctx = buildConciergeContext(trip, { dayNumber });
+  const d = ctx.selectedDay;
+  const body = hoursAlertBody(issues, { cityName: d?.cityName || trip.city || null });
+
+  // One clear issue → attach the obvious fix as a proposal.
+  let proposal = null;
+  if (issues.length === 1) {
+    const issue = issues[0];
+    const intent =
+      issue.status === 'opens_later'
+        ? { action: 'move_activity', dayNumber, activityName: issue.name, toTime: issue.opensAt }
+        : { action: 'remove_activity', dayNumber, activityName: issue.name };
+    const built = buildProposal(trip, intent);
+    if (built.proposal) proposal = { ...built.proposal, status: 'pending' };
+  }
+
+  const title = `Heads up · ${d?.cityName || trip.city || 'your trip'}`;
+  const supabase = await getSupabaseAdmin();
+  const row = {
+    user_id: trip.user_id,
+    user_email: trip.user_email,
+    trip_id: tripId,
+    day_number: dayNumber ?? null,
+    type: 'hours_alert',
+    title,
+    body,
+    meta: { issues, cityName: d?.cityName || null, dateLabel: d?.dateLabel || null },
+  };
+  const { data, error } = await supabase
+    .from('concierge_notifications')
+    .upsert(row, { onConflict: 'user_id,trip_id,day_number,type' })
+    .select()
+    .single();
+  if (error) {
+    console.error('[concierge/notify] hours insert failed:', error.message);
+    return { ok: false, reason: 'insert_failed' };
+  }
+
+  if (trip.user_id) {
+    try {
+      const { thread } = await getOrCreateThread(supabase, {
+        tripId,
+        userId: trip.user_id,
+        userEmail: trip.user_email,
+      });
+      if (thread) {
+        await appendThreadMessage(supabase, {
+          threadId: thread.id,
+          userId: trip.user_id,
+          userEmail: trip.user_email,
+          role: 'olivier',
+          kind: 'hours_alert',
+          dayNumber: dayNumber ?? null,
+          body,
+          meta: { issues, ...(proposal ? { proposal } : {}) },
+        });
+      }
+    } catch (err) {
+      console.error('[concierge/notify] hours thread append failed:', err?.message);
+    }
+  }
+
+  let push = { sent: 0 };
+  try {
+    push = await pushToUser(trip.user_id, { title, body, url: `/trips/${tripId}/today` });
+  } catch (err) {
+    console.error('[concierge/notify] hours push failed:', err?.message);
+  }
+
+  return { ok: true, notification: data, push, proposed: !!proposal };
 }

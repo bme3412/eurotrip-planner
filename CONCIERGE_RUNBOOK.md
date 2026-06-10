@@ -77,6 +77,7 @@ Run in order in the Supabase SQL editor (or `supabase db push`). Idempotent.
 - `supabase/migrations/0010_concierge_waitlist.sql` — early-access signups
 - `supabase/migrations/0011_concierge_waitlist_invites.sql` — `invited_at` beta gate (**required — without it only allowlisted emails get briefs**)
 - `supabase/migrations/0012_concierge_thread.sql` — agent thread + memories (**required for Trip Home** at `/trips/[tripId]/today`; beats post into the thread, push deep-links there)
+- `supabase/migrations/0013_hours_alert_kind.sql` — `hours_alert` kind for the opening-hours watcher (`concierge-hours-watch`, daily 16:00 UTC; needs `GOOGLE_PLACES_API_KEY`, already set)
 
 Verify:
 ```sql
