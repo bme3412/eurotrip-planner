@@ -15,6 +15,7 @@ const KIND_LABEL = {
   morning_wakeup: { label: 'Morning wake-up', icon: Sunrise },
   wind_down: { label: 'Wind-down', icon: Moon },
   reactive: { label: 'Heads up', icon: Wand2 },
+  hours_alert: { label: 'Opening hours', icon: Clock },
   action: { label: 'Done', icon: Wand2 },
 };
 

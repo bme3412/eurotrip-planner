@@ -13,10 +13,11 @@ export const MESSAGE_KINDS = new Set([
   'morning_wakeup',
   'wind_down',
   'reactive',
+  'hours_alert',
   'action',
   'system',
 ]);
-export const BEAT_KINDS = new Set(['evening_brief', 'morning_wakeup', 'wind_down', 'reactive']);
+export const BEAT_KINDS = new Set(['evening_brief', 'morning_wakeup', 'wind_down', 'reactive', 'hours_alert']);
 export const MESSAGE_CHANNELS = new Set(['app', 'push', 'email', 'telegram', 'whatsapp']);
 
 const MAX_BODY_LENGTH = 8000;

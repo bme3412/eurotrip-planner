@@ -86,6 +86,7 @@ function mapSchedule(timeBlocks) {
       indoor: b.activity.indoor ?? null,
       lat: b.activity.latitude ?? null,
       lng: b.activity.longitude ?? null,
+      placeId: b.activity.googlePlaceId || null,
     }));
 }
 
