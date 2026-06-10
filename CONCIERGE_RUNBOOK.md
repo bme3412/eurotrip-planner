@@ -76,6 +76,7 @@ Run in order in the Supabase SQL editor (or `supabase db push`). Idempotent.
 - `supabase/migrations/0009_push_subscriptions.sql` — Web Push device subs (**required for push**)
 - `supabase/migrations/0010_concierge_waitlist.sql` — early-access signups
 - `supabase/migrations/0011_concierge_waitlist_invites.sql` — `invited_at` beta gate (**required — without it only allowlisted emails get briefs**)
+- `supabase/migrations/0012_concierge_thread.sql` — agent thread + memories (**required for Trip Home** at `/trips/[tripId]/today`; beats post into the thread, push deep-links there)
 
 Verify:
 ```sql

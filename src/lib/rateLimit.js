@@ -107,6 +107,8 @@ export const RATE_LIMITS = {
   discoverCommand: { limit: 60, windowSec: 3600 },
   conciergeAsk: { limit: 20, windowSec: 3600 },
   conciergeBrief: { limit: 40, windowSec: 3600 },
+  agentThread: { limit: 10, windowSec: 3600 }, // signed-in 4x → 40 msgs/hr
+
   planAgent: { limit: 15, windowSec: 3600 },
   waitlist: { limit: 6, windowSec: 3600 },
 };
