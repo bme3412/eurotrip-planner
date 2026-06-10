@@ -130,13 +130,14 @@ export async function POST(request, { params }) {
   });
   const history = threadToMessages(rows, { limit: HISTORY_LIMIT });
 
-  const toolEnv = { ctx, supabase, userId: requester.userId, tripId };
+  const toolEnv = { ctx, trip, supabase, userId: requester.userId, tripId };
 
   const stream = new ReadableStream({
     async start(controller) {
       const enc = new TextEncoder();
       const emit = (type, data) => controller.enqueue(enc.encode(sseEvent(type, data)));
       const usedTools = [];
+      let pendingProposal = null; // last proposal this turn — attached to the saved message
       let finalText = '';
 
       try {
@@ -175,6 +176,10 @@ export async function POST(request, { params }) {
             emit('tool_call', { name: tu.name });
             usedTools.push(tu.name);
             const result = await execAgentTool(tu.name, tu.input, toolEnv);
+            if (result?.proposal) {
+              pendingProposal = { ...result.proposal, status: 'pending' };
+              emit('proposal', { diff: result.proposal.diff });
+            }
             emit('tool_result', { name: tu.name, ok: !result?.error });
             results.push({ type: 'tool_result', tool_use_id: tu.id, content: JSON.stringify(result) });
           }
@@ -193,9 +198,12 @@ export async function POST(request, { params }) {
           role: 'olivier',
           kind: 'chat',
           body: finalText,
-          meta: usedTools.length ? { tools: usedTools } : {},
+          meta: {
+            ...(usedTools.length ? { tools: usedTools } : {}),
+            ...(pendingProposal ? { proposal: pendingProposal } : {}),
+          },
         });
-        emit('done', { messageId: saved?.id || null });
+        emit('done', { messageId: saved?.id || null, proposal: pendingProposal });
       } catch (err) {
         console.error('[concierge/agent] turn failed:', err?.message);
         emit('error', { message: 'Olivier is unavailable right now — try again in a moment.' });

@@ -137,9 +137,18 @@ export default function TodayClient({ tripId }) {
             return [...next, { id: localId, role: 'olivier', kind: 'chat', body: replyText, created_at: new Date().toISOString() }];
           });
         } else if (evt.type === 'tool_call') {
-          setAgentNote('Checking the itinerary…');
+          setAgentNote(evt.name === 'propose_itinerary_change' ? 'Drafting a change…' : 'Checking the itinerary…');
         } else if (evt.type === 'done') {
           if (evt.messageId) seenIdsRef.current.add(evt.messageId);
+          // Give the streamed bubble its real id (the Apply button posts it)
+          // and attach any proposal so the card renders.
+          setMessages((prev) =>
+            prev.map((m) =>
+              m.id === localId
+                ? { ...m, id: evt.messageId || m.id, meta: evt.proposal ? { ...(m.meta || {}), proposal: evt.proposal } : m.meta }
+                : m
+            )
+          );
         } else if (evt.type === 'error') {
           setAgentNote(null);
           appendMessage({ id: `err-${Date.now()}`, role: 'system', kind: 'system', body: evt.message || 'Something went wrong.', created_at: new Date().toISOString() });
@@ -160,6 +169,34 @@ export default function TodayClient({ tripId }) {
       setAgentNote(null);
     }
   }, [draft, sending, tripId, authHeaders, appendMessage]);
+
+  // ── Apply / Skip a proposal ──
+  const decide = useCallback(
+    async (messageId, decision) => {
+      const patch = (status, failReason = null) =>
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === messageId && m.meta?.proposal
+              ? { ...m, meta: { ...m.meta, proposal: { ...m.meta.proposal, status, ...(failReason ? { failReason } : {}) } } }
+              : m
+          )
+        );
+      patch('working');
+      try {
+        const res = await fetch(`/api/trips/${tripId}/agent/apply`, {
+          method: 'POST',
+          headers: authHeaders,
+          body: JSON.stringify({ messageId, decision }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.status) patch(data.status);
+        else patch('failed', data.error || 'Couldn’t apply — try again.');
+      } catch {
+        patch('failed', 'Couldn’t reach the server — try again.');
+      }
+    },
+    [tripId, authHeaders]
+  );
 
   // ── Signed-out / gated / loading shells ──
   if (!user) {
@@ -249,7 +286,7 @@ export default function TodayClient({ tripId }) {
           </div>
         )}
         {messages.map((m) => (
-          <MessageBubble key={m.id} message={m} />
+          <MessageBubble key={m.id} message={m} onDecision={decide} />
         ))}
         {agentNote && (
           <p className="flex items-center gap-2 pl-2 text-xs font-medium text-gray-400">
@@ -311,7 +348,7 @@ function Shell({ tripId, children }) {
   );
 }
 
-function MessageBubble({ message: m }) {
+function MessageBubble({ message: m, onDecision }) {
   if (m.role === 'system') {
     return <p className="px-2 text-center text-xs text-amber-700">{m.body}</p>;
   }
@@ -337,6 +374,49 @@ function MessageBubble({ message: m }) {
           </p>
         )}
         <p className="whitespace-pre-wrap text-[15px] leading-relaxed text-gray-800">{m.body}</p>
+        {m.meta?.proposal && <ProposalCard message={m} onDecision={onDecision} />}
+      </div>
+    </div>
+  );
+}
+
+/** The trust ladder's top rung in v1: the agent proposes, the traveler applies. */
+function ProposalCard({ message: m, onDecision }) {
+  const p = m.meta.proposal;
+  return (
+    <div className="mt-3 rounded-xl border border-blue-100 bg-blue-50/60 p-3">
+      <p className="text-sm font-semibold text-gray-800">{p.diff}</p>
+      <div className="mt-2.5">
+        {p.status === 'pending' && (
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => onDecision(m.id, 'apply')}
+              className="rounded-full bg-[#1e63e9] px-4 py-1.5 text-xs font-bold text-white transition hover:bg-[#174fc2]"
+            >
+              Apply
+            </button>
+            <button
+              type="button"
+              onClick={() => onDecision(m.id, 'skip')}
+              className="rounded-full border border-gray-200 bg-white px-4 py-1.5 text-xs font-bold text-gray-600 transition hover:border-gray-300"
+            >
+              Skip
+            </button>
+          </div>
+        )}
+        {p.status === 'working' && (
+          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-gray-500">
+            <Loader2 className="h-3 w-3 animate-spin" /> Applying…
+          </span>
+        )}
+        {p.status === 'applied' && (
+          <span className="text-xs font-bold text-emerald-700">✓ Applied to your itinerary</span>
+        )}
+        {p.status === 'skipped' && <span className="text-xs font-medium text-gray-400">Skipped</span>}
+        {p.status === 'failed' && (
+          <span className="text-xs font-medium text-amber-700">{p.failReason || 'Couldn’t apply.'}</span>
+        )}
       </div>
     </div>
   );
