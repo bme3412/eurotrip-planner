@@ -4,6 +4,7 @@ import { extractWeather } from '@/app/itineraries/[tripId]/_lib/buildPlan';
 import { buildConciergeContext, weatherConditions, metaLine } from '@/lib/concierge/buildContext';
 import { resolvePersona, detectHandoff, PERSONAS_VERSION, PERSONA_GUARDRAILS } from '@/lib/concierge/personas';
 import { getCachedSuggestions, setCachedSuggestions } from '@/lib/cache/suggestions';
+import { logLlmUsage } from '@/lib/llm/usageLog';
 
 // Core concierge-day generator — extracted from the brief route so both the
 // HTTP route AND background jobs (the notification send pipeline) can produce a
@@ -282,6 +283,13 @@ Write, all grounded in the stops above:
   } finally {
     clearTimeout(timeout);
   }
+
+  logLlmUsage({
+    feature: 'concierge_brief',
+    model: MODEL,
+    usage: resp?.usage,
+    meta: { tripId: trip?.id ?? null, dayNumber: d.dayNumber ?? null },
+  });
 
   const toolUse = resp?.content?.find((c) => c.type === 'tool_use');
   if (!toolUse?.input?.briefs) return assemble(fallbackProse(ctx, persona, handoff));

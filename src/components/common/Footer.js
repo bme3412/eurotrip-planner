@@ -26,8 +26,12 @@ export default function Footer() {
             ))}
           </nav>
         </div>
-        <div className="mt-5 border-t border-black/5 pt-3 text-xs text-zinc-400">
-          &copy; {new Date().getFullYear()} Euro&#x2011;Trip · Made for European travelers
+        <div className="mt-5 flex flex-col gap-1.5 border-t border-black/5 pt-3 text-xs text-zinc-400 sm:flex-row sm:items-center sm:justify-between">
+          <span>&copy; {new Date().getFullYear()} Euro&#x2011;Trip · Made for European travelers</span>
+          <span className="flex gap-4">
+            <Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-blue-600 transition-colors">Terms</Link>
+          </span>
         </div>
       </div>
     </footer>

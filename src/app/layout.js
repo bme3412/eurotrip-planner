@@ -13,6 +13,14 @@ export const metadata = {
   },
   description: 'Plan your perfect European trip with personalized city recommendations and detailed guides for 220+ destinations.',
   manifest: '/manifest.webmanifest',
+  icons: {
+    apple: '/apple-touch-icon.png',
+  },
+  appleWebApp: {
+    capable: true,
+    title: 'EuroTrip',
+    statusBarStyle: 'default',
+  },
   openGraph: {
     siteName: 'EuroTrip Planner',
     locale: 'en_US',
@@ -25,6 +33,13 @@ export const metadata = {
     index: true,
     follow: true,
   },
+};
+
+// viewportFit: 'cover' lets the app draw under the iPhone notch/home bar —
+// paired with the env(safe-area-inset-*) padding in globals.css.
+export const viewport = {
+  themeColor: '#1e63e9',
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({ children }) {

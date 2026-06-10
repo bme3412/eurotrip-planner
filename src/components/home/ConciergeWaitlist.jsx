@@ -109,7 +109,8 @@ export default function ConciergeWaitlist({ heading = 'Get early access', classN
           )}
 
           <p className="text-sm text-gray-400 mt-4 leading-relaxed">
-            We&apos;ll only message you about your own trips. Unsubscribe anytime.
+            We&apos;ll only message you about your own trips and early access — see our{' '}
+            <a href="/privacy" className="underline hover:text-gray-600">Privacy Policy</a>. Unsubscribe anytime.
           </p>
         </form>
       )}

@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { distanceKm, placeParam, pickTravelMode, directionsUrl, legLinks } from '../src/lib/concierge/mapsLink.js';
+import { distanceKm, placeParam, pickTravelMode, directionsUrl, legLinks, mapsPlatform } from '../src/lib/concierge/mapsLink.js';
 
 const LOUVRE = { name: 'Louvre Museum', time: '09:30', lat: 48.8606, lng: 2.3376 };
 const ORSAY = { name: 'Musée d’Orsay', time: '14:00', lat: 48.86, lng: 2.3266 }; // ~0.8 km from the Louvre
@@ -42,6 +42,41 @@ describe('directionsUrl', () => {
     const url = directionsUrl({ origin: '48.8606,2.3376', destination: '48.86,2.3266' });
     assert.match(url, /origin=48.8606%2C2.3376/);
     assert.equal(directionsUrl({}), null);
+  });
+
+  it('builds Apple Maps URLs for the apple platform', () => {
+    const url = directionsUrl({
+      origin: '48.8606,2.3376',
+      destination: '48.86,2.3266',
+      travelmode: 'walking',
+      platform: 'apple',
+    });
+    assert.ok(url.startsWith('https://maps.apple.com/?'));
+    assert.match(url, /daddr=48.86%2C2.3266/);
+    assert.match(url, /saddr=48.8606%2C2.3376/);
+    assert.match(url, /dirflg=w/);
+
+    const transit = directionsUrl({ destination: 'Louvre, Paris', platform: 'apple' });
+    assert.match(transit, /dirflg=r/);
+    assert.ok(!transit.includes('saddr='));
+    assert.equal(directionsUrl({ platform: 'apple' }), null);
+  });
+});
+
+describe('mapsPlatform', () => {
+  const IPHONE = 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15';
+  const IPAD_AS_MAC = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15';
+  const ANDROID = 'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 Chrome/124';
+
+  it('sends iPhones (and touch-capable "Macs", i.e. iPads) to Apple Maps', () => {
+    assert.equal(mapsPlatform(IPHONE), 'apple');
+    assert.equal(mapsPlatform(IPAD_AS_MAC, 5), 'apple');
+  });
+
+  it('sends everyone else to Google Maps', () => {
+    assert.equal(mapsPlatform(ANDROID), 'google');
+    assert.equal(mapsPlatform(IPAD_AS_MAC, 0), 'google'); // a real desktop Mac
+    assert.equal(mapsPlatform('', 0), 'google');
   });
 });
 

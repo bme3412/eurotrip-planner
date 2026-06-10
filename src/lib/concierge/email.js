@@ -3,6 +3,10 @@
 // infra/handlers/briefingOrchestrator.js). No-ops without RESEND_API_KEY so the
 // in-app + push channels are unaffected.
 
+// Explicit extension: scripts/concierge-invite.mjs imports this file under
+// plain Node, which doesn't resolve extensionless paths.
+import { unsubscribeUrl } from './unsubscribe.js';
+
 const FROM_EMAIL = process.env.FROM_EMAIL || 'Olivier <briefing@eurotrip-planner.com>';
 
 function esc(s) {
@@ -10,7 +14,7 @@ function esc(s) {
 }
 
 /** Designed, inline-styled HTML (email clients need inline CSS). */
-export function renderBriefEmail({ day, cityName }) {
+export function renderBriefEmail({ day, cityName, unsubscribe = null }) {
   const b = day?.briefs?.eveningBrief || {};
   const scheduleRows = (day?.schedule || [])
     .map(
@@ -42,17 +46,14 @@ export function renderBriefEmail({ day, cityName }) {
       </div>
     </div>
     <p style="text-align:center;color:#9ca3af;font-size:12px;margin:16px 0 0">
-      You're getting this because you turned on Olivier for this trip. Reply STOP to pause.
+      You're getting this because you turned on Olivier for this trip.${unsubscribe ? ` <a href="${esc(unsubscribe)}" style="color:#9ca3af;text-decoration:underline">Unsubscribe</a>` : ' Reply STOP to pause.'}
     </p>
   </div>
 </body></html>`;
 }
 
-/**
- * Send the evening-brief email. Best-effort.
- * @returns {Promise<{ sent: boolean, skipped?: string }>}
- */
-export async function sendBriefEmail({ to, day, cityName }) {
+/** Shared Resend send. Best-effort; no-ops without RESEND_API_KEY. */
+async function sendViaResend({ to, subject, html }) {
   if (!to) return { sent: false, skipped: 'no_recipient' };
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return { sent: false, skipped: 'no_resend_key' };
@@ -61,12 +62,7 @@ export async function sendBriefEmail({ to, day, cityName }) {
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-      body: JSON.stringify({
-        from: FROM_EMAIL,
-        to: [to],
-        subject: `Tonight's brief · ${cityName || 'your trip'}`,
-        html: renderBriefEmail({ day, cityName }),
-      }),
+      body: JSON.stringify({ from: FROM_EMAIL, to: [to], subject, html }),
     });
     if (!res.ok) {
       console.error('[concierge/email] Resend error', res.status, await res.text());
@@ -77,4 +73,62 @@ export async function sendBriefEmail({ to, day, cityName }) {
     console.error('[concierge/email] send failed:', err?.message);
     return { sent: false, skipped: 'error' };
   }
+}
+
+/**
+ * Send the evening-brief email. Best-effort.
+ * @returns {Promise<{ sent: boolean, skipped?: string }>}
+ */
+export async function sendBriefEmail({ to, day, cityName }) {
+  return sendViaResend({
+    to,
+    subject: `Tonight's brief · ${cityName || 'your trip'}`,
+    html: renderBriefEmail({ day, cityName, unsubscribe: unsubscribeUrl(to) }),
+  });
+}
+
+/**
+ * Notify the operator that someone joined the early-access waitlist. Sent to
+ * CONCIERGE_OPERATOR_EMAIL; no-ops without it (or without RESEND_API_KEY).
+ */
+export async function sendOperatorSignupEmail({ email, source, wantsPush, wantsEmail }) {
+  const to = process.env.CONCIERGE_OPERATOR_EMAIL;
+  if (!to) return { sent: false, skipped: 'no_operator_email' };
+  const channels = [wantsPush && 'push', wantsEmail && 'email'].filter(Boolean).join(' + ') || 'none';
+  return sendViaResend({
+    to,
+    subject: `Waitlist signup · ${email}`,
+    html: `<p><strong>${esc(email)}</strong> joined the Olivier waitlist.</p>
+<p>Source: ${esc(source || 'unknown')} · Channels: ${esc(channels)}</p>
+<p>Invite them with: <code>node --env-file=.env.local scripts/concierge-invite.mjs ${esc(email)}</code></p>`,
+  });
+}
+
+/** Tell an invitee they're in. Best-effort. */
+export async function sendInviteEmail({ to, siteUrl }) {
+  const base = siteUrl || process.env.NEXT_PUBLIC_SITE_URL || 'https://eurotrip-planner.vercel.app';
+  return sendViaResend({
+    to,
+    subject: 'You’re in — Olivier is ready for your next trip',
+    html: `<!doctype html>
+<html><body style="margin:0;background:#faf8f3;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+  <div style="max-width:560px;margin:0 auto;padding:24px 16px">
+    <div style="background:#ffffff;border:1px solid #f0e9da;border-radius:20px;overflow:hidden">
+      <div style="background:linear-gradient(135deg,#1e63e9,#5b8def);padding:22px 24px;color:#ffffff">
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.85">Early access</div>
+        <div style="font-size:22px;font-weight:700;margin-top:4px">You&rsquo;re off the waitlist</div>
+      </div>
+      <div style="padding:24px">
+        <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#1f2937">
+          Olivier — your travel agent — is on for your account. Plan a trip, open its
+          travel-agent page, and turn him on: you&rsquo;ll get an evening brief the night
+          before each day, a morning wake-up, and a wind-down, timed to where you are.
+        </p>
+        <p style="margin:0 0 16px"><a href="${esc(base)}" style="display:inline-block;background:#1e63e9;color:#ffffff;font-weight:700;font-size:14px;padding:10px 20px;border-radius:999px;text-decoration:none">Open EuroTrip</a></p>
+        <p style="margin:0;font-size:13px;color:#6b7280">Sign in with this email address — that&rsquo;s how Olivier knows it&rsquo;s you.</p>
+      </div>
+    </div>
+  </div>
+</body></html>`,
+  });
 }

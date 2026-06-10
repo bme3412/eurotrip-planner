@@ -3,6 +3,7 @@ import { getRequesterFromAuthHeader } from '@/lib/supabase/requestAuth';
 import { getSupabaseAdmin } from '@/lib/supabase/server';
 import { enforceRateLimit, RATE_LIMITS } from '@/lib/rateLimit';
 import { normalizeWaitlistSignup } from '@/lib/concierge/waitlist';
+import { sendOperatorSignupEmail } from '@/lib/concierge/email';
 
 export const runtime = 'nodejs';
 
@@ -40,6 +41,19 @@ export async function POST(request) {
   if (dbError) {
     console.error('[concierge/waitlist] upsert failed:', dbError.message);
     return NextResponse.json({ error: 'Could not save your signup — try again in a moment.' }, { status: 502 });
+  }
+
+  // Tell the operator someone's waiting. Awaited (serverless would cut off a
+  // dangling promise) but best-effort — a notify failure never fails the signup.
+  try {
+    await sendOperatorSignupEmail({
+      email: record.email,
+      source: record.source,
+      wantsPush: record.wants_push,
+      wantsEmail: record.wants_email,
+    });
+  } catch (err) {
+    console.error('[concierge/waitlist] operator notify failed:', err?.message);
   }
 
   return NextResponse.json({ ok: true });

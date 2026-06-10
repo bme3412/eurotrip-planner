@@ -156,7 +156,7 @@ export default function ConciergeClient({
           <div className="mt-6 flex items-center gap-3">
             <OlivierMark size={44} />
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-600">
-              <Sparkles className="h-3.5 w-3.5" /> Coming soon · Olivier, your travel agent
+              <Sparkles className="h-3.5 w-3.5" /> Early access · Olivier, your travel agent
             </div>
           </div>
           <h1 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-[1.1] text-gray-900 md:text-5xl">

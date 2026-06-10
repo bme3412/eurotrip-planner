@@ -1,9 +1,23 @@
 # Concierge — production runbook
 
 How to take the concierge ("Olivier") from built → live. The code is done; what
-remains is **configuration**: two DB migrations and three integrations (Inngest,
+remains is **configuration**: DB migrations and three integrations (Inngest,
 Web Push, Resend). Work top-to-bottom; each section is independent and degrades
 gracefully if skipped.
+
+> **Closed beta:** sends are invite-only. Enforcement is server-side
+> (`src/lib/concierge/invites.js`, applied in `getConciergeWindowTrips()` and
+> `/api/concierge/send-now`): a user is invited when their email is on
+> `CONCIERGE_ALLOWLIST` or their `concierge_waitlist` row has `invited_at` set.
+> Manage invites with:
+>
+> ```bash
+> node --env-file=.env.local scripts/concierge-invite.mjs --list           # see the waitlist
+> node --env-file=.env.local scripts/concierge-invite.mjs alice@x.com     # invite (+ sends "you're in" email)
+> ```
+>
+> Put your own email in `CONCIERGE_ALLOWLIST` so you're never locked out.
+> Waitlist signups notify `CONCIERGE_OPERATOR_EMAIL` (needs Resend).
 
 ---
 
@@ -41,8 +55,12 @@ Inngest hourly cron (conciergeTick)
 | `RESEND_API_KEY` | server | email delivery | for email |
 | `FROM_EMAIL` | server | e.g. `Olivier <briefing@yourdomain.com>` | for email |
 | `OPENWEATHERMAP_API_KEY` | server | reactive forecast monitor (v3) | for reactive alerts |
-| `UPSTASH_REDIS_REST_URL` / `..._TOKEN` | server | brief cache (optional) | optional |
+| `UPSTASH_REDIS_REST_URL` / `..._TOKEN` | server | brief cache + cross-instance rate limits | recommended in prod |
 | `NEXT_PUBLIC_MAPBOX_TOKEN` | client | route map thumbnails | optional |
+| `CONCIERGE_ALLOWLIST` | server | comma-separated always-invited emails (put yours here) | ✅ for beta |
+| `CONCIERGE_OPERATOR_EMAIL` | server | where waitlist-signup alerts go | recommended |
+| `CONCIERGE_UNSUBSCRIBE_SECRET` | server | signs email unsubscribe links (falls back to service-role key) | optional |
+| `NEXT_PUBLIC_SITE_URL` | server | absolute origin in emails (unsubscribe/invite links) | ✅ for email |
 
 > A local VAPID keypair is already in `.env.local` (gitignored). Generate fresh keys for prod or reuse those.
 
@@ -51,12 +69,13 @@ Inngest hourly cron (conciergeTick)
 ## Go-live checklist
 
 ### 1. Database — apply migrations
-Run both in the Supabase SQL editor (or `supabase db push`). Idempotent.
+Run in order in the Supabase SQL editor (or `supabase db push`). Idempotent.
 
+- `supabase/migrations/0007_trips_client_dedup_key.sql` — if not already applied (check first)
 - `supabase/migrations/0008_concierge_notifications.sql` — preferences + inbox + Realtime
 - `supabase/migrations/0009_push_subscriptions.sql` — Web Push device subs (**required for push**)
-
-Run both in the Supabase SQL editor. Idempotent — safe to re-run.
+- `supabase/migrations/0010_concierge_waitlist.sql` — early-access signups
+- `supabase/migrations/0011_concierge_waitlist_invites.sql` — `invited_at` beta gate (**required — without it only allowlisted emails get briefs**)
 
 Verify:
 ```sql
@@ -86,11 +105,13 @@ Also confirm RLS is on and `concierge_notifications` is in the `supabase_realtim
 
 ## Verification (after config)
 
-1. **DB:** open a saved trip → `/concierge` → toggle **Turn on Olivier** → a `concierge_preferences` row appears with `enabled=true`.
+0. **Health + gate:** `curl https://<domain>/api/health` returns `ok: true` with the expected integrations `true`. A signed-in but uninvited account sees the waitlist form (not the toggle) on `/concierge`; after `concierge-invite.mjs`, the toggle appears.
 2. **In-app + Realtime:** click **Send tonight's brief now** → within ~20s the **navbar bell** lights up live (no refresh) with the brief.
 3. **Web Push:** enabling shows "Push on for this device"; a send delivers a real OS notification that opens the concierge page on click.
 4. **Email:** with Resend live, the evening-brief send delivers a styled email.
 5. **Autonomy (Inngest):** in the Inngest dashboard, invoke `concierge-tick` or send a test `concierge/brief.due` event → watch `concierge-send` run (retries, logs) and a notification land. (This is exactly what the smoke test did locally.)
+6. **Mobile (real phones):** iPhone — Safari → Share → **Add to Home Screen** → open the installed app → enable Olivier → push permission prompt → "Send tonight's brief now" lands on the lock screen; tapping a Directions link opens **Apple Maps**. Android Chrome — push works in-browser; the opt-in card offers a one-tap **Install** when Chrome allows it; Directions opens Google Maps.
+7. **Unsubscribe:** the brief email footer's Unsubscribe link flips `email_enabled=false` and shows a confirmation page; in-app + push unaffected.
 
 ---
 
@@ -100,7 +121,8 @@ Also confirm RLS is on and `concierge_notifications` is in the `supabase_realtim
 - **Who gets briefs:** trips with `status='active'` (within dates) or starting tomorrow, whose owner has `concierge_preferences.enabled=true`. See `getConciergeWindowTrips()`.
 - **Timezone:** derived from the trip's country via `resolveTimeZone()`; the cron runs hourly UTC and computes each trip's local hour. No tz column needed.
 - **Cost control:** briefs are cached 7 days per (trip, day, trip-version); the concurrency cap (5) throttles Anthropic; only the evening brief emails. Watch Anthropic + Inngest dashboards.
-- **Observability:** the Inngest dashboard shows every run, retry, and failure. App logs prefix concierge errors with `[concierge/…]`.
+- **Observability:** the Inngest dashboard shows every run, retry, and failure — **turn on its failure alerts** (Settings → Notifications). Point an uptime monitor (UptimeRobot/Checkly) at `/api/health` (200 = DB up; the JSON shows which integrations are configured). App logs prefix concierge errors with `[concierge/…]`; every LLM call logs a `[llm-usage]` JSON line (tokens per brief — grep these for unit economics). Full error tracking (Sentry) is deliberately deferred until after the beta proves out — add `@sentry/nextjs` when there are strangers in the system.
+- **Unit economics:** in Vercel logs, filter `[llm-usage]` → `input_tokens`/`output_tokens` per `concierge_brief`/`concierge_reactive`, keyed by tripId. Briefs cache for 7 days, so cost ≈ one generation per trip-day.
 - **Disable for a user:** they toggle off (sets `enabled=false`), or set it in `concierge_preferences`. **Kill switch:** unset `INNGEST_SIGNING_KEY` (scheduler stops) — manual "send now" still works.
 
 ---

@@ -1,11 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Bell, BellRing, Loader2, Check, ArrowUp } from 'lucide-react';
+import { Bell, BellRing, Loader2, Check, ArrowUp, Share, SquarePlus, MonitorDown } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { getSupabaseClient } from '@/lib/supabase/client';
 import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
-import { subscribeToPush, pushSupported } from '@/lib/concierge/pushClient';
+import { subscribeToPush, pushAvailability } from '@/lib/concierge/pushClient';
+import ConciergeWaitlist from '@/components/home/ConciergeWaitlist';
 import OlivierMark from './OlivierMark';
 
 /**
@@ -20,7 +21,39 @@ export default function ConciergeOptIn({ tripId }) {
   const [saving, setSaving] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
-  const [pushState, setPushState] = useState('idle'); // idle | on | denied | unsupported | working
+  const [pushState, setPushState] = useState('idle'); // idle | on | denied | unsupported | needs_install | working
+  const [invite, setInvite] = useState('loading'); // loading | invited | waitlist
+  const [installPrompt, setInstallPrompt] = useState(null); // captured beforeinstallprompt (Chrome/Android)
+
+  // Capture Chrome's install prompt so "get it on your phone" is one tap
+  // instead of a buried browser menu.
+  useEffect(() => {
+    const onPrompt = (e) => {
+      e.preventDefault();
+      setInstallPrompt(e);
+    };
+    window.addEventListener('beforeinstallprompt', onPrompt);
+    return () => window.removeEventListener('beforeinstallprompt', onPrompt);
+  }, []);
+
+  // Closed beta: ask the server whether this account is in. The check is
+  // advisory for the UI — sends are gated server-side regardless.
+  useEffect(() => {
+    if (!session) return;
+    let active = true;
+    (async () => {
+      try {
+        const res = await fetch('/api/concierge/invite-status', {
+          headers: getSupabaseAuthHeaders(session),
+        });
+        const data = res.ok ? await res.json() : { invited: false };
+        if (active) setInvite(data.invited ? 'invited' : 'waitlist');
+      } catch {
+        if (active) setInvite('waitlist');
+      }
+    })();
+    return () => { active = false; };
+  }, [session]);
 
   useEffect(() => {
     if (!user?.id) return;
@@ -37,9 +70,21 @@ export default function ConciergeOptIn({ tripId }) {
         if (data.push_enabled) setPushState('on');
       }
     })();
-    if (!pushSupported()) setPushState('unsupported');
+    const availability = pushAvailability();
+    if (availability === 'needs_install_ios') setPushState('needs_install');
+    else if (availability === 'unsupported') setPushState('unsupported');
     return () => { active = false; };
   }, [user?.id]);
+
+  const promptInstall = async () => {
+    if (!installPrompt) return;
+    try {
+      installPrompt.prompt();
+      await installPrompt.userChoice;
+    } finally {
+      setInstallPrompt(null);
+    }
+  };
 
   const savePrefs = async (patch) => {
     const supabase = getSupabaseClient();
@@ -59,7 +104,7 @@ export default function ConciergeOptIn({ tripId }) {
       // trip only). Disabling turns email off too.
       await savePrefs({ enabled: next, email_enabled: next });
       // On enable, also try to light up push on this device (best-effort).
-      if (next && pushState !== 'on' && pushState !== 'unsupported') {
+      if (next && pushState !== 'on' && pushState !== 'unsupported' && pushState !== 'needs_install') {
         setPushState('working');
         const headers = getSupabaseAuthHeaders(session, { 'Content-Type': 'application/json' });
         const r = await subscribeToPush(headers);
@@ -92,6 +137,19 @@ export default function ConciergeOptIn({ tripId }) {
   };
 
   if (!user?.id) return null;
+
+  if (invite === 'loading') return null;
+
+  if (invite === 'waitlist') {
+    return (
+      <div>
+        <p className="mb-4 text-center text-sm font-medium text-gray-500">
+          Olivier is in early access — grab a spot and we&apos;ll let you in soon.
+        </p>
+        <ConciergeWaitlist heading="Get early access" />
+      </div>
+    );
+  }
 
   return (
     <div className="rounded-2xl border border-amber-100/70 bg-[#faf7f1] p-6 shadow-sm md:p-7">
@@ -130,17 +188,37 @@ export default function ConciergeOptIn({ tripId }) {
       </div>
 
       {enabled && (
-        <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium">
+        <div className="mt-3 text-xs font-medium">
           {pushState === 'on' ? (
             <span className="inline-flex items-center gap-1.5 text-emerald-700"><BellRing className="h-3.5 w-3.5" /> Push on for this device</span>
           ) : pushState === 'working' ? (
             <span className="inline-flex items-center gap-1.5 text-gray-500"><Loader2 className="h-3.5 w-3.5 animate-spin" /> Enabling push…</span>
           ) : pushState === 'denied' ? (
             <span className="text-gray-400">Push blocked in your browser — in-app + email still work.</span>
+          ) : pushState === 'needs_install' ? (
+            <div className="rounded-xl border border-blue-100 bg-blue-50/60 p-3 text-gray-600">
+              <p className="font-semibold text-gray-800">Want Olivier on your lock screen?</p>
+              <p className="mt-1 leading-relaxed">
+                Add EuroTrip to your Home Screen first: tap{' '}
+                <Share className="inline h-3.5 w-3.5 align-[-2px] text-blue-600" aria-label="Share" /> Share, then{' '}
+                <SquarePlus className="inline h-3.5 w-3.5 align-[-2px] text-blue-600" aria-label="Add to Home Screen" />{' '}
+                <span className="font-semibold">Add to Home Screen</span>. Open it from there and flip this
+                toggle again — until then the brief still lands in the bell and your email.
+              </p>
+            </div>
           ) : pushState === 'unsupported' ? (
             <span className="text-gray-400">This browser doesn&apos;t support push — in-app + email still work.</span>
           ) : (
             <button type="button" onClick={toggle} className="text-blue-600 hover:underline">Enable push on this device</button>
+          )}
+          {installPrompt && pushState !== 'needs_install' && (
+            <button
+              type="button"
+              onClick={promptInstall}
+              className="mt-2 inline-flex items-center gap-1.5 text-blue-600 hover:underline"
+            >
+              <MonitorDown className="h-3.5 w-3.5" /> Install the EuroTrip app on this device
+            </button>
           )}
         </div>
       )}

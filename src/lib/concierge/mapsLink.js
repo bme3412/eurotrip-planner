@@ -1,9 +1,11 @@
-// Google Maps directions deep links for the day's schedule. Olivier doesn't
-// rebuild navigation — he hands you to Maps with the right destination and
-// mode already filled in. Pure module: safe on client and server, plain-Node
-// testable.
+// Maps directions deep links for the day's schedule. Olivier doesn't rebuild
+// navigation — he hands you to Maps with the right destination and mode
+// already filled in. iPhones get Apple Maps, everything else Google Maps.
+// Pure module: safe on client and server, plain-Node testable; platform
+// detection takes the UA as input so callers decide where it comes from.
 
 const BASE = 'https://www.google.com/maps/dir/?api=1';
+const APPLE_BASE = 'https://maps.apple.com/';
 const WALKING_MAX_KM = 2.0;
 
 function hasCoords(stop) {
@@ -43,8 +45,15 @@ export function pickTravelMode(from, to) {
  * Build a Google Maps directions URL. Omitting origin lets Maps start from
  * the user's current location — the right default mid-trip.
  */
-export function directionsUrl({ origin = null, destination, travelmode = 'transit' } = {}) {
+export function directionsUrl({ origin = null, destination, travelmode = 'transit', platform = 'google' } = {}) {
   if (!destination) return null;
+  if (platform === 'apple') {
+    const params = new URLSearchParams();
+    params.set('daddr', destination);
+    if (origin) params.set('saddr', origin);
+    params.set('dirflg', travelmode === 'walking' ? 'w' : 'r'); // w=walk, r=transit
+    return `${APPLE_BASE}?${params.toString()}`;
+  }
   const params = new URLSearchParams();
   if (origin) params.set('origin', origin);
   params.set('destination', destination);
@@ -53,12 +62,29 @@ export function directionsUrl({ origin = null, destination, travelmode = 'transi
 }
 
 /**
+ * Which maps app a user agent should get. iPadOS Safari reports itself as
+ * Macintosh, so callers can pass maxTouchPoints to catch it.
+ */
+export function mapsPlatform(userAgent = '', maxTouchPoints = 0) {
+  const ua = String(userAgent || '');
+  if (/iPhone|iPad|iPod/i.test(ua)) return 'apple';
+  if (/Macintosh/i.test(ua) && maxTouchPoints > 1) return 'apple';
+  return 'google';
+}
+
+/** Client-side convenience: detect from the live navigator (google on SSR). */
+export function detectMapsPlatform() {
+  if (typeof navigator === 'undefined') return 'google';
+  return mapsPlatform(navigator.userAgent, navigator.maxTouchPoints || 0);
+}
+
+/**
  * One directions link per schedule stop: the first leg starts from wherever
  * the traveler is; later legs start from the previous stop.
  * @param {Array<{name, time, lat, lng}>} schedule
  * @returns {Array<{name, time, url}>}
  */
-export function legLinks(schedule = [], { cityName } = {}) {
+export function legLinks(schedule = [], { cityName, platform = 'google' } = {}) {
   return (schedule || []).map((stop, i) => {
     const destination = placeParam(stop, cityName);
     const prev = i > 0 ? schedule[i - 1] : null;
@@ -70,6 +96,7 @@ export function legLinks(schedule = [], { cityName } = {}) {
             origin: prev ? placeParam(prev, cityName) : null,
             destination,
             travelmode: prev ? pickTravelMode(prev, stop) : 'transit',
+            platform,
           })
         : null,
     };
