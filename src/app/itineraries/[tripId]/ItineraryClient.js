@@ -149,7 +149,7 @@ export default function ItineraryClient({
         href={`/itineraries/${tripId}/concierge`}
         className="inline-flex items-center gap-1.5 rounded-full bg-blue-600 px-4 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-blue-700"
       >
-        <Sparkles className="h-3.5 w-3.5" /> Concierge mode
+        <Sparkles className="h-3.5 w-3.5" /> Travel agent
       </Link>
       <button
         type="button"

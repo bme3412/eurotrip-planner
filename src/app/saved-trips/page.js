@@ -344,7 +344,7 @@ function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null, sel
               <CardMenu
                 items={[
                   ...(isGenerated
-                    ? [{ label: "Concierge", href: `/itineraries/${trip.id}/concierge`, icon: SparklesIcon }]
+                    ? [{ label: "Travel agent", href: `/itineraries/${trip.id}/concierge`, icon: SparklesIcon }]
                     : []),
                   { divider: true },
                   { label: "Delete trip", danger: true, icon: TrashIcon, onClick: () => setConfirmingDelete(true) },

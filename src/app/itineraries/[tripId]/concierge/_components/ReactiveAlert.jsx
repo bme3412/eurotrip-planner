@@ -2,15 +2,18 @@
 
 import { useState } from 'react';
 import { CloudRain, Zap, ArrowRight } from 'lucide-react';
-import OlivierMark from './OlivierMark';
+import AgentMark from './AgentMark';
 
 /**
- * The reactive beat — the magic. Olivier only speaks up when something material
- * changes. A "simulate" toggle reveals the alert so users feel the proactivity.
+ * The reactive beat — the magic. The agent only speaks up when something
+ * material changes. A "simulate" toggle reveals the alert so users feel the
+ * proactivity.
  */
-export default function ReactiveAlert({ reactive }) {
+export default function ReactiveAlert({ reactive, persona }) {
   const [fired, setFired] = useState(false);
   if (!reactive?.body) return null;
+  const agentName = persona?.name || 'Olivier';
+  const pronoun = agentName === 'Olivier' ? 'He' : agentName;
 
   return (
     <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50/80 to-indigo-50/60 p-6 md:p-7">
@@ -18,7 +21,7 @@ export default function ReactiveAlert({ reactive }) {
         <Zap className="h-3.5 w-3.5" /> Reactive · only when it matters
       </div>
       <h3 className="mt-2 font-display text-2xl font-bold leading-tight text-gray-900">
-        He speaks up when the day changes.
+        {pronoun} speaks up when the day changes.
       </h3>
       <p className="mt-2 text-gray-600">
         The three daily messages are the rhythm. The real magic is the fourth — the one that only comes when
@@ -36,7 +39,7 @@ export default function ReactiveAlert({ reactive }) {
       ) : (
         <div className="mt-5 animate-fade-in rounded-2xl bg-white p-4 shadow-sm ring-1 ring-blue-100">
           <div className="flex items-start gap-3">
-            <OlivierMark size={32} />
+            <AgentMark persona={persona || undefined} size={32} />
             <div className="min-w-0">
               <div className="flex items-center gap-2">
                 <CloudRain className="h-4 w-4 text-blue-500" />

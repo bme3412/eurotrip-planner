@@ -83,7 +83,7 @@ export default function ConciergeBell() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        aria-label={`Concierge notifications${unread ? `, ${unread} unread` : ''}`}
+        aria-label={`Travel agent notifications${unread ? `, ${unread} unread` : ''}`}
         className="relative flex h-8 w-8 items-center justify-center rounded-full text-gray-500 transition hover:bg-gray-100 hover:text-gray-800"
       >
         <Bell className="h-5 w-5" />
@@ -103,7 +103,7 @@ export default function ConciergeBell() {
 
           {items.length === 0 ? (
             <div className="px-4 py-8 text-center text-sm text-gray-500">
-              Nothing yet. Turn on Olivier from a trip&apos;s concierge page.
+              Nothing yet. Turn on Olivier from a trip&apos;s travel agent page.
             </div>
           ) : (
             <ul className="max-h-96 divide-y divide-gray-50 overflow-y-auto">

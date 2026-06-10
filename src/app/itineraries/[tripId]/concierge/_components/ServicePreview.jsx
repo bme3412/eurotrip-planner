@@ -55,7 +55,7 @@ export default function ServicePreview({ cadence }) {
       <div className="mt-6 flex flex-col gap-3 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 p-5 sm:flex-row sm:items-center">
         <div className="min-w-0 flex-1">
           <p className="font-display text-lg font-bold text-gray-900">This preview is free.</p>
-          <p className="text-sm text-gray-600">The live concierge — every day of every trip — is the early-access tier.</p>
+          <p className="text-sm text-gray-600">The live travel agent — every day of every trip — is the early-access tier.</p>
         </div>
         <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs font-medium text-gray-600">
           {['Daily briefs', 'Reactive alerts', 'Reply anytime', 'Post-trip recap'].map((f) => (
