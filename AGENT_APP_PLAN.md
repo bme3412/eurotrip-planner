@@ -21,6 +21,7 @@ thread), **hands** (tools that modify the trip, behind a trust ladder), and
 | **T2 hands** | ✅ Built | PR #52 (`feat/agent-hands`) — `tripActions.js`, propose→Apply flow, `/agent/apply` |
 | **T3 senses** | ✅ Hours watcher built; flight + strikes remain | PR #53 (`feat/agent-senses`) — migration 0013, `hoursCheck.js`, `conciergeHoursWatch` (5th Inngest fn), fix attached as proposal |
 | **T4 channels** | ✅ Telegram built; WhatsApp later | `feat/agent-telegram` (PR pending gh re-auth) — migration 0014, webhook + signed link flow, beats mirror, inline Apply/Skip |
+| **T4.5 visible loops** | ✅ Built (June 10) | Streaming + adaptive thinking in `agentRuntime.runToolLoop` (thinking/tool-label/summary SSE events, persisted `meta.trace`, Trip Home live working-trace UI + "What I checked" disclosure) · `check_hours` tool (reuses `hoursCheck.classifyOpening`) · **nightly round** (`nightlyRound.js`): the evening beat is now an agentic run — hours per stop, weather, travel legs → brief + fix proposal, wired into `sendConciergeBrief` · manual "Preview tonight's brief" (`POST /agent {mode:'nightly_round'}`) for the dry run · Travel-agent entry points route invited owners to Trip Home (`useAgentInvited`). Hours-watcher cron stays ON for a soak, then retire its trigger (round subsumes it). Telegram turns: thinking on, `effort:'low'` |
 | **T5 commerce** | Not started | After retention signal |
 
 PR stack merges top-down: **#50** (beta launch → main) ← **#51** ← **#52** ← **#53** ← T4.

@@ -1,6 +1,7 @@
 import { getSupabaseAdmin } from '@/lib/supabase/server';
 import { getTripWithDetails } from '@/lib/trips/tripsRepository';
 import { generateConciergeDay } from '@/lib/concierge/generateBrief';
+import { runNightlyRound } from '@/lib/concierge/nightlyRound';
 import { buildConciergeContext } from '@/lib/concierge/buildContext';
 import { generateReactiveAlert } from '@/lib/concierge/generateReactive';
 import { pushToUser } from '@/lib/concierge/webpush';
@@ -51,12 +52,29 @@ export async function sendConciergeBrief({ tripId, dayNumber = null, type = 'eve
   if (!trip) return { ok: false, reason: 'trip_not_found' };
   if (!trip.user_id && !trip.user_email) return { ok: false, reason: 'trip_unowned' };
 
-  const payload = await generateConciergeDay(trip, dayNumber);
-  const day = payload?.day;
-  if (!day) return { ok: false, reason: 'generation_failed' };
+  const supabase = await getSupabaseAdmin();
+
+  // The evening beat is the AGENTIC one: Olivier does his nightly rounds
+  // (hours per stop, weather, travel legs) and writes the brief himself,
+  // posting it — with its working trace and any fix proposal — into the
+  // thread. Morning/wind-down stay one-shot (cached) generations.
+  let day;
+  let bodyText;
+  let proposalMessageId = null;
+  if (type === 'evening_brief') {
+    const round = await runNightlyRound(trip, dayNumber, { supabase, channel: 'app' });
+    if (!round.ok) return { ok: false, reason: round.reason || 'generation_failed' };
+    day = round.day;
+    bodyText = round.pushLine || round.body;
+    proposalMessageId = round.proposal && round.threadMessageId ? round.threadMessageId : null;
+  } else {
+    const payload = await generateConciergeDay(trip, dayNumber);
+    day = payload?.day;
+    if (!day) return { ok: false, reason: 'generation_failed' };
+    bodyText = day.pushLine || day.briefs?.eveningBrief?.body || 'Tomorrow’s plan is ready.';
+  }
 
   const title = `Tonight’s brief · ${day.cityName || trip.city || 'your trip'}`;
-  const bodyText = day.pushLine || day.briefs?.eveningBrief?.body || 'Tomorrow’s plan is ready.';
 
   const row = {
     user_id: trip.user_id,
@@ -74,7 +92,6 @@ export async function sendConciergeBrief({ tripId, dayNumber = null, type = 'eve
     },
   };
 
-  const supabase = await getSupabaseAdmin();
   // Upsert on the dedup key so re-sends refresh content instead of duplicating.
   const { data, error } = await supabase
     .from('concierge_notifications')
@@ -88,9 +105,10 @@ export async function sendConciergeBrief({ tripId, dayNumber = null, type = 'eve
   }
 
   // The thread is the canonical conversation — beats post into it so the user
-  // can reply. Best-effort: the notification row above stays the durable
-  // delivery record even if the thread tables aren't migrated yet.
-  if (trip.user_id) {
+  // can reply. The nightly round already posted its own (richer) message; the
+  // one-shot beats post here. Best-effort: the notification row above stays
+  // the durable delivery record even if the thread tables aren't migrated yet.
+  if (trip.user_id && type !== 'evening_brief') {
     try {
       const { thread } = await getOrCreateThread(supabase, {
         tripId,
@@ -148,7 +166,9 @@ export async function sendConciergeBrief({ tripId, dayNumber = null, type = 'eve
     }
   }
 
-  await mirrorToTelegram(supabase, { userId: trip.user_id, title, body: bodyText });
+  // Telegram gets the fix as inline Apply/Skip buttons when the nightly round
+  // attached a proposal (same pattern as the hours alert).
+  await mirrorToTelegram(supabase, { userId: trip.user_id, title, body: bodyText, proposalMessageId });
 
   return { ok: true, notification: data, push, email };
 }

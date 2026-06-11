@@ -5,11 +5,14 @@ import { enforceRateLimit, RATE_LIMITS } from '@/lib/rateLimit';
 import { buildConciergeContext } from '@/lib/concierge/buildContext';
 import { currentDayNumber } from '@/lib/concierge/agentPrompt';
 import { runAgentTurn } from '@/lib/concierge/agentRuntime';
+import { runNightlyRound } from '@/lib/concierge/nightlyRound';
 import { getOrCreateThread, listThreadMessages } from '@/lib/concierge/thread';
 import { isInvited } from '@/lib/concierge/invites';
 
 export const runtime = 'nodejs';
-export const maxDuration = 60;
+// Chat turns finish well inside a minute; the manual nightly round streams a
+// multi-stop tool loop (hours checks per stop + the brief) and needs headroom.
+export const maxDuration = 300;
 
 function sseEvent(type, data) {
   return `data: ${JSON.stringify({ type, ...data })}\n\n`;
@@ -79,11 +82,16 @@ export async function GET(request, { params }) {
 }
 
 /**
- * POST /api/trips/[id]/agent   body: { message: string }
+ * POST /api/trips/[id]/agent
+ *   body: { message: string }                        — one chat turn
+ *   body: { mode: 'nightly_round', dayNumber? }      — run Olivier's evening
+ *     rounds NOW over SSE with the full working trace (dayNumber defaults to
+ *     the next upcoming real day; works before the trip starts). The resulting
+ *     evening_brief posts into the thread, idempotent per day.
  *
- * One thread turn, streamed as SSE (delta / tool_call / tool_result /
- * proposal / error / done). Thin wrapper: the loop lives in
- * src/lib/concierge/agentRuntime.js, shared with the Telegram webhook.
+ * Streamed as SSE (thinking / delta / tool_call / tool_result / proposal /
+ * error / done). Thin wrapper: the loops live in agentRuntime/nightlyRound,
+ * shared with the Telegram webhook and the scheduled beat pipeline.
  */
 export async function POST(request, { params }) {
   const { id: tripId } = await params;
@@ -96,8 +104,10 @@ export async function POST(request, { params }) {
 
   let body = {};
   try { body = await request.json(); } catch { /* */ }
+  const mode = body?.mode === 'nightly_round' ? 'nightly_round' : 'chat';
+  const dayNumber = Number.isFinite(body?.dayNumber) ? body.dayNumber : null;
   const message = typeof body?.message === 'string' ? body.message.trim().slice(0, 1500) : '';
-  if (!message) return NextResponse.json({ error: 'Empty message' }, { status: 400 });
+  if (mode === 'chat' && !message) return NextResponse.json({ error: 'Empty message' }, { status: 400 });
 
   const supabase = await getSupabaseAdmin();
 
@@ -106,19 +116,39 @@ export async function POST(request, { params }) {
       const enc = new TextEncoder();
       const emit = (type, data) => controller.enqueue(enc.encode(sseEvent(type, data)));
       try {
-        const result = await runAgentTurn({
-          supabase,
-          trip,
-          userId: requester.userId,
-          userEmail: requester.userEmail,
-          message,
-          channel: 'app',
-          onEvent: emit,
-        });
-        if (result.error) {
-          emit('error', { message: 'Olivier is unavailable right now — try again in a moment.' });
+        if (mode === 'nightly_round') {
+          const round = await runNightlyRound(trip, dayNumber, { supabase, onEvent: emit, channel: 'app' });
+          if (!round.ok) {
+            emit('error', { message: 'Olivier couldn’t finish his rounds — try again in a moment.' });
+          } else {
+            emit('done', {
+              messageId: round.threadMessageId,
+              proposal: round.proposal,
+              trace: round.trace || null,
+              beat: {
+                kind: 'evening_brief',
+                dayNumber: round.dayNumber,
+                body: round.body,
+                cityName: round.cityName,
+                dateLabel: round.dateLabel,
+              },
+            });
+          }
         } else {
-          emit('done', { messageId: result.messageId, proposal: result.proposal });
+          const result = await runAgentTurn({
+            supabase,
+            trip,
+            userId: requester.userId,
+            userEmail: requester.userEmail,
+            message,
+            channel: 'app',
+            onEvent: emit,
+          });
+          if (result.error) {
+            emit('error', { message: 'Olivier is unavailable right now — try again in a moment.' });
+          } else {
+            emit('done', { messageId: result.messageId, proposal: result.proposal, trace: result.trace || null });
+          }
         }
       } catch (err) {
         console.error('[concierge/agent] turn failed:', err?.message);
