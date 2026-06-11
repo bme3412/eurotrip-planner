@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getCityData } from "@/lib/data-utils";
 import { getTripWithDetails } from "@/lib/trips/tripsRepository";
 import { isTripPubliclyReadable } from "@/lib/trips/tripAccess";
+import { buildConciergeContext } from "@/lib/concierge/buildContext";
 import { formatDateRange } from "../_lib/buildPlan";
 import ConciergeClient from "./ConciergeClient";
 
@@ -34,6 +35,11 @@ export default async function ConciergePage({ params, searchParams }) {
   const thumbnail = cityData?.thumbnail;
   const hasHero = thumbnail && thumbnail !== "/images/city-placeholder.svg";
 
+  // The deterministic scaffold (day tabs, schedule, meta) is pure computation
+  // over the trip we already loaded — SSR it so the page paints instantly and
+  // only the prose waits on the (cached) LLM payload.
+  const ctx = buildConciergeContext(trip);
+
   return (
     <ConciergeClient
       tripId={tripId}
@@ -41,6 +47,8 @@ export default async function ConciergePage({ params, searchParams }) {
       cityDisplay={cityDisplay}
       dateRangeLabel={dateRangeLabel}
       heroImage={hasHero ? thumbnail : null}
+      initialBundle={{ meta: ctx.meta, days: ctx.days, personalization: ctx.personalization }}
+      initialDayNumber={ctx.selectedDay?.dayNumber ?? null}
     />
   );
 }
