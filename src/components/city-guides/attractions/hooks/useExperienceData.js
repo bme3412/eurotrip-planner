@@ -105,6 +105,7 @@ export function useExperienceData({ experiencesUrl, cityName, limit = Infinity }
               arrondissement: item?.arrondissement || null,
               duration_minutes: item?.duration_minutes || null,
               googlePlaceKey: item?.googlePlaceKey || null,
+              spotlight: typeof item?.spotlight === 'number' ? item.spotlight : null,
               googlePlaceId,
               photoName: googlePhotoName,
               ratings: {
