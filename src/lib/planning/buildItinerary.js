@@ -181,6 +181,13 @@ export function normalizeName(n) {
     .replace(/[^a-z0-9]+/g, '');
 }
 
+/** Does this site match one of the traveler's must-see slugs? */
+export function matchesMustSee(site, mustSee = []) {
+  if (!Array.isArray(mustSee) || !mustSee.length) return false;
+  const nameSlug = (site?.name || '').toLowerCase().replace(/\s+/g, '-');
+  return mustSee.some(m => nameSlug.includes(m) || String(m).includes(nameSlug));
+}
+
 export function scoreAttraction(site, interests, mustSee, season = {}) {
   let score = 0;
   const cultural = site?.ratings?.cultural_significance ?? 3;
@@ -196,8 +203,7 @@ export function scoreAttraction(site, interests, mustSee, season = {}) {
   }
 
   // Must-see boost
-  const nameSlug = (site.name || '').toLowerCase().replace(/\s+/g, '-');
-  if (mustSee.some(m => nameSlug.includes(m) || m.includes(nameSlug))) {
+  if (matchesMustSee(site, mustSee)) {
     score += 50;
   }
 
@@ -363,7 +369,7 @@ function clusterByProximity(items, numGroups) {
 
 // ── Time block templates ─────────────────────────────────────────────
 
-const TIME_SLOTS = {
+export const TIME_SLOTS = {
   relaxed: [
     { time: 'morning', startTime: '10:00', endTime: '12:00' },
     { time: 'lunch', startTime: '12:30', endTime: '14:00' },
@@ -384,7 +390,7 @@ const TIME_SLOTS = {
   ],
 };
 
-function getPaceLabel(pace) {
+export function getPaceLabel(pace) {
   if (pace <= 35) return 'relaxed';
   if (pace >= 70) return 'active';
   return 'moderate';
@@ -497,6 +503,21 @@ export function buildItinerary(trip, cityData) {
   // ── Select & cluster attractions for the trip ──
   const totalSlots = numDays * attractionSlotsPerDay;
   const selected = uniqueScored.slice(0, Math.min(totalSlots + 4, uniqueScored.length));
+
+  // Must-sees are a guarantee, not a +50 suggestion: any pinned site that
+  // missed the cut swaps in over the lowest-scored non-pinned selection.
+  const pinnedMissing = uniqueScored.filter(
+    s => matchesMustSee(s, mustSee) && !selected.includes(s)
+  );
+  for (const pin of pinnedMissing) {
+    for (let i = selected.length - 1; i >= 0; i -= 1) {
+      if (!matchesMustSee(selected[i], mustSee)) {
+        selected[i] = pin;
+        break;
+      }
+    }
+  }
+
   const clusters = clusterByProximity(selected, numDays).map(orderByProximity);
 
   const days = [];
@@ -744,11 +765,13 @@ export async function buildItineraryWithRouting(trip, cityData, options = {}) {
 
   let itinerary = buildItinerary(trip, effectiveCityData);
 
-  // Optional grounded LLM curation: replace the deterministic day content with an
-  // LLM-sequenced plan drawn from the SAME candidate pool. Runs before routing so
-  // travel times + clock times reflect the curated picks. Falls back silently to
-  // the deterministic days on no key / disabled / timeout / sparse pool.
-  if (process.env.ITINERARY_LLM_CURATE === 'true') {
+  // Grounded LLM curation — ON by default (set ITINERARY_LLM_CURATE=false to opt
+  // out): replaces the deterministic day content with an LLM-sequenced plan drawn
+  // from the SAME candidate pool, honoring must-see pins and any free-text
+  // direction. Runs before routing so travel times + clock times reflect the
+  // curated picks. Falls back silently to the deterministic days on no key /
+  // disabled / timeout / sparse pool.
+  if (process.env.ITINERARY_LLM_CURATE !== 'false') {
     try {
       const { curateCityDays } = await import('./curateCityDays.js');
       const curatedDays = await curateCityDays(trip, effectiveCityData, itinerary);

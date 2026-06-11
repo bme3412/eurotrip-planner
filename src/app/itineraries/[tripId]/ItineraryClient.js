@@ -1,13 +1,15 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Pencil, CalendarDays, ArrowLeft, Sparkles } from 'lucide-react';
 import ShareButton from './ShareButton';
 import { formatDayDate } from './_lib/helpers';
 import ItineraryView from '@/components/itinerary/ItineraryView';
+import RegenerateDayControl from '@/components/itinerary/RegenerateDayControl';
 import { useAuth } from '@/contexts/AuthContext';
+import { useAgentInvited } from '@/hooks/useAgentInvited';
 import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
 import { accommodationsByCity, getBookings, pickInbound, pickOutbound } from '@/lib/planning/tripBookings';
 
@@ -37,6 +39,33 @@ export default function ItineraryClient({
   const { session } = useAuth();
   const [editPanelOpen, setEditPanelOpen] = useState(false);
   const [localPlan, setLocalPlan] = useState(plan);
+
+  // Where "Travel agent" leads: invited owners get the REAL agent (Trip Home
+  // thread); everyone else (signed out, share viewers, not yet invited) keeps
+  // the concierge preview. Trip Home needs write access, so share viewers
+  // always get the preview regardless of their own invite.
+  const agentInvited = useAgentInvited() && !shareToken;
+
+  // Warm the concierge's first-day brief so clicking "Travel agent" lands on a
+  // durably cached page instead of a ~19s generation. Fire-and-forget; the
+  // server dedupes a warm request against a real click in flight, and an
+  // already-cached brief makes this a cheap no-op read.
+  const warmedRef = useRef(false);
+  const warmConcierge = useCallback(() => {
+    if (warmedRef.current) return;
+    warmedRef.current = true;
+    const shareQuery = shareToken ? `?share=${encodeURIComponent(shareToken)}` : '';
+    fetch(`/api/trips/${tripId}/concierge-brief${shareQuery}`, {
+      method: 'POST',
+      headers: getSupabaseAuthHeaders(session, { 'Content-Type': 'application/json' }),
+      body: JSON.stringify({}),
+    }).catch(() => { /* warming is best-effort */ });
+  }, [tripId, session, shareToken]);
+
+  useEffect(() => {
+    const t = setTimeout(warmConcierge, 3000);
+    return () => clearTimeout(t);
+  }, [warmConcierge]);
 
   const handleCalendarDownload = useCallback(async () => {
     try {
@@ -146,7 +175,10 @@ export default function ItineraryClient({
   const heroActions = (
     <>
       <Link
-        href={`/itineraries/${tripId}/concierge`}
+        href={agentInvited ? `/trips/${tripId}/today` : `/itineraries/${tripId}/concierge`}
+        onMouseEnter={warmConcierge}
+        onFocus={warmConcierge}
+        onTouchStart={warmConcierge}
         className="inline-flex items-center gap-1.5 rounded-full bg-blue-600 px-4 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-blue-700"
       >
         <Sparkles className="h-3.5 w-3.5" /> Travel agent
@@ -184,6 +216,20 @@ export default function ItineraryClient({
         showPhotos
         heroImage={hasHero ? thumbnail : null}
         actions={heroActions}
+        // Owners can redo a whole day with free-text steering; share viewers
+        // and travel days don't get the control.
+        dayActions={
+          session && !shareToken
+            ? (d) =>
+                d.isTravelDay ? null : (
+                  <RegenerateDayControl
+                    tripId={tripId}
+                    dayNumber={d.dayNumber}
+                    authHeaders={getSupabaseAuthHeaders(session, { 'Content-Type': 'application/json' })}
+                  />
+                )
+            : null
+        }
       />
 
       {tripId && citySlug && (

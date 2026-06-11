@@ -17,10 +17,12 @@
  * pool → returns null, and the caller keeps the deterministic days.
  */
 import { getAnthropicClient } from '@/lib/llm/clients';
+import { logLlmUsage } from '@/lib/llm/usageLog';
 
 import { buildCandidatePool } from './candidatePool.js';
 import { getSeasonalContext } from './seasonalContext.js';
 import { getCityExperiences } from '../data-utils.js';
+import { normalizeName } from './buildItinerary.js';
 
 const MODEL = 'claude-sonnet-4-6';
 // Selection is higher-value than the prose-polish pass, so it gets a longer
@@ -40,6 +42,8 @@ RULES:
 - Vary the days: don't pile all the museums (or all the parks) into one day; balance indoor/outdoor and famous/local.
 - Never repeat a ref anywhere in the whole trip.
 - Heed each day's weather note: in hot or wet weather lean midday toward indoor sights.
+- If the data includes "mustInclude" refs, every one of them MUST appear somewhere in the plan — these are the traveler's non-negotiables.
+- If the data includes a "direction" string, it is the traveler's own words about what they want — honor it above the generic rules (e.g. "slow mornings", "more food, fewer museums", "keep day 2 light").
 - For each day write a "theme" (2-4 words) and a "summary" (1-2 sentences, ~30 words, second person, present tense, no clichés, no emojis). Ground it in the trip's actual month (given as "month") — never name a different season.
 
 OUTPUT: Return ONLY valid JSON, no prose, exactly:
@@ -99,7 +103,7 @@ function parseJson(text) {
   }
 }
 
-async function callModel(client, userText) {
+async function callModel(client, userText, usageMeta = {}) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   try {
@@ -112,6 +116,7 @@ async function callModel(client, userText) {
       },
       { signal: controller.signal },
     );
+    logLlmUsage({ feature: 'itinerary_curate', model: MODEL, usage: res?.usage, meta: usageMeta });
     const text = res?.content?.find((b) => b.type === 'text')?.text || '';
     return parseJson(text);
   } catch (err) {
@@ -123,15 +128,32 @@ async function callModel(client, userText) {
 }
 
 /**
+ * Resolve the trip's must-see slugs to candidate refs (same containment match
+ * the deterministic scorer uses), so pins can be enforced — not just boosted.
+ */
+export function mustIncludeRefs(pool, mustSee = []) {
+  if (!Array.isArray(mustSee) || !mustSee.length) return [];
+  const refs = [];
+  for (const c of pool.candidates) {
+    if (c.kind !== 'sight') continue;
+    const nameSlug = (c.activity?.name || '').toLowerCase().replace(/\s+/g, '-');
+    if (mustSee.some((m) => nameSlug.includes(m) || String(m).includes(nameSlug))) refs.push(c.ref);
+  }
+  return refs;
+}
+
+/**
  * Validate + assemble the model's plan onto the deterministic day scaffold.
  * Pure and total — exported for unit testing against adversarial model output.
  *
  * @param {Object} modelPlan - parsed model JSON ({ days: [...] }) or null
  * @param {Array} baseDays - deterministic itinerary days (the scaffold)
  * @param {Object} pool - buildCandidatePool() result
+ * @param {Object} [opts] - { mustInclude: ref[] } pins that MUST end up placed
  * @returns {Array} assembled days (always structurally valid)
  */
-export function assembleCuratedDays(modelPlan, baseDays, pool) {
+export function assembleCuratedDays(modelPlan, baseDays, pool, opts = {}) {
+  const mustInclude = Array.isArray(opts.mustInclude) ? opts.mustInclude : [];
   const byDay = new Map();
   for (const d of modelPlan?.days || []) {
     if (typeof d?.day === 'number') byDay.set(d.day, d);
@@ -145,7 +167,11 @@ export function assembleCuratedDays(modelPlan, baseDays, pool) {
   const takeUnusedSight = () => sightQueue.find((c) => !usedSights.has(c.ref)) || null;
   const takeUnusedFood = () => foodQueue.find((c) => !usedFood.has(c.ref)) || null;
 
-  return baseDays.map((day) => {
+  // Every sight placement, in order, so pin enforcement below can swap the
+  // least-prominent non-pinned placement.
+  const placements = []; // { dayIdx, blockIdx, ref }
+
+  const assembled = baseDays.map((day, dayIdx) => {
     const plan = byDay.get(day.dayNumber) || {};
     const kinds = (day.timeBlocks || []).map(classifyBlock);
     const sightSlots = kinds.filter((k) => k === 'sight').length;
@@ -188,6 +214,7 @@ export function assembleCuratedDays(modelPlan, baseDays, pool) {
       // sight slot
       const cand = chosen[si++];
       if (!cand) return block; // keep deterministic block if pool ran dry
+      placements.push({ dayIdx, blockIdx: i, ref: cand.ref });
       return { ...block, activity: { ...cand.activity } };
     });
 
@@ -199,6 +226,29 @@ export function assembleCuratedDays(modelPlan, baseDays, pool) {
       _curated: true,
     };
   });
+
+  // ── Pin enforcement: a must-see is a guarantee, not a suggestion. Any pin
+  // the model (or backfill) left out replaces the LAST non-pinned placement,
+  // so the most prominent (earliest) picks survive.
+  const pinned = new Set(mustInclude);
+  const missing = mustInclude.filter((ref) => !usedSights.has(ref) && pool.byRef.get(ref)?.kind === 'sight');
+  for (const ref of missing) {
+    for (let p = placements.length - 1; p >= 0; p -= 1) {
+      const slot = placements[p];
+      if (pinned.has(slot.ref)) continue;
+      const cand = pool.byRef.get(ref);
+      assembled[slot.dayIdx].timeBlocks[slot.blockIdx] = {
+        ...assembled[slot.dayIdx].timeBlocks[slot.blockIdx],
+        activity: { ...cand.activity },
+      };
+      usedSights.delete(slot.ref);
+      usedSights.add(ref);
+      slot.ref = ref;
+      break;
+    }
+  }
+
+  return assembled;
 }
 
 /**
@@ -229,18 +279,94 @@ export async function curateCityDays(trip, cityData, baseItinerary) {
   const sightCount = pool.candidates.filter((c) => c.kind === 'sight').length;
   if (sightCount < MIN_SIGHTS) return null; // sparse city — let deterministic/fallback handle it
 
+  const pins = mustIncludeRefs(pool, trip.must_see);
+  const direction = typeof trip.direction === 'string' && trip.direction.trim()
+    ? trip.direction.trim().slice(0, 500)
+    : null;
+
   const payload = {
     city: baseItinerary.city || trip.city,
     month: baseItinerary.seasonal?.month || null,
     season: baseItinerary.seasonal?.weatherNote || null,
     interests: Array.isArray(trip.interests) ? trip.interests : [],
+    ...(pins.length ? { mustInclude: pins } : {}),
+    ...(direction ? { direction } : {}),
     days: describeDays(baseItinerary.days),
     ...describeCandidates(pool),
   };
 
   const client = getAnthropicClient();
-  const modelPlan = await callModel(client, `Plan ${payload.city}. Data:\n${JSON.stringify(payload)}`);
+  const modelPlan = await callModel(client, `Plan ${payload.city}. Data:\n${JSON.stringify(payload)}`, {
+    city: payload.city,
+    days: baseItinerary.days.length,
+  });
   if (!modelPlan || !Array.isArray(modelPlan.days)) return null;
 
-  return assembleCuratedDays(modelPlan, baseItinerary.days, pool);
+  return assembleCuratedDays(modelPlan, baseItinerary.days, pool, { mustInclude: pins });
+}
+
+/**
+ * Re-curate ONE day of an existing trip with free-text steering — the engine
+ * behind "redo this day". The pool excludes places already used on the trip's
+ * OTHER days (no duplicates), and the traveler's direction rides into the
+ * prompt verbatim. Same grounding contract; returns the assembled day or null.
+ *
+ * @param {Object} trip - { city, start_date, end_date, interests, pace, budget, must_see }
+ * @param {Object} cityData - from getCityData()
+ * @param {Object} args
+ * @param {Object} args.dayScaffold - a builder-shaped day ({ dayNumber, date, timeBlocks, weatherNote })
+ * @param {string[]} [args.excludeNames] - activity names already used on other days
+ * @param {string|null} [args.direction] - the traveler's words for this day
+ * @returns {Promise<Object|null>} the assembled day, or null on any failure
+ */
+export async function curateSingleDay(trip, cityData, { dayScaffold, excludeNames = [], direction = null }) {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey || !dayScaffold) return null;
+
+  let experiences = null;
+  try {
+    if (trip.city) experiences = await getCityExperiences(trip.city);
+  } catch {
+    experiences = null;
+  }
+
+  const seasonalContext = getSeasonalContext(cityData, trip.start_date, trip.end_date);
+  const fullPool = buildCandidatePool(cityData, { trip, seasonalContext, experiences });
+
+  // Drop candidates already placed on the trip's other days (refs stay stable).
+  const excluded = new Set(excludeNames.map((n) => normalizeName(n) || String(n).trim().toLowerCase()));
+  const candidates = fullPool.candidates.filter((c) => {
+    const key = normalizeName(c.activity?.name) || (c.activity?.name || '').trim().toLowerCase();
+    return !excluded.has(key);
+  });
+  const pool = { ...fullPool, candidates, byRef: new Map(candidates.map((c) => [c.ref, c])) };
+
+  if (pool.candidates.filter((c) => c.kind === 'sight').length < MIN_SIGHTS) return null;
+
+  const pins = mustIncludeRefs(pool, trip.must_see);
+  const w = seasonalContext?.weather;
+  const seasonNote = w
+    ? [w.highC != null ? `high ~${w.highC}°C` : null, w.precipitation || null].filter(Boolean).join(', ') || null
+    : null;
+  const payload = {
+    city: cityData?.cityName || cityData?.name || trip.city,
+    month: seasonalContext?.month || null,
+    season: seasonNote,
+    interests: Array.isArray(trip.interests) ? trip.interests : [],
+    ...(pins.length ? { mustInclude: pins } : {}),
+    ...(direction ? { direction: String(direction).trim().slice(0, 500) } : {}),
+    days: describeDays([dayScaffold]),
+    ...describeCandidates(pool),
+  };
+
+  const client = getAnthropicClient();
+  const modelPlan = await callModel(
+    client,
+    `Re-plan day ${dayScaffold.dayNumber} of ${payload.city} only. Data:\n${JSON.stringify(payload)}`,
+    { city: payload.city, days: 1, regen: true },
+  );
+  if (!modelPlan || !Array.isArray(modelPlan.days)) return null;
+
+  const [day] = assembleCuratedDays(modelPlan, [dayScaffold], pool, { mustInclude: pins });
+  return day || null;
 }
