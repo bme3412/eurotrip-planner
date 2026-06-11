@@ -3,7 +3,7 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { Pencil, CalendarDays, ArrowLeft, Sparkles } from 'lucide-react';
+import { Pencil, CalendarDays, Sparkles } from 'lucide-react';
 import ShareButton from './ShareButton';
 import { formatDayDate } from './_lib/helpers';
 import ItineraryView from '@/components/itinerary/ItineraryView';
@@ -21,7 +21,7 @@ const EditPanel = dynamic(() => import('@/components/itinerary/EditPanel'), {
 /**
  * Saved itinerary page. Renders the shared <ItineraryView> (same component the
  * post-generation overlay uses) and injects the page's own actions —
- * Edit / Share / Calendar / Preferences — into the hero, keeping the Edit panel
+ * Travel agent / Edit / Share / Calendar — into the hero, keeping the Edit panel
  * and live activity editing.
  */
 export default function ItineraryClient({
@@ -198,12 +198,6 @@ export default function ItineraryClient({
       >
         <CalendarDays className="h-3.5 w-3.5" /> Calendar
       </button>
-      <Link
-        href={`/plan/${citySlug}`}
-        className="inline-flex items-center gap-1.5 rounded-full border border-white/40 bg-white/10 px-4 py-1.5 text-xs font-semibold text-white backdrop-blur transition hover:bg-white/20"
-      >
-        <ArrowLeft className="h-3.5 w-3.5" /> Preferences
-      </Link>
     </>
   );
 
