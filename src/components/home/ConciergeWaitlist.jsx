@@ -46,7 +46,7 @@ export default function ConciergeWaitlist({ heading = 'Get early access', classN
   };
 
   return (
-    <div className={`rounded-2xl bg-white border border-gray-100 shadow-sm p-6 md:p-7 ${className}`}>
+    <div className={`rounded-2xl bg-white border border-gray-200/80 shadow-sm p-6 md:p-7 ${className}`}>
       {joined ? (
         <div className="flex flex-col items-center text-center gap-3 py-8">
           <span className="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-50 text-emerald-600">

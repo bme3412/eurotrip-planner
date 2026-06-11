@@ -12,7 +12,7 @@ const DONE_STEPS = [
 
 export default function HowItWorks({ onScrollToDatePicker }) {
   return (
-    <section className="px-6 py-20 md:py-28 bg-slate-50 border-t border-gray-100">
+    <section className="px-6 py-16 md:py-24 bg-slate-50">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <SectionHeading
@@ -39,7 +39,7 @@ export default function HowItWorks({ onScrollToDatePicker }) {
           <ul className="space-y-3.5">
             {DONE_STEPS.map((step, i) => (
               <li key={i} className="flex items-center gap-3 text-gray-800">
-                <span className="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded-full bg-green-100 text-green-600">
+                <span className="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded-full bg-emerald-100 text-emerald-600">
                   <Check className="w-3.5 h-3.5" strokeWidth={3} />
                 </span>
                 <span className="text-base">{step}</span>
@@ -56,7 +56,7 @@ export default function HowItWorks({ onScrollToDatePicker }) {
         <div className="mt-8 text-center">
           <button
             onClick={onScrollToDatePicker}
-            className="group inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            className="btn-primary group gap-2 px-8 py-4 text-base"
           >
             Plan a trip
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

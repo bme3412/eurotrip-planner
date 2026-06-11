@@ -78,6 +78,8 @@ export default function SplitHero({ children }) {
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-4 left-4 w-80 h-80 bg-sky-200/35 rounded-full blur-3xl" />
         <div className="absolute top-40 left-44 w-72 h-72 bg-indigo-200/30 rounded-full blur-3xl" />
+        {/* mesh→white fade lives inside the hero so it adds no layout height */}
+        <div className="absolute inset-x-0 bottom-0 h-24 md:h-28 bg-gradient-to-b from-transparent to-white" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
@@ -85,7 +87,7 @@ export default function SplitHero({ children }) {
         <div className="flex justify-center lg:justify-start">{children}</div>
 
         {/* Right: cinematic photo panel */}
-        <div className="relative aspect-[4/3] rounded-[1.75rem] overflow-hidden bg-slate-900 ring-1 ring-black/5 shadow-[0_24px_70px_rgba(30,99,233,0.18)]">
+        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-900 ring-1 ring-black/5 shadow-[0_24px_70px_rgba(37,99,235,0.18)]">
           {SLIDES.map((slide, i) => (
             <HeroSlide
               key={slide.key}

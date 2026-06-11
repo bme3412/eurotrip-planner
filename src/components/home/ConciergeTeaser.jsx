@@ -20,8 +20,9 @@ const RHYTHM = [
 
 export default function ConciergeTeaser() {
   return (
-    <section className="px-6 pt-12 md:pt-16 pb-20 md:pb-28 bg-white">
-      <div className="max-w-5xl mx-auto rounded-3xl border border-amber-100/70 bg-[#faf7f1] p-8 md:p-12 shadow-sm">
+    <section className="px-6 py-16 md:py-24 bg-white">
+      {/* Cream matches the date-picker popover palette — the app's warm accent */}
+      <div className="max-w-5xl mx-auto rounded-3xl border border-[#e5e0d8] bg-[#faf8f5] p-8 md:p-12 shadow-sm">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           {/* Left: the pitch + daily rhythm */}
           <div>
