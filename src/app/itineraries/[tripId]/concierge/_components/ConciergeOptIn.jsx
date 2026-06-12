@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { Bell, BellRing, Loader2, Check, ArrowUp, Share, SquarePlus, MonitorDown, MessageCircle } from 'lucide-react';
+import { Bell, BellRing, Loader2, Check, ArrowUp, Share, SquarePlus, MonitorDown } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { getSupabaseClient } from '@/lib/supabase/client';
 import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';

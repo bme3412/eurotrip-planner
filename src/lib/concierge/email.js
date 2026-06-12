@@ -88,59 +88,6 @@ export async function sendBriefEmail({ to, day, cityName }) {
 }
 
 /**
- * Hours-alert email: the heads-up plus — when Olivier attached a fix — the
- * proposal with one-click Apply/Skip buttons (signed links, no session
- * needed). This is the email channel's answer to chat inline buttons.
- */
-export function renderHoursAlertEmail({ title, body, proposalSummary = null, applyUrl = null, skipUrl = null, tripUrl = null, unsubscribe = null }) {
-  const proposalBlock = proposalSummary && applyUrl && skipUrl
-    ? `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:16px;margin:16px 0 0">
-        <div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#9ca3af;margin-bottom:6px">Olivier's suggestion</div>
-        <p style="margin:0 0 14px;font-size:14px;color:#1f2937;line-height:1.5">${esc(proposalSummary)}</p>
-        <a href="${esc(applyUrl)}" style="display:inline-block;background:#1e63e9;color:#ffffff;font-weight:700;font-size:14px;padding:9px 18px;border-radius:999px;text-decoration:none;margin-right:8px">Apply</a>
-        <a href="${esc(skipUrl)}" style="display:inline-block;background:#ffffff;color:#374151;font-weight:600;font-size:14px;padding:9px 18px;border-radius:999px;text-decoration:none;border:1px solid #d1d5db">Skip</a>
-      </div>`
-    : '';
-
-  return `<!doctype html>
-<html><body style="margin:0;background:#faf8f3;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
-  <div style="max-width:560px;margin:0 auto;padding:24px 16px">
-    <div style="background:#ffffff;border:1px solid #f0e9da;border-radius:20px;overflow:hidden">
-      <div style="background:linear-gradient(135deg,#b45309,#d97706);padding:22px 24px;color:#ffffff">
-        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.85">Heads up</div>
-        <div style="font-size:22px;font-weight:700;margin-top:4px">${esc(title || 'A change for tomorrow')}</div>
-      </div>
-      <div style="padding:24px">
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#1f2937">${esc(body || '')}</p>
-        ${proposalBlock}
-        ${tripUrl ? `<p style="margin:18px 0 0"><a href="${esc(tripUrl)}" style="font-size:14px;color:#1e63e9;text-decoration:underline">Open Trip Home</a></p>` : ''}
-      </div>
-    </div>
-    <p style="text-align:center;color:#9ca3af;font-size:12px;margin:16px 0 0">
-      You're getting this because you turned on Olivier for this trip.${unsubscribe ? ` <a href="${esc(unsubscribe)}" style="color:#9ca3af;text-decoration:underline">Unsubscribe</a>` : ''}
-    </p>
-  </div>
-</body></html>`;
-}
-
-/** Send the hours-alert email. Best-effort. */
-export async function sendHoursAlertEmail({ to, title, body, proposalSummary, applyUrl, skipUrl, tripUrl }) {
-  return sendViaResend({
-    to,
-    subject: title || 'Heads up about tomorrow',
-    html: renderHoursAlertEmail({
-      title,
-      body,
-      proposalSummary,
-      applyUrl,
-      skipUrl,
-      tripUrl,
-      unsubscribe: unsubscribeUrl(to),
-    }),
-  });
-}
-
-/**
  * Notify the operator that someone joined the early-access waitlist. Sent to
  * CONCIERGE_OPERATOR_EMAIL; no-ops without it (or without RESEND_API_KEY).
  */
