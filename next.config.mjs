@@ -79,6 +79,20 @@ const baseConfig = {
         port: '',
         pathname: '/videos/**',
       },
+      {
+        // Google Places photo media (photo-spots tab)
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        // Mapbox static mini-maps (photo-spot detail modal)
+        protocol: 'https',
+        hostname: 'api.mapbox.com',
+        port: '',
+        pathname: '/styles/**',
+      },
     ],
   },
   async headers() {
