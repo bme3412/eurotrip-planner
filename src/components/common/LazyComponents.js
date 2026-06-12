@@ -31,7 +31,6 @@ export const LazyEnhancedVisitCalendar = lazy(() => import('../city-guides/Enhan
 // =================
 export const LazyCityOverview = lazy(() => import('../city-guides/CityOverview'));
 export const LazyOverviewStartHere = lazy(() => import('../city-guides/overview/OverviewStartHere'));
-export const LazySingleMonthView = lazy(() => import('../city-guides/SingleMonthView'));
 export const LazyStartHere = lazy(() => import('../city-guides/StartHere'));
 export const LazyFoodDrinkGuide = lazy(() => import('../city-guides/FoodDrinkGuide'));
 export const LazyPhotoSpots = lazy(() => import('../city-guides/PhotoSpots'));

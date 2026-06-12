@@ -3,8 +3,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRightIcon, HeartIcon as HeartOutline, MapPinIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, HeartIcon as HeartOutline } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartSolid } from '@heroicons/react/24/solid';
+import ActivityImage from '@/components/itinerary/ActivityImage';
 import { useAuth } from '@/contexts/AuthContext';
 import { useWishlist, useWishlistList } from '@/hooks/useWishlist';
 import { setPending } from '@/lib/savedItems/pendingSave';
@@ -192,9 +193,17 @@ export function SavedTripsList({ onCount }) {
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
-                <div className="flex h-full w-full items-center justify-center text-gray-300">
-                  <MapPinIcon className="size-12" aria-hidden="true" />
-                </div>
+                // No baked image → resolve a real city photo (degrades to a
+                // city-tinted gradient), never a gray placeholder icon. Query the
+                // locality ("Paris, France"), not "<city> skyline" — the latter
+                // text-matches venues like "Skyline Bar".
+                <ActivityImage
+                  q={trip.country ? `${trip.displayName || trip.cityName}, ${trip.country}` : (trip.displayName || trip.cityName)}
+                  citySlug={trip.cityName.toLowerCase()}
+                  w={600}
+                  alt={trip.displayName}
+                  className="absolute inset-0 size-full"
+                />
               )}
 
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />

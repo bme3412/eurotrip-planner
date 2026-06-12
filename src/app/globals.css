@@ -93,9 +93,9 @@ main > .relative.z-10 { // Ensure content stays above the overlay
   --foreground: #171717;
   /* EU palette */
   /* Inviting EU-inspired palette */
-  --eu-blue: #1e63e9;      /* brighter, more inviting blue */
-  --eu-blue-dark: #174fc2; /* hover */
-  --eu-blue-tint: #e9f1ff; /* light tint for ranges */
+  --eu-blue: #2563eb;      /* blue-600 — the single brand blue */
+  --eu-blue-dark: #1d4ed8; /* blue-700 hover */
+  --eu-blue-tint: #eff6ff; /* blue-50 light tint for ranges */
   --eu-yellow: #ffcc00;    /* stars */
 }
 
@@ -597,36 +597,39 @@ body {
   font-feature-settings: normal;
   font-variant-ligatures: none;
 }
-.btn-primary {
-  @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white shadow-soft transition transform hover:-translate-y-0.5 active:translate-y-0;
-  background-color: var(--eu-blue);
-  box-shadow: 0 6px 20px rgba(30, 99, 233, 0.18);
-}
-.btn-primary:hover {
-  background-color: var(--eu-blue-dark);
-}
-.btn-secondary {
-  @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-zinc-800 bg-white ring-1 ring-black/10 shadow-soft transition hover:bg-zinc-50;
-}
-.card {
-  @apply rounded-2xl bg-white shadow-soft ring-1 ring-black/5;
-}
-.badge {
-  @apply inline-flex items-center rounded-full border border-black/10 px-2 py-0.5 text-xs font-medium text-zinc-700 bg-zinc-50;
-}
-.input {
-  @apply w-full rounded-full border border-black/10 bg-white px-4 py-2.5 text-sm outline-none;
-  box-shadow: none;
-}
-.input:focus {
-  box-shadow: 0 0 0 2px rgba(0, 51, 153, 0.3);
-}
-.tab {
-  @apply rounded-full px-3 py-1.5 text-sm font-medium transition;
-}
-.tab-active {
-  @apply text-white shadow;
-  background-color: var(--eu-blue);
+/* In @layer components so per-use utilities (e.g. px-8 on a .btn-primary) win */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white shadow-soft transition transform hover:-translate-y-0.5 active:translate-y-0;
+    background-color: var(--eu-blue);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.18);
+  }
+  .btn-primary:hover {
+    background-color: var(--eu-blue-dark);
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-zinc-800 bg-white ring-1 ring-black/10 shadow-soft transition hover:bg-zinc-50;
+  }
+  .card {
+    @apply rounded-2xl bg-white shadow-soft ring-1 ring-black/5;
+  }
+  .badge {
+    @apply inline-flex items-center rounded-full border border-black/10 px-2 py-0.5 text-xs font-medium text-zinc-700 bg-zinc-50;
+  }
+  .input {
+    @apply w-full rounded-full border border-black/10 bg-white px-4 py-2.5 text-sm outline-none;
+    box-shadow: none;
+  }
+  .input:focus {
+    box-shadow: 0 0 0 2px rgba(0, 51, 153, 0.3);
+  }
+  .tab {
+    @apply rounded-full px-3 py-1.5 text-sm font-medium transition;
+  }
+  .tab-active {
+    @apply text-white shadow;
+    background-color: var(--eu-blue);
+  }
 }
 
 /* Indirection: remap common indigo utility colors to EU palette for consistency */

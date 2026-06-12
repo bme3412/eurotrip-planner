@@ -9,7 +9,11 @@ export default function MonthSelector({ months, selectedIdx, nowIdx, seasonInfo,
   return (
     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <div className="flex items-center gap-3">
-        <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Monthly Guide</h3>
+        {/* Eyebrow, not a heading — the month h2 below ("June in Paris") is
+            the section's real title. Mirrors the calendar card's eyebrow. */}
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-600">
+          Monthly guide
+        </p>
         {seasonInfo && (
           <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${seasonInfo.cls}`}>
             {seasonInfo.label}

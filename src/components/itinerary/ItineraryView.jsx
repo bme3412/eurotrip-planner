@@ -142,7 +142,7 @@ function ActivityRow({ block, citySlug, cityName, showPhotos, t }) {
   );
 }
 
-export default function ItineraryView({ itinerary, theme = 'light', showPhotos = true, actions = null, heroImage = null }) {
+export default function ItineraryView({ itinerary, theme = 'light', showPhotos = true, actions = null, heroImage = null, dayActions = null }) {
   const t = tokens(theme);
   const segs = citySegments(itinerary);
   const cityCount = segs.filter((s) => !s.travel).length;
@@ -300,6 +300,7 @@ export default function ItineraryView({ itinerary, theme = 'light', showPhotos =
                           <h3 className={`font-semibold ${t.heading}`}>{d.theme}</h3>
                           <p className={`text-xs ${t.muted}`}>{d.dateLabel} · {d.cityName}</p>
                         </div>
+                        {dayActions && <div className="ml-auto self-start">{dayActions(d)}</div>}
                       </div>
                       {d.weatherNote && (
                         <p className={`mt-2 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs ring-1 ${t.chip}`}>{d.weatherNote}</p>

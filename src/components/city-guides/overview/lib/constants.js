@@ -36,10 +36,10 @@ export const TRAVELER_LABELS = {
 export const TRAVELER_OPTIONS = ['all', 'families', 'couples', 'solo', 'budget', 'luxury'];
 
 export const TRAVELER_PILL_LABELS = {
-  all: '🌍 Everyone',
-  families: '👨‍👩‍👧 Families',
-  couples: '💑 Couples',
-  solo: '🎒 Solo',
-  budget: '💰 Budget',
-  luxury: '✨ Luxury',
+  all: 'Everyone',
+  families: 'Families',
+  couples: 'Couples',
+  solo: 'Solo',
+  budget: 'Budget',
+  luxury: 'Luxury',
 };

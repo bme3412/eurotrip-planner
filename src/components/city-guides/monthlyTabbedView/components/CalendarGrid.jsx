@@ -1,27 +1,55 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import BandLegend from '../../BandLegend.jsx';
+import { crowdLabel } from '../../visitBands.js';
+import { stripEventYear } from '../lib/eventDates.js';
 
 const WEEKDAYS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
 /**
  * The colour-coded calendar grid for the selected month. Each cell is tinted
  * by its visit-quality rating; days with events get a red dot indicator plus a
- * hover popup listing up to 3 events with meta chips (time/location/crowd/price).
+ * popup listing up to 3 events with meta chips (time/location/crowd/price).
+ * The popup shows on hover and pins on click/tap (hover doesn't exist on
+ * touch devices), dismissing on outside click or Escape.
  */
 export default function CalendarGrid({ monthName, monthData, days }) {
+  const [pinnedDay, setPinnedDay] = useState(null);
+
+  // Reset the pinned popup when the month changes.
+  useEffect(() => {
+    setPinnedDay(null);
+  }, [monthName]);
+
+  useEffect(() => {
+    if (pinnedDay == null) return undefined;
+    const onDocClick = (e) => {
+      if (!e.target.closest('.cg-day')) setPinnedDay(null);
+    };
+    const onKey = (e) => {
+      if (e.key === 'Escape') setPinnedDay(null);
+    };
+    document.addEventListener('mousedown', onDocClick);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDocClick);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [pinnedDay]);
+
   return (
     <div className="bg-gray-50 rounded-xl p-5">
       {/* Calendar header */}
       <div className="flex items-center justify-between mb-4">
         <h4 className="text-lg font-bold text-gray-900">{monthName}</h4>
-        {typeof monthData?.tourismLevel === 'number' && (
-          <span className="text-sm text-gray-500">Crowds {monthData.tourismLevel}/10</span>
+        {crowdLabel(monthData?.tourismLevel) && (
+          <span className="text-sm text-gray-500">{crowdLabel(monthData.tourismLevel)}</span>
         )}
       </div>
 
       {/* Weather */}
       {(typeof monthData?.weatherLowC === 'number' || typeof monthData?.weatherHighC === 'number') && (
         <p className="text-sm text-gray-600 mb-4">
-          🌡️ {monthData.weatherLowC !== undefined && `${monthData.weatherLowC}°`}
+          {monthData.weatherLowC !== undefined && `${monthData.weatherLowC}°`}
           {monthData.weatherLowC !== undefined && monthData.weatherHighC !== undefined && ' – '}
           {monthData.weatherHighC !== undefined && `${monthData.weatherHighC}°C`}
         </p>
@@ -47,8 +75,13 @@ export default function CalendarGrid({ monthName, monthData, days }) {
           ) : (
             <div
               key={`d-${day.d}`}
-              className="group aspect-square flex items-center justify-center rounded relative cursor-default transition-transform hover:scale-110 hover:z-10"
+              className={`cg-day group aspect-square flex items-center justify-center rounded relative hover:z-10 hover:ring-2 hover:ring-gray-400/60 ${
+                day.hasEvent ? 'cursor-pointer' : 'cursor-default'
+              } ${pinnedDay === day.d ? 'ring-2 ring-gray-900 z-10' : ''}`}
               style={{ backgroundColor: day.color }}
+              onClick={() => {
+                if (day.hasEvent) setPinnedDay((prev) => (prev === day.d ? null : day.d));
+              }}
             >
               <span className="text-white text-xs font-semibold drop-shadow-sm">{day.d}</span>
               {day.hasEvent && (
@@ -58,41 +91,42 @@ export default function CalendarGrid({ monthName, monthData, days }) {
               )}
               {day.hasEvent && (
                 <div
-                  className={`pointer-events-none absolute bottom-full ${tooltipAlign} mb-2 w-72 rounded-xl bg-white text-gray-900 shadow-xl ring-1 ring-gray-200 opacity-0 group-hover:opacity-100 transition-opacity z-50 overflow-hidden`}
+                  className={`absolute bottom-full ${tooltipAlign} mb-2 w-72 rounded-xl bg-white text-gray-900 shadow-xl ring-1 ring-gray-200 transition-opacity z-50 overflow-hidden ${
+                    pinnedDay === day.d
+                      ? 'opacity-100 pointer-events-auto'
+                      : 'opacity-0 pointer-events-none group-hover:opacity-100'
+                  }`}
                 >
                   <div className="px-4 py-3 space-y-4 max-h-56 overflow-y-auto">
                     {day.events.slice(0, 3).map((ev, j) => (
                       <div key={`evtip-${j}`}>
-                        <div className="flex items-start gap-2 mb-1">
-                          <span className="text-sm">🎉</span>
-                          <div className="font-semibold text-gray-900 text-[13px] leading-tight">
-                            {ev.name || ev.event || 'Event'}
-                          </div>
+                        <div className="font-semibold text-gray-900 text-[13px] leading-tight mb-1">
+                          {ev.name || ev.event || 'Event'}
                         </div>
-                        {ev.date && <div className="text-xs text-gray-500 ml-6 mb-1">{ev.date}</div>}
+                        {ev.date && <div className="text-xs text-gray-500 mb-1">{stripEventYear(ev.date)}</div>}
                         {ev.description && (
-                          <p className="text-xs text-gray-600 ml-6 leading-relaxed line-clamp-3">{ev.description}</p>
+                          <p className="text-xs text-gray-600 leading-relaxed line-clamp-3">{ev.description}</p>
                         )}
                         {(ev.location || ev.crowdLevel || ev.price || ev.time) && (
-                          <div className="flex flex-wrap gap-1.5 mt-2 ml-6">
+                          <div className="flex flex-wrap gap-1.5 mt-2">
                             {ev.time && (
                               <span className="inline-flex items-center text-[10px] px-1.5 py-0.5 bg-blue-50 text-blue-700 rounded">
-                                🕐 {ev.time}
+                                {ev.time}
                               </span>
                             )}
                             {ev.location && (
                               <span className="inline-flex items-center text-[10px] px-1.5 py-0.5 bg-green-50 text-green-700 rounded">
-                                📍 {ev.location}
+                                {ev.location}
                               </span>
                             )}
                             {ev.crowdLevel && (
                               <span className="inline-flex items-center text-[10px] px-1.5 py-0.5 bg-amber-50 text-amber-700 rounded">
-                                👥 {ev.crowdLevel}
+                                {ev.crowdLevel}
                               </span>
                             )}
                             {ev.price && (
                               <span className="inline-flex items-center text-[10px] px-1.5 py-0.5 bg-purple-50 text-purple-700 rounded">
-                                💰 {ev.price}
+                                {ev.price}
                               </span>
                             )}
                           </div>
@@ -112,20 +146,9 @@ export default function CalendarGrid({ monthName, monthData, days }) {
         })}
       </div>
 
-      {/* Legend */}
-      <div className="mt-4 pt-3 border-t border-gray-200 flex flex-wrap gap-3 text-xs text-gray-500">
-        <span className="flex items-center gap-1">
-          <span className="w-2.5 h-2.5 rounded bg-emerald-500"></span>Great
-        </span>
-        <span className="flex items-center gap-1">
-          <span className="w-2.5 h-2.5 rounded bg-amber-400"></span>Good
-        </span>
-        <span className="flex items-center gap-1">
-          <span className="w-2.5 h-2.5 rounded bg-orange-500"></span>Fair
-        </span>
-        <span className="flex items-center gap-1">
-          <span className="w-2.5 h-2.5 rounded bg-red-500"></span>Busy
-        </span>
+      {/* Legend — same scale as the 12-month overview grid */}
+      <div className="mt-4 pt-3 border-t border-gray-200">
+        <BandLegend showEventHint={false} />
       </div>
     </div>
   );
