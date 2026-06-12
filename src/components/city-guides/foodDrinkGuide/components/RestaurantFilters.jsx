@@ -11,7 +11,7 @@ export default function RestaurantFilters({
   onPriceChange,
 }) {
   return (
-    <div className="flex flex-wrap gap-3 mb-6">
+    <div className="space-y-3 mb-6">
       {/* Category filter */}
       <div className="flex flex-wrap gap-2">
         {RESTAURANT_CATEGORIES.map((cat) => {
@@ -29,7 +29,7 @@ export default function RestaurantFilters({
               onClick={() => onCategoryChange(cat.id)}
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
                 isActive
-                  ? 'bg-amber-600 text-white'
+                  ? 'bg-blue-600 text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
@@ -43,18 +43,27 @@ export default function RestaurantFilters({
         })}
       </div>
 
-      {/* Price filter */}
-      <select
-        value={priceFilter}
-        onChange={(e) => onPriceChange(e.target.value)}
-        className="px-3 py-1.5 rounded-lg border border-gray-200 text-sm bg-white text-gray-700"
-      >
-        {PRICE_FILTERS.map((p) => (
-          <option key={p.id} value={p.id}>
-            {p.label}
-          </option>
-        ))}
-      </select>
+      {/* Price filter — pills, same interaction language as the categories */}
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-xs font-medium text-gray-500">Price:</span>
+        {PRICE_FILTERS.map((p) => {
+          const isActive = priceFilter === p.id;
+          return (
+            <button
+              key={p.id}
+              onClick={() => onPriceChange(p.id)}
+              title={p.label}
+              className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                isActive
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              {p.symbol || p.label}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }
