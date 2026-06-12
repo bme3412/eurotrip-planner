@@ -84,13 +84,10 @@ export async function POST(request) {
   const sender = parseEmailAddress(data.from);
   if (!sender) return NextResponse.json({ ok: true, ignored: 'no_sender' });
 
-  const rawText = typeof data.text === 'string' && data.text.trim() ? data.text : htmlToText(data.html);
-  const message = stripQuotedReply(rawText).slice(0, 1500);
-  if (!message) return NextResponse.json({ ok: true, ignored: 'empty' });
-
   const supabase = await getSupabaseAdmin();
 
-  // Fail-closed invite gate — same posture as every other send path.
+  // Fail-closed invite gate — same posture as every other send path. Gating
+  // BEFORE the body fetch means spam never costs a Resend API call.
   if (!(await isInvited({ supabase, email: sender }))) {
     console.warn('[email/inbound] uninvited sender ignored');
     return NextResponse.json({ ok: true, ignored: 'not_invited' });
@@ -109,6 +106,32 @@ export async function POST(request) {
   if (await alreadyHandled(supabase, emailId)) {
     return NextResponse.json({ ok: true, ignored: 'duplicate' });
   }
+
+  // The email.received webhook carries METADATA ONLY — the body must be
+  // fetched from the Received Emails API. (data.text/html kept as a
+  // future-proof fast path should Resend ever inline them.)
+  let bodyText = typeof data.text === 'string' ? data.text : null;
+  let bodyHtml = typeof data.html === 'string' ? data.html : null;
+  if (!bodyText && !bodyHtml && data.email_id && process.env.RESEND_API_KEY) {
+    try {
+      const res = await fetch(`https://api.resend.com/emails/receiving/${data.email_id}`, {
+        headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}` },
+      });
+      if (res.ok) {
+        const full = await res.json();
+        bodyText = typeof full.text === 'string' ? full.text : null;
+        bodyHtml = typeof full.html === 'string' ? full.html : null;
+      } else {
+        console.error('[email/inbound] body fetch failed:', res.status);
+      }
+    } catch (err) {
+      console.error('[email/inbound] body fetch error:', err?.message);
+    }
+  }
+
+  const rawText = bodyText && bodyText.trim() ? bodyText : htmlToText(bodyHtml);
+  const message = stripQuotedReply(rawText).slice(0, 1500);
+  if (!message) return NextResponse.json({ ok: true, ignored: 'empty' });
 
   const trip = await resolveTrip({ userId: prefs.user_id, userEmail: prefs.user_email || sender });
   if (!trip) {
