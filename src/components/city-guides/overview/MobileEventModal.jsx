@@ -39,21 +39,21 @@ export default function MobileEventModal({ activeTooltip, onClose }) {
 
           <div className="space-y-3">
             {activeTooltip.weather && (
-              <div className="flex items-center">
-                <span className="text-gray-400 mr-3">🌡️</span>
-                <span className="text-sm text-gray-700">Weather: {activeTooltip.weather}</span>
+              <div className="flex items-center justify-between text-sm">
+                <span className="font-medium text-gray-500">Weather</span>
+                <span className="text-gray-900">{activeTooltip.weather}</span>
               </div>
             )}
             {activeTooltip.crowdLevel && (
-              <div className="flex items-center">
-                <span className="text-gray-400 mr-3">👥</span>
-                <span className="text-sm text-gray-700">Crowds: {activeTooltip.crowdLevel}</span>
+              <div className="flex items-center justify-between text-sm">
+                <span className="font-medium text-gray-500">Crowds</span>
+                <span className="text-gray-900">{activeTooltip.crowdLevel}</span>
               </div>
             )}
             {activeTooltip.price && (
-              <div className="flex items-center">
-                <span className="text-gray-400 mr-3">💰</span>
-                <span className="text-sm text-gray-700">Cost: {activeTooltip.price}</span>
+              <div className="flex items-center justify-between text-sm">
+                <span className="font-medium text-gray-500">Cost</span>
+                <span className="text-gray-900">{activeTooltip.price}</span>
               </div>
             )}
           </div>

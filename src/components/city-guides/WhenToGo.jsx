@@ -36,6 +36,9 @@ export default function WhenToGo({
   const [selectedMonth, setSelectedMonth] = useState(
     initialSelectedMonth || MONTH_NAMES[new Date().getMonth()],
   );
+  // Bumped on every calendar-driven open (even of the already-selected month)
+  // so the guide header can play its one-shot "you are here" highlight.
+  const [focusSignal, setFocusSignal] = useState(0);
   const detailRef = useRef(null);
 
   useEffect(() => {
@@ -45,9 +48,14 @@ export default function WhenToGo({
   const handleOpenMonth = useCallback((monthName) => {
     if (!monthName) return;
     setSelectedMonth(monthName);
+    setFocusSignal((n) => n + 1);
     // Let the detail re-render for the new month, then bring it into view.
     setTimeout(() => {
-      detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const prefersReduced = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+      detailRef.current?.scrollIntoView({
+        behavior: prefersReduced ? 'auto' : 'smooth',
+        block: 'start',
+      });
     }, 60);
   }, []);
 
@@ -62,6 +70,7 @@ export default function WhenToGo({
           monthlyData={monthlyData}
           hideIntroHero={hideCalendarIntroHero}
           onOpenMonthlyGuide={handleOpenMonth}
+          selectedMonth={selectedMonth}
           showSeasonalProse={false}
         />
       </Suspense>
@@ -89,6 +98,8 @@ export default function WhenToGo({
               visitCalendar={visitCalendar}
               countryName={country}
               selectedMonth={selectedMonth}
+              onMonthChange={setSelectedMonth}
+              focusSignal={focusSignal}
               showFooter={false}
             />
           </Suspense>

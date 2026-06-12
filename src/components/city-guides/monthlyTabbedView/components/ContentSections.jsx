@@ -1,10 +1,13 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 
 function ReasonsBlock({ title, items }) {
+  const reduceMotion = useReducedMotion();
+
   if (items.length === 0) {
     return (
       <>
-        <h3 className="text-xl font-bold text-gray-900 mb-4 tracking-tight">{title}</h3>
+        <h3 className="font-display text-2xl font-semibold text-gray-900 mb-4 tracking-tight">{title}</h3>
         <div className="animate-pulse space-y-3">
           <div className="h-4 bg-gray-200 rounded w-3/4"></div>
           <div className="h-4 bg-gray-200 rounded w-full"></div>
@@ -15,15 +18,22 @@ function ReasonsBlock({ title, items }) {
   }
   return (
     <>
-      <h3 className="text-xl font-bold text-gray-900 mb-4 tracking-tight">{title}</h3>
-      <div className="prose prose-lg max-w-none">
+      <h3 className="font-display text-2xl font-semibold text-gray-900 mb-4 tracking-tight">{title}</h3>
+      {/* Mounts when the lazily-fetched month JSON lands — fade in rather
+          than popping over the skeleton. */}
+      <motion.div
+        className="prose prose-lg max-w-none"
+        initial={reduceMotion ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.25, ease: 'easeOut' }}
+      >
         {items.map((item, idx) => (
           <p key={idx} className="text-gray-700 leading-relaxed mb-4 last:mb-0 text-[17px]">
             <strong className="text-gray-900">{item?.reason}</strong>
             {item?.details && ` — ${item.details}`}
           </p>
         ))}
-      </div>
+      </motion.div>
     </>
   );
 }
