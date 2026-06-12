@@ -5,7 +5,8 @@ import { runNightlyRound } from '@/lib/concierge/nightlyRound';
 import { buildConciergeContext } from '@/lib/concierge/buildContext';
 import { generateReactiveAlert } from '@/lib/concierge/generateReactive';
 import { pushToUser } from '@/lib/concierge/webpush';
-import { sendBriefEmail } from '@/lib/concierge/email';
+import { sendBriefEmail, sendHoursAlertEmail } from '@/lib/concierge/email';
+import { proposalActionUrl } from '@/lib/concierge/proposalAction';
 import { getOrCreateThread, appendThreadMessage } from '@/lib/concierge/thread';
 import { hoursAlertBody } from '@/lib/concierge/hoursCheck';
 import { buildProposal } from '@/lib/concierge/tripActions';
@@ -341,7 +342,35 @@ export async function sendHoursAlert({ tripId, dayNumber, issues }) {
     console.error('[concierge/notify] hours push failed:', err?.message);
   }
 
-  // Telegram gets the fix as inline Apply/Skip buttons when a proposal rode along.
+  // Email — the heads-up with one-click Apply/Skip links when a fix rode
+  // along (signed proposalAction tokens; the email channel's inline buttons).
+  let email = { sent: false, skipped: 'not_opted_in' };
+  try {
+    const { data: pref } = await supabase
+      .from('concierge_preferences')
+      .select('email_enabled')
+      .eq('user_id', trip.user_id)
+      .maybeSingle();
+    if (pref?.email_enabled && trip.user_email) {
+      const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://eurotrip-planner.vercel.app';
+      const canAct = proposal && threadMessageId;
+      email = await sendHoursAlertEmail({
+        to: trip.user_email,
+        title,
+        body,
+        proposalSummary: canAct ? proposal.diff || null : null,
+        applyUrl: canAct ? proposalActionUrl({ tripId, messageId: threadMessageId, decision: 'apply' }) : null,
+        skipUrl: canAct ? proposalActionUrl({ tripId, messageId: threadMessageId, decision: 'skip' }) : null,
+        tripUrl: `${base.replace(/\/$/, '')}/trips/${tripId}/today`,
+      });
+    }
+  } catch (err) {
+    console.error('[concierge/notify] hours email failed:', err?.message);
+    email = { sent: false, skipped: 'error' };
+  }
+
+  // Telegram mirror retained but dormant — no bot is configured and the
+  // product direction is email/SMS; sendTelegramMessage no-ops without a token.
   await mirrorToTelegram(supabase, {
     userId: trip.user_id,
     title,
@@ -349,5 +378,5 @@ export async function sendHoursAlert({ tripId, dayNumber, issues }) {
     proposalMessageId: proposal && threadMessageId ? threadMessageId : null,
   });
 
-  return { ok: true, notification: data, push, proposed: !!proposal };
+  return { ok: true, notification: data, push, email, proposed: !!proposal };
 }

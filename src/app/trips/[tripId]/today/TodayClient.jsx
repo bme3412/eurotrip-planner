@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Check, ChevronRight, Clock, Loader2, MapPin, Moon, Send, Sunrise, Wand2, BedDouble, SendHorizonal, X } from 'lucide-react';
+import { ArrowLeft, Check, ChevronRight, Clock, Loader2, MapPin, Moon, Send, Sunrise, Wand2, BedDouble, X } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { getSupabaseClient } from '@/lib/supabase/client';
 import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
@@ -77,7 +77,6 @@ export default function TodayClient({ tripId }) {
           meta: data.meta,
           days: data.days,
           todayDayNumber: data.todayDayNumber,
-          telegramLinked: !!data.telegramLinked,
         });
         setMessages(data.messages || []);
         setStatus('ready');
@@ -276,23 +275,6 @@ export default function TodayClient({ tripId }) {
     await streamAgent({ mode: 'nightly_round' });
   }, [sending, streamAgent]);
 
-  // ── Connect Telegram: signed deep link into the bot ──
-  const connectTelegram = useCallback(async () => {
-    try {
-      const res = await fetch('/api/telegram/link', { headers: authHeaders });
-      const data = await res.json().catch(() => ({}));
-      if (res.ok && data.url) {
-        window.open(data.url, '_blank', 'noopener');
-        // Optimistic: the webhook flips the real flag when /start lands.
-        setBundle((prev) => (prev ? { ...prev, telegramLinked: true } : prev));
-      } else if (data?.code === 'unconfigured') {
-        appendMessage({ id: `sys-${Date.now()}`, role: 'system', kind: 'system', body: 'Telegram isn’t set up on this deployment yet.', created_at: new Date().toISOString() });
-      }
-    } catch {
-      /* non-fatal */
-    }
-  }, [authHeaders, appendMessage]);
-
   // ── Apply / Skip a proposal ──
   const decide = useCallback(
     async (messageId, decision) => {
@@ -405,19 +387,6 @@ export default function TodayClient({ tripId }) {
             >
               <Wand2 className="h-3.5 w-3.5" /> Preview tonight&apos;s brief
             </button>
-            {bundle.telegramLinked ? (
-              <span className="inline-flex items-center gap-1 text-emerald-700">
-                <SendHorizonal className="h-3.5 w-3.5" /> Telegram connected
-              </span>
-            ) : (
-              <button
-                type="button"
-                onClick={connectTelegram}
-                className="inline-flex items-center gap-1 font-semibold text-blue-600 hover:underline"
-              >
-                <SendHorizonal className="h-3.5 w-3.5" /> Connect Telegram
-              </button>
-            )}
           </div>
         </section>
       )}
