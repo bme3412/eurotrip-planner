@@ -1,4 +1,5 @@
 import { RATING_COLORS } from './constants.js';
+import { bandFor } from '../../visitBands.js';
 
 /**
  * Build the day-cell array for a calendar grid. Leading "empty" slots pad the
@@ -20,6 +21,7 @@ export function buildDays(monthIndex, monthData, eventMap = {}) {
       d,
       rating,
       color: RATING_COLORS[rating],
+      band: bandFor(rating),
       events,
       hasEvent: events.length > 0,
     });

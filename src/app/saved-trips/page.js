@@ -5,16 +5,18 @@ import Link from "next/link";
 import {
   ArrowLongRightIcon,
   ArrowRightIcon,
+  BookmarkIcon,
   CalendarDaysIcon,
   ClockIcon,
   ExclamationTriangleIcon,
-  MagnifyingGlassIcon,
+  HeartIcon,
   PlusIcon,
   SparklesIcon,
   TrashIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import AuthButton from "@/components/auth/AuthButton";
+import { useAgentInvited } from "@/hooks/useAgentInvited";
 import { SavedTripsList } from "@/components/common/SaveToTrips";
 import SavedExperiencesList from "@/components/common/SavedExperiencesList";
 import CardMenu from "@/components/common/CardMenu";
@@ -109,7 +111,14 @@ function anchorCity(trip) {
   const c = (Array.isArray(trip.cities) && trip.cities[0]) || null;
   const name = c?.name || c?.id || trip.city || null;
   const slug = c?.id || (name ? String(name).toLowerCase() : null);
-  return name ? { name, slug } : null;
+  const country = c?.country || trip.country || null;
+  return name ? { name, slug, country } : null;
+}
+
+// Photo query for a city: the locality ("Paris, France"), never "<city> skyline" —
+// free-text venue matches ("Skyline Bar") make for very strange card photos.
+function cityPhotoQuery(anchor) {
+  return anchor.country ? `${anchor.name}, ${anchor.country}` : anchor.name;
 }
 
 function CityChips({ chips }) {
@@ -142,14 +151,21 @@ function StatusDot({ tone = "gray" }) {
   return <span className={`size-1.5 rounded-full ${map[tone] || map.gray}`} aria-hidden="true" />;
 }
 
-function StatPill({ count, label, tone = "rose" }) {
-  const dotTone = tone === "amber" ? "bg-amber-500" : tone === "emerald" ? "bg-emerald-500" : "bg-rose-400";
+// Header quick-link to a saved-items section further down the page — the saved
+// cities/experiences collections live below the trips wall, so these anchors are
+// their discoverability.
+function SectionJumpLink({ href, icon: Icon, label, count }) {
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-1 text-xs font-medium text-gray-700 ring-1 ring-gray-200/80 backdrop-blur-sm">
-      <span className={`size-1.5 rounded-full ${dotTone}`} aria-hidden="true" />
-      <span className="font-semibold text-gray-900">{count}</span>
-      <span className="text-gray-500">{label}</span>
-    </span>
+    <a
+      href={href}
+      className="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-gray-700 ring-1 ring-gray-200 transition-colors hover:text-rose-600 hover:ring-rose-200"
+    >
+      <Icon className="size-4 text-rose-500" aria-hidden="true" />
+      {label}
+      {count > 0 && (
+        <span className="rounded-full bg-rose-50 px-1.5 py-0.5 text-[11px] font-bold text-rose-600">{count}</span>
+      )}
+    </a>
   );
 }
 
@@ -197,9 +213,10 @@ function EmptyCard({ icon: Icon, tone = "rose", title, body, cta }) {
   );
 }
 
-function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null, selectable = false, selected = false, onToggleSelect = null }) {
+function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null }) {
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const agentInvited = useAgentInvited();
   const isGenerated = isGeneratedTrip(trip);
   const statusLabel = isLocal
     ? isGenerated ? "Generated · not synced" : "Draft · not synced"
@@ -226,24 +243,13 @@ function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null, sel
   const containerVariant = isLocal
     ? "bg-gradient-to-br from-amber-50/80 to-white ring-amber-200"
     : "bg-white ring-gray-200/80";
-  const selectedRing = selectable && selected ? " ring-2 ring-rose-400" : "";
-
   return (
-    <article className={`${containerBase} ${containerVariant}${selectedRing}`}>
+    <article className={`${containerBase} ${containerVariant}`}>
       <div className="flex items-start justify-between gap-4">
         <div className="flex min-w-0 items-start gap-3">
-          {selectable && (
-            <input
-              type="checkbox"
-              checked={selected}
-              onChange={() => onToggleSelect?.(trip.id)}
-              className="mt-1 size-4 shrink-0 cursor-pointer rounded border-gray-300 text-rose-600 focus:ring-rose-500"
-              aria-label={`Select ${trip.title || "trip"}`}
-            />
-          )}
           {anchor && (
             <div className="relative size-12 shrink-0 overflow-hidden rounded-xl ring-1 ring-gray-200/70">
-              <ActivityImage q={`${anchor.name} skyline`} citySlug={anchor.slug} w={120} alt="" className="absolute inset-0 size-full" />
+              <ActivityImage q={cityPhotoQuery(anchor)} citySlug={anchor.slug} w={120} alt="" className="absolute inset-0 size-full" />
             </div>
           )}
           <div className="min-w-0">
@@ -344,7 +350,7 @@ function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null, sel
               <CardMenu
                 items={[
                   ...(isGenerated
-                    ? [{ label: "Travel agent", href: `/itineraries/${trip.id}/concierge`, icon: SparklesIcon }]
+                    ? [{ label: "Travel agent", href: agentInvited ? `/trips/${trip.id}/today` : `/itineraries/${trip.id}/concierge`, icon: SparklesIcon }]
                     : []),
                   { divider: true },
                   { label: "Delete trip", danger: true, icon: TrashIcon, onClick: () => setConfirmingDelete(true) },
@@ -358,7 +364,7 @@ function TripCard({ trip, isLocal = false, onRemove = null, onDelete = null, sel
   );
 }
 
-function TripsSection({ eyebrow, title, subtitle, dotTone, trips, isLocal, onRemove, onDelete, selectable = false, selectedIds = null, onToggleSelect = null }) {
+function TripsSection({ eyebrow, title, subtitle, dotTone, trips, isLocal, onRemove, onDelete }) {
   if (trips.length === 0) return null;
   return (
     <section>
@@ -371,9 +377,6 @@ function TripsSection({ eyebrow, title, subtitle, dotTone, trips, isLocal, onRem
             isLocal={isLocal}
             onRemove={onRemove}
             onDelete={onDelete}
-            selectable={selectable}
-            selected={selectedIds ? selectedIds.has(trip.id) : false}
-            onToggleSelect={onToggleSelect}
           />
         ))}
       </div>
@@ -383,7 +386,10 @@ function TripsSection({ eyebrow, title, subtitle, dotTone, trips, isLocal, onRem
 
 // "Pick up where you left off" — the single most-recently-edited meaningful trip,
 // front and center so the #1 use case (resume) isn't buried under the draft wall.
-function ResumeHero({ trip, isLocal }) {
+function ResumeHero({ trip, isLocal, onRemove = null, onDelete = null }) {
+  const [confirmingDelete, setConfirmingDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const agentInvited = useAgentInvited();
   if (!trip) return null;
   const isGenerated = isGeneratedTrip(trip);
   const anchor = anchorCity(trip);
@@ -400,7 +406,7 @@ function ResumeHero({ trip, isLocal }) {
       <div className="relative overflow-hidden rounded-3xl ring-1 ring-gray-200/80">
         {anchor && (
           <>
-            <ActivityImage q={`${anchor.name} skyline`} citySlug={anchor.slug} w={1200} alt="" className="absolute inset-0 size-full" />
+            <ActivityImage q={cityPhotoQuery(anchor)} citySlug={anchor.slug} w={1200} alt="" className="absolute inset-0 size-full" />
             <div className="absolute inset-0 bg-gradient-to-r from-white via-white/92 to-white/40" />
           </>
         )}
@@ -417,13 +423,51 @@ function ResumeHero({ trip, isLocal }) {
               {dateInfo.kind === "range" && <span>· {dateInfo.label}</span>}
             </p>
           </div>
-          <Link
-            href={href}
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-gray-900 px-6 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-gray-800"
-          >
-            {isGenerated && !isLocal ? "Open itinerary" : "Continue planning"}
-            <ArrowRightIcon className="size-4" />
-          </Link>
+          <div className="flex shrink-0 items-center gap-2">
+            {confirmingDelete ? (
+              <>
+                <span className="text-xs text-gray-600">Delete this trip?</span>
+                <button
+                  type="button"
+                  disabled={deleting}
+                  onClick={async () => { setDeleting(true); await onDelete(trip.id); }}
+                  className="rounded-full bg-red-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-red-700 disabled:opacity-60"
+                >
+                  {deleting ? "Deleting…" : "Delete"}
+                </button>
+                <button
+                  type="button"
+                  disabled={deleting}
+                  onClick={() => setConfirmingDelete(false)}
+                  className="rounded-full bg-white/80 px-4 py-2.5 text-sm font-semibold text-gray-600 ring-1 ring-gray-200 transition-colors hover:text-gray-900"
+                >
+                  Cancel
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  href={href}
+                  className="inline-flex items-center gap-2 rounded-full bg-gray-900 px-6 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-gray-800"
+                >
+                  {isGenerated && !isLocal ? "Open itinerary" : "Continue planning"}
+                  <ArrowRightIcon className="size-4" />
+                </Link>
+                {(onDelete || onRemove) && (
+                  <CardMenu
+                    items={[
+                      ...(isGenerated && !isLocal
+                        ? [{ label: "Travel agent", href: agentInvited ? `/trips/${trip.id}/today` : `/itineraries/${trip.id}/concierge`, icon: SparklesIcon }, { divider: true }]
+                        : []),
+                      isLocal && onRemove
+                        ? { label: "Remove draft", danger: true, icon: TrashIcon, onClick: () => onRemove(trip.id) }
+                        : { label: "Delete trip", danger: true, icon: TrashIcon, onClick: () => setConfirmingDelete(true) },
+                    ]}
+                  />
+                )}
+              </>
+            )}
+          </div>
         </div>
       </div>
     </section>
@@ -443,10 +487,6 @@ export default function SavedTripsPage() {
   const [error, setError] = useState(null);
   const [wishlistCount, setWishlistCount] = useState(0);
   const [experiencesCount, setExperiencesCount] = useState(0);
-  const [search, setSearch] = useState("");
-  const [sortBy, setSortBy] = useState("recent"); // 'recent' | 'name'
-  const [selectMode, setSelectMode] = useState(false);
-  const [selectedIds, setSelectedIds] = useState(() => new Set());
   const migrationAttempted = useRef(false);
   const dedupeAttempted = useRef(false);
 
@@ -600,24 +640,10 @@ export default function SavedTripsPage() {
     return [...passthrough, ...byCollapse.values()];
   }, [isLocalMode, localDrafts, trips]);
 
-  const visibleTrips = useMemo(() => {
-    const q = search.trim().toLowerCase();
-    let list = displayTrips;
-    if (q) {
-      list = list.filter((trip) => {
-        const title = (trip.title || "").toLowerCase();
-        const cities = (trip.cities || []).map((c) => (c?.name || "").toLowerCase()).join(" ");
-        return title.includes(q) || cities.includes(q);
-      });
-    }
-    const sorted = [...list];
-    if (sortBy === "name") {
-      sorted.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
-    } else {
-      sorted.sort((a, b) => tripRichness(b) - tripRichness(a));
-    }
-    return sorted;
-  }, [displayTrips, search, sortBy]);
+  const visibleTrips = useMemo(
+    () => [...displayTrips].sort((a, b) => tripRichness(b) - tripRichness(a)),
+    [displayTrips],
+  );
 
   // Captured once per page load so the "older than 30 days" triage boundary is
   // stable across re-renders (and across server/client render passes).
@@ -662,8 +688,6 @@ export default function SavedTripsPage() {
     return { ready: readyTrips, activeDrafts: active, olderDrafts: older, heroTrip: hero, olderDraftIds: olderIds };
   }, [visibleTrips]);
 
-  const inProgressCount = activeDrafts.length + olderDrafts.length;
-
   const [clearingEmpty, setClearingEmpty] = useState(false);
   const handleClearEmpty = useCallback(async () => {
     const ids = olderDraftIds;
@@ -680,39 +704,6 @@ export default function SavedTripsPage() {
     }
     setClearingEmpty(false);
   }, [olderDraftIds, isLocalMode, reloadLocalDrafts, deleteTripsOnServer, loadTrips]);
-
-  const toggleSelect = useCallback((id) => {
-    setSelectedIds((curr) => {
-      const next = new Set(curr);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-  }, []);
-
-  const selectAllVisible = useCallback(() => {
-    setSelectedIds(new Set(visibleTrips.map((t) => t.id)));
-  }, [visibleTrips]);
-
-  const exitSelectMode = useCallback(() => {
-    setSelectMode(false);
-    setSelectedIds(new Set());
-  }, []);
-
-  const handleBulkDelete = useCallback(async () => {
-    const ids = [...selectedIds];
-    if (ids.length === 0) return;
-    if (isLocalMode) {
-      ids.forEach((id) => removeLocalTripDraft(id));
-      reloadLocalDrafts();
-    } else {
-      setTrips((curr) => curr.filter((t) => !selectedIds.has(t.id))); // optimistic
-      const failed = await deleteTripsOnServer(ids);
-      if (failed > 0) setError(`Couldn't delete ${failed} of ${ids.length} trips. Please try again.`);
-      loadTrips();
-    }
-    exitSelectMode();
-  }, [selectedIds, isLocalMode, reloadLocalDrafts, deleteTripsOnServer, loadTrips, exitSelectMode]);
 
   const showLoading = authLoading || (user && loading);
   const showEmptyState = !showLoading && !error && displayTrips.length === 0;
@@ -731,15 +722,18 @@ export default function SavedTripsPage() {
                 Your itineraries, planner drafts, and saved cities — all in one place.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
-                <StatPill count={ready.length} label="ready" tone="emerald" />
-                <StatPill count={inProgressCount} label="in progress" tone="rose" />
-                <StatPill count={wishlistCount} label={wishlistCount === 1 ? "saved city" : "saved cities"} tone="emerald" />
-                {experiencesCount > 0 && (
-                  <StatPill count={experiencesCount} label={experiencesCount === 1 ? "experience" : "experiences"} tone="rose" />
-                )}
+                <SectionJumpLink href="#saved-cities" icon={HeartIcon} label="Saved cities" count={wishlistCount} />
+                <SectionJumpLink href="#saved-experiences" icon={BookmarkIcon} label="Saved experiences" count={experiencesCount} />
               </div>
             </div>
-            <div className="shrink-0">
+            <div className="flex shrink-0 items-center gap-3">
+              <Link
+                href="/plan"
+                className="inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
+              >
+                <PlusIcon className="size-4" aria-hidden="true" />
+                New trip
+              </Link>
               <AuthButton />
             </div>
           </div>
@@ -749,74 +743,6 @@ export default function SavedTripsPage() {
       <main className="mx-auto max-w-6xl space-y-12 px-4 py-10 sm:px-6">
         {/* Trips lifecycle: Ready to go → In progress */}
         <div className="space-y-12">
-          <div className="flex flex-wrap items-center gap-3">
-            {displayTrips.length > 0 && (
-              <>
-                <div className="relative min-w-0 flex-1 sm:max-w-xs">
-                  <MagnifyingGlassIcon className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-gray-400" aria-hidden="true" />
-                  <input
-                    type="search"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Search trips or cities"
-                    className="w-full rounded-full border border-gray-200 bg-white py-1.5 pl-9 pr-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-rose-300 focus:outline-none focus:ring-1 focus:ring-rose-300"
-                  />
-                </div>
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="rounded-full border border-gray-200 bg-white py-1.5 pl-3 pr-7 text-sm text-gray-700 focus:border-rose-300 focus:outline-none focus:ring-1 focus:ring-rose-300"
-                  aria-label="Sort trips"
-                >
-                  <option value="recent">Most recent</option>
-                  <option value="name">Name (A–Z)</option>
-                </select>
-                {selectMode ? (
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={selectAllVisible}
-                      className="rounded-full px-3 py-1.5 text-xs font-semibold text-gray-600 ring-1 ring-gray-200 transition-colors hover:bg-gray-50"
-                    >
-                      Select all
-                    </button>
-                    <button
-                      type="button"
-                      disabled={selectedIds.size === 0}
-                      onClick={handleBulkDelete}
-                      className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-red-700 disabled:opacity-50"
-                    >
-                      <TrashIcon className="size-3.5" aria-hidden="true" />
-                      Delete{selectedIds.size > 0 ? ` (${selectedIds.size})` : ""}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={exitSelectMode}
-                      className="rounded-full px-3 py-1.5 text-xs font-semibold text-gray-500 transition-colors hover:text-gray-800"
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() => setSelectMode(true)}
-                    className="rounded-full px-3 py-1.5 text-xs font-semibold text-gray-600 ring-1 ring-gray-200 transition-colors hover:bg-gray-50"
-                  >
-                    Select
-                  </button>
-                )}
-              </>
-            )}
-            <Link
-              href="/plan"
-              className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-gray-800"
-            >
-              <PlusIcon className="size-3.5" aria-hidden="true" />
-              New trip
-            </Link>
-          </div>
-
           {isLocalMode && displayTrips.length > 0 && (
             <div className="rounded-2xl bg-amber-50/70 px-5 py-4 ring-1 ring-amber-200">
               <div className="flex flex-wrap items-center justify-between gap-3">
@@ -872,39 +798,26 @@ export default function SavedTripsPage() {
                 }
               />
             )
-          ) : visibleTrips.length === 0 ? (
-            <EmptyCard
-              icon={MagnifyingGlassIcon}
-              tone="gray"
-              title="No matching trips"
-              body={`Nothing matches “${search}”. Try a different city or title.`}
-              cta={
-                <button
-                  type="button"
-                  onClick={() => setSearch("")}
-                  className="rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800"
-                >
-                  Clear search
-                </button>
-              }
-            />
           ) : (
             <>
-              {!selectMode && <ResumeHero trip={heroTrip} isLocal={isLocalMode} />}
+              <ResumeHero
+                key={heroTrip?.id}
+                trip={heroTrip}
+                isLocal={isLocalMode}
+                onRemove={isLocalMode ? handleRemoveLocal : null}
+                onDelete={isLocalMode ? null : handleDeleteTrip}
+              />
               <TripsSection
                 eyebrow="01 · Ready to go"
                 title="Ready to go"
                 subtitle="Generated itineraries you can open and refine."
                 dotTone="emerald"
-                trips={ready.filter((t) => t.id !== heroTrip?.id || selectMode)}
+                trips={ready.filter((t) => t.id !== heroTrip?.id)}
                 isLocal={isLocalMode}
                 onRemove={isLocalMode ? handleRemoveLocal : null}
                 onDelete={isLocalMode ? null : handleDeleteTrip}
-                selectable={selectMode}
-                selectedIds={selectedIds}
-                onToggleSelect={toggleSelect}
               />
-              {(activeDrafts.length > 0 || selectMode) && (
+              {activeDrafts.length > 0 && (
                 <section>
                   <SectionHeader
                     eyebrow="02 · In progress"
@@ -914,7 +827,7 @@ export default function SavedTripsPage() {
                   />
                   <div className="grid gap-4 md:grid-cols-2">
                     {activeDrafts
-                      .filter((t) => t.id !== heroTrip?.id || selectMode)
+                      .filter((t) => t.id !== heroTrip?.id)
                       .map((trip) => (
                         <TripCard
                           key={trip.id}
@@ -922,53 +835,18 @@ export default function SavedTripsPage() {
                           isLocal={isLocalMode}
                           onRemove={isLocalMode ? handleRemoveLocal : null}
                           onDelete={isLocalMode ? null : handleDeleteTrip}
-                          selectable={selectMode}
-                          selected={selectedIds ? selectedIds.has(trip.id) : false}
-                          onToggleSelect={toggleSelect}
                         />
                       ))}
                   </div>
                 </section>
               )}
-              {olderDrafts.length > 0 && (
-                <details className="group rounded-2xl border border-gray-200/80 bg-white/60 px-5 py-4">
-                  <summary className="flex cursor-pointer list-none items-center gap-2 text-sm font-semibold text-gray-600 transition hover:text-gray-900">
-                    <ArrowRightIcon className="size-4 transition-transform group-open:rotate-90" />
-                    Older quick-start drafts ({olderDrafts.length})
-                    <span className="font-normal text-gray-400">— earlier starts you didn&apos;t finish</span>
-                    {!isLocalMode && (
-                      <button
-                        type="button"
-                        onClick={(e) => { e.preventDefault(); handleClearEmpty(); }}
-                        disabled={clearingEmpty}
-                        className="ml-auto inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-gray-500 ring-1 ring-gray-200 transition hover:text-red-600 hover:ring-red-200 disabled:opacity-60"
-                      >
-                        <TrashIcon className="size-3.5" />
-                        {clearingEmpty ? "Clearing…" : `Clear all ${olderDrafts.length}`}
-                      </button>
-                    )}
-                  </summary>
-                  <div className="mt-4 grid gap-4 md:grid-cols-2">
-                    {olderDrafts.map((trip) => (
-                      <TripCard
-                        key={trip.id}
-                        trip={trip}
-                        isLocal={isLocalMode}
-                        onRemove={isLocalMode ? handleRemoveLocal : null}
-                        onDelete={isLocalMode ? null : handleDeleteTrip}
-                        selectable={selectMode}
-                        selected={selectedIds ? selectedIds.has(trip.id) : false}
-                        onToggleSelect={toggleSelect}
-                      />
-                    ))}
-                  </div>
-                </details>
-              )}
             </>
           )}
         </div>
 
-        <section>
+        {/* Saved collections sit above the older-drafts pile so they're discoverable;
+            the header quick-links jump straight here. */}
+        <section id="saved-cities" className="scroll-mt-24">
           <SectionHeader
             eyebrow="03 · Saved cities"
             title="Saved cities"
@@ -987,7 +865,7 @@ export default function SavedTripsPage() {
           <SavedTripsList onCount={setWishlistCount} />
         </section>
 
-        <section>
+        <section id="saved-experiences" className="scroll-mt-24">
           <SectionHeader
             eyebrow="04 · Saved experiences"
             title="Saved experiences"
@@ -996,6 +874,38 @@ export default function SavedTripsPage() {
           />
           <SavedExperiencesList onCount={setExperiencesCount} />
         </section>
+
+        {!showLoading && !error && olderDrafts.length > 0 && (
+          <details className="group rounded-2xl border border-gray-200/80 bg-white/60 px-5 py-4">
+            <summary className="flex cursor-pointer list-none items-center gap-2 text-sm font-semibold text-gray-600 transition hover:text-gray-900">
+              <ArrowRightIcon className="size-4 transition-transform group-open:rotate-90" />
+              Older quick-start drafts ({olderDrafts.length})
+              <span className="font-normal text-gray-400">— earlier starts you didn&apos;t finish</span>
+              {!isLocalMode && (
+                <button
+                  type="button"
+                  onClick={(e) => { e.preventDefault(); handleClearEmpty(); }}
+                  disabled={clearingEmpty}
+                  className="ml-auto inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-gray-500 ring-1 ring-gray-200 transition hover:text-red-600 hover:ring-red-200 disabled:opacity-60"
+                >
+                  <TrashIcon className="size-3.5" />
+                  {clearingEmpty ? "Clearing…" : `Clear all ${olderDrafts.length}`}
+                </button>
+              )}
+            </summary>
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              {olderDrafts.map((trip) => (
+                <TripCard
+                  key={trip.id}
+                  trip={trip}
+                  isLocal={isLocalMode}
+                  onRemove={isLocalMode ? handleRemoveLocal : null}
+                  onDelete={isLocalMode ? null : handleDeleteTrip}
+                />
+              ))}
+            </div>
+          </details>
+        )}
       </main>
     </div>
   );

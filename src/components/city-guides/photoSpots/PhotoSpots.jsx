@@ -33,12 +33,12 @@ export default function PhotoSpots({ cityName }) {
       {/* Spots Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {filteredSpots.map((spot, i) => (
-          <PhotoCard key={i} spot={spot} onClick={() => setSelectedSpot(spot)} />
+          <PhotoCard key={i} spot={spot} cityName={cityName} onClick={() => setSelectedSpot(spot)} />
         ))}
       </div>
 
       {/* Spot Detail Modal */}
-      <SpotDetailModal spot={selectedSpot} onClose={() => setSelectedSpot(null)} />
+      <SpotDetailModal spot={selectedSpot} cityName={cityName} onClose={() => setSelectedSpot(null)} />
 
       {/* Footer */}
       <PhotoBreadcrumb cityName={cityName} displayName={displayName} />

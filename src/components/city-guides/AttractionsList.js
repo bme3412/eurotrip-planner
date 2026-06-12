@@ -197,8 +197,23 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
       });
   }, [dataSource, searchTerm, quickFilters, dateFilterType, selectedDate, startDate, endDate, selectedMonth, getEffectiveMonth, activeCategorySet, sortOption, curatedFilter, monthlyData, rankingLens, scoringBounds]);
 
-  const highlightAttractions = useMemo(() => filteredAttractions.slice(0, 4), [filteredAttractions]);
-  const remainingAttractions = useMemo(() => filteredAttractions.slice(4), [filteredAttractions]);
+  // Spotlight picks: editorially flagged items (data `spotlight: 1..n`) win,
+  // in their flagged order; score order fills any remaining slots. Flagged
+  // items still respect the active filters since they're drawn from
+  // `filteredAttractions`.
+  const highlightAttractions = useMemo(() => {
+    const flagged = filteredAttractions
+      .filter((a) => typeof a.spotlight === 'number')
+      .sort((a, b) => a.spotlight - b.spotlight)
+      .slice(0, 4);
+    if (flagged.length >= 4) return flagged;
+    const flaggedSet = new Set(flagged);
+    return [...flagged, ...filteredAttractions.filter((a) => !flaggedSet.has(a))].slice(0, 4);
+  }, [filteredAttractions]);
+  const remainingAttractions = useMemo(() => {
+    const highlightSet = new Set(highlightAttractions);
+    return filteredAttractions.filter((a) => !highlightSet.has(a));
+  }, [filteredAttractions, highlightAttractions]);
 
   const hasActiveQuickFilters = useMemo(
     () => Object.values(quickFilters).some(Boolean)

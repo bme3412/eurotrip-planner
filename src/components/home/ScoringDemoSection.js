@@ -72,7 +72,7 @@ function MonthCalendar({ monthIdx, year, dayMap, currentMonthIdx, onHoverDay, ac
     <div className={`rounded-xl p-3 border ${isCurrent ? 'border-blue-400 ring-2 ring-blue-400/40 bg-blue-50/50' : 'border-gray-200 bg-gray-50'}`}>
       <div className={`text-center text-xs font-bold mb-2 ${isCurrent ? 'text-blue-600' : 'text-gray-700'}`}>
         {MONTH_NAMES[monthIdx]}
-        {isCurrent && <span className="ml-1.5 px-1.5 py-0.5 bg-blue-500 text-white rounded text-[9px] uppercase tracking-wider">Now</span>}
+        {isCurrent && <span className="ml-1.5 px-1.5 py-0.5 bg-blue-600 text-white rounded text-[9px] uppercase tracking-wider">Now</span>}
       </div>
       {/* Day headers */}
       <div className="grid grid-cols-7 gap-px mb-0.5">
@@ -255,7 +255,7 @@ export default function ScoringDemoSection() {
   const hoveredColors = hovered ? SCORE_COLORS[hovered.score] : null;
 
   return (
-    <section className="px-6 py-20 md:py-28 bg-white text-gray-900 overflow-hidden">
+    <section className="px-6 pt-12 md:pt-16 pb-16 md:pb-24 bg-white text-gray-900 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-10">
@@ -290,7 +290,7 @@ export default function ScoringDemoSection() {
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6 min-h-[2.5rem]">
           <span className="text-base">{getCountryFlag(calendar?.country)}</span>
           <span className="font-bold text-gray-900">{calendar?.name}, {calendar?.country}</span>
-          {loading && <span className="text-xs text-blue-500 animate-pulse">loading…</span>}
+          {loading && <span className="text-xs text-blue-600 animate-pulse">loading…</span>}
           {hovered ? (
             <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full bg-gray-50 border border-gray-200 pl-2 pr-3 py-1 text-sm">
               <span className={`w-3 h-3 rounded-sm ${hoveredColors?.bg || 'bg-gray-300'}`} />

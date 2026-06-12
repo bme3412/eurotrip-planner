@@ -13,6 +13,48 @@ thread), **hands** (tools that modify the trip, behind a trust ladder), and
 
 ---
 
+## STATUS — June 10, 2026
+
+| Phase | State | Where |
+|---|---|---|
+| **T1 thread** | ✅ Built | PR #51 (`feat/agent-thread`) — migration 0012, `agentRuntime`-backed SSE turn, Trip Home, beats post into the thread |
+| **T2 hands** | ✅ Built | PR #52 (`feat/agent-hands`) — `tripActions.js`, propose→Apply flow, `/agent/apply` |
+| **T3 senses** | ✅ Hours watcher built; flight + strikes remain | PR #53 (`feat/agent-senses`) — migration 0013, `hoursCheck.js`, `conciergeHoursWatch` (5th Inngest fn), fix attached as proposal |
+| **T4 channels** | ✅ Telegram built; WhatsApp later | `feat/agent-telegram` (PR pending gh re-auth) — migration 0014, webhook + signed link flow, beats mirror, inline Apply/Skip |
+| **T4.5 visible loops** | ✅ Built (June 10) | Streaming + adaptive thinking in `agentRuntime.runToolLoop` (thinking/tool-label/summary SSE events, persisted `meta.trace`, Trip Home live working-trace UI + "What I checked" disclosure) · `check_hours` tool (reuses `hoursCheck.classifyOpening`) · **nightly round** (`nightlyRound.js`): the evening beat is now an agentic run — hours per stop, weather, travel legs → brief + fix proposal, wired into `sendConciergeBrief` · manual "Preview tonight's brief" (`POST /agent {mode:'nightly_round'}`) for the dry run · Travel-agent entry points route invited owners to Trip Home (`useAgentInvited`). Hours-watcher cron stays ON for a soak, then retire its trigger (round subsumes it). Telegram turns: thinking on, `effort:'low'` |
+| **T5 commerce** | Not started | After retention signal |
+
+PR stack merges top-down: **#50** (beta launch → main) ← **#51** ← **#52** ← **#53** ← T4.
+614 tests green across the stack.
+
+**Implementation deltas from the plan as written** (sections below kept for
+rationale; trust these where they differ):
+- The turn loop lives in `src/lib/concierge/agentRuntime.js` and Apply/Skip in
+  `proposalDecision.js` — extracted in T4 so the SSE route, apply route, and
+  Telegram webhook are thin adapters over one runtime.
+- Proposals carry **intents, not row ids**, stored in the message row's
+  `meta.proposal`; apply re-resolves against a fresh trip read and bumps
+  `trips.updated_at` explicitly (activity edits don't cascade; brief caches
+  key on it).
+- Free-text memory got its own `concierge_memories` table (migration 0012) —
+  `preferences_learned` is trip-scoped category ratings, not a fact store.
+- The hours watcher sends deterministic copy with **no LLM**, and ships its fix
+  as the same proposal card (closed → skip; opens later → move). New
+  `hours_alert` kind needed migration 0013 (CHECK constraints + dedup index).
+- Telegram links accounts via HMAC tokens in the `t.me` start payload
+  (`telegram.js`), dedupes webhook retries by `update_id`, and went in before
+  the remaining watchers (channel > more senses for beta feel).
+
+**Remaining to go live end-to-end:** apply migrations 0013 + 0014 · BotFather
+bot + `scripts/telegram-setup.mjs` + Telegram env vars · re-sync Inngest (5
+functions) · merge the stack · the real-trip dry run (link Telegram on a
+preview deploy, watch a full day's beats land, reply, apply a fix).
+
+**Remaining build:** flight watcher → strikes scan (clone the hours pattern) ·
+WhatsApp Business adapter · T5 commerce (TheFork holds, "Olivier Pro").
+
+---
+
 ## 0. What this stands on (do not rebuild)
 
 | Asset | Where | Reuse as |
@@ -77,7 +119,7 @@ Rules that keep it safe and cheap:
 
 ---
 
-## 3. Phase T1 — The thread (ears + mouth) ~1–2 weeks
+## 3. Phase T1 — The thread (ears + mouth) — ✅ BUILT (PR #51)
 
 The conversion moment: beta users stop receiving briefs and start talking back.
 
@@ -125,7 +167,7 @@ Olivier's voice, and the whole exchange survives reload.
 
 ---
 
-## 4. Phase T2 — Hands (agency) ~1–2 weeks
+## 4. Phase T2 — Hands (agency) — ✅ BUILT (PR #52)
 
 **Write tools** (each a thin wrapper over `tripsRepository.js` mutations, all
 returning a deterministic diff for the confirmation card):
@@ -158,7 +200,7 @@ wake-up reflects it.
 
 ---
 
-## 5. Phase T3 — Senses (watchers) ~1 week each, independent
+## 5. Phase T3 — Senses (watchers) — ✅ hours watcher built (PR #53); flight + strikes remain
 
 Each clones the weather pattern: Inngest cron → scan → materiality check →
 thread message (proposal card when there's an obvious fix).
@@ -176,7 +218,7 @@ thread message (proposal card when there's an obvious fix).
 
 ---
 
-## 6. Phase T4 — Channels (where it lives)
+## 6. Phase T4 — Channels (where it lives) — ✅ Telegram built; WhatsApp later
 
 Thread table is canonical; channels are mirrors.
 1. **Telegram bot** (~days): webhook route → agent endpoint → reply;
@@ -224,12 +266,17 @@ wrappers, multi-channel before the in-app thread retains.
 ## 10. Sequence
 
 ```
-T1 thread ──▶ T2 hands ──▶ T3 watchers (closure → flight → strikes)
-                    └────▶ T4 Telegram ──▶ WhatsApp
-T5 commerce after retention signal from T1–T3
+T1 thread ✅ ──▶ T2 hands ✅ ──▶ T3 watchers (hours ✅ → flight → strikes)
+                       └──────▶ T4 Telegram ✅ ──▶ WhatsApp
+T5 commerce after retention signal
 ```
 
-First milestone (ship to the invite list): **T1 complete** — beats land in a
-real thread on Trip Home, replies get grounded answers, everything survives
-reload. It reuses the planner's streaming skeleton and concierge-ask's
-grounding, so it's weeks, not months.
+T1–T4 (first watcher, first channel) landed June 10, 2026 — see STATUS at the
+top for the PR stack, implementation deltas, and what's left.
+
+**Next milestone: the real-trip dry run, not more code.** Merge the stack,
+apply migrations 0013/0014, register the bot, invite a trip that's actually
+upcoming, and watch a full day's rhythm land in Telegram — evening brief,
+morning wake-up, a reply that gets a grounded answer, an hours alert fixed
+with one tap. What that run teaches decides whether flight watcher, strikes,
+or WhatsApp comes next.

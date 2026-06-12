@@ -1,13 +1,37 @@
 import { getSupabaseAdmin } from '@/lib/supabase/server';
 import { getTripWithDetails } from '@/lib/trips/tripsRepository';
 import { generateConciergeDay } from '@/lib/concierge/generateBrief';
+import { runNightlyRound } from '@/lib/concierge/nightlyRound';
 import { buildConciergeContext } from '@/lib/concierge/buildContext';
 import { generateReactiveAlert } from '@/lib/concierge/generateReactive';
 import { pushToUser } from '@/lib/concierge/webpush';
-import { sendBriefEmail } from '@/lib/concierge/email';
+import { sendBriefEmail, sendHoursAlertEmail } from '@/lib/concierge/email';
+import { proposalActionUrl } from '@/lib/concierge/proposalAction';
 import { getOrCreateThread, appendThreadMessage } from '@/lib/concierge/thread';
 import { hoursAlertBody } from '@/lib/concierge/hoursCheck';
 import { buildProposal } from '@/lib/concierge/tripActions';
+import { sendTelegramMessage } from '@/lib/concierge/telegram';
+
+/** Mirror a beat to the user's linked Telegram chat (best-effort). */
+async function mirrorToTelegram(supabase, { userId, title, body, proposalMessageId = null }) {
+  if (!userId) return;
+  try {
+    const { data } = await supabase
+      .from('concierge_preferences')
+      .select('telegram_chat_id')
+      .eq('user_id', userId)
+      .maybeSingle();
+    if (data?.telegram_chat_id) {
+      await sendTelegramMessage(
+        data.telegram_chat_id,
+        `${title}\n\n${body}`,
+        proposalMessageId ? { proposalMessageId } : {}
+      );
+    }
+  } catch (err) {
+    console.error('[concierge/notify] telegram mirror failed:', err?.message);
+  }
+}
 
 // Channel-agnostic concierge send pipeline. Today it delivers in-app by inserting
 // a row into concierge_notifications (Supabase Realtime fans it out to the live
@@ -29,12 +53,29 @@ export async function sendConciergeBrief({ tripId, dayNumber = null, type = 'eve
   if (!trip) return { ok: false, reason: 'trip_not_found' };
   if (!trip.user_id && !trip.user_email) return { ok: false, reason: 'trip_unowned' };
 
-  const payload = await generateConciergeDay(trip, dayNumber);
-  const day = payload?.day;
-  if (!day) return { ok: false, reason: 'generation_failed' };
+  const supabase = await getSupabaseAdmin();
+
+  // The evening beat is the AGENTIC one: Olivier does his nightly rounds
+  // (hours per stop, weather, travel legs) and writes the brief himself,
+  // posting it — with its working trace and any fix proposal — into the
+  // thread. Morning/wind-down stay one-shot (cached) generations.
+  let day;
+  let bodyText;
+  let proposalMessageId = null;
+  if (type === 'evening_brief') {
+    const round = await runNightlyRound(trip, dayNumber, { supabase, channel: 'app' });
+    if (!round.ok) return { ok: false, reason: round.reason || 'generation_failed' };
+    day = round.day;
+    bodyText = round.pushLine || round.body;
+    proposalMessageId = round.proposal && round.threadMessageId ? round.threadMessageId : null;
+  } else {
+    const payload = await generateConciergeDay(trip, dayNumber);
+    day = payload?.day;
+    if (!day) return { ok: false, reason: 'generation_failed' };
+    bodyText = day.pushLine || day.briefs?.eveningBrief?.body || 'Tomorrow’s plan is ready.';
+  }
 
   const title = `Tonight’s brief · ${day.cityName || trip.city || 'your trip'}`;
-  const bodyText = day.pushLine || day.briefs?.eveningBrief?.body || 'Tomorrow’s plan is ready.';
 
   const row = {
     user_id: trip.user_id,
@@ -52,7 +93,6 @@ export async function sendConciergeBrief({ tripId, dayNumber = null, type = 'eve
     },
   };
 
-  const supabase = await getSupabaseAdmin();
   // Upsert on the dedup key so re-sends refresh content instead of duplicating.
   const { data, error } = await supabase
     .from('concierge_notifications')
@@ -66,9 +106,10 @@ export async function sendConciergeBrief({ tripId, dayNumber = null, type = 'eve
   }
 
   // The thread is the canonical conversation — beats post into it so the user
-  // can reply. Best-effort: the notification row above stays the durable
-  // delivery record even if the thread tables aren't migrated yet.
-  if (trip.user_id) {
+  // can reply. The nightly round already posted its own (richer) message; the
+  // one-shot beats post here. Best-effort: the notification row above stays
+  // the durable delivery record even if the thread tables aren't migrated yet.
+  if (trip.user_id && type !== 'evening_brief') {
     try {
       const { thread } = await getOrCreateThread(supabase, {
         tripId,
@@ -125,6 +166,10 @@ export async function sendConciergeBrief({ tripId, dayNumber = null, type = 'eve
       email = { sent: false, skipped: 'error' };
     }
   }
+
+  // Telegram gets the fix as inline Apply/Skip buttons when the nightly round
+  // attached a proposal (same pattern as the hours alert).
+  await mirrorToTelegram(supabase, { userId: trip.user_id, title, body: bodyText, proposalMessageId });
 
   return { ok: true, notification: data, push, email };
 }
@@ -207,6 +252,8 @@ export async function sendReactiveAlert({ tripId, dayNumber, signal }) {
     console.error('[concierge/notify] reactive push failed:', err?.message);
   }
 
+  await mirrorToTelegram(supabase, { userId: trip.user_id, title, body: alert.body });
+
   return { ok: true, notification: data, push };
 }
 
@@ -262,6 +309,7 @@ export async function sendHoursAlert({ tripId, dayNumber, issues }) {
     return { ok: false, reason: 'insert_failed' };
   }
 
+  let threadMessageId = null;
   if (trip.user_id) {
     try {
       const { thread } = await getOrCreateThread(supabase, {
@@ -270,7 +318,7 @@ export async function sendHoursAlert({ tripId, dayNumber, issues }) {
         userEmail: trip.user_email,
       });
       if (thread) {
-        await appendThreadMessage(supabase, {
+        const { message } = await appendThreadMessage(supabase, {
           threadId: thread.id,
           userId: trip.user_id,
           userEmail: trip.user_email,
@@ -280,6 +328,7 @@ export async function sendHoursAlert({ tripId, dayNumber, issues }) {
           body,
           meta: { issues, ...(proposal ? { proposal } : {}) },
         });
+        threadMessageId = message?.id || null;
       }
     } catch (err) {
       console.error('[concierge/notify] hours thread append failed:', err?.message);
@@ -293,5 +342,41 @@ export async function sendHoursAlert({ tripId, dayNumber, issues }) {
     console.error('[concierge/notify] hours push failed:', err?.message);
   }
 
-  return { ok: true, notification: data, push, proposed: !!proposal };
+  // Email — the heads-up with one-click Apply/Skip links when a fix rode
+  // along (signed proposalAction tokens; the email channel's inline buttons).
+  let email = { sent: false, skipped: 'not_opted_in' };
+  try {
+    const { data: pref } = await supabase
+      .from('concierge_preferences')
+      .select('email_enabled')
+      .eq('user_id', trip.user_id)
+      .maybeSingle();
+    if (pref?.email_enabled && trip.user_email) {
+      const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://eurotrip-planner.vercel.app';
+      const canAct = proposal && threadMessageId;
+      email = await sendHoursAlertEmail({
+        to: trip.user_email,
+        title,
+        body,
+        proposalSummary: canAct ? proposal.diff || null : null,
+        applyUrl: canAct ? proposalActionUrl({ tripId, messageId: threadMessageId, decision: 'apply' }) : null,
+        skipUrl: canAct ? proposalActionUrl({ tripId, messageId: threadMessageId, decision: 'skip' }) : null,
+        tripUrl: `${base.replace(/\/$/, '')}/trips/${tripId}/today`,
+      });
+    }
+  } catch (err) {
+    console.error('[concierge/notify] hours email failed:', err?.message);
+    email = { sent: false, skipped: 'error' };
+  }
+
+  // Telegram mirror retained but dormant — no bot is configured and the
+  // product direction is email/SMS; sendTelegramMessage no-ops without a token.
+  await mirrorToTelegram(supabase, {
+    userId: trip.user_id,
+    title,
+    body,
+    proposalMessageId: proposal && threadMessageId ? threadMessageId : null,
+  });
+
+  return { ok: true, notification: data, push, email, proposed: !!proposal };
 }

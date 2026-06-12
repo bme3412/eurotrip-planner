@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Clock, Loader2, MapPin, Moon, Send, Sunrise, Wand2, BedDouble } from 'lucide-react';
+import { ArrowLeft, Check, ChevronRight, Clock, Loader2, MapPin, Moon, Send, Sunrise, Wand2, BedDouble, X } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { getSupabaseClient } from '@/lib/supabase/client';
 import { getSupabaseAuthHeaders } from '@/lib/supabase/authHeaders';
@@ -41,7 +41,9 @@ export default function TodayClient({ tripId }) {
   const [messages, setMessages] = useState([]);
   const [draft, setDraft] = useState('');
   const [sending, setSending] = useState(false);
-  const [agentNote, setAgentNote] = useState(null); // "checking your day…"
+  // The in-flight turn's working trace — Olivier's thinking streams in, tool
+  // chips resolve, then the reply streams below. Replaces the old spinner note.
+  const [liveTurn, setLiveTurn] = useState(null); // { thinking, tools: [{name,label,ok,summary}], reply }
 
   const seenIdsRef = useRef(new Set());
   const bottomRef = useRef(null);
@@ -70,7 +72,12 @@ export default function TodayClient({ tripId }) {
         if (!res.ok) throw new Error(await res.text());
         const data = await res.json();
         for (const m of data.messages || []) seenIdsRef.current.add(m.id);
-        setBundle({ threadId: data.threadId, meta: data.meta, days: data.days, todayDayNumber: data.todayDayNumber });
+        setBundle({
+          threadId: data.threadId,
+          meta: data.meta,
+          days: data.days,
+          todayDayNumber: data.todayDayNumber,
+        });
         setMessages(data.messages || []);
         setStatus('ready');
       } catch (err) {
@@ -102,74 +109,171 @@ export default function TodayClient({ tripId }) {
     };
   }, [bundle?.threadId, appendMessage]);
 
+  // Sticky-bottom autoscroll: follow the stream only while the user is already
+  // at (or near) the bottom — scrolling up to re-read pins their position.
+  // While streaming, follow instantly; smooth animations re-triggered per
+  // chunk fight each other and read as the page "jumping around".
+  const stickToBottomRef = useRef(true);
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ block: 'end', behavior: 'smooth' });
-  }, [messages, agentNote]);
+    const onScroll = () => {
+      const el = document.scrollingElement;
+      if (!el) return;
+      stickToBottomRef.current = el.scrollHeight - el.scrollTop - el.clientHeight < 160;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-  // ── Send a turn: optimistic user bubble, SSE reply ──
+  useEffect(() => {
+    if (!stickToBottomRef.current) return;
+    bottomRef.current?.scrollIntoView({ block: 'end', behavior: liveTurn ? 'auto' : 'smooth' });
+  }, [messages, liveTurn]);
+
+  /**
+   * Stream one agent run (chat turn or nightly round) and drive the live
+   * working trace. A local mutable turn object is snapshotted into state
+   * after each event so the bubble re-renders without setState-updater
+   * side effects.
+   */
+  const streamAgent = useCallback(
+    async (payload) => {
+      const turn = { thinking: '', tools: [], reply: '' };
+      // Throttle snapshots: token deltas arrive far faster than the eye reads;
+      // re-rendering per token saturates the main thread and makes the stream
+      // feel janky. ~12fps is plenty for streaming text.
+      let syncTimer = null;
+      const snapshot = () =>
+        setLiveTurn({ thinking: turn.thinking, tools: turn.tools.map((t) => ({ ...t })), reply: turn.reply });
+      const sync = () => {
+        if (syncTimer) return;
+        syncTimer = setTimeout(() => {
+          syncTimer = null;
+          snapshot();
+        }, 80);
+      };
+      const settle = () => {
+        if (syncTimer) clearTimeout(syncTimer);
+        syncTimer = null;
+        setLiveTurn(null);
+      };
+      snapshot();
+
+      try {
+        const res = await fetch(`/api/trips/${tripId}/agent`, {
+          method: 'POST',
+          headers: authHeaders,
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok || !res.body) throw new Error(await res.text().catch(() => 'failed'));
+
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        const buf = createSSEBuffer();
+
+        const handle = (evt) => {
+          if (evt.type === 'thinking' && evt.text) {
+            turn.thinking += evt.text;
+            sync();
+          } else if (evt.type === 'delta' && evt.text) {
+            turn.reply += evt.text;
+            sync();
+          } else if (evt.type === 'tool_call') {
+            turn.tools.push({ name: evt.name, label: evt.label || evt.name, ok: null, summary: null });
+            sync();
+          } else if (evt.type === 'tool_result') {
+            for (let i = turn.tools.length - 1; i >= 0; i -= 1) {
+              if (turn.tools[i].name === evt.name && turn.tools[i].ok === null) {
+                turn.tools[i].ok = evt.ok !== false;
+                turn.tools[i].summary = evt.summary || null;
+                break;
+              }
+            }
+            sync();
+          } else if (evt.type === 'done') {
+            const meta = {
+              ...(evt.proposal ? { proposal: evt.proposal } : {}),
+              ...(evt.trace ? { trace: evt.trace } : {}),
+            };
+            if (evt.beat) {
+              // Nightly round → an evening_brief beat. It may already be in
+              // the list via realtime INSERT (or a re-run refreshing an old
+              // row) — update in place, else append.
+              if (evt.messageId) seenIdsRef.current.add(evt.messageId);
+              const msg = {
+                id: evt.messageId || `beat-${Date.now()}`,
+                role: 'olivier',
+                kind: evt.beat.kind,
+                day_number: evt.beat.dayNumber,
+                body: evt.beat.body,
+                created_at: new Date().toISOString(),
+                meta: { ...meta, cityName: evt.beat.cityName, dateLabel: evt.beat.dateLabel },
+              };
+              setMessages((prev) => {
+                const i = prev.findIndex((m) => m.id === msg.id);
+                if (i >= 0) {
+                  const next = [...prev];
+                  next[i] = { ...next[i], ...msg };
+                  return next;
+                }
+                return [...prev, msg];
+              });
+            } else {
+              const body = turn.reply.trim();
+              if (body) {
+                // appendMessage records the id in seenIds itself — do NOT
+                // pre-add it here or the append dedupes against itself and
+                // the reply vanishes when the live bubble clears.
+                appendMessage({
+                  id: evt.messageId || `olivier-${Date.now()}`,
+                  role: 'olivier',
+                  kind: 'chat',
+                  body,
+                  created_at: new Date().toISOString(),
+                  meta,
+                });
+              }
+            }
+            settle();
+          } else if (evt.type === 'error') {
+            settle();
+            appendMessage({ id: `err-${Date.now()}`, role: 'system', kind: 'system', body: evt.message || 'Something went wrong.', created_at: new Date().toISOString() });
+          }
+        };
+
+        for (;;) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          for (const evt of feedSSE(buf, decoder.decode(value, { stream: true }))) handle(evt);
+        }
+        for (const evt of flushSSE(buf)) handle(evt);
+      } catch (err) {
+        console.error('[trip-home] agent stream failed', err);
+        appendMessage({ id: `err-${Date.now()}`, role: 'system', kind: 'system', body: 'Couldn’t reach Olivier — try again in a moment.', created_at: new Date().toISOString() });
+      } finally {
+        setSending(false);
+        settle();
+      }
+    },
+    [tripId, authHeaders, appendMessage]
+  );
+
+  // ── Send a turn: optimistic user bubble, live working trace, SSE reply ──
   const send = useCallback(async () => {
     const text = draft.trim();
     if (!text || sending) return;
     setDraft('');
     setSending(true);
-    setAgentNote(null);
     appendMessage({ id: `local-${Date.now()}`, role: 'user', kind: 'chat', body: text, created_at: new Date().toISOString() });
+    await streamAgent({ message: text });
+  }, [draft, sending, appendMessage, streamAgent]);
 
-    try {
-      const res = await fetch(`/api/trips/${tripId}/agent`, {
-        method: 'POST',
-        headers: authHeaders,
-        body: JSON.stringify({ message: text }),
-      });
-      if (!res.ok || !res.body) throw new Error(await res.text().catch(() => 'failed'));
-
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      const buf = createSSEBuffer();
-      let replyText = '';
-      const localId = `olivier-${Date.now()}`;
-
-      const handle = (evt) => {
-        if (evt.type === 'delta' && evt.text) {
-          replyText = replyText ? `${replyText}\n\n${evt.text}` : evt.text;
-          setAgentNote(null);
-          setMessages((prev) => {
-            const next = prev.filter((m) => m.id !== localId);
-            return [...next, { id: localId, role: 'olivier', kind: 'chat', body: replyText, created_at: new Date().toISOString() }];
-          });
-        } else if (evt.type === 'tool_call') {
-          setAgentNote(evt.name === 'propose_itinerary_change' ? 'Drafting a change…' : 'Checking the itinerary…');
-        } else if (evt.type === 'done') {
-          if (evt.messageId) seenIdsRef.current.add(evt.messageId);
-          // Give the streamed bubble its real id (the Apply button posts it)
-          // and attach any proposal so the card renders.
-          setMessages((prev) =>
-            prev.map((m) =>
-              m.id === localId
-                ? { ...m, id: evt.messageId || m.id, meta: evt.proposal ? { ...(m.meta || {}), proposal: evt.proposal } : m.meta }
-                : m
-            )
-          );
-        } else if (evt.type === 'error') {
-          setAgentNote(null);
-          appendMessage({ id: `err-${Date.now()}`, role: 'system', kind: 'system', body: evt.message || 'Something went wrong.', created_at: new Date().toISOString() });
-        }
-      };
-
-      for (;;) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        for (const evt of feedSSE(buf, decoder.decode(value, { stream: true }))) handle(evt);
-      }
-      for (const evt of flushSSE(buf)) handle(evt);
-    } catch (err) {
-      console.error('[trip-home] send failed', err);
-      appendMessage({ id: `err-${Date.now()}`, role: 'system', kind: 'system', body: 'Couldn’t reach Olivier — try again in a moment.', created_at: new Date().toISOString() });
-    } finally {
-      setSending(false);
-      setAgentNote(null);
-    }
-  }, [draft, sending, tripId, authHeaders, appendMessage]);
+  // ── Run Olivier's evening rounds now — the dry-run button. Same live
+  //    trace as a chat turn; the resulting brief lands in the thread. ──
+  const previewBrief = useCallback(async () => {
+    if (sending) return;
+    setSending(true);
+    await streamAgent({ mode: 'nightly_round' });
+  }, [sending, streamAgent]);
 
   // ── Apply / Skip a proposal ──
   const decide = useCallback(
@@ -275,6 +379,14 @@ export default function TodayClient({ tripId }) {
             <Link href={`/itineraries/${tripId}`} className="inline-flex items-center gap-1 font-semibold text-blue-600 hover:underline">
               <MapPin className="h-3.5 w-3.5" /> Full itinerary
             </Link>
+            <button
+              type="button"
+              onClick={previewBrief}
+              disabled={sending}
+              className="inline-flex items-center gap-1 font-semibold text-blue-600 hover:underline disabled:opacity-40"
+            >
+              <Wand2 className="h-3.5 w-3.5" /> Preview tonight&apos;s brief
+            </button>
           </div>
         </section>
       )}
@@ -289,11 +401,7 @@ export default function TodayClient({ tripId }) {
         {messages.map((m) => (
           <MessageBubble key={m.id} message={m} onDecision={decide} />
         ))}
-        {agentNote && (
-          <p className="flex items-center gap-2 pl-2 text-xs font-medium text-gray-400">
-            <Loader2 className="h-3 w-3 animate-spin" /> {agentNote}
-          </p>
-        )}
+        {liveTurn && <LiveTurnBubble turn={liveTurn} />}
         <div ref={bottomRef} />
       </section>
 
@@ -376,8 +484,90 @@ function MessageBubble({ message: m, onDecision }) {
         )}
         <p className="whitespace-pre-wrap text-[15px] leading-relaxed text-gray-800">{m.body}</p>
         {m.meta?.proposal && <ProposalCard message={m} onDecision={onDecision} />}
+        {m.meta?.trace?.steps?.length > 0 && <TraceDisclosure trace={m.meta.trace} />}
       </div>
     </div>
+  );
+}
+
+/**
+ * The forming Olivier bubble while a turn streams: thinking in muted italic
+ * (clamped to the last couple of lines), tool chips that resolve ✓/✗ with a
+ * one-line summary, then the reply streaming below — never a bare spinner.
+ */
+function LiveTurnBubble({ turn }) {
+  const idle = !turn.thinking && !turn.tools.length && !turn.reply;
+  return (
+    <div className="flex items-end gap-2">
+      <OlivierMark size={26} className="mb-1 shrink-0" />
+      <div className="min-w-0 max-w-[85%] rounded-2xl rounded-bl-md border border-gray-200/80 bg-white px-4 py-2.5 shadow-sm">
+        {idle && (
+          <p className="flex items-center gap-2 text-xs font-medium text-gray-400">
+            <Loader2 className="h-3 w-3 animate-spin" /> Olivier is reading your message…
+          </p>
+        )}
+        {turn.thinking && (
+          /* Stays mounted once the reply starts — collapsing it mid-stream
+             shifts the layout under the reader. */
+          <div className="flex max-h-9 flex-col justify-end overflow-hidden">
+            <p className="whitespace-pre-wrap text-xs italic leading-snug text-gray-400">{turn.thinking}</p>
+          </div>
+        )}
+        {turn.tools.length > 0 && (
+          <div className={`flex flex-col gap-1 ${turn.thinking ? 'mt-1.5' : ''}`}>
+            {turn.tools.map((t, i) => (
+              <span key={i} className="inline-flex items-start gap-1.5 text-xs text-gray-500">
+                {t.ok === null ? (
+                  <Loader2 className="mt-0.5 h-3 w-3 shrink-0 animate-spin text-blue-500" />
+                ) : t.ok ? (
+                  <Check className="mt-0.5 h-3 w-3 shrink-0 text-emerald-600" />
+                ) : (
+                  <X className="mt-0.5 h-3 w-3 shrink-0 text-amber-600" />
+                )}
+                <span className="min-w-0">
+                  <span className="font-medium text-gray-600">{t.label}</span>
+                  {t.summary && <span className="text-gray-400"> — {t.summary}</span>}
+                </span>
+              </span>
+            ))}
+          </div>
+        )}
+        {turn.reply && (
+          <p className={`whitespace-pre-wrap text-[15px] leading-relaxed text-gray-800 ${turn.tools.length ? 'mt-2' : ''}`}>
+            {turn.reply}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/** Collapsed "what Olivier checked" on past messages, read from meta.trace. */
+function TraceDisclosure({ trace }) {
+  const toolSteps = trace.steps.filter((s) => s.t === 'tool').length;
+  const n = toolSteps || trace.steps.length;
+  return (
+    <details className="group mt-2">
+      <summary className="flex cursor-pointer list-none items-center gap-1 text-[11px] font-medium text-gray-400 transition hover:text-gray-600">
+        <ChevronRight className="h-3 w-3 transition-transform group-open:rotate-90" />
+        What I checked · {n} step{n === 1 ? '' : 's'}
+      </summary>
+      <div className="mt-1.5 flex flex-col gap-1 border-l-2 border-gray-100 pl-2.5">
+        {trace.steps.map((s, i) =>
+          s.t === 'thinking' ? (
+            <p key={i} className="text-xs italic leading-snug text-gray-400">{s.text}</p>
+          ) : (
+            <p key={i} className="text-xs leading-snug text-gray-500">
+              <span className={s.ok === false ? 'text-amber-600' : 'text-emerald-600'}>
+                {s.ok === false ? '✗' : '✓'}
+              </span>{' '}
+              <span className="font-medium text-gray-600">{s.label}</span>
+              {s.summary && <span className="text-gray-400"> — {s.summary}</span>}
+            </p>
+          )
+        )}
+      </div>
+    </details>
   );
 }
 

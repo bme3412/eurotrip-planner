@@ -3,14 +3,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { RATING_COLORS } from './lib/constants';
 import { buildTooltipData } from './lib/derived';
-
-const COLOR_LEGEND = [
-  { color: '#10b981', label: 'Excellent (5)' },
-  { color: '#34d399', label: 'Good (4)' },
-  { color: '#fbbf24', label: 'Average (3)' },
-  { color: '#fb923c', label: 'Below Avg (2)' },
-  { color: '#ef4444', label: 'Avoid (1)' },
-];
+import { bandFor } from '../visitBands';
+import BandLegend from '../BandLegend';
 
 // Approximate tooltip dimensions used for viewport edge detection.
 // The real DOM size will vary slightly with content; these are upper bounds
@@ -34,16 +28,22 @@ const VIEWPORT_MARGIN = 12;
  *   • calendarData             — output of `buildCalendarData()`
  *   • activeTooltip            — current tooltip payload (or null)
  *   • onTooltipChange          — set the tooltip payload (or null to clear)
- *   • onSelectMonth(monthName) — called when a month card header is clicked
+ *   • onSelectMonth(monthName) — called when a month card is clicked
+ *   • selectedMonth            — month currently open in the guide below
+ *                                (drawn with a selected ring)
+ *   • onOpenMonthGuide(name)   — optional "View guide" action inside the
+ *                                pinned day tooltip
  *
- * Day cells now pin the tooltip rather than selecting the month — use the
- * month header to open the month panel.
+ * Day cells pin the tooltip; clicking anywhere else on a month card selects
+ * the month (one click — no intermediate panel).
  */
 export default function MonthlyCalendar({
   calendarData,
   activeTooltip,
   onTooltipChange,
   onSelectMonth,
+  selectedMonth = null,
+  onOpenMonthGuide = null,
 }) {
   const [anchor, setAnchor] = useState(null); // { rect, color, monthName, rating }
   const [pinned, setPinned] = useState(false);
@@ -53,6 +53,7 @@ export default function MonthlyCalendar({
     setAnchor({
       rect: { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right, width: rect.width, height: rect.height },
       color: day.color,
+      band: day.band || bandFor(day.rating),
       monthName,
       rating: day.rating,
     });
@@ -137,56 +138,55 @@ export default function MonthlyCalendar({
 
   return (
     <div className="mt-3">
-      {/* Color legend */}
-      <div className="flex flex-wrap items-center justify-center gap-2.5 mb-2.5 p-1.5 bg-gray-50 rounded-lg">
-        {COLOR_LEGEND.map(({ color, label }) => (
-          <div key={label} className="flex items-center">
-            <div className="w-5 h-2.5 rounded mr-1.5" style={{ backgroundColor: color }} />
-            <span className="text-[11px] text-gray-600 font-medium">{label}</span>
-          </div>
-        ))}
-        <span className="text-[11px] text-gray-500 ml-2">• = Special Event</span>
+      {/* Shared visit-quality legend */}
+      <div className="flex justify-center mb-3">
+        <BandLegend />
       </div>
 
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3">
-        {calendarData.map(({ monthName, monthIndex, days, isCurrentMonth }) => (
+      <div className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3">
+        {calendarData.map(({ monthName, monthIndex, days, isCurrentMonth }) => {
+          const isSelected = selectedMonth === monthName;
+          return (
           <div
             key={monthIndex}
-            className={`border rounded-lg transition-all cursor-pointer hover:shadow-md hover:border-indigo-300 ${
-              isCurrentMonth ? 'ring-2 ring-blue-500' : ''
+            className={`border rounded-lg transition-all cursor-pointer hover:shadow-md ${
+              isSelected
+                ? 'ring-2 ring-blue-600 border-blue-300 shadow-sm'
+                : 'hover:border-blue-300'
             }`}
             onClick={() => onSelectMonth?.(monthName)}
+            role={onSelectMonth ? 'button' : undefined}
+            aria-pressed={onSelectMonth ? isSelected : undefined}
+            aria-label={onSelectMonth ? `Open ${monthName} guide` : undefined}
           >
-            <div className="bg-gray-50 p-2 text-center border-b flex items-center justify-center gap-1.5">
-              <div className="text-xs font-semibold text-gray-700">{monthName}</div>
+            <div className={`p-2 text-center border-b flex items-center justify-center gap-1.5 rounded-t-lg ${
+              isSelected ? 'bg-blue-50' : 'bg-gray-50'
+            }`}>
+              <div className={`text-xs font-semibold ${isSelected ? 'text-blue-800' : 'text-gray-700'}`}>
+                {monthName}
+              </div>
               {isCurrentMonth && (
-                <span className="text-[9px] px-1 py-0.5 rounded bg-blue-500 text-white">Now</span>
+                <span className="text-[9px] px-1 py-0.5 rounded bg-blue-600 text-white">Now</span>
               )}
             </div>
 
-            <div className="grid grid-cols-7 text-center text-[10px] font-medium text-gray-500 bg-gray-50">
-              {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
-                <div key={i} className="p-0.5">{day}</div>
-              ))}
-            </div>
-
-            <div className="grid grid-cols-7 gap-px">
+            <div className="grid grid-cols-7 gap-0.5 p-1">
               {days.map((day, dayIndex) =>
                 day.type === 'empty' ? (
                   <div key={`empty-${dayIndex}`} className="aspect-square" />
                 ) : (
                   <div
                     key={`day-${day.dayOfMonth}`}
-                    className={`day-cell aspect-square flex items-center justify-center text-[10px] relative transition-transform cursor-pointer hover:scale-110 hover:z-10 hover:ring-2 hover:ring-gray-900/40 ${
+                    className={`day-cell aspect-square rounded-[3px] relative cursor-pointer flex items-center justify-center hover:z-10 hover:ring-2 hover:ring-gray-500/50 ${
                       pinned && anchor?.monthName === monthName && activeTooltip?.dayOfMonth === day.dayOfMonth
-                        ? 'ring-2 ring-gray-900 scale-110 z-10'
+                        ? 'ring-2 ring-gray-900 z-10'
                         : ''
                     }`}
                     style={{ backgroundColor: day.color }}
                     onMouseEnter={(e) => handleEnter(e, day, monthIndex, monthName)}
                     onMouseLeave={handleLeave}
                     onClick={(e) => handleDayClick(e, day, monthIndex, monthName)}
-                    aria-label={`Day ${day.dayOfMonth}${day.event ? `: ${day.event}` : ''}`}
+                    aria-label={`${monthName} ${day.dayOfMonth}${day.event ? `: ${day.event}` : ''}`}
                   >
                     <span
                       className="font-semibold text-[10px] text-white"
@@ -202,7 +202,8 @@ export default function MonthlyCalendar({
               )}
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Single, viewport-aware tooltip (fixed-positioned so it cannot be clipped).
@@ -229,10 +230,10 @@ export default function MonthlyCalendar({
                 <div className="flex items-center gap-1.5">
                   <span
                     className="text-[11px] px-2 py-0.5 rounded-full font-semibold inline-flex items-center gap-1"
-                    style={{ backgroundColor: `${anchor.color}22`, color: anchor.color }}
+                    style={{ backgroundColor: anchor.band?.bg, color: anchor.band?.text }}
                   >
                     {activeTooltip.event && <span aria-hidden>★</span>}
-                    Score {anchor.rating}/5
+                    {anchor.band?.label || 'Average'}
                   </span>
                   {pinned && (
                     <button
@@ -248,9 +249,8 @@ export default function MonthlyCalendar({
               </div>
 
               {activeTooltip.event && (
-                <div className="text-[13px] font-semibold text-gray-900 mb-1.5 flex items-start gap-1.5 leading-snug">
-                  <span aria-hidden>🎉</span>
-                  <span>{activeTooltip.event}</span>
+                <div className="text-[13px] font-semibold text-gray-900 mb-1.5 leading-snug">
+                  {activeTooltip.event}
                 </div>
               )}
 
@@ -268,27 +268,39 @@ export default function MonthlyCalendar({
 
               <div className="grid grid-cols-1 gap-1.5 pt-1.5 border-t border-gray-100">
                 {activeTooltip.weather && (
-                  <div className="flex items-center gap-2 text-[12px] text-gray-700">
-                    <span className="w-5 text-center" aria-hidden>🌡️</span>
+                  <div className="flex items-center gap-2 text-[12px]">
                     <span className="font-medium text-gray-500">Weather</span>
                     <span className="ml-auto text-gray-900">{activeTooltip.weather}</span>
                   </div>
                 )}
                 {activeTooltip.crowdLevel && (
-                  <div className="flex items-center gap-2 text-[12px] text-gray-700">
-                    <span className="w-5 text-center" aria-hidden>👥</span>
+                  <div className="flex items-center gap-2 text-[12px]">
                     <span className="font-medium text-gray-500">Crowds</span>
                     <span className="ml-auto text-gray-900">{activeTooltip.crowdLevel}</span>
                   </div>
                 )}
                 {activeTooltip.price && (
-                  <div className="flex items-center gap-2 text-[12px] text-gray-700">
-                    <span className="w-5 text-center" aria-hidden>💰</span>
+                  <div className="flex items-center gap-2 text-[12px]">
                     <span className="font-medium text-gray-500">Prices</span>
                     <span className="ml-auto text-gray-900">{activeTooltip.price}</span>
                   </div>
                 )}
               </div>
+
+              {pinned && onOpenMonthGuide && (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const month = anchor.monthName;
+                    closeTooltip();
+                    onOpenMonthGuide(month);
+                  }}
+                  className="mt-2.5 w-full rounded-lg bg-blue-50 px-3 py-1.5 text-[12px] font-semibold text-blue-700 hover:bg-blue-100 transition-colors text-center"
+                >
+                  View {anchor.monthName} guide →
+                </button>
+              )}
             </div>
           </div>
         </div>

@@ -5,15 +5,11 @@ import { getCityDisplayName, getCityNickname, getCityDescription } from '@/utils
 import { fetchCityDataUrl } from '@/lib/city-data';
 import { legacyCountryFolder } from '@/lib/city-data/resolver';
 
-import {
-  buildCalendarData,
-  buildMonthInsights,
-} from './overview/lib/derived';
+import { buildCalendarData } from './overview/lib/derived';
 import { getCityIcon } from './overview/lib/cityIcon';
 
 import MonthlyCalendar from './overview/MonthlyCalendar';
 import TravelerFilter from './overview/TravelerFilter';
-import SelectedMonthPanel from './overview/SelectedMonthPanel';
 import SeasonalProse from './overview/SeasonalProse';
 import MobileEventModal from './overview/MobileEventModal';
 
@@ -25,9 +21,12 @@ import MobileEventModal from './overview/MobileEventModal';
  *   • overview/lib/{cityIcon,seasonalNeighborhoods,constants}.js
  *   • overview/MonthlyCalendar.jsx           — 12-month grid + tooltips
  *   • overview/TravelerFilter.jsx            — "Best time for" pills
- *   • overview/SelectedMonthPanel.jsx        — inline selected-month CTA
  *   • overview/SeasonalProse.jsx             — "Season by Season" narrative
  *   • overview/MobileEventModal.jsx          — small-screen event modal
+ *
+ * Month selection is one click: clicking a month card calls
+ * `onOpenMonthlyGuide(monthName)` directly; `selectedMonth` draws the ring
+ * that links the grid to the guide rendered below it.
  */
 const CityOverview = ({
   overview,
@@ -36,11 +35,11 @@ const CityOverview = ({
   monthlyData,
   hideIntroHero = false,
   onOpenMonthlyGuide,
+  selectedMonth = null,
   showSeasonalProse = true,
 }) => {
   const [activeTooltip, setActiveTooltip] = useState(null);
   const [overviewParagraph, setOverviewParagraph] = useState(null);
-  const [selectedCalendarMonth, setSelectedCalendarMonth] = useState(null);
   const [travelerTypeFilter, setTravelerTypeFilter] = useState('all');
 
   const cityPaths = useMemo(
@@ -99,22 +98,8 @@ const CityOverview = ({
     [visitCalendar, travelerTypeFilter],
   );
 
-  const monthInsights = useMemo(
-    () => buildMonthInsights(calendarData, visitCalendar),
-    [calendarData, visitCalendar],
-  );
-
-  const selectedInsight = useMemo(
-    () => (selectedCalendarMonth
-      ? monthInsights.find((month) => month.monthName === selectedCalendarMonth) || null
-      : null),
-    [selectedCalendarMonth, monthInsights],
-  );
-
   const handleOpenMonthlyGuide = useCallback((monthName) => {
-    if (!onOpenMonthlyGuide) return;
-    onOpenMonthlyGuide(monthName);
-    setSelectedCalendarMonth(null);
+    onOpenMonthlyGuide?.(monthName);
   }, [onOpenMonthlyGuide]);
 
   return (
@@ -151,7 +136,7 @@ const CityOverview = ({
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-600 mb-1.5">
                 Interactive date calendar
               </p>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
+              <h2 className="font-display text-3xl md:text-4xl font-semibold text-gray-900 tracking-tight">
                 Best Time to Visit {displayName}
               </h2>
             </header>
@@ -172,23 +157,13 @@ const CityOverview = ({
               </div>
             )}
 
-            {selectedCalendarMonth && (
-              <div className="mb-3">
-                <SelectedMonthPanel
-                  cityName={cityName}
-                  selectedCalendarMonth={selectedCalendarMonth}
-                  selectedInsight={selectedInsight}
-                  onOpenMonthlyGuide={onOpenMonthlyGuide ? handleOpenMonthlyGuide : null}
-                  onClear={() => setSelectedCalendarMonth(null)}
-                />
-              </div>
-            )}
-
             <MonthlyCalendar
               calendarData={calendarData}
               activeTooltip={activeTooltip}
               onTooltipChange={setActiveTooltip}
-              onSelectMonth={setSelectedCalendarMonth}
+              onSelectMonth={onOpenMonthlyGuide ? handleOpenMonthlyGuide : null}
+              selectedMonth={selectedMonth}
+              onOpenMonthGuide={onOpenMonthlyGuide ? handleOpenMonthlyGuide : null}
             />
           </div>
         </div>

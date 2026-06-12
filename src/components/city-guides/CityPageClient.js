@@ -560,7 +560,12 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
       case 'food':
         return (
           <Suspense fallback={<SkeletonTabContent />}>
-            <LazyFoodDrinkGuide cityName={cityName} cityData={cityData} />
+            <LazyFoodDrinkGuide
+              cityName={cityName}
+              cityData={cityData}
+              isFavorite={isFavorite}
+              toggle={handleToggleFavorite}
+            />
           </Suspense>
         );
       case 'photos':
@@ -719,9 +724,14 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
 
       {/* Content */}
       <div className="mx-auto max-w-7xl px-3 sm:px-4 py-4 sm:py-6 pb-24 overflow-visible">
+        <style>{`@keyframes tabfade { from { opacity: 0; } to { opacity: 1; } }`}</style>
+        {/* Keyed by tab so the incoming panel plays a quick fade once the
+            transition commits (motion-safe only); the old tab stays visible
+            and dimmed while it's in flight. */}
         <div
+          key={activeTab}
           aria-busy={isTabPending}
-          className={`transition-opacity duration-150 ${
+          className={`motion-safe:animate-[tabfade_180ms_ease-out] transition-opacity duration-150 ${
             isTabPending ? 'opacity-60' : 'opacity-100'
           }`}
         >

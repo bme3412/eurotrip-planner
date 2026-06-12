@@ -36,6 +36,10 @@ export default function ConciergeClient({
   cityDisplay: cityDisplayProp = null,
   dateRangeLabel: dateRangeLabelProp = null,
   heroImage: heroImageProp = null,
+  // SSR'd deterministic scaffold (public trips): renders the page instantly,
+  // so only the prose waits on the (durably cached) brief payload.
+  initialBundle = null,
+  initialDayNumber = null,
 }) {
   const { user, session } = useAuth();
   const shareQuery = shareToken ? `?share=${encodeURIComponent(shareToken)}` : '';
@@ -48,19 +52,27 @@ export default function ConciergeClient({
   const [dateRangeLabel, setDateRangeLabel] = useState(dateRangeLabelProp);
   const [heroImage, setHeroImage] = useState(heroImageProp);
 
-  const [bundle, setBundle] = useState(null); // { meta, days, personalization }
+  const [bundle, setBundle] = useState(initialBundle); // { meta, days, personalization }
   const [day, setDay] = useState(null); // last fully-generated day applied to the view
-  const [activeDay, setActiveDay] = useState(null);
-  const [status, setStatus] = useState('loading'); // loading | ready | error
+  const [activeDay, setActiveDay] = useState(initialDayNumber);
+  const [status, setStatus] = useState(initialBundle ? 'ready' : 'loading'); // loading | ready | error
   const [dayError, setDayError] = useState(false);
   const [loadedDays, setLoadedDays] = useState(() => new Set()); // drives the chips' ready-dots
+  // { dayNumber, prose } while a first-time generation streams in — the brief
+  // visibly writes itself instead of pulsing skeletons.
+  const [partialProse, setPartialProse] = useState(null);
 
   // Generated days live for the page's lifetime — switching back is instant.
   const dayCacheRef = useRef(new Map()); // dayNumber → full day payload
   const inflightRef = useRef(new Map()); // dayNumber → pending promise (dedupes click vs prefetch)
-  const wantedDayRef = useRef(null); // the day the user currently wants visible (race guard)
+  const wantedDayRef = useRef(initialDayNumber); // the day the user currently wants visible (race guard)
 
-  /** Fetch + cache one day's generated payload; deduped per dayNumber. */
+  /**
+   * Fetch + cache one day's generated payload; deduped per dayNumber.
+   * Cached days come back as plain JSON (instant). A first-time generation
+   * streams NDJSON — partial prose events paint the brief as it's written,
+   * but only for the day the user is currently looking at.
+   */
   const loadDay = useCallback(
     (dayNumber) => {
       const inflight = inflightRef.current;
@@ -69,15 +81,52 @@ export default function ConciergeClient({
         const res = await fetch(`/api/trips/${tripId}/concierge-brief${shareQuery}`, {
           method: 'POST',
           headers: authHeaders,
-          body: JSON.stringify({ dayNumber }),
+          body: JSON.stringify({ dayNumber, stream: true }),
         });
         if (!res.ok) throw new Error(await res.text());
-        const data = await res.json();
+
+        let data = null;
+        const ctype = res.headers.get('content-type') || '';
+        if (ctype.includes('application/x-ndjson') && res.body) {
+          const reader = res.body.getReader();
+          const decoder = new TextDecoder();
+          let buf = '';
+          const handleLine = (line) => {
+            if (!line.trim()) return;
+            let evt;
+            try { evt = JSON.parse(line); } catch { return; }
+            if (evt.type === 'partial' && wantedDayRef.current === dayNumber) {
+              setPartialProse({ dayNumber, prose: evt.prose });
+            } else if (evt.type === 'done') {
+              data = evt.payload;
+            } else if (evt.type === 'error') {
+              throw new Error('stream failed');
+            }
+          };
+          for (;;) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            buf += decoder.decode(value, { stream: true });
+            let idx;
+            while ((idx = buf.indexOf('\n')) >= 0) {
+              const line = buf.slice(0, idx);
+              buf = buf.slice(idx + 1);
+              handleLine(line);
+            }
+          }
+          if (buf.trim()) handleLine(buf);
+        } else {
+          data = await res.json();
+        }
+
         if (!data?.day) throw new Error('malformed');
         dayCacheRef.current.set(data.day.dayNumber, data.day);
         setLoadedDays((prev) => new Set(prev).add(data.day.dayNumber));
         return data;
-      })().finally(() => inflight.delete(dayNumber));
+      })().finally(() => {
+        inflight.delete(dayNumber);
+        setPartialProse((curr) => (curr?.dayNumber === dayNumber ? null : curr));
+      });
       inflight.set(dayNumber, p);
       return p;
     },
@@ -112,30 +161,29 @@ export default function ConciergeClient({
     [loadDay]
   );
 
-  /** Initial load: no dayNumber → the server picks the first real day. */
+  /**
+   * Initial load without an SSR'd scaffold (private trips): GET the cheap
+   * deterministic bundle first so the page paints in ~100ms, then request the
+   * first day's prose like any day-chip click. The old single 19s blocking
+   * POST is gone — prose always streams in behind a visible schedule.
+   */
   const fetchInitial = useCallback(async () => {
     setStatus('loading');
     try {
       const res = await fetch(`/api/trips/${tripId}/concierge-brief${shareQuery}`, {
-        method: 'POST',
         headers: authHeaders,
-        body: JSON.stringify({}),
       });
       if (!res.ok) throw new Error(await res.text());
       const data = await res.json();
-      if (!data?.day) throw new Error('malformed');
+      if (!data?.days) throw new Error('malformed');
       setBundle({ meta: data.meta, days: data.days, personalization: data.personalization });
-      dayCacheRef.current.set(data.day.dayNumber, data.day);
-      setLoadedDays((prev) => new Set(prev).add(data.day.dayNumber));
-      setDay(data.day);
-      setActiveDay(data.day.dayNumber);
-      wantedDayRef.current = data.day.dayNumber;
       setStatus('ready');
+      if (data.initialDayNumber != null) requestDay(data.initialDayNumber);
     } catch (err) {
       console.error('[concierge] fetch failed', err);
       setStatus('error');
     }
-  }, [tripId, authHeaders, shareQuery]);
+  }, [tripId, authHeaders, shareQuery, requestDay]);
 
   // Warm every remaining real day in the background, one at a time, so chips
   // turn instant while the visitor reads day one. Best-effort: failures are
@@ -202,15 +250,20 @@ export default function ConciergeClient({
     return () => { cancelled = true; };
   }, [cityDisplayProp, session, tripId]);
 
-  // Auto-load the first day exactly once. fetchInitial's identity changes when
-  // the auth session re-renders; without this guard those re-renders would
-  // re-fire the (expensive, ~19s) brief request in a loop.
+  // Auto-load exactly once. fetchInitial/requestDay identities change when the
+  // auth session re-renders; without this guard those re-renders would re-fire
+  // the brief request in a loop. With an SSR'd scaffold the page is already
+  // painted — we only need the first day's prose.
   const didInit = useRef(false);
   useEffect(() => {
     if (didInit.current) return;
     didInit.current = true;
-    fetchInitial();
-  }, [fetchInitial]);
+    if (initialBundle) {
+      if (initialDayNumber != null) requestDay(initialDayNumber);
+    } else {
+      fetchInitial();
+    }
+  }, [fetchInitial, requestDay, initialBundle, initialDayNumber]);
 
   const meta = bundle?.meta;
   const cadence = meta?.cadence;
@@ -224,6 +277,9 @@ export default function ConciergeClient({
     return scaffold || day;
   }, [day, activeDay, bundle]);
   const writing = status === 'ready' && view && !view.briefs;
+  // In-flight prose for the day on screen: cards fill in as the model writes.
+  const streamProse = writing && partialProse?.dayNumber === activeDay ? partialProse.prose : null;
+  const streamBriefs = streamProse?.briefs || {};
   const writer = useMemo(
     () => (view ? resolvePersona({ country: view.country, city: view.city }) : null),
     [view]
@@ -351,18 +407,65 @@ export default function ConciergeClient({
 
               {writing ? (
                 /* Facts above rendered instantly from the itinerary; the voice
-                   is still being written — skeletons, not a frozen old day. */
+                   streams in live — each card switches from skeleton to real
+                   prose the moment the model reaches it, so the wait reads as
+                   Olivier writing rather than the page loading. */
                 <div className="mt-6 grid gap-8 lg:grid-cols-[280px_1fr]">
                   <div className="lg:sticky lg:top-6 lg:self-start">
-                    <div className="mx-auto h-64 w-44 animate-pulse rounded-[2rem] bg-gray-200" />
+                    {streamProse?.pushLine ? (
+                      <PushMock pushLine={streamProse.pushLine} persona={view.persona || writer} />
+                    ) : (
+                      <div className="mx-auto h-64 w-44 animate-pulse rounded-[2rem] bg-gray-200" />
+                    )}
                     <p className="mt-3 text-center text-xs text-gray-400">
                       {writer?.name || 'Olivier'} is writing day {view.dayNumber}…
                     </p>
                   </div>
                   <div className="space-y-5">
-                    <BriefSkeleton icon={Moon} label="Evening brief" when="tonight · the night before" timeOfDay="evening" writerLine={`${writer?.name || 'Olivier'} is writing…`} />
-                    <BriefSkeleton icon={Sunrise} label="Morning wake-up" when="~90 min before you go" timeOfDay="morning" />
-                    <BriefSkeleton icon={Moon} label="Wind-down" when="around 9pm" timeOfDay="wind-down" />
+                    {streamBriefs.eveningBrief?.body ? (
+                      <BriefCard
+                        icon={Moon}
+                        label="Evening brief"
+                        when="tonight · the night before"
+                        timeOfDay="evening"
+                        body={streamBriefs.eveningBrief.body}
+                        delight={streamBriefs.eveningBrief.delight}
+                        decision={streamBriefs.eveningBrief.decision}
+                        persona={view.persona || writer}
+                      >
+                        {act && streamProse?.routeNote && (
+                          <RouteMap firstActivity={act} departBy={view.departBy} routeNote={streamProse.routeNote} cityName={view.cityName} />
+                        )}
+                      </BriefCard>
+                    ) : (
+                      <BriefSkeleton icon={Moon} label="Evening brief" when="tonight · the night before" timeOfDay="evening" writerLine={`${writer?.name || 'Olivier'} is writing…`} />
+                    )}
+                    {streamBriefs.morningWakeup?.body ? (
+                      <BriefCard
+                        icon={Sunrise}
+                        label="Morning wake-up"
+                        when="~90 min before you go"
+                        timeOfDay="morning"
+                        body={streamBriefs.morningWakeup.body}
+                        persona={view.persona || writer}
+                      />
+                    ) : (
+                      <BriefSkeleton icon={Sunrise} label="Morning wake-up" when="~90 min before you go" timeOfDay="morning" />
+                    )}
+                    {streamBriefs.windDown?.body ? (
+                      <BriefCard
+                        icon={Moon}
+                        label="Wind-down"
+                        when="around 9pm"
+                        timeOfDay="wind-down"
+                        body={streamBriefs.windDown.body}
+                        tomorrowTease={streamBriefs.windDown.tomorrowTease}
+                        signoff={streamProse?.signoff}
+                        persona={view.persona || writer}
+                      />
+                    ) : (
+                      <BriefSkeleton icon={Moon} label="Wind-down" when="around 9pm" timeOfDay="wind-down" />
+                    )}
                   </div>
                 </div>
               ) : (

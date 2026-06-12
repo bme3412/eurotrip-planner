@@ -5,6 +5,7 @@
  */
 
 import { MONTH_NAMES, RATING_COLORS } from './constants';
+import { bandFor } from '../../visitBands';
 
 /**
  * Return the most-frequent truthy value in an array, or null.
@@ -92,6 +93,7 @@ export const buildCalendarData = (visitCalendar, travelerTypeFilter = 'all') => 
         dayOfMonth: i,
         rating,
         color: RATING_COLORS[rating],
+        band: bandFor(rating),
         special: details?.special,
         event: details?.event,
         notes: details?.notes,

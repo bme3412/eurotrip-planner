@@ -24,13 +24,14 @@ export const RESTAURANT_CATEGORIES = [
   { id: 'bars', label: 'Bars', icon: Wine },
 ];
 
-// Price filter options - support both € and £ currencies
+// Price filter options - support both € and £ currencies.
+// `symbol` is the compact pill label; `label` stays as the accessible title.
 export const PRICE_FILTERS = [
-  { id: 'all', label: 'All Prices', match: null },
-  { id: 'budget', label: '$ Budget', match: ['€', '£'] },
-  { id: 'mid', label: '$$ Mid-range', match: ['€€', '££'] },
-  { id: 'upscale', label: '$$$ Upscale', match: ['€€€', '£££'] },
-  { id: 'luxury', label: '$$$$ Fine Dining', match: ['€€€€', '££££'] },
+  { id: 'all', label: 'All Prices', symbol: 'All', match: null },
+  { id: 'budget', label: 'Budget', symbol: '$', match: ['€', '£'] },
+  { id: 'mid', label: 'Mid-range', symbol: '$$', match: ['€€', '££'] },
+  { id: 'upscale', label: 'Upscale', symbol: '$$$', match: ['€€€', '£££'] },
+  { id: 'luxury', label: 'Fine Dining', symbol: '$$$$', match: ['€€€€', '££££'] },
 ];
 
 export const DEFAULT_RESTAURANT_PAGE_SIZE = 6;
