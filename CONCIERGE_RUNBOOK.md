@@ -76,6 +76,14 @@ Run in order in the Supabase SQL editor (or `supabase db push`). Idempotent.
 - `supabase/migrations/0009_push_subscriptions.sql` — Web Push device subs (**required for push**)
 - `supabase/migrations/0010_concierge_waitlist.sql` — early-access signups
 - `supabase/migrations/0011_concierge_waitlist_invites.sql` — `invited_at` beta gate (**required — without it only allowlisted emails get briefs**)
+- `supabase/migrations/0012_concierge_thread.sql` — agent thread + memories (**required for Trip Home** at `/trips/[tripId]/today`; beats post into the thread, push deep-links there)
+- `supabase/migrations/0013_hours_alert_kind.sql` — `hours_alert` kind for the opening-hours watcher (`concierge-hours-watch`, daily 16:00 UTC; needs `GOOGLE_PLACES_API_KEY`, already set)
+- `supabase/migrations/0014_telegram_channel.sql` — Telegram chat link on preferences
+
+### Telegram channel (RETIRED — direction is email/SMS)
+The backend remains but is dormant: everything no-ops without `TELEGRAM_BOT_TOKEN`,
+and the Connect Telegram UI has been removed from Trip Home. Do not configure.
+The out-of-app channel is **email** (below); SMS is under consideration.
 
 Verify:
 ```sql
@@ -96,10 +104,28 @@ Also confirm RLS is on and `concierge_notifications` is in the `supabase_realtim
 2. Set in Vercel: `VAPID_SUBJECT` (`mailto:…`), `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `NEXT_PUBLIC_VAPID_PUBLIC_KEY` (= the public key).
 3. The service worker (`public/sw.js`) + manifest are already served. **iOS only delivers push once the site is installed as a PWA** — email + in-app are the durable surfaces.
 
-### 4. Email (optional channel)
+### 4. Email (the out-of-app channel)
+**Outbound:**
 1. Create a Resend account, **verify your sending domain** (DNS records).
 2. Set `RESEND_API_KEY` + `FROM_EMAIL` (e.g. `Olivier <briefing@yourdomain.com>`) in Vercel.
-3. Email fires for the **evening brief only**, and only for users with `email_enabled` (set when they toggle the concierge on).
+3. What sends, gated on `email_enabled`: the **evening brief**, and **hours alerts** —
+   which carry Olivier's fix as one-click **Apply/Skip** buttons (signed HMAC links,
+   no session needed; uses `CONCIERGE_UNSUBSCRIBE_SECRET` or the service-role key).
+
+**Inbound — reply to Olivier by replying to any of his emails:**
+1. In the Resend dashboard, enable **Inbound** and add the MX record it gives you on a
+   receiving subdomain (e.g. `agent.yourdomain.com`).
+2. Create an inbound address (e.g. `olivier@agent.yourdomain.com`) routed to a webhook
+   pointing at `https://<your-domain>/api/concierge/email/inbound`.
+3. Copy the webhook's **signing secret** (`whsec_…`) → set `RESEND_WEBHOOK_SECRET` in Vercel.
+4. Set `CONCIERGE_INBOUND_EMAIL=olivier@agent.yourdomain.com` — every outbound concierge
+   email then carries it as Reply-To.
+5. Flow: reply arrives → Svix signature verified → **fail-closed invite gate** on the
+   sender → quoted history stripped → one agent turn on the user's active trip → Olivier
+   replies by email (Apply/Skip buttons when he proposes a fix). Unknown senders and
+   duplicates are acknowledged and ignored (no backscatter).
+6. The route answers **503 until `RESEND_WEBHOOK_SECRET` is set** — safe to deploy ahead
+   of the DNS work.
 
 ---
 

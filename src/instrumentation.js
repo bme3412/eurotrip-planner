@@ -17,17 +17,16 @@ const INTEGRATIONS = [
   ['NEXT_PUBLIC_MAPBOX_TOKEN', 'explore map'],
 ];
 
-const PROD_ONLY = [
-  ['UPSTASH_REDIS_REST_URL', 'rate limits fall back to per-instance memory'],
-  ['UPSTASH_REDIS_REST_TOKEN', 'rate limits fall back to per-instance memory'],
-];
-
 export async function register() {
   if (process.env.NEXT_RUNTIME !== 'nodejs') return;
 
+  // Redis creds may arrive under UPSTASH_REDIS_REST_* or the KV_REST_API_* names
+  // the Vercel Upstash integration injects; resolve both rather than name-match.
+  const { hasRedisRestConfig } = await import('@/lib/redisEnv');
+
   const missing = INTEGRATIONS.filter(([name]) => !process.env[name]);
-  if (process.env.NODE_ENV === 'production') {
-    missing.push(...PROD_ONLY.filter(([name]) => !process.env[name]));
+  if (process.env.NODE_ENV === 'production' && !hasRedisRestConfig()) {
+    missing.push(['UPSTASH_REDIS_REST_* / KV_REST_API_*', 'rate limits fall back to per-instance memory']);
   }
   if (missing.length === 0) return;
 

@@ -11,14 +11,14 @@
  */
 
 import { Redis } from '@upstash/redis';
+import { getRedisRestConfig } from '@/lib/redisEnv';
 
-// Initialize Redis client if environment variables are set
+// Initialize Redis client if environment variables are set (accepts either the
+// UPSTASH_REDIS_REST_* names or the KV_REST_API_* names from the Vercel integration)
 let redis = null;
-if (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) {
-  redis = new Redis({
-    url: process.env.UPSTASH_REDIS_REST_URL,
-    token: process.env.UPSTASH_REDIS_REST_TOKEN,
-  });
+const { url: redisUrl, token: redisToken } = getRedisRestConfig();
+if (redisUrl && redisToken) {
+  redis = new Redis({ url: redisUrl, token: redisToken });
 }
 
 // Cache TTLs in seconds
