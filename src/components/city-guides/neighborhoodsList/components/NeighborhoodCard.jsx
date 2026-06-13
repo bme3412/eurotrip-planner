@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
-import { Check, MapPin, Train, X, Lightbulb, ArrowRight } from 'lucide-react';
+import React from 'react';
+import Image from 'next/image';
+import { Check, MapPin, Lightbulb, ArrowRight, Sparkles } from 'lucide-react';
 import { getInsiderTips, getNearbyNeighborhoods } from '../lib/constants.js';
 import { getNeighborhoodIcon } from '../lib/icons.js';
-
-const TABS = [
-  { id: 'overview', label: 'Overview' },
-  { id: 'eat', label: 'Eat & Drink' },
-  { id: 'see', label: 'See & Do' },
-  { id: 'tips', label: 'Tips' },
-];
+import { useNeighborhoodPhoto } from '../hooks/useNeighborhoodPhoto.js';
 
 const OVERVIEW_CATEGORIES = [
   { key: 'dining', icon: '🍽️', label: 'Dining' },
@@ -18,22 +13,22 @@ const OVERVIEW_CATEGORIES = [
 ];
 
 /**
- * Tabbed neighborhood card. Owns its tab state; compare/selection come from the
- * orchestrator. Insider tips are now surfaced inline + in the Tips tab (no more
- * hover-only overlay). The title and "Full guide" button open the detail modal;
- * "nearby" is data-driven from `location.borders` and can jump between
- * neighborhoods.
+ * Neighborhood grid card — a scannable summary, not a full guide. The header
+ * shows a real Google Places photo (gradient + icon while it loads / when
+ * unavailable). The deep content (eat/see/tips/metro) lives in the detail modal
+ * the title and "Full guide" button open. "nearby" is data-driven from
+ * `location.borders` and can jump between neighborhoods.
  */
 export default function NeighborhoodCard({
-  neighborhood, isSelected, onToggleSelect, isCompareMode,
+  neighborhood, cityName, isSelected, onToggleSelect, isCompareMode,
   onOpenDetail, onOpenByName, allNeighborhoods = [],
+  isEditorsPick = false, pickReason,
 }) {
-  const [activeTab, setActiveTab] = useState('overview');
-
   const insiderTips = getInsiderTips(neighborhood, Infinity);
   const atmospheres = neighborhood.appeal?.atmosphere || [];
   const bestFor = neighborhood.appeal?.best_for || [];
   const nearby = getNearbyNeighborhoods(neighborhood, allNeighborhoods);
+  const { url: photoUrl, attribution } = useNeighborhoodPhoto(neighborhood, cityName);
   const open = () => onOpenDetail?.(neighborhood);
 
   return (
@@ -42,23 +37,37 @@ export default function NeighborhoodCard({
         isSelected ? 'border-purple-500 ring-2 ring-purple-200' : 'border-gray-200 hover:shadow-md hover:border-gray-300'
       }`}
     >
-      {/* Header */}
-      <div className="relative h-40 bg-gradient-to-br from-purple-100 via-blue-50 to-indigo-100 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage:
-              'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-          }}
-        />
+      {/* Header — real photo with gradient + icon fallback */}
+      <div className="relative aspect-[3/2] bg-gradient-to-br from-purple-100 via-blue-50 to-indigo-100 overflow-hidden">
+        {photoUrl ? (
+          <Image
+            src={photoUrl}
+            alt={neighborhood.name}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+            className="object-cover"
+          />
+        ) : (
+          <>
+            <div
+              className="absolute inset-0 opacity-20"
+              style={{
+                backgroundImage:
+                  'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+              }}
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-6xl opacity-60">{getNeighborhoodIcon(neighborhood.name)}</span>
+            </div>
+          </>
+        )}
+
         <button
           type="button"
           onClick={open}
           aria-label={`View full guide for ${neighborhood.name}`}
-          className="absolute inset-0 flex items-center justify-center"
-        >
-          <span className="text-6xl opacity-60">{getNeighborhoodIcon(neighborhood.name)}</span>
-        </button>
+          className="absolute inset-0 z-10"
+        />
 
         {isCompareMode && (
           <button
@@ -72,11 +81,29 @@ export default function NeighborhoodCard({
           </button>
         )}
 
-        {neighborhood.location?.central && (
-          <div className="absolute top-3 left-3 z-10 px-2 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-gray-700 flex items-center gap-1">
-            <MapPin className="w-3 h-3" />
-            Central
-          </div>
+        {/* Top-left badge stack */}
+        <div className="absolute top-3 left-3 z-20 flex flex-col items-start gap-1.5">
+          {isEditorsPick && (
+            <span
+              className="px-2 py-1 bg-amber-400 text-amber-900 rounded-full text-xs font-bold flex items-center gap-1 shadow-sm"
+              title={pickReason}
+            >
+              <Sparkles className="w-3 h-3" />
+              Editor&apos;s Pick
+            </span>
+          )}
+          {neighborhood.location?.central && (
+            <span className="px-2 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-gray-700 flex items-center gap-1">
+              <MapPin className="w-3 h-3" />
+              Central
+            </span>
+          )}
+        </div>
+
+        {photoUrl && attribution && (
+          <span className="absolute bottom-1.5 right-2 z-20 text-[9px] text-white/80 drop-shadow-sm">
+            © {attribution}
+          </span>
         )}
       </div>
 
@@ -86,6 +113,9 @@ export default function NeighborhoodCard({
           <h3 className="font-bold text-gray-900 text-lg leading-snug">{neighborhood.name}</h3>
           {neighborhood.alternate_names && neighborhood.alternate_names.length > 0 && (
             <p className="text-xs text-gray-500">{neighborhood.alternate_names[0]}</p>
+          )}
+          {isEditorsPick && pickReason && (
+            <p className="text-xs font-medium text-amber-700 mt-0.5">{pickReason}</p>
           )}
           <p className="text-sm text-gray-600 mt-1 line-clamp-2">{neighborhood.character}</p>
         </div>
@@ -98,7 +128,7 @@ export default function NeighborhoodCard({
           </div>
         )}
 
-        {/* Inline insider-tip teaser (replaces the old hover overlay) */}
+        {/* Inline insider-tip teaser */}
         {insiderTips.length > 0 && (
           <div className="mb-3 flex items-start gap-2 rounded-lg bg-amber-50 px-3 py-2">
             <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-amber-500" aria-hidden />
@@ -118,150 +148,35 @@ export default function NeighborhoodCard({
           </div>
         )}
 
-        {/* Tabs */}
-        <div className="border-b border-gray-200 mb-3">
-          <div className="flex gap-1 -mb-px overflow-x-auto">
-            {TABS.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-3 py-2 text-xs font-medium border-b-2 whitespace-nowrap transition-colors ${
-                  activeTab === tab.id
-                    ? 'border-purple-600 text-purple-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Tab content */}
-        <div className="min-h-[140px]">
-          {activeTab === 'overview' && (
-            <div className="space-y-3">
-              <div className="grid grid-cols-2 gap-2">
-                {OVERVIEW_CATEGORIES.map((cat) => (
-                  <div key={cat.key} className="flex items-center gap-2">
-                    <span className="text-sm">{cat.icon}</span>
-                    <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-purple-500 rounded-full" style={{ width: `${((neighborhood.categories?.[cat.key] || 0) / 5) * 100}%` }} />
-                    </div>
-                    <span className="text-xs text-gray-500 w-6">{neighborhood.categories?.[cat.key] || 0}/5</span>
-                  </div>
-                ))}
+        {/* Category profile — quick-scan signal, always visible */}
+        <div className="grid grid-cols-2 gap-2 mb-3">
+          {OVERVIEW_CATEGORIES.map((cat) => (
+            <div key={cat.key} className="flex items-center gap-2">
+              <span className="text-sm">{cat.icon}</span>
+              <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                <div className="h-full bg-purple-500 rounded-full" style={{ width: `${((neighborhood.categories?.[cat.key] || 0) / 5) * 100}%` }} />
               </div>
-
-              {bestFor.length > 0 && (
-                <div>
-                  <div className="text-xs font-medium text-gray-500 mb-1">Best for</div>
-                  <div className="flex flex-wrap gap-1">
-                    {bestFor.slice(0, 3).map((item, i) => (
-                      <span key={i} className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded-full">{item}</span>
-                    ))}
-                  </div>
-                </div>
-              )}
+              <span className="text-xs text-gray-500 w-6">{neighborhood.categories?.[cat.key] || 0}/5</span>
             </div>
-          )}
-
-          {activeTab === 'eat' && (
-            <div className="space-y-2">
-              {(neighborhood.highlights?.dining || []).slice(0, 3).map((place, i) => (
-                <div key={i} className="p-2 bg-gray-50 rounded-lg">
-                  <div className="flex items-center justify-between">
-                    <span className="font-medium text-sm text-gray-900">{place.name}</span>
-                    <span className="text-xs text-gray-500">{place.price_range}</span>
-                  </div>
-                  <p className="text-xs text-gray-600">{place.cuisine} • {place.known_for}</p>
-                </div>
-              ))}
-              {(!neighborhood.highlights?.dining || neighborhood.highlights.dining.length === 0) && (
-                <p className="text-sm text-gray-500 italic">No dining info available</p>
-              )}
-            </div>
-          )}
-
-          {activeTab === 'see' && (
-            <div className="space-y-2">
-              {(neighborhood.highlights?.attractions || []).slice(0, 3).map((place, i) => (
-                <div key={i} className="p-2 bg-gray-50 rounded-lg">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm">{getNeighborhoodIcon(place.type)}</span>
-                    <span className="font-medium text-sm text-gray-900">{place.name}</span>
-                  </div>
-                  <p className="text-xs text-gray-600 mt-0.5 line-clamp-2">{place.appeal}</p>
-                </div>
-              ))}
-              {(!neighborhood.highlights?.attractions || neighborhood.highlights.attractions.length === 0) && (
-                <p className="text-sm text-gray-500 italic">No attractions info available</p>
-              )}
-            </div>
-          )}
-
-          {activeTab === 'tips' && (
-            <div className="space-y-3">
-              {insiderTips.length > 0 && (
-                <div>
-                  <div className="flex items-center gap-1 text-xs font-medium text-amber-600 mb-1">
-                    <Lightbulb className="w-3 h-3" />
-                    Insider tips
-                  </div>
-                  <ul className="space-y-0.5">
-                    {insiderTips.slice(0, 3).map((item, i) => (
-                      <li key={i} className="text-xs text-gray-600">• {item}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {neighborhood.stay_here_if && neighborhood.stay_here_if.length > 0 && (
-                <div>
-                  <div className="flex items-center gap-1 text-xs font-medium text-emerald-600 mb-1">
-                    <Check className="w-3 h-3" />
-                    Stay here if
-                  </div>
-                  <ul className="space-y-0.5">
-                    {neighborhood.stay_here_if.slice(0, 2).map((item, i) => (
-                      <li key={i} className="text-xs text-gray-600">• {item}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {neighborhood.avoid_if && neighborhood.avoid_if.length > 0 && (
-                <div>
-                  <div className="flex items-center gap-1 text-xs font-medium text-red-600 mb-1">
-                    <X className="w-3 h-3" />
-                    Skip if
-                  </div>
-                  <ul className="space-y-0.5">
-                    {neighborhood.avoid_if.slice(0, 2).map((item, i) => (
-                      <li key={i} className="text-xs text-gray-600">• {item}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {neighborhood.practical_info?.transit && (
-                <div>
-                  <div className="flex items-center gap-1 text-xs font-medium text-gray-700 mb-1">
-                    <Train className="w-3 h-3" />
-                    Metro Stations
-                  </div>
-                  <p className="text-xs text-gray-600">{neighborhood.practical_info.transit.slice(0, 3).join(', ')}</p>
-                </div>
-              )}
-            </div>
-          )}
+          ))}
         </div>
+
+        {bestFor.length > 0 && (
+          <div className="mb-3">
+            <div className="text-xs font-medium text-gray-500 mb-1">Best for</div>
+            <div className="flex flex-wrap gap-1">
+              {bestFor.slice(0, 3).map((item, i) => (
+                <span key={i} className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded-full">{item}</span>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Full-guide CTA */}
         <button
           type="button"
           onClick={open}
-          className="mt-3 inline-flex w-full items-center justify-center gap-1 rounded-xl bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-700"
+          className="mt-1 inline-flex w-full items-center justify-center gap-1 rounded-xl bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-700"
         >
           View full guide <ArrowRight className="h-3.5 w-3.5" aria-hidden />
         </button>

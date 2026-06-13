@@ -31,6 +31,7 @@ import {
   LazyWhenToGo,
   LazyAttractionsList,
   LazyNeighborhoodsList,
+  LazyFortyEightHours,
   LazySeasonalActivities,
   LazyMapSection,
   LazyFoodDrinkGuide,
@@ -270,14 +271,21 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
 
   // `shortLabel` keeps every tab legible on phones narrower than the `xs`
   // breakpoint (475px — i.e. most phones), where the full label is hidden.
-  const tabs = useMemo(() => [
-    { id: 'overview', label: 'Overview', shortLabel: 'Overview', icon: '✨' },
-    { id: 'when', label: 'When to Go', shortLabel: 'When', icon: monthlyDataError ? '⚠️' : '📆' },
-    { id: 'attractions', label: 'Experiences', shortLabel: 'To Do', icon: '🎯' },
-    { id: 'food', label: 'Food + Drink', shortLabel: 'Food', icon: '🍽️' },
-    { id: 'photos', label: 'Photo Spots', shortLabel: 'Photos', icon: '📸' },
-    { id: 'neighborhoods', label: 'Neighborhoods', shortLabel: 'Areas', icon: '🏘️' }
-  ], [monthlyDataError]);
+  const tabs = useMemo(() => {
+    const base = [
+      { id: 'overview', label: 'Overview', shortLabel: 'Overview', icon: '✨' },
+      { id: 'when', label: 'When to Go', shortLabel: 'When', icon: monthlyDataError ? '⚠️' : '📆' },
+      { id: 'attractions', label: 'Experiences', shortLabel: 'To Do', icon: '🎯' },
+      { id: 'food', label: 'Food + Drink', shortLabel: 'Food', icon: '🍽️' },
+      { id: 'photos', label: 'Photo Spots', shortLabel: 'Photos', icon: '📸' },
+      { id: 'neighborhoods', label: 'Neighborhoods', shortLabel: 'Areas', icon: '🏘️' }
+    ];
+    // "48 Hours" weekend itinerary — Paris-only for now (LLM-generated, cached).
+    if (cityName?.toLowerCase() === 'paris') {
+      base.push({ id: '48h', label: `${displayName} in 48 Hours`, shortLabel: '48 Hours', icon: '🗺️' });
+    }
+    return base;
+  }, [monthlyDataError, cityName, displayName]);
 
   useEffect(() => {
     setComponentLoaded(true);
@@ -387,6 +395,9 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
       case 'neighborhoods':
         import('@/components/city-guides/NeighborhoodsList');
         break;
+      case '48h':
+        import('@/components/city-guides/FortyEightHours');
+        break;
       default:
         break;
     }
@@ -428,16 +439,6 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
   const heroSubtitle = isParis
     ? 'The City of Light'
     : headerInfo?.subtitle || "A City to Explore";
-  const heroMetaItems = isParis
-    ? [
-        { label: 'Country', value: 'France' },
-        { label: 'River', value: 'Seine' },
-        { label: 'Known for', value: 'Art, cafes, architecture' }
-      ]
-    : [
-        { label: 'Ideal stay', value: headerInfo.avgVisit || '4-5 days' },
-        { label: 'Country', value: country }
-      ];
 
   // Safety check - ensure cityName is a string
   if (!cityName || typeof cityName !== 'string') {
@@ -580,6 +581,12 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
             <LazyNeighborhoodsList neighborhoods={memoizedData.safeNeighborhoods} cityName={cityName} />
           </Suspense>
         );
+      case '48h':
+        return (
+          <Suspense fallback={<SkeletonTabContent />}>
+            <LazyFortyEightHours cityName={cityName} />
+          </Suspense>
+        );
       default:
         return (
           <Suspense fallback={<SkeletonOverview />}>
@@ -652,9 +659,7 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
         title={getCityDisplayName(cityData, cityName) || cityName || 'City'}
         subtitle={heroSubtitle}
         description={heroDescription}
-        metaItems={heroMetaItems}
-        primaryCta={{ label: `Plan a ${displayName} Trip`, href: `/plan/${encodeURIComponent(cityName.toLowerCase())}` }}
-        secondaryCta={{ label: 'Explore Best Dates', onClick: handleExploreBestDates, variant: 'outline' }}
+        primaryCta={{ label: 'Explore Best Dates', onClick: handleExploreBestDates }}
         actionElement={<SaveToTrips cityName={cityName} cityData={cityData} showLabel={false} variant="hero" className="px-3 py-2" />}
       />
 

@@ -12,6 +12,7 @@ export const LazyMapComponent = lazy(() => import('../map/MapComponent'));
 // Large data components
 export const LazyAttractionsList = lazy(() => import('../city-guides/AttractionsList'));
 export const LazyNeighborhoodsList = lazy(() => import('../city-guides/NeighborhoodsList'));
+export const LazyFortyEightHours = lazy(() => import('../city-guides/FortyEightHours'));
 export const LazyMonthlyGuideSection = lazy(() => import('../city-guides/MonthlyGuideSection'));
 // "When to Go" merges the calendar + monthly views behind a sub-view toggle.
 export const LazyWhenToGo = lazy(() => import('../city-guides/WhenToGo'));

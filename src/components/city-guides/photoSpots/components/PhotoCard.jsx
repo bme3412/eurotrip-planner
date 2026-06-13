@@ -16,7 +16,7 @@ export default function PhotoCard({ spot, cityName, onClick }) {
       onClick={onClick}
     >
       {/* Photo (Google Places) with gradient placeholder fallback */}
-      <div className="relative h-40 bg-gradient-to-br from-violet-100 via-purple-50 to-pink-100 flex items-center justify-center">
+      <div className="relative aspect-[3/2] bg-gradient-to-br from-violet-100 via-purple-50 to-pink-100 flex items-center justify-center">
         {url ? (
           <Image
             src={url}
