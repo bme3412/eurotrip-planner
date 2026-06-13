@@ -157,6 +157,16 @@ export async function buildFortyEightHours(citySlug, displayName) {
   const dir = findCityDir(citySlug);
   if (!dir) return null;
 
+  // Prefer a committed, precomputed itinerary: instant, no LLM call, and no
+  // serverless function-timeout risk. This is how Paris ships in production;
+  // regenerate the file with scripts when the underlying city data changes.
+  const precomputed = readJson(dir, 'forty-eight-hours.json');
+  if (isValidItinerary(precomputed)) {
+    precomputed.title = precomputed.title || `${displayName} in 48 Hours`;
+    precomputed.city = displayName;
+    return precomputed;
+  }
+
   const client = getAnthropicClient();
   if (!client) return null;
 
