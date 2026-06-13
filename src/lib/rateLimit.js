@@ -9,7 +9,7 @@
 
 import { createHash } from 'node:crypto';
 import { Redis } from '@upstash/redis';
-import { getRedisRestConfig } from './redisEnv';
+import { getRedisRestConfig } from './redisEnv.js';
 
 let redis = null;
 const { url: redisUrl, token: redisToken } = getRedisRestConfig();
