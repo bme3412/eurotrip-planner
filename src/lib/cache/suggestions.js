@@ -11,7 +11,7 @@
  */
 
 import { Redis } from '@upstash/redis';
-import { getRedisRestConfig } from '@/lib/redisEnv';
+import { getRedisRestConfig } from '../redisEnv.js';
 
 // Initialize Redis client if environment variables are set (accepts either the
 // UPSTASH_REDIS_REST_* names or the KV_REST_API_* names from the Vercel integration)
