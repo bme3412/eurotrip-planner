@@ -47,6 +47,17 @@ const baseConfig = {
       './public/videos/**/*',
     ]
   },
+  // The 48h itinerary route reads these city JSON files at runtime via fs with a
+  // dynamically-built path, which the tracer can't infer — include them explicitly
+  // so the serverless bundle ships them (esp. the precomputed forty-eight-hours.json).
+  outputFileTracingIncludes: {
+    '/api/city-itinerary/48h': [
+      './content/cities/**/attractions.json',
+      './content/cities/**/culinary.json',
+      './content/cities/**/neighborhoods.json',
+      './content/cities/**/forty-eight-hours.json',
+    ],
+  },
   images: {
     // Modern formats — Next will negotiate best format per browser
     formats: ['image/avif', 'image/webp'],

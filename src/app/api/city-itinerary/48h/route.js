@@ -3,6 +3,9 @@ import { getRedisRestConfig } from '@/lib/redisEnv';
 import { buildFortyEightHours } from '@/lib/city-guide/fortyEightHours';
 
 export const runtime = 'nodejs';
+// On-demand LLM generation (cities without a committed itinerary) can take ~45s;
+// raise the function ceiling so it doesn't 504. Precomputed cities return instantly.
+export const maxDuration = 60;
 
 /**
  * GET /api/city-itinerary/48h?city=paris[&name=Paris]
