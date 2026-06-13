@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { track } from '@vercel/analytics';
 import { getSupabaseClient } from '@/lib/supabase/client';
 
 const AuthContext = createContext({
@@ -121,6 +122,10 @@ export function AuthProvider({ children }) {
   const signInWithGoogle = async ({ next } = {}) => {
     if (!supabase) return { error: new Error('Supabase not configured') };
     const nextPath = next || `${window.location.pathname}${window.location.search}`;
+    // Fire-and-forget click tracking before the OAuth redirect takes over. This
+    // is the only signal we get for sign-in *intent* — completed sign-ins land in
+    // Supabase auth, but abandoned ones (bounce at Google) leave no other trace.
+    track('sign_in_click', { method: 'google', from: nextPath });
     rememberAuthNextPath(nextPath);
     const redirectTo = buildAuthCallbackUrl();
     
@@ -138,7 +143,8 @@ export function AuthProvider({ children }) {
 
   const signInWithEmail = async (email, password) => {
     if (!supabase) return { error: new Error('Supabase not configured') };
-    
+    track('sign_in_click', { method: 'email' });
+
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
