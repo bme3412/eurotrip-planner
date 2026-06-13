@@ -25,6 +25,7 @@ export const VALID_TABS = [
   'food',
   'photos',
   'neighborhoods',
+  '48h',
 ];
 
 const isValidTab = (id) => VALID_TABS.includes(id);

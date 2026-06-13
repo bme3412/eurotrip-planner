@@ -1,12 +1,11 @@
 'use client';
 
 import React, { useCallback, useMemo, useState } from 'react';
-import { Scale, Sparkles, Users, X } from 'lucide-react';
+import { Scale, Users, X } from 'lucide-react';
 
 import ComparisonModal from './components/ComparisonModal.jsx';
 import NeighborhoodCard from './components/NeighborhoodCard.jsx';
 import NeighborhoodDetailModal from './components/NeighborhoodDetailModal.jsx';
-import SpotlightCard from './components/SpotlightCard.jsx';
 import useNeighborhoodFilters from './hooks/useNeighborhoodFilters.js';
 import { EDITORS_PICKS, NEIGHBORHOOD_SORTS, PERSONAS } from './lib/constants.js';
 import { titleCaseFromSlug } from '@/lib/text';
@@ -40,12 +39,12 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
 
   const closeDetail = useCallback(() => setDetailNeighborhood(null), []);
 
-  const editorsPicks = useMemo(() => {
-    return EDITORS_PICKS.map((pick) => ({
-      ...pick,
-      neighborhood: uniqueNeighborhoods.find((n) => n.name === pick.name),
-    })).filter((pick) => pick.neighborhood);
-  }, [uniqueNeighborhoods]);
+  // name -> editor's-pick reason, surfaced as a badge on the matching grid card
+  // (replaces the separate spotlight row, which duplicated those neighborhoods).
+  const editorsPickReasons = useMemo(
+    () => new Map(EDITORS_PICKS.map((pick) => [pick.name, pick.reason])),
+    [],
+  );
 
   const toggleCompareSelect = useCallback((neighborhood) => {
     setSelectedForCompare((prev) => {
@@ -163,26 +162,6 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
         </div>
       </div>
 
-      {/* Editor's Picks */}
-      {!searchTerm && !selectedPersona && editorsPicks.length > 0 && (
-        <section>
-          <div className="flex items-center gap-2 mb-4">
-            <Sparkles className="w-5 h-5 text-amber-500" />
-            <h2 className="text-xl font-bold text-gray-900">Editor&apos;s Picks</h2>
-          </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {editorsPicks.map((pick, i) => (
-              <SpotlightCard
-                key={i}
-                neighborhood={pick.neighborhood}
-                reason={pick.reason}
-                onClick={() => setDetailNeighborhood(pick.neighborhood)}
-              />
-            ))}
-          </div>
-        </section>
-      )}
-
       {/* Results count */}
       {(selectedPersona || searchTerm) && (
         <div className="flex items-center gap-2 text-sm text-gray-600">
@@ -199,12 +178,15 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
           <div key={neighborhood.id} id={`neighborhood-${neighborhood.name.replace(/\s+/g, '-').toLowerCase()}`}>
             <NeighborhoodCard
               neighborhood={neighborhood}
+              cityName={cityName}
               isSelected={selectedForCompare.some((n) => n.name === neighborhood.name)}
               onToggleSelect={() => toggleCompareSelect(neighborhood)}
               isCompareMode={isCompareMode}
               onOpenDetail={setDetailNeighborhood}
               onOpenByName={openByName}
               allNeighborhoods={uniqueNeighborhoods}
+              isEditorsPick={editorsPickReasons.has(neighborhood.name)}
+              pickReason={editorsPickReasons.get(neighborhood.name)}
             />
           </div>
         ))}
