@@ -21,6 +21,21 @@ if (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) 
 /** @type {Map<string, { count: number, resetAt: number }>} */
 const memoryBuckets = new Map();
 
+// The memory fallback is per-instance: on serverless each process keeps its own
+// counters, so the effective limit is multiplied by the number of live
+// instances. instrumentation.js warns at boot when the Upstash vars are unset;
+// this warns once when that fallback actually limits production traffic, so the
+// degradation is visible against real load rather than only at startup.
+let warnedMemoryFallback = false;
+function warnMemoryFallbackOnce() {
+  if (warnedMemoryFallback || process.env.NODE_ENV !== 'production') return;
+  warnedMemoryFallback = true;
+  console.warn(
+    '[rateLimit] Upstash not configured — rate limiting on per-instance memory; ' +
+      'limits are not shared across serverless instances. Set UPSTASH_REDIS_REST_URL/_TOKEN.'
+  );
+}
+
 export function getClientIp(request) {
   const forwarded = request.headers.get('x-forwarded-for');
   if (forwarded) return forwarded.split(',')[0].trim();
@@ -44,6 +59,7 @@ async function consumeToken(key, limit, windowSec) {
     };
   }
 
+  warnMemoryFallbackOnce();
   const now = Date.now();
   let entry = memoryBuckets.get(key);
   if (!entry || now >= entry.resetAt) {
