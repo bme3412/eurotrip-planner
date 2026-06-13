@@ -9,13 +9,12 @@
 
 import { createHash } from 'node:crypto';
 import { Redis } from '@upstash/redis';
+import { getRedisRestConfig } from './redisEnv';
 
 let redis = null;
-if (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) {
-  redis = new Redis({
-    url: process.env.UPSTASH_REDIS_REST_URL,
-    token: process.env.UPSTASH_REDIS_REST_TOKEN,
-  });
+const { url: redisUrl, token: redisToken } = getRedisRestConfig();
+if (redisUrl && redisToken) {
+  redis = new Redis({ url: redisUrl, token: redisToken });
 }
 
 /** @type {Map<string, { count: number, resetAt: number }>} */
@@ -32,7 +31,8 @@ function warnMemoryFallbackOnce() {
   warnedMemoryFallback = true;
   console.warn(
     '[rateLimit] Upstash not configured — rate limiting on per-instance memory; ' +
-      'limits are not shared across serverless instances. Set UPSTASH_REDIS_REST_URL/_TOKEN.'
+      'limits are not shared across serverless instances. Set UPSTASH_REDIS_REST_URL/_TOKEN ' +
+      '(or the KV_REST_API_URL/_TOKEN that the Vercel Upstash integration injects).'
   );
 }
 
