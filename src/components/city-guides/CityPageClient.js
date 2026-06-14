@@ -45,6 +45,10 @@ import {
 // Central Europe fallback for cities with no coordinates
 const DEFAULT_CENTER = [9.19, 48.66];
 
+// Cities that ship a committed, precomputed `forty-eight-hours.json` and so
+// surface the "48 Hours" weekend-itinerary tab. Lowercase city slugs.
+const CITIES_WITH_48H = new Set(['paris', 'berlin', 'krakow']);
+
 // ── Per-section lazy loading ─────────────────────────────────────────────
 // Each tab declares the heavy data sections it needs. Sections are fetched
 // from /data/{country}/{slug}/sections/*.json on demand (when the tab is
@@ -280,8 +284,10 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
       { id: 'photos', label: 'Photo Spots', shortLabel: 'Photos', icon: '📸' },
       { id: 'neighborhoods', label: 'Neighborhoods', shortLabel: 'Areas', icon: '🏘️' }
     ];
-    // "48 Hours" weekend itinerary — Paris-only for now (LLM-generated, cached).
-    if (cityName?.toLowerCase() === 'paris') {
+    // "48 Hours" weekend itinerary — served from a committed, precomputed
+    // forty-eight-hours.json per city (LLM-generated, cached). Enabled for the
+    // cities that have that file authored.
+    if (CITIES_WITH_48H.has(cityName?.toLowerCase())) {
       base.push({ id: '48h', label: `${displayName} in 48 Hours`, shortLabel: '48 Hours', icon: '🗺️' });
     }
     return base;
@@ -432,13 +438,24 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
     const slug = (cityName || '').trim().toLowerCase();
     return { experiences: `/data/${folder}/${slug}/${slug}-experiences.json` };
   }, [cityData?.country, cityName]);
-  const isParis = cityName?.toLowerCase() === 'paris';
-  const heroDescription = isParis
-    ? 'Art, cafe terraces, Seine-side walks, grand boulevards, and golden-hour views over the rooftops.'
-    : description;
-  const heroSubtitle = isParis
-    ? 'The City of Light'
-    : headerInfo?.subtitle || "A City to Explore";
+  const slugLower = cityName?.toLowerCase();
+  const HERO_OVERRIDES = {
+    paris: {
+      description: 'Art, cafe terraces, Seine-side walks, grand boulevards, and golden-hour views over the rooftops.',
+      subtitle: 'The City of Light',
+    },
+    berlin: {
+      description: 'Wall-history walks, world-class museums, sprawling parks, and a nightlife that runs till sunrise.',
+      subtitle: 'Arm aber sexy — Poor but Sexy',
+    },
+    krakow: {
+      description: 'A medieval Old Town, the Wawel dragon, Kazimierz’s Jewish soul, milk-bar pierogi, and Europe’s grandest market square.',
+      subtitle: 'Poland’s Royal Capital',
+    },
+  };
+  const heroOverride = HERO_OVERRIDES[slugLower];
+  const heroDescription = heroOverride?.description ?? description;
+  const heroSubtitle = heroOverride?.subtitle ?? headerInfo?.subtitle ?? "A City to Explore";
 
   // Safety check - ensure cityName is a string
   if (!cityName || typeof cityName !== 'string') {

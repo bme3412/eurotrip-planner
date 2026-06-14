@@ -1,29 +1,35 @@
 {
   "city": "berlin",
   "country": "germany",
-  "builtAt": "2026-06-07T01:32:07.593Z",
+  "builtAt": "2026-06-14T12:09:41.936Z",
   "legacy": {
     "country": "Germany",
     "dir": "berlin"
   },
   "sections": {
-    "attractions": {
-      "updatedAt": "2026-05-28T18:50:29.692Z",
+    "overview": {
+      "updatedAt": "2026-06-14T12:09:41.936Z",
       "source": "import:legacy",
       "version": 1,
-      "checksum": "sha256:eadf8996ca476f806a081de2cdadd872dd862836da186ed70d523abdd0e7f96f"
+      "checksum": "sha256:a288e265d16d99cf95289835b1491b588172673a5db289735befe3253f1a1343"
+    },
+    "attractions": {
+      "updatedAt": "2026-06-14T12:09:41.936Z",
+      "source": "import:legacy",
+      "version": 2,
+      "checksum": "sha256:97eadf55ebe725ada51d81168de248d34cba5fcb28b1f40192e158bcf39e28a6"
     },
     "neighborhoods": {
-      "updatedAt": "2026-05-28T18:50:29.692Z",
+      "updatedAt": "2026-06-14T12:09:41.936Z",
       "source": "import:legacy",
-      "version": 1,
-      "checksum": "sha256:13acf640873752f15e9ea2919adb6ff6c8ddf4c8d44eb5f54da309249cad2364"
+      "version": 2,
+      "checksum": "sha256:4cfde037972be8f059c2002202a1dd8211c26472ed2f2d76865f7d3e0e218e1f"
     },
     "culinary": {
-      "updatedAt": "2026-05-28T18:50:29.692Z",
+      "updatedAt": "2026-06-14T12:09:41.936Z",
       "source": "import:legacy",
-      "version": 1,
-      "checksum": "sha256:80b0cdad2e2a83abe55d887d849b7472780d0a36e16c6b73e55dc9f87d959cc7"
+      "version": 2,
+      "checksum": "sha256:c0fd9ffb74fa59822c25560ac627f63004a425db2a3921b6168ae312fd12ee00"
     },
     "connections": {
       "updatedAt": "2026-05-28T18:50:29.692Z",
@@ -38,28 +44,34 @@
       "checksum": "sha256:db8c2b83c5185ebbce44158c79e50beb6411e2b504e62ac2599d66da8ac322f2"
     },
     "seasonalActivities": {
-      "updatedAt": "2026-05-28T18:50:29.692Z",
+      "updatedAt": "2026-06-14T12:09:41.936Z",
       "source": "import:legacy",
-      "version": 1,
-      "checksum": "sha256:1dba05ea7b030bdbae515d809046a8f1ba66e326bef53ee99088ad344bc76027"
+      "version": 2,
+      "checksum": "sha256:137e411e56113b32dc12ded266c4bdf6c2be14b3803388b7d0b8a146b0eaf971"
     },
     "prose.startHere": {
-      "updatedAt": "2026-05-28T18:50:29.692Z",
+      "updatedAt": "2026-06-14T12:09:41.936Z",
       "source": "import:legacy",
-      "version": 1,
-      "checksum": "sha256:8da5543542c46b5e7a19fbf0292d3c4eff77e1e3bac4e97fb29d456d7cb55ea1"
+      "version": 2,
+      "checksum": "sha256:df5c7fea93b2f7a1c3b33b4fefb7d801e78993a3ef6a8895abcc3b26e0806059"
     },
     "prose.foodGuide": {
-      "updatedAt": "2026-05-28T18:50:29.692Z",
+      "updatedAt": "2026-06-14T12:09:41.936Z",
       "source": "import:legacy",
-      "version": 1,
-      "checksum": "sha256:706fce902e2d216398daa8e7fec54a3870d516dd55d9ee624be7a0712b99d4c7"
+      "version": 2,
+      "checksum": "sha256:32843a59f8bf2bb654469b0f7b54eaf45b342423e2a29cdb58688b7da3d9170c"
     },
     "prose.seasonal": {
       "updatedAt": "2026-05-28T18:50:29.692Z",
       "source": "import:legacy",
       "version": 1,
       "checksum": "sha256:1b88f966f63a152bebfd0b1614262e50c8dc16df5bbf18480d359aeba8474c27"
+    },
+    "prose.gettingIn": {
+      "updatedAt": "2026-06-14T12:09:41.936Z",
+      "source": "import:legacy",
+      "version": 1,
+      "checksum": "sha256:85c8cbbe5a8b9659eb5c29de83420d004affeb43330fadf1c038fe4ef8cf1a8d"
     },
     "monthly.january": {
       "updatedAt": "2026-05-28T18:50:29.692Z",

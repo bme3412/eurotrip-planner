@@ -3,7 +3,7 @@
     {
       "name": "Wawel Royal Castle",
       "type": "Castle",
-      "description": "The historic seat of Polish kings for over 500 years, this hilltop complex above the Vistula River combines Gothic, Renaissance and Baroque architecture. The State Rooms, Royal Private Apartments, Crown Treasury and Armoury display centuries of royal heritage. Beneath the hill, the legendary Wawel Dragon (Smok Wawelski) is said to have once terrorized Kraków until a clever cobbler defeated it, commemorated today by a fire-breathing bronze sculpture by the riverbank.",
+      "description": "The historic seat of Polish kings for over 500 years, this hilltop complex above the Vistula River layers **Gothic, Renaissance and Baroque** architecture around an elegant arcaded courtyard. The State Rooms, Royal Private Apartments, Crown Treasury and Armoury display centuries of regal heritage, from Flemish tapestries to coronation swords. Below the hill, the legendary **Wawel Dragon** (Smok Wawelski) is commemorated by a fire-breathing bronze sculpture by the riverbank. Arrive early to walk the ramparts before the State Rooms fill with tour groups.",
       "indoor": true,
       "best_time": "Morning",
       "price_range": "Moderate",
@@ -15,12 +15,68 @@
         "cultural_significance": 5
       },
       "latitude": 50.0540,
-      "longitude": 19.9354
+      "longitude": 19.9354,
+      "neighborhood": "Stare Miasto (Old Town) / Wawel Hill",
+      "opening_hours": {
+        "weekday": "09:00-16:00 (Tue-Fri) / 09:00-14:00 (Mon, grounds only)",
+        "weekend": "09:00-16:00 (Sat, Sun)",
+        "notes": "Exhibition hours vary by section and season; Wawel Hill grounds open ~06:00 until dusk free of charge. Last entry ~1 hour before closing."
+      },
+      "seasonal_hours": {
+        "summer": "09:00-19:00 (extended for select exhibitions)",
+        "winter": "09:00-16:00"
+      },
+      "closures": [
+        {
+          "date": "2026-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2026-11-01",
+          "reason": "All Saints' Day closure"
+        },
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas Eve closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "6 / 8 / 10 / 13",
+            "station": "Wawel",
+            "walk_minutes": 5
+          },
+          {
+            "line": "18 / 22 / 52",
+            "station": "Stradom",
+            "walk_minutes": 7
+          }
+        ],
+        "closest_bus": {
+          "line": "128 / 184",
+          "station": "Stradom",
+          "walk_minutes": 7
+        },
+        "last_train_consideration": "Tram service through the centre runs until roughly midnight; night buses cover later hours."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 4,
+        "ideal_time_block": "3 hours",
+        "weather_fallback": "State Rooms and Crown Treasury are fully indoors"
+      },
+      "website": "https://wawel.krakow.pl/en",
+      "ticket_url": "https://bilety.wawel.krakow.pl/"
     },
     {
       "name": "Wawel Cathedral",
       "type": "Cathedral",
-      "description": "The coronation and burial church of Polish monarchs, standing within the Wawel complex. This Gothic cathedral with later additions holds royal tombs, the Sigismund Chapel (a Renaissance masterpiece), and the great Sigismund Bell of 1520. The crypts shelter kings, queens, national poets and statesmen, making it the spiritual heart of the Polish nation.",
+      "description": "The coronation and burial church of Polish monarchs, standing within the Wawel complex. This **Gothic cathedral** with later additions holds royal tombs, the gilded-domed **Sigismund Chapel** (a Renaissance masterpiece), and the great Sigismund Bell of 1520, which it takes several bell-ringers to swing. The crypts shelter kings, queens, national poets and statesmen, making it the spiritual heart of the Polish nation. The climb to the bell rewards you with views over the Old Town rooftops.",
       "indoor": true,
       "best_time": "Morning",
       "price_range": "Budget",
@@ -32,12 +88,60 @@
         "cultural_significance": 5
       },
       "latitude": 50.0541,
-      "longitude": 19.9356
+      "longitude": 19.9356,
+      "neighborhood": "Stare Miasto (Old Town) / Wawel Hill",
+      "opening_hours": {
+        "weekday": "09:00-17:00 (Apr-Oct) / 09:00-16:00 (Nov-Mar)",
+        "weekend": "12:30-17:00 (Sun, after morning Mass)",
+        "notes": "Visiting paused during services. Last entry ~30 minutes before closing; bell-tower climb closes earlier."
+      },
+      "seasonal_hours": {
+        "summer": "09:00-17:00",
+        "winter": "09:00-16:00"
+      },
+      "closures": [
+        {
+          "date": "2026-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "6 / 8 / 10 / 13",
+            "station": "Wawel",
+            "walk_minutes": 6
+          },
+          {
+            "line": "18 / 22 / 52",
+            "station": "Stradom",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_bus": {
+          "line": "128 / 184",
+          "station": "Stradom",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Central tram lines run until roughly midnight."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Cathedral interior and crypts are indoors"
+      },
+      "website": "https://katedra-wawelska.pl/en/",
+      "ticket_url": "https://katedra-wawelska.pl/en/visiting/"
     },
     {
       "name": "Main Market Square (Rynek Główny)",
       "type": "Square",
-      "description": "The largest medieval market square in Europe, laid out in 1257 and at the center of Kraków's UNESCO-listed Old Town. Ringed by townhouses, churches and cafes, it is dominated by the Cloth Hall and St. Mary's Basilica. Street performers, flower stalls, horse-drawn carriages and the hourly hejnał trumpet call give the square its constant life.",
+      "description": "The **largest medieval market square in Europe**, laid out in 1257 and the heart of Kraków's UNESCO-listed Old Town. Ringed by pastel townhouses, churches and cafes, it is dominated by the Cloth Hall and St. Mary's Basilica. Street performers, flower stalls, horse-drawn carriages and the hourly **hejnał trumpet call** give the square its constant life. Come at dawn for an almost empty expanse of cobbles, or at dusk when the lamps glow and the terraces buzz.",
       "indoor": false,
       "best_time": "Any time",
       "price_range": "Free",
@@ -49,12 +153,48 @@
         "cultural_significance": 5
       },
       "latitude": 50.0617,
-      "longitude": 19.9373
+      "longitude": 19.9373,
+      "neighborhood": "Stare Miasto (Old Town)",
+      "opening_hours": {
+        "weekday": "Open 24 hours",
+        "weekend": "Open 24 hours",
+        "notes": "Public square always accessible; surrounding cafes and shops keep their own hours."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "1 / 6 / 8 / 13 / 18",
+            "station": "Teatr Bagatela",
+            "walk_minutes": 5
+          },
+          {
+            "line": "2 / 3 / 4 / 14 / 19 / 24",
+            "station": "Stary Kleparz",
+            "walk_minutes": 7
+          }
+        ],
+        "closest_bus": {
+          "line": "124 / 152 / 502",
+          "station": "Plac Wszystkich Świętych",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "The Old Town is pedestrianised; trams stop at its edges, with night services overnight."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Duck into the Cloth Hall arcade or a square-side cafe"
+      },
+      "website": "https://krakow.travel/en/2735-krakow-main-market-square",
+      "ticket_url": null
     },
     {
       "name": "St. Mary's Basilica (Kościół Mariacki)",
       "type": "Church",
-      "description": "A towering Gothic brick church on the Main Market Square, famous for its uneven twin towers and its hourly hejnał, a trumpet call played from the taller tower toward the four cardinal directions. The melody breaks off abruptly mid-note in memory of a medieval trumpeter said to have been shot in the throat while warning the city of a Mongol attack. Inside is the magnificent late-Gothic wooden altarpiece carved by Veit Stoss between 1477 and 1489.",
+      "description": "A towering Gothic brick church on the Main Market Square, famous for its **uneven twin towers** and its hourly **hejnał**, a trumpet call played from the taller tower toward the four cardinal directions. The melody breaks off abruptly mid-note in memory of a medieval trumpeter said to have been shot in the throat while warning the city of a Mongol attack. Inside glows the magnificent late-Gothic wooden **altarpiece carved by Veit Stoss** between 1477 and 1489, unveiled each day in a brief ceremony.",
       "indoor": true,
       "best_time": "Morning",
       "price_range": "Budget",
@@ -66,29 +206,113 @@
         "cultural_significance": 5
       },
       "latitude": 50.0617,
-      "longitude": 19.9395
+      "longitude": 19.9395,
+      "neighborhood": "Stare Miasto (Old Town)",
+      "opening_hours": {
+        "weekday": "11:30-18:00 (tourist visiting)",
+        "weekend": "14:00-18:00 (Sun, after services)",
+        "notes": "Closed to sightseeing during Mass. Altarpiece unveiled at 11:50; last tourist entry ~17:30."
+      },
+      "seasonal_hours": {
+        "summer": "11:30-18:00",
+        "winter": "11:30-18:00"
+      },
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas - services only"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "1 / 6 / 8 / 13 / 18",
+            "station": "Teatr Bagatela",
+            "walk_minutes": 6
+          },
+          {
+            "line": "3 / 19 / 24",
+            "station": "Poczta Główna",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_bus": {
+          "line": "124 / 152 / 502",
+          "station": "Plac Wszystkich Świętych",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Old Town is pedestrian-only; trams encircle its edge."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Interior visit is fully indoors"
+      },
+      "website": "https://mariacki.com/en/",
+      "ticket_url": "https://mariacki.com/en/visiting/"
     },
     {
       "name": "Cloth Hall (Sukiennice)",
       "type": "Historical Monument",
-      "description": "A Renaissance trading hall running down the middle of the Main Market Square, a center of Kraków's commerce since the Middle Ages. The ground-floor arcade still houses stalls selling amber, woodcraft and souvenirs, while the upper floor holds the National Museum's Gallery of 19th-Century Polish Art with works by Matejko and other masters.",
+      "description": "A **Renaissance trading hall** running down the middle of the Main Market Square, a centre of Kraków's commerce since the Middle Ages. Its ground-floor arcade still houses stalls selling amber, woodcraft and souvenirs, while the upper floor holds the National Museum's **Gallery of 19th-Century Polish Art**, with monumental canvases by Jan Matejko and Henryk Siemiradzki. The crenellated parapet and stone mascarons added in the 19th century give the hall its distinctive silhouette.",
       "indoor": true,
       "best_time": "Afternoon",
       "price_range": "Budget",
       "seasonal_notes": "The arcade shops operate year-round and shelter visitors in poor weather. The art gallery upstairs is open most days except Mondays.",
-      "booking_tips": "Browsing the arcade is free; the upstairs gallery requires a separate National Museum ticket, free on certain days of the week. Bargaining at the stalls is uncommon.",
+      "booking_tips": "Browsing the arcade is free; the upstairs gallery requires a separate National Museum ticket, free on Tuesdays. Bargaining at the stalls is uncommon.",
       "ratings": {
         "cost_estimate": 5,
         "suggested_duration_hours": 1,
         "cultural_significance": 4
       },
       "latitude": 50.0616,
-      "longitude": 19.9373
+      "longitude": 19.9373,
+      "neighborhood": "Stare Miasto (Old Town)",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (gallery, Tue-Sun) / closed Mon",
+        "weekend": "10:00-18:00 (gallery)",
+        "notes": "Ground-floor arcade shops open daily ~09:00-20:00; gallery last entry 17:30."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-01-01",
+          "reason": "Holiday closure (gallery)"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure (gallery)"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "1 / 6 / 8 / 13 / 18",
+            "station": "Teatr Bagatela",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_bus": {
+          "line": "124 / 152 / 502",
+          "station": "Plac Wszystkich Świętych",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Central trams run until roughly midnight."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Arcade and upstairs gallery are indoors"
+      },
+      "website": "https://mnk.pl/en/branch/the-sukiennice",
+      "ticket_url": "https://bilety.mnk.pl/?lang=en"
     },
     {
       "name": "Rynek Underground Museum",
       "type": "Museum",
-      "description": "An award-winning archaeological museum beneath the Main Market Square, revealing the medieval streets, market stalls and trade routes uncovered during excavations. Glass floors, holograms and multimedia displays bring Kraków's merchant past to life four meters below the modern square.",
+      "description": "An award-winning **archaeological museum beneath the Main Market Square**, revealing the medieval streets, market stalls and trade routes uncovered during excavations. Glass floors, holograms, fog screens and multimedia displays bring Kraków's merchant past to life four metres below the modern square. The route weaves past preserved cobblestones, a re-created blacksmith's forge and graves from a pre-Christian settlement.",
       "indoor": true,
       "best_time": "Afternoon",
       "price_range": "Budget",
@@ -100,12 +324,52 @@
         "cultural_significance": 4
       },
       "latitude": 50.0619,
-      "longitude": 19.9372
+      "longitude": 19.9372,
+      "neighborhood": "Stare Miasto (Old Town)",
+      "opening_hours": {
+        "weekday": "10:00-19:00 (Wed-Mon) / closed 2nd Tue of month",
+        "weekend": "10:00-19:00",
+        "notes": "Hours shorten on the first day of opening after the monthly closure; last entry ~75 minutes before closing."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "1 / 6 / 8 / 13 / 18",
+            "station": "Teatr Bagatela",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_bus": {
+          "line": "124 / 152 / 502",
+          "station": "Plac Wszystkich Świętych",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Central trams run until roughly midnight."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Entirely underground - ideal in any weather"
+      },
+      "website": "https://muzeumkrakowa.pl/en/branches/rynek-underground",
+      "ticket_url": "https://bilety.muzeumkrakowa.pl/"
     },
     {
       "name": "St. Florian's Gate and Barbican",
       "type": "Historical Monument",
-      "description": "The last surviving city gate of Kraków's medieval walls and the adjoining Barbican, a round fortified outpost from around 1499 that is one of the best-preserved of its kind in Europe. Together they mark the start of the Royal Route into the Old Town, and the walls nearby double as an open-air gallery for local painters.",
+      "description": "The **last surviving city gate** of Kraków's medieval walls and the adjoining **Barbican**, a round fortified outpost from around 1499 that is one of the best-preserved of its kind in Europe. Together they mark the start of the **Royal Route** into the Old Town, while the surviving wall nearby doubles as an open-air gallery for local painters. The Barbican's brick rotunda, ringed by seven turrets and arrow slits, once guarded the main road from the north.",
       "indoor": false,
       "best_time": "Any time",
       "price_range": "Budget",
@@ -117,12 +381,51 @@
         "cultural_significance": 4
       },
       "latitude": 50.0654,
-      "longitude": 19.9415
+      "longitude": 19.9415,
+      "neighborhood": "Stare Miasto (Old Town)",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (Barbican, seasonal Apr-Oct)",
+        "weekend": "10:00-18:00 (Barbican, seasonal)",
+        "notes": "Gate and exterior walls accessible at all times; Barbican interior generally closed in winter."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-18:00",
+        "winter": "Closed (interior)"
+      },
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "2 / 4 / 14 / 20 / 24",
+            "station": "Stary Kleparz",
+            "walk_minutes": 4
+          },
+          {
+            "line": "3 / 19",
+            "station": "Teatr Słowackiego",
+            "walk_minutes": 4
+          }
+        ],
+        "closest_bus": {
+          "line": "124 / 152 / 502",
+          "station": "Dworzec Główny",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Kraków Główny rail and tram hub is a few minutes' walk away."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Pair with the nearby Czartoryski Museum if it rains"
+      },
+      "website": "https://muzeumkrakowa.pl/en/branches/city-defence-walls",
+      "ticket_url": "https://bilety.muzeumkrakowa.pl/"
     },
     {
       "name": "Collegium Maius",
       "type": "Museum",
-      "description": "The oldest building of the Jagiellonian University, founded in 1364, and one of the oldest university structures in the world. Its arcaded Gothic courtyard, lecture halls and treasury of historic scientific instruments recall students such as Nicolaus Copernicus. A musical clock in the courtyard plays figures on the hour.",
+      "description": "The **oldest building of the Jagiellonian University**, founded in 1364 and one of the oldest surviving university structures in the world. Its arcaded Gothic courtyard, vaulted lecture halls and treasury of historic scientific instruments recall students such as **Nicolaus Copernicus**. A musical clock above the courtyard plays a procession of carved figures on the hour, drawing a small crowd to watch.",
       "indoor": true,
       "best_time": "Morning",
       "price_range": "Budget",
@@ -134,12 +437,52 @@
         "cultural_significance": 4
       },
       "latitude": 50.0614,
-      "longitude": 19.9335
+      "longitude": 19.9335,
+      "neighborhood": "Stare Miasto (Old Town)",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (Mon-Fri) / shorter on Sat",
+        "weekend": "10:00-14:00 (Sat) / closed Sun",
+        "notes": "Interior by guided tour only; courtyard open during museum hours. Clock plays at select hours."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "1 / 6 / 8 / 13 / 18",
+            "station": "Teatr Bagatela",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_bus": {
+          "line": "124 / 152 / 502",
+          "station": "Plac Wszystkich Świętych",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Central trams run until roughly midnight."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Guided interior tour is indoors"
+      },
+      "website": "https://maius.uj.edu.pl/en_GB/start",
+      "ticket_url": "https://bilety.uj.edu.pl/index.html?lang=en"
     },
     {
       "name": "Kazimierz",
       "type": "Historical District",
-      "description": "Kraków's former Jewish quarter, a once-independent town now famed for its layered history and lively atmosphere. Cobbled streets hold historic synagogues, the Remuh and its old cemetery, and the bustling Plac Nowy market with its round food hall. By night the district's bars and cafes make it the heart of Kraków's social scene.",
+      "description": "Kraków's former **Jewish quarter**, a once-independent town now famed for its layered history and lively atmosphere. Cobbled streets hold historic synagogues, the **Remuh and its old cemetery**, and the bustling **Plac Nowy** market with its round food hall. By day antique shops and galleries fill the lanes; by night the district's candlelit bars and klezmer cafes make it the heart of Kraków's social scene.",
       "indoor": false,
       "best_time": "Evening",
       "price_range": "Free",
@@ -151,12 +494,48 @@
         "cultural_significance": 5
       },
       "latitude": 50.0515,
-      "longitude": 19.9445
+      "longitude": 19.9445,
+      "neighborhood": "Kazimierz",
+      "opening_hours": {
+        "weekday": "Open 24 hours",
+        "weekend": "Open 24 hours",
+        "notes": "District streets always open; individual venues keep their own hours."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "3 / 9 / 19 / 24 / 50",
+            "station": "Miodowa",
+            "walk_minutes": 4
+          },
+          {
+            "line": "6 / 8 / 10 / 13",
+            "station": "Plac Wolnica",
+            "walk_minutes": 3
+          }
+        ],
+        "closest_bus": {
+          "line": "184",
+          "station": "Miodowa",
+          "walk_minutes": 4
+        },
+        "last_train_consideration": "Night trams and buses serve Kazimierz after the evening crowd thins."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 4,
+        "ideal_time_block": "2 hours 30 minutes",
+        "weather_fallback": "Shelter in synagogues, cafes or the Galicia Jewish Museum"
+      },
+      "website": "https://krakow.travel/en/2737-krakow-kazimierz",
+      "ticket_url": null
     },
     {
       "name": "Oskar Schindler's Enamel Factory",
       "type": "Museum",
-      "description": "The former enamelware factory in Podgórze where Oskar Schindler employed and saved more than 1,000 Jewish workers during the German occupation. Now a branch of the Museum of Kraków, its immersive exhibition tells the story of the city under Nazi rule from 1939 to 1945 through reconstructed streets, documents and personal testimonies.",
+      "description": "The former enamelware factory in **Podgórze** where Oskar Schindler employed and saved more than 1,000 Jewish workers during the German occupation. Now a branch of the Museum of Kraków, its immersive exhibition **\"Kraków under Nazi Occupation 1939-1945\"** tells the city's wartime story through reconstructed streets, tram cars, documents and personal testimonies. Schindler's original office, with its wall of enamel pots, anchors the route.",
       "indoor": true,
       "best_time": "Morning",
       "price_range": "Budget",
@@ -168,12 +547,57 @@
         "cultural_significance": 5
       },
       "latitude": 50.0476,
-      "longitude": 19.9617
+      "longitude": 19.9617,
+      "neighborhood": "Podgórze (Zabłocie)",
+      "opening_hours": {
+        "weekday": "09:00-19:00 (Tue-Fri) / 10:00-14:00 (Mon)",
+        "weekend": "09:00-20:00 (Sat, Sun)",
+        "notes": "Closed the first Tuesday of each month. Last entry ~90 minutes before closing."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "3 / 9 / 19 / 24 / 50",
+            "station": "Plac Bohaterów Getta",
+            "walk_minutes": 8
+          },
+          {
+            "line": "11 / 20",
+            "station": "Zabłocie",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_bus": {
+          "line": "184",
+          "station": "Zabłocie",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Zabłocie SKA rail station is a short walk for onward connections."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Entirely indoors - ideal in any weather"
+      },
+      "website": "https://muzeumkrakowa.pl/en/branches/oskar-schindlers-enamel-factory",
+      "ticket_url": "https://bilety.muzeumkrakowa.pl/"
     },
     {
       "name": "Ghetto Heroes' Square (Plac Bohaterów Getta)",
       "type": "Historical Monument",
-      "description": "A poignant memorial square in Podgórze marking the site where the Kraków Ghetto's Jewish residents were assembled before deportation. The square is filled with rows of empty steel-and-bronze chairs, a haunting installation symbolizing the furniture left behind during the 1943 liquidation of the ghetto.",
+      "description": "A poignant memorial square in **Podgórze** marking the site where the Kraków Ghetto's Jewish residents were assembled before deportation. The square is filled with rows of **empty steel-and-bronze chairs**, a haunting installation by Piotr Lewicki and Kazimierz Łatak symbolizing the furniture left scattered in the streets during the 1943 liquidation of the ghetto. It is often visited alongside the Schindler Factory and the Eagle Pharmacy on the square's edge.",
       "indoor": false,
       "best_time": "Any time",
       "price_range": "Free",
@@ -185,12 +609,43 @@
         "cultural_significance": 4
       },
       "latitude": 50.0470,
-      "longitude": 19.9560
+      "longitude": 19.9560,
+      "neighborhood": "Podgórze",
+      "opening_hours": {
+        "weekday": "Open 24 hours",
+        "weekend": "Open 24 hours",
+        "notes": "Public square always accessible; the Eagle Pharmacy museum on the square keeps its own hours."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "3 / 9 / 19 / 24 / 50",
+            "station": "Plac Bohaterów Getta",
+            "walk_minutes": 1
+          }
+        ],
+        "closest_bus": {
+          "line": "184",
+          "station": "Plac Bohaterów Getta",
+          "walk_minutes": 1
+        },
+        "last_train_consideration": "Trams stop directly on the square; night services run overnight."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.25,
+        "max_duration_hours": 0.75,
+        "ideal_time_block": "30 minutes",
+        "weather_fallback": "Step into the adjacent Eagle Pharmacy museum"
+      },
+      "website": "https://krakow.travel/en/3144-krakow-ghetto-heroes-square",
+      "ticket_url": null
     },
     {
       "name": "Galicia Jewish Museum",
       "type": "Museum",
-      "description": "A museum in Kazimierz commemorating the Jewish heritage and the Holocaust in the historic region of Galicia. Its permanent photographic exhibition documents traces of Jewish life and destruction across southern Poland, complemented by changing exhibitions, lectures and a bookshop.",
+      "description": "A museum in **Kazimierz** commemorating the Jewish heritage and the Holocaust in the historic region of Galicia. Its permanent photographic exhibition **\"Traces of Memory\"** documents surviving fragments of Jewish life and the scars of destruction across southern Poland, complemented by changing exhibitions, lectures, survivor talks and a well-stocked bookshop and cafe.",
       "indoor": true,
       "best_time": "Afternoon",
       "price_range": "Budget",
@@ -201,30 +656,116 @@
         "suggested_duration_hours": 1,
         "cultural_significance": 4
       },
-      "latitude": 50.0498,
-      "longitude": 19.9460
+      "latitude": 50.0508,
+      "longitude": 19.9496,
+      "neighborhood": "Kazimierz",
+      "opening_hours": {
+        "weekday": "10:00-18:00",
+        "weekend": "10:00-18:00",
+        "notes": "Open daily; last entry ~30 minutes before closing."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "3 / 9 / 19 / 24 / 50",
+            "station": "Miodowa",
+            "walk_minutes": 5
+          },
+          {
+            "line": "6 / 8 / 10 / 13",
+            "station": "Stradom",
+            "walk_minutes": 9
+          }
+        ],
+        "closest_bus": {
+          "line": "184 / 502",
+          "station": "Św. Wawrzyńca",
+          "walk_minutes": 2
+        },
+        "last_train_consideration": "Night trams serve Miodowa after evening hours."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.75,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Fully indoors with a cafe and bookshop"
+      },
+      "website": "https://galiciajewishmuseum.org/en/",
+      "ticket_url": "https://galiciajewishmuseum.org/en/visit/"
     },
     {
       "name": "Czartoryski Museum",
       "type": "Museum",
-      "description": "One of Poland's oldest museums, home to Leonardo da Vinci's celebrated portrait 'Lady with an Ermine'. The recently restored galleries display an exceptional collection of European paintings, decorative arts and antiquities assembled by the Czartoryski family, with the Leonardo as its undisputed centerpiece.",
+      "description": "One of Poland's oldest museums, home to Leonardo da Vinci's celebrated portrait **\"Lady with an Ermine\"**. The recently restored galleries display an exceptional collection of European paintings, decorative arts, ancient artefacts and arms assembled by the Czartoryski family, with the Leonardo as its undisputed centrepiece and a Rembrandt landscape close behind.",
       "indoor": true,
       "best_time": "Morning",
       "price_range": "Budget",
       "seasonal_notes": "Open year-round except Mondays; an excellent indoor option in any season. Free-admission days are busy around the Leonardo gallery.",
-      "booking_tips": "Reserve tickets online to guarantee entry to the busy 'Lady with an Ermine' room. The museum is part of the National Museum in Kraków.",
+      "booking_tips": "Reserve tickets online to guarantee entry to the busy 'Lady with an Ermine' room. The museum is part of the National Museum in Kraków, free on Tuesdays.",
       "ratings": {
         "cost_estimate": 8,
         "suggested_duration_hours": 1.5,
         "cultural_significance": 5
       },
       "latitude": 50.0648,
-      "longitude": 19.9410
+      "longitude": 19.9410,
+      "neighborhood": "Stare Miasto (Old Town)",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (Tue-Sun) / closed Mon",
+        "weekend": "10:00-18:00",
+        "notes": "Free entry to permanent exhibitions on Tuesdays; last entry ~45 minutes before closing."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "2 / 4 / 14 / 20 / 24",
+            "station": "Stary Kleparz",
+            "walk_minutes": 5
+          },
+          {
+            "line": "3 / 19",
+            "station": "Teatr Słowackiego",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_bus": {
+          "line": "124 / 152 / 502",
+          "station": "Dworzec Główny",
+          "walk_minutes": 7
+        },
+        "last_train_consideration": "Near St. Florian's Gate, a short walk from the rail and tram hub."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Fully indoors - ideal in any weather"
+      },
+      "website": "https://mnk.pl/en/branch/mnk-czartoryski-museum",
+      "ticket_url": "https://bilety.mnk.pl/?lang=en"
     },
     {
       "name": "Saints Peter and Paul Church",
       "type": "Church",
-      "description": "The first Baroque church in Kraków, built for the Jesuits in the early 17th century and lined with statues of the twelve apostles along its facade railing. Inside, a Foucault pendulum demonstrates the rotation of the Earth, and the church hosts regular classical music concerts beneath its grand dome.",
+      "description": "The **first Baroque church in Kraków**, built for the Jesuits in the early 17th century and fronted by statues of the **twelve apostles** along its forecourt railing. Inside, a **Foucault pendulum** demonstrates the rotation of the Earth, and the church hosts regular classical-music concerts beneath its grand dome. Its restrained early-Baroque facade, modelled on Roman churches, introduced a new architectural style to the city.",
       "indoor": true,
       "best_time": "Afternoon",
       "price_range": "Budget",
@@ -236,12 +777,53 @@
         "cultural_significance": 4
       },
       "latitude": 50.0570,
-      "longitude": 19.9385
+      "longitude": 19.9385,
+      "neighborhood": "Stare Miasto (Old Town)",
+      "opening_hours": {
+        "weekday": "09:00-17:00 (visiting outside services)",
+        "weekend": "13:30-17:00 (Sun, after Mass)",
+        "notes": "Visiting paused during services; evening concerts have separate ticketed entry."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas - services only"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "6 / 8 / 10 / 13",
+            "station": "Wawel",
+            "walk_minutes": 6
+          },
+          {
+            "line": "1 / 6 / 8 / 13 / 18",
+            "station": "Teatr Bagatela",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_bus": {
+          "line": "128 / 184",
+          "station": "Stradom",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "On pedestrianised Grodzka Street; trams stop at the Old Town edge."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.25,
+        "max_duration_hours": 1,
+        "ideal_time_block": "30 minutes",
+        "weather_fallback": "Interior visit is indoors"
+      },
+      "website": "https://apostolowie.pl/",
+      "ticket_url": null
     },
     {
       "name": "Planty Park",
       "type": "Park",
-      "description": "A green ring of parkland encircling the Old Town, created in the early 19th century on the site of the demolished medieval walls and moat. Its tree-lined paths, benches and monuments make a pleasant loop linking the city's major sights, popular with strolling locals and visitors alike.",
+      "description": "A **green ring of parkland encircling the Old Town**, created in the early 19th century on the site of the demolished medieval walls and moat. Its tree-lined paths, fountains, benches and monuments make a pleasant 4-kilometre loop linking the city's major sights, threaded with rose beds and shaded by chestnuts and limes. It is a favourite route for strolling locals, joggers and students between lectures.",
       "indoor": false,
       "best_time": "Afternoon",
       "price_range": "Free",
@@ -253,63 +835,203 @@
         "cultural_significance": 3
       },
       "latitude": 50.0625,
-      "longitude": 19.9360
+      "longitude": 19.9360,
+      "neighborhood": "Stare Miasto (Old Town)",
+      "opening_hours": {
+        "weekday": "Open 24 hours",
+        "weekend": "Open 24 hours",
+        "notes": "Public park always accessible; best and safest by daylight."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "1 / 6 / 8 / 13 / 18",
+            "station": "Teatr Bagatela",
+            "walk_minutes": 1
+          },
+          {
+            "line": "2 / 4 / 14 / 20 / 24",
+            "station": "Stary Kleparz",
+            "walk_minutes": 2
+          }
+        ],
+        "closest_bus": {
+          "line": "124 / 152 / 502",
+          "station": "Plac Wszystkich Świętych",
+          "walk_minutes": 2
+        },
+        "last_train_consideration": "The park ring borders most central tram stops."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Duck into a bordering cafe or museum if it rains"
+      },
+      "website": "https://krakow.travel/en/2820-krakow-planty-park",
+      "ticket_url": null
     },
     {
       "name": "Kościuszko Mound (Kopiec Kościuszki)",
       "type": "Monument",
-      "description": "An earthen mound raised in the 1820s in honor of national hero Tadeusz Kościuszko, ringed by a 19th-century fortress. A spiral path climbs to the summit, which offers sweeping panoramic views over Kraków, the Vistula valley and, on clear days, the distant Tatra Mountains.",
+      "description": "An **earthen mound raised in the 1820s** in honour of national hero Tadeusz Kościuszko, ringed by a 19th-century Austrian fortress. A spiral path climbs to the summit, which offers sweeping panoramas over Kraków, the Vistula valley and, on clear days, the distant **Tatra Mountains**. The surrounding fort houses a small museum on Kościuszko and the city's mound-building tradition.",
       "indoor": false,
       "best_time": "Afternoon",
       "price_range": "Budget",
       "seasonal_notes": "Open year-round; clear days reward visitors with the longest views. The climb can be muddy after rain or icy in winter, so sturdy footwear helps.",
-      "booking_tips": "A ticket covers the mound climb and the small museum in the surrounding fort. It sits west of the center; reachable by tram and a short uphill walk or bus.",
+      "booking_tips": "A ticket covers the mound climb and the small museum in the surrounding fort. It sits west of the centre; reachable by tram to Salwator and a scenic uphill walk or bus.",
       "ratings": {
         "cost_estimate": 5,
         "suggested_duration_hours": 1.5,
         "cultural_significance": 3
       },
       "latitude": 50.0548,
-      "longitude": 19.8950
+      "longitude": 19.8950,
+      "neighborhood": "Zwierzyniec / Salwator",
+      "opening_hours": {
+        "weekday": "09:00-dusk (seasonal; summer until ~19:30)",
+        "weekend": "09:00-dusk",
+        "notes": "Closing follows sunset and shortens sharply in winter; last entry ~30 minutes before closing."
+      },
+      "seasonal_hours": {
+        "summer": "09:00-19:30",
+        "winter": "09:00-16:00"
+      },
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "1 / 2",
+            "station": "Salwator",
+            "walk_minutes": 18
+          }
+        ],
+        "closest_bus": {
+          "line": "100 / 101",
+          "station": "Kopiec Kościuszki",
+          "walk_minutes": 3
+        },
+        "last_train_consideration": "Bus 100 runs from Salwator to the mound; check return times, which thin in the evening."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "The fort museum offers shelter if weather turns"
+      },
+      "website": "https://kopieckosciuszki.pl/en/",
+      "ticket_url": "https://kopieckosciuszki.pl/en/visiting/"
     },
     {
       "name": "Nowa Huta",
       "type": "Historical District",
-      "description": "A planned socialist-realist district built from 1949 around a vast steelworks, designed as a model communist town. Its monumental central square, broad avenues and uniform apartment blocks offer a striking contrast to medieval Kraków and a window into the People's Republic of Poland era.",
+      "description": "A **planned socialist-realist district** built from 1949 around a vast steelworks, designed as a model communist town. Its monumental central square **Plac Centralny**, broad radiating avenues and uniform apartment blocks offer a striking contrast to medieval Kraków and a window into the People's Republic of Poland era. The Arka Pana church and the Sendzimir steelworks gates mark the district's later history of dissent and industry.",
       "indoor": false,
       "best_time": "Afternoon",
       "price_range": "Free",
-      "seasonal_notes": "Accessible year-round by tram from the center. The wide, exposed avenues are best explored in mild weather; guided tours run throughout the year.",
-      "booking_tips": "Free to wander, though a guided tour, sometimes by vintage Trabant car, greatly enriches the visit. Reachable in about 30 minutes by tram from the Old Town.",
+      "seasonal_notes": "Accessible year-round by tram from the centre. The wide, exposed avenues are best explored in mild weather; guided tours run throughout the year.",
+      "booking_tips": "Free to wander, though a guided tour, sometimes by vintage Trabant car, greatly enriches the visit. Reachable in about 25-30 minutes by tram from the Old Town.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 2,
         "cultural_significance": 3
       },
-      "latitude": 50.0720,
-      "longitude": 20.0370
+      "latitude": 50.0718,
+      "longitude": 20.0375,
+      "neighborhood": "Nowa Huta",
+      "opening_hours": {
+        "weekday": "Open 24 hours",
+        "weekend": "Open 24 hours",
+        "notes": "Public district always accessible; museums and the steelworks tours keep their own hours."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "4 / 10 / 22 / 44",
+            "station": "Plac Centralny",
+            "walk_minutes": 1
+          }
+        ],
+        "closest_bus": {
+          "line": "153 / 163",
+          "station": "Plac Centralny",
+          "walk_minutes": 2
+        },
+        "last_train_consideration": "Tram 4 runs the ~25-minute trip from the centre until midnight; night trams follow."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Visit the PRL Museum or a milk bar for shelter"
+      },
+      "website": "https://krakow.travel/en/2862-krakow-nowa-huta",
+      "ticket_url": null
     },
     {
       "name": "Zakrzówek",
       "type": "Park",
-      "description": "A flooded former limestone quarry southwest of the center, famed for its striking turquoise water framed by white cliffs. Recently developed with boardwalks, beaches and viewpoints, it is a favorite spot for swimming in summer and scenic walks year-round.",
+      "description": "A **flooded former limestone quarry** southwest of the centre, famed for its striking **turquoise water** framed by sheer white cliffs. Recently redeveloped with boardwalks, beaches, viewpoints and a designated swimming lagoon, it is a favourite spot for bathing in summer and scenic clifftop walks year-round. Rock climbers and divers have long prized its dramatic walls.",
       "indoor": false,
       "best_time": "Afternoon",
       "price_range": "Free",
       "seasonal_notes": "Most popular in summer when designated swimming areas open. The cliffs and turquoise water are photogenic in any season, though paths can be slippery in winter.",
-      "booking_tips": "Free to visit; swimming is allowed only in supervised, marked zones during the season. Reachable by tram and a short walk from the center.",
+      "booking_tips": "Free to visit; swimming is allowed only in supervised, marked zones during the season. Reachable by tram and a short walk from the centre.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 1.5,
         "cultural_significance": 2
       },
       "latitude": 50.0408,
-      "longitude": 19.9085
+      "longitude": 19.9085,
+      "neighborhood": "Dębniki / Zakrzówek",
+      "opening_hours": {
+        "weekday": "Park open daily; swimming zone 09:00-19:00 (summer season)",
+        "weekend": "Park open daily; swimming zone 09:00-19:00 (summer)",
+        "notes": "Designated swimming lagoon operates roughly June-September; cliffs and paths accessible year-round."
+      },
+      "seasonal_hours": {
+        "summer": "Swimming 09:00-19:00",
+        "winter": "Walks only - no swimming"
+      },
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "11 / 18 / 22 / 52",
+            "station": "Kapelanka",
+            "walk_minutes": 12
+          }
+        ],
+        "closest_bus": {
+          "line": "163 / 173 / 193",
+          "station": "Zakrzówek",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Bus and tram service to Dębniki thins in the evening; plan return before dark."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Best skipped in poor weather - paths get slick"
+      },
+      "website": "https://zzm.krakow.pl/",
+      "ticket_url": null
     },
     {
       "name": "Tyniec Benedictine Abbey",
       "type": "Monastery",
-      "description": "A Benedictine abbey founded in the 11th century, perched dramatically on a limestone bluff above the Vistula River southwest of Kraków. The monastery church, courtyards and museum reflect nearly a thousand years of monastic life, and the monks are known for their honey, herbal products and atmospheric setting.",
+      "description": "A **Benedictine abbey founded in the 11th century**, perched dramatically on a limestone bluff above the Vistula River southwest of Kraków. The monastery church, cloistered courtyards and museum reflect nearly a thousand years of monastic life, and the monks are known for their honey, herbal liqueurs and atmospheric Gregorian-chant services. The riverside setting makes it a serene escape from the city.",
       "indoor": true,
       "best_time": "Morning",
       "price_range": "Budget",
@@ -321,16 +1043,50 @@
         "cultural_significance": 3
       },
       "latitude": 50.0238,
-      "longitude": 19.8060
+      "longitude": 19.8060,
+      "neighborhood": "Tyniec (southwest outskirts)",
+      "opening_hours": {
+        "weekday": "10:00-17:00 (museum, seasonal)",
+        "weekend": "10:00-18:00 (museum, seasonal)",
+        "notes": "Museum hours shorten in winter; the church follows the service schedule. Grounds open by day."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-18:00",
+        "winter": "10:00-16:00"
+      },
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "Use bus connection - no direct tram",
+            "station": "Czerwone Maki P+R (tram 11/52 terminus, then bus)",
+            "walk_minutes": 0
+          }
+        ],
+        "closest_bus": {
+          "line": "112 / 122 / 222",
+          "station": "Tyniec",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Bus 112 from Czerwone Maki P+R is the main link; evening departures are sparse, so check the timetable."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Church and museum interiors offer shelter"
+      },
+      "website": "https://tyniec.benedyktyni.pl/",
+      "ticket_url": null
     },
     {
       "name": "Wieliczka Salt Mine",
       "type": "Historical Monument",
-      "description": "A UNESCO-listed salt mine in operation from the 13th century until recent times, about 14 km southeast of Kraków. The visitor route winds through underground chambers, brine lakes and chapels carved entirely from rock salt, culminating in the breathtaking Chapel of St. Kinga with its salt chandeliers, altars and reliefs.",
+      "description": "A **UNESCO-listed salt mine** in operation from the 13th century until recent times, about 14 km southeast of Kraków. The Tourist Route winds through underground chambers, brine lakes and chapels carved entirely from rock salt, culminating in the breathtaking **Chapel of St. Kinga** with its salt chandeliers, altars and bas-reliefs of biblical scenes. The constant cool air and salty haze are said to be good for the lungs.",
       "indoor": true,
       "best_time": "Morning",
       "price_range": "Moderate",
-      "seasonal_notes": "Underground temperatures stay cool and constant year-round, making it ideal in any weather; bring a light layer. Summer and holiday periods are very busy.",
+      "seasonal_notes": "Underground temperatures stay cool and constant year-round (~17C), making it ideal in any weather; bring a light layer. Summer and holiday periods are very busy.",
       "booking_tips": "Book guided-tour tickets online in advance, as visits are by timed group only and sell out. The Tourist Route involves around 800 steps and roughly two hours underground.",
       "ratings": {
         "cost_estimate": 25,
@@ -338,7 +1094,1150 @@
         "cultural_significance": 5
       },
       "latitude": 50.0299,
-      "longitude": 20.0547
+      "longitude": 20.0547,
+      "neighborhood": "Wieliczka (day trip, southeast of Kraków)",
+      "opening_hours": {
+        "weekday": "08:00-19:00 (Tourist Route, seasonal variation)",
+        "weekend": "08:00-19:00",
+        "notes": "Tours run at timed intervals; last tour ~17:00 in winter, later in summer. Daniłowicz Shaft entrance at ul. Daniłowicza 10."
+      },
+      "seasonal_hours": {
+        "summer": "08:00-19:00",
+        "winter": "08:00-17:00"
+      },
+      "closures": [
+        {
+          "date": "2026-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas Eve closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "Use SKA train or bus - no direct tram",
+            "station": "Kraków Główny (then SKA1 to Wieliczka Rynek-Kopalnia)",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_bus": {
+          "line": "304",
+          "station": "Wieliczka Kopalnia Soli",
+          "walk_minutes": 4
+        },
+        "last_train_consideration": "SKA1 train (~25 min) and bus 304 both serve Wieliczka; check return timetables for the last departure."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2.5,
+        "max_duration_hours": 4,
+        "ideal_time_block": "3 hours",
+        "weather_fallback": "Entirely underground - ideal in any weather"
+      },
+      "website": "https://www.kopalnia.pl/en",
+      "ticket_url": "https://bilety.kopalniawieliczka.eu/"
+    },
+    {
+      "name": "Auschwitz-Birkenau Memorial and Museum",
+      "type": "Memorial / Museum",
+      "description": "The **former German Nazi concentration and extermination camp** at Oświęcim, about 70 km west of Kraków, where more than 1.1 million people, overwhelmingly Jews, were murdered. A UNESCO World Heritage Site and the most significant Holocaust memorial in the world, it preserves the Auschwitz I barracks and exhibitions and the vast **Birkenau (Auschwitz II)** ruins with their railway ramp and gas-chamber remains. A visit is sombre and essential; allow most of a day including travel.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Free entry / paid guided tour",
+      "seasonal_notes": "Open year-round except a few holidays. Closing time tracks daylight, from 14:00 in December to 19:00 in midsummer. Birkenau is largely open-air, so dress for the weather.",
+      "booking_tips": "A personalised entry pass is mandatory and must be booked online in advance via the official site; on-site sales have been discontinued. Free individual entry passes are limited; guided tours carry a fee. Allow at least 3.5 hours on site.",
+      "ratings": {
+        "cost_estimate": 18,
+        "suggested_duration_hours": 4,
+        "cultural_significance": 5
+      },
+      "latitude": 50.0274,
+      "longitude": 19.2036,
+      "neighborhood": "Oświęcim (day trip, west of Kraków)",
+      "opening_hours": {
+        "weekday": "07:30-closing (closing varies: 14:00 Dec to 19:00 Jun-Aug)",
+        "weekend": "07:30-closing (same seasonal scale)",
+        "notes": "Last entry well before closing; the Memorial grounds are free but require a timed pass. A free shuttle links Auschwitz I and Birkenau."
+      },
+      "seasonal_hours": {
+        "summer": "07:30-19:00",
+        "winter": "07:30-15:00"
+      },
+      "closures": [
+        {
+          "date": "2026-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "No tram - intercity bus or train from Kraków",
+            "station": "Kraków bus station / Kraków Główny",
+            "walk_minutes": 0
+          }
+        ],
+        "closest_bus": {
+          "line": "Oświęcim local 2 / 3 / 8 from station; intercity buses from Kraków MDA",
+          "station": "Muzeum Auschwitz",
+          "walk_minutes": 3
+        },
+        "last_train_consideration": "Direct buses and trains run from Kraków (~1.5-2 hours each way); confirm the last return, especially in winter when the site closes early."
+      },
+      "visit_profile": {
+        "min_duration_hours": 3.5,
+        "max_duration_hours": 6,
+        "ideal_time_block": "Half to full day including travel",
+        "weather_fallback": "Auschwitz I is largely indoors; Birkenau is exposed - bring rain and sun protection"
+      },
+      "website": "https://www.auschwitz.org/en/",
+      "ticket_url": "https://visit.auschwitz.org/"
+    },
+    {
+      "name": "MOCAK - Museum of Contemporary Art in Kraków",
+      "type": "Museum / Art Gallery",
+      "description": "Poland's leading **contemporary-art museum**, set in striking sawtooth-roofed halls of the former Schindler enamel works in **Zabłocie**, next door to the Schindler Factory museum. MOCAK shows challenging Polish and international art across painting, installation, photography and video, with a permanent collection and a rotation of provocative temporary exhibitions, plus a library, bookshop and cafe.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Budget",
+      "seasonal_notes": "Open year-round and a strong rainy-day choice. Thursdays bring free entry to the collection at level -1; exhibitions rotate throughout the year.",
+      "booking_tips": "Tickets are sold on arrival or online; rarely sold out. Pair with the adjacent Schindler Factory for a half-day in Zabłocie.",
+      "ratings": {
+        "cost_estimate": 5,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 3
+      },
+      "latitude": 50.0468,
+      "longitude": 19.9622,
+      "neighborhood": "Podgórze (Zabłocie)",
+      "opening_hours": {
+        "weekday": "11:00-19:00 (Tue-Fri) / closed Mon",
+        "weekend": "11:00-19:00 (Sat, Sun)",
+        "notes": "Closed Mondays; collection at level -1 free on Thursdays. Last entry ~30 minutes before closing."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "3 / 9 / 19 / 24 / 50",
+            "station": "Bohaterów Getta",
+            "walk_minutes": 8
+          },
+          {
+            "line": "11 / 20",
+            "station": "Zabłocie",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_bus": {
+          "line": "184",
+          "station": "Zabłocie",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Zabłocie SKA rail station is a few minutes' walk for onward links."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Fully indoors with library and cafe"
+      },
+      "website": "https://en.mocak.pl/",
+      "ticket_url": "https://en.mocak.pl/tickets"
+    },
+    {
+      "name": "National Museum in Kraków (Main Building)",
+      "type": "Museum / Art Gallery",
+      "description": "The **main branch of the National Museum**, Poland's oldest national museum, holding sweeping collections of Polish art, decorative arts, militaria and design. Highlights include the **Gallery of 20th- and 21st-Century Polish Art**, the famous Stanisław Wyspiański stained-glass and drawing collection, and an arms-and-uniforms gallery. The modernist building near Błonia meadow makes a calm, less-touristed alternative to the Old Town museums.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Budget",
+      "seasonal_notes": "Open year-round except Mondays; an excellent indoor option in any season. Free admission to permanent exhibitions every Tuesday.",
+      "booking_tips": "Tickets are sold on site and online; rarely sold out except during blockbuster shows. The building is a 5-minute walk from the Błonia meadow and Cracovia tram stops.",
+      "ratings": {
+        "cost_estimate": 8,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 50.0606,
+      "longitude": 19.9229,
+      "neighborhood": "Czarna Wieś / Cracovia (near Błonia)",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (Tue-Sun) / closed Mon",
+        "weekend": "10:00-18:00",
+        "notes": "Free entry to permanent exhibitions on Tuesdays; last entry ~45 minutes before closing."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "15 / 18 / 20",
+            "station": "Cracovia / Muzeum Narodowe",
+            "walk_minutes": 3
+          }
+        ],
+        "closest_bus": {
+          "line": "124 / 152 / 169 / 179",
+          "station": "Muzeum Narodowe",
+          "walk_minutes": 3
+        },
+        "last_train_consideration": "Frequent trams along al. 3 Maja run until roughly midnight."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Fully indoors - ideal in any weather"
+      },
+      "website": "https://mnk.pl/en/branch/the-main-building",
+      "ticket_url": "https://bilety.mnk.pl/?lang=en"
+    },
+    {
+      "name": "Pharmacy Under the Eagle (Apteka pod Orłem)",
+      "type": "Museum / Memorial",
+      "description": "A small but powerful museum on **Ghetto Heroes' Square**, set in the only pharmacy that operated inside the Kraków Ghetto. Its Polish owner **Tadeusz Pankiewicz** chose to stay among the Jewish residents, supplying medicine, hiding people and smuggling news; he was later honoured as Righteous Among the Nations. The reconstructed pharmacy interior, with its drawers and bottles, frames testimonies of life and death in the ghetto.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Budget",
+      "seasonal_notes": "Open year-round and an ideal indoor complement to the open-air Ghetto Heroes' Square. Free admission on Wednesdays.",
+      "booking_tips": "Tickets are sold on arrival; advance booking is rarely needed. Combine with the square's empty-chairs memorial and the nearby Schindler Factory.",
+      "ratings": {
+        "cost_estimate": 4,
+        "suggested_duration_hours": 0.75,
+        "cultural_significance": 4
+      },
+      "latitude": 50.0469,
+      "longitude": 19.9558,
+      "neighborhood": "Podgórze",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (Wed-Sun) / 10:00-14:00 (Mon) / closed Tue",
+        "weekend": "10:00-18:00",
+        "notes": "Free entry on Wednesdays; last entry ~30 minutes before closing."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "3 / 9 / 19 / 24 / 50",
+            "station": "Plac Bohaterów Getta",
+            "walk_minutes": 1
+          }
+        ],
+        "closest_bus": {
+          "line": "184",
+          "station": "Plac Bohaterów Getta",
+          "walk_minutes": 1
+        },
+        "last_train_consideration": "Trams stop directly on the square."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1,
+        "ideal_time_block": "45 minutes",
+        "weather_fallback": "Fully indoors - ideal in any weather"
+      },
+      "website": "https://muzeumkrakowa.pl/en/branches/eagle-pharmacy",
+      "ticket_url": "https://bilety.muzeumkrakowa.pl/"
+    },
+    {
+      "name": "Remuh Synagogue and Old Jewish Cemetery",
+      "type": "Synagogue / Cemetery",
+      "description": "The smallest of Kazimierz's historic synagogues and the only one still in **regular religious use**, founded in 1553 and named for the great rabbi and scholar Moses Isserles (the Remu). Behind it lies the **Old Jewish Cemetery**, with Renaissance-era tombstones dating from 1551; many shattered during the war were reassembled into a striking mosaic \"Wailing Wall\". The rabbi's grave remains a place of pilgrimage.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Budget",
+      "seasonal_notes": "Open Sunday to Friday year-round; closed Saturdays and Jewish holidays. The cemetery is most atmospheric in soft morning light.",
+      "booking_tips": "A small ticket covers both the synagogue and cemetery. Men should cover their heads (kippot are provided). It sits on Szeroka Street, the heart of old Jewish Kazimierz.",
+      "ratings": {
+        "cost_estimate": 4,
+        "suggested_duration_hours": 0.5,
+        "cultural_significance": 4
+      },
+      "latitude": 50.0518,
+      "longitude": 19.9479,
+      "neighborhood": "Kazimierz",
+      "opening_hours": {
+        "weekday": "09:00-18:00 (Sun-Fri, summer) / 09:00-16:00 (winter)",
+        "weekend": "Closed Saturdays (Shabbat)",
+        "notes": "Closed Saturdays and Jewish holidays; hours shorten in winter."
+      },
+      "seasonal_hours": {
+        "summer": "09:00-18:00",
+        "winter": "09:00-16:00"
+      },
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "3 / 9 / 19 / 24 / 50",
+            "station": "Miodowa",
+            "walk_minutes": 4
+          }
+        ],
+        "closest_bus": {
+          "line": "184",
+          "station": "Miodowa",
+          "walk_minutes": 4
+        },
+        "last_train_consideration": "Night trams serve Miodowa, but the synagogue closes by early evening."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.25,
+        "max_duration_hours": 0.75,
+        "ideal_time_block": "30 minutes",
+        "weather_fallback": "Synagogue interior offers brief shelter"
+      },
+      "website": "https://krakow.travel/en/17798-krakow-remuh-synagogue-and-cemetery",
+      "ticket_url": null
+    },
+    {
+      "name": "Tempel Synagogue",
+      "type": "Synagogue",
+      "description": "The most ornate of Kazimierz's synagogues, built in **1860-1862** in the Moorish-influenced Neo-Renaissance style for the city's progressive Jewish congregation. Its lavish interior glows with **gilded stucco, painted ceilings and stained-glass windows**, and its fine acoustics make it a favoured venue for concerts during the Jewish Culture Festival. It is one of the few Kraków synagogues to survive the war largely intact.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Budget",
+      "seasonal_notes": "Open Sunday to Friday year-round; closed Saturdays and holidays. Concerts during the late-June Jewish Culture Festival fill the hall.",
+      "booking_tips": "Entry is by a small donation. Head covering is appreciated. A short walk from the Remuh and Old synagogues for a Kazimierz synagogue circuit.",
+      "ratings": {
+        "cost_estimate": 4,
+        "suggested_duration_hours": 0.5,
+        "cultural_significance": 4
+      },
+      "latitude": 50.0524,
+      "longitude": 19.9440,
+      "neighborhood": "Kazimierz",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (Sun-Fri, summer) / 10:00-16:00 (winter)",
+        "weekend": "Closed Saturdays (Shabbat)",
+        "notes": "Closed Saturdays and Jewish holidays; hours shorten in winter and during events."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-18:00",
+        "winter": "10:00-16:00"
+      },
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "6 / 8 / 10 / 13",
+            "station": "Plac Wolnica",
+            "walk_minutes": 5
+          },
+          {
+            "line": "3 / 9 / 19 / 24 / 50",
+            "station": "Miodowa",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_bus": {
+          "line": "184",
+          "station": "Miodowa",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Trams serve Kazimierz's edges; the synagogue closes by early evening."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.25,
+        "max_duration_hours": 0.75,
+        "ideal_time_block": "30 minutes",
+        "weather_fallback": "Ornate interior offers shelter"
+      },
+      "website": "https://gwzkrakow.pl/en/services/synagogues",
+      "ticket_url": null
+    },
+    {
+      "name": "Wawel Dragon's Den (Smocza Jama)",
+      "type": "Cave / Natural Site",
+      "description": "A **limestone cave at the foot of Wawel Hill**, linked by legend to the fearsome dragon that once terrorised Kraków until a cunning cobbler tricked it into devouring a sulphur-stuffed sheep. A 135-step spiral staircase from the castle grounds descends into the damp cavern, which exits by the Vistula beside the popular **fire-breathing bronze dragon** that puffs flame every few minutes. A short, fun stop, especially with children.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Budget",
+      "seasonal_notes": "Open seasonally, roughly April to October; closed in winter. Best on a warm day when paired with a Wawel Hill walk.",
+      "booking_tips": "A token-operated turnstile or low-cost ticket admits you; the entrance is on the castle grounds and exits riverside, so visit it last. Not suitable for those with mobility issues due to the spiral stairs.",
+      "ratings": {
+        "cost_estimate": 4,
+        "suggested_duration_hours": 0.5,
+        "cultural_significance": 2
+      },
+      "latitude": 50.0532,
+      "longitude": 19.9340,
+      "neighborhood": "Stare Miasto (Old Town) / Wawel Hill",
+      "opening_hours": {
+        "weekday": "10:00-17:00 (Apr, Sep, Oct) / 10:00-18:00 (May-Jun) / 10:00-19:00 (Jul-Aug)",
+        "weekend": "Same seasonal scale",
+        "notes": "Closed November-March. Entrance from Wawel Hill; exit by the riverside dragon statue."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-19:00",
+        "winter": "Closed"
+      },
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "6 / 8 / 10 / 13",
+            "station": "Wawel",
+            "walk_minutes": 6
+          },
+          {
+            "line": "18 / 22 / 52",
+            "station": "Stradom",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_bus": {
+          "line": "128 / 184",
+          "station": "Stradom",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Central trams run until roughly midnight; the cave closes by early evening."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.25,
+        "max_duration_hours": 0.5,
+        "ideal_time_block": "30 minutes",
+        "weather_fallback": "Skip in winter when closed; pair with castle interiors otherwise"
+      },
+      "website": "https://wawel.krakow.pl/en/exhibition-constant/dragon-s-den",
+      "ticket_url": "https://bilety.wawel.krakow.pl/"
+    },
+    {
+      "name": "Krakus Mound (Kopiec Krakusa)",
+      "type": "Monument",
+      "description": "The **oldest and most mysterious of Kraków's mounds**, an artificial hill on Lasota Heights in Podgórze, traditionally tied to the city's legendary founder **King Krak**. Its origins remain debated, possibly an early-medieval burial or cult site. Free to climb at any hour, the grassy summit offers a sweeping panorama over the whole city, especially memorable at sunset, and is the focus of the ancient Rękawka spring festival.",
+      "indoor": false,
+      "best_time": "Golden Hour / Sunset",
+      "price_range": "Free",
+      "seasonal_notes": "Accessible year-round; the open meadow is glorious at sunset in summer and atmospheric under autumn mist. Paths can be muddy after rain.",
+      "booking_tips": "Free and unticketed. A 15-minute walk uphill from the Podgórze tram stops; combine with a wander through the historic Stary Podgórze.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 50.0381,
+      "longitude": 19.9584,
+      "neighborhood": "Podgórze",
+      "opening_hours": {
+        "weekday": "Open 24 hours",
+        "weekend": "Open 24 hours",
+        "notes": "Open hilltop with no gate; best and safest by daylight or at sunset."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "3 / 9 / 11 / 13 / 24 / 50",
+            "station": "Korona",
+            "walk_minutes": 12
+          }
+        ],
+        "closest_bus": {
+          "line": "184",
+          "station": "Cmentarz Podgórski",
+          "walk_minutes": 10
+        },
+        "last_train_consideration": "Trams to Podgórze run late, but the uphill walk is best in daylight."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Open and exposed - skip in heavy rain"
+      },
+      "website": "https://krakow.travel/en/17793-krakow-krakus-mound",
+      "ticket_url": null
+    },
+    {
+      "name": "Botanical Garden of the Jagiellonian University",
+      "type": "Garden",
+      "description": "Poland's **oldest botanical garden**, founded in 1783 by the Jagiellonian University and still a teaching collection. Behind its walls lie ten hectares of themed beds, an arboretum, lily ponds and historic **glasshouses** sheltering palms, orchids and a giant Amazon water lily. A tranquil green retreat just east of the centre, it bursts into colour from spring through autumn and houses a small museum of botany.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Budget",
+      "seasonal_notes": "Open from spring through autumn; the glasshouses extend the season. Closing time tracks daylight, from 15:00 in winter months to 18:00 in summer. Closed Mondays for glasshouses and museum.",
+      "booking_tips": "A modest ticket covers the grounds; the glasshouses and museum may carry a small supplement. Reachable by tram to the Kopernika or Rondo Mogilskie stops.",
+      "ratings": {
+        "cost_estimate": 4,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 3
+      },
+      "latitude": 50.0628,
+      "longitude": 19.9560,
+      "neighborhood": "Wesoła (near Rondo Mogilskie)",
+      "opening_hours": {
+        "weekday": "09:00-18:00 (Apr-Aug) / 09:00-17:00 (Oct) / 09:00-15:00 (winter)",
+        "weekend": "Same seasonal scale",
+        "notes": "Glasshouses and museum closed Mondays (except the Warszewicz Orangery). Garden may close entirely in deep winter."
+      },
+      "seasonal_hours": {
+        "summer": "09:00-18:00",
+        "winter": "09:00-15:00"
+      },
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "18 / 20 / 52",
+            "station": "Kopernika",
+            "walk_minutes": 4
+          },
+          {
+            "line": "5 / 52 / 73",
+            "station": "Rondo Mogilskie",
+            "walk_minutes": 7
+          }
+        ],
+        "closest_bus": {
+          "line": "124 / 152",
+          "station": "Uniwersytet Ekonomiczny",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Frequent trams along Kopernika; the garden closes well before late evening."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Retreat into the glasshouses if it rains"
+      },
+      "website": "https://ogrod.uj.edu.pl/english",
+      "ticket_url": "https://bilety.uj.edu.pl/index.html?lang=en"
+    },
+    {
+      "name": "Father Bernatek Footbridge (Kładka Ojca Bernatka)",
+      "type": "Bridge / Landmark",
+      "description": "A graceful **leaf-shaped pedestrian and cycle bridge** opened in 2010, arcing across the Vistula to link Kazimierz with Podgórze. Acrobatic **balancing sculptures by Jerzy Kędzior** dangle above the walkway, and its railings are festooned with thousands of lovers' padlocks, earning it the nickname \"Bridge of Love\". A short, photogenic crossing that ties together two of Kraków's most atmospheric districts.",
+      "indoor": false,
+      "best_time": "Evening",
+      "price_range": "Free",
+      "seasonal_notes": "Open year-round; loveliest at dusk when the city lights reflect on the river. The sculptures and padlocks photograph well in any season.",
+      "booking_tips": "Free to cross at any time. It connects the Kazimierz riverbank with Podgórze's cafe scene, ideal as part of an evening walk.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 0.5,
+        "cultural_significance": 2
+      },
+      "latitude": 50.0497,
+      "longitude": 19.9513,
+      "neighborhood": "Kazimierz / Podgórze",
+      "opening_hours": {
+        "weekday": "Open 24 hours",
+        "weekend": "Open 24 hours",
+        "notes": "Public footbridge always accessible."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "3 / 9 / 19 / 24 / 50",
+            "station": "Miodowa",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_bus": {
+          "line": "184",
+          "station": "Św. Wawrzyńca",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Night trams and buses serve both ends of the bridge."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.25,
+        "max_duration_hours": 0.5,
+        "ideal_time_block": "20 minutes",
+        "weather_fallback": "Quick crossing - duck into a riverside cafe if it rains"
+      },
+      "website": "https://krakow.travel/en/36690-krakow-father-bernatek-footbridge",
+      "ticket_url": null
+    },
+    {
+      "name": "Plac Nowy and the Okrąglak",
+      "type": "Market / Square",
+      "description": "The earthy, bohemian heart of **Kazimierz**, a former Jewish marketplace dominated by the round 1900 market hall known as the **Okrąglak**. Its windows now serve Kraków's most famous **zapiekanki** - long toasted baguettes heaped with cheese, mushrooms and sauces - around the clock. By day the square hosts flea-market and produce stalls; by night it spills over with revellers from the surrounding bars.",
+      "indoor": false,
+      "best_time": "Evening",
+      "price_range": "Free",
+      "seasonal_notes": "Lively year-round; the flea market is busiest at weekends and the food windows never close. Summer nights pack the square, while winter draws crowds to the warm zapiekanki counters.",
+      "booking_tips": "Free to wander. Join the queue at the Okrąglak for a late-night zapiekanka; cash is handy at the market stalls.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 0.75,
+        "cultural_significance": 3
+      },
+      "latitude": 50.0517,
+      "longitude": 19.9453,
+      "neighborhood": "Kazimierz",
+      "opening_hours": {
+        "weekday": "Square open 24 hours; food windows ~10:00-late",
+        "weekend": "Square open 24 hours; flea market mornings",
+        "notes": "Produce and flea-market stalls keep daytime hours; zapiekanka windows stay open well past midnight."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "3 / 9 / 19 / 24 / 50",
+            "station": "Miodowa",
+            "walk_minutes": 4
+          },
+          {
+            "line": "6 / 8 / 10 / 13",
+            "station": "Plac Wolnica",
+            "walk_minutes": 4
+          }
+        ],
+        "closest_bus": {
+          "line": "184",
+          "station": "Miodowa",
+          "walk_minutes": 4
+        },
+        "last_train_consideration": "Night trams and buses keep Kazimierz connected after midnight."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "45 minutes",
+        "weather_fallback": "Grab a zapiekanka under the Okrąglak's eaves"
+      },
+      "website": "https://krakow.travel/en/2737-krakow-kazimierz",
+      "ticket_url": null
+    },
+    {
+      "name": "Corpus Christi Basilica (Bazylika Bożego Ciała)",
+      "type": "Church",
+      "description": "The grand **Gothic parish church of Kazimierz**, founded in the 14th century by King Casimir the Great and raised to basilica status. Its lofty brick nave shelters an extravagant **Baroque interior** with a boat-shaped pulpit borne by carved dolphins, a gilded high altar and richly decorated chapels. Less visited than the Old Town churches, it rewards a quiet detour through Kazimierz.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Open daily outside Mass times year-round, offering a peaceful indoor stop in any weather. A natural pairing with a Kazimierz walk.",
+      "booking_tips": "Free to enter outside services, though a donation is welcome. Modest dress is appreciated; visiting pauses during Mass.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 0.5,
+        "cultural_significance": 3
+      },
+      "latitude": 50.0498,
+      "longitude": 19.9449,
+      "neighborhood": "Kazimierz",
+      "opening_hours": {
+        "weekday": "09:00-17:00 (outside services)",
+        "weekend": "13:00-17:00 (Sun, after Masses)",
+        "notes": "Visiting paused during Mass; weekday Mass at 08:00, 12:00 and 18:00."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas - services only"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "6 / 8 / 10 / 13",
+            "station": "Plac Wolnica",
+            "walk_minutes": 3
+          },
+          {
+            "line": "3 / 9 / 19 / 24 / 50",
+            "station": "Miodowa",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_bus": {
+          "line": "184",
+          "station": "Bożego Ciała",
+          "walk_minutes": 1
+        },
+        "last_train_consideration": "Kazimierz trams run late, but the church closes by early evening."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.25,
+        "max_duration_hours": 0.75,
+        "ideal_time_block": "30 minutes",
+        "weather_fallback": "Interior offers calm shelter"
+      },
+      "website": "https://bozegociala.pl/",
+      "ticket_url": null
+    },
+    {
+      "name": "Skałka - Pauline Church on the Rock",
+      "type": "Church / Sanctuary",
+      "description": "A Baroque church and Pauline monastery on the edge of Kazimierz, revered as the site where **Bishop Stanisław of Szczepanów was martyred in 1079**. Its grounds hold a holy spring and the **Crypt of the Distinguished (Krypta Zasłużonych)**, a national pantheon where painters, writers and composers including Stanisław Wyspiański and Karol Szymanowski are entombed. A serene, deeply Polish pilgrimage site.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Budget",
+      "seasonal_notes": "The church is open year-round outside services; the crypt keeps shorter hours and opens by request in winter. Quiet and reflective in any season.",
+      "booking_tips": "The church is free; a small ticket admits you to the Crypt of the Distinguished. The Rękawka festival and St. Stanisław procession in May draw crowds.",
+      "ratings": {
+        "cost_estimate": 2,
+        "suggested_duration_hours": 0.75,
+        "cultural_significance": 4
+      },
+      "latitude": 50.0498,
+      "longitude": 19.9384,
+      "neighborhood": "Kazimierz (Skałeczna)",
+      "opening_hours": {
+        "weekday": "Church outside services; crypt 10:00-17:00 (seasonal)",
+        "weekend": "Church outside services; crypt 10:00-17:00",
+        "notes": "Crypt opens by request in winter. Visiting pauses during Mass."
+      },
+      "seasonal_hours": {
+        "summer": "Crypt 10:00-17:00",
+        "winter": "Crypt by request"
+      },
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas - services only"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "6 / 8 / 10 / 13",
+            "station": "Plac Wolnica",
+            "walk_minutes": 7
+          },
+          {
+            "line": "18 / 22 / 52",
+            "station": "Św. Gertrudy",
+            "walk_minutes": 10
+          }
+        ],
+        "closest_bus": {
+          "line": "184",
+          "station": "Skałeczna",
+          "walk_minutes": 4
+        },
+        "last_train_consideration": "Kazimierz trams run late; the crypt closes by late afternoon."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1,
+        "ideal_time_block": "45 minutes",
+        "weather_fallback": "Church and crypt are indoors"
+      },
+      "website": "https://skalka.paulini.pl/",
+      "ticket_url": null
+    },
+    {
+      "name": "Juliusz Słowacki Theatre",
+      "type": "Theatre / Landmark",
+      "description": "Kraków's grandest **theatre**, opened in 1893 and modelled on the Paris Opera, its eclectic facade crowned by allegorical sculptures and a lavishly gilded, chandelier-lit auditorium within. Still a working stage for drama and opera, it anchors a handsome square just inside the medieval walls. Even from the outside it is one of the Old Town's most photographed buildings, especially when floodlit at night.",
+      "indoor": true,
+      "best_time": "Evening",
+      "price_range": "Varies (performance tickets) / Free exterior",
+      "seasonal_notes": "Performances run through the autumn-to-spring season; the square and floodlit facade can be admired year-round. Occasional guided tours of the interior are offered.",
+      "booking_tips": "Buy performance tickets via the theatre's official site; productions are in Polish but the building itself is the draw. Check for daytime interior tours to see the auditorium.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 0.5,
+        "cultural_significance": 4
+      },
+      "latitude": 50.0639,
+      "longitude": 19.9431,
+      "neighborhood": "Stare Miasto (Old Town)",
+      "opening_hours": {
+        "weekday": "Box office ~10:00-19:00; performances in the evening",
+        "weekend": "Box office and matinee/evening performances",
+        "notes": "Interior accessible to ticket holders or on scheduled tours; exterior and square always viewable."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "No performances"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "3 / 19",
+            "station": "Teatr Słowackiego",
+            "walk_minutes": 1
+          },
+          {
+            "line": "2 / 4 / 14 / 20 / 24",
+            "station": "Stary Kleparz",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_bus": {
+          "line": "124 / 152 / 502",
+          "station": "Dworzec Główny",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Trams stop on the theatre's square; the rail hub is a few minutes away."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.25,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "30 minutes (exterior) or full performance",
+        "weather_fallback": "Admire from the colonnade or attend a performance"
+      },
+      "website": "https://teatrwkrakowie.pl/en",
+      "ticket_url": "https://bilety.teatrwkrakowie.pl/"
+    },
+    {
+      "name": "Stained Glass Museum and Workshop (Muzeum Witrażu)",
+      "type": "Museum / Workshop",
+      "description": "A **living museum** inside an Art-Nouveau studio that has produced stained glass since 1902, where works for Kraków's churches were designed by Stanisław Wyspiański and Józef Mehoffer. Guided tours lead through the historic workshop, showing master glaziers cutting, painting and leading glass by hand, alongside an exhibition of original cartoons and finished panels. Hands-on workshops let visitors craft their own piece.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Open Tuesday to Saturday year-round; an absorbing indoor visit in any weather. English-language tours run at set times, so plan around them.",
+      "booking_tips": "Visits are by guided tour only and need at least two people; book online and choose an English slot (typically noon and 3 pm). Workshops should be reserved well ahead.",
+      "ratings": {
+        "cost_estimate": 14,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 50.0640,
+      "longitude": 19.9258,
+      "neighborhood": "Piasek (al. Krasińskiego)",
+      "opening_hours": {
+        "weekday": "11:30-16:30 (Tue-Fri, guided tours) / closed Mon",
+        "weekend": "10:00-17:00 (Sat) / closed Sun",
+        "notes": "Entry by guided tour only; English tours at 12:00 and 15:00. Closed Sundays, Mondays and holidays."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "15 / 18 / 20",
+            "station": "Plac Inwalidów",
+            "walk_minutes": 3
+          }
+        ],
+        "closest_bus": {
+          "line": "124 / 152 / 173",
+          "station": "Plac Inwalidów",
+          "walk_minutes": 3
+        },
+        "last_train_consideration": "Frequent trams along al. Krasińskiego; the museum closes by late afternoon."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.75,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Fully indoors - ideal in any weather"
+      },
+      "website": "https://muzeumwitrazu.pl/en/",
+      "ticket_url": "https://muzeumwitrazu.pl/en/plan-your-visit/"
+    },
+    {
+      "name": "Bishop Erazm Ciołek Palace",
+      "type": "Museum / Art Gallery",
+      "description": "A handsome Renaissance palace on picturesque **Kanonicza Street**, built in the early 16th century for Bishop Erazm Ciołek and now a branch of the National Museum. It houses two refined collections: **Art of Old Poland** (12th-18th century), rich in Gothic altarpieces and sculpture, and the **Orthodox Art of the Old Polish Republic**, a luminous gallery of icons. A quieter, scholarly counterpoint to the busier museums nearby.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Budget",
+      "seasonal_notes": "Open year-round except Mondays; an excellent indoor option in any season. Free admission to permanent exhibitions on Tuesdays.",
+      "booking_tips": "Tickets sold on site and online; rarely busy. It sits on Kanonicza Street, an easy add-on to a Wawel and Royal Route walk.",
+      "ratings": {
+        "cost_estimate": 5,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 50.0556,
+      "longitude": 19.9357,
+      "neighborhood": "Stare Miasto (Old Town) / Kanonicza",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (Tue) / 10:00-16:00 (Wed-Fri) / closed Mon",
+        "weekend": "10:00-16:00 (Sat, Sun)",
+        "notes": "Free entry on Tuesdays; last entry ~45 minutes before closing."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-01-01",
+          "reason": "Holiday closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "6 / 8 / 10 / 13",
+            "station": "Wawel",
+            "walk_minutes": 5
+          },
+          {
+            "line": "18 / 22 / 52",
+            "station": "Stradom",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_bus": {
+          "line": "128 / 184",
+          "station": "Stradom",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "On pedestrianised Kanonicza; trams stop at the Old Town edge."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.75,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Fully indoors - ideal in any weather"
+      },
+      "website": "https://mnk.pl/en/branch/mnk-the-ciolek",
+      "ticket_url": "https://bilety.mnk.pl/?lang=en"
+    },
+    {
+      "name": "KL Płaszów Memorial Museum",
+      "type": "Memorial / Museum",
+      "description": "The grounds of the **former Płaszów concentration camp**, the labour and later concentration camp depicted in *Schindler's List* and commanded by the notorious Amon Göth. Long an overgrown field of memory, the site reopened as a formal memorial in 2025 with a new museum building and open-air exhibition. Memorials, the surviving \"Grey House\" and the towering monument to the victims stand amid quiet meadows on the city's southern edge.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Free (outdoor) / Budget (museum)",
+      "seasonal_notes": "The open-air memorial grounds are accessible at all times year-round; the indoor museum and Grey House keep set hours. The exposed terrain is best in mild, dry weather.",
+      "booking_tips": "The outdoor memorial is free and self-guided; check the museum site for indoor exhibition hours and any timed entry. A guided tour greatly deepens the visit.",
+      "ratings": {
+        "cost_estimate": 3,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 50.0339,
+      "longitude": 19.9650,
+      "neighborhood": "Podgórze (Płaszów)",
+      "opening_hours": {
+        "weekday": "Memorial grounds 24 hours; museum/Grey House ~10:00-18:00 (Tue-Sun)",
+        "weekend": "Memorial grounds 24 hours; museum ~10:00-18:00",
+        "notes": "Indoor exhibitions closed Mondays; confirm current hours on the museum website. Memorial entrance from Jerozolimska/Kamieńskiego."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Holiday closure (indoor)"
+        }
+      ],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "3 / 11 / 13 / 24 / 50",
+            "station": "Dworcowa",
+            "walk_minutes": 10
+          }
+        ],
+        "closest_bus": {
+          "line": "144 / 169 / 173 / 179",
+          "station": "Kamieńskiego",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Kraków Płaszów rail station is nearby; outdoor grounds are open at all hours but best visited in daylight."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Largely open-air; the new museum building offers shelter"
+      },
+      "website": "https://plaszow.org/en/",
+      "ticket_url": "https://plaszow.org/en/for-visitors/visiting-hours"
+    },
+    {
+      "name": "Piłsudski Mound (Kopiec Piłsudskiego)",
+      "type": "Monument",
+      "description": "The **largest of Kraków's four mounds**, raised on the Sowiniec heights of the Wolski Forest between 1934 and 1937 to honour Marshal **Józef Piłsudski**, with soil brought from World War I battlefields. Set deep in the forest west of the city, the summit gives a broad view over Kraków and the surrounding countryside, reached by a pleasant woodland walk that doubles as a half-day hike from the zoo.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Accessible year-round; the forest trails are glorious in autumn colour and shady in summer heat. Paths can be muddy or icy after rain or snow.",
+      "booking_tips": "Free and unticketed. Reach it via bus to the zoo or Wolski Forest, then a 20-30 minute woodland walk; wear comfortable shoes.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 3
+      },
+      "latitude": 50.0560,
+      "longitude": 19.8417,
+      "neighborhood": "Zwierzyniec (Las Wolski)",
+      "opening_hours": {
+        "weekday": "Open 24 hours",
+        "weekend": "Open 24 hours",
+        "notes": "Open forest monument with no gate; best by daylight given the wooded approach."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "1 / 2 (to Salwator, then bus)",
+            "station": "Salwator",
+            "walk_minutes": 0
+          }
+        ],
+        "closest_bus": {
+          "line": "134",
+          "station": "ZOO",
+          "walk_minutes": 25
+        },
+        "last_train_consideration": "Bus 134 to the zoo is the main link; the forest walk should be done in daylight, and evening buses are infrequent."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Best skipped in heavy rain - it is a forest hike"
+      },
+      "website": "https://krakow.travel/en/17801-krakow-pilsudski-mound",
+      "ticket_url": null
+    },
+    {
+      "name": "Hala Targowa Market",
+      "type": "Market",
+      "description": "Kraków's atmospheric **covered-and-open-air market** just east of the Old Town, busiest on **Sunday mornings** when its famous flea market sprawls across the surrounding lots. Inside the historic hall and around it, traders sell antiques, vinyl, Communist-era curios, fresh produce and street food. A favourite weekend haunt of locals and bargain-hunters, and the spot for a late-night kiełbasa from the legendary blue van nearby.",
+      "indoor": false,
+      "best_time": "Morning",
+      "price_range": "Free entry",
+      "seasonal_notes": "Open daily for produce; the big flea market peaks on Sunday mornings year-round. Dress warmly in winter, as much of it is open-air.",
+      "booking_tips": "Free to browse; bring cash for the stalls. Come early on Sunday for the best flea-market finds before the crowds.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 2
+      },
+      "latitude": 50.0612,
+      "longitude": 19.9486,
+      "neighborhood": "Grzegórzki",
+      "opening_hours": {
+        "weekday": "06:00-15:00 (produce stalls)",
+        "weekend": "06:00-14:00 (flea market peaks Sun morning)",
+        "notes": "Hours vary by trader; the Sunday flea market is the main draw."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "1 / 14 / 19 / 22",
+            "station": "Hala Targowa",
+            "walk_minutes": 1
+          }
+        ],
+        "closest_bus": {
+          "line": "124 / 152",
+          "station": "Hala Targowa",
+          "walk_minutes": 1
+        },
+        "last_train_consideration": "Trams stop directly at the market; the famous sausage van trades late into the night."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Partly covered, but largely open-air - dress for the weather"
+      },
+      "website": "https://krakow.travel/en/8929-krakow-hala-targowa",
+      "ticket_url": null
+    },
+    {
+      "name": "Bagry Lagoon (Zalew Bagry)",
+      "type": "Lake / Recreation",
+      "description": "A large **recreational lake** in the Płaszów area south of the centre, a flooded former gravel pit now ringed by beaches, jetties and a sailing club. In summer it draws swimmers, windsurfers and sunbathers to its grassy shores, while year-round it offers a quiet lakeside walk and a refreshing local escape away from the tourist trail.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Busiest in summer for swimming and watersports; designated bathing areas are supervised in season. The shoreline path is pleasant for walks in any mild weather.",
+      "booking_tips": "Free to visit; swim only in marked, supervised zones during the season. Watersport gear can be rented from clubs on the shore in summer.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 1
+      },
+      "latitude": 50.0376,
+      "longitude": 19.9772,
+      "neighborhood": "Podgórze (Płaszów)",
+      "opening_hours": {
+        "weekday": "Open daily; supervised bathing ~10:00-18:00 (summer)",
+        "weekend": "Open daily; supervised bathing in summer",
+        "notes": "Lakeside paths open year-round; swimming season roughly June-September."
+      },
+      "seasonal_hours": {
+        "summer": "Bathing 10:00-18:00",
+        "winter": "Walks only - no swimming"
+      },
+      "closures": [],
+      "transit": {
+        "closest_tram": [
+          {
+            "line": "3 / 11 / 13 / 24 / 50",
+            "station": "Bagrowa",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_bus": {
+          "line": "163 / 174",
+          "station": "Bagry",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Trams to Płaszów run late, but the lake is best enjoyed in daylight."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "An open-air spot - best on a fair-weather day"
+      },
+      "website": "https://zzm.krakow.pl/",
+      "ticket_url": null
     }
   ]
 }

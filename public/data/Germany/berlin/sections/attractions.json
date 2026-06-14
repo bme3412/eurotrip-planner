@@ -2,343 +2,2064 @@
   "sites": [
     {
       "name": "Brandenburg Gate",
-      "type": "Monument",
-      "description": "An iconic symbol of Berlin and German reunification, the Brandenburg Gate is an 18th-century neoclassical monument that stands as a testament to peace and unity. Originally commissioned by King Frederick William II, it served as a city gate and has witnessed significant historical events, including the fall of the Berlin Wall.",
+      "type": "Monument / Gate",
+      "description": "The single most recognizable landmark in Berlin, the **Brandenburg Gate** (Brandenburger Tor, completed 1791) is an 18th-century neoclassical triumphal arch crowned by the bronze **Quadriga**, a four-horse chariot driven by the goddess of victory. Once stranded in the no-man's-land of the divided city, it became the global emblem of German reunification when the Wall fell in 1989. By day crowds gather on Pariser Platz; by night the sandstone columns are floodlit to dramatic effect.",
       "indoor": false,
       "best_time": "Evening",
       "price_range": "Free",
-      "seasonal_notes": "Expect large crowds during summer and national holidays. Evening visits are recommended for stunning illumination views.",
-      "booking_tips": "No booking required. Consider joining a guided walking tour for detailed historical context.",
+      "seasonal_notes": "Expect large crowds during summer and around New Year's Eve, when the adjacent street hosts Germany's biggest open-air party. Evening visits are recommended for the illuminated columns.",
+      "booking_tips": "No booking required. Join a guided walking tour for historical context, or visit early morning for crowd-free photos.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 1,
         "cultural_significance": 5
       },
       "latitude": 52.5163,
-      "longitude": 13.3777
+      "longitude": 13.3777,
+      "neighborhood": "Mitte / Pariser Platz",
+      "opening_hours": {
+        "weekday": "Open 24 hours (outdoor monument)",
+        "weekend": "Open 24 hours (outdoor monument)",
+        "notes": "The gate is an open public square accessible at all times; no admission."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-12-31",
+          "reason": "Access restricted for New Year's Eve celebration (ticketed/fenced)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U5",
+            "station": "Brandenburger Tor",
+            "walk_minutes": 2
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25 / S26",
+          "station": "Brandenburger Tor",
+          "walk_minutes": 2
+        },
+        "last_train_consideration": "S-Bahn and U5 serve the station directly; evening coverage is good but check last-train times after midnight."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Reichstag dome or DZ Bank atrium nearby"
+      },
+      "website": "https://www.berlin.de/en/attractions-and-sights/3560266-3104052-brandenburg-gate.en.html",
+      "ticket_url": null
     },
     {
       "name": "Berlin Wall Memorial",
-      "type": "Monument",
-      "description": "This memorial preserves a section of the Berlin Wall, offering insight into the Cold War division of Berlin. The site includes a visitor center, an outdoor exhibition, and a chapel dedicated to the victims of division.",
+      "type": "Memorial / Historical Site",
+      "description": "Stretching along **Bernauer Strasse**, the **Berlin Wall Memorial** (Gedenkstätte Berliner Mauer) is the principal site of remembrance for the divided city. It preserves the last surviving section of the full border strip — outer wall, death strip, and guard tower — alongside a Window of Remembrance, a documentation center, and the Chapel of Reconciliation. An open-air exhibition and viewing platform let you grasp the brutal geometry of the frontier that split the city for 28 years.",
       "indoor": false,
       "best_time": "Morning",
       "price_range": "Free",
-      "seasonal_notes": "The open-air exhibits can be chilly in winter; consider visiting in spring or autumn for a more comfortable experience.",
-      "booking_tips": "No booking required. Arrive early to avoid school groups and guided tours.",
+      "seasonal_notes": "The open-air exhibits can be cold and exposed in winter; spring and autumn are most comfortable for the 1.4 km outdoor walk.",
+      "booking_tips": "No booking required. Arrive early to beat school groups; free audio and printed guides are available at the visitor center.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 2,
         "cultural_significance": 5
       },
       "latitude": 52.5352,
-      "longitude": 13.39
+      "longitude": 13.39,
+      "neighborhood": "Mitte / Gesundbrunnen (Bernauer Strasse)",
+      "opening_hours": {
+        "weekday": "Outdoor area open daily; Visitor Center & Documentation Center 10:00-18:00 (closed Mondays)",
+        "weekend": "Outdoor area open daily; Visitor Center & Documentation Center 10:00-18:00",
+        "notes": "Open-air memorial grounds accessible at all times; indoor centers closed Mondays."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-12-24",
+          "reason": "Indoor centers closed"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U8",
+            "station": "Bernauer Strasse",
+            "walk_minutes": 2
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25 / S26",
+          "station": "Nordbahnhof",
+          "walk_minutes": 3
+        },
+        "last_train_consideration": "U8 and S-Bahn both serve the site; standard evening service applies."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Documentation Center provides indoor shelter"
+      },
+      "website": "https://www.berliner-mauer-gedenkstaette.de/en/",
+      "ticket_url": null
     },
     {
       "name": "Reichstag Building",
       "type": "Government Building",
-      "description": "The seat of the German parliament, the Reichstag Building is renowned for its historic significance and architectural grandeur. Its iconic glass dome, designed by architect Norman Foster, offers panoramic views of Berlin.",
+      "description": "The seat of the German Bundestag, the **Reichstag** combines a 19th-century neo-Renaissance facade with Norman Foster's luminous **glass dome** (completed 1999). A spiral ramp winds up the cupola to a rooftop terrace with sweeping 360-degree views over the government quarter and the Tiergarten, while a central mirrored funnel symbolically reflects the workings of parliament back to the people below. Free to visit, but registration is mandatory.",
       "indoor": true,
-      "best_time": "Afternoon",
+      "best_time": "Afternoon / Sunset",
       "price_range": "Free",
-      "seasonal_notes": "The glass dome can get hot in summer; visit in the morning or late afternoon for cooler temperatures.",
-      "booking_tips": "Online registration is required to access the dome. Book well in advance, especially during peak tourist seasons.",
+      "seasonal_notes": "The glass dome can grow warm under summer sun; a sunset slot rewards visitors with golden light and the lights of the city coming on.",
+      "booking_tips": "Online registration is required to access the dome and roof terrace — book well in advance, especially in summer. Bring photo ID matching your booking.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 1.5,
         "cultural_significance": 5
       },
       "latitude": 52.5186,
-      "longitude": 13.3762
+      "longitude": 13.3762,
+      "neighborhood": "Mitte / Government Quarter (Tiergarten edge)",
+      "opening_hours": {
+        "weekday": "08:00-24:00 (last entry 21:45, by timed reservation)",
+        "weekend": "08:00-24:00 (last entry 21:45, by timed reservation)",
+        "notes": "Dome closed for cleaning a few days per year; entry strictly by pre-registered time slot."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U5",
+            "station": "Bundestag",
+            "walk_minutes": 4
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25 / S26",
+          "station": "Brandenburger Tor",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Late dome slots end near midnight; confirm U5 and S-Bahn last departures."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Dome is covered glass; viable in rain"
+      },
+      "website": "https://www.bundestag.de/en/visitthebundestag",
+      "ticket_url": "https://www.bundestag.de/en/visitthebundestag/dome/registration"
     },
     {
       "name": "Museum Island",
-      "type": "Cultural Complex",
-      "description": "A UNESCO World Heritage site, Museum Island is home to five internationally significant museums, each showcasing a vast array of art and artifacts from different cultures and eras. Highlights include the Pergamon Museum and the Neues Museum.",
+      "type": "Cultural Complex / UNESCO Site",
+      "description": "A **UNESCO World Heritage** ensemble on a Spree island, **Museum Island** (Museumsinsel) gathers five world-class museums — the Pergamon, Neues, Altes, Bode, and Alte Nationalgalerie — into a single neoclassical cityscape of colonnades and domes. Together they span five millennia of art and antiquity, from Egyptian queens to Babylonian gates to 19th-century painting. A full day barely scratches the surface; the new James-Simon-Galerie serves as the central entrance hall.",
       "indoor": true,
       "best_time": "Morning",
       "price_range": "Expensive",
-      "seasonal_notes": "Summer can be crowded; visit during weekdays for a more relaxed experience.",
-      "booking_tips": "Consider purchasing a Museum Pass Berlin for access to multiple museums over three days.",
+      "seasonal_notes": "Summer weekends are busiest; weekday mornings are calmest. Thursday evenings stay open later at several houses.",
+      "booking_tips": "A Museumsinsel day pass or the 3-day Museum Pass Berlin covers all houses and is the best value. Reserve timed entry for the Pergamon-area collections.",
       "ratings": {
         "cost_estimate": 19,
         "suggested_duration_hours": 4,
         "cultural_significance": 5
       },
       "latitude": 52.5194,
-      "longitude": 13.4009
+      "longitude": 13.4009,
+      "neighborhood": "Mitte / Museumsinsel",
+      "opening_hours": {
+        "weekday": "Most houses 10:00-18:00 (Thu to 20:00); closed Mondays",
+        "weekend": "10:00-18:00",
+        "notes": "Hours vary slightly by museum; nearly all houses close Mondays."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-12-24",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U6",
+            "station": "Friedrichstrasse",
+            "walk_minutes": 9
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Hackescher Markt",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Hackescher Markt and Friedrichstrasse S-Bahn hubs serve the island well into the evening."
+      },
+      "visit_profile": {
+        "min_duration_hours": 3,
+        "max_duration_hours": 8,
+        "ideal_time_block": "Half day (4 hours)",
+        "weather_fallback": "Entirely indoor; ideal rainy-day option"
+      },
+      "website": "https://www.smb.museum/en/museums-institutions/",
+      "ticket_url": "https://shop.smb.museum/en/"
     },
     {
       "name": "East Side Gallery",
-      "type": "Art Gallery",
-      "description": "The East Side Gallery is an open-air gallery on a remaining stretch of the Berlin Wall, featuring over 100 murals by artists from around the world. It stands as a symbol of freedom and artistic expression.",
+      "type": "Open-Air Art Gallery",
+      "description": "The **East Side Gallery** is the longest surviving stretch of the Berlin Wall — a **1.3 km riverside section** turned into the world's largest open-air gallery in 1990, when 118 artists from 21 countries painted its eastern face. Dmitri Vrubel's *Fraternal Kiss* and Birgit Kinder's Trabant breaking through the concrete are among the most photographed murals in Europe, a defiant celebration of freedom along the Spree at Mühlenstrasse.",
       "indoor": false,
       "best_time": "Afternoon",
       "price_range": "Free",
-      "seasonal_notes": "Artworks are subject to weathering; visit on a cloudy day to avoid glare and capture vivid photos.",
-      "booking_tips": "No booking required. Early mornings offer the best opportunity for unobstructed photographs.",
+      "seasonal_notes": "Murals are exposed to weathering and graffiti; an overcast day avoids harsh glare for photos. The riverside path is pleasant in warm months.",
+      "booking_tips": "No booking required. Visit early morning for unobstructed shots, as the wall draws steady crowds by midday.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 1.5,
         "cultural_significance": 4
       },
       "latitude": 52.505,
-      "longitude": 13.4397
+      "longitude": 13.4397,
+      "neighborhood": "Friedrichshain (Mühlenstrasse)",
+      "opening_hours": {
+        "weekday": "Open 24 hours (outdoor)",
+        "weekend": "Open 24 hours (outdoor)",
+        "notes": "Free public open-air monument; no admission or gates."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U1 / U3",
+            "station": "Warschauer Strasse",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Ostbahnhof",
+          "walk_minutes": 4
+        },
+        "last_train_consideration": "Warschauer Strasse and Ostbahnhof both serve the gallery; night buses cover late hours."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.75,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Limited cover; pair with nearby East Side Mall in rain"
+      },
+      "website": "https://www.eastsidegallery-berlin.de/",
+      "ticket_url": null
     },
     {
       "name": "Berlin Cathedral",
       "type": "Cathedral",
-      "description": "Berlin Cathedral, or Berliner Dom, is a stunning example of Baroque architecture and the largest church in Berlin. It offers ornate interiors, a historic organ, and an impressive dome with a panoramic view of the city.",
+      "description": "The grand **Berlin Cathedral** (Berliner Dom) is the city's largest church, a High Renaissance Baroque-revival pile of green-copper domes completed in 1905 as the court church of the Hohenzollern dynasty. Inside, a sumptuous marble-and-gilt interior, a 7,000-pipe Sauer organ, and the **Hohenzollern crypt** with around 90 sarcophagi reward exploration. Climb the 270 steps around the dome for an outdoor gallery overlooking Museum Island and the Spree.",
       "indoor": true,
       "best_time": "Morning",
       "price_range": "Moderate",
-      "seasonal_notes": "The cathedral can be particularly beautiful during the festive season with special concerts and services.",
-      "booking_tips": "Tickets can be purchased at the entrance; arrive early for the dome climb to avoid queues.",
+      "seasonal_notes": "Especially atmospheric during Advent with concerts and services; the dome walk is best on clear days.",
+      "booking_tips": "Buy timed tickets online or at the door; arrive early for the dome climb to beat queues. Closed to tourists during services.",
       "ratings": {
-        "cost_estimate": 9,
+        "cost_estimate": 10,
         "suggested_duration_hours": 1.5,
         "cultural_significance": 4
       },
       "latitude": 52.519,
-      "longitude": 13.401
+      "longitude": 13.401,
+      "neighborhood": "Mitte / Museumsinsel (Lustgarten)",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (Mon-Sat)",
+        "weekend": "12:00-17:00 (Sun, after services)",
+        "notes": "Closed to sightseeing during worship; dome closes in high wind."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-12-24",
+          "reason": "Closed to tourists for Christmas services"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U5",
+            "station": "Museumsinsel",
+            "walk_minutes": 4
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Hackescher Markt",
+          "walk_minutes": 7
+        },
+        "last_train_consideration": "U5 Museumsinsel station is steps away; evening service is reliable."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Largely indoor; dome gallery only in fair weather"
+      },
+      "website": "https://www.berlinerdom.de/en/",
+      "ticket_url": "https://www.berlinerdom.de/en/visit/"
     },
     {
       "name": "Checkpoint Charlie",
       "type": "Historical Site",
-      "description": "Once the most famous crossing point between East and West Berlin during the Cold War, Checkpoint Charlie remains a poignant symbol of the city's division. The site includes a museum documenting escape attempts and life in divided Berlin.",
+      "description": "The most famous border crossing of the Cold War, **Checkpoint Charlie** marked the boundary between the American and Soviet sectors and the scene of the 1961 tank standoff that nearly sparked war. A reconstructed guardhouse, sandbags, and a soldier's portrait mark the spot on Friedrichstrasse, while the adjacent **Mauermuseum** documents daring escape attempts. The intersection itself is heavily touristed and ringed by snack stands.",
       "indoor": false,
       "best_time": "Afternoon",
       "price_range": "Budget",
-      "seasonal_notes": "Cold weather can make outdoor visits uncomfortable; indoor museum offers respite and detailed exhibits.",
-      "booking_tips": "Museum tickets can be purchased onsite; allow extra time during peak hours.",
+      "seasonal_notes": "The outdoor site offers little shelter in winter; the indoor museum gives respite and depth on cold days.",
+      "booking_tips": "The street checkpoint is free to view; Mauermuseum tickets are sold onsite or online. Skip the costumed photo actors.",
       "ratings": {
         "cost_estimate": 14.5,
-        "suggested_duration_hours": 2,
+        "suggested_duration_hours": 1.5,
         "cultural_significance": 4
       },
       "latitude": 52.5075,
-      "longitude": 13.3904
+      "longitude": 13.3904,
+      "neighborhood": "Mitte / Kreuzberg border (Friedrichstrasse)",
+      "opening_hours": {
+        "weekday": "Outdoor checkpoint 24 hours; Mauermuseum 09:00-22:00",
+        "weekend": "Outdoor checkpoint 24 hours; Mauermuseum 09:00-22:00",
+        "notes": "Street site always open; museum keeps long daily hours."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U6",
+            "station": "Kochstrasse / Checkpoint Charlie",
+            "walk_minutes": 1
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25",
+          "station": "Anhalter Bahnhof",
+          "walk_minutes": 9
+        },
+        "last_train_consideration": "U6 stops directly at the checkpoint; standard evening service."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes (with museum)",
+        "weather_fallback": "Mauermuseum provides indoor shelter"
+      },
+      "website": "https://www.mauermuseum.de/en/",
+      "ticket_url": "https://www.mauermuseum.de/en/visit/"
     },
     {
       "name": "Charlottenburg Palace",
       "type": "Palace",
-      "description": "The largest palace in Berlin, Charlottenburg Palace is a magnificent baroque structure surrounded by expansive gardens. The interiors boast opulent rooms and art collections from the Prussian era.",
+      "description": "The largest and grandest of Berlin's surviving Hohenzollern palaces, **Charlottenburg** is a Baroque-and-Rococo showpiece built from 1695 for Queen Sophie Charlotte. Highlights include the dazzling **Porcelain Cabinet**, the Golden Gallery, and a formal Baroque garden that melts into an English landscape park along the Spree, complete with mausoleum and tea pavilion. The interiors brim with Prussian regalia, period furniture, and a fine collection of French paintings.",
       "indoor": true,
       "best_time": "Afternoon",
       "price_range": "Moderate",
-      "seasonal_notes": "Gardens are beautiful in spring and summer; winter offers a quieter experience in the interior.",
-      "booking_tips": "Online tickets available; guided tours enhance the visit with historical context.",
+      "seasonal_notes": "The gardens are loveliest in spring and summer; winter brings a popular Christmas market in the forecourt and a quieter interior.",
+      "booking_tips": "Buy the combined ticket (Old Palace plus New Wing) online; audio guides are included. The park is free to enter.",
       "ratings": {
         "cost_estimate": 12,
         "suggested_duration_hours": 3,
         "cultural_significance": 4
       },
       "latitude": 52.5209,
-      "longitude": 13.2959
+      "longitude": 13.2959,
+      "neighborhood": "Charlottenburg",
+      "opening_hours": {
+        "weekday": "10:00-17:30 (Tue-Sun); closed Mondays",
+        "weekend": "10:00-17:30",
+        "notes": "Garden open daily until dusk; palace closed Mondays. Winter hours close earlier."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-17:30",
+        "winter": "10:00-16:30"
+      },
+      "closures": [
+        {
+          "date": "2025-12-24",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U7",
+            "station": "Richard-Wagner-Platz",
+            "walk_minutes": 9
+          },
+          {
+            "line": "U2",
+            "station": "Sophie-Charlotte-Platz",
+            "walk_minutes": 12
+          }
+        ],
+        "closest_rer": {
+          "line": "S41 / S42 / S46",
+          "station": "Westend",
+          "walk_minutes": 15
+        },
+        "last_train_consideration": "Bus M45 runs to the gate; U-Bahn requires a short walk. Plan evening returns from Richard-Wagner-Platz."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 4,
+        "ideal_time_block": "3 hours",
+        "weather_fallback": "Palace interior ideal in rain; gardens for fair days"
+      },
+      "website": "https://www.spsg.de/en/palaces-gardens/object/charlottenburg-palace-old-palace/",
+      "ticket_url": "https://tickets.spsg.de/"
     },
     {
       "name": "Potsdamer Platz",
-      "type": "District",
-      "description": "Potsdamer Platz is a vibrant hub of modern architecture, shopping, and entertainment. Once a desolate wasteland post-WWII, it now features the Sony Center, IMAX cinema, and a host of shops and restaurants.",
+      "type": "District / Square",
+      "description": "Razed in WWII and left a derelict no-man's-land beside the Wall, **Potsdamer Platz** was reborn in the 1990s as a gleaming district of glass towers, designed by Renzo Piano and others. The tented **Sony Center** atrium, the Kollhoff Tower with one of Europe's fastest elevators, and a clutch of cinemas and the Deutsche Kinemathek anchor the square. A few preserved sections of the Wall stand as quiet reminders amid the corporate sheen.",
       "indoor": false,
       "best_time": "Evening",
       "price_range": "Free",
-      "seasonal_notes": "Lively atmosphere year-round; Christmas markets add festive charm in winter.",
-      "booking_tips": "No booking required; explore at your leisure.",
+      "seasonal_notes": "Lively year-round; the winter 'Winterwelt' brings a toboggan run and Christmas market, while the Berlinale film festival fills it each February.",
+      "booking_tips": "No booking required to wander; Panoramapunkt observation deck and cinemas sell tickets separately.",
       "ratings": {
         "cost_estimate": 0,
-        "suggested_duration_hours": 2,
+        "suggested_duration_hours": 1.5,
         "cultural_significance": 3
       },
       "latitude": 52.5096,
-      "longitude": 13.3769
+      "longitude": 13.3769,
+      "neighborhood": "Mitte / Tiergarten border",
+      "opening_hours": {
+        "weekday": "Public square open 24 hours",
+        "weekend": "Public square open 24 hours",
+        "notes": "Square always accessible; individual venues set their own hours."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U2",
+            "station": "Potsdamer Platz",
+            "walk_minutes": 1
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25 / S26",
+          "station": "Potsdamer Platz",
+          "walk_minutes": 1
+        },
+        "last_train_consideration": "Major U-Bahn/S-Bahn/regional hub with excellent late service."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Mall of Berlin and Sony Center atrium are covered"
+      },
+      "website": "https://www.visitberlin.de/en/potsdamer-platz",
+      "ticket_url": null
     },
     {
       "name": "Alexanderplatz",
       "type": "Square",
-      "description": "Alexanderplatz is a major public square and transport hub known for its iconic TV Tower, world clock, and bustling atmosphere. It's a central meeting point and offers a mix of shopping, dining, and cultural activities.",
+      "description": "The pulsing heart of former East Berlin, **Alexanderplatz** ('Alex') is a vast socialist-era plaza ringed by department stores and dominated by the soaring TV Tower. Landmarks include the **World Time Clock** (Urania-Weltzeituhr), the Fountain of Friendship Among Peoples, and the red-brick Marienkirche. It remains the city's busiest transit hub and a magnet for shoppers, buskers, and a sprawling Christmas market in winter.",
       "indoor": false,
       "best_time": "Morning",
       "price_range": "Free",
-      "seasonal_notes": "Summer brings street performers and outdoor events; winter features a lively Christmas market.",
-      "booking_tips": "No booking required; consider a guided tour to learn about its historical significance.",
+      "seasonal_notes": "Summer brings street performers and pop-up events; winter hosts one of Berlin's largest Christmas markets with an ice rink.",
+      "booking_tips": "No booking required. A natural starting point for walking tours of the historic center.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 1,
         "cultural_significance": 3
       },
       "latitude": 52.5219,
-      "longitude": 13.4132
+      "longitude": 13.4132,
+      "neighborhood": "Mitte",
+      "opening_hours": {
+        "weekday": "Public square open 24 hours",
+        "weekend": "Public square open 24 hours",
+        "notes": "Open plaza; surrounding shops typically 10:00-20:00."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U2 / U5 / U8",
+            "station": "Alexanderplatz",
+            "walk_minutes": 1
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Alexanderplatz",
+          "walk_minutes": 1
+        },
+        "last_train_consideration": "One of Berlin's largest interchanges; superb late-night coverage including night buses and trams."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Galeria and ALEXA shopping centers adjacent"
+      },
+      "website": "https://www.visitberlin.de/en/alexanderplatz",
+      "ticket_url": null
     },
     {
       "name": "Tiergarten",
       "type": "Park",
-      "description": "Berlin's largest and most popular inner-city park, Tiergarten offers a peaceful green space for relaxation and recreation. Highlights include the Victory Column, beautiful lakes, and the Berlin Zoo on its southwestern edge.",
+      "description": "Berlin's green lung, the **Tiergarten** is a 210-hectare former royal hunting ground threaded with shaded paths, lakes, and meadows in the middle of the city. At its center rises the golden **Victory Column** (Siegessäule); elsewhere you'll find the rose-filled Englischer Garten, the Soviet War Memorial, and clearings where Berliners barbecue and sunbathe through the summer. It links the Brandenburg Gate to the zoo in one continuous expanse of woodland.",
       "indoor": false,
       "best_time": "Morning",
       "price_range": "Free",
-      "seasonal_notes": "Spring and autumn are ideal for leisurely walks; summer can be bustling with picnics and events.",
-      "booking_tips": "No booking required; explore at your own pace.",
+      "seasonal_notes": "Spring and autumn foliage are spectacular; summer weekends fill with picnickers and barbecue smoke in the designated zones.",
+      "booking_tips": "No booking required. Climbing the Victory Column carries a small separate fee.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 2,
         "cultural_significance": 3
       },
       "latitude": 52.5145,
-      "longitude": 13.3501
+      "longitude": 13.3501,
+      "neighborhood": "Tiergarten",
+      "opening_hours": {
+        "weekday": "Open 24 hours (park)",
+        "weekend": "Open 24 hours (park)",
+        "notes": "Park always open; Victory Column viewing platform 10:00-18:00 (seasonal)."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U5",
+            "station": "Bundestag",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Tiergarten",
+          "walk_minutes": 3
+        },
+        "last_train_consideration": "Bordered by several S-Bahn stops and bus 100/200 routes; easy evening access."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Limited cover; pair with nearby museums in rain"
+      },
+      "website": "https://www.berlin.de/en/parks-and-gardens/3560290-4407152-tiergarten-park.en.html",
+      "ticket_url": null
     },
     {
       "name": "Berlin Zoological Garden",
       "type": "Zoo",
-      "description": "One of the world's oldest and most visited zoos, the Berlin Zoological Garden is home to a diverse range of species, including giant pandas. Its well-maintained facilities and conservation efforts make it a favorite among families.",
+      "description": "Founded in 1844, the **Berlin Zoological Garden** is Germany's oldest zoo and among the most species-rich in the world, home to roughly 20,000 animals including **giant pandas**, gorillas, elephants, and the famed hippo house. Its ornate Oriental-style **Elephant Gate** is a landmark in its own right. Set on the western edge of the Tiergarten and paired with a renowned aquarium, it is a perennial favorite with families.",
       "indoor": false,
       "best_time": "Morning",
       "price_range": "Moderate",
-      "seasonal_notes": "Open year-round; spring and summer offer the best experience for animal viewing.",
-      "booking_tips": "Online tickets available; consider arriving early to avoid queues, especially during school holidays.",
+      "seasonal_notes": "Open year-round; spring and summer give the most active animal viewing and access to outdoor enclosures.",
+      "booking_tips": "Buy timed tickets online to skip the gate queue, especially during school holidays. A combined zoo-and-aquarium ticket offers savings.",
       "ratings": {
-        "cost_estimate": 16,
+        "cost_estimate": 17.5,
         "suggested_duration_hours": 3,
         "cultural_significance": 4
       },
       "latitude": 52.5079,
-      "longitude": 13.3378
+      "longitude": 13.3378,
+      "neighborhood": "Tiergarten / Charlottenburg (Zoo)",
+      "opening_hours": {
+        "weekday": "09:00-18:30 (summer) / 09:00-16:30 (winter)",
+        "weekend": "09:00-18:30 (summer) / 09:00-16:30 (winter)",
+        "notes": "Last admission ~1 hour before closing; winter hours shorter."
+      },
+      "seasonal_hours": {
+        "summer": "09:00-18:30",
+        "winter": "09:00-16:30"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U2 / U9",
+            "station": "Zoologischer Garten",
+            "walk_minutes": 2
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Zoologischer Garten",
+          "walk_minutes": 2
+        },
+        "last_train_consideration": "Zoo station is a major interchange; access is straightforward all day."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 4,
+        "ideal_time_block": "3 hours",
+        "weather_fallback": "Aquarium and indoor houses for rainy days"
+      },
+      "website": "https://www.zoo-berlin.de/en",
+      "ticket_url": "https://www.zoo-berlin.de/en/your-visit/tickets"
     },
     {
       "name": "Pergamon Museum",
       "type": "Museum",
-      "description": "Part of the Museum Island complex, the Pergamon Museum is renowned for its impressive collection of ancient artifacts, including the Pergamon Altar and the Market Gate of Miletus. Its vast collections cover Greek, Roman, and Islamic art.",
+      "description": "The crown jewel of Museum Island, the **Pergamon Museum** houses monumental reconstructions of antiquity: the **Ishtar Gate** of Babylon in its glowing blue glazed brick, the Market Gate of Miletus, and (when reopened) the colossal Pergamon Altar. Its collections of Ancient Near Eastern, Islamic, and classical art are unrivalled. Note that the main hall is undergoing a phased, multi-year renovation — check which wings are accessible before planning a visit.",
       "indoor": true,
       "best_time": "Morning",
       "price_range": "Expensive",
-      "seasonal_notes": "Visit during weekdays to avoid large crowds, especially in summer.",
-      "booking_tips": "Purchase tickets online to ensure entry, as it can sell out during peak seasons.",
+      "seasonal_notes": "Weekday mornings are calmest. A major renovation has closed parts of the museum; verify current access on the official site.",
+      "booking_tips": "Reserve timed tickets online — sections that are open sell out fast. The Pergamon Panorama nearby offers an alternative during closures.",
       "ratings": {
         "cost_estimate": 19,
         "suggested_duration_hours": 2.5,
         "cultural_significance": 5
       },
       "latitude": 52.5212,
-      "longitude": 13.3969
+      "longitude": 13.3969,
+      "neighborhood": "Mitte / Museumsinsel",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (Thu to 20:00); closed Mondays",
+        "weekend": "10:00-18:00",
+        "notes": "Partial closures due to ongoing renovation; confirm open wings before visiting."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-12-24",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U6",
+            "station": "Friedrichstrasse",
+            "walk_minutes": 9
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Hackescher Markt",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Served by the Hackescher Markt and Friedrichstrasse S-Bahn hubs."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours 30 minutes",
+        "weather_fallback": "Entirely indoor; excellent rainy-day choice"
+      },
+      "website": "https://www.smb.museum/en/museums-institutions/pergamonmuseum/home/",
+      "ticket_url": "https://shop.smb.museum/en/"
     },
     {
       "name": "Jewish Museum Berlin",
       "type": "Museum",
-      "description": "The Jewish Museum Berlin offers a poignant exploration of Jewish history and culture in Germany. Its striking architectural design by Daniel Libeskind enhances the experience with symbolic structures and thought-provoking exhibits.",
+      "description": "The **Jewish Museum Berlin** traces two millennia of German-Jewish history through a building that is itself an exhibit: Daniel Libeskind's zinc-clad zigzag, slashed with diagonal 'voids' and anchored by the disorienting **Garden of Exile** and the resonant Holocaust Tower. The permanent exhibition pairs everyday objects with searching installations, making it one of Europe's most affecting museums of culture and memory.",
       "indoor": true,
       "best_time": "Afternoon",
-      "price_range": "Budget",
-      "seasonal_notes": "Open year-round; special exhibitions may attract more visitors.",
-      "booking_tips": "Tickets can be purchased at the entrance or online. Allow extra time for security checks.",
+      "price_range": "Free",
+      "seasonal_notes": "Open year-round; special exhibitions can draw larger crowds and may carry a fee.",
+      "booking_tips": "Permanent-exhibition admission is free but a timed ticket is recommended. Allow time for airport-style security at the entrance.",
       "ratings": {
-        "cost_estimate": 8,
+        "cost_estimate": 0,
         "suggested_duration_hours": 2,
         "cultural_significance": 5
       },
       "latitude": 52.5023,
-      "longitude": 13.3954
+      "longitude": 13.3954,
+      "neighborhood": "Kreuzberg",
+      "opening_hours": {
+        "weekday": "10:00-19:00",
+        "weekend": "10:00-19:00",
+        "notes": "Open daily; last admission ~1 hour before closing."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-09-23",
+          "reason": "Closed for Jewish holidays (Rosh Hashanah)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U1 / U3 / U6",
+            "station": "Hallesches Tor",
+            "walk_minutes": 7
+          },
+          {
+            "line": "U6",
+            "station": "Kochstrasse",
+            "walk_minutes": 9
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25",
+          "station": "Anhalter Bahnhof",
+          "walk_minutes": 12
+        },
+        "last_train_consideration": "U1/U6 at Hallesches Tor give reliable evening access."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Fully indoor; strong rainy-day option"
+      },
+      "website": "https://www.jmberlin.de/en",
+      "ticket_url": "https://www.jmberlin.de/en/plan-your-visit"
     },
     {
       "name": "Kurfürstendamm",
       "type": "Shopping District",
-      "description": "Often referred to as 'Ku'damm,' this famous boulevard is Berlin's premier shopping destination, featuring luxury boutiques, department stores, and historic landmarks such as the Kaiser Wilhelm Memorial Church.",
+      "description": "The glittering spine of former West Berlin, the **Kurfürstendamm** ('Ku'damm') runs 3.5 km of flagship boutiques, department stores, and grand cafés from Breitscheidplatz westward. It is bookended by the **KaDeWe** luxury emporium and the ruined Kaiser Wilhelm Memorial Church, with Art Nouveau apartment blocks lining the side streets. The boulevard is at its most dazzling under festive lights in December.",
       "indoor": false,
       "best_time": "Afternoon",
       "price_range": "Free",
-      "seasonal_notes": "Especially festive during the holidays with decorations and lights. Summer sales can draw larger crowds.",
-      "booking_tips": "No booking required; explore at your leisure.",
+      "seasonal_notes": "Festive illuminations make December especially atmospheric; summer sales draw larger crowds.",
+      "booking_tips": "No booking required; explore at leisure. KaDeWe's top-floor food hall is a destination in itself.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 3
+      },
+      "latitude": 52.5031,
+      "longitude": 13.3272,
+      "neighborhood": "Charlottenburg-Wilmersdorf",
+      "opening_hours": {
+        "weekday": "Public street open 24 hours; shops typically 10:00-20:00",
+        "weekend": "Shops typically 10:00-20:00 (Sat); most closed Sundays",
+        "notes": "Street always accessible; German shops generally close on Sundays."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U1",
+            "station": "Uhlandstrasse",
+            "walk_minutes": 2
+          },
+          {
+            "line": "U2 / U9",
+            "station": "Zoologischer Garten",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Zoologischer Garten",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Well served by U-Bahn and S-Bahn at Zoo; good evening coverage."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 3,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "KaDeWe and arcades provide indoor shelter"
+      },
+      "website": "https://www.visitberlin.de/en/kurfuerstendamm",
+      "ticket_url": null
+    },
+    {
+      "name": "Gendarmenmarkt",
+      "type": "Square",
+      "description": "Widely held to be Berlin's most beautiful square, **Gendarmenmarkt** is a harmonious Neoclassical ensemble framing Schinkel's columned **Konzerthaus** and the matching domed **German and French Cathedrals**. Laid out in the late 17th century, it stages open-air concerts in summer and hosts the city's most elegant Christmas market in winter. A statue of the poet Schiller presides over the central paving.",
+      "indoor": false,
+      "best_time": "Evening",
+      "price_range": "Free",
+      "seasonal_notes": "Spring and summer suit outdoor dining; the WeihnachtsZauber Christmas market (ticketed entry) transforms the square each December.",
+      "booking_tips": "No booking required to enter the square. Cathedral towers and Konzerthaus concerts are ticketed separately.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 4
+      },
+      "latitude": 52.5137,
+      "longitude": 13.3928,
+      "neighborhood": "Mitte",
+      "opening_hours": {
+        "weekday": "Public square open 24 hours",
+        "weekend": "Public square open 24 hours",
+        "notes": "Square always open; surrounding buildings set their own hours."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U2",
+            "station": "Stadtmitte",
+            "walk_minutes": 3
+          },
+          {
+            "line": "U6",
+            "station": "Französische Strasse",
+            "walk_minutes": 3
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25",
+          "station": "Brandenburger Tor",
+          "walk_minutes": 11
+        },
+        "last_train_consideration": "U2 and U6 cross at Stadtmitte one block away; evening access is easy."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "French Cathedral / Konzerthaus interiors nearby"
+      },
+      "website": "https://www.visitberlin.de/en/gendarmenmarkt",
+      "ticket_url": null
+    },
+    {
+      "name": "Mauerpark",
+      "type": "Park",
+      "description": "Built atop a slice of the Wall's former death strip, **Mauerpark** ('Wall Park') is now the rough-edged social heart of Prenzlauer Berg. Its legendary **Sunday flea market** sprawls across the slope, while the open-air **Bearpit Karaoke** amphitheater draws hundreds to cheer on amateur singers. A surviving stretch of graffitied wall, buskers, and barbecue smoke complete a scene that captures Berlin's improvised, come-as-you-are spirit.",
+      "indoor": false,
+      "best_time": "Afternoon (Sundays)",
+      "price_range": "Free",
+      "seasonal_notes": "The flea market and karaoke run year-round but are liveliest from late spring to early autumn; bring cash for the market.",
+      "booking_tips": "No booking required. Arrive before noon on Sunday for the best flea-market finds; karaoke kicks off mid-afternoon in warm months.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 2,
         "cultural_significance": 3
       },
-      "latitude": 52.5031,
-      "longitude": 13.3272
-    },
-    {
-      "name": "Gendarmenmarkt",
-      "type": "Square",
-      "description": "Regarded as one of Berlin's most beautiful squares, Gendarmenmarkt is home to the stunning Konzerthaus, French Cathedral, and German Cathedral. It hosts various events, including a popular Christmas market.",
-      "indoor": false,
-      "best_time": "Evening",
-      "price_range": "Free",
-      "seasonal_notes": "Spring and summer are ideal for outdoor dining and exploring nearby attractions. Winter offers a magical Christmas market.",
-      "booking_tips": "No booking required; guided tours available for detailed exploration.",
-      "ratings": {
-        "cost_estimate": 0,
-        "suggested_duration_hours": 1.5,
-        "cultural_significance": 4
-      },
-      "latitude": 52.5137,
-      "longitude": 13.3928
-    },
-    {
-      "name": "Mauerpark",
-      "type": "Park",
-      "description": "Mauerpark, meaning 'Wall Park', is a large public park that was once part of the Berlin Wall's 'death strip'. It is now famous for its Sunday flea market and vibrant atmosphere, complete with live music and karaoke.",
-      "indoor": false,
-      "best_time": "Afternoon",
-      "price_range": "Free",
-      "seasonal_notes": "Best visited during warmer months when the flea market and karaoke are in full swing.",
-      "booking_tips": "No booking required; arrive early for the best flea market finds.",
-      "ratings": {
-        "cost_estimate": 0,
-        "suggested_duration_hours": 2.5,
-        "cultural_significance": 3
-      },
       "latitude": 52.5418,
-      "longitude": 13.4026
+      "longitude": 13.4026,
+      "neighborhood": "Prenzlauer Berg / Gesundbrunnen",
+      "opening_hours": {
+        "weekday": "Park open daily ~06:00-22:00",
+        "weekend": "Park open daily; flea market Sun ~09:00-18:00",
+        "notes": "Park accessible most hours; flea market is Sundays only."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U2",
+            "station": "Eberswalder Strasse",
+            "walk_minutes": 8
+          },
+          {
+            "line": "U8",
+            "station": "Bernauer Strasse",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25 / S26",
+          "station": "Nordbahnhof",
+          "walk_minutes": 12
+        },
+        "last_train_consideration": "Tram M10 runs alongside the park and gives good evening access."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Limited cover; nearby cafés on Oderberger Strasse"
+      },
+      "website": "https://www.berlin.de/en/parks-and-gardens/3561060-4407152-mauerpark.en.html",
+      "ticket_url": null
     },
     {
       "name": "Berlin TV Tower (Fernsehturm)",
       "type": "Observation Tower",
-      "description": "The Berlin TV Tower is one of the most recognizable landmarks in the city, offering breathtaking 360-degree views from its observation deck. At 368 meters, it is the tallest structure in Germany.",
+      "description": "Built by the GDR in 1969 as a showcase of socialist progress, the **Fernsehturm** is at 368 m the tallest structure in Germany and visible from across the city. A lift whisks you to the **observation deck at 203 m** for a 360-degree panorama, with the rotating Sphere restaurant one floor up making a full turn every half hour. The steel sphere's sunlit cross — nicknamed the 'Pope's Revenge' — is part of Berlin folklore.",
       "indoor": true,
-      "best_time": "Evening",
+      "best_time": "Evening / Sunset",
       "price_range": "Expensive",
-      "seasonal_notes": "Clear days provide the best views; consider sunset visits for an extraordinary panorama.",
-      "booking_tips": "Book tickets online for a specific time slot to avoid long queues.",
+      "seasonal_notes": "Clear days deliver the sharpest views; a sunset slot is the most coveted. Visibility drops sharply in low cloud.",
+      "booking_tips": "Book a timed ticket online to skip long ground-floor queues; 'fast view' and restaurant packages cost more.",
       "ratings": {
-        "cost_estimate": 21.5,
+        "cost_estimate": 25,
         "suggested_duration_hours": 1,
         "cultural_significance": 4
       },
       "latitude": 52.5208,
-      "longitude": 13.4094
+      "longitude": 13.4094,
+      "neighborhood": "Mitte / Alexanderplatz",
+      "opening_hours": {
+        "weekday": "10:00-22:00 (Mar-Oct) / 10:00-22:00 (Nov-Feb, reduced)",
+        "weekend": "09:00-23:00 (summer)",
+        "notes": "Last admission ~30 minutes before closing; hours extend in summer."
+      },
+      "seasonal_hours": {
+        "summer": "09:00-23:00",
+        "winter": "10:00-22:00"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U2 / U5 / U8",
+            "station": "Alexanderplatz",
+            "walk_minutes": 2
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Alexanderplatz",
+          "walk_minutes": 2
+        },
+        "last_train_consideration": "At the Alexanderplatz hub with excellent late service."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.75,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Indoor deck, but views poor in cloud — check forecast"
+      },
+      "website": "https://tv-turm.de/en/",
+      "ticket_url": "https://tv-turm.de/en/tickets/"
     },
     {
       "name": "Topography of Terror",
-      "type": "Museum",
-      "description": "Located on the former site of the Gestapo and SS headquarters, the Topography of Terror is a documentation center that provides a comprehensive history of Nazi terror. Its exhibits include photographs, documents, and audio recordings.",
+      "type": "Museum / Documentation Center",
+      "description": "On the unearthed foundations of the former **Gestapo and SS headquarters**, the **Topography of Terror** is an unflinching documentation center charting the apparatus of Nazi persecution. An indoor exhibition and a stark outdoor trench display, set against the longest surviving inner-city stretch of the Berlin Wall, together explain how terror was organized from this very ground. Admission is free and the experience is sobering and essential.",
       "indoor": true,
       "best_time": "Afternoon",
       "price_range": "Free",
-      "seasonal_notes": "The outdoor exhibits can be cold and windy; indoor sections provide shelter.",
-      "booking_tips": "No booking required; audio guides are available for a more detailed experience.",
+      "seasonal_notes": "The open-air trench is exposed; the indoor exhibition offers shelter in cold or wet weather.",
+      "booking_tips": "No booking required. Free audio guides deepen the visit; allow time to read the dense panels.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 2,
         "cultural_significance": 5
       },
       "latitude": 52.5068,
-      "longitude": 13.3835
+      "longitude": 13.3835,
+      "neighborhood": "Kreuzberg / Mitte border (Niederkirchnerstrasse)",
+      "opening_hours": {
+        "weekday": "10:00-20:00",
+        "weekend": "10:00-20:00",
+        "notes": "Indoor exhibition daily; outdoor grounds close at dusk in winter."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-12-24",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U6",
+            "station": "Kochstrasse / Checkpoint Charlie",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25",
+          "station": "Anhalter Bahnhof",
+          "walk_minutes": 7
+        },
+        "last_train_consideration": "U2 Potsdamer Platz and S-Bahn at Anhalter Bahnhof both serve the area."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Indoor exhibition hall offers full shelter"
+      },
+      "website": "https://www.topographie.de/en/",
+      "ticket_url": null
     },
     {
       "name": "Kaiser Wilhelm Memorial Church",
-      "type": "Church",
-      "description": "This iconic church serves as a memorial to peace and reconciliation. The original was damaged during WWII, and the ruins stand beside a modern church building, creating a striking architectural contrast.",
+      "type": "Church / Memorial",
+      "description": "On Breitscheidplatz at the head of the Ku'damm, the **Kaiser Wilhelm Memorial Church** (Gedächtniskirche) keeps its war-shattered bell tower — the **'hollow tooth'** — deliberately unrepaired as an anti-war memorial. Beside the ruin stands Egon Eiermann's modern octagonal hall, its walls a honeycomb of **blue stained glass** that glows like deep water inside. A small Hall of Remembrance documents the 1943 bombing.",
       "indoor": true,
       "best_time": "Morning",
       "price_range": "Free",
-      "seasonal_notes": "Special concerts and events are held throughout the year, enhancing its cultural appeal.",
-      "booking_tips": "No booking required; guided tours offer insights into its history and architecture.",
+      "seasonal_notes": "The blue-glass interior is most luminous in bright daylight. Breitscheidplatz hosts a Christmas market in December.",
+      "booking_tips": "No booking required; entry is free. Concerts and organ recitals are held throughout the year.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 0.75,
+        "cultural_significance": 4
+      },
+      "latitude": 52.5047,
+      "longitude": 13.335,
+      "neighborhood": "Charlottenburg (Breitscheidplatz)",
+      "opening_hours": {
+        "weekday": "New church 09:00-18:00; Memorial Hall 10:00-18:00",
+        "weekend": "New church 09:00-18:00; Memorial Hall Sat 10:00-18:00, Sun 12:00-17:30",
+        "notes": "Closed to sightseeing during services."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U1 / U2 / U3 / U9",
+            "station": "Wittenbergplatz / Kurfürstendamm",
+            "walk_minutes": 3
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Zoologischer Garten",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Multiple U-Bahn lines and the Zoo S-Bahn serve Breitscheidplatz."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1,
+        "ideal_time_block": "45 minutes",
+        "weather_fallback": "Interior fully sheltered"
+      },
+      "website": "https://www.gedaechtniskirche-berlin.de/",
+      "ticket_url": null
+    },
+    {
+      "name": "Memorial to the Murdered Jews of Europe",
+      "type": "Memorial",
+      "description": "Peter Eisenman's **Memorial to the Murdered Jews of Europe** (the Holocaust Memorial, 2005) covers a city block near the Brandenburg Gate with **2,711 concrete stelae** of varying heights, set on undulating ground. Walking the narrow grid, the slabs rise overhead until the rows seem to close in — a wordless, disorienting evocation of loss. Beneath the field, the free **Place of Information** names and remembers individual victims.",
+      "indoor": false,
+      "best_time": "Morning",
+      "price_range": "Free",
+      "seasonal_notes": "The open field is accessible day and night year-round. Note: the underground Information Centre is closed for renovation from 12 January to 30 April 2026, though the stelae field stays open.",
+      "booking_tips": "No booking required and admission is free. Visit early for quiet; the field is busiest midday. Treat it with respect — it is a memorial, not a playground.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 5
+      },
+      "latitude": 52.5139,
+      "longitude": 13.3789,
+      "neighborhood": "Mitte (Cora-Berliner-Strasse)",
+      "opening_hours": {
+        "weekday": "Stelae field open 24 hours; Information Centre 10:00-18:00 (closed Mondays)",
+        "weekend": "Stelae field open 24 hours; Information Centre 10:00-18:00",
+        "notes": "Information Centre closes Mondays and ~45 min after last admission."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-01-12",
+          "reason": "Information Centre closed for renovation through 30 April 2026 (field remains open)"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U5",
+            "station": "Brandenburger Tor",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25 / S26",
+          "station": "Brandenburger Tor",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Steps from Potsdamer Platz and Brandenburger Tor hubs; excellent coverage."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Information Centre offers indoor shelter (when open)"
+      },
+      "website": "https://www.stiftung-denkmal.de/en/memorials/memorial-to-the-murdered-jews-of-europe/",
+      "ticket_url": null
+    },
+    {
+      "name": "DDR Museum",
+      "type": "Museum",
+      "description": "A hands-on antidote to glass-case museums, the **DDR Museum** recreates daily life in communist East Germany through drawers, switches, and reconstructed rooms you are invited to touch. Climb into a **Trabant** for a simulated drive, sit in a furnished Plattenbau apartment, snoop in a Stasi interrogation set, and learn about FKK nudism, Spreewald gherkins, and queues for bananas. Compact, interactive, and consistently among the city's most-visited museums.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Long daily hours (open until 21:00) make it a good rainy-day or evening option; busiest on weekend afternoons.",
+      "booking_tips": "Buy tickets online to skip the desk queue; it can get crowded and the layout is compact. Allow 1.5-2 hours.",
+      "ratings": {
+        "cost_estimate": 13.5,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 52.5191,
+      "longitude": 13.4026,
+      "neighborhood": "Mitte (Karl-Liebknecht-Strasse, opposite Berlin Cathedral)",
+      "opening_hours": {
+        "weekday": "09:00-21:00",
+        "weekend": "09:00-21:00",
+        "notes": "Open daily; closes 16:00 on 24 and 31 December."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-12-24",
+          "reason": "Early closure at 16:00"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U5",
+            "station": "Museumsinsel",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Hackescher Markt",
+          "walk_minutes": 7
+        },
+        "last_train_consideration": "On the Spree by the Cathedral; tram M4/M5/M6 and S-Bahn nearby."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Fully indoor; strong rainy-day pick"
+      },
+      "website": "https://www.ddr-museum.de/en",
+      "ticket_url": "https://www.ddr-museum.de/en/visit"
+    },
+    {
+      "name": "Tempelhofer Feld",
+      "type": "Park / Former Airport",
+      "description": "The runways and apron of the closed **Tempelhof Airport** are now Berlin's most extraordinary public park: a flat, treeless **300-hectare** expanse where cyclists, skaters, and kite-surfers race down the old taxiways and community gardens sprout beside the tarmac. When the airport shut in 2008, locals voted to keep it undeveloped, preserving a vast, windswept sense of freedom right in the city. The monumental Nazi-era terminal building broods along one edge.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "Opening hours track daylight by month (as early as 06:00 in summer, closing by 17:00 in deep winter). Best on breezy, sunny days for wind sports.",
+      "booking_tips": "No booking and no admission. Bring or rent wheels; there is little shade, so pack sun protection in summer.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 3
+      },
+      "latitude": 52.4731,
+      "longitude": 13.4036,
+      "neighborhood": "Tempelhof / Neukölln",
+      "opening_hours": {
+        "weekday": "Sunrise to sunset (e.g. 06:00-22:30 Jun-Jul; 07:30-17:00 Dec-Jan)",
+        "weekend": "Sunrise to sunset (seasonal)",
+        "notes": "Gates open and close with daylight; exact times posted monthly at each gate."
+      },
+      "seasonal_hours": {
+        "summer": "06:00-22:30",
+        "winter": "07:30-17:00"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U6",
+            "station": "Tempelhof / Platz der Luftbrücke",
+            "walk_minutes": 5
+          },
+          {
+            "line": "U8",
+            "station": "Boddinstrasse",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "S41 / S42 / S45 / S46",
+          "station": "Tempelhof",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Multiple gates near U6, U8 and the Ringbahn; the field closes at dusk regardless."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "No shelter; not suited to rain or storms"
+      },
+      "website": "https://www.thf-berlin.de/en/your-visit/tempelhof-field",
+      "ticket_url": null
+    },
+    {
+      "name": "Neue Nationalgalerie",
+      "type": "Museum / Art Gallery",
+      "description": "Mies van der Rohe's last masterpiece, the **Neue Nationalgalerie** (reopened 2021 after a David Chipperfield restoration) is a temple of glass and steel whose column-free upper hall seems to float beneath its black coffered roof. The collection focuses on **20th-century art** — Expressionism, Bauhaus, Surrealism, and the New Objectivity — with works by Kirchner, Beckmann, and Grosz. The transparent pavilion and its sculpture terrace are an architectural pilgrimage in themselves.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Open late on Thursdays (to 20:00). Free admission on the first Thursday evening of each month under the Art4All program.",
+      "booking_tips": "Buy a timed ticket online; a Kulturforum combination ticket also covers the neighboring Gemäldegalerie. Closed Mondays.",
+      "ratings": {
+        "cost_estimate": 14,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 5
+      },
+      "latitude": 52.5067,
+      "longitude": 13.3676,
+      "neighborhood": "Tiergarten / Kulturforum (Potsdamer Strasse)",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (Tue, Wed, Fri); 10:00-20:00 (Thu); closed Mondays",
+        "weekend": "10:00-18:00",
+        "notes": "Closed Mondays; open late Thursdays."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-12-24",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U2",
+            "station": "Potsdamer Platz",
+            "walk_minutes": 8
+          },
+          {
+            "line": "U2",
+            "station": "Mendelssohn-Bartholdy-Park",
+            "walk_minutes": 7
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25 / S26",
+          "station": "Potsdamer Platz",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Short walk from the Potsdamer Platz hub; good evening coverage for Thursday late hours."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Fully indoor; pairs with Gemäldegalerie in rain"
+      },
+      "website": "https://www.smb.museum/en/museums-institutions/neue-nationalgalerie/home/",
+      "ticket_url": "https://www.smb.museum/en/museums-institutions/neue-nationalgalerie/plan-your-visit/prices-tickets/"
+    },
+    {
+      "name": "Hamburger Bahnhof – Nationalgalerie der Gegenwart",
+      "type": "Museum / Contemporary Art",
+      "description": "Housed in a grand 19th-century **former railway station**, the **Hamburger Bahnhof** is Berlin's flagship museum of contemporary art, its vaulted halls and lofty Rieckhallen wing made for large-scale installation. The collection spans **Warhol, Beuys, Kiefer, Rauschenberg**, and Cy Twombly, alongside rotating exhibitions of living artists. The blue-lit neoclassical facade glows at dusk, a striking gateway to the city's cutting edge.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Open late on Thursdays (to 20:00). Programming changes frequently, so check current exhibitions before visiting.",
+      "booking_tips": "Buy tickets online; the standard ticket covers the collection plus temporary shows. Closed Mondays.",
+      "ratings": {
+        "cost_estimate": 16,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 52.5277,
+      "longitude": 13.3712,
+      "neighborhood": "Moabit / Mitte border (Invalidenstrasse)",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (Tue, Wed, Fri); 10:00-20:00 (Thu); closed Mondays",
+        "weekend": "11:00-18:00",
+        "notes": "Closed Mondays; weekend opening at 11:00."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-12-24",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U6",
+            "station": "Naturkundemuseum",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Hauptbahnhof",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Close to Berlin Hauptbahnhof with extensive S-Bahn and tram links."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Fully indoor; excellent rainy-day option"
+      },
+      "website": "https://www.smb.museum/en/museums-institutions/hamburger-bahnhof/home/",
+      "ticket_url": "https://www.smb.museum/en/museums-institutions/hamburger-bahnhof/plan-your-visit/prices-tickets/"
+    },
+    {
+      "name": "Tränenpalast (Palace of Tears)",
+      "type": "Museum / Historical Site",
+      "description": "The glass-and-steel **Tränenpalast** ('Palace of Tears') was the departure hall at the Friedrichstrasse border crossing where East Berliners said wrenching farewells to Western visitors — hence its name. Now a free museum, it tells the story of the divided city through original border fittings, a passport control booth, and personal testimonies of separation, surveillance, and escape. Small but deeply moving, and easy to fit into a central itinerary.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Free",
+      "seasonal_notes": "Open year-round and entirely indoors, making it a reliable cold- or wet-weather stop near the city center.",
+      "booking_tips": "No booking required; admission is free. Free audio guides are available; closed Mondays.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 1,
         "cultural_significance": 4
       },
-      "latitude": 52.5047,
-      "longitude": 13.335
+      "latitude": 52.5208,
+      "longitude": 13.3873,
+      "neighborhood": "Mitte (Reichstagufer, by Friedrichstrasse station)",
+      "opening_hours": {
+        "weekday": "09:00-18:00 (Tue-Fri); closed Mondays",
+        "weekend": "10:00-18:00",
+        "notes": "Closed Mondays; opens an hour later on weekends."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-12-24",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U6",
+            "station": "Friedrichstrasse",
+            "walk_minutes": 2
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S3 / S5 / S7 / S9 / S25",
+          "station": "Friedrichstrasse",
+          "walk_minutes": 2
+        },
+        "last_train_consideration": "Beside the Friedrichstrasse interchange; superb transit access."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Fully indoor; ideal in any weather"
+      },
+      "website": "https://www.hdg.de/en/traenenpalast",
+      "ticket_url": null
+    },
+    {
+      "name": "Nikolaiviertel",
+      "type": "Historic Quarter",
+      "description": "Berlin's oldest residential quarter, the **Nikolaiviertel** clusters cobbled lanes and gabled houses around the twin-spired **Nikolaikirche** (consecrated c. 1230), the city's oldest church. Largely flattened in WWII, it was charmingly — if somewhat artificially — rebuilt by the GDR for Berlin's 750th anniversary in 1987. Today its taverns, craft shops, and the riverside terrace by the Spree make a cozy old-town counterpoint to the bustle of nearby Alexanderplatz.",
+      "indoor": false,
+      "best_time": "Evening",
+      "price_range": "Free",
+      "seasonal_notes": "Pleasant year-round; a small Christmas market and warm-lit taverns make it especially atmospheric in winter.",
+      "booking_tips": "No booking required to wander the quarter. The Nikolaikirche museum charges a modest entry fee.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 52.5163,
+      "longitude": 13.4067,
+      "neighborhood": "Mitte (near Rotes Rathaus)",
+      "opening_hours": {
+        "weekday": "Quarter open 24 hours; Nikolaikirche museum 10:00-18:00",
+        "weekend": "Quarter open 24 hours; Nikolaikirche museum 10:00-18:00",
+        "notes": "Streets always accessible; church-museum and shops keep daytime hours."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U2",
+            "station": "Klosterstrasse",
+            "walk_minutes": 5
+          },
+          {
+            "line": "U2 / U5 / U8",
+            "station": "Alexanderplatz",
+            "walk_minutes": 9
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Alexanderplatz",
+          "walk_minutes": 9
+        },
+        "last_train_consideration": "Close to Alexanderplatz; tram M4/M5/M6 nearby for evening returns."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Taverns and Nikolaikirche provide shelter"
+      },
+      "website": "https://www.visitberlin.de/en/nikolai-quarter",
+      "ticket_url": null
+    },
+    {
+      "name": "Berliner Philharmonie",
+      "type": "Concert Hall",
+      "description": "Hans Scharoun's revolutionary **Berliner Philharmonie** (1963) abandoned the shoebox concert hall for a tented, asymmetric 'vineyard' in which terraced seating wraps the orchestra on all sides — a design copied around the world. Home to the legendary **Berlin Philharmonic**, its golden, sail-like roof is a Kulturforum landmark. Even without a concert ticket you can join a guided architecture tour or catch a free **lunchtime chamber concert** on Tuesdays in season.",
+      "indoor": true,
+      "best_time": "Evening (concert) / Afternoon (tour)",
+      "price_range": "Moderate to High (concert-dependent)",
+      "seasonal_notes": "The main season runs roughly September to June; free Tuesday lunchtime concerts pause over summer. Guided tours run most days.",
+      "booking_tips": "Concert tickets sell out far ahead — book early on the official site. Guided tours (around €10) are released online on the 20th for the following month; free lunch concerts are first-come.",
+      "ratings": {
+        "cost_estimate": 10,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 5
+      },
+      "latitude": 52.5101,
+      "longitude": 13.3699,
+      "neighborhood": "Tiergarten / Kulturforum (Herbert-von-Karajan-Strasse)",
+      "opening_hours": {
+        "weekday": "Box office and tours by schedule; concerts typically evenings",
+        "weekend": "Concerts and matinees by program",
+        "notes": "Public access is via concerts, guided tours, and free Tuesday lunch concerts in season."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U2",
+            "station": "Potsdamer Platz",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25 / S26",
+          "station": "Potsdamer Platz",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Short walk from Potsdamer Platz; concerts end before last trains, but verify late service."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Fully indoor venue"
+      },
+      "website": "https://www.berliner-philharmoniker.de/en/",
+      "ticket_url": "https://www.berliner-philharmoniker.de/en/tickets/"
+    },
+    {
+      "name": "RAW-Gelände",
+      "type": "Cultural Complex / Nightlife",
+      "description": "A sprawling former **railway repair yard** (Reichsbahn-Ausbesserungswerk) in Friedrichshain, the **RAW-Gelände** is the raw, graffiti-soaked epicenter of Berlin's alternative scene. Among its crumbling brick halls you'll find clubs, a climbing wall in a WWII bunker, a Sunday flea market, skate ramps, street-food stalls, bars, and ever-shifting murals. Gritty and unvarnished, it embodies the city's improvised subculture just steps from Warschauer Strasse.",
+      "indoor": false,
+      "best_time": "Evening / Night",
+      "price_range": "Free (entry); venues vary",
+      "seasonal_notes": "Open-air areas come alive in warmer months; nightlife runs year-round and peaks late on weekends. Expect graffiti, noise, and a rough-edged crowd.",
+      "booking_tips": "No booking to wander the grounds; individual clubs and the bunker climbing hall charge their own admission. Take normal big-city night precautions.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 3
+      },
+      "latitude": 52.5078,
+      "longitude": 13.4516,
+      "neighborhood": "Friedrichshain (Revaler Strasse)",
+      "opening_hours": {
+        "weekday": "Open-air site accessible most hours; venues open afternoons/evenings",
+        "weekend": "Flea market Sundays; clubs run late into the night",
+        "notes": "Grounds are an open site; each bar, club, and hall sets its own hours."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U1 / U3",
+            "station": "Warschauer Strasse",
+            "walk_minutes": 4
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Warschauer Strasse",
+          "walk_minutes": 4
+        },
+        "last_train_consideration": "Beside the Warschauer Strasse hub; night buses (N1) and trams cover the small hours."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 3,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Indoor bars, halls and the bunker offer cover"
+      },
+      "website": "https://www.visitberlin.de/en/raw-gelaende",
+      "ticket_url": null
+    },
+    {
+      "name": "Treptower Park Soviet War Memorial",
+      "type": "Memorial / Park",
+      "description": "Set within the leafy **Treptower Park** along the Spree, this colossal **Soviet War Memorial** (1949) is the largest of its kind in Germany and the burial place of around 7,000 Red Army soldiers who fell in the Battle of Berlin. A grieving Mother Russia, flanking sarcophagi, and a final 12-metre bronze of a **soldier cradling a child and crushing a swastika** lead the eye down a vast ceremonial avenue. Monumental, solemn, and far quieter than the central sights.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "The surrounding park is lovely for a riverside stroll in summer; the memorial's scale is striking under a dusting of winter snow.",
+      "booking_tips": "No booking required and free to enter. Combine with a walk in Treptower Park or a Spree boat trip.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 4
+      },
+      "latitude": 52.4869,
+      "longitude": 13.4699,
+      "neighborhood": "Alt-Treptow (Treptower Park)",
+      "opening_hours": {
+        "weekday": "Open 24 hours (outdoor memorial and park)",
+        "weekend": "Open 24 hours (outdoor memorial and park)",
+        "notes": "Public open-air monument; no gates or admission."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [],
+        "closest_rer": {
+          "line": "S8 / S9 / S41 / S42 / S85",
+          "station": "Treptower Park",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Reached via the S-Bahn at Treptower Park; no U-Bahn nearby, so plan around S-Bahn schedules."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.75,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Exposed outdoor site; little shelter"
+      },
+      "website": "https://www.berlin.de/en/attractions-and-sights/3561331-3104052-soviet-memorial-treptow.en.html",
+      "ticket_url": null
+    },
+    {
+      "name": "Viktoriapark",
+      "type": "Park",
+      "description": "Draped over the **Kreuzberg hill** — at 66 m the highest natural point in inner Berlin — **Viktoriapark** offers a rare bit of topography and a 24-metre artificial **waterfall** modelled on a cascade in the Giant Mountains. At the summit, Schinkel's cast-iron **National Monument** commemorates the Wars of Liberation, and a terrace looks out over the rooftops of Kreuzberg. The slopes hide a small vineyard and a beloved beer garden.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "The waterfall runs only in the warmer months (typically May to early autumn). Sunset from the monument terrace is a local favorite in summer.",
+      "booking_tips": "No booking required. Wear decent shoes for the short uphill climb; the Golgatha beer garden nearby is a fine reward.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 52.4881,
+      "longitude": 13.3786,
+      "neighborhood": "Kreuzberg",
+      "opening_hours": {
+        "weekday": "Open 24 hours (park)",
+        "weekend": "Open 24 hours (park)",
+        "notes": "Park always open; the waterfall is switched off in winter."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U6",
+            "station": "Platz der Luftbrücke",
+            "walk_minutes": 7
+          },
+          {
+            "line": "U7",
+            "station": "Mehringdamm",
+            "walk_minutes": 9
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25",
+          "station": "Yorckstrasse",
+          "walk_minutes": 10
+        },
+        "last_train_consideration": "U6/U7 give good evening access; the park has no gates."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Little cover; nearby Bergmannstrasse cafés in rain"
+      },
+      "website": "https://www.berlin.de/en/parks-and-gardens/3560783-4407152-viktoriapark.en.html",
+      "ticket_url": null
+    },
+    {
+      "name": "Olympiastadion Berlin",
+      "type": "Stadium / Historical Site",
+      "description": "Built for the **1936 Olympic Games**, the **Olympiastadion** is a vast, colonnaded bowl of pale Franconian limestone that doubles as a monument to Nazi-era architecture and a modern, roofed football arena (home of Hertha BSC and host of the 2006 World Cup final). A self-guided multimedia tour leads through the stands, the marathon gate, and the bell tower, while the surrounding Olympic Park preserves the haunting scale of the original complex.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Self-guided visits run on non-event days; check the fixture and concert calendar, as the stadium closes to tourists when events are staged.",
+      "booking_tips": "Buy the self-guided ticket online or at the visitor center; a multimedia guide is available. Interior rooms (dressing rooms, VIP areas) require a separate guided tour.",
+      "ratings": {
+        "cost_estimate": 11,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 52.5147,
+      "longitude": 13.2395,
+      "neighborhood": "Westend / Charlottenburg-Wilmersdorf",
+      "opening_hours": {
+        "weekday": "09:00-19:00 (summer) / 10:00-16:00 (winter); last entry 30 min prior",
+        "weekend": "09:00-19:00 (summer) / 10:00-16:00 (winter)",
+        "notes": "Closed to self-guided visits on match and event days; hours may change at short notice."
+      },
+      "seasonal_hours": {
+        "summer": "09:00-19:00",
+        "winter": "10:00-16:00"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U2",
+            "station": "Olympiastadion",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S9",
+          "station": "Olympiastadion",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Both U2 and S-Bahn terminate at Olympiastadion; service is heavy on event days, lighter otherwise."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Largely open-air; limited cover under the stands"
+      },
+      "website": "https://olympiastadion.berlin/en/",
+      "ticket_url": "https://olympiastadion.berlin/en/guided-tours/"
+    },
+    {
+      "name": "Gemäldegalerie",
+      "type": "Museum / Art Gallery",
+      "description": "The **Gemäldegalerie** holds one of the world's finest collections of **European Old Master paintings**, from the 13th to the 18th century, displayed across a serene sequence of skylit halls at the Kulturforum. Highlights include Vermeer, multiple Rembrandts, Caravaggio, Botticelli, Dürer, and Bruegel's *Netherlandish Proverbs*. Less crowded than Museum Island, it rewards slow looking and is among the most rewarding art museums in Germany.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Moderate",
+      "seasonal_notes": "Weekday mornings are quietest. Open late on Thursdays; closed Mondays. A Kulturforum combination ticket also covers the Neue Nationalgalerie.",
+      "booking_tips": "Buy online; free for under-18s. The galleries are extensive, so allow at least two hours and pick a route in advance.",
+      "ratings": {
+        "cost_estimate": 14,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 52.5081,
+      "longitude": 13.3653,
+      "neighborhood": "Tiergarten / Kulturforum (Matthäikirchplatz)",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (Tue, Wed, Fri); 10:00-20:00 (Thu); closed Mondays",
+        "weekend": "11:00-18:00",
+        "notes": "Closed Mondays; weekend opening at 11:00."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-12-24",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U2",
+            "station": "Potsdamer Platz",
+            "walk_minutes": 9
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25 / S26",
+          "station": "Potsdamer Platz",
+          "walk_minutes": 9
+        },
+        "last_train_consideration": "Short walk from Potsdamer Platz; bus M29/M48 stops at the Kulturforum."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Fully indoor; excellent rainy-day option"
+      },
+      "website": "https://www.smb.museum/en/museums-institutions/gemaeldegalerie/home/",
+      "ticket_url": "https://www.smb.museum/en/museums-institutions/gemaeldegalerie/plan-your-visit/prices-tickets/"
+    },
+    {
+      "name": "Bode Museum",
+      "type": "Museum",
+      "description": "Occupying the elegant baroque prow at the tip of Museum Island, the **Bode Museum** crowns its grand staircase with a great dome and houses a world-class **sculpture collection** spanning the Middle Ages to the 18th century, alongside Byzantine art and one of the largest numismatic collections on earth. Its serene, mirror-floored galleries and riverside setting make it the most architecturally romantic of the island's five museums, and usually the least crowded.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Generally quieter than the Pergamon or Neues; weekday afternoons are calmest. Closed Mondays.",
+      "booking_tips": "Buy online or use a Museum Island day pass. Allow about 1.5-2 hours; the sculpture courts reward a slow pace.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 52.5219,
+      "longitude": 13.3947,
+      "neighborhood": "Mitte / Museumsinsel (Monbijoubrücke)",
+      "opening_hours": {
+        "weekday": "10:00-17:00 (Tue-Fri); closed Mondays",
+        "weekend": "10:00-18:00",
+        "notes": "Closed Mondays; weekend hours run slightly later."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-12-24",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U6",
+            "station": "Oranienburger Tor",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25",
+          "station": "Oranienburger Strasse",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Tram M1/M12 and the Oranienburger Strasse S-Bahn serve the northern tip of the island."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Fully indoor; pairs well with the rest of Museum Island in rain"
+      },
+      "website": "https://www.smb.museum/en/museums-institutions/bode-museum/home/",
+      "ticket_url": "https://www.smb.museum/en/museums-institutions/bode-museum/plan-your-visit/prices-tickets/"
+    },
+    {
+      "name": "Neues Museum",
+      "type": "Museum",
+      "description": "Reborn from wartime ruin in David Chipperfield's acclaimed 2009 restoration — which left bullet scars and bare brick deliberately exposed — the **Neues Museum** is home to the **bust of Queen Nefertiti**, the serene 3,300-year-old limestone icon that draws visitors from around the world. Its Egyptian Museum and Museum of Prehistory also display the Berlin Green Head, papyri, and the golden Bronze Age 'Hat of Schifferstadt'. A masterpiece of both archaeology and architectural conservation.",
+      "indoor": true,
+      "best_time": "Morning",
+      "price_range": "Moderate",
+      "seasonal_notes": "The Nefertiti room can be busy midday; arrive at opening for a calmer encounter. Closed Mondays.",
+      "booking_tips": "Reserve a timed ticket online — it is one of the island's most popular houses. Photography is not permitted in the Nefertiti gallery.",
+      "ratings": {
+        "cost_estimate": 14,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 52.5208,
+      "longitude": 13.3979,
+      "neighborhood": "Mitte / Museumsinsel",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (Tue, Wed, Fri); 10:00-20:00 (Thu); closed Mondays",
+        "weekend": "10:00-18:00",
+        "notes": "Closed Mondays; brief maintenance closures occur a few days per year."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-12-24",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U6",
+            "station": "Friedrichstrasse",
+            "walk_minutes": 9
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Hackescher Markt",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Served by Hackescher Markt and Friedrichstrasse S-Bahn hubs."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Fully indoor; excellent rainy-day choice"
+      },
+      "website": "https://www.smb.museum/en/museums-institutions/neues-museum/home/",
+      "ticket_url": "https://www.smb.museum/en/museums-institutions/neues-museum/plan-your-visit/prices-tickets/"
+    },
+    {
+      "name": "Hackesche Höfe",
+      "type": "Historic Courtyards / Shopping",
+      "description": "The **Hackesche Höfe** is Germany's largest interconnected courtyard complex, a sequence of **eight linked Höfe** completed in 1907 and lined with shimmering Art Nouveau tilework by August Endell. Restored after the Wall fell, the courtyards now hold boutiques, cafés, galleries, the Chamäleon variety theatre, and a cinema. Just off the buzzing Hackescher Markt, they are the polished heart of the Spandauer Vorstadt's nightlife and design scene.",
+      "indoor": false,
+      "best_time": "Afternoon / Evening",
+      "price_range": "Free",
+      "seasonal_notes": "Sheltered courtyards make this a good wet-weather wander; evenings buzz with bars and the variety theatre.",
+      "booking_tips": "No booking required to explore the courtyards; the Chamäleon theatre and cinema sell tickets separately. Most shops close Sundays.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 52.5251,
+      "longitude": 13.4023,
+      "neighborhood": "Mitte / Spandauer Vorstadt",
+      "opening_hours": {
+        "weekday": "Courtyards open daily; shops typically 10:00-20:00, bars later",
+        "weekend": "Courtyards open daily; many shops closed Sundays",
+        "notes": "Public passageways accessible most hours; individual venues set their own times."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U8",
+            "station": "Weinmeisterstrasse",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S5 / S7 / S9",
+          "station": "Hackescher Markt",
+          "walk_minutes": 2
+        },
+        "last_train_consideration": "Right by the Hackescher Markt S-Bahn and tram M1/M4/M5/M6; lively late."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Covered passageways and arcades give some shelter"
+      },
+      "website": "https://www.hackesche-hoefe.de/",
+      "ticket_url": null
+    },
+    {
+      "name": "Botanical Garden Berlin",
+      "type": "Garden / Park",
+      "description": "One of the largest and most important **botanical gardens in the world**, the Berlin-Dahlem garden spreads across 43 hectares with some 20,000 plant species. Its grand **Tropical Greenhouse** — among the tallest glasshouses anywhere — drips with palms and orchids, while themed outdoor gardens, an arboretum, and an alpine collection reward a long, leisurely wander. A serene, green half-day escape from the city's southwestern edge.",
+      "indoor": false,
+      "best_time": "Morning",
+      "price_range": "Moderate",
+      "seasonal_notes": "Outdoor gardens peak from spring to autumn; the heated greenhouses make it worthwhile even in winter. Summer hours run later into the evening.",
+      "booking_tips": "Tickets at the gate or online; the greenhouses close before the grounds, so see them first. The Botanical Museum is closed for modernization through 2027.",
+      "ratings": {
+        "cost_estimate": 6,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 3
+      },
+      "latitude": 52.4517,
+      "longitude": 13.3047,
+      "neighborhood": "Lichterfelde / Steglitz-Zehlendorf (Dahlem)",
+      "opening_hours": {
+        "weekday": "09:00-dusk (greenhouses 09:00-18:00 winter / 10:00-19:00 summer)",
+        "weekend": "09:00-dusk; same greenhouse hours",
+        "notes": "Garden closes at dusk; greenhouse and ticket-office hours are shorter than the grounds."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-20:00 (grounds)",
+        "winter": "09:00-18:00 (grounds)"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [],
+        "closest_rer": {
+          "line": "S1",
+          "station": "Botanischer Garten",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Reached via S1 (Botanischer Garten) or S25/bus to Rathaus Steglitz; plan around the garden's early dusk closing."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 4,
+        "ideal_time_block": "2 hours 30 minutes",
+        "weather_fallback": "Heated greenhouses provide indoor refuge in poor weather"
+      },
+      "website": "https://www.bgbm.org/en",
+      "ticket_url": "https://www.bgbm.org/en/entrance-fees"
+    },
+    {
+      "name": "Spandau Citadel (Zitadelle Spandau)",
+      "type": "Fortress / Museum",
+      "description": "One of the best-preserved **Renaissance fortresses** in Europe, the moated **Spandau Citadel** (begun 1559) sits where the Havel meets the Spree, its four arrow-headed bastions still intact. At its core rises the medieval **Julius Tower**, the oldest building in Berlin, climbable for views over the moat. Inside are a city-history museum, a striking exhibition of dismantled Prussian and GDR monuments ('Unveiled'), and a resident colony of bats in the casemates.",
+      "indoor": false,
+      "best_time": "Afternoon",
+      "price_range": "Budget",
+      "seasonal_notes": "Pleasant for a moat-side wander in summer; the citadel hosts concerts and a winter Christmas market. Free admission on the first Sunday of most months.",
+      "booking_tips": "Tickets at the gate cover the museums, exhibitions, and the Julius Tower. Check ahead, as parts may close for events or renovation.",
+      "ratings": {
+        "cost_estimate": 4.5,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 52.5408,
+      "longitude": 13.2178,
+      "neighborhood": "Haselhorst / Spandau",
+      "opening_hours": {
+        "weekday": "10:00-17:00",
+        "weekend": "10:00-17:00",
+        "notes": "Hours can vary for events; the Julius Tower keeps the same times. Check before visiting."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U7",
+            "station": "Zitadelle",
+            "walk_minutes": 4
+          }
+        ],
+        "closest_rer": {
+          "line": "S3 / S9",
+          "station": "Spandau",
+          "walk_minutes": 18
+        },
+        "last_train_consideration": "U7 stops directly at Zitadelle; it is the far western end of the line, so allow extra travel time."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Museum buildings and Julius Tower offer indoor cover"
+      },
+      "website": "https://www.zitadelle-berlin.de/en/",
+      "ticket_url": "https://www.zitadelle-berlin.de/en/your-visit/"
+    },
+    {
+      "name": "French Cathedral (Französischer Dom)",
+      "type": "Church / Observation Tower",
+      "description": "The northern of Gendarmenmarkt's twin domed churches, the **French Cathedral** (Französischer Dom) was built for Berlin's Huguenot refugees in the early 18th century. Its baroque tower offers a climb to a viewing gallery overlooking the city's most beautiful square, while the **Huguenot Museum** inside traces the story of the French Protestants who shaped early modern Berlin. A carillon adds bells to the square's summer concerts.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Budget",
+      "seasonal_notes": "The tower gallery gives fine views over the Gendarmenmarkt; pair with a December visit to the square's Christmas market.",
+      "booking_tips": "Tower and museum tickets are sold onsite; the church itself is free. Check for occasional event closures of the square.",
+      "ratings": {
+        "cost_estimate": 5,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 52.5141,
+      "longitude": 13.3925,
+      "neighborhood": "Mitte (Gendarmenmarkt)",
+      "opening_hours": {
+        "weekday": "Tower and museum 10:00-18:00 (closed Mondays)",
+        "weekend": "10:00-18:00",
+        "notes": "Closed Mondays; hours may shift for square events and concerts."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2025-12-24",
+          "reason": "Holiday closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U2",
+            "station": "Stadtmitte",
+            "walk_minutes": 4
+          },
+          {
+            "line": "U6",
+            "station": "Französische Strasse",
+            "walk_minutes": 3
+          }
+        ],
+        "closest_rer": {
+          "line": "S1 / S2 / S25",
+          "station": "Brandenburger Tor",
+          "walk_minutes": 12
+        },
+        "last_train_consideration": "U2/U6 cross at Stadtmitte one block away; easy evening access."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Church, museum and tower are indoors"
+      },
+      "website": "https://franzoesischer-dom.de/en/",
+      "ticket_url": null
+    },
+    {
+      "name": "Tempelhof Airport (Flughafen Tempelhof)",
+      "type": "Historical Site / Architecture",
+      "description": "The colossal, curving terminal of **Tempelhof Airport** is one of the largest buildings in the world and a primary monument of Nazi-era architecture. Famous as the lifeline of the **1948–49 Berlin Airlift**, when 'raisin bombers' supplied the blockaded western city, it closed to flights in 2008 and now opens its sweeping departure hall, hangars, and bunkers to guided tours. The airfield itself survives as the adjacent Tempelhofer Feld park.",
+      "indoor": true,
+      "best_time": "Afternoon",
+      "price_range": "Moderate",
+      "seasonal_notes": "Interior tours run year-round and shelter visitors from weather; tour times and languages vary, so check the schedule.",
+      "booking_tips": "The terminal interior is accessible only by guided tour — book a tour in your language ahead of time; the surrounding field is free and open separately.",
+      "ratings": {
+        "cost_estimate": 16,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 52.4821,
+      "longitude": 13.3915,
+      "neighborhood": "Tempelhof (Platz der Luftbrücke)",
+      "opening_hours": {
+        "weekday": "Building accessible by guided tour (typically afternoons); visitor center hours vary",
+        "weekend": "Guided tours run on weekends; check schedule",
+        "notes": "Terminal interior open to the public only via guided tours; no free walk-in access."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "U6",
+            "station": "Platz der Luftbrücke",
+            "walk_minutes": 2
+          }
+        ],
+        "closest_rer": {
+          "line": "S41 / S42 / S45 / S46",
+          "station": "Tempelhof",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "U6 Platz der Luftbrücke is at the door; good evening coverage."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Tour is indoors; ideal in any weather"
+      },
+      "website": "https://www.thf-berlin.de/en/",
+      "ticket_url": "https://www.thf-berlin.de/en/your-visit/guided-tours"
     }
   ]
 }

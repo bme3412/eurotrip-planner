@@ -1,0 +1,194 @@
+{
+  "city": "krakow",
+  "cityCenter": {
+    "name": "Stare Miasto (Old Town)",
+    "coordinates": [
+      19.9373,
+      50.0617
+    ],
+    "description": "Heart of Kraków at Rynek Główny, Europe's largest medieval market square"
+  },
+  "airports": [
+    {
+      "code": "KRK",
+      "name": "Kraków–Balice",
+      "fullName": "John Paul II International Airport Kraków–Balice",
+      "coordinates": [
+        19.7848,
+        50.0777
+      ],
+      "distanceKm": 11,
+      "terminals": "T1 (single passenger terminal)",
+      "routes": [
+        {
+          "id": "krk-ska-train",
+          "type": "train",
+          "name": "SKA1 Airport Train",
+          "icon": "train",
+          "color": "#E2001A",
+          "duration": {
+            "min": 18,
+            "max": 22
+          },
+          "frequency": "Every 30 min (hourly early/late)",
+          "price": {
+            "amount": 20,
+            "currency": "PLN"
+          },
+          "destination": "Kraków Główny (main station)",
+          "operatingHours": "~4:00am - 11:00pm",
+          "tips": "A covered walkway connects the terminal to the airport rail platform. Buy from machines (cash/card) or tap contactless onboard; the train terminates at Kraków Główny in the city center.",
+          "pros": [
+            "Fastest and most reliable",
+            "Direct to central station",
+            "No traffic delays"
+          ],
+          "cons": [
+            "Half-hourly, not turn-up-and-go",
+            "Limited very early/late service"
+          ],
+          "waypoints": [
+            [
+              19.7848,
+              50.0777
+            ],
+            [
+              19.85,
+              50.07
+            ],
+            [
+              19.9472,
+              50.0676
+            ]
+          ]
+        },
+        {
+          "id": "krk-bus-300",
+          "type": "bus",
+          "name": "Bus 300 (express) / 209",
+          "icon": "bus",
+          "color": "#36A559",
+          "duration": {
+            "min": 35,
+            "max": 50
+          },
+          "frequency": "Every 20-40 min",
+          "price": {
+            "amount": 6,
+            "currency": "PLN"
+          },
+          "destination": "Kraków Główny / central stops",
+          "operatingHours": "~5:00am - 11:00pm (night bus 902 overnight)",
+          "tips": "Express line 300 is the quickest bus; line 209 makes more stops. The night line 902 covers the overnight gap, roughly every hour. Buy and validate a ticket onboard or at the stop.",
+          "pros": [
+            "Cheapest option",
+            "Runs to central stops",
+            "Night service (902) available"
+          ],
+          "cons": [
+            "Subject to road traffic",
+            "Slower than the train"
+          ],
+          "waypoints": [
+            [
+              19.7848,
+              50.0777
+            ],
+            [
+              19.9373,
+              50.0617
+            ]
+          ]
+        },
+        {
+          "id": "krk-taxi",
+          "type": "taxi",
+          "name": "Taxi",
+          "icon": "car",
+          "color": "#F59E0B",
+          "duration": {
+            "min": 25,
+            "max": 40
+          },
+          "frequency": "On demand",
+          "price": {
+            "amount": 80,
+            "amountMax": 110,
+            "currency": "PLN",
+            "note": "Approx. 80-110 PLN to the Old Town depending on traffic"
+          },
+          "destination": "Any address in Kraków",
+          "operatingHours": "24/7",
+          "tips": "Use the official taxi rank outside arrivals or book a licensed company; agree the fare or ensure the meter is running. Ignore drivers soliciting inside the terminal.",
+          "pros": [
+            "Door-to-door",
+            "24/7 availability",
+            "No transfers with luggage"
+          ],
+          "cons": [
+            "Most expensive option",
+            "Traffic delays possible"
+          ],
+          "waypoints": [
+            [
+              19.7848,
+              50.0777
+            ],
+            [
+              19.9373,
+              50.0617
+            ]
+          ]
+        },
+        {
+          "id": "krk-rideshare",
+          "type": "rideshare",
+          "name": "Bolt / Uber",
+          "icon": "smartphone",
+          "color": "#000000",
+          "duration": {
+            "min": 25,
+            "max": 40
+          },
+          "frequency": "On demand",
+          "price": {
+            "amount": 50,
+            "amountMax": 90,
+            "currency": "PLN",
+            "note": "Variable; usually cheaper than a metered taxi"
+          },
+          "destination": "Any address",
+          "operatingHours": "24/7",
+          "tips": "Bolt and Uber are widely used and inexpensive in Kraków; the price is fixed in-app. Head to the designated rideshare pickup point outside the terminal.",
+          "pros": [
+            "Door-to-door",
+            "Fixed price in app",
+            "Often cheapest car option"
+          ],
+          "cons": [
+            "Surge pricing at peak times",
+            "Pickup zone can be a short walk"
+          ],
+          "waypoints": [
+            [
+              19.7848,
+              50.0777
+            ],
+            [
+              19.9373,
+              50.0617
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "generalTips": [
+    "The SKA1 airport train to Kraków Główny is the fastest, most reliable way into the center (~20 min, 20 PLN); a covered walkway links the terminal to the platform.",
+    "Kraków Główny is the main rail hub, with frequent connections to Warsaw, Wrocław, Katowice, and Zakopane, plus the adjoining Galeria Krakowska mall and MDA bus station.",
+    "There is no metro—the city runs on MPK trams and buses. Download the Jakdojade app for routes, live times, and ticket purchase.",
+    "Always pay and be charged in PLN, never euros. Decline 'dynamic currency conversion' at ATMs and card terminals, and use bank ATMs rather than Euronet kiosks.",
+    "Consider the Kraków Tourist Card, which bundles unlimited public transport with free or discounted museum entry.",
+    "The Old Town inside the Planty ring is largely pedestrianized and walkable end to end in about 15 minutes—you won't need a car."
+  ]
+}
