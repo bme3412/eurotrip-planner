@@ -31,6 +31,7 @@
     "pipeline:validate:ci": "node scripts/pipeline/validate.mjs",
     "pipeline:manifest": "node scripts/pipeline/manifest.mjs",
     "pipeline:audit": "node scripts/pipeline/audit.mjs",
+    "pipeline:freshness": "node scripts/pipeline/freshness.mjs",
     "pipeline:quality-check": "node scripts/pipeline/audit.mjs --threshold 40",
     "pipeline:enrich": "node scripts/pipeline/enrich.mjs",
     "rebuild:all": "npm run pipeline:manifest && npm run generate-cities && npm run build:data && npm run build:cities && npm run build:scores"
