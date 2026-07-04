@@ -10,14 +10,16 @@ export default function CuratedFilters({ active, onSelect }) {
   const activeFilter = CURATED_FILTERS.find((f) => f.id === active);
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
-      <div className="flex flex-wrap gap-2">
+    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-3 sm:p-5">
+      {/* Single scrollable row on phones so the list stays above the fold;
+          wraps normally from sm: up. Matches the tab bar's scroll pattern. */}
+      <div className="flex flex-nowrap overflow-x-auto scrollbar-hide -mx-3 px-3 sm:mx-0 sm:px-0 sm:flex-wrap sm:overflow-visible gap-2">
         {CURATED_FILTERS.map((filter) => (
           <button
             key={filter.id}
             type="button"
             onClick={() => onSelect(filter.id)}
-            className={`group flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
+            className={`group flex shrink-0 items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 ${
               active === filter.id
                 ? 'bg-gray-900 text-white shadow-sm'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'

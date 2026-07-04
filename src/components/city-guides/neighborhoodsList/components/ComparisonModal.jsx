@@ -33,7 +33,7 @@ export default function ComparisonModal({ neighborhoods, onClose }) {
       <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-auto" onClick={(e) => e.stopPropagation()}>
         <div className="sticky top-0 bg-white border-b border-gray-200 p-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Scale className="w-5 h-5 text-purple-600" />
+            <Scale className="w-5 h-5 text-blue-600" />
             <h2 className="text-xl font-bold text-gray-900">Compare Neighborhoods</h2>
           </div>
           <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors">
@@ -95,7 +95,7 @@ export default function ComparisonModal({ neighborhoods, onClose }) {
               {neighborhoods.map((n, i) => (
                 <div key={i} className="flex flex-wrap gap-1">
                   {(n.appeal?.best_for || []).slice(0, 3).map((item, j) => (
-                    <span key={j} className="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">
+                    <span key={j} className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
                       {item}
                     </span>
                   ))}
