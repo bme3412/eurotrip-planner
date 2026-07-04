@@ -112,7 +112,7 @@ export default function NeighborhoodDetailModal({ neighborhood, allNeighborhoods
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header banner */}
-        <div className="relative h-40 shrink-0 overflow-hidden bg-gradient-to-br from-purple-100 via-blue-50 to-indigo-100">
+        <div className="relative h-40 shrink-0 overflow-hidden bg-gradient-to-br from-blue-100 via-blue-50 to-indigo-100">
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-7xl opacity-60">{getNeighborhoodIcon(n.name)}</span>
           </div>
@@ -154,7 +154,7 @@ export default function NeighborhoodDetailModal({ neighborhood, allNeighborhoods
           {(n.appeal?.known_for?.length || n.appeal?.atmosphere?.length || n.appeal?.best_for?.length) ? (
             <div className="space-y-3">
               <ChipRow label="Known for" items={n.appeal?.known_for} className="bg-amber-50 text-amber-800" />
-              <ChipRow label="Atmosphere" items={n.appeal?.atmosphere} className="bg-purple-100 text-purple-700" />
+              <ChipRow label="Atmosphere" items={n.appeal?.atmosphere} className="bg-blue-100 text-blue-700" />
               <ChipRow label="Best for" items={n.appeal?.best_for} className="bg-blue-100 text-blue-700" />
             </div>
           ) : null}
@@ -170,7 +170,7 @@ export default function NeighborhoodDetailModal({ neighborhood, allNeighborhoods
                       <span className="text-sm">{CATEGORY_META[k].icon}</span>
                       <span className="flex-1 text-sm text-gray-600">{CATEGORY_META[k].label}</span>
                       <span className="h-1.5 w-20 overflow-hidden rounded-full bg-gray-100">
-                        <span className="block h-full rounded-full bg-purple-500" style={{ width: `${(Math.max(0, Math.min(5, v)) / 5) * 100}%` }} />
+                        <span className="block h-full rounded-full bg-blue-500" style={{ width: `${(Math.max(0, Math.min(5, v)) / 5) * 100}%` }} />
                       </span>
                       <span className="w-7 text-right text-xs font-bold text-gray-700">{v}/5</span>
                     </div>
@@ -307,7 +307,7 @@ export default function NeighborhoodDetailModal({ neighborhood, allNeighborhoods
                           key={b.name}
                           type="button"
                           onClick={() => onOpenByName(b.resolved.name)}
-                          className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-700 transition-colors hover:border-purple-300 hover:bg-purple-50"
+                          className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-700 transition-colors hover:border-blue-300 hover:bg-blue-50"
                         >
                           {b.name}
                           {b.walkTime ? <span className="text-gray-400">· {b.walkTime} min</span> : null}

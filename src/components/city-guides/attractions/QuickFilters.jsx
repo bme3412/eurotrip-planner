@@ -30,7 +30,8 @@ export default function QuickFilters({
 
   return (
     <div className="space-y-3" role="group" aria-label="Filter experiences">
-      <div className="flex flex-wrap gap-2">
+      {/* Scrollable single row on phones (see CuratedFilters); wraps from sm: up. */}
+      <div className="flex flex-nowrap overflow-x-auto scrollbar-hide sm:flex-wrap sm:overflow-visible gap-2">
         {QUICK_FILTERS.map((f) => {
           const active = Boolean(quickFilters?.[f.key]);
           return (
@@ -39,7 +40,7 @@ export default function QuickFilters({
               type="button"
               aria-pressed={active}
               onClick={() => onToggleQuickFilter(f.key)}
-              className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
+              className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
                 active
                   ? 'bg-blue-600 text-white shadow-sm'
                   : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50'
@@ -53,7 +54,7 @@ export default function QuickFilters({
       </div>
 
       {hasCategories && (
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-nowrap overflow-x-auto scrollbar-hide sm:flex-wrap sm:overflow-visible gap-2">
           {categories.map((cat) => {
             const value = String(cat).toLowerCase();
             const active = activeCategories.includes(value);
@@ -63,7 +64,7 @@ export default function QuickFilters({
                 type="button"
                 aria-pressed={active}
                 onClick={() => onToggleCategory(value)}
-                className={`rounded-full px-3 py-1.5 text-xs font-medium capitalize transition-colors ${
+                className={`shrink-0 whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-medium capitalize transition-colors ${
                   active
                     ? 'bg-gray-900 text-white'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'

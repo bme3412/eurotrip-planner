@@ -75,7 +75,7 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
             id="neighborhood-sort"
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500"
+            className="rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
           >
             {NEIGHBORHOOD_SORTS.map((opt) => (
               <option key={opt.id} value={opt.id}>{opt.id === 'recommended' ? 'Sort: Recommended' : opt.label}</option>
@@ -88,7 +88,7 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
               if (isCompareMode) setSelectedForCompare([]);
             }}
             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
-              isCompareMode ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              isCompareMode ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
             <Scale className="w-4 h-4" />
@@ -108,9 +108,9 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
 
       {/* Compare-mode hint */}
       {isCompareMode && (
-        <div className="bg-purple-50 border border-purple-200 rounded-xl p-4 flex items-center gap-3">
-          <Scale className="w-5 h-5 text-purple-600 shrink-0" />
-          <p className="text-sm text-purple-800">
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-center gap-3">
+          <Scale className="w-5 h-5 text-blue-600 shrink-0" />
+          <p className="text-sm text-blue-800">
             Select 2-3 neighborhoods to compare side-by-side.
             <span className="font-medium"> {selectedForCompare.length}/3 selected</span>
           </p>
@@ -118,9 +118,9 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
       )}
 
       {/* Persona filters + search */}
-      <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-4 border border-purple-100">
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 border border-blue-100">
         <div className="flex items-center gap-2 mb-3">
-          <Users className="w-4 h-4 text-purple-600" />
+          <Users className="w-4 h-4 text-blue-600" />
           <span className="text-sm font-semibold text-gray-800">I&apos;m a...</span>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -133,8 +133,8 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
                 onClick={() => setSelectedPersona(isActive ? null : persona)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
                   isActive
-                    ? 'bg-purple-600 text-white shadow-md'
-                    : 'bg-white text-gray-700 hover:bg-purple-100 border border-gray-200'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'bg-white text-gray-700 hover:bg-blue-100 border border-gray-200'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -157,7 +157,7 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
             placeholder="Search neighborhoods..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
+            className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
           />
         </div>
       </div>
@@ -167,7 +167,7 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
         <div className="flex items-center gap-2 text-sm text-gray-600">
           <span className="font-medium">{filteredNeighborhoods.length} neighborhoods</span>
           {selectedPersona && (
-            <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">for {selectedPersona.label}</span>
+            <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">for {selectedPersona.label}</span>
           )}
         </div>
       )}
@@ -200,7 +200,7 @@ export default function NeighborhoodsList({ neighborhoods, cityName }) {
           <p className="text-gray-600 mb-4">Try adjusting your filters or search</p>
           <button
             onClick={clearFilters}
-            className="px-4 py-2 bg-purple-600 text-white rounded-xl text-sm font-medium hover:bg-purple-700 transition-colors"
+            className="px-4 py-2 bg-blue-600 text-white rounded-xl text-sm font-medium hover:bg-blue-700 transition-colors"
           >
             Clear filters
           </button>

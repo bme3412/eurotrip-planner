@@ -1,0 +1,216 @@
+{
+  "city": "berlin",
+  "cityCenter": {
+    "name": "Central Berlin (Mitte)",
+    "coordinates": [
+      13.405,
+      52.52
+    ],
+    "description": "Heart of Berlin around the Brandenburg Gate and Alexanderplatz"
+  },
+  "airports": [
+    {
+      "code": "BER",
+      "name": "Berlin Brandenburg",
+      "fullName": "Berlin Brandenburg Airport Willy Brandt (BER)",
+      "coordinates": [
+        13.5033,
+        52.3667
+      ],
+      "distanceKm": 18,
+      "terminals": "T1, T2 (T5, the former Schönefeld, is closed and largely unused)",
+      "routes": [
+        {
+          "id": "ber-fex",
+          "type": "train",
+          "name": "FEX Airport Express",
+          "icon": "train",
+          "color": "#E2001A",
+          "duration": {
+            "min": 25,
+            "max": 35
+          },
+          "frequency": "Every 15-30 min",
+          "price": {
+            "amount": 4.7,
+            "currency": "EUR",
+            "note": "ABC zone ticket (BER is in zone C)"
+          },
+          "destination": "Berlin Hauptbahnhof (central station)",
+          "operatingHours": "4:00am - 1:00am",
+          "tips": "Fastest direct rail link to central Berlin. Departs from the station beneath Terminal 1. Buy an ABC ticket and validate it before boarding.",
+          "pros": [
+            "Fastest direct train to the center",
+            "No transfers to Hauptbahnhof",
+            "No traffic delays"
+          ],
+          "cons": [
+            "Runs every 15-30 min, not continuously",
+            "Only stops at major stations"
+          ],
+          "waypoints": [
+            [
+              13.5033,
+              52.3667
+            ],
+            [
+              13.49,
+              52.415
+            ],
+            [
+              13.435,
+              52.481
+            ],
+            [
+              13.369,
+              52.525
+            ]
+          ]
+        },
+        {
+          "id": "ber-s9",
+          "type": "train",
+          "name": "S-Bahn S9",
+          "icon": "train",
+          "color": "#9B2C82",
+          "duration": {
+            "min": 45,
+            "max": 55
+          },
+          "frequency": "Every 20 min (incl. through the night)",
+          "price": {
+            "amount": 4.7,
+            "currency": "EUR",
+            "note": "ABC zone ticket (BER is in zone C)"
+          },
+          "destination": "Central Berlin via Treptower Park & Ostkreuz toward Spandau",
+          "operatingHours": "Runs day and night",
+          "tips": "Slower than the FEX but stops at far more central stations and runs through the night. Same ABC ticket as all other options.",
+          "pros": [
+            "Runs around the clock",
+            "Stops at many central stations",
+            "Same cheap ABC ticket"
+          ],
+          "cons": [
+            "Slower than the FEX",
+            "Can be crowded with luggage"
+          ],
+          "waypoints": [
+            [
+              13.5033,
+              52.3667
+            ],
+            [
+              13.469,
+              52.457
+            ],
+            [
+              13.471,
+              52.503
+            ],
+            [
+              13.405,
+              52.52
+            ]
+          ]
+        },
+        {
+          "id": "ber-regional",
+          "type": "train",
+          "name": "Regional trains (RE/RB)",
+          "icon": "train",
+          "color": "#1455C0",
+          "duration": {
+            "min": 30,
+            "max": 45
+          },
+          "frequency": "Every 30 min",
+          "price": {
+            "amount": 4.7,
+            "currency": "EUR",
+            "note": "ABC zone ticket (BER is in zone C)"
+          },
+          "destination": "Berlin Hauptbahnhof, Alexanderplatz, Gesundbrunnen, Potsdam",
+          "operatingHours": "Roughly 4:30am - 11:30pm",
+          "tips": "Regional RE/RB trains (e.g. RE8, RB23/RB24/RB32) call at BER and reach Alexanderplatz and Hauptbahnhof quickly. Check the platform departure board for the next service.",
+          "pros": [
+            "Fast and comfortable",
+            "Direct to Alexanderplatz & Hauptbahnhof",
+            "Same ABC ticket"
+          ],
+          "cons": [
+            "Less frequent than the S-Bahn",
+            "Multiple lines—check the board"
+          ],
+          "waypoints": [
+            [
+              13.5033,
+              52.3667
+            ],
+            [
+              13.435,
+              52.481
+            ],
+            [
+              13.4133,
+              52.5219
+            ],
+            [
+              13.369,
+              52.525
+            ]
+          ]
+        },
+        {
+          "id": "ber-taxi",
+          "type": "taxi",
+          "name": "Taxi",
+          "icon": "car",
+          "color": "#F59E0B",
+          "duration": {
+            "min": 35,
+            "max": 60
+          },
+          "frequency": "On demand",
+          "price": {
+            "amount": 50,
+            "amountMax": 70,
+            "currency": "EUR",
+            "note": "Metered fare; expect €50-70 to central Berlin (no fixed flat rate)"
+          },
+          "destination": "Any address in Berlin",
+          "operatingHours": "24/7",
+          "tips": "Official taxi ranks are outside Terminal 1. Fares are metered, not flat. Uber and Bolt operate at similar prices and can be cheaper off-peak.",
+          "pros": [
+            "Door-to-door",
+            "24/7 availability",
+            "Good with heavy luggage"
+          ],
+          "cons": [
+            "Far more expensive than the train",
+            "Subject to traffic",
+            "Long distance from the center"
+          ],
+          "waypoints": [
+            [
+              13.5033,
+              52.3667
+            ],
+            [
+              13.405,
+              52.52
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "generalTips": [
+    "BER is Berlin's only commercial airport—Tegel (TXL) closed in 2020 and Schönefeld (SXF) is now BER's largely unused Terminal 5. Don't go looking for the old airports.",
+    "BER sits in fare zone C, so you need an ABC ticket (about €4.70) for any train into the city—a normal AB city ticket is not valid for the airport leg.",
+    "There are no ticket barriers, but validate your ticket at the platform stamping machines and keep it—inspectors issue €60 fines for riding without a valid, validated ticket.",
+    "The FEX, S9, and regional trains all leave from the same station directly beneath Terminal 1; follow the train (DB / S-Bahn) signs down from arrivals.",
+    "For heavy sightseeing, the Berlin WelcomeCard (including the ABC airport zone) bundles unlimited transport with attraction discounts and can pay for itself quickly.",
+    "Download the BVG or VBB app for live departures and mobile tickets covering all operators on one fare."
+  ]
+}

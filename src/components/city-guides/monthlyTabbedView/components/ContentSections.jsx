@@ -1,9 +1,6 @@
 import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
 
 function ReasonsBlock({ title, items }) {
-  const reduceMotion = useReducedMotion();
-
   if (items.length === 0) {
     return (
       <>
@@ -19,21 +16,17 @@ function ReasonsBlock({ title, items }) {
   return (
     <>
       <h3 className="font-display text-2xl font-semibold text-gray-900 mb-4 tracking-tight">{title}</h3>
-      {/* Mounts when the lazily-fetched month JSON lands — fade in rather
-          than popping over the skeleton. */}
-      <motion.div
-        className="prose prose-lg max-w-none"
-        initial={reduceMotion ? false : { opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.25, ease: 'easeOut' }}
-      >
+      {/* No fade here: the month panel above already animates on switch, and
+          an opacity-0 initial on this async-mounted block left the content
+          invisible whenever rAF stalled (background tabs, headless renders). */}
+      <div className="prose prose-lg max-w-none">
         {items.map((item, idx) => (
           <p key={idx} className="text-gray-700 leading-relaxed mb-4 last:mb-0 text-[17px]">
             <strong className="text-gray-900">{item?.reason}</strong>
             {item?.details && ` — ${item.details}`}
           </p>
         ))}
-      </motion.div>
+      </div>
     </>
   );
 }

@@ -73,6 +73,16 @@ const CITY_CONFIG = {
     directoryName: 'geneva',
     searchSuffix: 'Geneva, Switzerland',
   },
+  berlin: {
+    country: 'Germany',
+    directoryName: 'berlin',
+    searchSuffix: 'Berlin, Germany',
+  },
+  krakow: {
+    country: 'Poland',
+    directoryName: 'krakow',
+    searchSuffix: 'Kraków, Poland',
+  },
   // Add other cities as needed
 };
 
