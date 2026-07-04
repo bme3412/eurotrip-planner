@@ -1,0 +1,702 @@
+{
+  "city": "london",
+  "cityCenter": {
+    "name": "Central London",
+    "coordinates": [
+      -0.1278,
+      51.5074
+    ],
+    "description": "Heart of London around Trafalgar Square and Covent Garden"
+  },
+  "airports": [
+    {
+      "code": "LHR",
+      "name": "Heathrow",
+      "fullName": "London Heathrow Airport",
+      "coordinates": [
+        -0.4543,
+        51.47
+      ],
+      "distanceKm": 24,
+      "terminals": "T2, T3, T4, T5",
+      "routes": [
+        {
+          "id": "lhr-elizabeth-line",
+          "type": "train",
+          "name": "Elizabeth line",
+          "icon": "train",
+          "color": "#60399E",
+          "duration": {
+            "min": 28,
+            "max": 40
+          },
+          "frequency": "Every 7-15 min",
+          "price": {
+            "amount": 12.8,
+            "amountMax": 13.9,
+            "currency": "GBP",
+            "note": "Contactless pay-as-you-go; off-peak vs peak. Fares change each March—check tfl.gov.uk"
+          },
+          "destination": "Paddington / Bond Street / Farringdon / Liverpool Street",
+          "operatingHours": "~5:10am - 11:50pm",
+          "tips": "The sweet spot for most travellers: half the price of Heathrow Express, air-conditioned, and it runs straight through the West End and City—no transfer at Paddington needed. Just tap in with a contactless card.",
+          "pros": [
+            "Direct to multiple central stations",
+            "Modern, air-conditioned trains with luggage space",
+            "Much cheaper than Heathrow Express"
+          ],
+          "cons": [
+            "Slower than Heathrow Express to Paddington",
+            "Busy at commuter peaks"
+          ],
+          "waypoints": [
+            [
+              -0.4543,
+              51.47
+            ],
+            [
+              -0.1774,
+              51.5154
+            ],
+            [
+              -0.1053,
+              51.5203
+            ]
+          ]
+        },
+        {
+          "id": "lhr-heathrow-express",
+          "type": "train",
+          "name": "Heathrow Express",
+          "icon": "train",
+          "color": "#532E63",
+          "duration": {
+            "min": 15,
+            "max": 21
+          },
+          "frequency": "Every 15 min",
+          "price": {
+            "amount": 25,
+            "currency": "GBP",
+            "note": "Walk-up single ~£25; advance online fares from ~£10 if booked weeks ahead"
+          },
+          "destination": "Paddington",
+          "operatingHours": "~5:10am - 11:25pm",
+          "tips": "Fastest rail link—15 minutes non-stop from T2/T3 to Paddington—but you'll likely need the Tube onward from there. Book online in advance for big savings; walk-up fares are steep.",
+          "pros": [
+            "Fastest option to Paddington",
+            "Non-stop with dedicated luggage racks",
+            "Cheap if booked well in advance"
+          ],
+          "cons": [
+            "Expensive walk-up fare",
+            "Only serves Paddington—most trips need an onward Tube hop"
+          ],
+          "waypoints": [
+            [
+              -0.4543,
+              51.47
+            ],
+            [
+              -0.1774,
+              51.5154
+            ]
+          ]
+        },
+        {
+          "id": "lhr-piccadilly",
+          "type": "train",
+          "name": "Piccadilly line (Underground)",
+          "icon": "train",
+          "color": "#003688",
+          "duration": {
+            "min": 50,
+            "max": 60
+          },
+          "frequency": "Every 5-10 min",
+          "price": {
+            "amount": 3.7,
+            "amountMax": 5.8,
+            "currency": "GBP",
+            "note": "Contactless pay-as-you-go, off-peak vs peak; counts toward the daily cap"
+          },
+          "destination": "Zone 1 (Piccadilly Circus, Covent Garden, King's Cross)",
+          "operatingHours": "~5:00am - 11:45pm (Night Tube Fri-Sat)",
+          "tips": "The budget classic. Slow but dirt cheap, and it drops you right in the West End without changing. Avoid weekday rush hours with big bags—the trains are ordinary Tube stock with no luggage racks.",
+          "pros": [
+            "Cheapest option by far",
+            "Direct to West End stations",
+            "Counts toward your contactless daily cap"
+          ],
+          "cons": [
+            "Slow (about an hour to central)",
+            "Crowded at rush hour, minimal luggage space"
+          ],
+          "waypoints": [
+            [
+              -0.4543,
+              51.47
+            ],
+            [
+              -0.3055,
+              51.4915
+            ],
+            [
+              -0.1337,
+              51.51
+            ]
+          ]
+        },
+        {
+          "id": "lhr-taxi",
+          "type": "taxi",
+          "name": "Black cab",
+          "icon": "car",
+          "color": "#F59E0B",
+          "duration": {
+            "min": 40,
+            "max": 80
+          },
+          "frequency": "On demand",
+          "price": {
+            "amount": 70,
+            "amountMax": 110,
+            "currency": "GBP",
+            "note": "Metered; varies heavily with traffic"
+          },
+          "destination": "Any address in London",
+          "operatingHours": "24/7",
+          "tips": "Use the official ranks outside arrivals. Iconic, spacious, and drivers know every street thanks to 'the Knowledge'—but the M4 into town can crawl, and the meter keeps running.",
+          "pros": [
+            "Door-to-door with no transfers",
+            "Licensed, knowledgeable drivers",
+            "Fits five plus luggage"
+          ],
+          "cons": [
+            "Most expensive option",
+            "Traffic can double the journey time"
+          ],
+          "waypoints": [
+            [
+              -0.4543,
+              51.47
+            ],
+            [
+              -0.1278,
+              51.5074
+            ]
+          ]
+        },
+        {
+          "id": "lhr-uber",
+          "type": "rideshare",
+          "name": "Uber/Bolt",
+          "icon": "smartphone",
+          "color": "#000000",
+          "duration": {
+            "min": 40,
+            "max": 80
+          },
+          "frequency": "On demand",
+          "price": {
+            "amount": 35,
+            "amountMax": 65,
+            "currency": "GBP",
+            "note": "Variable pricing based on demand"
+          },
+          "destination": "Any address",
+          "operatingHours": "24/7",
+          "tips": "Meet at the designated rideshare pickup zones (follow airport signage—they move occasionally). Usually noticeably cheaper than a black cab, but surge pricing after late-night arrivals can erase the gap.",
+          "pros": [
+            "Door-to-door",
+            "Cheaper than black cabs most of the time",
+            "Pay and track via app"
+          ],
+          "cons": [
+            "Surge pricing possible",
+            "Same traffic as taxis"
+          ],
+          "waypoints": [
+            [
+              -0.4543,
+              51.47
+            ],
+            [
+              -0.1278,
+              51.5074
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "LGW",
+      "name": "Gatwick",
+      "fullName": "London Gatwick Airport",
+      "coordinates": [
+        -0.1821,
+        51.1537
+      ],
+      "distanceKm": 45,
+      "terminals": "North, South",
+      "routes": [
+        {
+          "id": "lgw-thameslink",
+          "type": "train",
+          "name": "Thameslink",
+          "icon": "train",
+          "color": "#E9438D",
+          "duration": {
+            "min": 30,
+            "max": 50
+          },
+          "frequency": "Every 10-15 min",
+          "price": {
+            "amount": 12,
+            "amountMax": 16,
+            "currency": "GBP",
+            "note": "Contactless pay-as-you-go; off-peak vs peak"
+          },
+          "destination": "London Bridge / Blackfriars / Farringdon / St Pancras",
+          "operatingHours": "24h to London Bridge (reduced overnight)",
+          "tips": "The smart pick: cheaper than Gatwick Express, barely slower, and it stops at more useful stations—London Bridge for the South Bank, Farringdon to connect with the Elizabeth line, St Pancras for Eurostar connections. Tap in with contactless.",
+          "pros": [
+            "Cheaper than Gatwick Express",
+            "Serves London Bridge, Blackfriars, Farringdon and St Pancras",
+            "Contactless tap-in, no ticket needed"
+          ],
+          "cons": [
+            "Stops en route, slightly slower",
+            "Commuter-crowded on weekday mornings"
+          ],
+          "waypoints": [
+            [
+              -0.1821,
+              51.1537
+            ],
+            [
+              -0.0864,
+              51.5049
+            ],
+            [
+              -0.1257,
+              51.53
+            ]
+          ]
+        },
+        {
+          "id": "lgw-gatwick-express",
+          "type": "train",
+          "name": "Gatwick Express",
+          "icon": "train",
+          "color": "#EC1B2E",
+          "duration": {
+            "min": 30,
+            "max": 35
+          },
+          "frequency": "Every 15 min",
+          "price": {
+            "amount": 21,
+            "currency": "GBP",
+            "note": "~£21 single online; slightly more at the machine. ~10% off booking online"
+          },
+          "destination": "Victoria",
+          "operatingHours": "~5:00am - 11:30pm",
+          "tips": "Non-stop to Victoria in about half an hour. Worth it if your hotel is near Victoria; otherwise Thameslink covers more of the city for roughly half the price and only a few minutes more.",
+          "pros": [
+            "Non-stop to Victoria",
+            "Dedicated luggage space",
+            "Reliable 15-minute frequency"
+          ],
+          "cons": [
+            "Nearly double the Thameslink fare",
+            "Only serves Victoria"
+          ],
+          "waypoints": [
+            [
+              -0.1821,
+              51.1537
+            ],
+            [
+              -0.1441,
+              51.4952
+            ]
+          ]
+        },
+        {
+          "id": "lgw-taxi",
+          "type": "taxi",
+          "name": "Taxi / rideshare",
+          "icon": "car",
+          "color": "#F59E0B",
+          "duration": {
+            "min": 70,
+            "max": 110
+          },
+          "frequency": "On demand",
+          "price": {
+            "amount": 90,
+            "amountMax": 130,
+            "currency": "GBP",
+            "note": "Pre-booked minicabs cheaper than metered black cabs for this distance"
+          },
+          "destination": "Any address in London",
+          "operatingHours": "24/7",
+          "tips": "It's a long, expensive schlep up the M23—rarely worth it unless you land after the trains stop or you're a group of four with mountains of luggage. Pre-book a fixed-price minicab rather than hailing.",
+          "pros": [
+            "Door-to-door",
+            "Useful for very late arrivals",
+            "Fixed price if pre-booked"
+          ],
+          "cons": [
+            "Expensive",
+            "45+ km of motorway traffic"
+          ],
+          "waypoints": [
+            [
+              -0.1821,
+              51.1537
+            ],
+            [
+              -0.1278,
+              51.5074
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "STN",
+      "name": "Stansted",
+      "fullName": "London Stansted Airport",
+      "coordinates": [
+        0.2389,
+        51.886
+      ],
+      "distanceKm": 55,
+      "terminals": "Single terminal",
+      "routes": [
+        {
+          "id": "stn-stansted-express",
+          "type": "train",
+          "name": "Stansted Express",
+          "icon": "train",
+          "color": "#009D4B",
+          "duration": {
+            "min": 47,
+            "max": 55
+          },
+          "frequency": "Every 15-30 min",
+          "price": {
+            "amount": 13,
+            "amountMax": 28,
+            "currency": "GBP",
+            "note": "Advance online singles from ~£13; walk-up fares can approach double—book ahead"
+          },
+          "destination": "Liverpool Street (via Tottenham Hale)",
+          "operatingHours": "~5:30am - 12:30am",
+          "tips": "The only fast way in from Stansted. Book online before you fly—the price gap between advance and walk-up is brutal. Change at Tottenham Hale for the Victoria line if you're headed to the West End.",
+          "pros": [
+            "Fastest option from Stansted",
+            "Frequent service",
+            "Tottenham Hale interchange for the Victoria line"
+          ],
+          "cons": [
+            "Walk-up fares expensive",
+            "Liverpool Street is east—most visitors need an onward Tube"
+          ],
+          "waypoints": [
+            [
+              0.2389,
+              51.886
+            ],
+            [
+              -0.0596,
+              51.5882
+            ],
+            [
+              -0.0817,
+              51.5188
+            ]
+          ]
+        },
+        {
+          "id": "stn-coach",
+          "type": "bus",
+          "name": "Airport coaches (National Express / Airport Bus Express)",
+          "icon": "bus",
+          "color": "#36A559",
+          "duration": {
+            "min": 60,
+            "max": 110
+          },
+          "frequency": "Every 15-30 min",
+          "price": {
+            "amount": 10,
+            "amountMax": 16,
+            "currency": "GBP",
+            "note": "Cheapest booked in advance online"
+          },
+          "destination": "Liverpool Street / Stratford / Victoria",
+          "operatingHours": "24/7 on main routes",
+          "tips": "The budget-airline classic: cheap, runs all night, and matches the schedules of early Ryanair departures. Allow generous buffer time—the M11 and East London traffic are unpredictable.",
+          "pros": [
+            "Cheapest option",
+            "Runs 24/7",
+            "Direct to several parts of London"
+          ],
+          "cons": [
+            "Slow and traffic-dependent",
+            "Can be full at peak times—book a seat"
+          ],
+          "waypoints": [
+            [
+              0.2389,
+              51.886
+            ],
+            [
+              -0.0817,
+              51.5188
+            ]
+          ]
+        },
+        {
+          "id": "stn-taxi",
+          "type": "taxi",
+          "name": "Taxi / rideshare",
+          "icon": "car",
+          "color": "#F59E0B",
+          "duration": {
+            "min": 60,
+            "max": 100
+          },
+          "frequency": "On demand",
+          "price": {
+            "amount": 90,
+            "amountMax": 140,
+            "currency": "GBP",
+            "note": "Pre-book a fixed price; metered/rideshare varies with demand"
+          },
+          "destination": "Any address in London",
+          "operatingHours": "24/7",
+          "tips": "Only sensible for groups or middle-of-the-night arrivals outside coach hours. Stansted is the furthest major airport from the centre—the fare reflects it.",
+          "pros": [
+            "Door-to-door",
+            "Available around the clock"
+          ],
+          "cons": [
+            "Very expensive",
+            "Long journey"
+          ],
+          "waypoints": [
+            [
+              0.2389,
+              51.886
+            ],
+            [
+              -0.1278,
+              51.5074
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "LCY",
+      "name": "London City",
+      "fullName": "London City Airport",
+      "coordinates": [
+        0.0553,
+        51.5048
+      ],
+      "distanceKm": 11,
+      "terminals": "Single terminal",
+      "routes": [
+        {
+          "id": "lcy-dlr",
+          "type": "train",
+          "name": "DLR (Docklands Light Railway)",
+          "icon": "train",
+          "color": "#00A4A7",
+          "duration": {
+            "min": 22,
+            "max": 30
+          },
+          "frequency": "Every 8-10 min",
+          "price": {
+            "amount": 3.1,
+            "amountMax": 3.9,
+            "currency": "GBP",
+            "note": "Contactless pay-as-you-go (Zone 3 to Zone 1), off-peak vs peak"
+          },
+          "destination": "Bank (change at Canning Town for the Jubilee line)",
+          "operatingHours": "~5:30am - 12:30am",
+          "tips": "The station is literally attached to the terminal—you can be on a driverless train five minutes after clearing arrivals. Ride up front for skyline views over Docklands. Tap in with contactless.",
+          "pros": [
+            "Station inside the airport",
+            "Cheap regular TfL fare, counts toward the daily cap",
+            "Quick connections at Canning Town and Bank"
+          ],
+          "cons": [
+            "Usually one change for the West End",
+            "Small trains, limited luggage space at rush hour"
+          ],
+          "waypoints": [
+            [
+              0.0553,
+              51.5048
+            ],
+            [
+              0.0082,
+              51.5138
+            ],
+            [
+              -0.0886,
+              51.5133
+            ]
+          ]
+        },
+        {
+          "id": "lcy-taxi",
+          "type": "taxi",
+          "name": "Black cab / rideshare",
+          "icon": "car",
+          "color": "#F59E0B",
+          "duration": {
+            "min": 25,
+            "max": 50
+          },
+          "frequency": "On demand",
+          "price": {
+            "amount": 30,
+            "amountMax": 55,
+            "currency": "GBP",
+            "note": "Metered black cab; rideshare usually a bit less"
+          },
+          "destination": "Any address in London",
+          "operatingHours": "During airport operating hours",
+          "tips": "The closest airport to the centre, so this is the one place a cab is a defensible splurge—especially to the City or Canary Wharf, which are minutes away.",
+          "pros": [
+            "Shortest airport taxi ride in London",
+            "Door-to-door"
+          ],
+          "cons": [
+            "Still several times the DLR fare",
+            "East London traffic at rush hour"
+          ],
+          "waypoints": [
+            [
+              0.0553,
+              51.5048
+            ],
+            [
+              -0.1278,
+              51.5074
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "STP",
+      "name": "St Pancras (Eurostar)",
+      "fullName": "London St Pancras International",
+      "coordinates": [
+        -0.1257,
+        51.53
+      ],
+      "distanceKm": 3,
+      "terminals": "Eurostar arrivals, main concourse",
+      "routes": [
+        {
+          "id": "stp-underground",
+          "type": "train",
+          "name": "Underground (King's Cross St Pancras)",
+          "icon": "train",
+          "color": "#000F9F",
+          "duration": {
+            "min": 5,
+            "max": 25
+          },
+          "frequency": "Every 2-5 min",
+          "price": {
+            "amount": 2.8,
+            "amountMax": 2.9,
+            "currency": "GBP",
+            "note": "Contactless Zone 1 single; counts toward the daily cap"
+          },
+          "destination": "Anywhere in central London (6 Tube lines)",
+          "operatingHours": "~5:00am - 12:30am (Night Tube Fri-Sat on some lines)",
+          "tips": "Eurostar from Paris (~2h15), Brussels or Amsterdam lands you already in Zone 1. King's Cross St Pancras is served by six Tube lines—Victoria, Piccadilly, Northern, Circle, Metropolitan, Hammersmith & City—so almost everywhere is one train away. Just walk across the concourse and tap in.",
+          "pros": [
+            "You arrive already in central London",
+            "Six Tube lines under one roof",
+            "No border queues on arrival—passport control happens before departure"
+          ],
+          "cons": [
+            "Station is huge—allow a few minutes to navigate",
+            "Rush-hour crowds"
+          ],
+          "waypoints": [
+            [
+              -0.1257,
+              51.53
+            ],
+            [
+              -0.1278,
+              51.5074
+            ]
+          ]
+        },
+        {
+          "id": "stp-taxi",
+          "type": "taxi",
+          "name": "Black cab",
+          "icon": "car",
+          "color": "#F59E0B",
+          "duration": {
+            "min": 10,
+            "max": 30
+          },
+          "frequency": "On demand",
+          "price": {
+            "amount": 12,
+            "amountMax": 25,
+            "currency": "GBP",
+            "note": "Metered; most central hotels within this range"
+          },
+          "destination": "Any address in London",
+          "operatingHours": "24/7",
+          "tips": "The taxi rank is at street level on Midland Road. With luggage after a long train ride, a short metered hop to your hotel is an affordable treat here—unlike from the airports.",
+          "pros": [
+            "Cheap ride—you're already central",
+            "No stairs or escalators with luggage"
+          ],
+          "cons": [
+            "Central traffic can make the Tube faster",
+            "Queue at the rank after big arrivals"
+          ],
+          "waypoints": [
+            [
+              -0.1257,
+              51.53
+            ],
+            [
+              -0.1278,
+              51.5074
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "generalTips": [
+    "Skip paper tickets entirely: tap a contactless card or phone on the yellow readers for the Tube, buses, DLR, Elizabeth line and most trains. Fares are capped automatically—around £8.90/day for Zones 1-2 as of early 2026 (TfL fares typically change each March, so check tfl.gov.uk). Always use the same card/device for every tap.",
+    "The Tube map is organised in zones radiating from Zone 1 (the centre). Almost everything visitors want is in Zones 1-2; Heathrow is out in Zone 6. Off-peak fares apply outside weekday rush hours.",
+    "Buses are the bargain: a flat ~£1.75 per ride with unlimited changes within an hour thanks to the Hopper fare, and the top deck of a double-decker beats any tour bus.",
+    "Black cabs can be hailed on the street when the yellow 'TAXI' light is on—drivers pass the legendary 'Knowledge' test and take card payments. Uber and Bolt are usually cheaper but can't use bus lanes; for short central hops a black cab often wins on time.",
+    "Santander Cycles (the red 'Boris bikes') cost about £1.65 per 30-minute ride or £3.50 for a day of unlimited short rides—brilliant for the parks. Remember: ride on the left.",
+    "Walking is genuinely underrated: the Tube map distorts distances, and central stations like Covent Garden and Leicester Square are a 4-minute stroll apart. When in doubt above ground, walk it—London reveals itself between stations.",
+    "Avoid the Tube with luggage at weekday rush hours (7:30-9:30am, 5-7pm), stand on the right on escalators, and mind the gap."
+  ]
+}

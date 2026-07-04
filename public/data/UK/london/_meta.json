@@ -1,29 +1,35 @@
 {
   "city": "london",
   "country": "uk",
-  "builtAt": "2026-05-28T18:34:19.606Z",
+  "builtAt": "2026-07-04T20:03:38.104Z",
   "legacy": {
     "country": "UK",
     "dir": "london"
   },
   "sections": {
     "overview": {
-      "updatedAt": "2026-05-28T18:34:19.606Z",
+      "updatedAt": "2026-07-04T19:33:16.615Z",
       "source": "import:legacy",
-      "version": 1,
-      "checksum": "sha256:6b462658032baf2688fc786cb1d5084ed18e9f07e9660297b9d2ff6d1b5a5f31"
+      "version": 2,
+      "checksum": "sha256:6caa099e84baf5ed0b8edf5c2bcfce8a1121556257d9a9369416efb6b2f71293"
+    },
+    "attractions": {
+      "updatedAt": "2026-07-04T20:03:38.104Z",
+      "source": "import:legacy",
+      "version": 2,
+      "checksum": "sha256:e610a2d8a4630f7b33c5a59d5541faf32c37b77fedb6766b3cff3f2f2749e3ee"
     },
     "neighborhoods": {
-      "updatedAt": "2026-05-28T18:34:19.606Z",
+      "updatedAt": "2026-07-04T19:33:16.615Z",
       "source": "import:legacy",
-      "version": 1,
-      "checksum": "sha256:dc82c9e52831622eac3e1a3300c268952a0d1bd69ae7e8a579e1e65378c1cfba"
+      "version": 2,
+      "checksum": "sha256:58e7c2641a700cca0440cff5e9ed5a8e3624d95178e08dd6c3049354a97b666a"
     },
     "culinary": {
-      "updatedAt": "2026-05-28T18:34:19.606Z",
+      "updatedAt": "2026-07-04T19:33:16.615Z",
       "source": "import:legacy",
-      "version": 1,
-      "checksum": "sha256:fee98c2cf148e0f1d4f827adf6561702c85520aff657df7e4926b9ac240cc8d3"
+      "version": 2,
+      "checksum": "sha256:f6b3d0bf851e549c842ee56ce99c15c1e19113a2d715a9132df31f47fb447d7d"
     },
     "connections": {
       "updatedAt": "2026-05-28T18:34:19.606Z",
@@ -50,16 +56,22 @@
       "checksum": "sha256:f244364510c813874c578ee1f0ffac62efbc9744007cd7027c6c5a15a85479ae"
     },
     "prose.foodGuide": {
-      "updatedAt": "2026-05-28T18:34:19.606Z",
+      "updatedAt": "2026-07-04T19:33:16.615Z",
       "source": "import:legacy",
-      "version": 1,
-      "checksum": "sha256:ba2e9b7303cb71c2ae596e884dd1e503d42535dc8f907aa92ebb8c675c537e56"
+      "version": 2,
+      "checksum": "sha256:de3b0cb01dedde9e976a81dbf9c91c5783bd46c37c56e4b1f073c35651ad78c9"
     },
     "prose.seasonal": {
       "updatedAt": "2026-05-28T18:34:19.606Z",
       "source": "import:legacy",
       "version": 1,
       "checksum": "sha256:bf5ab50866872e0dddcc22f20011182145caaed96956db73fac22a58705c3cdb"
+    },
+    "prose.gettingIn": {
+      "updatedAt": "2026-07-04T19:33:16.615Z",
+      "source": "import:legacy",
+      "version": 1,
+      "checksum": "sha256:cefab024ed05bfd06c429c68319be0db5647bd4bf252bad45d9a5b6f7eba8f0e"
     },
     "monthly.january": {
       "updatedAt": "2026-05-28T18:34:19.606Z",

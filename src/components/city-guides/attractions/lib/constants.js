@@ -38,6 +38,21 @@ export const CURATED_FILTERS = [
   { id: 'family', label: 'Family Friendly', icon: '👨‍👩‍👧', description: 'Great for kids' },
 ];
 
+// Time-of-day buckets the experiences payload is authored in (category keys,
+// lowercased to match the filter pipeline). Display order for TimeOfDayNav;
+// buckets absent from a city's data simply don't render.
+export const EXPERIENCE_BUCKETS = [
+  { key: 'morning', label: 'Morning', icon: '🌅' },
+  { key: 'midday', label: 'Midday', icon: '☀️' },
+  { key: 'afternoon', label: 'Afternoon', icon: '🌤️' },
+  { key: 'evening', label: 'Evening', icon: '🌆' },
+  { key: 'latenight', label: 'Late Night', icon: '🌙' },
+  { key: 'fooddrink', label: 'Food & Drink', icon: '🍽️' },
+  { key: 'parksgardens', label: 'Parks & Gardens', icon: '🌳' },
+  { key: 'hiddencorners', label: 'Hidden Corners', icon: '💎' },
+  { key: 'daytrips_seasonal', label: 'Day Trips', icon: '🚆' },
+];
+
 export const SCORE_FACTORS = [
   { key: 'uniqueness', label: 'Uniqueness to {city}', weight: 15, icon: '✨' },
   { key: 'visitor_experience_quality', label: 'Experience Quality', weight: 15, icon: '⭐' },
