@@ -1,0 +1,2379 @@
+{
+  "sites": [
+    {
+      "name": "British Museum",
+      "type": "Museum",
+      "description": "Two million years of human civilisation under one Norman Foster glass roof: the **British Museum** holds the Rosetta Stone, the Parthenon sculptures, the Sutton Hoo treasure and the Egyptian mummies, all free of charge. The Great Court — Europe's largest covered square — is worth the visit alone, its lattice canopy pouring light onto the circular Reading Room at its heart. You could spend a week here; most visitors triage ruthlessly and still leave dazed.",
+      "indoor": true,
+      "best_time": "Morning (opening) or Friday evening",
+      "price_range": "Free (charges for special exhibitions)",
+      "seasonal_notes": "Summer brings the heaviest crowds; the Friday late opening until 20:30 is the calmest window year-round. Some galleries close on a rotating basis as the multi-year Masterplan renovation of the Western Range progresses.",
+      "booking_tips": "Free timed-entry tickets can be booked online and let you skip the walk-up queue at peak times. Check the website for temporary gallery closures before planning around a specific collection.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5194,
+      "longitude": -0.127,
+      "neighborhood": "Camden / Bloomsbury",
+      "opening_hours": {
+        "weekday": "10:00-17:00 (Fridays until 20:30)",
+        "weekend": "10:00-17:00",
+        "notes": "Last entry 16:45 (20:15 on Fridays). Free general admission; special exhibitions ticketed."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Central / Piccadilly",
+            "station": "Holborn",
+            "walk_minutes": 7
+          },
+          {
+            "line": "Central / Northern",
+            "station": "Tottenham Court Road",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "Elizabeth line",
+          "station": "Tottenham Court Road",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Central and Northern lines run Night Tube on Fri/Sat; otherwise last trains ~00:30."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 5,
+        "ideal_time_block": "3 hours",
+        "weather_fallback": "Fully indoor — it IS the weather fallback"
+      },
+      "website": "https://www.britishmuseum.org",
+      "ticket_url": "https://www.britishmuseum.org/visit"
+    },
+    {
+      "name": "Tower of London",
+      "type": "Castle / Historic Fortress",
+      "description": "Nearly a thousand years of blood-soaked history crowd the **Tower of London** — William the Conqueror's White Tower, the execution site of Anne Boleyn, the ravens whose departure legend says would doom the kingdom, and the **Crown Jewels** glittering behind moving walkways. The Yeoman Warder (Beefeater) tours are a masterclass in gallows humour and are included in the ticket. Give it a full morning; the fortress is a small walled town, not a single building.",
+      "indoor": false,
+      "best_time": "Morning (opening) to beat coach groups",
+      "price_range": "High (~£35 adults)",
+      "seasonal_notes": "Summer queues for the Crown Jewels can top an hour by midday — go there first. The moat has hosted seasonal installations and a winter ice rink in recent years.",
+      "booking_tips": "Book online in advance for cheaper rates and timed entry. Yeoman Warder tours leave every 30 minutes from the main entrance; the first of the day is the least crowded.",
+      "ratings": {
+        "cost_estimate": 35,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5081,
+      "longitude": -0.0759,
+      "neighborhood": "Tower Hamlets / Tower Hill",
+      "opening_hours": {
+        "weekday": "09:00-17:30 Tue-Sat, 10:00-17:30 Sun-Mon (Mar-Oct); closes 16:30 Nov-Feb",
+        "weekend": "09:00-17:30 Sat, 10:00-17:30 Sun (Mar-Oct); closes 16:30 Nov-Feb",
+        "notes": "Last entry one hour before closing. Crown Jewels queue is longest 11:00-15:00."
+      },
+      "seasonal_hours": {
+        "summer": "09:00/10:00-17:30",
+        "winter": "09:00/10:00-16:30"
+      },
+      "closures": [
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "District / Circle",
+            "station": "Tower Hill",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "DLR",
+          "station": "Tower Gateway",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Tower Hill has no Night Tube; last District/Circle trains ~00:00-00:30."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2.5,
+        "max_duration_hours": 4,
+        "ideal_time_block": "3 hours",
+        "weather_fallback": "White Tower, Crown Jewels and Bloody Tower interiors offer plenty of cover"
+      },
+      "website": "https://www.hrp.org.uk/tower-of-london/",
+      "ticket_url": "https://www.hrp.org.uk/tower-of-london/visit/"
+    },
+    {
+      "name": "Westminster Abbey",
+      "type": "Church / Royal Abbey",
+      "description": "Coronation church of English monarchs since 1066, **Westminster Abbey** is a Gothic reliquary of the nation itself — kings and queens entombed beside Newton, Darwin, Dickens and the Unknown Warrior. Poets' Corner alone rewards slow reading, and the 13th-century Cosmati pavement before the High Altar is where every coronation chair has stood. The Queen's Diamond Jubilee Galleries, high in the medieval triforium, offer a museum-quality collection and a dizzying nave view.",
+      "indoor": true,
+      "best_time": "Morning (opening) on a weekday",
+      "price_range": "High (~£30 adults)",
+      "seasonal_notes": "Closed to sightseeing on Sundays year-round (worship only — attending a free Evensong is a magical alternative). Special services can close the abbey at short notice.",
+      "booking_tips": "Book timed tickets online to skip the queue; the multimedia guide is included. Check the service schedule if you'd rather hear the choir at Evensong for free.",
+      "ratings": {
+        "cost_estimate": 30,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 51.4993,
+      "longitude": -0.1273,
+      "neighborhood": "City of Westminster / Westminster",
+      "opening_hours": {
+        "weekday": "09:30-15:30 (last entry; abbey closes ~16:30)",
+        "weekend": "09:00-15:00 Sat (last entry); Sundays worship only",
+        "notes": "Hours flex around services and state events; verify on the day of travel."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day — services only, no sightseeing"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Jubilee / District / Circle",
+            "station": "Westminster",
+            "walk_minutes": 4
+          },
+          {
+            "line": "District / Circle",
+            "station": "St James's Park",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail",
+          "station": "Victoria",
+          "walk_minutes": 15
+        },
+        "last_train_consideration": "Jubilee line runs Night Tube Fri/Sat from Westminster."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Fully indoor"
+      },
+      "website": "https://www.westminster-abbey.org",
+      "ticket_url": "https://www.westminster-abbey.org/visit-us/prices-entry-times"
+    },
+    {
+      "name": "St Paul's Cathedral",
+      "type": "Cathedral",
+      "description": "Christopher Wren's baroque masterpiece, **St Paul's Cathedral** rose from the ashes of the Great Fire and survived the Blitz as London's defiant symbol. Whisper against the wall of the famous **Whispering Gallery**, then climb on — 528 steps in all — to the Golden Gallery's open-air panorama atop the dome. Below, the crypt holds Nelson, Wellington and Wren himself, under the epitaph 'if you seek his monument, look around you'.",
+      "indoor": true,
+      "best_time": "Morning; climb the dome early for clear light",
+      "price_range": "Moderate to High (~£26 adults online)",
+      "seasonal_notes": "Dome galleries can close in high winds or for services. December fills with carol services — atmospheric, but check sightseeing hours around them.",
+      "booking_tips": "Book online for a discount and faster entry. Sightseeing is Monday-Saturday only; Sundays are for worship (free to attend). Wednesday sightseeing starts later in the morning.",
+      "ratings": {
+        "cost_estimate": 26,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5138,
+      "longitude": -0.0984,
+      "neighborhood": "City of London / Ludgate Hill",
+      "opening_hours": {
+        "weekday": "08:30-16:30 (last entry 16:00); Wednesdays open from 10:00",
+        "weekend": "08:30-16:30 Sat (last entry 16:00); Sundays worship only",
+        "notes": "Dome galleries open from 09:30 and require fitness for 528 steps; no lift to the top."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day — services only, no sightseeing"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Central",
+            "station": "St Paul's",
+            "walk_minutes": 2
+          },
+          {
+            "line": "District / Circle",
+            "station": "Mansion House",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_rer": {
+          "line": "Thameslink",
+          "station": "City Thameslink",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Central line runs Night Tube Fri/Sat; City stations are quiet on weekends."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Fully indoor apart from the optional outdoor galleries"
+      },
+      "website": "https://www.stpauls.co.uk",
+      "ticket_url": "https://www.stpauls.co.uk/visit-us"
+    },
+    {
+      "name": "Buckingham Palace",
+      "type": "Royal Palace",
+      "description": "The monarch's official London residence, **Buckingham Palace** opens its 19 gilded **State Rooms** to visitors each summer while the court is away — Rembrandts and Canalettos from the Royal Collection line walls that heads of state pass beneath. The rest of the year, the palace is best enjoyed from outside: the Victoria Memorial, the sweep of The Mall, and the Changing of the Guard ceremony out front. Time your visit to the Guard change and pair it with a walk through St James's Park.",
+      "indoor": true,
+      "best_time": "Morning — Changing of the Guard usually starts 10:45-11:00 on scheduled days",
+      "price_range": "High (£33 adults for State Rooms, 2026 season); exterior free",
+      "seasonal_notes": "State Rooms open for the 2026 summer season 9 July – 27 September: daily in July–August, Thursday–Monday in September. The rest of the year, admire the façade and catch Changing of the Guard.",
+      "booking_tips": "Summer State Rooms tickets sell out; book weeks ahead on the Royal Collection Trust site. Buy direct and you can often convert your ticket into a 1-year pass by having it stamped on exit.",
+      "ratings": {
+        "cost_estimate": 33,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5014,
+      "longitude": -0.1419,
+      "neighborhood": "City of Westminster / St James's",
+      "opening_hours": {
+        "weekday": "State Rooms (9 Jul–27 Sep 2026): 09:30–19:30 Jul–Aug; 09:30–18:30 Thu–Mon in Sep",
+        "weekend": "Same as weekday during the summer opening",
+        "notes": "Timed-entry slots every 15 minutes; book ahead on rct.uk. Last entry ~2.5 hours before close. Changing of the Guard (free, outside) most days at 11:00 — check the official calendar."
+      },
+      "seasonal_hours": {
+        "summer": "09:30-19:30 (State Rooms season)",
+        "winter": "Closed except select guided tour dates"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Jubilee / Piccadilly / Victoria",
+            "station": "Green Park",
+            "walk_minutes": 8
+          },
+          {
+            "line": "District / Circle",
+            "station": "St James's Park",
+            "walk_minutes": 7
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail",
+          "station": "Victoria",
+          "walk_minutes": 10
+        },
+        "last_train_consideration": "Victoria, Jubilee and Piccadilly lines all run Night Tube Fri/Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours 30 minutes (State Rooms) or 45 minutes (exterior + Guard)",
+        "weather_fallback": "State Rooms are indoor in season; otherwise the Queen's Gallery or Royal Mews nearby"
+      },
+      "website": "https://www.rct.uk/visit/buckingham-palace",
+      "ticket_url": "https://www.rct.uk/visit/buckingham-palace"
+    },
+    {
+      "name": "Tate Modern",
+      "type": "Museum / Modern Art",
+      "description": "A decommissioned power station reborn as the world's most visited modern art museum, **Tate Modern** pairs Rothko, Picasso, Hockney and Kusama with the cathedral-scale drama of the **Turbine Hall**, whose annual commissions are events in themselves. The free collection sprawls across the Natalie Bell and Blavatnik buildings; the upper-floor viewing terraces frame St Paul's across the Millennium Bridge. Entry is free — pay only for blockbuster exhibitions.",
+      "indoor": true,
+      "best_time": "Weekday morning or late afternoon",
+      "price_range": "Free (special exhibitions ~£18-25)",
+      "seasonal_notes": "Rainy-day crowds can be intense on winter weekends. The riverside Bankside walk to the Globe and Borough Market makes this an anchor for a full South Bank day in any season.",
+      "booking_tips": "No ticket needed for the collection; book major exhibitions ahead. Members' and restaurant floors have some of the best free views in London.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5076,
+      "longitude": -0.0994,
+      "neighborhood": "Southwark / Bankside",
+      "opening_hours": {
+        "weekday": "10:00-18:00",
+        "weekend": "10:00-18:00",
+        "notes": "Last entry to exhibitions 17:00. Turbine Hall entrance on Holland Street."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Christmas closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Jubilee",
+            "station": "Southwark",
+            "walk_minutes": 8
+          },
+          {
+            "line": "District / Circle",
+            "station": "Blackfriars",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "Thameslink",
+          "station": "Blackfriars",
+          "walk_minutes": 7
+        },
+        "last_train_consideration": "Jubilee line runs Night Tube Fri/Sat from Southwark."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 4,
+        "ideal_time_block": "2 hours 30 minutes",
+        "weather_fallback": "Fully indoor — ideal rainy-day anchor"
+      },
+      "website": "https://www.tate.org.uk/visit/tate-modern",
+      "ticket_url": "https://www.tate.org.uk/visit/tate-modern"
+    },
+    {
+      "name": "National Gallery",
+      "type": "Museum / Art Gallery",
+      "description": "Fronting Trafalgar Square, the **National Gallery** holds one of the greatest painting collections on earth — Van Gogh's Sunflowers, Turner's Fighting Temeraire, Velázquez, Vermeer and da Vinci — all free. The renovated **Sainsbury Wing**, reopened in 2025 for the gallery's bicentenary, shows the early Renaissance collection in beautiful new light. An hour with ten masterpieces beats three hours of trudging; grab a floor plan and hunt.",
+      "indoor": true,
+      "best_time": "Friday evening (open late) or weekday morning",
+      "price_range": "Free (special exhibitions ticketed)",
+      "seasonal_notes": "Trafalgar Square events (Christmas tree, Chinese New Year, summer festivals) make surrounding areas lively but crowded. Friday lates until 21:00 are the calmest slot.",
+      "booking_tips": "Free entry; timed tickets optional but useful in peak season. Free guided highlights tours run daily — check the information desk for times.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5089,
+      "longitude": -0.1283,
+      "neighborhood": "City of Westminster / Trafalgar Square",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (Fridays until 21:00)",
+        "weekend": "10:00-18:00",
+        "notes": "Last entry 15 minutes before closing; exhibition last entry earlier."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Bakerloo / Northern",
+            "station": "Charing Cross",
+            "walk_minutes": 2
+          },
+          {
+            "line": "Piccadilly / Northern",
+            "station": "Leicester Square",
+            "walk_minutes": 4
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail",
+          "station": "Charing Cross",
+          "walk_minutes": 3
+        },
+        "last_train_consideration": "Northern and Piccadilly lines run Night Tube Fri/Sat nearby."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Fully indoor; National Portrait Gallery adjoins for a double bill"
+      },
+      "website": "https://www.nationalgallery.org.uk",
+      "ticket_url": "https://www.nationalgallery.org.uk/visiting"
+    },
+    {
+      "name": "Natural History Museum",
+      "type": "Museum / Natural History",
+      "description": "Alfred Waterhouse's cathedral of nature, the **Natural History Museum** greets you with **Hope the blue whale** diving through Hintze Hall's Romanesque arches. Dinosaurs (including the animatronic T. rex), the earthquake simulator, a dazzling mineral vault and the Darwin Centre's cocoon fill a building that is itself the finest exhibit — terracotta monkeys climb its very columns. Free, vast, and beloved by children, so time your visit tactically.",
+      "indoor": true,
+      "best_time": "Weekday at opening; avoid UK school holidays if possible",
+      "price_range": "Free (special exhibitions ticketed)",
+      "seasonal_notes": "Half-term and summer holiday crowds are formidable by 11:00. The ice rink returns to the east lawn in winter; the Wildlife Garden is loveliest in late spring.",
+      "booking_tips": "Book a free timed ticket online to guarantee entry at busy times. Enter via Exhibition Road for shorter queues than the Cromwell Road main door.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 4
+      },
+      "latitude": 51.4967,
+      "longitude": -0.1764,
+      "neighborhood": "Kensington and Chelsea / South Kensington",
+      "opening_hours": {
+        "weekday": "10:00-17:50",
+        "weekend": "10:00-17:50",
+        "notes": "Last entry 17:30. Occasional late events ('Lates') on last Friday of the month."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Christmas closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "District / Circle / Piccadilly",
+            "station": "South Kensington",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail",
+          "station": "Victoria",
+          "walk_minutes": 22
+        },
+        "last_train_consideration": "Piccadilly line runs Night Tube Fri/Sat; pedestrian subway links the station to the museums."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 4,
+        "ideal_time_block": "2 hours 30 minutes",
+        "weather_fallback": "Fully indoor; V&A and Science Museum adjacent"
+      },
+      "website": "https://www.nhm.ac.uk",
+      "ticket_url": "https://www.nhm.ac.uk/visit.html"
+    },
+    {
+      "name": "Victoria and Albert Museum",
+      "type": "Museum / Decorative Arts & Design",
+      "description": "The world's greatest museum of art, design and performance, the **V&A** ranges from Raphael's cartoons and the Cast Courts' full-size Trajan's Column to Alexander McQueen gowns and a medieval treasury. Its John Madejski Garden courtyard and the gilded original refreshment rooms (the world's first museum café) invite you to linger between the 145 galleries. Free entry keeps the temptation to return alive — nobody finishes the V&A in one visit.",
+      "indoor": true,
+      "best_time": "Weekday afternoon; Friday evening for late galleries",
+      "price_range": "Free (major exhibitions ~£20+)",
+      "seasonal_notes": "Blockbuster fashion exhibitions sell out weeks ahead — book early. The courtyard pool is a delight for kids in summer.",
+      "booking_tips": "No ticket needed for the collection. Friday Lates (till 22:00, selected galleries) mix DJs and installations on the last Friday of most months.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 5
+      },
+      "latitude": 51.4966,
+      "longitude": -0.1722,
+      "neighborhood": "Kensington and Chelsea / South Kensington",
+      "opening_hours": {
+        "weekday": "10:00-17:45 (Fridays until 22:00, selected galleries)",
+        "weekend": "10:00-17:45",
+        "notes": "Last entry 17:15. Exhibition Road entrance also available."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Christmas closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "District / Circle / Piccadilly",
+            "station": "South Kensington",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail",
+          "station": "Victoria",
+          "walk_minutes": 20
+        },
+        "last_train_consideration": "Piccadilly line Night Tube Fri/Sat; museum tunnel from South Kensington station."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 4,
+        "ideal_time_block": "2 hours 30 minutes",
+        "weather_fallback": "Fully indoor"
+      },
+      "website": "https://www.vam.ac.uk",
+      "ticket_url": "https://www.vam.ac.uk/info/visit"
+    },
+    {
+      "name": "Science Museum",
+      "type": "Museum / Science & Technology",
+      "description": "From Stephenson's Rocket and the Apollo 10 command module to a working Difference Engine, the **Science Museum** turns the history of human ingenuity into pure theatre. The Wonderlab interactive gallery (ticketed) is a magnet for children, while Information Age and the Mathematics gallery — its swooping Zaha Hadid design alone worth the walk — reward grown-ups. Free entry, IMAX on site, and endless button-pushing.",
+      "indoor": true,
+      "best_time": "Weekday morning outside school holidays",
+      "price_range": "Free (Wonderlab, IMAX and simulators ticketed)",
+      "seasonal_notes": "School-holiday crowds peak late morning; the upper galleries stay quieter. Adults-only Lates run one evening a month and are hugely popular.",
+      "booking_tips": "Book free entry tickets online in peak periods. Wonderlab tickets are cheaper booked with your entry slot.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 4
+      },
+      "latitude": 51.4978,
+      "longitude": -0.1745,
+      "neighborhood": "Kensington and Chelsea / South Kensington",
+      "opening_hours": {
+        "weekday": "10:00-18:00",
+        "weekend": "10:00-18:00",
+        "notes": "Last entry 17:15."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Christmas closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "District / Circle / Piccadilly",
+            "station": "South Kensington",
+            "walk_minutes": 7
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail",
+          "station": "Victoria",
+          "walk_minutes": 22
+        },
+        "last_train_consideration": "Use the station's museum subway in bad weather; Piccadilly Night Tube Fri/Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 4,
+        "ideal_time_block": "2 hours 30 minutes",
+        "weather_fallback": "Fully indoor"
+      },
+      "website": "https://www.sciencemuseum.org.uk",
+      "ticket_url": "https://www.sciencemuseum.org.uk/visit"
+    },
+    {
+      "name": "London Eye",
+      "type": "Observation Wheel",
+      "description": "The **London Eye** revolves at a stately 26 cm per second, giving each glass capsule a full 30-minute rotation above the Thames — Parliament, St Paul's and, on clear days, Windsor Castle spread out 135 metres below. Built for the millennium as a temporary attraction, it became as permanent a part of the skyline as Big Ben opposite. Sunset slots are the most coveted; book them well ahead.",
+      "indoor": true,
+      "best_time": "Sunset or clear morning",
+      "price_range": "High (~£30-35 online; more walk-up / fast-track)",
+      "seasonal_notes": "Closes for annual maintenance for roughly two weeks each January. Summer evenings run later; winter fog can flatten the views — check visibility before a spontaneous visit.",
+      "booking_tips": "Advance online tickets are significantly cheaper than walk-up and let you pick a time slot. Combination tickets with the aquarium or Madame Tussauds cut costs if you want several attractions.",
+      "ratings": {
+        "cost_estimate": 33,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5033,
+      "longitude": -0.1196,
+      "neighborhood": "Lambeth / South Bank",
+      "opening_hours": {
+        "weekday": "11:00-18:00 (standard) / 10:00-20:30 (peak summer dates)",
+        "weekend": "10:00-18:00 or later in peak season",
+        "notes": "Hours vary by season and day; check the calendar when booking."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-20:30 (peak dates)",
+        "winter": "11:00-18:00"
+      },
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Jubilee / Northern / Bakerloo / Waterloo & City",
+            "station": "Waterloo",
+            "walk_minutes": 5
+          },
+          {
+            "line": "Jubilee / District / Circle",
+            "station": "Westminster",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail",
+          "station": "Waterloo",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Jubilee and Northern lines run Night Tube Fri/Sat from Waterloo."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.75,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Capsules are enclosed, but skip it in fog; SEA LIFE aquarium next door"
+      },
+      "website": "https://www.londoneye.com",
+      "ticket_url": "https://www.londoneye.com/tickets-and-prices/"
+    },
+    {
+      "name": "The Shard — The View from The Shard",
+      "type": "Skyscraper / Observation Deck",
+      "description": "Western Europe's tallest building, Renzo Piano's glass spire **The Shard** offers London's highest public viewpoint from levels 68-72 — the open-air skydeck at 244 metres puts the whole city at your feet, with Tower Bridge directly below. On clear days visibility stretches 40 miles; at dusk the city ignites beneath you. If tickets feel steep, the tower's bars and restaurants sell a similar view for the price of a cocktail.",
+      "indoor": true,
+      "best_time": "Golden hour into dusk",
+      "price_range": "High (~£28-32 advance; premium flexible tickets more)",
+      "seasonal_notes": "Advance tickets often include a bad-weather guarantee letting you return on a clearer day. Winter sunsets (~16:00) let you catch day and night views in one visit.",
+      "booking_tips": "Book the earliest or latest slots for thinner crowds. Web-only advance prices undercut the door rate substantially.",
+      "ratings": {
+        "cost_estimate": 32,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5045,
+      "longitude": -0.0865,
+      "neighborhood": "Southwark / London Bridge",
+      "opening_hours": {
+        "weekday": "10:00-19:00 Sun-Wed / 10:00-22:00 Thu-Sat (varies seasonally)",
+        "weekend": "10:00-22:00 Sat / 10:00-19:00 Sun (varies seasonally)",
+        "notes": "Last entry ~1 hour before closing; hours flex with season and events."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Jubilee / Northern",
+            "station": "London Bridge",
+            "walk_minutes": 2
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail / Thameslink",
+          "station": "London Bridge",
+          "walk_minutes": 2
+        },
+        "last_train_consideration": "Jubilee and Northern lines run Night Tube Fri/Sat from London Bridge."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Indoor levels 68-69 are glazed; Sky Garden is a free alternative nearby"
+      },
+      "website": "https://www.theviewfromtheshard.com",
+      "ticket_url": "https://www.theviewfromtheshard.com/tickets/"
+    },
+    {
+      "name": "Shakespeare's Globe",
+      "type": "Theatre / Historic Reconstruction",
+      "description": "A meticulous oak-and-thatch reconstruction of the 1599 playhouse, **Shakespeare's Globe** stages the Bard the way his audiences first heard him — open to the sky, with **£5 'groundling' standing tickets** in the yard among the actors. Guided tours run year-round and dig into Elizabethan stagecraft, rivalries and the original Globe's fiery end. In winter, candlelit performances move indoors to the exquisite Sam Wanamaker Playhouse.",
+      "indoor": false,
+      "best_time": "Evening performance (Apr-Oct); daytime for tours",
+      "price_range": "Low to Moderate (tours ~£17; performances from £5 standing)",
+      "seasonal_notes": "The open-air season runs roughly April to October, rain or shine — groundlings get wet and love it. Candlelit Sam Wanamaker Playhouse shows fill the winter months.",
+      "booking_tips": "Groundling tickets are the best £5 in London theatre; book online the moment a production interests you. Tour times shrink on matinée days — check the day's schedule.",
+      "ratings": {
+        "cost_estimate": 17,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5081,
+      "longitude": -0.0972,
+      "neighborhood": "Southwark / Bankside",
+      "opening_hours": {
+        "weekday": "Guided tours ~10:00-17:00 (schedule varies with performances)",
+        "weekend": "Guided tours ~10:00-17:00; performance times vary",
+        "notes": "Tour availability shrinks around matinées; box office open daily."
+      },
+      "seasonal_hours": {
+        "summer": "Open-air performances Apr-Oct",
+        "winter": "Indoor candlelit performances in the Sam Wanamaker Playhouse"
+      },
+      "closures": [
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "District / Circle",
+            "station": "Mansion House",
+            "walk_minutes": 8
+          },
+          {
+            "line": "Jubilee",
+            "station": "Southwark",
+            "walk_minutes": 10
+          }
+        ],
+        "closest_rer": {
+          "line": "Thameslink",
+          "station": "Blackfriars",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Evening shows end ~22:30; Jubilee Night Tube Fri/Sat from Southwark or London Bridge."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 3.5,
+        "ideal_time_block": "2 hours (tour + exhibition) or 3 hours (performance)",
+        "weather_fallback": "Sam Wanamaker Playhouse and exhibition spaces are indoor; Tate Modern next door"
+      },
+      "website": "https://www.shakespearesglobe.com",
+      "ticket_url": "https://www.shakespearesglobe.com/whats-on/"
+    },
+    {
+      "name": "Borough Market",
+      "type": "Food Market",
+      "description": "London's oldest and greatest food market, **Borough Market** has traded under the railway arches by Southwark Cathedral for a thousand years. Today its green wrought-iron canopies shelter cheesemongers, oyster shuckers, chorizo grills and legendary bakeries — come hungry and graze your way through. Lunchtime is theatre; the surrounding lanes hide some of the city's best restaurants and pubs.",
+      "indoor": false,
+      "best_time": "Late morning on a weekday (Saturdays are a crush)",
+      "price_range": "Free entry; street food ~£6-15 per dish",
+      "seasonal_notes": "December is magical and mobbed. Full trading days are the liveliest; a few stalls trade quietly on Mondays.",
+      "booking_tips": "No booking — just arrive before the 12:30 lunch rush. The Kappacasein toastie and Bread Ahead doughnuts have earned their queues.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5054,
+      "longitude": -0.091,
+      "neighborhood": "Southwark / London Bridge",
+      "opening_hours": {
+        "weekday": "10:00-17:00 (Fridays until 18:00); limited stalls Mondays",
+        "weekend": "09:00-17:00 Sat / 10:00-16:00 Sun",
+        "notes": "Individual traders vary; restaurants around the market open later."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Boxing Day closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Jubilee / Northern",
+            "station": "London Bridge",
+            "walk_minutes": 3
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail / Thameslink",
+          "station": "London Bridge",
+          "walk_minutes": 3
+        },
+        "last_train_consideration": "Market closes by early evening; no late-night considerations."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Railway arches and covered halls shelter most of the market; Southwark Cathedral adjacent"
+      },
+      "website": "https://boroughmarket.org.uk",
+      "ticket_url": null
+    },
+    {
+      "name": "Covent Garden",
+      "type": "Market Halls / Public Square",
+      "description": "The old fruit-and-flower market reborn, **Covent Garden**'s 1830 market halls now house boutiques, the Apple Market's craft stalls and a small army of restaurants, while some of the world's best street performers work the cobbled piazza under the portico of St Paul's — the 'Actors' Church'. The Royal Opera House anchors one corner and the London Transport Museum another. Touristy? Utterly. Irresistible on a first visit? Also yes.",
+      "indoor": false,
+      "best_time": "Late afternoon into evening",
+      "price_range": "Free to wander",
+      "seasonal_notes": "The Christmas decorations — giant baubles and mistletoe chandeliers — are among London's best. Street performance runs year-round, weather permitting.",
+      "booking_tips": "No booking for the piazza. Book Royal Opera House tickets or backstage tours separately, and the London Transport Museum (paid, kids love it) if time allows.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5117,
+      "longitude": -0.124,
+      "neighborhood": "City of Westminster / Covent Garden",
+      "opening_hours": {
+        "weekday": "Piazza always open; shops ~10:00-20:00",
+        "weekend": "Piazza always open; shops ~10:00-20:00 (Sun to ~18:00)",
+        "notes": "Restaurants and bars run later; market buildings close overnight."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Shops and market halls closed"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Piccadilly",
+            "station": "Covent Garden",
+            "walk_minutes": 1
+          },
+          {
+            "line": "Northern / Piccadilly",
+            "station": "Leicester Square",
+            "walk_minutes": 4
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail",
+          "station": "Charing Cross",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Covent Garden station is exit-only at peak times and lift-only; Leicester Square is often faster. Piccadilly/Northern Night Tube Fri/Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Covered market halls and the London Transport Museum"
+      },
+      "website": "https://www.coventgarden.london",
+      "ticket_url": null
+    },
+    {
+      "name": "Greenwich: Royal Observatory & Cutty Sark",
+      "type": "Historic District / Museums",
+      "description": "Maritime **Greenwich** packs a UNESCO World Heritage ensemble onto one green hillside: straddle the **Prime Meridian** at the Royal Observatory, where east meets west and Greenwich Mean Time was born, then descend past Wren's Old Royal Naval College to the **Cutty Sark**, the world's last surviving tea clipper, raised in a gleaming glass dry dock. The view from the Observatory across Greenwich Park to Canary Wharf's towers is one of London's finest. Arrive by riverboat for the full effect.",
+      "indoor": false,
+      "best_time": "Morning start, full half-day",
+      "price_range": "Park and Naval College grounds free; Observatory ~£20, Cutty Sark ~£22 (combos available)",
+      "seasonal_notes": "The park blazes with cherry blossom in spring and picnickers in summer. The National Maritime Museum (free) is the wet-weather anchor.",
+      "booking_tips": "Book Royal Museums Greenwich combination tickets online for savings. Take the Thames Clipper riverboat one way — the approach by water is how Greenwich was meant to be seen.",
+      "ratings": {
+        "cost_estimate": 20,
+        "suggested_duration_hours": 4,
+        "cultural_significance": 4
+      },
+      "latitude": 51.4779,
+      "longitude": -0.0015,
+      "neighborhood": "Greenwich / Maritime Greenwich",
+      "opening_hours": {
+        "weekday": "Observatory & Cutty Sark 10:00-17:00 (last entry ~16:15); park from 06:00 to dusk",
+        "weekend": "Observatory & Cutty Sark 10:00-17:00; park from 06:00 to dusk",
+        "notes": "National Maritime Museum (free) also 10:00-17:00. Greenwich Market trades daily ~10:00-17:30."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-24",
+          "reason": "Royal Museums Greenwich sites closed"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Royal Museums Greenwich sites closed"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Royal Museums Greenwich sites closed"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "DLR",
+            "station": "Cutty Sark",
+            "walk_minutes": 2
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail / Thameslink",
+          "station": "Greenwich",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "DLR runs until ~00:30; Thames Clipper boats stop earlier in the evening."
+      },
+      "visit_profile": {
+        "min_duration_hours": 3,
+        "max_duration_hours": 6,
+        "ideal_time_block": "4 hours",
+        "weather_fallback": "National Maritime Museum, Cutty Sark interior and the Painted Hall are all indoor"
+      },
+      "website": "https://www.rmg.co.uk",
+      "ticket_url": "https://www.rmg.co.uk/plan-your-visit"
+    },
+    {
+      "name": "Kew Gardens",
+      "type": "Botanic Garden / UNESCO Site",
+      "description": "The Royal Botanic Gardens at **Kew** hold the world's largest and most diverse plant collection across 300 acres of UNESCO-listed landscape — the great Victorian **Palm House**, the Temperate House's restored glass cathedral, the Treetop Walkway swaying 18 metres up, and the Great Pagoda rising above it all. Every season rewrites the gardens: bluebells, giant waterlilies, autumn colour, and the spectacular Christmas light trail. It's a half-day minimum, and gladly a whole one.",
+      "indoor": false,
+      "best_time": "Morning; spring and early summer are peak bloom",
+      "price_range": "Moderate (~£22 adults advance)",
+      "seasonal_notes": "Closing times track daylight — as late as 19:00 in high summer, ~15:00-16:00 in winter. The iconic Palm House is slated for a major multi-year restoration beginning around 2027; see it now.",
+      "booking_tips": "Book online for cheaper advance rates and to skip ticket lines. Enter at Victoria Gate for the classic Palm House first impression.",
+      "ratings": {
+        "cost_estimate": 22,
+        "suggested_duration_hours": 4,
+        "cultural_significance": 4
+      },
+      "latitude": 51.4787,
+      "longitude": -0.2956,
+      "neighborhood": "Richmond upon Thames / Kew",
+      "opening_hours": {
+        "weekday": "10:00 to ~18:00-19:00 (summer) / 10:00 to ~15:00-16:00 (winter)",
+        "weekend": "10:00 to ~19:00 (summer) / 10:00 to ~16:00 (winter)",
+        "notes": "Glasshouses close earlier than the gardens; last entry one hour before closing."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-19:00 (weekends/holidays)",
+        "winter": "10:00-15:00/16:00"
+      },
+      "closures": [
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "District",
+            "station": "Kew Gardens",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "Overground (Mildmay)",
+          "station": "Kew Gardens",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Gardens close by dusk; District line back to central London runs ~every 10 minutes."
+      },
+      "visit_profile": {
+        "min_duration_hours": 3,
+        "max_duration_hours": 6,
+        "ideal_time_block": "4 hours",
+        "weather_fallback": "Palm House, Temperate House and Princess of Wales Conservatory offer glasshouse shelter"
+      },
+      "website": "https://www.kew.org",
+      "ticket_url": "https://www.kew.org/kew-gardens/visit-kew-gardens/tickets"
+    },
+    {
+      "name": "Tower Bridge",
+      "type": "Bridge / Exhibition",
+      "description": "The most flamboyant bridge on earth, **Tower Bridge** (1894) still raises its bascules for tall ships several hundred times a year. The exhibition takes you along the high-level walkways — with vertigo-inducing **glass floors** 42 metres above the Thames — and down into the Victorian engine rooms where gleaming steam machinery once powered the lifts. Crossing the bridge itself, of course, is free and never gets old.",
+      "indoor": true,
+      "best_time": "Late afternoon; check bridge lift times for a bascule raise",
+      "price_range": "Low to Moderate (~£13 adults)",
+      "seasonal_notes": "Bridge lift times are published in advance online — seeing the bascules rise from the riverbank costs nothing. Summer haze softens photos; winter mornings are crispest.",
+      "booking_tips": "Book online for a small discount and timed entry. Pair with the Tower of London next door, but do the Tower first — it needs more time.",
+      "ratings": {
+        "cost_estimate": 13,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5055,
+      "longitude": -0.0754,
+      "neighborhood": "Tower Hamlets–Southwark / Tower Bridge",
+      "opening_hours": {
+        "weekday": "09:30-18:00",
+        "weekend": "09:30-18:00",
+        "notes": "Last entry 17:00. Occasional early closures for events."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Christmas closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "District / Circle",
+            "station": "Tower Hill",
+            "walk_minutes": 6
+          },
+          {
+            "line": "Jubilee / Northern",
+            "station": "London Bridge",
+            "walk_minutes": 10
+          }
+        ],
+        "closest_rer": {
+          "line": "DLR",
+          "station": "Tower Gateway",
+          "walk_minutes": 7
+        },
+        "last_train_consideration": "The bridge deck and riverside walks are open (and lit) all night."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Walkways and engine rooms are enclosed"
+      },
+      "website": "https://www.towerbridge.org.uk",
+      "ticket_url": "https://www.towerbridge.org.uk/your-visit"
+    },
+    {
+      "name": "Churchill War Rooms",
+      "type": "Museum / Historic Bunker",
+      "description": "Beneath Whitehall's pavements lies the secret bunker where Britain's war was run: the **Churchill War Rooms** preserve the Cabinet Room, Map Room and Churchill's bedroom exactly as they were abandoned in 1945, pins still in the maps. The attached Churchill Museum is a superb, warts-and-all portrait of the man — bombast, brilliance and all. Claustrophobic, atmospheric and utterly gripping; the audio guide is included and excellent.",
+      "indoor": true,
+      "best_time": "First entry of the morning (corridors are narrow and fill fast)",
+      "price_range": "High (~£30 adults)",
+      "seasonal_notes": "Advance slots sell out days ahead in summer and school holidays. Everything is underground — the perfect foul-weather choice.",
+      "booking_tips": "Book a timed ticket online well in advance; walk-up entry is rarely available in peak season. Allow at least 90 minutes — the audio guide runs long and deserves it.",
+      "ratings": {
+        "cost_estimate": 30,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5022,
+      "longitude": -0.129,
+      "neighborhood": "City of Westminster / Whitehall",
+      "opening_hours": {
+        "weekday": "09:30-18:00",
+        "weekend": "09:30-18:00",
+        "notes": "Last entry 17:00. Extended hours on some peak dates."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Christmas closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Jubilee / District / Circle",
+            "station": "Westminster",
+            "walk_minutes": 4
+          },
+          {
+            "line": "District / Circle",
+            "station": "St James's Park",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail",
+          "station": "Charing Cross",
+          "walk_minutes": 12
+        },
+        "last_train_consideration": "Jubilee line Night Tube Fri/Sat from Westminster."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Entirely underground — the ultimate rainy-day site"
+      },
+      "website": "https://www.iwm.org.uk/visits/churchill-war-rooms",
+      "ticket_url": "https://www.iwm.org.uk/visits/churchill-war-rooms"
+    },
+    {
+      "name": "Sky Garden",
+      "type": "Viewpoint / Indoor Garden",
+      "description": "Crowning the 'Walkie-Talkie' tower at 20 Fenchurch Street, the **Sky Garden** is London's highest public garden — three storeys of ferns and figs under a curved glass canopy, with a free 360-degree panorama that goes toe-to-toe with paid decks across the river. The Shard, Tower Bridge and the Tower of London line up neatly below the south-facing terrace. Free entry is the headline; booking ahead is the catch.",
+      "indoor": true,
+      "best_time": "Golden hour (book the sunset slot the moment tickets release)",
+      "price_range": "Free (with advance booking); bars and restaurants extra",
+      "seasonal_notes": "Free tickets release online about a week ahead and sunset slots vanish within hours. Walk-ups are sometimes admitted on weekday mornings; the terrace closes in high winds.",
+      "booking_tips": "Book the free timed ticket online — bring photo ID. No free slots left? A bar reservation at Sky Pod gets you up regardless.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5112,
+      "longitude": -0.0836,
+      "neighborhood": "City of London / Fenchurch Street",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (bars later into the evening)",
+        "weekend": "11:00-21:00 (varies; bars later)",
+        "notes": "Free visitor slots are timed (typically 1 hour); restaurant/bar guests may stay longer."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Boxing Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "District / Circle",
+            "station": "Monument",
+            "walk_minutes": 3
+          },
+          {
+            "line": "Central / Northern / Waterloo & City",
+            "station": "Bank",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail",
+          "station": "Fenchurch Street",
+          "walk_minutes": 4
+        },
+        "last_train_consideration": "City stations quieten at weekends; evening bar visits pair well with the Night Tube on the Central line Fri/Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.75,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Fully enclosed garden (outdoor terrace closes in bad weather)"
+      },
+      "website": "https://skygarden.london",
+      "ticket_url": "https://skygarden.london/booking/"
+    },
+    {
+      "name": "Hyde Park & Kensington Gardens",
+      "type": "Royal Park",
+      "description": "Together forming a 625-acre green lung, **Hyde Park & Kensington Gardens** run from Speakers' Corner's soapbox orators to the gilded Albert Memorial and Kensington Palace. Rent a pedalo on the **Serpentine**, browse the free Serpentine Galleries and their summer architecture pavilion, and find the Peter Pan statue and the Diana Memorial Fountain along the way. This is where London exhales.",
+      "indoor": false,
+      "best_time": "Morning or golden hour; any season",
+      "price_range": "Free (boat hire, Kensington Palace and events extra)",
+      "seasonal_notes": "Winter Wonderland takes over the park's east side from mid-November to early January — festive and heaving. The Serpentine Pavilion rises each summer; autumn colour along the avenues is superb.",
+      "booking_tips": "No booking for the parks. Kensington Palace and Winter Wonderland (peak slots) are ticketed separately; the Serpentine lido opens for summer swims.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5073,
+      "longitude": -0.1657,
+      "neighborhood": "Westminster–Kensington and Chelsea / Hyde Park",
+      "opening_hours": {
+        "weekday": "Hyde Park 05:00-00:00; Kensington Gardens 06:00 to dusk",
+        "weekend": "Hyde Park 05:00-00:00; Kensington Gardens 06:00 to dusk",
+        "notes": "Kensington Gardens' closing time tracks sunset; galleries and palace keep their own hours."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Piccadilly",
+            "station": "Hyde Park Corner",
+            "walk_minutes": 1
+          },
+          {
+            "line": "Central",
+            "station": "Lancaster Gate",
+            "walk_minutes": 2
+          },
+          {
+            "line": "District / Circle",
+            "station": "High Street Kensington",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "Elizabeth line",
+          "station": "Paddington",
+          "walk_minutes": 10
+        },
+        "last_train_consideration": "Multiple Night Tube lines (Central, Piccadilly, Jubilee nearby) ring the park Fri/Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 4,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Serpentine Galleries, Kensington Palace or the V&A museums to the south"
+      },
+      "website": "https://www.royalparks.org.uk/visit/parks/hyde-park",
+      "ticket_url": null
+    },
+    {
+      "name": "Regent's Park & Primrose Hill",
+      "type": "Royal Park / Viewpoint",
+      "description": "John Nash's masterpiece of landscape design, **Regent's Park** wraps formal rose gardens (Queen Mary's Gardens hold 12,000 roses), an open-air theatre and London Zoo inside a ring of creamy Regency terraces. Cross the canal north and climb **Primrose Hill** for one of the city's best-loved skyline views, etched with a quote from William Blake at the summit. June, when the roses peak, is glorious.",
+      "indoor": false,
+      "best_time": "Late afternoon, summiting Primrose Hill for sunset",
+      "price_range": "Free (zoo and theatre extra)",
+      "seasonal_notes": "Queen Mary's Gardens peak May-June; the Open Air Theatre season runs May-September. Primrose Hill is a favourite (unofficial) spot on fireworks nights.",
+      "booking_tips": "No booking for the parks. Book Open Air Theatre and London Zoo tickets online in advance for summer dates.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 3
+      },
+      "latitude": 51.535,
+      "longitude": -0.158,
+      "neighborhood": "Camden–Westminster / Regent's Park & Primrose Hill",
+      "opening_hours": {
+        "weekday": "05:00 to dusk (seasonal closing, ~21:30 midsummer)",
+        "weekend": "05:00 to dusk",
+        "notes": "Primrose Hill gates close at dusk like the main park; exact times posted at gates."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Bakerloo",
+            "station": "Regent's Park",
+            "walk_minutes": 2
+          },
+          {
+            "line": "Northern",
+            "station": "Chalk Farm",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_rer": {
+          "line": "Overground (Mildmay)",
+          "station": "Camden Road",
+          "walk_minutes": 15
+        },
+        "last_train_consideration": "Northern line Night Tube Fri/Sat from Chalk Farm/Camden Town."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 4,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "London Zoo's indoor houses, or retreat to Marylebone's cafés and the Wallace Collection"
+      },
+      "website": "https://www.royalparks.org.uk/visit/parks/the-regents-park",
+      "ticket_url": null
+    },
+    {
+      "name": "Hampstead Heath",
+      "type": "Heathland / Park & Viewpoint",
+      "description": "Eight hundred acres of genuinely wild-feeling woods, meadows and swimming ponds, **Hampstead Heath** is where London goes to pretend it's in the countryside. The view from **Parliament Hill** — a protected vista across the whole city skyline — is the classic reward, and the men's, women's and mixed **bathing ponds** are a beloved year-round ritual. Kenwood House, at the Heath's northern edge, adds a free Rembrandt and Vermeer to your walk.",
+      "indoor": false,
+      "best_time": "Morning for mist and swimmers; late afternoon for the Parliament Hill view",
+      "price_range": "Free (small charge for the bathing ponds)",
+      "seasonal_notes": "Ponds are open year-round — winter swims are for the brave. Autumn colour in the woods and summer picnics on Parliament Hill are the seasonal highlights; paths get muddy after rain.",
+      "booking_tips": "No booking for the Heath. Kenwood House (English Heritage, free) closes late afternoon — sequence it before a sunset descent to Hampstead village's pubs.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 3
+      },
+      "latitude": 51.559,
+      "longitude": -0.155,
+      "neighborhood": "Camden / Hampstead",
+      "opening_hours": {
+        "weekday": "Open 24 hours (most areas); Kenwood House grounds 08:00 to dusk",
+        "weekend": "Open 24 hours (most areas)",
+        "notes": "Bathing ponds and lido keep posted seasonal hours; Kenwood House interior ~10:00-16:00/17:00."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Northern",
+            "station": "Hampstead",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "Overground (Mildmay)",
+          "station": "Hampstead Heath",
+          "walk_minutes": 2
+        },
+        "last_train_consideration": "Northern line Night Tube Fri/Sat from Hampstead; the Heath is unlit at night."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 5,
+        "ideal_time_block": "3 hours",
+        "weather_fallback": "Kenwood House interior and Hampstead village cafés"
+      },
+      "website": "https://www.cityoflondon.gov.uk/things-to-do/green-spaces/hampstead-heath",
+      "ticket_url": null
+    },
+    {
+      "name": "Camden Market",
+      "type": "Market / Alternative Quarter",
+      "description": "Sprawling from the canal lock through Victorian stables, **Camden Market** is London's temple of the alternative — a maze of vintage clothes, records, leather, neon and one of the city's densest street-food line-ups in the Stables and Lock markets. The punk-and-goth theatrics of Camden High Street are part of the show. Come hungry, haggle gently, and walk it off along Regent's Canal towards Little Venice or the Zoo.",
+      "indoor": false,
+      "best_time": "Weekday late morning (weekends are a crowd sport)",
+      "price_range": "Free entry; street food ~£8-14",
+      "seasonal_notes": "Open every day of the year except Christmas Day. Summer weekends bring canal-side crowds and buskers; many stalls are semi-covered, so rain is survivable.",
+      "booking_tips": "No booking. The Stables Market's back corners hide the best vintage; eat at the West Yard food stalls overlooking the lock.",
+      "ratings": {
+        "cost_estimate": 10,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5414,
+      "longitude": -0.146,
+      "neighborhood": "Camden / Camden Town",
+      "opening_hours": {
+        "weekday": "10:00-18:00 (bars and some eateries later)",
+        "weekend": "10:00-18:00 (busiest 12:00-16:00)",
+        "notes": "Individual traders vary; food stalls run latest."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Northern",
+            "station": "Camden Town",
+            "walk_minutes": 3
+          },
+          {
+            "line": "Northern",
+            "station": "Chalk Farm",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "Overground (Mildmay)",
+          "station": "Camden Road",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Camden Town station is exit-only on Sunday afternoons at peak; Northern line Night Tube Fri/Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "The Stables Market's covered halls and arches"
+      },
+      "website": "https://www.camdenmarket.com",
+      "ticket_url": null
+    },
+    {
+      "name": "Notting Hill & Portobello Road Market",
+      "type": "Neighborhood / Street Market",
+      "description": "Pastel terraces, blue-plaque bookshops and the world's most famous antiques street: **Notting Hill** and **Portobello Road Market** are best on a Saturday, when two miles of stalls run from silverware and vintage cameras in the south to street food and bric-a-brac under the Westway. Film pilgrims will find the travel bookshop's spiritual heirs; everyone else finds a bargain or at least a very good coffee. In late August the neighbourhood erupts into Europe's biggest street festival, Notting Hill Carnival.",
+      "indoor": false,
+      "best_time": "Saturday morning before 11:00 for the antiques; Friday for a calmer version",
+      "price_range": "Free to browse",
+      "seasonal_notes": "Carnival (August bank holiday weekend) transforms — and closes — the market area entirely. Winter Saturdays are quieter but many stalls still trade.",
+      "booking_tips": "No booking. Antiques dealers appear Friday and (above all) Saturday; arrive early for serious browsing, and keep valuables zipped in the crowds.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5173,
+      "longitude": -0.205,
+      "neighborhood": "Kensington and Chelsea / Notting Hill",
+      "opening_hours": {
+        "weekday": "Stalls roughly 09:00-18:00 Mon-Wed, half-day Thu, full market Fri",
+        "weekend": "Saturday ~09:00-19:00 is the main antiques day; Sundays mostly shops only",
+        "notes": "Shops along the road keep normal retail hours daily."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-08-30",
+          "reason": "Notting Hill Carnival — market suspended, area extremely crowded"
+        },
+        {
+          "date": "2026-08-31",
+          "reason": "Notting Hill Carnival — market suspended, area extremely crowded"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Central / District / Circle",
+            "station": "Notting Hill Gate",
+            "walk_minutes": 5
+          },
+          {
+            "line": "Circle / Hammersmith & City",
+            "station": "Ladbroke Grove",
+            "walk_minutes": 3
+          }
+        ],
+        "closest_rer": {
+          "line": "Elizabeth line",
+          "station": "Paddington",
+          "walk_minutes": 20
+        },
+        "last_train_consideration": "Central line Night Tube Fri/Sat from Notting Hill Gate."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Arcades and shops along Portobello Road; Museum of Brands nearby"
+      },
+      "website": "https://portobelloroad.co.uk",
+      "ticket_url": null
+    },
+    {
+      "name": "National Portrait Gallery",
+      "type": "Museum / Art Gallery",
+      "description": "Reopened in 2023 after a top-to-bottom transformation, the **National Portrait Gallery** tells Britain's story face by face — Tudor monarchs and Shakespeare's 'Chandos' portrait upstairs, Bowie, Blackman and blazing contemporary commissions below. It's more intimate and more gossipy than its big sibling next door, and free like it. The rooftop restaurant hides a lovely view over Trafalgar Square to Big Ben.",
+      "indoor": true,
+      "best_time": "Friday or Saturday evening (open late)",
+      "price_range": "Free (special exhibitions ticketed)",
+      "seasonal_notes": "Quieter than the National Gallery even in peak season — a smart crowd-swap on busy days. Evening lates run Friday and Saturday.",
+      "booking_tips": "Free entry, no ticket needed for the collection. Start on the top floor (Tudors) and work chronologically downwards.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5094,
+      "longitude": -0.1281,
+      "neighborhood": "City of Westminster / Trafalgar Square",
+      "opening_hours": {
+        "weekday": "10:30-18:00 (Fridays until 21:00)",
+        "weekend": "10:30-18:00 (Saturdays until 21:00)",
+        "notes": "Last entry 45 minutes before closing."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Christmas closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Northern / Piccadilly",
+            "station": "Leicester Square",
+            "walk_minutes": 3
+          },
+          {
+            "line": "Bakerloo / Northern",
+            "station": "Charing Cross",
+            "walk_minutes": 3
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail",
+          "station": "Charing Cross",
+          "walk_minutes": 3
+        },
+        "last_train_consideration": "Northern/Piccadilly Night Tube Fri/Sat from Leicester Square."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Fully indoor; National Gallery adjoins"
+      },
+      "website": "https://www.npg.org.uk",
+      "ticket_url": "https://www.npg.org.uk/visit"
+    },
+    {
+      "name": "Somerset House",
+      "type": "Cultural Centre / Historic Palace",
+      "description": "A neoclassical palace wrapped around one grand courtyard, **Somerset House** reinvents itself by season — 55 dancing **fountains** for children to run through in summer, London's most romantic **ice rink** in winter, plus the Courtauld Gallery's stellar Impressionists (Manet's Bar at the Folies-Bergère, Van Gogh's bandaged self-portrait) upstairs. Film screenings, fashion weeks and design fairs rotate through. The riverside terrace is a quietly great spot for a drink.",
+      "indoor": false,
+      "best_time": "Summer afternoon (fountains) or winter evening (ice rink)",
+      "price_range": "Courtyard free; Courtauld Gallery ~£10-14; events priced separately",
+      "seasonal_notes": "The ice rink runs roughly mid-November to mid-January; Summer Series concerts and the fountain courtyard take over in July-August.",
+      "booking_tips": "Courtyard is walk-in. Book the Courtauld online (cheaper weekday rates) and skating slots well ahead for December evenings.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5111,
+      "longitude": -0.117,
+      "neighborhood": "City of Westminster / Strand",
+      "opening_hours": {
+        "weekday": "Courtyard ~08:00-23:00; galleries ~10:00-18:00",
+        "weekend": "Courtyard ~08:00-23:00; galleries ~10:00-18:00",
+        "notes": "Event days can restrict courtyard access; Courtauld last entry ~17:15."
+      },
+      "seasonal_hours": {
+        "summer": "Fountain courtyard in play daily",
+        "winter": "Ice rink mid-Nov to mid-Jan"
+      },
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "District / Circle",
+            "station": "Temple",
+            "walk_minutes": 3
+          },
+          {
+            "line": "Piccadilly",
+            "station": "Covent Garden",
+            "walk_minutes": 7
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail",
+          "station": "Charing Cross",
+          "walk_minutes": 10
+        },
+        "last_train_consideration": "Temple station closes on Sundays in some periods; Embankment is a nearby alternative."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 3,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Courtauld Gallery and the Embankment Galleries are indoor"
+      },
+      "website": "https://www.somersethouse.org.uk",
+      "ticket_url": "https://www.somersethouse.org.uk/whats-on"
+    },
+    {
+      "name": "Leadenhall Market",
+      "type": "Historic Market Arcade",
+      "description": "A gorgeous maroon-and-gold Victorian arcade in the heart of the City, **Leadenhall Market** stands on the site of Roman London's forum and moonlighted as **Diagon Alley** in the Harry Potter films. Weekday lunchtimes bring City workers spilling out of its pubs and cheesemongers under the painted ironwork; weekends are eerily quiet and perfect for unobstructed photographs. Look up — the roof is the star.",
+      "indoor": true,
+      "best_time": "Weekday lunchtime for atmosphere; early weekend morning for photos",
+      "price_range": "Free",
+      "seasonal_notes": "The Christmas tree and lights under the glass roof are a City tradition. Many shops and pubs close at weekends, when the arcade itself stays open and photogenic.",
+      "booking_tips": "No booking. Combine with Sky Garden (5 minutes away) and the Lloyd's building's inside-out architecture next door.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 0.5,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5128,
+      "longitude": -0.0837,
+      "neighborhood": "City of London / Leadenhall",
+      "opening_hours": {
+        "weekday": "Arcade open 24 hours; shops and pubs ~10:00-23:00",
+        "weekend": "Arcade open; most businesses closed",
+        "notes": "Public thoroughfare — the structure is always accessible."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "District / Circle",
+            "station": "Monument",
+            "walk_minutes": 4
+          },
+          {
+            "line": "Central / Northern",
+            "station": "Bank",
+            "walk_minutes": 4
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail",
+          "station": "Fenchurch Street",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "City stations are quiet after evening rush and at weekends."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.25,
+        "max_duration_hours": 1,
+        "ideal_time_block": "30 minutes",
+        "weather_fallback": "The arcade is covered — it IS a weather fallback"
+      },
+      "website": "https://leadenhallmarket.co.uk",
+      "ticket_url": null
+    },
+    {
+      "name": "St James's Park",
+      "type": "Royal Park",
+      "description": "The oldest and most polished of the royal parks, **St James's Park** threads a willow-fringed lake between Buckingham Palace and Horse Guards — with resident **pelicans**, descendants of a Russian ambassador's 1664 gift, fed daily by the lake. The view from the Blue Bridge, palace shimmering at one end and the London Eye rising behind Whitehall's domes at the other, is the postcard London never quite captures. Perfect connective tissue between Westminster's big sights.",
+      "indoor": false,
+      "best_time": "Morning en route to the Changing of the Guard; pelican feeding ~14:30",
+      "price_range": "Free",
+      "seasonal_notes": "Spring bulbs along the Mall are spectacular; summer deckchairs are pay-to-sit. Ceremonial events (Trooping the Colour in June) can close paths.",
+      "booking_tips": "No booking. Walk it between Buckingham Palace, Horse Guards and Westminster rather than treating it as a separate stop.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5027,
+      "longitude": -0.134,
+      "neighborhood": "City of Westminster / St James's",
+      "opening_hours": {
+        "weekday": "05:00-00:00",
+        "weekend": "05:00-00:00",
+        "notes": "Pelican feeding usually ~14:30 near Duck Island Cottage."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "District / Circle",
+            "station": "St James's Park",
+            "walk_minutes": 3
+          },
+          {
+            "line": "Jubilee / Piccadilly / Victoria",
+            "station": "Green Park",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail",
+          "station": "Victoria",
+          "walk_minutes": 12
+        },
+        "last_train_consideration": "Park closes at midnight; Victoria and Jubilee lines run Night Tube Fri/Sat nearby."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Churchill War Rooms or the Queen's Gallery at the park's edges"
+      },
+      "website": "https://www.royalparks.org.uk/visit/parks/st-jamess-park",
+      "ticket_url": null
+    },
+    {
+      "name": "Westminster & Big Ben",
+      "type": "Landmark / Government Quarter",
+      "description": "The Gothic Revival cliff-face of the **Palace of Westminster** and the freshly regilded **Elizabeth Tower — Big Ben** to everyone on earth — form the single most photographed view in Britain, best taken from Westminster Bridge or the South Bank opposite. The bell itself, silent through years of restoration, bongs the hours once more. UK residents and visitors can book tours of Parliament on Saturdays and during recesses; everyone else gets the exterior, which is the point anyway.",
+      "indoor": false,
+      "best_time": "Dawn for empty pavements; dusk when the tower lights up",
+      "price_range": "Free (exterior); Parliament tours ~£25-33",
+      "seasonal_notes": "Westminster Bridge is packed midday year-round — early morning is transformative. New Year's Eve fireworks make this the centre of the ticketed viewing zone.",
+      "booking_tips": "Book Houses of Parliament tours (Saturdays and recess weekdays) well ahead on the official site; UK residents can also arrange free tours via their MP. Big Ben tower tours exist but sell out months out.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 5
+      },
+      "latitude": 51.5007,
+      "longitude": -0.1246,
+      "neighborhood": "City of Westminster / Westminster",
+      "opening_hours": {
+        "weekday": "Exterior always viewable; Parliament tours on selected days",
+        "weekend": "Exterior always viewable; Saturday tours run most of the year",
+        "notes": "Public gallery access to debates is free when Parliament sits (queue on the day)."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Jubilee / District / Circle",
+            "station": "Westminster",
+            "walk_minutes": 1
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail",
+          "station": "Waterloo",
+          "walk_minutes": 12
+        },
+        "last_train_consideration": "Jubilee line Night Tube Fri/Sat; the illuminated tower rewards a late stroll."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 2,
+        "ideal_time_block": "45 minutes (exterior) or 2 hours (Parliament tour)",
+        "weather_fallback": "Westminster Abbey or Churchill War Rooms steps away"
+      },
+      "website": "https://www.parliament.uk/visiting/",
+      "ticket_url": "https://www.parliament.uk/visiting/visiting-and-tours/"
+    },
+    {
+      "name": "Sir John Soane's Museum",
+      "type": "Museum / Historic House",
+      "description": "The obsessively curated home of Regency architect Sir John Soane, **Sir John Soane's Museum** crams a sarcophagus of Seti I, Hogarth's complete Rake's Progress (hidden behind folding walls) and thousands of casts, models and antiquities into three ingeniously lit townhouses on Lincoln's Inn Fields. Soane left it to the nation on condition nothing be changed — and nothing has. It is the most atmospheric free museum in London, full stop.",
+      "indoor": true,
+      "best_time": "Weekday at opening; candlelit evening openings when offered",
+      "price_range": "Free (donations welcomed; some tours paid)",
+      "seasonal_notes": "Small rooms mean entry queues on weekends; winter afternoons give the interiors their moody, lamplit best. Occasional evening 'Lates' are unforgettable — watch the website.",
+      "booking_tips": "Free entry, first-come or bookable timed slots. Bags must be checked; ask an invigilator to open the Picture Room walls if you'd miss the Hogarths otherwise.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5169,
+      "longitude": -0.1174,
+      "neighborhood": "Camden / Holborn (Lincoln's Inn Fields)",
+      "opening_hours": {
+        "weekday": "10:00-17:00 Wed-Fri (last entry 16:30); closed Mon-Tue",
+        "weekend": "10:00-17:00 Sat-Sun (last entry 16:30)",
+        "notes": "Small-capacity house — queues form at busy times."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Christmas closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Central / Piccadilly",
+            "station": "Holborn",
+            "walk_minutes": 4
+          }
+        ],
+        "closest_rer": {
+          "line": "Elizabeth line",
+          "station": "Farringdon",
+          "walk_minutes": 14
+        },
+        "last_train_consideration": "Central and Piccadilly lines run Night Tube Fri/Sat from Holborn."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Fully indoor; British Museum ten minutes away"
+      },
+      "website": "https://www.soane.org",
+      "ticket_url": "https://www.soane.org/your-visit"
+    },
+    {
+      "name": "Dennis Severs' House",
+      "type": "Historic House / Immersive Experience",
+      "description": "Neither museum nor stage set but something stranger, **Dennis Severs' House** at 18 Folgate Street is a 'still-life drama': ten candlelit rooms arranged as if their fictional Huguenot silk-weaver family has just stepped out — half-eaten bread, smouldering hearths, a heard-but-never-seen household. Visits are conducted in silence, which sounds precious and proves hypnotic. The candlelit evening 'Silent Night' visits are among the most singular experiences in London.",
+      "indoor": true,
+      "best_time": "Evening candlelit session in autumn or winter",
+      "price_range": "Moderate (~£15-27 depending on session)",
+      "seasonal_notes": "The house is at its otherworldly best in the dark months, and Christmas-dressed rooms (late Nov-early Jan) sell out fastest of all.",
+      "booking_tips": "Book online well in advance — sessions are small and timed, with evening slots the first to go. No photography, no talking; children under 10 not admitted.",
+      "ratings": {
+        "cost_estimate": 18,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5197,
+      "longitude": -0.0785,
+      "neighborhood": "Tower Hamlets / Spitalfields",
+      "opening_hours": {
+        "weekday": "Selected days and evenings only (typically several days a week; times vary)",
+        "weekend": "Daytime and twilight sessions most weekends",
+        "notes": "Entry strictly by pre-booked timed session; check the calendar."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Central / Circle / Hammersmith & City / Metropolitan",
+            "station": "Liverpool Street",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_rer": {
+          "line": "Overground (Windrush)",
+          "station": "Shoreditch High Street",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Evening sessions end by ~21:00; Liverpool Street offers ample late connections."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.75,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Fully indoor; Spitalfields Market's covered halls adjacent"
+      },
+      "website": "https://www.dennissevershouse.co.uk",
+      "ticket_url": "https://www.dennissevershouse.co.uk/tickets"
+    },
+    {
+      "name": "Columbia Road Flower Market",
+      "type": "Street Market",
+      "description": "Every Sunday morning a narrow East End street disappears under banana palms, peonies and trays of seedlings: **Columbia Road Flower Market** is equal parts horticulture and street theatre, its barrow boys hollering two-bunches-a-fiver in unreconstructed Cockney. The Victorian shopfronts lining the road — independent galleries, vintage shops, tiny cafés — open to match. Go early for the pick of the stems or at close for knock-down bargains.",
+      "indoor": false,
+      "best_time": "Sunday 08:00-09:00 (calm) or after 14:00 (bargains)",
+      "price_range": "Free to browse",
+      "seasonal_notes": "Sundays only, rain or shine, year-round. December Sundays add wreaths, trees and carol-singing crowds; arrive very early then.",
+      "booking_tips": "No booking — just set a Sunday alarm. Cash speeds up the barrow transactions, and cafés at the Hackney end thin out fastest.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 3
+      },
+      "latitude": 51.529,
+      "longitude": -0.0694,
+      "neighborhood": "Tower Hamlets / Bethnal Green (Columbia Road)",
+      "opening_hours": {
+        "weekday": "Market closed (shops keep individual hours)",
+        "weekend": "Sundays only, ~08:00-15:00",
+        "notes": "Peak crush 10:30-13:30; shops along the road open Sundays and some weekends."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Central",
+            "station": "Bethnal Green",
+            "walk_minutes": 15
+          }
+        ],
+        "closest_rer": {
+          "line": "Overground (Windrush)",
+          "station": "Hoxton",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "A morning market — no late-night considerations."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.75,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Duck into the road's cafés and shops; Brick Lane's covered markets nearby"
+      },
+      "website": "https://www.columbiaroad.info",
+      "ticket_url": null
+    },
+    {
+      "name": "Wallace Collection",
+      "type": "Museum / Art Collection",
+      "description": "A grand Marylebone townhouse hiding one of the world's great private art collections, the **Wallace Collection** serves Frans Hals' Laughing Cavalier, Fragonard's The Swing, Sèvres porcelain and a jaw-dropping armoury — all free, and blissfully uncrowded. Nothing may ever leave the collection under the terms of its bequest, which gives the salmon-pink galleries a sealed-in-amber magic. The glass-roofed courtyard restaurant is a lovely, quiet lunch.",
+      "indoor": true,
+      "best_time": "Weekday afternoon",
+      "price_range": "Free (exhibitions occasionally ticketed)",
+      "seasonal_notes": "An ideal rainy-day pairing with Marylebone High Street's shops. Rarely crowded even in peak season — one of central London's calmest great museums.",
+      "booking_tips": "Free entry, no booking needed. Free daily highlights tours run most days — check at the desk on arrival.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 51.5173,
+      "longitude": -0.1531,
+      "neighborhood": "City of Westminster / Marylebone (Manchester Square)",
+      "opening_hours": {
+        "weekday": "10:00-17:00",
+        "weekend": "10:00-17:00",
+        "notes": "Last entry shortly before closing; courtyard restaurant keeps longer hours some evenings."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-24",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Christmas closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Central / Jubilee",
+            "station": "Bond Street",
+            "walk_minutes": 5
+          },
+          {
+            "line": "Bakerloo / Jubilee / Metropolitan",
+            "station": "Baker Street",
+            "walk_minutes": 7
+          }
+        ],
+        "closest_rer": {
+          "line": "Elizabeth line",
+          "station": "Bond Street",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Central and Jubilee lines run Night Tube Fri/Sat from Bond Street."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Fully indoor with a covered courtyard café"
+      },
+      "website": "https://www.wallacecollection.org",
+      "ticket_url": null
+    },
+    {
+      "name": "Barbican Centre & Conservatory",
+      "type": "Cultural Centre / Brutalist Landmark",
+      "description": "Europe's largest multi-arts centre inside its most divisive-then-beloved Brutalist estate, the **Barbican** layers concert halls, cinemas, galleries and lakeside terraces beneath ziggurat towers of bush-hammered concrete. The surprise is the **Conservatory** — the City's secret rainforest, 1,500 plant species curling through the concrete on selected open days. Come for a concert or exhibition, stay to get productively lost on the highwalks.",
+      "indoor": true,
+      "best_time": "Weekend afternoon (Conservatory open days); any evening for performances",
+      "price_range": "Free to enter; performances and galleries ticketed; Conservatory free (booked)",
+      "seasonal_notes": "The Conservatory typically opens Fridays-Sundays and bank holidays with free timed tickets that go fast. Lakeside terrace is lovely on summer evenings.",
+      "booking_tips": "Book free Conservatory slots online ahead — they release in batches. The Curve gallery is free; architecture tours decode the estate brilliantly.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 3
+      },
+      "latitude": 51.5202,
+      "longitude": -0.0938,
+      "neighborhood": "City of London / Barbican",
+      "opening_hours": {
+        "weekday": "Centre ~09:00-23:00; Conservatory selected days only",
+        "weekend": "Centre ~11:00-23:00 Sun; Conservatory usually open (timed tickets)",
+        "notes": "Conservatory hours ~12:00-17:00 on open days; check the calendar."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Boxing Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Circle / Hammersmith & City / Metropolitan",
+            "station": "Barbican",
+            "walk_minutes": 5
+          },
+          {
+            "line": "Northern",
+            "station": "Moorgate",
+            "walk_minutes": 7
+          }
+        ],
+        "closest_rer": {
+          "line": "Elizabeth line",
+          "station": "Farringdon",
+          "walk_minutes": 10
+        },
+        "last_train_consideration": "Evening performances end ~22:00-22:30; good late connections from Farringdon and Moorgate."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Entire centre is indoor, foyers free to roam"
+      },
+      "website": "https://www.barbican.org.uk",
+      "ticket_url": "https://www.barbican.org.uk/whats-on"
+    },
+    {
+      "name": "God's Own Junkyard",
+      "type": "Gallery / Neon Wonderland",
+      "description": "A Walthamstow warehouse ablaze with salvaged cinema signs, film-prop neon and the psychedelic gospel of the late 'Neon Man' Chris Bracey, **God's Own Junkyard** is the most Instagrammed square footage in east London — and still feels like a family lock-up, because it is. Signs made here lit Soho's dens and Hollywood sets from Blade Runner to Batman. The Rolling Scones café serves tea and cake amid the electric-pink glow.",
+      "indoor": true,
+      "best_time": "Weekend early afternoon (it's only open Fri-Sun)",
+      "price_range": "Free (buy a slice of cake to keep the lights on)",
+      "seasonal_notes": "Dark winter afternoons make the neon sing. Weekends get busy with photo-seekers; Fridays are the mellow option.",
+      "booking_tips": "No booking; check social channels for occasional private-event closures before making the trek. Combine with Walthamstow's craft-beer 'Blackhorse Beer Mile'.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 2
+      },
+      "latitude": 51.5836,
+      "longitude": -0.0069,
+      "neighborhood": "Waltham Forest / Walthamstow (Ravenswood Industrial Estate)",
+      "opening_hours": {
+        "weekday": "Closed Mon-Thu; Fridays 11:00-21:00",
+        "weekend": "11:00-21:00 Sat / 11:00-18:00 Sun",
+        "notes": "Occasionally closed for private hire — check before travelling."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Victoria",
+            "station": "Walthamstow Central",
+            "walk_minutes": 17
+          }
+        ],
+        "closest_rer": {
+          "line": "Overground (Weaver)",
+          "station": "Wood Street",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Victoria line runs Night Tube Fri/Sat from Walthamstow Central."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.75,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Fully indoor, with neighbouring brewery taprooms on the estate"
+      },
+      "website": "https://www.godsownjunkyard.co.uk",
+      "ticket_url": null
+    },
+    {
+      "name": "Little Venice",
+      "type": "Canal District",
+      "description": "Where the Grand Union and Regent's Canals meet, **Little Venice** gathers painted narrowboats, waterside cafés and a puppet-theatre barge beneath weeping willows and white stucco villas. Board a canal boat for the lazy 45-minute cruise through the Maida Hill tunnel and Regent's Park to Camden Lock — or walk the towpath and keep the fare for coffee. It's central London at its most improbably serene.",
+      "indoor": false,
+      "best_time": "Late morning, continuing along the towpath to Camden",
+      "price_range": "Free to wander; canal cruises ~£12-17 one-way",
+      "seasonal_notes": "Boat services run frequently April-September, reduced or weekend-only in winter. The Canalway Cavalcade festival fills the pool with decorated boats over the early-May bank holiday.",
+      "booking_tips": "Book waterbus seats (London Waterbus Co. or Jason's Trip) online on summer weekends. The towpath walk to Camden takes about 50 relaxed minutes.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 2
+      },
+      "latitude": 51.5225,
+      "longitude": -0.183,
+      "neighborhood": "City of Westminster / Maida Vale",
+      "opening_hours": {
+        "weekday": "Open area — always accessible; cruises roughly 10:00-17:00 in season",
+        "weekend": "Open area — always accessible; more frequent cruises",
+        "notes": "Cafés and the puppet barge keep their own schedules."
+      },
+      "seasonal_hours": {
+        "summer": "Canal boats run daily",
+        "winter": "Reduced/weekend boat service"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Bakerloo",
+            "station": "Warwick Avenue",
+            "walk_minutes": 3
+          },
+          {
+            "line": "Bakerloo / District / Circle",
+            "station": "Paddington",
+            "walk_minutes": 10
+          }
+        ],
+        "closest_rer": {
+          "line": "Elizabeth line",
+          "station": "Paddington",
+          "walk_minutes": 10
+        },
+        "last_train_consideration": "A daytime destination; Bakerloo last trains ~00:30."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Canal-side cafés, or ride a covered waterbus rather than walking"
+      },
+      "website": "https://www.londonwaterbus.com",
+      "ticket_url": null
+    },
+    {
+      "name": "Richmond Park",
+      "type": "Royal Park / Deer Park",
+      "description": "London's largest royal park is a genuine slice of ancient countryside: 2,500 acres where **herds of red and fallow deer** — some 600 of them — have roamed since Charles I enclosed the land in 1637. Climb King Henry's Mound for the protected 10-mile keyhole view of St Paul's Cathedral, and catch the Isabella Plantation's azaleas detonating into colour in late spring. Rutting season (autumn) and misty winter mornings are pure wildlife documentary.",
+      "indoor": false,
+      "best_time": "Early morning for deer and mist; late May for the Isabella Plantation",
+      "price_range": "Free",
+      "seasonal_notes": "Keep 50 metres from deer, especially during autumn rut and June birthing season. Pedestrian gates close overnight during November and February deer culls — check dates if planning dawn visits then.",
+      "booking_tips": "No booking. Rent bikes near Roehampton Gate to cover the ground; the Petersham Gate climb from Richmond town is the classic approach.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 3
+      },
+      "latitude": 51.442,
+      "longitude": -0.273,
+      "neighborhood": "Richmond upon Thames / Richmond",
+      "opening_hours": {
+        "weekday": "Pedestrian gates 24h (except cull-period nights); vehicle gates 07:00 to dusk",
+        "weekend": "Pedestrian gates 24h (except cull-period nights); vehicle gates 07:00 to dusk",
+        "notes": "Isabella Plantation and café areas keep daylight hours."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "District",
+            "station": "Richmond",
+            "walk_minutes": 20
+          }
+        ],
+        "closest_rer": {
+          "line": "Overground (Mildmay) / National Rail",
+          "station": "Richmond",
+          "walk_minutes": 20
+        },
+        "last_train_consideration": "Bus 371 or 65 shortcuts the walk from Richmond station to the park gates."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 5,
+        "ideal_time_block": "3 hours",
+        "weather_fallback": "Pembroke Lodge café, or retreat to Richmond town's riverside pubs"
+      },
+      "website": "https://www.royalparks.org.uk/visit/parks/richmond-park",
+      "ticket_url": null
+    },
+    {
+      "name": "Dulwich Picture Gallery",
+      "type": "Museum / Art Gallery",
+      "description": "The world's first purpose-built public art gallery (1817), **Dulwich Picture Gallery** is Sir John Soane's luminous prototype — top-lit galleries whose design influenced museums everywhere — filled with Rembrandt, Rubens, Gainsborough and Poussin. It even contains its founders' mausoleum, glowing amber at the building's heart. Set in leafy Dulwich Village, it pairs a world-class collection with a proper escape from the centre.",
+      "indoor": true,
+      "best_time": "Weekday late morning, lunch in the garden café after",
+      "price_range": "Moderate (~£16.50 including exhibition; cheaper collection-only tickets at times)",
+      "seasonal_notes": "The garden hosts sculpture and summer events; exhibition changeovers can briefly close parts of the gallery, so check what's on.",
+      "booking_tips": "Book exhibition slots online for busy shows. Rembrandt's 'Girl at a Window' and the mausoleum are the must-sees; free tours run on weekend afternoons.",
+      "ratings": {
+        "cost_estimate": 16.5,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 3
+      },
+      "latitude": 51.4462,
+      "longitude": -0.0863,
+      "neighborhood": "Southwark / Dulwich Village",
+      "opening_hours": {
+        "weekday": "10:00-17:00 Tue-Fri; closed Mondays (except bank holidays)",
+        "weekend": "10:00-17:00",
+        "notes": "Last entry 16:30; gardens open with the gallery."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "Victoria",
+            "station": "Brixton (then P4 bus)",
+            "walk_minutes": 25
+          }
+        ],
+        "closest_rer": {
+          "line": "National Rail (from Victoria)",
+          "station": "West Dulwich",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Trains from Victoria to West Dulwich or London Bridge to North Dulwich run ~every 15 minutes; check evening frequency."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Fully indoor with a covered café link"
+      },
+      "website": "https://www.dulwichpicturegallery.org.uk",
+      "ticket_url": "https://www.dulwichpicturegallery.org.uk/plan-your-visit/"
+    },
+    {
+      "name": "Leighton House",
+      "type": "Historic House / Museum",
+      "description": "The studio-house of Victorian painter Frederic, Lord Leighton is Kensington's hidden jewel: step through a sober red-brick front into the **Arab Hall**, a golden-domed fantasia lined with 16th-century Damascus tiles, a trickling fountain at its centre. Restored and extended in 2022, **Leighton House** now flows from gilded salons and the great top-lit studio to a café overlooking the garden. Twenty minutes from the V&A, a world away in mood.",
+      "indoor": true,
+      "best_time": "Weekday morning for the Arab Hall to yourself",
+      "price_range": "Moderate (~£14 adults)",
+      "seasonal_notes": "Quiet year-round — a superb bad-weather alternative to the big museums. Nearby Holland Park's Kyoto Garden makes a serene pairing in cherry-blossom season.",
+      "booking_tips": "Book online or walk up; combined tickets with Sambourne House (a perfectly preserved Victorian home nearby) are good value for period-interior lovers.",
+      "ratings": {
+        "cost_estimate": 14,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 3
+      },
+      "latitude": 51.4989,
+      "longitude": -0.2049,
+      "neighborhood": "Kensington and Chelsea / Holland Park",
+      "opening_hours": {
+        "weekday": "10:00-17:30 Wed-Mon; closed Tuesdays",
+        "weekend": "10:00-17:30",
+        "notes": "Last entry 16:30."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Christmas closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "District / Circle",
+            "station": "High Street Kensington",
+            "walk_minutes": 8
+          },
+          {
+            "line": "Central",
+            "station": "Holland Park",
+            "walk_minutes": 10
+          }
+        ],
+        "closest_rer": {
+          "line": "Overground (Mildmay) / National Rail",
+          "station": "Kensington (Olympia)",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Central line Night Tube Fri/Sat from Holland Park."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour 30 minutes",
+        "weather_fallback": "Fully indoor; Design Museum ten minutes away"
+      },
+      "website": "https://www.rbkc.gov.uk/museums/leighton-house",
+      "ticket_url": "https://www.rbkc.gov.uk/museums/leighton-house"
+    }
+  ]
+}

@@ -1,0 +1,418 @@
+{
+  "city": "London",
+  "country": "United Kingdom",
+  "last_updated": "2026-07-04",
+  "categories": [
+    {
+      "id": "must-do",
+      "title": "Must Do",
+      "description": "Essential London experiences that define the city—royal, riverside, and impossible to skip.",
+      "items": [
+        {
+          "id": "tower-of-london",
+          "activity": "Tower of London & Crown Jewels",
+          "description": "A thousand years of history in one fortress—Crown Jewels, ravens, and Yeoman Warder tales.",
+          "optimal_time": "Weekday mornings; book online to skip queues",
+          "cost": "£30–£35",
+          "duration": "2–3 hours",
+          "neighborhood": "Tower Hill",
+          "tags": [
+            "Iconic",
+            "Historic",
+            "Family-friendly"
+          ],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0,
+          "coordinates": [
+            51.5081,
+            -0.0759
+          ]
+        },
+        {
+          "id": "westminster-walk",
+          "activity": "Walk Westminster: Big Ben to the Palace",
+          "description": "Big Ben, Westminster Abbey, and a stroll through St James's Park to Buckingham Palace's gates.",
+          "optimal_time": "Early morning for photos; Changing the Guard days for pageantry",
+          "cost": "Free (exterior)",
+          "duration": "1–2 hours",
+          "neighborhood": "Westminster",
+          "tags": [
+            "Iconic",
+            "Walking",
+            "Photo-op"
+          ],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0,
+          "coordinates": [
+            51.5007,
+            -0.1246
+          ]
+        },
+        {
+          "id": "south-bank-stroll",
+          "activity": "Stroll the South Bank",
+          "description": "Walk the riverside from the London Eye past Tate Modern and Shakespeare's Globe to Tower Bridge.",
+          "optimal_time": "Late afternoon into golden hour",
+          "cost": "Free",
+          "duration": "1–2 hours",
+          "neighborhood": "South Bank / Bankside",
+          "tags": [
+            "Walking",
+            "Local Life",
+            "Free"
+          ],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0,
+          "coordinates": [
+            51.5067,
+            -0.1046
+          ]
+        },
+        {
+          "id": "borough-market-graze",
+          "activity": "Graze through Borough Market",
+          "description": "London's oldest food market—cheese toasties, oysters, and street food under Victorian ironwork.",
+          "optimal_time": "Weekday mornings; Thu–Sat for the full market",
+          "cost": "Free entry",
+          "duration": "1–2 hours",
+          "neighborhood": "London Bridge",
+          "tags": [
+            "Market",
+            "Food",
+            "Local"
+          ],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0,
+          "coordinates": [
+            51.5055,
+            -0.0910
+          ]
+        }
+      ]
+    },
+    {
+      "id": "best-in-summer",
+      "title": "Best in Summer",
+      "description": "Prime months: June–August. Park deckchairs, open-air stages, and evenings that last past nine.",
+      "items": [
+        {
+          "id": "hyde-park-deckchairs",
+          "activity": "Deckchairs and pedalos in Hyde Park",
+          "description": "Claim a striped deckchair, pedal the Serpentine, and join Londoners soaking up the sun.",
+          "optimal_time": "June–August afternoons",
+          "cost": "Deckchairs £2–£5; pedalos £12–£15",
+          "duration": "2–3 hours",
+          "neighborhood": "Hyde Park",
+          "tags": [
+            "Outdoor",
+            "Relaxing",
+            "Family-friendly"
+          ],
+          "season": "summer",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "bbc-proms-night",
+          "activity": "A Prom at the Royal Albert Hall",
+          "description": "The world's biggest classical music festival—same-day standing tickets make it a summer steal.",
+          "optimal_time": "Mid-July–mid-September evenings",
+          "cost": "£8–£60 (Promming from ~£8)",
+          "duration": "2–3 hours",
+          "neighborhood": "South Kensington",
+          "tags": [
+            "Music",
+            "Festival",
+            "Evening"
+          ],
+          "season": "summer",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "regents-park-open-air-theatre",
+          "activity": "Open-air theatre in Regent's Park",
+          "description": "Plays and musicals under the trees—bring a blanket and a pre-show picnic.",
+          "optimal_time": "May–September evenings",
+          "cost": "£25–£65",
+          "duration": "2–3 hours",
+          "neighborhood": "Regent's Park",
+          "tags": [
+            "Entertainment",
+            "Outdoor",
+            "Evening"
+          ],
+          "season": "summer",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "hampstead-heath-ponds",
+          "activity": "Swim the Hampstead Heath ponds",
+          "description": "Wild swimming in leafy North London, then city views from the top of Parliament Hill.",
+          "optimal_time": "Warm mornings, June–August",
+          "cost": "£4–£8",
+          "duration": "2–3 hours",
+          "neighborhood": "Hampstead",
+          "tags": [
+            "Outdoor",
+            "Local",
+            "Active"
+          ],
+          "season": "summer",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        }
+      ]
+    },
+    {
+      "id": "best-in-winter",
+      "title": "Best in Winter",
+      "description": "Lights, rinks, and firelit pubs during the crisp months.",
+      "items": [
+        {
+          "id": "hyde-park-winter-wonderland",
+          "activity": "Hyde Park Winter Wonderland",
+          "description": "Rides, ice sculptures, mulled wine, and a giant observation wheel in London's biggest festive fair.",
+          "optimal_time": "Mid-Nov–early Jan; weekday off-peak slots",
+          "cost": "Free–£7.50 entry (rides extra)",
+          "duration": "2–3 hours",
+          "neighborhood": "Hyde Park",
+          "tags": [
+            "Seasonal",
+            "Festival",
+            "Family-friendly"
+          ],
+          "season": "winter",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "west-end-christmas-lights",
+          "activity": "Christmas lights walk through the West End",
+          "description": "Regent Street's angels, Carnaby's themed canopy, and Covent Garden's giant tree in one glittering loop.",
+          "optimal_time": "Mid-Nov–early Jan, after dusk",
+          "cost": "Free",
+          "duration": "1–2 hours",
+          "neighborhood": "West End",
+          "tags": [
+            "Seasonal",
+            "Walking",
+            "Free"
+          ],
+          "season": "winter",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "somerset-house-ice-skate",
+          "activity": "Ice skate at Somerset House",
+          "description": "London's most elegant rink, set in a grand neoclassical courtyard strung with lights.",
+          "optimal_time": "Mid-Nov–mid-Jan; evening sessions for atmosphere",
+          "cost": "£10–£16",
+          "duration": "1 hour",
+          "neighborhood": "Strand",
+          "tags": [
+            "Outdoor",
+            "Seasonal",
+            "Romantic"
+          ],
+          "season": "winter",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "fireside-historic-pub",
+          "activity": "Fireside pint in a historic pub",
+          "description": "Duck into Ye Olde Cheshire Cheese or Hampstead's Holly Bush for a real ale by a crackling fire.",
+          "optimal_time": "Nov–Feb afternoons and evenings",
+          "cost": "£6–£8 per pint",
+          "duration": "1–2 hours",
+          "neighborhood": "City / Hampstead",
+          "tags": [
+            "Pub",
+            "Historic",
+            "Indoor"
+          ],
+          "season": "winter",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        }
+      ]
+    },
+    {
+      "id": "rainy-day-favorites",
+      "title": "Rainy Day Favorites",
+      "description": "World-class museums and covered gems for when the drizzle sets in.",
+      "items": [
+        {
+          "id": "british-museum",
+          "activity": "British Museum highlights",
+          "description": "Rosetta Stone, Parthenon sculptures, and Egyptian mummies beneath the Great Court's glass roof.",
+          "optimal_time": "Weekday mornings; late Fridays",
+          "cost": "Free",
+          "duration": "2–3 hours",
+          "neighborhood": "Bloomsbury",
+          "tags": [
+            "Museum",
+            "Indoor",
+            "Free"
+          ],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "south-kensington-museums",
+          "activity": "Museum-hop South Kensington",
+          "description": "The V&A, Natural History Museum, and Science Museum sit side by side—all free to enter.",
+          "optimal_time": "Weekday afternoons; avoid rainy weekends",
+          "cost": "Free (special exhibitions extra)",
+          "duration": "3–4 hours",
+          "neighborhood": "South Kensington",
+          "tags": [
+            "Museum",
+            "Indoor",
+            "Family-friendly"
+          ],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "leadenhall-and-arcades",
+          "activity": "Leadenhall Market & the arcades",
+          "description": "Ornate Victorian ironwork at Leadenhall, then Piccadilly's Burlington Arcade for shopping under glass.",
+          "optimal_time": "Rainy weekday afternoons",
+          "cost": "Free",
+          "duration": "1–2 hours",
+          "neighborhood": "City / Mayfair",
+          "tags": [
+            "Architecture",
+            "Indoor",
+            "Walking"
+          ],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "afternoon-tea",
+          "activity": "Afternoon tea",
+          "description": "Scones, finger sandwiches, and endless pots of tea—from grand hotels to cozy neighborhood tearooms.",
+          "optimal_time": "Mid-afternoon; book ahead for hotels",
+          "cost": "£30–£70",
+          "duration": "1.5–2 hours",
+          "neighborhood": "Mayfair / various",
+          "tags": [
+            "Food & Drink",
+            "Treat",
+            "Indoor"
+          ],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        }
+      ]
+    },
+    {
+      "id": "local-experiences",
+      "title": "Local Experiences",
+      "description": "Everyday London: flower markets, canal-side Saturdays, street art, and the sacred Sunday roast.",
+      "items": [
+        {
+          "id": "columbia-road-flower-market",
+          "activity": "Sunday flowers at Columbia Road",
+          "description": "East London's Sunday-morning flower market—cockney traders, armfuls of blooms, and indie shops.",
+          "optimal_time": "Sunday mornings, 8am–3pm",
+          "cost": "Free entry",
+          "duration": "1–2 hours",
+          "neighborhood": "Bethnal Green",
+          "tags": [
+            "Market",
+            "Local",
+            "Photo-op"
+          ],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "broadway-market-saturday",
+          "activity": "Broadway Market & London Fields Saturday",
+          "description": "Coffee, bakeries, and food stalls along the canal, then a sprawl on the grass with East Londoners.",
+          "optimal_time": "Saturday late morning",
+          "cost": "Free entry",
+          "duration": "2–3 hours",
+          "neighborhood": "Hackney",
+          "tags": [
+            "Market",
+            "Food",
+            "Local"
+          ],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "shoreditch-street-art",
+          "activity": "Street-art wander in Shoreditch",
+          "description": "Ever-changing murals around Brick Lane and Shoreditch, with vintage shops and bagels en route.",
+          "optimal_time": "Weekend afternoons; Sunday for Brick Lane market",
+          "cost": "Free",
+          "duration": "1–2 hours",
+          "neighborhood": "Shoreditch",
+          "tags": [
+            "Walking",
+            "Art",
+            "Free"
+          ],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "sunday-roast",
+          "activity": "Sunday roast at a neighborhood pub",
+          "description": "Yorkshire puddings, roast potatoes, and gravy done properly—a weekly London ritual worth booking.",
+          "optimal_time": "Sunday 12–4pm; reserve ahead",
+          "cost": "£18–£28",
+          "duration": "1.5–2 hours",
+          "neighborhood": "Various",
+          "tags": [
+            "Food",
+            "Pub",
+            "Local"
+          ],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        }
+      ]
+    }
+  ]
+}
