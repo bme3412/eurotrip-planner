@@ -1,16 +1,17 @@
 'use client';
 
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { Check } from 'lucide-react';
 import AttractionCard from './attractions/AttractionCard';
 import ExperienceDetailModal from './attractions/ExperienceDetailModal';
 import CuratedFilters from './attractions/CuratedFilters';
 import QuickFilters from './attractions/QuickFilters';
+import TimeOfDayNav from './attractions/TimeOfDayNav';
 import LoadingSkeleton from './attractions/LoadingSkeleton';
 import { useExperienceData } from './attractions/hooks/useExperienceData';
 import { useGoogleEnrichment } from './attractions/hooks/useGoogleEnrichment';
 import { usePagination } from './attractions/hooks/usePagination';
-import { MONTHS } from './attractions/lib/constants';
+import { EXPERIENCE_BUCKETS, MONTHS } from './attractions/lib/constants';
 import { capitalizeCity } from './attractions/lib/display';
 import {
   computeScoringBounds,
@@ -84,6 +85,35 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
   }, [experiences, attractions, applyGoogleData, enrichedTick]);
 
   const activeCategorySet = useMemo(() => new Set(activeCategories), [activeCategories]);
+
+  // Time-of-day jump nav: buckets present in this city's experiences payload
+  // (attraction-site fallbacks carry no `category`, so this stays empty and
+  // the nav hides). Counts are pre-filter totals — stable while browsing.
+  const timeOfDayBuckets = useMemo(() => {
+    if (!Array.isArray(dataSource)) return [];
+    const counts = new Map();
+    for (const item of dataSource) {
+      const key = typeof item?.category === 'string' ? item.category.trim().toLowerCase() : '';
+      if (key) counts.set(key, (counts.get(key) || 0) + 1);
+    }
+    return EXPERIENCE_BUCKETS
+      .filter((b) => counts.has(b.key))
+      .map((b) => ({ ...b, count: counts.get(b.key) }));
+  }, [dataSource]);
+
+  const activeBucket = activeCategories.length === 1 ? activeCategories[0] : null;
+  const resultsRef = useRef(null);
+
+  const handleBucketSelect = useCallback((key) => {
+    setActiveCategories(key == null ? [] : [key]);
+    // Deep in the list, the re-filtered results start above the viewport —
+    // bring their top back into view so the switch is visible.
+    const rect = resultsRef.current?.getBoundingClientRect();
+    if (rect && rect.top < 0) {
+      const prefersReduced = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+      resultsRef.current.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
+    }
+  }, []);
 
   // Indoor / outdoor are mutually exclusive (the filter pipeline excludes the
   // opposite), so turning one on clears the other.
@@ -285,6 +315,15 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
         onToggleCategory={toggleCategory}
       />
 
+      {/* Sticky time-of-day jump nav — follows the reader down the list */}
+      <TimeOfDayNav
+        buckets={timeOfDayBuckets}
+        totalCount={dataSource?.length || 0}
+        active={activeBucket}
+        onSelect={handleBucketSelect}
+      />
+
+      <div ref={resultsRef} className="scroll-mt-32 space-y-6">
       {/* Loading State */}
       {isLoading ? (
         <LoadingSkeleton />
@@ -360,6 +399,7 @@ const AttractionsList = ({ attractions, categories, cityName, monthlyData, exper
           )}
         </section>
       )}
+      </div>
 
       {/* Toast Notification */}
       {toastMessage && (
