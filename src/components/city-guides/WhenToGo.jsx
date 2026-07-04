@@ -7,6 +7,7 @@ import {
 } from '@/components/common/LazyComponents';
 import { SkeletonOverview, SkeletonTabContent } from '@/components/common/SkeletonLoader';
 import { MONTH_NAMES } from './overview/lib/constants';
+import BestMonthsStrip from './BestMonthsStrip';
 
 /**
  * WhenToGo — a single, calendar-first scrolling view.
@@ -61,6 +62,9 @@ export default function WhenToGo({
 
   return (
     <div className="space-y-8">
+      {/* Lead with the answer: top-band months as tappable pills. */}
+      <BestMonthsStrip visitCalendar={visitCalendar} onOpenMonth={handleOpenMonth} />
+
       {/* Calendar-first overview (Season-by-Season essay suppressed here). */}
       <Suspense fallback={<SkeletonOverview />}>
         <LazyCityOverview
