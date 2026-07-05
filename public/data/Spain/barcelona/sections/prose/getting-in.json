@@ -1,0 +1,480 @@
+{
+  "city": "barcelona",
+  "cityCenter": {
+    "name": "Plaça de Catalunya",
+    "coordinates": [
+      2.17,
+      41.387
+    ],
+    "description": "Barcelona's central hub where the Eixample meets the old town and La Rambla"
+  },
+  "airports": [
+    {
+      "code": "BCN",
+      "name": "El Prat",
+      "fullName": "Josep Tarradellas Barcelona–El Prat Airport",
+      "coordinates": [
+        2.0785,
+        41.2971
+      ],
+      "distanceKm": 14,
+      "terminals": "T1, T2",
+      "routes": [
+        {
+          "id": "bcn-aerobus",
+          "type": "bus",
+          "name": "Aerobús (A1/A2)",
+          "icon": "bus",
+          "color": "#0072BC",
+          "duration": {
+            "min": 30,
+            "max": 40
+          },
+          "frequency": "Every 5-10 min",
+          "price": {
+            "amount": 7.25,
+            "currency": "EUR",
+            "note": "~€7.25 single, small discount on returns bought online; fares creep up yearly—check aerobusbarcelona.es"
+          },
+          "destination": "Plaça de Catalunya (via Plaça d'Espanya and Gran Via)",
+          "operatingHours": "~5:00am - 12:30am (matched to each terminal)",
+          "tips": "The default for most visitors: A1 serves T1 and A2 serves T2—board the right one. Dedicated luggage racks, dependable frequency, and it drops you dead-centre at Plaça de Catalunya. Buy on board by card or online in advance.",
+          "pros": [
+            "Direct to Plaça de Catalunya with no transfers",
+            "Very frequent, with proper luggage space",
+            "Runs earlier and later than the metro on most days"
+          ],
+          "cons": [
+            "Gran Via traffic can add time at rush hour",
+            "Queues at the Plaça de Catalunya stop on busy mornings"
+          ],
+          "waypoints": [
+            [
+              2.0785,
+              41.2971
+            ],
+            [
+              2.1492,
+              41.3752
+            ],
+            [
+              2.17,
+              41.387
+            ]
+          ]
+        },
+        {
+          "id": "bcn-metro-l9",
+          "type": "train",
+          "name": "Metro L9 Sud",
+          "icon": "train",
+          "color": "#F09600",
+          "duration": {
+            "min": 45,
+            "max": 60
+          },
+          "frequency": "Every 7 min",
+          "price": {
+            "amount": 5.5,
+            "currency": "EUR",
+            "note": "~€5.50 special airport fare—standard singles and T-Casual are NOT valid at the airport stations; Hola Bcn passes are. Check tmb.cat"
+          },
+          "destination": "Zona Universitària (change at Torrassa for L1 or Collblanc for L5 to the centre)",
+          "operatingHours": "5:00am - midnight (till 2am Fri, all night Sat)",
+          "tips": "Stations at both T1 and T2, but the L9 Sud skirts the city rather than piercing it—you'll change at Torrassa (L1) or Collblanc (L5) for anywhere central, so budget close to an hour door to door. Best value if you've bought a Hola Bcn pass, which covers the airport supplement.",
+          "pros": [
+            "Serves both terminals directly",
+            "Immune to road traffic",
+            "Covered by Hola Bcn passes—no extra fare"
+          ],
+          "cons": [
+            "No direct run to the centre—a transfer is always needed",
+            "T-Casual and standard singles not accepted at airport stations"
+          ],
+          "waypoints": [
+            [
+              2.0785,
+              41.2971
+            ],
+            [
+              2.1131,
+              41.3689
+            ],
+            [
+              2.1129,
+              41.3839
+            ]
+          ]
+        },
+        {
+          "id": "bcn-rodalies-r2",
+          "type": "train",
+          "name": "Rodalies R2 Nord",
+          "icon": "train",
+          "color": "#00A651",
+          "duration": {
+            "min": 25,
+            "max": 35
+          },
+          "frequency": "Every 30 min",
+          "price": {
+            "amount": 4.9,
+            "currency": "EUR",
+            "note": "~€4.90 single; unlike the metro, T-Casual IS valid here. Departs from T2 only—free shuttle bus from T1 (allow 10-15 min)"
+          },
+          "destination": "Barcelona Sants / Passeig de Gràcia",
+          "operatingHours": "~5:40am - 11:40pm",
+          "tips": "The sleeper pick if you land at T2 (or don't mind the free inter-terminal shuttle from T1): about 25 minutes to Sants and it continues to Passeig de Gràcia, right in the heart of the Eixample. Half-hourly frequency is the only real drawback.",
+          "pros": [
+            "Cheapest rail option, and T-Casual works",
+            "Direct to Sants and Passeig de Gràcia",
+            "Fast—no road traffic"
+          ],
+          "cons": [
+            "T2 only; T1 arrivals need the shuttle bus first",
+            "Only every 30 minutes"
+          ],
+          "waypoints": [
+            [
+              2.0785,
+              41.2971
+            ],
+            [
+              2.1401,
+              41.3791
+            ],
+            [
+              2.1633,
+              41.3917
+            ]
+          ]
+        },
+        {
+          "id": "bcn-taxi",
+          "type": "taxi",
+          "name": "Taxi (black-and-yellow)",
+          "icon": "car",
+          "color": "#F59E0B",
+          "duration": {
+            "min": 20,
+            "max": 35
+          },
+          "frequency": "On demand",
+          "price": {
+            "amount": 35,
+            "amountMax": 40,
+            "currency": "EUR",
+            "note": "Metered, including the airport supplement; a minimum airport fare applies. Night and weekend rates slightly higher"
+          },
+          "destination": "Any address in Barcelona",
+          "operatingHours": "24/7",
+          "tips": "Ranks sit right outside arrivals at both terminals with rarely more than a short queue. Barcelona's black-and-yellow cabs are metered and honest—expect ~€35-40 to the centre including the airport supplement. All take cards; ask for a receipt if you like.",
+          "pros": [
+            "Door-to-door in as little as 20 minutes",
+            "Regulated meters, card payment standard",
+            "Great value split between 3-4 people"
+          ],
+          "cons": [
+            "Several times the public-transport fare",
+            "Ronda Litoral traffic at rush hour"
+          ],
+          "waypoints": [
+            [
+              2.0785,
+              41.2971
+            ],
+            [
+              2.17,
+              41.387
+            ]
+          ]
+        },
+        {
+          "id": "bcn-rideshare",
+          "type": "rideshare",
+          "name": "Cabify / Uber / Bolt",
+          "icon": "smartphone",
+          "color": "#000000",
+          "duration": {
+            "min": 20,
+            "max": 35
+          },
+          "frequency": "On demand",
+          "price": {
+            "amount": 30,
+            "amountMax": 45,
+            "currency": "EUR",
+            "note": "Fixed upfront pricing; can exceed the taxi fare when demand surges"
+          },
+          "destination": "Any address",
+          "operatingHours": "24/7",
+          "tips": "All the big apps operate in Barcelona (often dispatching licensed taxis or VTC cars). Follow signage to the designated pickup zones. Upfront pricing is the draw, but the regulated taxi rank is frequently just as cheap and faster to board.",
+          "pros": [
+            "Fixed price known before you ride",
+            "Pay and track in the app",
+            "Door-to-door"
+          ],
+          "cons": [
+            "Surge pricing after late arrivals",
+            "Pickup zones can be a walk from arrivals"
+          ],
+          "waypoints": [
+            [
+              2.0785,
+              41.2971
+            ],
+            [
+              2.17,
+              41.387
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "GRO",
+      "name": "Girona-Costa Brava",
+      "fullName": "Girona-Costa Brava Airport",
+      "coordinates": [
+        2.7606,
+        41.901
+      ],
+      "distanceKm": 90,
+      "terminals": "Single terminal",
+      "routes": [
+        {
+          "id": "gro-bus",
+          "type": "bus",
+          "name": "Direct bus (Sagalés)",
+          "icon": "bus",
+          "color": "#36A559",
+          "duration": {
+            "min": 75,
+            "max": 90
+          },
+          "frequency": "Timed to flight arrivals",
+          "price": {
+            "amount": 16,
+            "amountMax": 25,
+            "currency": "EUR",
+            "note": "~€16 single / ~€25 return; cheaper booked online in advance"
+          },
+          "destination": "Barcelona Nord bus station",
+          "operatingHours": "Matched to flight schedule",
+          "tips": "Girona is a budget-airline satellite a good 90 km from Barcelona—'Barcelona' on a Ryanair booking deserves a second look. The direct Sagalés coach to Estació del Nord is timed to flights and is the simplest way in. Alternatively, a local bus to Girona city plus the AVE gets you to Sants in ~38 minutes if timings align.",
+          "pros": [
+            "Direct, timed to flight arrivals",
+            "Cheapest sensible way to cover 90 km",
+            "Estació del Nord is a short walk from the Arc de Triomf metro"
+          ],
+          "cons": [
+            "Long ride after a flight",
+            "Miss the coach and the wait can be significant"
+          ],
+          "waypoints": [
+            [
+              2.7606,
+              41.901
+            ],
+            [
+              2.182,
+              41.3925
+            ]
+          ]
+        },
+        {
+          "id": "gro-taxi",
+          "type": "taxi",
+          "name": "Taxi",
+          "icon": "car",
+          "color": "#F59E0B",
+          "duration": {
+            "min": 60,
+            "max": 80
+          },
+          "frequency": "On demand",
+          "price": {
+            "amount": 130,
+            "amountMax": 170,
+            "currency": "EUR",
+            "note": "Long-distance tariff; agree or confirm the price before setting off"
+          },
+          "destination": "Any address in Barcelona",
+          "operatingHours": "24/7",
+          "tips": "Only worth considering for a group with a very late arrival—it's a 90 km motorway run and the fare shows it. For most travellers the coach wins comfortably.",
+          "pros": [
+            "Door-to-door",
+            "Available when coaches aren't"
+          ],
+          "cons": [
+            "Very expensive",
+            "Long motorway journey"
+          ],
+          "waypoints": [
+            [
+              2.7606,
+              41.901
+            ],
+            [
+              2.17,
+              41.387
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "REU",
+      "name": "Reus",
+      "fullName": "Reus Airport",
+      "coordinates": [
+        1.1672,
+        41.1474
+      ],
+      "distanceKm": 100,
+      "terminals": "Single terminal",
+      "routes": [
+        {
+          "id": "reu-bus",
+          "type": "bus",
+          "name": "Direct bus (Plana / Vibasa)",
+          "icon": "bus",
+          "color": "#36A559",
+          "duration": {
+            "min": 90,
+            "max": 110
+          },
+          "frequency": "Timed to flight arrivals",
+          "price": {
+            "amount": 17,
+            "amountMax": 20,
+            "currency": "EUR",
+            "note": "~€17 single; book online in advance where possible"
+          },
+          "destination": "Barcelona Sants",
+          "operatingHours": "Matched to flight schedule",
+          "tips": "Reus is the other budget-airline satellite, about 100 km southwest near Tarragona. Direct coaches to Sants station are scheduled around flights; from Sants you're one metro hop from anywhere. If no coach fits, local buses connect to Tarragona for frequent trains up the coast.",
+          "pros": [
+            "Direct to Sants, the city's main transport hub",
+            "Timed to flight arrivals",
+            "Far cheaper than any taxi"
+          ],
+          "cons": [
+            "Roughly 1h30-1h50 of travel",
+            "Sparse service outside flight times"
+          ],
+          "waypoints": [
+            [
+              1.1672,
+              41.1474
+            ],
+            [
+              2.1401,
+              41.3791
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "code": "SANTS",
+      "name": "Sants (high-speed rail)",
+      "fullName": "Barcelona Sants station",
+      "coordinates": [
+        2.1401,
+        41.3791
+      ],
+      "distanceKm": 3,
+      "terminals": "Main concourse, AVE/international platforms",
+      "routes": [
+        {
+          "id": "sants-metro",
+          "type": "train",
+          "name": "Metro L3 / L5 (Sants Estació)",
+          "icon": "train",
+          "color": "#00C08B",
+          "duration": {
+            "min": 5,
+            "max": 20
+          },
+          "frequency": "Every 2-5 min",
+          "price": {
+            "amount": 2.65,
+            "currency": "EUR",
+            "note": "~€2.65 single, or one ride of a T-Casual (~€12.15 for 10). Check tmb.cat"
+          },
+          "destination": "Anywhere central (L3 to Plaça de Catalunya and Passeig de Gràcia; L5 to Diagonal and Sagrada Família)",
+          "operatingHours": "5:00am - midnight (till 2am Fri, all night Sat)",
+          "tips": "Arriving by rail is Barcelona's most civilised entrance: AVE and low-cost AVLO from Madrid in ~2.5 hours, plus direct TGV/high-speed services from Paris (~6h40), Lyon and beyond land you at Sants. Two metro lines run right beneath the station—L3 (green) covers Plaça de Catalunya and Passeig de Gràcia, L5 (blue) hits Diagonal and Sagrada Família.",
+          "pros": [
+            "You arrive already in the city",
+            "Two metro lines directly below the concourse",
+            "No airport-style security or long transfers"
+          ],
+          "cons": [
+            "The concourse is busy—watch bags around the metro entrances",
+            "Rush-hour crowds on L3/L5"
+          ],
+          "waypoints": [
+            [
+              2.1401,
+              41.3791
+            ],
+            [
+              2.17,
+              41.387
+            ]
+          ]
+        },
+        {
+          "id": "sants-taxi",
+          "type": "taxi",
+          "name": "Taxi",
+          "icon": "car",
+          "color": "#F59E0B",
+          "duration": {
+            "min": 10,
+            "max": 20
+          },
+          "frequency": "On demand",
+          "price": {
+            "amount": 10,
+            "amountMax": 18,
+            "currency": "EUR",
+            "note": "Metered; most central hotels within this range, small station supplement applies"
+          },
+          "destination": "Any address in Barcelona",
+          "operatingHours": "24/7",
+          "tips": "The rank is right outside the main entrance on Plaça dels Països Catalans. After a long train ride with luggage, a ~€12 hop to the Eixample or Gothic Quarter is money well spent.",
+          "pros": [
+            "Cheap ride—you're already central",
+            "No escalators or stairs with your bags"
+          ],
+          "cons": [
+            "Traffic around Plaça d'Espanya at rush hour",
+            "Queue at the rank after big AVE arrivals"
+          ],
+          "waypoints": [
+            [
+              2.1401,
+              41.3791
+            ],
+            [
+              2.17,
+              41.387
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "generalTips": [
+    "Skip singles unless you're taking one ride: a metro/bus single is ~€2.65, while the T-Casual (10 rides, ~€12.15, one person only) cuts that to about €1.20 a trip and covers metro, bus, tram, FGC and Rodalies within Zone 1. Heavy sightseers can compare the unlimited Hola Bcn passes (2-5 days), which also cover the airport metro. Fares adjust most Januaries—check tmb.cat.",
+    "Metro hours are generous: ~5:00am to midnight Sunday-Thursday, until 2am on Fridays, and all night on Saturdays. The Aerobús and the N-series night buses (Nitbus) cover the gaps.",
+    "Note the airport quirk: the T-Casual is valid on the Rodalies R2 Nord train to the airport but NOT at the two L9 Sud metro airport stations, which require a special ~€5.50 ticket (or a Hola Bcn pass).",
+    "Walk the Eixample: the grid with its chamfered corners is flat, legible and full of Modernisme—Plaça de Catalunya to Sagrada Família is a pleasant 35-minute architecture crawl. The Gothic Quarter is best navigated by getting slightly lost on purpose.",
+    "The red-and-white Bicing bikes are for residents only (annual subscription tied to Spanish ID)—visitors should use one of the many rental shops near the beach and Ciutadella instead; the seafront bike path is superb.",
+    "Keep phones and wallets zipped away on the L3 metro line and along La Rambla—Barcelona's pickpockets are skilled rather than dangerous, and simple front-pocket awareness defeats nearly all of them. Nothing valuable in back pockets or open totes, especially in station crowds.",
+    "Black-and-yellow taxis are plentiful, metered and hailable on the street when the green roof light is on; Free Now and Cabify book them by app. For day trips, Rodalies trains reach Sitges in ~40 minutes and FGC trains connect to the Montserrat rack railway."
+  ]
+}

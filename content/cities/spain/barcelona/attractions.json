@@ -1,429 +1,2380 @@
 {
   "sites": [
     {
-      "name": "Sagrada Familia",
-      "type": "Cathedral",
-      "description": "The Basilica de la Sagrada Familia is an iconic Roman Catholic church designed by renowned architect Antoni Gaudí. It is a masterpiece of modernist architecture, known for its intricate facades and stunning interior, which is inspired by natural forms. Under construction since 1882, it remains a work in progress, with completion expected in the coming years.",
+      "name": "Sagrada Família",
+      "type": "Basilica",
+      "description": "Antoni Gaudí's unfinished masterpiece — and 2026 is the year to see it. The **Torre de Jesucrist**, the central tower that will crown the basilica at ~172 metres, is completing in 2026, the centenary of Gaudí's death, finally making the Sagrada Família the tallest church in the world. Inside, a stone forest of branching columns filters light through stained glass that shifts from cool blues to molten oranges as the sun moves. The Nativity façade is Gaudí's own hand; the angular Passion façade is Subirachs' stark counterpoint. Nothing else in Europe is like it.",
       "indoor": true,
-      "best_time": "Morning",
-      "price_range": "Expensive",
-      "seasonal_notes": "Expect large crowds year-round, especially in summer. Early mornings and late afternoons are less crowded.",
-      "booking_tips": "Advance online booking is recommended to avoid long queues. Guided tours are available.",
+      "best_time": "Early morning or late afternoon (west light through the Passion-side glass)",
+      "price_range": "Expensive (~€26 basic, ~€36 with tower access)",
+      "seasonal_notes": "2026 is Gaudí's centenary year and the Torre de Jesucrist is completing — expect headline crowds and sell-outs weeks ahead. Summer afternoons flood the nave with colour but also with tour groups; November-February is the quietest window.",
+      "booking_tips": "Timed-entry booking is essential — buy directly on the official site days to weeks ahead, especially for tower add-ons (Nativity tower has lift up/stairs down). Walk-up tickets are rarely available in high season. The audio guide is included in most ticket tiers.",
       "ratings": {
         "cost_estimate": 26,
         "suggested_duration_hours": 2,
         "cultural_significance": 5
       },
       "latitude": 41.4036,
-      "longitude": 2.1744
+      "longitude": 2.1744,
+      "neighborhood": "Eixample / Sagrada Família",
+      "opening_hours": {
+        "weekday": "09:00-20:00 (Apr-Sep); 09:00-19:00 (Mar & Oct); 09:00-18:00 (Nov-Feb)",
+        "weekend": "Sat as weekdays; Sun opens 10:30 after morning Mass",
+        "notes": "Reduced hours (09:00-14:00) on Jan 1, Jan 6, Dec 25-26. Last entry 30 minutes before closing; towers close earlier in bad wind or rain."
+      },
+      "seasonal_hours": {
+        "summer": "09:00-20:00",
+        "winter": "09:00-18:00"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L2 / L5",
+            "station": "Sagrada Família",
+            "walk_minutes": 1
+          },
+          {
+            "line": "L4",
+            "station": "Verdaguer",
+            "walk_minutes": 10
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Barcelona Arc de Triomf",
+          "walk_minutes": 20
+        },
+        "last_train_consideration": "Metro runs until midnight Sun-Thu, ~02:00 Fri, and all night Saturday."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Interior visit works in any weather; tower access may close in high wind or rain"
+      },
+      "website": "https://sagradafamilia.org",
+      "ticket_url": "https://sagradafamilia.org/en/tickets"
     },
     {
       "name": "Park Güell",
       "type": "Park",
-      "description": "Park Güell is a public park system composed of gardens and architectonic elements located on Carmel Hill. Designed by Antoni Gaudí, it is part of the UNESCO World Heritage Site 'Works of Antoni Gaudí'. The park is famous for its colorful ceramic mosaics, serpentine benches, and the iconic dragon sculpture.",
+      "description": "Gaudí's hillside garden city that never was: **Park Güell** began as a failed real-estate venture and became one of the world's most photographed parks. The ticketed Monumental Zone holds the trencadís mosaic salamander ('el drac'), the serpentine bench curving around the main terrace, and the Hypostyle Room's forest of Doric columns — all with the city and sea spread out below. The free surrounding woodland trails climb to Turó de les Tres Creus for an even higher viewpoint. Part of the UNESCO 'Works of Antoni Gaudí' listing.",
       "indoor": false,
-      "best_time": "Afternoon",
-      "price_range": "Moderate",
-      "seasonal_notes": "Best visited on sunny days to fully appreciate the colors. Spring and fall offer pleasant temperatures.",
-      "booking_tips": "Tickets can be purchased online. Arrive early to explore without the crowds.",
+      "best_time": "First entry slot of the morning, before tour groups arrive",
+      "price_range": "Moderate (~€18 timed entry to the Monumental Zone)",
+      "seasonal_notes": "Sunny days make the mosaics sing — spring and autumn give the best light-to-crowd ratio. Summer middays are hot and shadeless on the main terrace; carry water. Open every day of the year.",
+      "booking_tips": "Timed-entry tickets sell out days ahead in high season — book on the official site and arrive within your 30-minute window. Entry is uphill from every metro stop; Bus 24 or 116 drops you closest to the gates. Gaudí House Museum inside is a separate ticket.",
       "ratings": {
-        "cost_estimate": 10,
-        "suggested_duration_hours": 3,
+        "cost_estimate": 18,
+        "suggested_duration_hours": 2.5,
         "cultural_significance": 5
       },
       "latitude": 41.4145,
-      "longitude": 2.1527
+      "longitude": 2.1527,
+      "neighborhood": "Gràcia / La Salut",
+      "opening_hours": {
+        "weekday": "09:30-19:30 (longer in midsummer, ~17:30-18:00 close in winter)",
+        "weekend": "Same as weekdays",
+        "notes": "Monumental Zone requires timed entry; the outer park is free. Last entry 1 hour before closing."
+      },
+      "seasonal_hours": {
+        "summer": "09:00-19:30 or later",
+        "winter": "09:30-17:30"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L3",
+            "station": "Lesseps",
+            "walk_minutes": 20
+          },
+          {
+            "line": "L3",
+            "station": "Vallcarca",
+            "walk_minutes": 20
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies (via Metro)",
+          "station": "Plaça de Catalunya",
+          "walk_minutes": 45
+        },
+        "last_train_consideration": "Both L3 stops involve a steep uphill walk (escalators from Vallcarca side); Bus 24/116 saves the climb. Metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3.5,
+        "ideal_time_block": "2.5 hours",
+        "weather_fallback": "Almost entirely outdoor — swap for CosmoCaixa or MNAC in heavy rain"
+      },
+      "website": "https://parkguell.barcelona",
+      "ticket_url": "https://parkguell.barcelona/en/buy-tickets"
     },
     {
       "name": "La Rambla",
       "type": "Street",
-      "description": "La Rambla is a famous tree-lined street in the heart of Barcelona, stretching from Plaça de Catalunya to the Christopher Columbus Monument at Port Vell. It is known for its bustling atmosphere, street performers, cafes, and historic buildings.",
+      "description": "Barcelona's most famous kilometre: **La Rambla** runs from Plaça de Catalunya down to the Columbus Monument at the old port, a tree-lined promenade of flower stalls, human statues, the Boqueria market, the Liceu opera house and the mosaic by Miró embedded in the pavement at Pla de l'Os. It is touristy, chaotic and unmissable in equal measure — locals will tell you to walk it once, then spend your time in the streets either side. A multi-year remodel is widening the central promenade section by section, so expect some works fencing.",
       "indoor": false,
-      "best_time": "Evening",
+      "best_time": "Early morning for calm, or evening for full theatre",
       "price_range": "Free",
-      "seasonal_notes": "Crowded during peak tourist season in summer. Best enjoyed in cooler months.",
-      "booking_tips": "No tickets required. Be mindful of pickpockets.",
+      "seasonal_notes": "Rammed in summer; December brings the Santa Llúcia Christmas atmosphere spilling over from the Cathedral. Ongoing renovation works (due to finish around 2027) mean sections may be hoarded off.",
+      "booking_tips": "No tickets needed. This is Barcelona's pickpocketing epicentre — keep phones and wallets zipped away, and skip the overpriced terrace restaurants on the promenade itself.",
       "ratings": {
         "cost_estimate": 0,
-        "suggested_duration_hours": 2,
+        "suggested_duration_hours": 1.5,
         "cultural_significance": 4
       },
       "latitude": 41.3797,
-      "longitude": 2.1746
+      "longitude": 2.1746,
+      "neighborhood": "Ciutat Vella (between Barri Gòtic and El Raval)",
+      "opening_hours": {
+        "weekday": "Open 24 hours",
+        "weekend": "Open 24 hours",
+        "notes": "Flower stalls and kiosks roughly 09:00-21:00; the street itself never closes."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L3",
+            "station": "Liceu",
+            "walk_minutes": 0
+          },
+          {
+            "line": "L1 / L3",
+            "station": "Catalunya",
+            "walk_minutes": 1
+          },
+          {
+            "line": "L3",
+            "station": "Drassanes",
+            "walk_minutes": 1
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4 & FGC",
+          "station": "Plaça de Catalunya",
+          "walk_minutes": 2
+        },
+        "last_train_consideration": "Three L3 stops line the promenade; metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Duck into La Boqueria market or the Liceu foyer if rain hits"
+      },
+      "website": "https://www.barcelona.cat",
+      "ticket_url": ""
     },
     {
       "name": "Casa Batlló",
-      "type": "Monument",
-      "description": "Casa Batlló is one of Antoni Gaudí's architectural masterpieces, located on Passeig de Gràcia. The building features a fantastical design with a colorful mosaic façade and a roof resembling a dragon's back. It is part of the UNESCO World Heritage Site 'Works of Antoni Gaudí'.",
+      "type": "Modernist House",
+      "description": "The most fantastical façade on Passeig de Gràcia: **Casa Batlló** is Gaudí's 1906 remodel of a bourgeois apartment block into something between a coral reef and a dragon. Bone-like balconies, a scaled roof said to be the dragon slain by Sant Jordi, and an interior light well tiled in deepening blues make it the most theatrical of the Gaudí houses. The visit now layers in immersive rooms and an AR tablet guide; the roof terrace and the loft's catenary arches are the highlights. UNESCO-listed.",
       "indoor": true,
-      "best_time": "Morning",
-      "price_range": "Expensive",
-      "seasonal_notes": "Open year-round, but summer can be busier.",
-      "booking_tips": "Purchase tickets online for a discount. Audio guides are available.",
+      "best_time": "First slots of the morning, or the evening 'Magic Nights' rooftop concerts in summer",
+      "price_range": "Expensive (~€29-35 depending on ticket tier)",
+      "seasonal_notes": "Open 365 days a year. Summer evenings bring rooftop concerts ('Magic Nights'); winter sees shorter queues. The façade lighting after dark is worth a walk-by even without a ticket.",
+      "booking_tips": "Book timed entry online — walk-up prices are higher and peak slots sell out. Early-morning 'Be the First' and night tickets cost more but dodge the crush. Combined discounts sometimes offered with other modernist sites.",
       "ratings": {
-        "cost_estimate": 35,
+        "cost_estimate": 29,
         "suggested_duration_hours": 1.5,
         "cultural_significance": 5
       },
       "latitude": 41.3917,
-      "longitude": 2.165
+      "longitude": 2.165,
+      "neighborhood": "Eixample / Passeig de Gràcia",
+      "opening_hours": {
+        "weekday": "09:00-20:00 (last entry 19:00)",
+        "weekend": "09:00-20:00 (last entry 19:00)",
+        "notes": "Open every day of the year; evening events can extend hours. Timed entry enforced."
+      },
+      "seasonal_hours": {
+        "summer": "09:00-20:00 plus evening rooftop events",
+        "winter": "09:00-20:00"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L2 / L3 / L4",
+            "station": "Passeig de Gràcia",
+            "walk_minutes": 2
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R2",
+          "station": "Passeig de Gràcia",
+          "walk_minutes": 3
+        },
+        "last_train_consideration": "Passeig de Gràcia is a three-line interchange plus Rodalies; metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Fully indoor apart from the roof terrace — a good rainy-day pick"
+      },
+      "website": "https://www.casabatllo.es",
+      "ticket_url": "https://www.casabatllo.es/en/tickets"
     },
     {
       "name": "Gothic Quarter (Barri Gòtic)",
-      "type": "District",
-      "description": "The Gothic Quarter is the historic heart of Barcelona, characterized by its narrow medieval streets, Gothic architecture, and landmarks like Barcelona Cathedral. It includes a mix of shops, cafes, and cultural sites, offering a glimpse into the city's past.",
+      "type": "Historic District",
+      "description": "Two thousand years of city compressed into a maze: the **Barri Gòtic** layers Roman walls and temple columns (the Temple of Augustus hides in a courtyard on Carrer del Paradís), medieval palaces, the Cathedral, and the ghost-quiet Plaça Sant Felip Neri, its walls still scarred by a Civil War bomb. The Pont del Bisbe — that much-photographed neo-Gothic bridge — is a 1928 addition, which bothers nobody. Get lost deliberately; the quarter rewards wandering more than any checklist.",
       "indoor": false,
-      "best_time": "Afternoon",
+      "best_time": "Early morning before shops open, or after dark when day-trippers leave",
       "price_range": "Free",
-      "seasonal_notes": "Pleasant to explore year-round. Cooler months offer a more relaxed experience.",
-      "booking_tips": "No tickets required. Wear comfortable shoes for walking.",
+      "seasonal_notes": "Atmospheric year-round; the narrow lanes stay cool in summer and shelter you in winter. Santa Llúcia Christmas market fills Avinguda de la Catedral from late November. Around La Mercè (24 September) the quarter hosts castellers, correfocs and giants.",
+      "booking_tips": "Free to wander. The MUHBA (city history museum) under Plaça del Rei lets you walk over excavated Roman streets — worth the modest ticket. Watch for pickpockets in the crowded lanes near the Cathedral.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 3,
         "cultural_significance": 5
       },
       "latitude": 41.3833,
-      "longitude": 2.1777
+      "longitude": 2.1777,
+      "neighborhood": "Ciutat Vella / Barri Gòtic",
+      "opening_hours": {
+        "weekday": "Open 24 hours (streets)",
+        "weekend": "Open 24 hours (streets)",
+        "notes": "Individual sights keep their own hours; many small shops close Sundays and some shut for part of August."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L4",
+            "station": "Jaume I",
+            "walk_minutes": 2
+          },
+          {
+            "line": "L3",
+            "station": "Liceu",
+            "walk_minutes": 3
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Plaça de Catalunya",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Metro until midnight Sun-Thu, ~02:00 Fri, all night Sat; the quarter is walkable from most of the old city."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 4,
+        "ideal_time_block": "3 hours",
+        "weather_fallback": "Narrow lanes give some shelter; duck into the Cathedral or MUHBA in real rain"
+      },
+      "website": "https://www.barcelona.cat",
+      "ticket_url": ""
     },
     {
       "name": "Camp Nou",
       "type": "Stadium",
-      "description": "Camp Nou is the home stadium of FC Barcelona, one of the most successful football clubs in the world. With a capacity exceeding 99,000, it is the largest stadium in Europe. Visitors can take a tour to explore the museum, locker rooms, and pitch.",
+      "description": "FC Barcelona's cathedral of football is mid-transformation: the **Espai Barça** project (~€1.5B) is rebuilding Camp Nou into a ~105,000-seat arena. The stadium partially reopened at around 62,652 capacity in March 2026, with full completion expected late 2026 into 2027. The classic 'Camp Nou Experience' tour is suspended during the works — in its place, the **Barça Immersive Tour** combines the club museum (all those Champions League trophies and Messi's Ballons d'Or), a 360° immersive room, and a viewpoint over the construction-in-progress. Matchday tickets are on sale again as capacity ramps up.",
       "indoor": true,
-      "best_time": "Morning",
-      "price_range": "Moderate",
-      "seasonal_notes": "Match days can be crowded. Tours are available year-round.",
-      "booking_tips": "Book tickets online in advance for tours. Match tickets should be purchased early.",
+      "best_time": "Morning tour slots; matchdays if you can get tickets",
+      "price_range": "Moderate (~€28-31 for the Barça Immersive Tour)",
+      "seasonal_notes": "Renovation continues through 2026 — the tour route and viewpoints evolve with the construction phases, so check the current offering before booking. On matchdays the museum/tour closes early or entirely.",
+      "booking_tips": "Book the Barça Immersive Tour on the official FC Barcelona site; don't expect the old pitch-side dressing-room route until the works finish. For matches, buy only through the club's official channels — resale sites around Camp Nou are rife with invalid tickets.",
       "ratings": {
         "cost_estimate": 28,
         "suggested_duration_hours": 2,
         "cultural_significance": 4
       },
       "latitude": 41.3809,
-      "longitude": 2.1228
+      "longitude": 2.1228,
+      "neighborhood": "Les Corts",
+      "opening_hours": {
+        "weekday": "Tours generally 09:30-19:00 (shorter in winter)",
+        "weekend": "Tours generally 09:30-19:00; reduced or closed on matchdays",
+        "notes": "Hours shift with construction phases and fixtures — always check the official site for your date."
+      },
+      "seasonal_hours": {
+        "summer": "Extended tour hours",
+        "winter": "Tours may end ~18:00"
+      },
+      "closures": [
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L3",
+            "station": "Palau Reial",
+            "walk_minutes": 10
+          },
+          {
+            "line": "L5",
+            "station": "Collblanc",
+            "walk_minutes": 10
+          },
+          {
+            "line": "L5",
+            "station": "Badal",
+            "walk_minutes": 12
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Barcelona Sants",
+          "walk_minutes": 25
+        },
+        "last_train_consideration": "After evening matches the metro is packed but runs late; L3 and L5 both serve the stadium area."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Museum and immersive room are indoor; construction viewpoint is exposed"
+      },
+      "website": "https://www.fcbarcelona.com",
+      "ticket_url": "https://www.fcbarcelona.com/en/tickets/barca-immersive-tour"
     },
     {
       "name": "Montjuïc",
-      "type": "Hill",
-      "description": "Montjuïc is a prominent hill overlooking Barcelona, known for its cultural venues, parks, and historic sites. Attractions include the Montjuïc Castle, Magic Fountain, and the National Art Museum of Catalonia (MNAC). It offers panoramic views of the city.",
+      "type": "Hill / Park District",
+      "description": "Barcelona's green citadel: **Montjuïc** rises over the port stacked with a castle, the Olympic Ring from 1992, the Fundació Joan Miró, MNAC in the Palau Nacional, Poble Espanyol and gardens that cascade down every flank. You can spend a full day hopping between sights, riding the Telefèric cable car for harbour views, and finishing at the Magic Fountain below. The Jardins de Mossèn Costa i Llobera cactus gardens and the Miramar viewpoint are quiet corners most visitors miss.",
       "indoor": false,
-      "best_time": "Afternoon",
-      "price_range": "Free",
-      "seasonal_notes": "Ideal in spring and fall for comfortable weather. The Magic Fountain operates in the evenings during warmer months.",
-      "booking_tips": "No entry fee for the hill itself. Some attractions require separate tickets.",
+      "best_time": "Late afternoon into evening — golden light over the port, then the fountain show",
+      "price_range": "Free (individual attractions ticketed)",
+      "seasonal_notes": "Spring and autumn are ideal for walking the hill; summer afternoons are hot with limited shade between sights. Open-air cinema (Sala Montjuïc) runs at the castle moat in July-August.",
+      "booking_tips": "The Funicular de Montjuïc runs from Paral·lel metro (L2/L3) as part of the metro fare; the Telefèric cable car from the funicular's top station is a separate ticket (~€11-16 return). Plan which sights you want — distances between them are longer than they look.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 4,
         "cultural_significance": 4
       },
       "latitude": 41.3641,
-      "longitude": 2.1577
+      "longitude": 2.1577,
+      "neighborhood": "Montjuïc / Sants-Montjuïc",
+      "opening_hours": {
+        "weekday": "Open 24 hours (park); attractions keep own hours",
+        "weekend": "Open 24 hours (park)",
+        "notes": "Funicular roughly 07:30-22:00 (from 09:00 weekends); Telefèric ~10:00-19:00/21:00 seasonal."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L2 / L3 + Funicular",
+            "station": "Paral·lel",
+            "walk_minutes": 0
+          },
+          {
+            "line": "L1 / L3",
+            "station": "Espanya",
+            "walk_minutes": 10
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Barcelona Sants",
+          "walk_minutes": 20
+        },
+        "last_train_consideration": "The funicular stops around 22:00; after fountain shows, walk down to Espanya (15 min) for L1/L3."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 8,
+        "ideal_time_block": "Half day",
+        "weather_fallback": "Retreat into MNAC, Fundació Miró or CaixaForum on the hill's lower slopes"
+      },
+      "website": "https://www.barcelona.cat/en/discover-barcelona/montjuic",
+      "ticket_url": ""
     },
     {
       "name": "Casa Milà (La Pedrera)",
-      "type": "Monument",
-      "description": "Casa Milà, also known as La Pedrera, is a modernist building by Antoni Gaudí. It features a unique undulating stone façade and wrought-iron balconies. The rooftop offers stunning views and showcases Gaudí's innovative chimney designs.",
+      "type": "Modernist House",
+      "description": "Gaudí's last civil work before he gave himself wholly to the Sagrada Família: **Casa Milà**, nicknamed La Pedrera ('the stone quarry') by unimpressed contemporaries, is an undulating limestone cliff of a building with not a single straight structural wall. The roof terrace is the showstopper — warrior-helmet chimneys and ventilation towers that Star Wars fans swear inspired the stormtroopers — while the Espai Gaudí attic, under 270 catenary brick arches, houses the best exhibition on his methods anywhere. UNESCO-listed.",
       "indoor": true,
-      "best_time": "Morning",
-      "price_range": "Expensive",
-      "seasonal_notes": "Open throughout the year, with summer being the peak season.",
-      "booking_tips": "Advance online booking is recommended. Night tours are available.",
+      "best_time": "Morning for soft light on the roof, or the night show for the illuminated terrace",
+      "price_range": "Expensive (~€28 general; night experiences more)",
+      "seasonal_notes": "Open year-round; summer evenings add rooftop jazz ('Nits d'estiu') with a drink included. Roof access can close briefly in rain or high wind — the visit continues indoors.",
+      "booking_tips": "Book timed entry online for a small discount over walk-up. 'La Pedrera Night Experience' (projection show on the roof) is a different ticket from the day visit — check which you're buying. Premium ticket skips any queue with open-date entry.",
       "ratings": {
-        "cost_estimate": 25,
+        "cost_estimate": 28,
         "suggested_duration_hours": 1.5,
         "cultural_significance": 5
       },
       "latitude": 41.3952,
-      "longitude": 2.1619
+      "longitude": 2.1619,
+      "neighborhood": "Eixample / Passeig de Gràcia",
+      "opening_hours": {
+        "weekday": "09:00-20:30 (day visit; ~18:30 close in winter), night show from ~21:00",
+        "weekend": "Same as weekdays",
+        "notes": "Last entry generally an hour before closing. Occasional short January maintenance closures — check ahead if visiting mid-winter."
+      },
+      "seasonal_hours": {
+        "summer": "09:00-20:30 + night experience",
+        "winter": "09:00-18:30 + night experience"
+      },
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L3 / L5",
+            "station": "Diagonal",
+            "walk_minutes": 1
+          }
+        ],
+        "closest_rer": {
+          "line": "FGC L6/L7",
+          "station": "Provença",
+          "walk_minutes": 3
+        },
+        "last_train_consideration": "Diagonal/Provença form one big interchange; metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Attic and apartment are indoor; only the roof terrace is weather-exposed"
+      },
+      "website": "https://www.lapedrera.com",
+      "ticket_url": "https://www.lapedrera.com/en/tickets"
     },
     {
       "name": "Picasso Museum",
       "type": "Museum",
-      "description": "The Picasso Museum houses one of the most extensive collections of artworks by the 20th-century Spanish artist Pablo Picasso. Located in five adjoining medieval palaces, the museum offers insight into Picasso's formative years and artistic evolution.",
+      "description": "Five adjoining medieval palaces on Carrer Montcada hold the **Museu Picasso**, the definitive record of the artist's formative years — he moved to Barcelona at 13 and the city shaped him. The collection runs from astonishing teenage academic work ('Science and Charity', painted at 15) through the Blue Period to the complete 58-canvas 'Las Meninas' series, his obsessive 1957 dialogue with Velázquez. Seeing genius learn its craft, room by room, is the museum's real subject.",
       "indoor": true,
-      "best_time": "Afternoon",
-      "price_range": "Moderate",
-      "seasonal_notes": "Less crowded on weekdays and during the off-season months.",
-      "booking_tips": "Pre-book tickets online. Free entry on the first Sunday of each month.",
+      "best_time": "Weekday at opening; avoid free-entry windows unless you've pre-booked them",
+      "price_range": "Moderate (~€12-15)",
+      "seasonal_notes": "Quietest on off-season weekday mornings. Free slots (Thursday evenings and first Sunday of the month) are popular and must be reserved online — they book out fast, especially in summer.",
+      "booking_tips": "Pre-book timed entry online; the walk-up queue on Carrer Montcada can be long. Free Thursday-evening and first-Sunday tickets release online a few days ahead. Combine with Santa Maria del Mar and the Born, all within five minutes' walk.",
       "ratings": {
         "cost_estimate": 12,
         "suggested_duration_hours": 2,
         "cultural_significance": 5
       },
       "latitude": 41.385,
-      "longitude": 2.1807
+      "longitude": 2.1807,
+      "neighborhood": "El Born / La Ribera",
+      "opening_hours": {
+        "weekday": "10:00-19:00 Tue-Fri (Thu until ~21:00); closed Mondays",
+        "weekend": "10:00-19:00 Sat-Sun",
+        "notes": "Closed Mondays. Last entry 30 minutes before closing."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L4",
+            "station": "Jaume I",
+            "walk_minutes": 4
+          },
+          {
+            "line": "L1",
+            "station": "Arc de Triomf",
+            "walk_minutes": 10
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R2 Sud",
+          "station": "Estació de França",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "L4 Jaume I is the natural stop; metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Fully indoor — an excellent rainy-day anchor for the Born"
+      },
+      "website": "https://museupicassobcn.cat",
+      "ticket_url": "https://museupicassobcn.cat/en/tickets"
     },
     {
       "name": "Barcelona Cathedral",
       "type": "Cathedral",
-      "description": "The Cathedral of the Holy Cross and Saint Eulalia, also known as Barcelona Cathedral, is a stunning example of Gothic architecture. Located in the Gothic Quarter, it features a magnificent façade, a serene cloister, and a rooftop with panoramic views.",
+      "description": "The **Cathedral of the Holy Cross and Saint Eulalia** anchors the Gothic Quarter with a flamboyant façade that is actually 19th-century — the medieval money ran out — fronting a genuinely 13th-15th-century interior of soaring gloom. The cloister is the charmer: palm trees, a mossy fountain, and thirteen white geese kept in memory of Saint Eulalia, the city's 13-year-old martyr whose crypt lies beneath the high altar. Take the lift to the rooftop for gargoyle-level views over the old city.",
       "indoor": true,
-      "best_time": "Morning",
-      "price_range": "Free",
-      "seasonal_notes": "Open year-round. Special events may affect access.",
-      "booking_tips": "No tickets required for general entry, but donations are appreciated. Guided tours available.",
+      "best_time": "Morning at opening, or during the Sunday sardana dancing on the square outside",
+      "price_range": "Moderate (~€9-11 cultural visit including rooftop; free during worship hours)",
+      "seasonal_notes": "The Santa Llúcia Christmas market fills the cathedral square from late November. Around La Mercè (24 September) the plaça hosts castellers. Ongoing façade restoration may mean some scaffolding.",
+      "booking_tips": "The paid 'cultural visit' ticket (buy online or at the door) covers nave, cloister, choir and rooftop — worth it for the roof alone. Free entry applies only during morning and evening worship windows, when tourist circulation is restricted. Shoulders and knees covered.",
       "ratings": {
-        "cost_estimate": 0,
+        "cost_estimate": 9,
         "suggested_duration_hours": 1,
         "cultural_significance": 5
       },
       "latitude": 41.3839,
-      "longitude": 2.1765
+      "longitude": 2.1765,
+      "neighborhood": "Barri Gòtic",
+      "opening_hours": {
+        "weekday": "Cultural visits ~09:30-18:30 (worship before/after)",
+        "weekend": "Cultural visits ~09:30-17:15 Sat; Sun afternoon only around services",
+        "notes": "Hours flex around Mass and festivals; rooftop closes in bad weather."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L4",
+            "station": "Jaume I",
+            "walk_minutes": 3
+          },
+          {
+            "line": "L1 / L4",
+            "station": "Urquinaona",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Plaça de Catalunya",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Indoor apart from the rooftop — fine in any weather"
+      },
+      "website": "https://www.catedralbcn.org",
+      "ticket_url": "https://www.catedralbcn.org/en/entrades"
     },
     {
       "name": "Barceloneta Beach",
       "type": "Beach",
-      "description": "Barceloneta Beach is one of Barcelona's most popular beaches, known for its golden sands and vibrant atmosphere. It offers a variety of water sports, beach bars, and restaurants, making it a favorite spot for locals and tourists alike.",
+      "description": "The city's front porch: **Barceloneta** is the beach you can reach on the metro, backed by the old fishermen's quarter's grid of narrow streets and seafood bars. The sand is busy, the people-watching world-class, and the boardwalk runs unbroken past Frank Gehry's golden 'Peix' fish sculpture toward the Port Olímpic and the quieter beaches beyond (Bogatell and Mar Bella are more local). Come for a morning swim, a paella lunch nearby — or skip midsummer weekends entirely and walk it in the off-season sun.",
       "indoor": false,
-      "best_time": "Morning",
+      "best_time": "Morning for swimming; sunset for the boardwalk",
       "price_range": "Free",
-      "seasonal_notes": "Best visited in late spring to early fall. Can be crowded in summer.",
-      "booking_tips": "No tickets required. Arrive early for a good spot on busy days.",
+      "seasonal_notes": "Lifeguards and full services roughly late May to mid-September. July-August weekends are wall-to-wall; October can still be swimmable. Chiringuitos (beach bars) mostly close for winter.",
+      "booking_tips": "No tickets. Never leave belongings unattended while swimming — beach theft is common. For calmer sand, keep walking northeast past Port Olímpic to Bogatell (15-20 min).",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 3,
         "cultural_significance": 3
       },
       "latitude": 41.3792,
-      "longitude": 2.1929
+      "longitude": 2.1929,
+      "neighborhood": "Barceloneta / Ciutat Vella",
+      "opening_hours": {
+        "weekday": "Open 24 hours",
+        "weekend": "Open 24 hours",
+        "notes": "Lifeguard service seasonal (roughly late May-mid Sep, ~10:00-19:00)."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L4",
+            "station": "Barceloneta",
+            "walk_minutes": 10
+          },
+          {
+            "line": "L4",
+            "station": "Ciutadella | Vila Olímpica",
+            "walk_minutes": 10
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R2 Sud",
+          "station": "Estació de França",
+          "walk_minutes": 15
+        },
+        "last_train_consideration": "L4 runs until midnight Sun-Thu, ~02:00 Fri, all night Sat; the V15 bus runs the length of the beachfront."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 5,
+        "ideal_time_block": "3 hours",
+        "weather_fallback": "Skip in rain — swap for the Museu Marítim or the Aquarium at nearby Port Vell"
+      },
+      "website": "https://www.barcelona.cat/en/what-to-do-in-bcn/bathing-and-beaches",
+      "ticket_url": ""
     },
     {
       "name": "Poble Espanyol",
-      "type": "Cultural Venue",
-      "description": "Poble Espanyol is an open-air architectural museum located on Montjuïc. It features replicas of traditional Spanish buildings, showcasing the country's diverse architectural styles. The site includes crafts workshops, shops, and restaurants.",
+      "type": "Open-Air Architecture Museum",
+      "description": "Built for the 1929 International Exposition and never demolished, **Poble Espanyol** is a walkable 'Spanish village' of 117 full-scale replica buildings — an Andalusian quarter, a Camino de Santiago street, Aragonese towers — assembled on Montjuïc. What saves it from theme-park kitsch is the resident community of real artisans: glass-blowers, leather workers and jewellers work in open studios, and the Fundació Fran Daurel adds a small collection with Picasso, Dalí and Miró. Evenings bring concerts and, in summer, open-air events.",
       "indoor": false,
-      "best_time": "Afternoon",
-      "price_range": "Moderate",
-      "seasonal_notes": "Open throughout the year. Events and festivals may enhance the visit.",
-      "booking_tips": "Tickets can be purchased online. Check for special event schedules.",
+      "best_time": "Late afternoon, rolling into an evening event",
+      "price_range": "Moderate (~€15 online)",
+      "seasonal_notes": "Summer is festival season on-site (concerts, open-air cinema); winter brings a Christmas village. Craft workshops keep shorter hours than the site itself — go before ~18:00 to see artisans working.",
+      "booking_tips": "Online tickets are cheaper than the gate. Night tickets (after ~20:00) are discounted when events allow. Combine with the Magic Fountain below — the fountain is a five-minute walk downhill.",
       "ratings": {
-        "cost_estimate": 14,
+        "cost_estimate": 15,
         "suggested_duration_hours": 2.5,
         "cultural_significance": 4
       },
       "latitude": 41.3684,
-      "longitude": 2.1492
+      "longitude": 2.1492,
+      "neighborhood": "Montjuïc",
+      "opening_hours": {
+        "weekday": "10:00-20:00 Mon; 10:00-midnight Tue-Thu & Sun; later Fri-Sat",
+        "weekend": "10:00 until late (bars and events run past midnight)",
+        "notes": "Buildings and shops close earlier than the grounds; check event calendar."
+      },
+      "seasonal_hours": {
+        "summer": "Grounds open until the small hours around events",
+        "winter": "Quieter evenings; Christmas village in December"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L1 / L3",
+            "station": "Espanya",
+            "walk_minutes": 12
+          }
+        ],
+        "closest_rer": {
+          "line": "FGC (Llobregat-Anoia lines)",
+          "station": "Plaça Espanya",
+          "walk_minutes": 12
+        },
+        "last_train_consideration": "The uphill walk from Espanya passes the Magic Fountain; Bus 150 climbs Montjuïc if you'd rather ride."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 4,
+        "ideal_time_block": "2.5 hours",
+        "weather_fallback": "Mostly outdoor; artisan workshops and the Fran Daurel museum offer some cover"
+      },
+      "website": "https://www.poble-espanyol.com",
+      "ticket_url": "https://www.poble-espanyol.com/en/tickets"
     },
     {
       "name": "El Raval",
       "type": "District",
-      "description": "El Raval is a vibrant and multicultural neighborhood in Barcelona, known for its eclectic mix of shops, restaurants, and cultural venues. It is home to the Barcelona Museum of Contemporary Art (MACBA) and the iconic Rambla del Raval.",
+      "description": "Barcelona's most argued-about neighbourhood: **El Raval** packs Gaudí's early Palau Güell, the MACBA skate plaza, the medieval Hospital de la Santa Creu courtyard (now Catalonia's national library), and the mirror-clad Barceló market into streets that swing between gentrified cool and rough edges within a block. The Rambla del Raval, with Botero's fat bronze cat, is the district's living room. Come for contemporary art, Pakistani and Filipino food, vermouth bars and vintage shops — and keep your wits at night on the port-side edge.",
       "indoor": false,
-      "best_time": "Evening",
+      "best_time": "Late afternoon into evening for bars and galleries",
       "price_range": "Free",
-      "seasonal_notes": "Lively year-round. Some streets may feel crowded in peak seasons.",
-      "booking_tips": "No tickets required. Explore on foot to discover hidden gems.",
+      "seasonal_notes": "Lively year-round; some independent shops and bars take August holidays. Terrace season on Rambla del Raval runs spring through autumn.",
+      "booking_tips": "No tickets for the district itself. Palau Güell and MACBA (both listed separately) anchor a good half-day loop. The southern blocks nearest the port merit normal big-city caution after dark.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 2,
         "cultural_significance": 4
       },
       "latitude": 41.3797,
-      "longitude": 2.1686
+      "longitude": 2.1686,
+      "neighborhood": "El Raval / Ciutat Vella",
+      "opening_hours": {
+        "weekday": "Open 24 hours (streets)",
+        "weekend": "Open 24 hours (streets)",
+        "notes": "Individual venues keep their own hours; many close Sundays."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L3",
+            "station": "Liceu",
+            "walk_minutes": 3
+          },
+          {
+            "line": "L2 / L3",
+            "station": "Paral·lel",
+            "walk_minutes": 5
+          },
+          {
+            "line": "L1 / L2",
+            "station": "Universitat",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Plaça de Catalunya",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Ringed by metro stops on three lines; metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 4,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "MACBA, CCCB and Palau Güell give the district strong indoor options"
+      },
+      "website": "https://www.barcelona.cat",
+      "ticket_url": ""
     },
     {
       "name": "Palau de la Música Catalana",
       "type": "Concert Hall",
-      "description": "The Palau de la Música Catalana is an architectural jewel of Catalan modernism, designed by Lluís Domènech i Montaner. The concert hall is renowned for its stunning stained glass and mosaics, making it a UNESCO World Heritage Site.",
+      "description": "The only concert hall on UNESCO's World Heritage list, and one look at the auditorium explains why: Lluís Domènech i Montaner's **Palau de la Música Catalana** (1908) is modernisme at full volume — an inverted stained-glass skylight like a drop of honeyed sun, mosaic muses emerging from the stage wall, and a riot of ceramic roses overhead. Built for the Orfeó Català choral society, it still programmes everything from symphonic seasons to flamenco. Hearing music under that skylight beats any guided tour, but the tours are excellent too.",
       "indoor": true,
-      "best_time": "Evening",
-      "price_range": "Expensive",
-      "seasonal_notes": "Concert schedules vary. Summer festivals may feature special performances.",
-      "booking_tips": "Purchase tickets for concerts in advance. Guided tours are also available.",
+      "best_time": "A morning tour for the skylight at full glow, or an evening concert",
+      "price_range": "Expensive (tours ~€18-22; concert tickets vary widely)",
+      "seasonal_notes": "The main concert season runs roughly September to June; August is thin on performances though daytime tours continue. Daylight tours show the stained glass best.",
+      "booking_tips": "Even a cheap concert ticket gets you the hall itself — often better value than the tour. Book tours online (self-guided and guided options); the box office also sells same-day tour tickets when slots remain.",
       "ratings": {
-        "cost_estimate": 20,
+        "cost_estimate": 18,
         "suggested_duration_hours": 1.5,
         "cultural_significance": 5
       },
       "latitude": 41.3875,
-      "longitude": 2.1753
+      "longitude": 2.1753,
+      "neighborhood": "Sant Pere / Ciutat Vella",
+      "opening_hours": {
+        "weekday": "Tours generally 09:00/10:00-15:30 (extended in summer); concerts evenings",
+        "weekend": "Tours as weekdays; concert schedule varies",
+        "notes": "Tour slots pause around rehearsals and matinee concerts."
+      },
+      "seasonal_hours": {
+        "summer": "Extended tour hours; lighter concert calendar in August",
+        "winter": "Full concert season"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L1 / L4",
+            "station": "Urquinaona",
+            "walk_minutes": 3
+          },
+          {
+            "line": "L4",
+            "station": "Jaume I",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Plaça de Catalunya",
+          "walk_minutes": 7
+        },
+        "last_train_consideration": "Evening concerts end comfortably before last metro Sun-Thu (~midnight); Fri ~02:00, Sat all night."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 3,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Fully indoor — ideal rainy-day culture"
+      },
+      "website": "https://www.palaumusica.cat",
+      "ticket_url": "https://www.palaumusica.cat/en/tickets"
     },
     {
       "name": "Mercat de Sant Josep de la Boqueria",
       "type": "Market",
-      "description": "La Boqueria is a bustling public market in the heart of Barcelona, famous for its wide variety of fresh produce, meats, seafood, and local delicacies. It's a sensory delight and a great place to experience the local culinary culture.",
+      "description": "Barcelona's belly since medieval times: **La Boqueria**, under its iron-and-glass canopy off La Rambla, is a sensory assault of jamón haunches, pyramid-stacked fruit, glistening seafood counters and juice stalls in every colour. Push past the smoothie-selling front rows to the back, where locals still shop and where bar stools at institutions like El Quim and Pinotxo serve some of the best breakfast in the city — chipirones and eggs at 09:00 is a Barcelona rite of passage.",
       "indoor": true,
-      "best_time": "Morning",
-      "price_range": "Budget",
-      "seasonal_notes": "Open year-round. Weekends can be very crowded.",
-      "booking_tips": "No tickets required. Arrive early for the best selection.",
+      "best_time": "Early morning (08:00-10:00) with the traders; avoid midday tour-group crush",
+      "price_range": "Budget (free to enter; tapas counters ~€10-25)",
+      "seasonal_notes": "Closed Sundays year-round; Mondays are quiet with many fish stalls shut (no fresh catch). Some stalls take August holidays. Peak tourist congestion midday in summer — large groups are restricted at busy hours.",
+      "booking_tips": "No tickets. Go hungry, go early, and eat at the bars in the back rather than assembling a picnic from the front stalls. Cash still preferred at some counters.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 1.5,
         "cultural_significance": 4
       },
       "latitude": 41.382,
-      "longitude": 2.1715
+      "longitude": 2.1715,
+      "neighborhood": "El Raval / La Rambla",
+      "opening_hours": {
+        "weekday": "08:00-20:30 Mon-Sat (stalls wind down from ~17:00; Mondays quietest)",
+        "weekend": "08:00-20:30 Sat; closed Sun",
+        "notes": "Closed Sundays and public holidays; individual stalls set their own hours."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-08-15",
+          "reason": "Assumption Day public holiday (market closed)"
+        },
+        {
+          "date": "2026-09-11",
+          "reason": "Diada de Catalunya (market closed)"
+        },
+        {
+          "date": "2026-09-24",
+          "reason": "La Mercè public holiday (market closed)"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Sant Esteve closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        },
+        {
+          "date": "2027-01-06",
+          "reason": "Epiphany closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L3",
+            "station": "Liceu",
+            "walk_minutes": 1
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Plaça de Catalunya",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "Liceu is directly outside; the market closes long before last metro."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Covered market — a natural rain shelter off La Rambla"
+      },
+      "website": "https://www.boqueria.barcelona",
+      "ticket_url": ""
     },
     {
       "name": "Tibidabo",
-      "type": "Amusement Park",
-      "description": "Tibidabo is a hill overlooking Barcelona, home to the Tibidabo Amusement Park and the Temple Expiatori del Sagrat Cor. The park offers vintage rides and panoramic views of the city, while the church is a stunning example of neo-Gothic architecture.",
+      "type": "Amusement Park / Viewpoint",
+      "description": "The 512-metre peak crowning Barcelona's skyline, **Tibidabo** pairs one of Europe's oldest amusement parks (1901) with the neo-Gothic **Temple Expiatori del Sagrat Cor**, its giant bronze Christ visible from the whole city. The vintage rides are the point: the 1928 red aeroplane, the Talaia crane-arm from 1921, and a ferris wheel that swings you out over a 70-kilometre view from the Pyrenees to the sea. Even non-riders should come up for the free-to-wander viewpoint and the church's lift to the summit terrace.",
       "indoor": false,
-      "best_time": "Afternoon",
-      "price_range": "Moderate",
-      "seasonal_notes": "The amusement park is open seasonally, typically spring to fall.",
-      "booking_tips": "Check the park's schedule and buy tickets online. The funicular provides access to the hill.",
+      "best_time": "Clear afternoons; sunset from the Sagrat Cor terrace",
+      "price_range": "Moderate-Expensive (park ~€35 full access; panoramic-area-only ticket cheaper; church free, lift ~€5)",
+      "seasonal_notes": "The amusement park runs seasonally — mostly weekends and holidays from spring, more days midsummer, largely closed deep winter except Christmas events. Check the calendar for your exact date; the mountain and church are accessible year-round.",
+      "booking_tips": "Buy park tickets online with a date. Getting up is half the fun: FGC to Av. Tibidabo, then the Cuca de Llum funicular to the summit (fare discounted with park ticket), or Bus 111 from Vallvidrera. The historic Tramvia Blau has been suspended for restoration for several years — don't route around it.",
       "ratings": {
-        "cost_estimate": 28,
+        "cost_estimate": 35,
         "suggested_duration_hours": 3,
         "cultural_significance": 4
       },
       "latitude": 41.4177,
-      "longitude": 2.1188
+      "longitude": 2.1188,
+      "neighborhood": "Collserola / Sarrià-Sant Gervasi",
+      "opening_hours": {
+        "weekday": "Park open selected days only (summer & holidays), typically from ~11:00-12:00",
+        "weekend": "Park typically 11:00/12:00-19:00 or later on operating days",
+        "notes": "Operating calendar varies month to month — always check before going. Sagrat Cor open daily ~09:00-20:00."
+      },
+      "seasonal_hours": {
+        "summer": "Park open most days, later closing",
+        "winter": "Park mostly closed except holiday events; viewpoint and church open"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "FGC L7 + Funicular (Cuca de Llum)",
+            "station": "Avinguda Tibidabo",
+            "walk_minutes": 0
+          }
+        ],
+        "closest_rer": {
+          "line": "FGC S1/S2 + Funicular de Vallvidrera + Bus 111",
+          "station": "Peu del Funicular",
+          "walk_minutes": 0
+        },
+        "last_train_consideration": "The summit funicular and Bus 111 stop early evening on non-operating days — check return times or face a long downhill walk."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 6,
+        "ideal_time_block": "Half day",
+        "weather_fallback": "Skip in cloud/fog — the views are the point; the church interior is the only shelter"
+      },
+      "website": "https://www.tibidabo.cat",
+      "ticket_url": "https://www.tibidabo.cat/en/tickets"
     },
     {
       "name": "Fundació Joan Miró",
       "type": "Museum",
-      "description": "The Fundació Joan Miró is a museum dedicated to the works of Catalan artist Joan Miró. Located on Montjuïc, the museum features a comprehensive collection of Miró's paintings, sculptures, and drawings.",
+      "description": "Miró designed this museum with his friend, the architect Josep Lluís Sert, and it shows: the **Fundació Joan Miró** is a white Mediterranean rationalist building on Montjuïc where courtyards, roof terraces and skylit galleries frame over 10,000 works — bold late canvases, the anti-Franco 'Barcelona Series' lithographs, and the playful rooftop sculptures against the city skyline. Alexander Calder's rebuilt 'Mercury Fountain', made for the same 1937 Republican pavilion as Picasso's Guernica, is a quietly devastating centrepiece.",
       "indoor": true,
-      "best_time": "Afternoon",
-      "price_range": "Moderate",
-      "seasonal_notes": "Open year-round with temporary exhibitions.",
-      "booking_tips": "Tickets are available online. Free entry on certain days for Catalonia residents.",
+      "best_time": "Morning, then lunch on the terrace café",
+      "price_range": "Moderate (~€15)",
+      "seasonal_notes": "Open year-round with strong temporary shows; summer Thursdays have run late openings with music some years. The sculpture roof is best in soft morning or late-day light.",
+      "booking_tips": "Book online to skip the (usually short) queue. Combine with Montjuïc Castle via the nearby funicular/Telefèric stops. The Articket multi-museum pass covers it alongside MNAC, MACBA and the Picasso Museum.",
       "ratings": {
-        "cost_estimate": 13,
+        "cost_estimate": 15,
         "suggested_duration_hours": 2,
         "cultural_significance": 5
       },
       "latitude": 41.3685,
-      "longitude": 2.1599
+      "longitude": 2.1599,
+      "neighborhood": "Montjuïc",
+      "opening_hours": {
+        "weekday": "10:00-18:00 Tue-Fri (to 20:00 in summer); closed Mondays",
+        "weekend": "10:00-20:00 Sat (summer), 10:00-18:00 Sun & holidays",
+        "notes": "Closed Mondays except public holidays. Last entry 30 minutes before closing."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-20:00",
+        "winter": "10:00-18:00"
+      },
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L2 / L3 + Funicular de Montjuïc",
+            "station": "Paral·lel (funicular to Parc de Montjuïc)",
+            "walk_minutes": 3
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Barcelona Sants",
+          "walk_minutes": 30
+        },
+        "last_train_consideration": "The funicular from Paral·lel is inside the metro fare and drops you three minutes away; it stops ~22:00."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Indoor galleries; only the sculpture terrace is exposed"
+      },
+      "website": "https://www.fmirobcn.org",
+      "ticket_url": "https://www.fmirobcn.org/en/visit/tickets"
     },
     {
       "name": "Santa Maria del Mar",
       "type": "Basilica",
-      "description": "Santa Maria del Mar is a stunning example of Catalan Gothic architecture, located in the La Ribera district. Known as the 'Cathedral of the Sea', it is famous for its harmonious proportions and beautiful stained glass windows.",
+      "description": "The people's cathedral: **Santa Maria del Mar** was raised in a startling 55 years (1329-1384) by the Ribera district itself — the bastaixos, the port stevedores who carried its stones from Montjuïc on their backs, are honoured on the bronze doors. The result is the purest Catalan Gothic anywhere: three naves of almost identical height, the widest Gothic nave in Europe, octagonal columns spaced audaciously far apart, and light in place of ornament (an anarchist fire in 1936 burned out the baroque clutter, arguably a favour). Ildefonso Falcones' novel 'Cathedral of the Sea' made it world-famous.",
       "indoor": true,
-      "best_time": "Morning",
-      "price_range": "Free",
-      "seasonal_notes": "Open year-round. Events or services may limit access.",
-      "booking_tips": "No tickets required for entry. Donations are appreciated.",
+      "best_time": "Morning free-entry window, or a rooftop tour at golden hour",
+      "price_range": "Budget (free during worship hours; cultural visit ~€5, rooftop tours ~€10)",
+      "seasonal_notes": "Concerts and services can close the nave to visits, especially around Christmas and Easter. Rooftop terrace tours run more frequently in the warmer months and are weather-dependent.",
+      "booking_tips": "Free entry during morning and evening worship windows (no touring circulation); the paid cultural visit midday adds the crypt, tribunes and audio guide. Book the rooftop tour for the best terracotta-and-towers view in the old city.",
       "ratings": {
-        "cost_estimate": 0,
+        "cost_estimate": 5,
         "suggested_duration_hours": 1,
         "cultural_significance": 5
       },
       "latitude": 41.3838,
-      "longitude": 2.1823
+      "longitude": 2.1823,
+      "neighborhood": "El Born / La Ribera",
+      "opening_hours": {
+        "weekday": "~09:00-13:00 & 17:00-20:30 (worship, free); cultural visits ~13:00-17:00",
+        "weekend": "Sun worship morning; cultural visits afternoon",
+        "notes": "Exact windows shift with the liturgical calendar; rooftop tours run on their own schedule."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L4",
+            "station": "Jaume I",
+            "walk_minutes": 4
+          },
+          {
+            "line": "L4",
+            "station": "Barceloneta",
+            "walk_minutes": 7
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R2 Sud",
+          "station": "Estació de França",
+          "walk_minutes": 6
+        },
+        "last_train_consideration": "Metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Indoor; rooftop tours cancel in rain or high wind"
+      },
+      "website": "https://santamariadelmarbarcelona.org",
+      "ticket_url": "https://santamariadelmarbarcelona.org/en/"
     },
     {
       "name": "Arc de Triomf",
       "type": "Monument",
-      "description": "The Arc de Triomf is a triumphal arch in Barcelona, designed by architect Josep Vilaseca i Casanovas. Built as the main access gate for the 1888 Barcelona World Fair, it is an example of neo-Mudéjar architecture.",
+      "description": "Most triumphal arches celebrate war; Barcelona's celebrates a trade fair. Josep Vilaseca's **Arc de Triomf**, in warm red brick with neo-Mudéjar friezes, was the grand gateway to the 1888 Universal Exposition — the event that dragged Barcelona onto the world stage. Today it frames the palm-lined Passeig de Lluís Companys promenade running down to the Ciutadella park, a favourite stage for skaters, buskers, bubble-blowers and half the city's wedding photographers. Free, photogenic, and the natural start of a Born-and-park afternoon.",
       "indoor": false,
-      "best_time": "Afternoon",
+      "best_time": "Late afternoon light on the brick; Sundays for peak promenade life",
       "price_range": "Free",
-      "seasonal_notes": "A popular spot for locals and tourists year-round.",
-      "booking_tips": "No tickets required. Combine with a visit to nearby Parc de la Ciutadella.",
+      "seasonal_notes": "The promenade hosts frequent fairs and events — book stalls around Sant Jordi (23 April), Christmas activities in December. Fully exposed, so time around summer midday heat.",
+      "booking_tips": "No tickets — it's a public monument. Combine with Parc de la Ciutadella (5 minutes down the promenade) and the Born district.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 0.5,
         "cultural_significance": 4
       },
       "latitude": 41.391,
-      "longitude": 2.1806
+      "longitude": 2.1806,
+      "neighborhood": "Eixample / Fort Pienc (edge of El Born)",
+      "opening_hours": {
+        "weekday": "Open 24 hours",
+        "weekend": "Open 24 hours",
+        "notes": "Exterior monument only — no interior access."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L1",
+            "station": "Arc de Triomf",
+            "walk_minutes": 1
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Barcelona Arc de Triomf",
+          "walk_minutes": 2
+        },
+        "last_train_consideration": "Arc de Triomf is both a metro and Rodalies stop — one of the easiest sights in the city to reach."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.25,
+        "max_duration_hours": 0.75,
+        "ideal_time_block": "30 minutes",
+        "weather_fallback": "Open-air — fold it into a walk rather than a destination in rain"
+      },
+      "website": "https://www.barcelona.cat",
+      "ticket_url": ""
     },
     {
       "name": "Parc de la Ciutadella",
       "type": "Park",
-      "description": "Parc de la Ciutadella is a central park in Barcelona, offering a tranquil escape from the city's hustle. It features a lake, the Cascada Monumental fountain, and the Barcelona Zoo. The park is a popular spot for picnics and leisurely strolls.",
+      "description": "Built over the hated 18th-century citadel that once policed the city, **Parc de la Ciutadella** is where Barcelona exhales: rowboats on the lake, ring-necked parakeets in the palms, mammoth statue photo-ops, and the wedding-cake **Cascada Monumental** fountain on which a young Gaudí worked as an assistant. The park also holds the Catalan Parliament, the Umbracle and Hivernacle glasshouses, and the Zoo along its seaward side. On Sundays half the city seems to be here with drums, picnics and slacklines.",
       "indoor": false,
-      "best_time": "Afternoon",
-      "price_range": "Free",
-      "seasonal_notes": "Beautiful in spring and summer. Fall offers a quieter experience.",
-      "booking_tips": "No tickets required for the park. Zoo entrance requires a separate ticket.",
+      "best_time": "Sunday afternoon for people-watching; weekday mornings for calm",
+      "price_range": "Free (rowboat hire and Zoo extra)",
+      "seasonal_notes": "Glorious in spring; summer evenings stay lively until the gates close. Autumn gives the ginkgos and planes real colour. Events around La Mercè (late September) fill the park.",
+      "booking_tips": "No tickets for the park; rowboats are hired on the spot (~€6-11 per half hour). Enter from the Arc de Triomf promenade for the grandest approach.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 2,
         "cultural_significance": 3
       },
       "latitude": 41.3886,
-      "longitude": 2.1868
+      "longitude": 2.1868,
+      "neighborhood": "El Born / Ciutat Vella",
+      "opening_hours": {
+        "weekday": "10:00 to dusk (~19:00 winter, ~22:30 midsummer)",
+        "weekend": "10:00 to dusk",
+        "notes": "Gates are locked at closing; times track sunset through the year."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-22:30",
+        "winter": "10:00-19:00"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L1",
+            "station": "Arc de Triomf",
+            "walk_minutes": 5
+          },
+          {
+            "line": "L4",
+            "station": "Ciutadella | Vila Olímpica",
+            "walk_minutes": 3
+          },
+          {
+            "line": "L4",
+            "station": "Jaume I",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R2 Sud",
+          "station": "Estació de França",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Multiple stops ring the park; metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Open-air — swap for the Picasso Museum or Born Cultural Centre nearby"
+      },
+      "website": "https://www.barcelona.cat/en/what-to-do-in-bcn/parks-and-gardens",
+      "ticket_url": ""
     },
     {
       "name": "Passeig de Gràcia",
-      "type": "Street",
-      "description": "Passeig de Gràcia is one of Barcelona's major avenues, known for its upscale shopping, dining, and architectural landmarks, including Gaudí's Casa Batlló and Casa Milà. The street is a showcase of modernist architecture.",
+      "type": "Boulevard",
+      "description": "Barcelona's grandest avenue is also its open-air modernisme museum: **Passeig de Gràcia** climbs from Plaça de Catalunya past the 'Mansana de la Discòrdia' — the 'block of discord' where Gaudí's Casa Batlló, Domènech i Montaner's Casa Lleó Morera and Puig i Cadafalch's Casa Amatller compete within metres of each other — up to Casa Milà. Look down as well as up: the hexagonal pavement tiles are a Gaudí design, and the wrought-iron street lamps with mosaic benches are by Pere Falqués. Flagship shopping fills in whatever attention remains.",
       "indoor": false,
-      "best_time": "Evening",
-      "price_range": "Free",
-      "seasonal_notes": "Lively year-round, with holiday lights adding charm in winter.",
-      "booking_tips": "No tickets required. Ideal for a leisurely walk and window shopping.",
+      "best_time": "Evening, when the façades are lit and the avenue glows",
+      "price_range": "Free (house interiors ticketed separately)",
+      "seasonal_notes": "Christmas lights on Passeig de Gràcia are the city's best from late November. Summer heat radiates off the stone by afternoon — walk it early or late.",
+      "booking_tips": "The avenue is free; Casa Batlló and La Pedrera interiors need timed tickets (see their entries). Casa Amatller runs smaller guided visits with far thinner crowds — a good alternative when the Gaudí houses are sold out.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 1.5,
         "cultural_significance": 4
       },
       "latitude": 41.3947,
-      "longitude": 2.1644
+      "longitude": 2.1644,
+      "neighborhood": "Eixample",
+      "opening_hours": {
+        "weekday": "Open 24 hours (street)",
+        "weekend": "Open 24 hours (street)",
+        "notes": "Shops generally 10:00-21:00 Mon-Sat; most retail closed Sundays."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L2 / L3 / L4",
+            "station": "Passeig de Gràcia",
+            "walk_minutes": 0
+          },
+          {
+            "line": "L3 / L5",
+            "station": "Diagonal",
+            "walk_minutes": 0
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R2",
+          "station": "Passeig de Gràcia",
+          "walk_minutes": 0
+        },
+        "last_train_consideration": "Metro stations at both ends; the whole avenue is a 20-minute walk end to end."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.75,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Duck into Casa Batlló, La Pedrera or the flagship stores when rain hits"
+      },
+      "website": "https://www.barcelona.cat",
+      "ticket_url": ""
     },
     {
       "name": "Magic Fountain of Montjuïc",
-      "type": "Fountain",
-      "description": "The Magic Fountain of Montjuïc is a large fountain located at the head of Avinguda Maria Cristina in the Montjuïc neighborhood. It is known for its spectacular light and music shows in the evenings.",
+      "type": "Fountain / Evening Show",
+      "description": "Back after the drought-era shutdown: the **Font Màgica**, Carles Buïgas's 1929 spectacular of choreographed water, light and music below the Palau Nacional, resumed shows in September 2025 after roughly three years dark under Catalonia's water restrictions. The revived show runs on recycled groundwater, and the formula is unchanged since the Exposition era — thousands of jets blooming through colour changes to everything from Tchaikovsky to Freddie Mercury and Montserrat Caballé's 'Barcelona'. Unashamedly kitsch, completely free, and genuinely magic on a warm night.",
       "indoor": false,
-      "best_time": "Evening",
+      "best_time": "Arrive 30-45 minutes before the first show for a front-row spot on the steps",
       "price_range": "Free",
-      "seasonal_notes": "Shows are seasonal, typically from spring to early fall.",
-      "booking_tips": "Arrive early for a good viewing spot. No tickets required.",
+      "seasonal_notes": "2026 schedule: shows Thursday-Saturday evenings most of the year, expanding to Wednesday-Sunday in summer — roughly 21:30-22:30 in summer, earlier start in winter. Schedules can flex for events and any renewed water restrictions; check the city's page for your date.",
+      "booking_tips": "No tickets — just show up early for a good position on the steps toward MNAC. Combine with sunset from the Palau Nacional terrace above. Watch bags in the dense crowd, and expect the Espanya metro to be busy right after the show.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 1,
         "cultural_significance": 3
       },
       "latitude": 41.3712,
-      "longitude": 2.1517
+      "longitude": 2.1517,
+      "neighborhood": "Montjuïc / Plaça d'Espanya",
+      "opening_hours": {
+        "weekday": "Shows Thu-Fri evenings (plus Wed in summer); no daytime operation",
+        "weekend": "Shows Sat evenings (plus Sun in summer)",
+        "notes": "Show windows roughly 21:30-22:30 in summer, ~20:00-21:00 in the colder months; confirm current schedule online."
+      },
+      "seasonal_hours": {
+        "summer": "Wed-Sun, ~21:30-22:30",
+        "winter": "Thu-Sat, earlier evening slots"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L1 / L3",
+            "station": "Espanya",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "FGC (Llobregat-Anoia lines)",
+          "station": "Plaça Espanya",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "Shows end before last metro every night they run; Espanya station is crowded for ~20 minutes after the finale."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.75,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Shows cancel in heavy rain or high wind — have a Plan B on those nights"
+      },
+      "website": "https://www.barcelona.cat/en/what-to-do-in-bcn/magic-fountain",
+      "ticket_url": ""
     },
     {
-      "name": "Hospital de Sant Pau",
-      "type": "Historic Site",
-      "description": "The Hospital de Sant Pau is a UNESCO World Heritage Site, recognized for its stunning Art Nouveau architecture. Designed by Lluís Domènech i Montaner, the hospital complex features beautiful gardens and pavilions.",
+      "name": "Recinte Modernista de Sant Pau",
+      "type": "Modernist Complex",
+      "description": "The largest Art Nouveau complex in the world, and Domènech i Montaner's masterwork: the **Recinte Modernista de Sant Pau** (the former Hospital de la Santa Creu i Sant Pau) is a garden city of a hospital — a dozen fairytale pavilions in brick, ceramic and stained glass, linked by underground galleries, built on the theory that beauty heals. A working hospital until 2009, it's now restored and open to wander: the Sant Salvador pavilion, the tunnel network and the administration building's mosaic vestibule are the highlights. UNESCO-listed, ten minutes' walk up the Avinguda de Gaudí from the Sagrada Família, and a fraction of its crowds.",
       "indoor": true,
-      "best_time": "Morning",
-      "price_range": "Moderate",
-      "seasonal_notes": "Open year-round with temporary exhibitions.",
-      "booking_tips": "Tickets can be purchased online. Guided tours are available.",
+      "best_time": "Morning, paired with a Sagrada Família afternoon slot",
+      "price_range": "Moderate (~€16-17 self-guided; guided tours more)",
+      "seasonal_notes": "The gardens between pavilions bloom in spring; evening cultural events and light shows appear around Christmas. Far less crowded than any Gaudí site, even in August.",
+      "booking_tips": "Book online for a small saving, though walk-up is usually fine outside peak weeks. Free entry days: first Sunday of the month (busy — reserve). The Avinguda de Gaudí walk from the Sagrada Família frames both monuments perfectly.",
       "ratings": {
-        "cost_estimate": 15,
+        "cost_estimate": 16,
         "suggested_duration_hours": 2,
         "cultural_significance": 5
       },
       "latitude": 41.4136,
-      "longitude": 2.1756
+      "longitude": 2.1743,
+      "neighborhood": "El Guinardó / Eixample border",
+      "opening_hours": {
+        "weekday": "09:30-18:30 Apr-Oct; 09:30-17:00 Nov-Mar",
+        "weekend": "09:30-18:30 Sat; Sun & holidays 09:30-15:00",
+        "notes": "Last entry 30 minutes before closing. Some pavilions house institutions and are viewable outside only."
+      },
+      "seasonal_hours": {
+        "summer": "09:30-18:30",
+        "winter": "09:30-17:00"
+      },
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        },
+        {
+          "date": "2027-01-06",
+          "reason": "Epiphany closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L5",
+            "station": "Sant Pau | Dos de Maig",
+            "walk_minutes": 2
+          },
+          {
+            "line": "L4",
+            "station": "Guinardó | Hospital de Sant Pau",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies (via Metro)",
+          "station": "Barcelona Clot-Aragó",
+          "walk_minutes": 20
+        },
+        "last_train_consideration": "L5 stops at the gate; metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Pavilion interiors and tunnels give good cover; garden walks are exposed"
+      },
+      "website": "https://santpaubarcelona.org",
+      "ticket_url": "https://santpaubarcelona.org/en/tickets"
     },
     {
       "name": "Barcelona Zoo",
       "type": "Zoo",
-      "description": "Located in Parc de la Ciutadella, Barcelona Zoo is home to a wide variety of animals and offers conservation programs. It is known for its naturalistic enclosures and educational exhibits.",
+      "description": "Occupying the seaward third of Parc de la Ciutadella since 1892, **Barcelona Zoo** has been reinventing itself as a conservation-first park, phasing out its older enclosures in favour of larger naturalistic habitats focused on Mediterranean and endangered species — Iberian wolves, Dorcas gazelles it breeds for reintroduction, komodo dragons and a strong primate collection (the city still remembers Floquet de Neu, the world's only known albino gorilla, who lived here until 2003). A relaxed half-day with kids, best combined with the surrounding park.",
       "indoor": false,
-      "best_time": "Morning",
-      "price_range": "Expensive",
-      "seasonal_notes": "Open year-round. Can be crowded on weekends and holidays.",
-      "booking_tips": "Tickets are available online. Discounts may be available for families.",
+      "best_time": "Morning at opening, when animals are most active",
+      "price_range": "Expensive (~€21-25 adults; cheaper online)",
+      "seasonal_notes": "Open every day of the year; summer middays send most animals into the shade — go early or late in the day. Weekends and school holidays are the busiest.",
+      "booking_tips": "Buy online for discounted, dated tickets and skip the window queue. Feeding-time talks are posted at the entrance — plan the loop around one or two.",
       "ratings": {
-        "cost_estimate": 21,
+        "cost_estimate": 22,
         "suggested_duration_hours": 3,
         "cultural_significance": 3
       },
       "latitude": 41.3862,
-      "longitude": 2.1874
+      "longitude": 2.1874,
+      "neighborhood": "Parc de la Ciutadella / El Born",
+      "opening_hours": {
+        "weekday": "10:00-19:00 or 20:00 (summer); 10:00-17:30 (winter)",
+        "weekend": "Same as weekdays",
+        "notes": "Open 365 days; last entry one hour before closing."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-19:00/20:00",
+        "winter": "10:00-17:30"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L4",
+            "station": "Ciutadella | Vila Olímpica",
+            "walk_minutes": 5
+          },
+          {
+            "line": "L1",
+            "station": "Arc de Triomf",
+            "walk_minutes": 12
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R2 Sud",
+          "station": "Estació de França",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "L4 is closest to the zoo entrance on the park's sea side."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 5,
+        "ideal_time_block": "3 hours",
+        "weather_fallback": "Mostly outdoor — the terrarium and primate houses only partly cover a wet day"
+      },
+      "website": "https://zoobarcelona.cat",
+      "ticket_url": "https://zoobarcelona.cat/en/tickets"
     },
     {
-      "name": "Born Cultural Centre",
-      "type": "Cultural Centre",
-      "description": "El Born Cultural Centre is a cultural and historical venue located in a former market building. It houses archaeological ruins from the 18th century and hosts exhibitions and events highlighting Barcelona's history.",
+      "name": "Born Cultural Centre (El Born CCM)",
+      "type": "Cultural Centre / Archaeological Site",
+      "description": "Barcelona's 1714 frozen in time: when the magnificent 1876 iron-and-glass Born market was being converted into a library, excavation revealed an entire neighbourhood razed after the city fell in the War of the Spanish Succession — streets, houses, taverns, drains, all remarkably legible. The **Born Centre de Cultura i Memòria** now displays this archaeological field under the market's soaring canopy, framed by exhibitions on the siege and Catalan memory (the site is charged ground every 11 September, the Diada). Viewing the ruins from the balcony walkway is free; exhibitions and the ruins-level guided visits are ticketed. It doubles as the gateway to the Born district's boutiques and cocktail bars.",
       "indoor": true,
-      "best_time": "Afternoon",
-      "price_range": "Free",
-      "seasonal_notes": "Open year-round with varying exhibitions.",
-      "booking_tips": "No tickets required for general entry. Some exhibitions may have an entry fee.",
+      "best_time": "Late afternoon, flowing into a Born evening",
+      "price_range": "Budget (free general access; exhibitions/guided ruins visits ~€4-7)",
+      "seasonal_notes": "Around the Diada (11 September) the centre becomes a focal point of commemorations — expect events and crowds. Many surrounding boutiques close Sundays and some take August breaks.",
+      "booking_tips": "Just walk in for the ruins overlook — no ticket needed. Book the guided ruins-floor visit if you want to descend among the excavations; first-Sunday free entry applies to exhibitions.",
       "ratings": {
         "cost_estimate": 0,
         "suggested_duration_hours": 1.5,
         "cultural_significance": 4
       },
       "latitude": 41.3855,
-      "longitude": 2.1834
+      "longitude": 2.1834,
+      "neighborhood": "El Born / La Ribera",
+      "opening_hours": {
+        "weekday": "10:00-19:00 Tue-Sat (Nov-Feb until 18:00); closed Mondays",
+        "weekend": "10:00-19:00 Sat; 10:00-14:30 Sun & holidays (winter ~15:00)",
+        "notes": "Closed Mondays except holidays."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-19:00",
+        "winter": "10:00-18:00"
+      },
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Sant Esteve closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L4",
+            "station": "Jaume I",
+            "walk_minutes": 5
+          },
+          {
+            "line": "L4",
+            "station": "Barceloneta",
+            "walk_minutes": 6
+          },
+          {
+            "line": "L1",
+            "station": "Arc de Triomf",
+            "walk_minutes": 9
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R2 Sud",
+          "station": "Estació de França",
+          "walk_minutes": 4
+        },
+        "last_train_consideration": "Estació de França is around the corner for regional trains; metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.75,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Covered market hall — a fine rainy-day stop in the Born"
+      },
+      "website": "https://elbornculturaimemoria.barcelona.cat",
+      "ticket_url": "https://elbornculturaimemoria.barcelona.cat/en/"
+    },
+    {
+      "name": "Casa Vicens",
+      "type": "Modernist House",
+      "description": "Where it all began: **Casa Vicens** (1883-85) is Gaudí's first house, a summer villa in Gràcia built for a stockbroker, and it's nothing like the swooping curves he became famous for — instead, a dazzling orientalist fantasy of green-and-white checkerboard tiles, marigold ceramics, Moorish smoking room and cast-iron palmetto gates. Hidden behind private walls until it opened as a museum in 2017, it remains the least-visited UNESCO Gaudí building in the city, which is precisely its appeal: you can actually breathe here.",
+      "indoor": true,
+      "best_time": "Morning, then wander Gràcia's squares afterwards",
+      "price_range": "Moderate (~€18-21)",
+      "seasonal_notes": "During the Festa Major de Gràcia (mid-August) the surrounding streets are gloriously decorated and mobbed — fun, but allow extra time. The rooftop and garden are best in fair weather.",
+      "booking_tips": "Book timed entry online; slots rarely sell out as far ahead as the big Gaudí sites but weekends go first. The combined Gaudí-hopper day works well: Casa Vicens morning, Park Güell (uphill, 25 minutes' walk) afternoon.",
+      "ratings": {
+        "cost_estimate": 18,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 5
+      },
+      "latitude": 41.4036,
+      "longitude": 2.1506,
+      "neighborhood": "Gràcia",
+      "opening_hours": {
+        "weekday": "10:00-19:00 (winter months may close Mondays or shorten hours)",
+        "weekend": "10:00-19:00",
+        "notes": "Last entry ~1 hour before closing; check winter calendar for Monday closures."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-19:00 daily",
+        "winter": "10:00-19:00, occasional Monday closures"
+      },
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L3",
+            "station": "Fontana",
+            "walk_minutes": 4
+          },
+          {
+            "line": "L3",
+            "station": "Lesseps",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "FGC L6/L7",
+          "station": "Gràcia",
+          "walk_minutes": 10
+        },
+        "last_train_consideration": "L3 Fontana is nearly at the door; metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Interior visit works rain or shine; rooftop may close in bad weather"
+      },
+      "website": "https://casavicens.org",
+      "ticket_url": "https://casavicens.org/en/tickets"
+    },
+    {
+      "name": "Palau Güell",
+      "type": "Modernist Palace",
+      "description": "Gaudí unleashed with an unlimited budget for the first time: **Palau Güell** (1886-88) is the urban palace he built for his patron Eusebi Güell just off La Rambla, in the then-unfashionable Raval. Behind twin parabolic iron gates (built so carriages could ride straight in), the house rises to a central salon under a perforated dome that scatters light like a starfield, then erupts on the roof into a garden of twenty trencadís-clad chimneys — the dress rehearsal for La Pedrera. UNESCO-listed and consistently the least crowded of the major Gaudí interiors.",
+      "indoor": true,
+      "best_time": "Morning; the roof terrace glows late afternoon",
+      "price_range": "Moderate (~€12 with audio guide)",
+      "seasonal_notes": "Summer evenings have hosted rooftop concert series among the chimneys. Free first Sundays book out — reserve ahead. The Raval location means lively surroundings day and night.",
+      "booking_tips": "Book online; walk-ups usually fine on weekdays. Free entry on the first Sunday of each month and certain open-door days (reservation required). The audio guide is included and worth using.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 5
+      },
+      "latitude": 41.3788,
+      "longitude": 2.1742,
+      "neighborhood": "El Raval",
+      "opening_hours": {
+        "weekday": "10:00-20:00 Tue-Sun (Apr-Oct); 10:00-17:30 (Nov-Mar); closed Mondays",
+        "weekend": "Same as weekdays",
+        "notes": "Closed Mondays except holidays; last entry 1 hour before closing. Short maintenance closure most years in late January."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-20:00",
+        "winter": "10:00-17:30"
+      },
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Sant Esteve closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        },
+        {
+          "date": "2027-01-06",
+          "reason": "Epiphany closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L3",
+            "station": "Liceu",
+            "walk_minutes": 3
+          },
+          {
+            "line": "L3",
+            "station": "Drassanes",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Plaça de Catalunya",
+          "walk_minutes": 12
+        },
+        "last_train_consideration": "Steps from La Rambla's L3 stops; metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Fully indoor apart from the chimney roof — strong rainy-day option"
+      },
+      "website": "https://palauguell.cat",
+      "ticket_url": "https://palauguell.cat/en/buy-tickets"
+    },
+    {
+      "name": "Monestir de Pedralbes",
+      "type": "Monastery",
+      "description": "Barcelona's best-kept medieval secret: the **Monestir de Pedralbes**, founded in 1327 by Queen Elisenda de Montcada, hides at the city's leafy western edge with the most serene three-storey Gothic cloister in Europe. Poor Clare nuns lived here continuously for over 650 years (a small community remains next door), leaving intact dormitories, an infirmary, a medieval kitchen and the tiny Sant Miquel chapel with its luminous 1346 murals by Ferrer Bassa — Italian Trecento painting transplanted to Catalonia. Barely a tourist in sight; the silence is the luxury.",
+      "indoor": true,
+      "best_time": "Weekday mornings for near-solitude in the cloister",
+      "price_range": "Budget (~€5; free Sundays after 15:00 and first Sundays)",
+      "seasonal_notes": "The cloister garden's orange trees and medicinal herb beds are prettiest in spring. Cool stone interiors make it a genuinely good escape from August heat.",
+      "booking_tips": "No need to pre-book except free-entry Sundays. Combine with the Pavellons Güell gatehouse (Gaudí's dragon gate) a 15-minute walk downhill, or a stroll through moneyed Pedralbes and Sarrià.",
+      "ratings": {
+        "cost_estimate": 5,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 41.3958,
+      "longitude": 2.112,
+      "neighborhood": "Pedralbes / Sarrià-Sant Gervasi",
+      "opening_hours": {
+        "weekday": "10:00-17:00 Tue-Fri (to 19:00 Apr-Sep); closed Mondays",
+        "weekend": "10:00-19:00 Sat (summer), 10:00-17:00 (winter); Sun 10:00-20:00 (summer)/17:00",
+        "notes": "Closed Mondays. Last entry 30 minutes before closing."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-19:00/20:00",
+        "winter": "10:00-17:00"
+      },
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Sant Esteve closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L3",
+            "station": "Palau Reial",
+            "walk_minutes": 15
+          }
+        ],
+        "closest_rer": {
+          "line": "FGC L12",
+          "station": "Reina Elisenda",
+          "walk_minutes": 8
+        },
+        "last_train_consideration": "FGC Reina Elisenda (from Plaça de Catalunya via Sarrià) is the elegant approach; Bus 63/68/78 also serve the monastery."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Cloister walkways are covered; interiors fully sheltered"
+      },
+      "website": "https://monestirpedralbes.barcelona",
+      "ticket_url": "https://monestirpedralbes.barcelona/en/"
+    },
+    {
+      "name": "Bunkers del Carmel (Turó de la Rovira)",
+      "type": "Viewpoint / Historic Site",
+      "description": "The best 360° panorama in Barcelona, from a Spanish Civil War anti-aircraft battery: the **Bunkers del Carmel** crown the Turó de la Rovira at 262 metres, concrete gun platforms built in 1937 against Franco's Italian-flown bombing raids, later swallowed by a shantytown, and finally rediscovered by the city as its favourite sunset perch. From up here the whole urban plan reads like a map — Sagrada Família, the Eixample grid, Montjuïc, the sea. A small open-air MUHBA display explains the site's double history of war and informal housing.",
+      "indoor": false,
+      "best_time": "Golden hour — but note the site now closes in the evening",
+      "price_range": "Free",
+      "seasonal_notes": "After years of overtouristed all-night parties, the city fenced the summit platform and enforces evening closing (gates lock around 19:30, later in high summer) with no alcohol allowed — plan for late-afternoon light rather than true night views. Exposed and windy; carry water in summer.",
+      "booking_tips": "Free, no tickets. The climb is steep from every side: Bus 119 or V19 gets you closest; from L4 Alfons X it's a 20-25 minute uphill walk, or ride the Bus 24 toward El Carmel. Sneakers, not sandals.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 3
+      },
+      "latitude": 41.4194,
+      "longitude": 2.1614,
+      "neighborhood": "El Carmel / Horta-Guinardó",
+      "opening_hours": {
+        "weekday": "~09:00-19:30 (summit platform; longer daylight window in midsummer)",
+        "weekend": "Same as weekdays",
+        "notes": "Evening closure enforced since the site was fenced; the surrounding hillside paths remain open."
+      },
+      "seasonal_hours": {
+        "summer": "Open until after sunset in the longest weeks",
+        "winter": "Closes with dusk, ~18:00"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L4",
+            "station": "Alfons X",
+            "walk_minutes": 22
+          },
+          {
+            "line": "L5",
+            "station": "El Carmel",
+            "walk_minutes": 18
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies (via Metro)",
+          "station": "Plaça de Catalunya",
+          "walk_minutes": 60
+        },
+        "last_train_consideration": "Bus 119 climbs closest to the summit; the walk down to Alfons X after sunset is poorly lit in stretches."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Skip in rain or haze — the view is the entire point"
+      },
+      "website": "https://www.barcelona.cat/en/discover-barcelona/turo-de-la-rovira",
+      "ticket_url": ""
+    },
+    {
+      "name": "Mercat de Santa Caterina",
+      "type": "Market",
+      "description": "La Boqueria's cooler, calmer sibling: the **Mercat de Santa Caterina** (1848, the city's first covered market) reopened in 2005 under an astonishing undulating roof by Enric Miralles and Benedetta Tagliabue — a rainbow sea of 325,000 hexagonal ceramic tiles rippling over the medieval Sant Pere quarter, best seen from above on any city viewpoint. Inside, real neighbourhood grocery shopping coexists with excellent stall-restaurants (Cuines Santa Caterina anchors one corner), and a small archaeological window shows the Dominican convent excavated beneath.",
+      "indoor": true,
+      "best_time": "Mid-morning Tuesday-Friday, when stalls are full and tour groups aren't",
+      "price_range": "Budget (free to enter; market lunch ~€10-25)",
+      "seasonal_notes": "Closed Sundays; Monday and afternoon hours are reduced at many stalls (fresh fish especially). Some counters take August holidays, though the market stays open.",
+      "booking_tips": "No tickets. Full-day trading Tuesday, Thursday and Friday; Monday, Wednesday and Saturday many stalls close by mid-afternoon. Eat at the stall bars for the best value in the old city.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 4
+      },
+      "latitude": 41.386,
+      "longitude": 2.1782,
+      "neighborhood": "Sant Pere / Ciutat Vella",
+      "opening_hours": {
+        "weekday": "07:30-15:30 Mon/Wed; 07:30-20:30 Tue/Thu/Fri",
+        "weekend": "07:30-15:30 Sat; closed Sun",
+        "notes": "Restaurant corners keep longer evening hours than the stalls."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-08-15",
+          "reason": "Assumption Day public holiday (market closed)"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Sant Esteve closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L4",
+            "station": "Jaume I",
+            "walk_minutes": 4
+          },
+          {
+            "line": "L1 / L4",
+            "station": "Urquinaona",
+            "walk_minutes": 7
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Plaça de Catalunya",
+          "walk_minutes": 10
+        },
+        "last_train_consideration": "Closes well before last metro; an easy add-on between the Cathedral and the Born."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Covered market — a perfect rain stop between Gothic Quarter and Born"
+      },
+      "website": "https://www.mercatsantacaterina.com",
+      "ticket_url": ""
+    },
+    {
+      "name": "CosmoCaixa",
+      "type": "Science Museum",
+      "description": "Regularly rated among Europe's best science museums, **CosmoCaixa** descends in a spiral around a living Amazonian rainforest — the 'Bosc Inundat', a 1,000 m² flooded-forest biosphere complete with piranhas, anacondas, capybaras and scheduled tropical downpours. Around it: a Foucault pendulum, a geological wall of real strata, hundreds of hands-on physics stations and a planetarium, all housed in a converted modernist asylum building high on the Collserola foothills. At a flat ~€6 entry it may be the best-value ticket in Barcelona, and the undisputed king of family rainy days.",
+      "indoor": true,
+      "best_time": "Weekday mornings in term time; rainy days are mobbed",
+      "price_range": "Budget (~€6; under-16s free; planetarium small supplement)",
+      "seasonal_notes": "School-holiday weeks and wet weekends are the crush times — book online those days. Air-conditioned relief in high summer. Special exhibitions rotate through the year.",
+      "booking_tips": "Buy online to skip the queue (free for CaixaBank clients and under-16s, but still reserve). The flooded forest 'rains' on a schedule — check times at entry. Allow the extra transit time: it's up the hill near Tibidabo's foot.",
+      "ratings": {
+        "cost_estimate": 6,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 3
+      },
+      "latitude": 41.4133,
+      "longitude": 2.1312,
+      "neighborhood": "Sant Gervasi / foot of Tibidabo",
+      "opening_hours": {
+        "weekday": "10:00-20:00",
+        "weekend": "10:00-20:00",
+        "notes": "Open daily; closes early (~18:00) Dec 24 and 31."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        },
+        {
+          "date": "2027-01-06",
+          "reason": "Epiphany closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L7 (FGC)",
+            "station": "Avinguda Tibidabo",
+            "walk_minutes": 12
+          }
+        ],
+        "closest_rer": {
+          "line": "FGC L7",
+          "station": "Avinguda Tibidabo",
+          "walk_minutes": 12
+        },
+        "last_train_consideration": "FGC from Plaça de Catalunya, then an uphill walk or Bus 196; the V13/H4 buses also pass nearby."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 5,
+        "ideal_time_block": "3 hours",
+        "weather_fallback": "Fully indoor — it IS the family weather fallback"
+      },
+      "website": "https://cosmocaixa.org",
+      "ticket_url": "https://cosmocaixa.org/en/tickets"
+    },
+    {
+      "name": "Museu Nacional d'Art de Catalunya (MNAC)",
+      "type": "Museum",
+      "description": "The domed **Palau Nacional** on Montjuïc holds the world's greatest collection of Romanesque mural painting — entire church apses from crumbling Pyrenean chapels, rescued stone by stone in the 1920s and rebuilt here, their thousand-year-old Christs staring down with hallucinatory intensity (the Sant Climent de Taüll Pantocrator alone justifies the ticket). Upstairs, Catalan Gothic, Renaissance and Baroque holdings give way to a superb modernisme floor: Gaudí furniture, Casas and Rusiñol, and Fortuny showpieces. The rooftop viewpoint stares straight down the Magic Fountain axis to Tibidabo.",
+      "indoor": true,
+      "best_time": "Morning for the Romanesque rooms; time your exit for the fountain show on performance nights",
+      "price_range": "Moderate (~€12, valid two days within a month; rooftop-only ticket cheaper)",
+      "seasonal_notes": "Free Saturdays from 15:00 and first Sundays — busy but manageable. The steps and escalators from Plaça d'Espanya are a spectacle in themselves, especially lit at night.",
+      "booking_tips": "The ticket covers two days — split the vast collection over a Montjuïc weekend. Book free-slot tickets online for Saturday afternoons/first Sundays. Take the outdoor escalators up from Espanya rather than the road.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 3,
+        "cultural_significance": 5
+      },
+      "latitude": 41.3684,
+      "longitude": 2.1534,
+      "neighborhood": "Montjuïc",
+      "opening_hours": {
+        "weekday": "10:00-18:00 Tue-Sat (May-Sep to 20:00); closed Mondays",
+        "weekend": "10:00-18:00/20:00 Sat; 10:00-15:00 Sun & holidays",
+        "notes": "Closed Mondays except public holidays. Rooftop viewpoint keeps museum hours."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-20:00 Tue-Sat",
+        "winter": "10:00-18:00 Tue-Sat"
+      },
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L1 / L3",
+            "station": "Espanya",
+            "walk_minutes": 10
+          }
+        ],
+        "closest_rer": {
+          "line": "FGC (Llobregat-Anoia lines)",
+          "station": "Plaça Espanya",
+          "walk_minutes": 10
+        },
+        "last_train_consideration": "Escalators run most of the climb from Espanya; after evening fountain shows the station is briefly packed."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 4,
+        "ideal_time_block": "3 hours",
+        "weather_fallback": "Fully indoor — the strongest bad-weather anchor on Montjuïc"
+      },
+      "website": "https://www.museunacional.cat",
+      "ticket_url": "https://www.museunacional.cat/en/tickets"
+    },
+    {
+      "name": "MACBA (Museu d'Art Contemporani de Barcelona)",
+      "type": "Museum",
+      "description": "Richard Meier's luminous white ship of a building (1995) dropped into the Raval and changed the neighbourhood forever: **MACBA** pairs a serious collection of post-1945 art — strong on Catalan and Spanish conceptualism, Tàpies, Brossa, and international movements from Fluxus onward — with the most famous unofficial skate spot in Europe on the plaza outside, where the click of decks is the museum's permanent soundtrack. The ramped, light-flooded interior is half the experience; exhibitions lean challenging rather than crowd-pleasing.",
+      "indoor": true,
+      "best_time": "Late afternoon, then drinks in the Raval; Saturdays it stays open till 20:00",
+      "price_range": "Moderate (~€12, ticket valid a month for return visits)",
+      "seasonal_notes": "Note the unusual closing day: Tuesdays, not Mondays. The plaza skate scene runs on daylight — liveliest spring through autumn evenings.",
+      "booking_tips": "Tickets on the door are usually fine; the ticket allows repeat entry for a month. Covered by the Articket pass. Check what's on — the collection rotates and single big shows dominate the calendar.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 41.3831,
+      "longitude": 2.1668,
+      "neighborhood": "El Raval",
+      "opening_hours": {
+        "weekday": "11:00-19:30 Mon & Wed-Fri; closed Tuesdays",
+        "weekend": "10:00-20:00 Sat; 10:00-15:00 Sun & holidays",
+        "notes": "Closed Tuesdays (except holidays). Last entry 30 minutes before closing."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L1 / L2",
+            "station": "Universitat",
+            "walk_minutes": 5
+          },
+          {
+            "line": "L3",
+            "station": "Catalunya",
+            "walk_minutes": 7
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4 & FGC",
+          "station": "Plaça de Catalunya",
+          "walk_minutes": 7
+        },
+        "last_train_consideration": "Metro until midnight Sun-Thu, ~02:00 Fri, all night Sat; the CCCB next door extends a culture double-bill."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Fully indoor — pair with CCCB for a full wet-weather Raval afternoon"
+      },
+      "website": "https://www.macba.cat",
+      "ticket_url": "https://www.macba.cat/en/visit"
+    },
+    {
+      "name": "Museu Marítim de Barcelona",
+      "type": "Museum",
+      "description": "Housed in the **Drassanes Reials** — the finest surviving medieval shipyards in the world, vast Gothic bays where Catalan war galleys were built from the 13th century — the **Museu Marítim** is worth visiting for the architecture alone. Its centrepiece earns the space: a full-size, gold-encrusted replica of the Royal Galley of Don Juan de Austria, flagship at Lepanto in 1571, sixty metres of red-and-gilt menace under the brick vaults. Around it, figureheads, portolan charts and submarines chart Barcelona's life at sea; your ticket also covers the Santa Eulàlia, a 1918 schooner moored at Port Vell.",
+      "indoor": true,
+      "best_time": "Afternoon — combine with a Port Vell waterfront stroll",
+      "price_range": "Moderate (~€10; free Sundays after 15:00)",
+      "seasonal_notes": "Cool, cavernous halls make it a fine refuge from summer heat or winter rain. The Santa Eulàlia schooner keeps shorter, weather-dependent visiting hours at the quay.",
+      "booking_tips": "No pre-booking needed most days; free Sunday-afternoon slots draw local families. At the bottom of La Rambla, it pairs naturally with Palau Güell and Drassanes metro.",
+      "ratings": {
+        "cost_estimate": 10,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 4
+      },
+      "latitude": 41.3757,
+      "longitude": 2.1758,
+      "neighborhood": "El Raval / Port Vell",
+      "opening_hours": {
+        "weekday": "10:00-20:00",
+        "weekend": "10:00-20:00",
+        "notes": "Open daily; last entry 30 minutes before closing. Santa Eulàlia schooner: Tue-Sun daytime, weather permitting."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Sant Esteve closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        },
+        {
+          "date": "2027-01-06",
+          "reason": "Epiphany closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L3",
+            "station": "Drassanes",
+            "walk_minutes": 2
+          },
+          {
+            "line": "L2 / L3",
+            "station": "Paral·lel",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Plaça de Catalunya",
+          "walk_minutes": 18
+        },
+        "last_train_consideration": "Drassanes is at the door; metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1.5,
+        "max_duration_hours": 3,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Fully indoor — one of the old city's best rainy-day tickets"
+      },
+      "website": "https://www.mmb.cat",
+      "ticket_url": "https://www.mmb.cat/en/tickets"
+    },
+    {
+      "name": "Basílica de Santa Maria del Pi",
+      "type": "Basilica",
+      "description": "Squeezed into the Gothic Quarter between two of the old city's loveliest squares, **Santa Maria del Pi** (14th century) is Catalan Gothic at its most severe and satisfying: a single colossal nave — one of the widest in Europe — under bare stone, lit by a 10-metre rose window that ranks among the world's largest. The 54-metre octagonal bell tower can be climbed on small guided tours for a rooftop-level view over the Gòtic's terracotta. Outside, Plaça del Pi hosts a weekend artisan food market under the namesake pine tree, and painters sell canvases on Plaça de Sant Josep Oriol.",
+      "indoor": true,
+      "best_time": "Morning light through the rose window; weekend market on the square",
+      "price_range": "Budget (~€5 basilica; bell-tower guided visit ~€10-12)",
+      "seasonal_notes": "Candlelit and classical guitar concerts run year-round in the nave — an atmospheric evening option. The rose window (rebuilt after the 1936 fire) glows best mid-morning.",
+      "booking_tips": "Walk-up entry is fine; book bell-tower tours ahead as groups are small (steep stairs, minimum ages apply). Evening guitar-concert tickets sell online and at the door.",
+      "ratings": {
+        "cost_estimate": 5,
+        "suggested_duration_hours": 0.75,
+        "cultural_significance": 4
+      },
+      "latitude": 41.3822,
+      "longitude": 2.1738,
+      "neighborhood": "Barri Gòtic",
+      "opening_hours": {
+        "weekday": "Cultural visits ~10:00-18:00; worship before/after",
+        "weekend": "Cultural visits ~10:00-18:00 Sat; Sun around services",
+        "notes": "Hours flex around Mass, concerts and festivals."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L3",
+            "station": "Liceu",
+            "walk_minutes": 2
+          },
+          {
+            "line": "L4",
+            "station": "Jaume I",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Plaça de Catalunya",
+          "walk_minutes": 9
+        },
+        "last_train_consideration": "Steps from Liceu; evening concerts finish well before last metro."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 1.5,
+        "ideal_time_block": "45 minutes",
+        "weather_fallback": "Indoor nave; tower climb cancelled in storms"
+      },
+      "website": "https://basilicadelpi.cat",
+      "ticket_url": "https://basilicadelpi.cat/en/"
+    },
+    {
+      "name": "Parc del Laberint d'Horta",
+      "type": "Historic Garden",
+      "description": "Barcelona's oldest surviving garden (1791), and its most romantic secret: the **Parc del Laberint d'Horta** descends in neoclassical terraces from the Desvalls family palace to a genuinely disorienting cypress maze with Eros waiting at the centre — the same labyrinth where scenes of 'Perfume' were filmed. Above it, tempietto pavilions, a canal, a mock-romantic cascade and centuries-old sequoias; around it, near-total calm, because almost no visitor makes it this far up the L3. The city caps daily entries to protect the gardens, which keeps it blissful.",
+      "indoor": false,
+      "best_time": "Weekday mornings; spring for the gardens in flower",
+      "price_range": "Budget (~€2.50; free Wednesdays and Sundays)",
+      "seasonal_notes": "No picnics or ball games allowed — this is a protected museum-garden. Autumn colour is lovely; summer visits are best before noon as shade is patchy on the upper terraces.",
+      "booking_tips": "Pay at the gate (card accepted); free Wednesdays and Sundays draw local families but rarely feel crowded. Twenty minutes on L3 from the centre to Mundet, then a five-minute walk past the velodrome.",
+      "ratings": {
+        "cost_estimate": 2.5,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 3
+      },
+      "latitude": 41.4396,
+      "longitude": 2.1458,
+      "neighborhood": "Horta-Guinardó",
+      "opening_hours": {
+        "weekday": "10:00 to dusk (~18:00 winter, ~21:00 midsummer)",
+        "weekend": "10:00 to dusk",
+        "notes": "Daily visitor cap; last entry one hour before closing."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-21:00",
+        "winter": "10:00-18:00"
+      },
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L3",
+            "station": "Mundet",
+            "walk_minutes": 6
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies (via Metro)",
+          "station": "Plaça de Catalunya",
+          "walk_minutes": 45
+        },
+        "last_train_consideration": "L3 Mundet is the only practical rail approach; straightforward but allow ~25 minutes from the centre."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 2.5,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Open-air garden — skip in rain; the cypress maze is miserable wet"
+      },
+      "website": "https://www.barcelona.cat/en/what-to-do-in-bcn/parks-and-gardens/parc-del-laberint-dhorta",
+      "ticket_url": ""
+    },
+    {
+      "name": "Mercat de Sant Antoni",
+      "type": "Market",
+      "description": "The grandest iron market in the city: Antoni Rovira i Trias's 1882 **Mercat de Sant Antoni** occupies an entire Eixample block in a colossal Greek-cross of cast iron and brick, reopened in 2018 after a nine-year, ~€80M restoration that also exposed a stretch of Roman road and the 17th-century bastion beneath (visible through floor windows). It's a proper local food market with none of the Boqueria's tourist squeeze — and on Sunday mornings the perimeter hosts the beloved **Mercat Dominical**, a decades-old open-air market of secondhand books, comics, vinyl and trading cards. The surrounding Sant Antoni neighbourhood is one of the city's best eating-and-vermouth zones.",
+      "indoor": true,
+      "best_time": "Saturday morning for the food market; Sunday morning for the book market",
+      "price_range": "Budget (free to enter)",
+      "seasonal_notes": "Food market closed Sundays (when the book market takes over outside, roughly 08:30-14:30). Some stalls take August holidays; the vermouth bars around Carrer del Parlament do not.",
+      "booking_tips": "No tickets. Come hungry Saturday morning, browse the Dominical Sunday, and finish either day with vermut on Carrer del Parlament two blocks away.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 1,
+        "cultural_significance": 4
+      },
+      "latitude": 41.3784,
+      "longitude": 2.1633,
+      "neighborhood": "Sant Antoni / Eixample",
+      "opening_hours": {
+        "weekday": "08:00-20:30 Mon-Sat (fresh stalls; some close mid-afternoon early week)",
+        "weekend": "08:00-20:30 Sat; food market closed Sun — Dominical book market outside ~08:30-14:30",
+        "notes": "Encants (non-food) section keeps retail hours; bar counters serve into the evening."
+      },
+      "seasonal_hours": {},
+      "closures": [
+        {
+          "date": "2026-08-15",
+          "reason": "Assumption Day public holiday (market closed)"
+        },
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Sant Esteve closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L2",
+            "station": "Sant Antoni",
+            "walk_minutes": 1
+          },
+          {
+            "line": "L1 / L2",
+            "station": "Universitat",
+            "walk_minutes": 8
+          },
+          {
+            "line": "L3",
+            "station": "Poble Sec",
+            "walk_minutes": 8
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Plaça de Catalunya",
+          "walk_minutes": 15
+        },
+        "last_train_consideration": "L2 Sant Antoni exits beside the market; metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 0.5,
+        "max_duration_hours": 2,
+        "ideal_time_block": "1 hour",
+        "weather_fallback": "Covered hall shelters the food market; the Sunday book market is open-air and thins in rain"
+      },
+      "website": "https://mercatdesantantoni.com",
+      "ticket_url": ""
+    },
+    {
+      "name": "Castell de Montjuïc",
+      "type": "Castle / Fortress",
+      "description": "The 17th-century star fortress crowning Montjuïc has watched over — and too often fired upon — the city below: **Castell de Montjuïc** bombarded Barcelona's own citizens in 1842, held and executed political prisoners for a century (Catalan president Lluís Companys was shot here in 1940, his memorial by the moat), and is now a calm municipal space of ramparts, sea views and exhibitions on its own dark history. The panorama is the draw: 360° over the container port's crane ballet, the airport approaches, the city grid and the open Mediterranean. Getting there by cable car is half the outing.",
+      "indoor": false,
+      "best_time": "Late afternoon for port views; July-August evenings for the moat's open-air cinema",
+      "price_range": "Budget (~€9; free Sundays after 15:00 and first Sundays)",
+      "seasonal_notes": "The Sala Montjuïc open-air film festival runs in the moat in July-August (separate ticket, picnics encouraged). Ramparts are shadeless — bring water and a hat in summer.",
+      "booking_tips": "Buy at the gate or online; free Sunday slots need no booking but the lawns fill. Ride the Telefèric de Montjuïc up (separate fare, ~€11-16 return) and walk down through the gardens for the best of both.",
+      "ratings": {
+        "cost_estimate": 9,
+        "suggested_duration_hours": 1.5,
+        "cultural_significance": 4
+      },
+      "latitude": 41.3633,
+      "longitude": 2.1662,
+      "neighborhood": "Montjuïc",
+      "opening_hours": {
+        "weekday": "10:00-20:00 (Mar-Oct); 10:00-18:00 (Nov-Feb)",
+        "weekend": "Same as weekdays",
+        "notes": "Last entry 30 minutes before closing. Open daily."
+      },
+      "seasonal_hours": {
+        "summer": "10:00-20:00",
+        "winter": "10:00-18:00"
+      },
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L2 / L3 + Funicular + Telefèric de Montjuïc",
+            "station": "Paral·lel → Parc de Montjuïc → Castell",
+            "walk_minutes": 0
+          }
+        ],
+        "closest_rer": {
+          "line": "Rodalies R1/R3/R4",
+          "station": "Barcelona Sants",
+          "walk_minutes": 40
+        },
+        "last_train_consideration": "The Telefèric stops early evening (seasonal, ~19:00-21:00); Bus 150 from Espanya runs later and reaches the gate."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 3,
+        "ideal_time_block": "1.5 hours",
+        "weather_fallback": "Largely open-air — the small history exhibitions offer limited shelter"
+      },
+      "website": "https://ajuntament.barcelona.cat/castelldemontjuic/en",
+      "ticket_url": "https://ajuntament.barcelona.cat/castelldemontjuic/en/tickets"
+    },
+    {
+      "name": "Rambla del Poblenou",
+      "type": "Street / District",
+      "description": "The rambla locals actually use: the **Rambla del Poblenou** runs from the Diagonal down to the Bogatell and Mar Bella beaches through what was once 'the Catalan Manchester' — a textile-factory district now layered with the 22@ innovation quarter's converted brick mills, design studios and old workers' cooperatives. The promenade itself is gloriously unglamorous: century-old orxateria **El Tio Che** (an institution since 1912), tapas terraces full of families, bookshops, and not a human statue in sight. Detour a block either side for factory-chimney streetscapes, Palo Alto's garden campus, or the beach at the bottom.",
+      "indoor": false,
+      "best_time": "Evening paseo hour, or Sunday vermouth before a beach afternoon",
+      "price_range": "Free",
+      "seasonal_notes": "The Festa Major de Poblenou (September) fills the rambla with street dinners and correfocs. Summer links naturally with Bogatell beach; orxata season at El Tio Che runs spring-autumn. Some family-run shops close for part of August.",
+      "booking_tips": "No tickets — this is neighbourhood life, not a sight. Arrive by L4, walk the full kilometre to the sea, and eat where the menus are only in Catalan.",
+      "ratings": {
+        "cost_estimate": 0,
+        "suggested_duration_hours": 2,
+        "cultural_significance": 3
+      },
+      "latitude": 41.4013,
+      "longitude": 2.2035,
+      "neighborhood": "Poblenou / Sant Martí",
+      "opening_hours": {
+        "weekday": "Open 24 hours (street)",
+        "weekend": "Open 24 hours (street)",
+        "notes": "Shops and terraces roughly 09:00-midnight; quietest early afternoon."
+      },
+      "seasonal_hours": {},
+      "closures": [],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L4",
+            "station": "Poblenou",
+            "walk_minutes": 2
+          },
+          {
+            "line": "L4",
+            "station": "Llacuna",
+            "walk_minutes": 5
+          }
+        ],
+        "closest_rer": {
+          "line": "Tram T4",
+          "station": "Pere IV",
+          "walk_minutes": 3
+        },
+        "last_train_consideration": "L4 and the T4 tram cross the rambla; metro until midnight Sun-Thu, ~02:00 Fri, all night Sat."
+      },
+      "visit_profile": {
+        "min_duration_hours": 1,
+        "max_duration_hours": 4,
+        "ideal_time_block": "2 hours",
+        "weather_fallback": "Café terraces have awnings, but save it for a dry day and pair with the beach"
+      },
+      "website": "https://www.barcelona.cat",
+      "ticket_url": ""
+    },
+    {
+      "name": "Colònia Güell (Gaudí Crypt)",
+      "type": "Historic Site / Day Trip",
+      "description": "Gaudí's secret laboratory, twenty minutes outside the city: at the **Colònia Güell**, a model textile-workers' village in Santa Coloma de Cervelló, Eusebi Güell gave Gaudí total freedom to build a church — and in the crypt (the only part completed, 1908-14) he tested everything the Sagrada Família would become. Leaning basalt columns, catenary vaults worked out with his famous hanging-chain-and-birdshot models, brick ribs like a living forest: architects make pilgrimages here. UNESCO-listed, and the surrounding modernista village — workers' houses by Gaudí's collaborators, still inhabited — rewards a slow wander. An easy FGC ride makes it the best half-day trip in Gaudí's Barcelona.",
+      "indoor": true,
+      "best_time": "Weekday mornings; weekends the site closes mid-afternoon",
+      "price_range": "Moderate (~€10-14 including audio guide and village route)",
+      "seasonal_notes": "Sunday Mass is held in the crypt — visits pause around services. The village streets are open freely at all hours; the interpretation centre and crypt interior keep ticket hours. Quiet even in August.",
+      "booking_tips": "Buy the combined FGC 'train + entry' ticket or book online. Take FGC S3/S4/S8/S9 from Plaça d'Espanya to 'Colònia Güell' (~20 minutes), then follow the blue footprints five minutes to the interpretation centre. Note the short weekend hours — mornings only, effectively.",
+      "ratings": {
+        "cost_estimate": 12,
+        "suggested_duration_hours": 2.5,
+        "cultural_significance": 5
+      },
+      "latitude": 41.3633,
+      "longitude": 2.0281,
+      "neighborhood": "Santa Coloma de Cervelló (Baix Llobregat, outside Barcelona)",
+      "opening_hours": {
+        "weekday": "10:00-17:00 Mon-Fri (to 19:00 May-Oct)",
+        "weekend": "10:00-15:00 Sat-Sun & holidays",
+        "notes": "Crypt access pauses during Sunday Mass; last entry ~30-60 minutes before closing."
+      },
+      "seasonal_hours": {
+        "summer": "Weekdays 10:00-19:00",
+        "winter": "Weekdays 10:00-17:00"
+      },
+      "closures": [
+        {
+          "date": "2026-12-25",
+          "reason": "Christmas Day closure"
+        },
+        {
+          "date": "2026-12-26",
+          "reason": "Sant Esteve closure"
+        },
+        {
+          "date": "2027-01-01",
+          "reason": "New Year's Day closure"
+        },
+        {
+          "date": "2027-01-06",
+          "reason": "Epiphany closure"
+        }
+      ],
+      "transit": {
+        "closest_metro": [
+          {
+            "line": "L1 / L3 (connect to FGC)",
+            "station": "Espanya",
+            "walk_minutes": 0
+          }
+        ],
+        "closest_rer": {
+          "line": "FGC S3/S4/S8/S9",
+          "station": "Colònia Güell",
+          "walk_minutes": 5
+        },
+        "last_train_consideration": "FGC trains back to Plaça d'Espanya run every few minutes until late; the site itself closes by mid-afternoon at weekends."
+      },
+      "visit_profile": {
+        "min_duration_hours": 2,
+        "max_duration_hours": 4,
+        "ideal_time_block": "Half day (with travel)",
+        "weather_fallback": "Crypt and interpretation centre are indoor; the village walk is exposed"
+      },
+      "website": "https://gaudicoloniaguell.org",
+      "ticket_url": "https://gaudicoloniaguell.org/en/tickets"
     }
   ]
 }

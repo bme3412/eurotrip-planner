@@ -1,0 +1,418 @@
+{
+  "city": "Barcelona",
+  "country": "Spain",
+  "last_updated": "2026-07-04",
+  "categories": [
+    {
+      "id": "must-do",
+      "title": "Must Do",
+      "description": "The essential Barcelona—Gaudí's masterpieces, the medieval maze, and the market that feeds them all.",
+      "items": [
+        {
+          "id": "sagrada-familia",
+          "activity": "Sagrada Família",
+          "description": "Gaudí's still-rising basilica—light through forest columns, with the Torre de Jesucrist completing in 2026 to crown it Europe's tallest church.",
+          "optimal_time": "First morning slot or late afternoon for the Nativity façade light; book weeks ahead",
+          "cost": "~€26–€40 depending on ticket",
+          "duration": "1.5–2 hours",
+          "neighborhood": "Sagrada Família / Eixample",
+          "tags": [
+            "Iconic",
+            "Architecture",
+            "Gaudí"
+          ],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0,
+          "coordinates": [
+            41.4036,
+            2.1744
+          ]
+        },
+        {
+          "id": "gothic-quarter-wander",
+          "activity": "Get lost in the Gothic Quarter",
+          "description": "Roman walls, the cathedral cloister's geese, and lamplit medieval lanes opening onto hidden plaças.",
+          "optimal_time": "Early morning for empty lanes; evening for atmosphere",
+          "cost": "Free",
+          "duration": "1–2 hours",
+          "neighborhood": "Barri Gòtic",
+          "tags": [
+            "Walking",
+            "Historic",
+            "Free"
+          ],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0,
+          "coordinates": [
+            41.383,
+            2.177
+          ]
+        },
+        {
+          "id": "park-guell",
+          "activity": "Park Güell",
+          "description": "Gaudí's mosaic dragon, the serpentine trencadís bench, and city-to-sea views from the hilltop terraces.",
+          "optimal_time": "First entry slot of the day; timed tickets sell out—book ahead",
+          "cost": "~€18",
+          "duration": "1.5–2 hours",
+          "neighborhood": "La Salut / Gràcia",
+          "tags": [
+            "Iconic",
+            "Gaudí",
+            "Views"
+          ],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0,
+          "coordinates": [
+            41.4145,
+            2.1527
+          ]
+        },
+        {
+          "id": "boqueria-graze",
+          "activity": "Graze through La Boqueria",
+          "description": "The great iron-roofed market off La Rambla—jamón, just-squeezed juices, and counter stools at Pinotxo-style bars.",
+          "optimal_time": "Weekday mornings before 11am; closed Sundays",
+          "cost": "Free entry",
+          "duration": "1 hour",
+          "neighborhood": "El Raval / La Rambla",
+          "tags": [
+            "Market",
+            "Food",
+            "Local"
+          ],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0,
+          "coordinates": [
+            41.3817,
+            2.1716
+          ]
+        }
+      ]
+    },
+    {
+      "id": "best-in-summer",
+      "title": "Best in Summer",
+      "description": "Prime months: June–August. Beach mornings, open-air screens, and street festivals that run past midnight.",
+      "items": [
+        {
+          "id": "beach-and-chiringuito",
+          "activity": "Beach day from Barceloneta to Bogatell",
+          "description": "Swim, stroll the seafront promenade, and finish with a cold drink at a chiringuito on the sand—Bogatell is the calmer local pick.",
+          "optimal_time": "Mornings before the crowds; June–September for warm water",
+          "cost": "Free (sunbed and chiringuito extra)",
+          "duration": "Half day",
+          "neighborhood": "Barceloneta / Poblenou",
+          "tags": [
+            "Beach",
+            "Outdoor",
+            "Relaxing"
+          ],
+          "season": "summer",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "sala-montjuic-cinema",
+          "activity": "Open-air cinema at Montjuïc Castle",
+          "description": "Sala Montjuïc screens classics under the stars in the castle moat—bring a picnic and arrive for the live band beforehand.",
+          "optimal_time": "Late June–early August evenings; book online",
+          "cost": "~€8–€9",
+          "duration": "3–4 hours",
+          "neighborhood": "Montjuïc",
+          "tags": [
+            "Film",
+            "Outdoor",
+            "Evening"
+          ],
+          "season": "summer",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "festa-major-de-gracia",
+          "activity": "Festa Major de Gràcia",
+          "description": "For a week around 15 August, Gràcia's residents transform their streets into elaborate handmade worlds—concerts, correfocs, and all-night celebration.",
+          "optimal_time": "Mid-August; go early evening to see the decorated streets before the crush",
+          "cost": "Free",
+          "duration": "An evening (or several)",
+          "neighborhood": "Gràcia",
+          "tags": [
+            "Festival",
+            "Local",
+            "Free"
+          ],
+          "season": "summer",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "bunkers-golden-hour",
+          "activity": "Golden hour at the Bunkers del Carmel",
+          "description": "The old anti-aircraft battery on Turó de la Rovira has the best 360° panorama in the city—Sagrada Família to the sea.",
+          "optimal_time": "Late afternoon into golden hour; evening access is now restricted—check closing times before planning a sunset",
+          "cost": "Free",
+          "duration": "1–2 hours",
+          "neighborhood": "El Carmel",
+          "tags": [
+            "Views",
+            "Outdoor",
+            "Free"
+          ],
+          "season": "summer",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        }
+      ]
+    },
+    {
+      "id": "best-in-winter",
+      "title": "Best in Winter",
+      "description": "Mild, blue-skied months of festive firas, fountain shows, and long Catalan feasts.",
+      "items": [
+        {
+          "id": "magic-fountain-show",
+          "activity": "Magic Fountain of Montjuïc show",
+          "description": "The 1929 fountain's music-and-light spectacle is back (shows resumed in late 2025)—water columns dancing beneath the MNAC's dome.",
+          "optimal_time": "Thu–Sat evenings in winter (Wed–Sun in summer); check current schedule",
+          "cost": "Free",
+          "duration": "30–60 minutes",
+          "neighborhood": "Montjuïc / Plaça d'Espanya",
+          "tags": [
+            "Iconic",
+            "Evening",
+            "Free"
+          ],
+          "season": "winter",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "fira-de-santa-llucia",
+          "activity": "Fira de Santa Llúcia Christmas market",
+          "description": "Barcelona's 200-plus-year-old Christmas fair beside the cathedral—hunt for a caganer and a caga tió among the greenery stalls.",
+          "optimal_time": "Late November–23 December; weekday afternoons are calmest",
+          "cost": "Free entry",
+          "duration": "1 hour",
+          "neighborhood": "Barri Gòtic",
+          "tags": [
+            "Seasonal",
+            "Market",
+            "Free"
+          ],
+          "season": "winter",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "calcotada-feast",
+          "activity": "Calçotada feast",
+          "description": "The great Catalan winter ritual: charred calçots dipped in romesco, bibs on, followed by grilled meats and crema catalana.",
+          "optimal_time": "January–March; Sundays with a reservation",
+          "cost": "€30–€45",
+          "duration": "2–3 hours",
+          "neighborhood": "Various (or a masia day trip)",
+          "tags": [
+            "Food",
+            "Seasonal",
+            "Local"
+          ],
+          "season": "winter",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "granja-hot-chocolate",
+          "activity": "Thick hot chocolate at a granja",
+          "description": "Duck into a century-old granja on Carrer Petritxol for a suís—spoon-thick xocolata under whipped cream, with melindros for dunking.",
+          "optimal_time": "Chilly afternoons, November–February",
+          "cost": "€4–€7",
+          "duration": "30–60 minutes",
+          "neighborhood": "Barri Gòtic",
+          "tags": [
+            "Food & Drink",
+            "Cozy",
+            "Indoor"
+          ],
+          "season": "winter",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        }
+      ]
+    },
+    {
+      "id": "rainy-day-favorites",
+      "title": "Rainy Day Favorites",
+      "description": "Modernisme interiors, museum treasures, and covered marvels for the rare grey day.",
+      "items": [
+        {
+          "id": "picasso-museum",
+          "activity": "Museu Picasso",
+          "description": "Five medieval palaces holding the definitive collection of Picasso's formative years, including the complete Las Meninas series.",
+          "optimal_time": "Weekday mornings; free slots Thursday evenings and first Sundays book out fast",
+          "cost": "~€12–€15",
+          "duration": "1.5–2 hours",
+          "neighborhood": "El Born",
+          "tags": [
+            "Museum",
+            "Art",
+            "Indoor"
+          ],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "palau-de-la-musica",
+          "activity": "Palau de la Música Catalana",
+          "description": "Domènech i Montaner's concert hall is Modernisme at full volume—an inverted stained-glass skylight dripping light onto the stage.",
+          "optimal_time": "Guided tours through the day; better yet, book an evening concert",
+          "cost": "~€18–€22 tour; concerts vary",
+          "duration": "1–2 hours",
+          "neighborhood": "Sant Pere",
+          "tags": [
+            "Architecture",
+            "Music",
+            "Indoor"
+          ],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "casa-batllo-immersive",
+          "activity": "Casa Batlló",
+          "description": "Gaudí's dragon-backed house on Passeig de Gràcia, now with immersive AR layers—bone balconies outside, an underwater stairwell within.",
+          "optimal_time": "First slot of the day or evening 'Magic Nights'; book online",
+          "cost": "~€29–€45",
+          "duration": "1–1.5 hours",
+          "neighborhood": "Eixample",
+          "tags": [
+            "Gaudí",
+            "Architecture",
+            "Indoor"
+          ],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "barca-immersive-tour",
+          "activity": "Barça Immersive Tour & Museum",
+          "description": "With Camp Nou mid-renovation, the club's trophy-stacked museum and immersive experience carry the torch for football pilgrims.",
+          "optimal_time": "Non-match weekdays; book online and check what the renovation currently allows",
+          "cost": "~€28–€32",
+          "duration": "1.5–2 hours",
+          "neighborhood": "Les Corts",
+          "tags": [
+            "Sport",
+            "Museum",
+            "Indoor"
+          ],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        }
+      ]
+    },
+    {
+      "id": "local-experiences",
+      "title": "Local Experiences",
+      "description": "Everyday Barcelona: vermut hour, human towers, €1 pintxos, and Sunday mornings at the market.",
+      "items": [
+        {
+          "id": "vermut-hour",
+          "activity": "Vermut hour at an old bodega",
+          "description": "Join the pre-lunch ritual: house vermouth on tap, an orange slice, olives and conservas in a barrel-lined bodega in Gràcia or Sants.",
+          "optimal_time": "Weekends, noon–2pm",
+          "cost": "€3–€10",
+          "duration": "1 hour",
+          "neighborhood": "Gràcia / Sants",
+          "tags": [
+            "Food & Drink",
+            "Local",
+            "Tradition"
+          ],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "watch-castellers",
+          "activity": "Watch castellers build human towers",
+          "description": "Teams in sashes stack themselves nine storeys high while a gralla pipes—spine-tingling, and utterly Catalan.",
+          "optimal_time": "Festa majors and Sunday performances, roughly June–November; La Mercè in September is the showcase",
+          "cost": "Free",
+          "duration": "1–2 hours",
+          "neighborhood": "Plaça de Sant Jaume / various",
+          "tags": [
+            "Tradition",
+            "Festival",
+            "Free"
+          ],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "carrer-blai-pintxos",
+          "activity": "Pintxo crawl along Carrer de Blai",
+          "description": "Poble-sec's pedestrian strip of bars piled with €1–€2 pintxos—grab a plate, keep the toothpicks, and settle up at the end.",
+          "optimal_time": "Evenings from 7pm; liveliest Thursday–Saturday",
+          "cost": "€10–€15 for a filling crawl",
+          "duration": "1.5–2 hours",
+          "neighborhood": "Poble-sec",
+          "tags": [
+            "Food",
+            "Local",
+            "Evening"
+          ],
+          "season": "year-round",
+          "isFree": false,
+          "rating": null,
+          "rating_count": 0
+        },
+        {
+          "id": "sant-antoni-sunday",
+          "activity": "Sunday book market at Mercat de Sant Antoni",
+          "description": "The restored iron market hall's Sunday ritual: stalls of secondhand books, comics and vinyl outside, brunch and vermut in the bars around it.",
+          "optimal_time": "Sunday mornings, 8:30am–2pm",
+          "cost": "Free entry",
+          "duration": "1–2 hours",
+          "neighborhood": "Sant Antoni",
+          "tags": [
+            "Market",
+            "Local",
+            "Free"
+          ],
+          "season": "year-round",
+          "isFree": true,
+          "rating": null,
+          "rating_count": 0
+        }
+      ]
+    }
+  ]
+}
