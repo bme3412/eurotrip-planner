@@ -29,27 +29,31 @@ export default function GooglePlacePhoto({
   priority = false,
   onReady,
 }) {
-  // Build URL based on whether we have photoName or placeId
-  const srcUrl = useMemo(() => {
+  // Baked photoName tokens can go stale (Google rotates them); when one fails
+  // and we also have a placeId, retry via the placeId lookup before giving up.
+  const [photoNameFailed, setPhotoNameFailed] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  // Derive the URL synchronously — routing it through state would leave a
+  // render where the old errored <img> is re-committed and re-fires onError,
+  // killing the retry before its request starts.
+  const src = useMemo(() => {
     const params = new URLSearchParams();
     params.set('w', String(maxWidth));
     if (maxHeight) params.set('h', String(maxHeight));
 
-    if (photoName) {
+    if (photoName && !photoNameFailed) {
       params.set('name', photoName);
     } else if (placeId) {
       params.set('placeId', placeId);
     }
     return `/api/google-photos?${params.toString()}`;
-  }, [photoName, placeId, maxWidth, maxHeight]);
-
-  const [src, setSrc] = useState(srcUrl);
-  const [failed, setFailed] = useState(false);
+  }, [photoName, photoNameFailed, placeId, maxWidth, maxHeight]);
 
   useEffect(() => {
-    setSrc(srcUrl);
+    setPhotoNameFailed(false);
     setFailed(false);
-  }, [srcUrl]);
+  }, [photoName, placeId]);
 
   if (failed) {
     return fallback || (
@@ -65,12 +69,19 @@ export default function GooglePlacePhoto({
 
   return (
     <Image
+      key={src} // remount on src change — updating an errored img in place re-fires onError before the new fetch starts
       src={src}
       alt={alt}
       {...imgProps}
       className={className}
       onLoad={() => { if (onReady) onReady(); }}
-      onError={() => setFailed(true)}
+      onError={() => {
+        if (photoName && !photoNameFailed && placeId) {
+          setPhotoNameFailed(true); // retry via placeId
+        } else {
+          setFailed(true);
+        }
+      }}
       unoptimized // Required: API returns redirect to external URL
       priority={priority}
       loading={priority ? undefined : 'lazy'}
