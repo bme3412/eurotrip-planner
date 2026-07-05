@@ -47,7 +47,7 @@ const DEFAULT_CENTER = [9.19, 48.66];
 
 // Cities that ship a committed, precomputed `forty-eight-hours.json` and so
 // surface the "48 Hours" weekend-itinerary tab. Lowercase city slugs.
-const CITIES_WITH_48H = new Set(['paris', 'berlin', 'krakow', 'london']);
+const CITIES_WITH_48H = new Set(['paris', 'berlin', 'krakow', 'london', 'barcelona']);
 
 // ── Per-section lazy loading ─────────────────────────────────────────────
 // Each tab declares the heavy data sections it needs. Sections are fetched
@@ -455,6 +455,10 @@ function CityPageClient({ cityData: initialCityData, cityName }) {
     london: {
       description: 'Royal pageantry and East End grit, free world-class museums, riverside pints, and a skyline of spires and glass.',
       subtitle: 'The Old Smoke',
+    },
+    barcelona: {
+      description: 'Gaudí’s dreamscapes, Gothic lanes, vermut hour, beach mornings, and a city that eats dinner at ten.',
+      subtitle: 'La Ciutat Comtal — The City of Counts',
     },
   };
   const heroOverride = HERO_OVERRIDES[slugLower];
