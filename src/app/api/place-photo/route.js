@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
-import { textSearch, placePhoto, getGooglePlacesApiKeyStatus } from '@/lib/google-places/client';
+import { textSearch, getGooglePlacesApiKeyStatus } from '@/lib/google-places/client';
+import { getPlacePhotoUrl } from '@/lib/google-places/index.js';
+import { getCachedPhotoName, setCachedPhotoName } from '@/lib/google-places/cache.js';
 
 /**
  * GET /api/place-photo?q=<name>&lat=&lng=&w=&h=
@@ -7,21 +9,13 @@ import { textSearch, placePhoto, getGooglePlacesApiKeyStatus } from '@/lib/googl
  * Resolves a real Google Place photo for a free-text place (e.g. an itinerary
  * activity) without a precomputed placeId: one Text Search (biased by lat/lng
  * when given, requesting the photos field mask) → first photo → 302 redirect to
- * the media URL. Results are cached in-process and at the CDN so repeat lookups
- * for the same activity are cheap. Returns 404 (not an error page) when no photo
- * exists so the client can fall back to its gradient.
+ * the media URL. The photo-name resolution and the resolved URL are cached in
+ * the shared Places cache (Upstash-backed when configured, so repeat lookups
+ * survive cold starts and span instances) and at the CDN. Returns 404 (not an
+ * error page) when no photo exists so the client can fall back to its gradient.
  */
 
-// name|lat|lng -> photo resource name (or '' for a known miss). Process-local.
-const photoNameCache = new Map();
-const MAX_CACHE = 500;
-
-function cacheSet(key, val) {
-  if (photoNameCache.size >= MAX_CACHE) {
-    photoNameCache.delete(photoNameCache.keys().next().value);
-  }
-  photoNameCache.set(key, val);
-}
+export const runtime = 'nodejs';
 
 function clampDim(v, def) {
   const n = parseInt(v, 10);
@@ -45,7 +39,7 @@ export async function GET(request) {
   const key = `${q}|${Number.isFinite(lat) ? lat.toFixed(3) : ''}|${Number.isFinite(lng) ? lng.toFixed(3) : ''}`;
 
   try {
-    let photoName = photoNameCache.get(key);
+    let photoName = await getCachedPhotoName(key);
 
     if (photoName === undefined) {
       const options = {
@@ -57,7 +51,7 @@ export async function GET(request) {
       }
       const data = await textSearch(q, options);
       photoName = data?.places?.[0]?.photos?.[0]?.name || '';
-      cacheSet(key, photoName); // cache misses too, to avoid re-searching
+      await setCachedPhotoName(key, photoName); // cache misses too, to avoid re-searching
     }
 
     if (!photoName) {
@@ -67,7 +61,7 @@ export async function GET(request) {
       });
     }
 
-    const url = await placePhoto(photoName, w, h);
+    const url = await getPlacePhotoUrl(photoName, w, h);
     return NextResponse.redirect(url, {
       status: 302,
       headers: {
